@@ -8,5 +8,6 @@
    3. [Quickstart for `riscv64-spike`](quickstart-riscv64-spike.md)
 4. [Architecture](architecture.md)
 5. [Kernel](kernel/)
-   1. [Memory management](mm/)
-      1. [Page allocator](mm/page.md)
+   1. [Memory management](kernel/mm/)
+      1. [Page allocator](kernel/mm/page.md)
+      2. [Memory mapper](kernel/mm/mapper.md)
