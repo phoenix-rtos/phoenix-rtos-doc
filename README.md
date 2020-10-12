@@ -22,6 +22,7 @@
 13. Loader
 14. POSIX server
 15. Ports
-16. Coding convention
+16. Tests and testing process
+17. Coding convention
 
 
