@@ -11,3 +11,17 @@
    1. [Memory management](kernel/mm/)
       1. [Page allocator](kernel/mm/page.md)
       2. [Memory mapper](kernel/mm/mapper.md)
+6. Standard library
+7. Device drivers
+8. Filesystem servers
+9. Network stack
+10. USB stack
+11. Utilities
+    1. Core utilities
+12. Host utilities
+13. Loader
+14. POSIX server
+15. Ports
+16. Coding convention
+
+
