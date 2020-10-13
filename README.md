@@ -32,7 +32,9 @@
       3. [Message passing](kernel/proc/msg.md)
       4. [Namespace](kernel/proc/namespace.md)
    4. [Common routines](kernel/lib.md)
+   5. [System calls](kernel/syscalls.md)
 6. Standard library
+   1. [IEEE Std 1003.1-2017](libc/ieee_std_1003.1-2017.md)
 7. [Device drivers](devices/README.md)
    1. [Device server interface](devices/interfaces.md)
 8. Filesystem servers

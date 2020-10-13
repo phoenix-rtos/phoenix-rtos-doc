@@ -1,5 +1,5 @@
-_exit (1)
-_Exit (1)
+1. [`_exit`](libc/_exit.md)
+2. _Exit (1)
 _longjmp (1)
 _setjmp (1)
 _tolower (1)
