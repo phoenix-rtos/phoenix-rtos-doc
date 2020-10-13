@@ -28,8 +28,13 @@
       5. [Memory objects](kernel/vm/objects.md)
    3. [Processes and threads](kernel/proc/README.md)
       1. [Processes creation](kernel/proc/forking.md)
+      2. [Synchronization primitives](kernel/proc/sync.md)
+      3. [Message passing](kernel/proc/msg.md)
+      4. [Namespace](kernel/proc/namespace.md)
+   4. [Common routines](kernel/lib.md)
 6. Standard library
-7. Device drivers
+7. [Device drivers](devices/README.md)
+   1. [Device server interface](devices/interfaces.md)
 8. Filesystem servers
 9. Network stack
 10. USB stack
