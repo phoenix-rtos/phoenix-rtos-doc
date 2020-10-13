@@ -37,6 +37,7 @@
    1. [IEEE Std 1003.1-2017](libc/ieee_std_1003.1-2017.md)
 7. [Device drivers](devices/README.md)
    1. [Device server interface](devices/interfaces.md)
+   2. [Accessing hardware](devices/hwaccess.md)
 8. Filesystem servers
 9. Network stack
 10. USB stack
