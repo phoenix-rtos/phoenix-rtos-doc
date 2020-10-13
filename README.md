@@ -20,13 +20,14 @@
       2. [HAL layer for ARMv7 Cortex-A based based targets](kernel/hal/armv7a.md)
       3. [HAL layer for IA32 based targets](kernel/hal/ia32.md)
       4. [HAL layer for RISC-V 64 based targets](kernel/hal/riscv64.md)
-   1. [Memory management](kernel/mm/README.md)
-      1. [Page allocator](kernel/mm/page.md)
-      2. [Memory mapper](kernel/mm/mapper.md)
-      3. [Zone allocator](kernel/mm/zalloc.md)
-      4. [Fine-grained kernel allocator](kernel/mm/kmalloc.md)
-      5. [Memory objects](kernel/mm/objects.md)
+   1. [Memory management](kernel/vm/README.md)
+      1. [Page allocator](kernel/vm/page.md)
+      2. [Memory mapper](kernel/vm/mapper.md)
+      3. [Zone allocator](kernel/vm/zalloc.md)
+      4. [Fine-grained kernel allocator](kernel/vm/kmalloc.md)
+      5. [Memory objects](kernel/vm/objects.md)
    3. [Processes and threads](kernel/proc/README.md)
+      1. [Processes creation](kernel/proc/forking.md)
 6. Standard library
 7. Device drivers
 8. Filesystem servers
