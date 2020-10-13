@@ -2,7 +2,7 @@
 
 Phoenix-RTOS operating system starting from version 3 is based on microkernel architecture. It means that system consist of small, effectively implemented microkernel and set of servers communicating over it.
 
-<img src="http://r.dcs.redcdn.pl/http/o2/phoesys/documentation/arch1.png" >
+<img src="_images/arch1.png" >
 
 ## Microkernel
 Microkernel implements minimum set of primitives necessary to implement other operating system components. Phoenix-RTOS microkernel implements four fundamental subsystems - memory management, process and thread management, interprocess communication and low-level I/O for redirecting the interrupts to user-level threads. Microkernel functionalities are accessible for applications through set of system calls. System call (syscall) is the operating system function implemented by the special processor instruction switching the execution privilege mode from user to system. After switching the execution mode from user to system privilege level program is able to execute privileged instructions and access the system memory segments and I/O space.

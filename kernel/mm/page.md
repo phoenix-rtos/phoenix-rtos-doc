@@ -19,7 +19,7 @@ The `addr` attribute stores the physical page address, the `flags` describe page
 
 When the memory management subsystem is initialized, the `_page_init()` function creates an array of `page_t` structures (`pages[]`) using the `pmap_getPage()` call from the HAL subsystem. This call is used to discover the page frames by upper (hardware-independent) layers of the memory management subsystem. The page array is located at the beginning of the kernel heap, right after the kernel BSS segment.
 
-<img src="http://r.dcs.redcdn.pl/http/o2/phoesys/documentation/mem-pagealloc1.png">
+<img src="_images/mem-pagealloc1.png">
 
 The memory for the structure is allocated using a heap extension. This extension is performed by using the `_page_sbrk()` function, which allocates a new page from the pool using the `_page_alloc() `function and maps it into the kernel address space directly with `pmap_enter()` at the top of the heap. Pages are allocated using a regular allocation algorithm but data structures used for allocation are not fully initialized. The array creation algorithm is presented below.
 
@@ -28,18 +28,18 @@ The memory for the structure is allocated using a heap extension. This extension
 >
       if ((void *)page + sizeof(page_t) >= (*top))
         _page_sbrk(pmap, bss, top);
->
+
       if ((err = pmap_getPage(page, &addr)) == -ENOMEM)
         break;
->
+
       if (err == EOK) {
->
+
         if (page->flags & PAGE_FREE) {
           page->idx = hal_cpuGetFirstBit(SIZE_PAGE);
           _page_add(&pages.sizes[page->idx], page);
           pages.freesz += SIZE_PAGE;
         }
->
+
         else {
           pages.allocsz += SIZE_PAGE;
           if (((page->flags >> 1) & 7) == PAGE_OWNER_BOOT)
@@ -47,7 +47,7 @@ The memory for the structure is allocated using a heap extension. This extension
         }
         page = page + 1;
       }
->
+
       /* Wrap over 0 */
       if (addr < SIZE_PAGE)
         break;
@@ -68,7 +68,7 @@ In this map, the first physical page is allocated to the kernel heap. The second
 
 The page allocator in the Phoenix-RTOS kernel is based on a well-known buddy algorithm. The figure below shows a graphical illustration of data structures used in this algorithm.
 
-<img src="http://r.dcs.redcdn.pl/http/o2/phoesys/documentation/mem-pagealloc2.png">
+<img src="_images/mem-pagealloc2.png">
 
 Each square corresponds to a physical page, with the assumed page size of 4096 bytes. The main structure used in the allocation is the `sizes[]` array. The `size[]` array is created on the basis of the `page[]` array during the memory management initialization.
 
@@ -80,7 +80,7 @@ The initialization algorithm divides all accessible physical space into regions 
 
 Let us have a look at an allocation process where only one region of 128 KB in size is available and 4096 bytes should be allocated. The allocation starts with the lookup of the first region. The starting entry of `size[]` array is calculated on the basis of the requested size (4096 bytes). In this case, the starting entry will be 12, and no list is available in this entry. The lookup is performed for the next entry and finally the 128 KB region list is found (entry 17). When the first not-empty entry is found, the algorithm proceeds to the next step, which is illustrated below.
 
-<img src="http://r.dcs.redcdn.pl/http/o2/phoesys/documentation/mem-pagealloc3.png" style="width: 550px">
+<img src="_images/mem-pagealloc3.png" style="width: 550px">
 
 The first page set is removed from the list and divided into two 64 KB regions. The upper 64 KB region is added to the `size[16]` entry and then split. The first 64 KB region is split into two 32 KB regions. The upper 32 KB region is returned to the `size[15]` entry. Next, the first half of the region is divided into two 16 KB regions, and finally only one page is available. This page is returned as an allocation result. The complexity of this allocation is O(log<sub>2</sub>N). The maximum number of steps which should be performed is the size of `size[]` array minus the log<sub>2</sub>(page size). The maximum cost of page allocation on a 32-bit address space is 20 steps.
 
@@ -92,7 +92,7 @@ Page deallocation is defined as the process opposite to the page allocation proc
 
 Let us assume that the page allocated in the previous section must be released. The first step is to analyze the neighborhood of the page based on the `pages[]` array. The array is sorted and it is assumed that the next page for the released `page_t` is the `page_t` structure, describing the physical page located right after the released page or the page located on higher physical addresses. If the next `page_t` structure describes the neighboring page, and if it is marked as free, the merging process is performed. The next page is removed from the `sizes[]` array and merged with the page which should be released. If the region created in this way is located right before the free region of the same size, the merging process is repeated. The next steps are repeated forming larger regions until there are no free neighboring regions.
 
-<img src="http://r.dcs.redcdn.pl/http/o2/phoesys/documentation/mem-pagealloc4.png" style="width: 600px">
+<img src="_images/mem-pagealloc4.png" style="width: 600px">
 
 ## Page allocation for non-MMU architectures
 
