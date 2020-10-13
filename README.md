@@ -23,6 +23,7 @@
       3. [Zone allocator](kernel/mm/zalloc.md)
       4. [Fine-grained kernel allocator](kernel/mm/kmalloc.md)
       5. [Memory objects](kernel/mm/objects.md)
+   3. [Processes and threads](kernel/proc/README.md)
 6. Standard library
 7. Device drivers
 8. Filesystem servers

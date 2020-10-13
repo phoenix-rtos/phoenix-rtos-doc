@@ -2,12 +2,15 @@
 
 Process and thread abstractions are used to control program executions in Phoenix-RTOS.
 
+## Process definition
 Process is the abstraction used for resource aggregation and to define the linear address space for the program execution. Process linear address space is defined using address spaces. Each process contains set of address spaces (each of them is described by its own memory map) accessible via its linear address space. On MMU architectures these address spaces are accessible using paging technique and segment definitions. On non-MMU architectures address spaces are accessible in the process linear address space using a segment definitions only (e.g. using MPU on ARM).
 
+## Thread
 Thread represents the program instruction stream and it is executed by processor concurrently with other threads. It means that execution of each thread is interrupted (periodically by system timer or aperiodically by external interrupts), the processor state resulting from the thread execution is preserved and other thread is selected for the execution. If a computer system is equipped with many processor cores many threads are in the fact executed concurrently.  If only single processor core is available only one thread is executed in the particular time slot. The execution of threads is controller by operating system scheduler, a special subprogram invoked after each thread interruption deciding what thread requiring processor should be executed on current processor in the following time slot. Generally speaking thread represents the instruction stream executed concurrently with other streams within a program.
 
 Thread can be associated with the kernel or with a process. When thread is associated with the kernel it can use only kernel address spaces. When it is  associated with a process it can use all address spaces associated wit the process and kernel. When the access to the address space requires switching the processor to the privileged execution mode (e.g. access to kernel address spaces) the thread can do this using specific kernel function. Should be noticed that such transition between mode is carefully controlled by the operating system. The processor can enter into the particular mode using only well-defined entry points (e.g. after receiving hardware interrupt or executing trap) handled by the operating system. The discussion of processor execution mode is presented below.
 
+## Operating system resources
 During execution thread can use operating system resources provided in the kernel or process context. The typical resources assigned to process are mutexes, conditional variables, files, network sockets, ports etc. These resources (kernel objects) are shared among executed processes and can be accessed by the particular process after opening. Operating system resources are accessible in the process context via handles. The simplest example of process resource is a file. After successful file opening the file handle is created (file descriptor in UN\*X terminology). Handle can be used to perform input and output operations on the opened file and can be inherited by child processes created by the process. The handle inheritance is widely used in current applications because it is promoted by POSIX standard and popular UN*X operating systems.
 
 To understand properly Phoenix-RTOS process model it should be discussed either for MMU and non-MMU architectures.
@@ -16,7 +19,7 @@ To understand properly Phoenix-RTOS process model it should be discussed either 
 ## Process model on architectures equipped with MMU
 Process model for MMU architectures has been presented on the following picture.
 
-<img src="_images/proc-model.jpg" style=" width: 700px;" halign="center">
+<img src="_images/proc-model.jpg" width="600" halign="center">
 
 The linear address space is defined individually per process using MMU (Memory Management Unit) and virtual addressing. It means that the linear address space is virtual and each linear address is translated into the physical address. The translation of virtual address takes place with a granulation of memory page size and is performed using MMU (Memory Management Unit) - a hardware unit located between CPU address bus and system address bus.
 
@@ -32,7 +35,7 @@ Virtual addressing and private address spaces have also big impact on memory sha
 ## Process model on architectures not equipped with MMU
 The process model on non-MMU architecture has been presented below.
 
-<img src="_images/proc-model2.png" style=" width: 700px">
+<img src="_images/proc-model2.png" width="600">
 
 The main difference between process model on MMU and non-MMU architectures is the lack of virtual addressing. Each process uses the same linear address space. Some of linear addresses can be excluded from the process linear address space using segment definition unit (e.g. MPU on ARM) or can be excluded conditionally depending and the processor execution mode.
 
