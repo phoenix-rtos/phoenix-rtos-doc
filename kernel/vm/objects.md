@@ -13,7 +13,7 @@ Process’s address space is constituted by set of mapped objects. In traditiona
 
 The process address space in the traditional operating system (e.g. BSD) is graphically presented on following picture. Black circles represent pages allocated for the object purposes, holding the object data.
 
-<img src="http://r.dcs.redcdn.pl/http/o2/phoesys/documentation/mem-objects1.png" style=" width: 500px">
+<img src="_images/mem-objects1.png" width="500px">
 
 The first memory segment is constituted by the data from `/bin/process` file. It is mapped as the text, so it means that it is marked as readable and executable. 
 
@@ -21,7 +21,7 @@ The segment located right after the `text` segment is linked with data from the 
 
 The process address space in Phoenix-RTOS is presented on the following figure.
 
-<img src="http://r.dcs.redcdn.pl/http/o2/phoesys/documentation/mem-objects2.png" style=" width: 550px">
+<img src="_images/mem-objects2.png" width="550px">
 
 In Phoenix-RTOS objects are supported by operating system servers and are referenced by `oid` identifiers. Each `oid` consists of server communication port number and in-server object identifier. If object is accessed within the process the memory management subsystem allocates the new page and asks the server identified by `oid` for the data. The data are retrieved from server by sending the proper messages and are stored in the allocated page and mapped into the process at requested virtual address. 
 
@@ -32,7 +32,7 @@ The main difference between the monolithic kernel approach and Phoenix-RTOS is t
 
 To understand the memory objects idea let’s analyze the traditional approach implemented in Mach/BSD operating systems. The structure of Mach/BSD memory subsystem in the process context is presented on the following figure.
 
-<img src="http://r.dcs.redcdn.pl/http/o2/phoesys/documentation/mem-objects-bsd1.png" style=" width: 550px">
+<img src="_images/mem-objects-bsd1.png" width="550px">
 
 The process virtual address space is described by `vmspace` structure holding the list of memory maps (user and kernel map) . Each map stores entries defining the segment addresses, attributes and linked with particular memory objects.
 
@@ -42,13 +42,13 @@ Each object stores physical pages allocated to preserve object data in physical 
 
 Each memory object on the system has a pager that points to a list of functions used by the object to fetch and store pages between physical memory and backing store. Pages are read in from backing store when a process requires them (immediately or in case of page fault when lazy on-demand strategy is in use). Pages are written out to backing store at the request of a program (e.g., via the `msync` system call), when physical memory is scarce when process is swapped out , or when the object that owns the pages is freed.
 
-###Shadow objects used for copy-on-write (BSD VM)
+### Shadow objects used for copy-on-write (BSD VM)
 
 The BSD VM system manages copy-on-write mappings of memory objects by using shadow objects. A shadow object is an anonymous memory object that contains the modified pages of a copy-on-write mapped memory object. The map entry mapping a copy-on-write area of memory points to the shadow object allocated for it. Shadow objects point to the object they are shadowing. When searching for pages in a copy-on-write mapping, the shadow object pointed to by the map entry is searched first. If the desired page is not present in the shadow object, then the underlying object is searched. The underlying object may either be a file object or another shadow object. The search continues until the desired page is found, or there are no more underlying objects. The list of objects that connect a copy-on-write map entry to the bottom-most object is called a shadow object chain.
 
 The following figure shows how shadow object chains are formed in BSD VM.
 
-<img src="http://r.dcs.redcdn.pl/http/o2/phoesys/documentation/mem-objects-bsd4.png" style=" width: 550px">
+<img src="_images/mem-objects-bsd4.png" width="550px">
 
 
 A three-page file object is copy-on-write memory mapped into a process’ address space. The first column shows the first step of memory mappings. The new entry with the needs-copy and copy-on-write flags is allocated. It points the underlying object. Once a write fault occurs, a new memory object is created and that object tracks all the pages that have been copied and modified.
@@ -68,7 +68,7 @@ In BSD VM, a copy-on-write map entry points to a chain of shadow objects. There 
 
 To solve problems with shadow objects chaining the anonymous mapping was introduced (SunOS VM system). It based on two abstractions - anon and amap.
 
-<img src="http://r.dcs.redcdn.pl/http/o2/phoesys/documentation/mem-objects-uvm.png" style=" width: 600px">
+<img src="_images/mem-objects-uvm.png" width="600px">
 
 Anon is the structure representing page of anonymous memory. It is created when copy-on-write flags of map entry are set and process writes data to memory. Amap the structure created for particular map entry when needs-copy for the entry is set. Amap stores anons created for the map entry.
 
@@ -81,7 +81,7 @@ The memory sharing technique based on shadowing of particular pages instead of w
 
 Phoenix-RTOS derives the memory object architecture from BSD UVM. The structure of its memory management subsystem in the process context is presented on the following figure. 
 
-<img src="http://r.dcs.redcdn.pl/http/o2/phoesys/documentation/mem-objects-phoenix.png" style=" width: 500px">
+<img src="_images/mem-objects-phoenix.png" width="400px">
 
 There are three main differences between UVM and Phoenix-RTOS memory objects. Objects are identified by oid_t and handled by external servers and data is fetched and stored using message passing. Processes are not swappable, so there is no swap server for anonymous objects. Memory objects are supported as well on non-MMU architectures, but functionality is simplified.
 

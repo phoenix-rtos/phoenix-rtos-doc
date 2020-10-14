@@ -6,7 +6,7 @@ The page allocator constitutes the basic layer of the memory management subsyste
 
 The available physical memory is treated as a set of physical pages (page frames). Each physical page available is described using the `page_t` structure. The structure is defined in the HAL, but upper layers assume that some attributes are defined. The minimum set of attributes is as follows.
 
->
+````C
     typedef struct _page_t {
         addr_t addr;
         u8 idx;
@@ -14,6 +14,7 @@ The available physical memory is treated as a set of physical pages (page frames
         struct _page_t *next;
         struct _page_t *prev;
     } page_t;
+````
 
 The `addr` attribute stores the physical page address, the `flags` describe page attributes (see further sections). The `next` and `prev` pointers and `idx` are used in the page allocation algorithm to construct lists of free pages.
 
@@ -80,11 +81,11 @@ The initialization algorithm divides all accessible physical space into regions 
 
 Let us have a look at an allocation process where only one region of 128 KB in size is available and 4096 bytes should be allocated. The allocation starts with the lookup of the first region. The starting entry of `size[]` array is calculated on the basis of the requested size (4096 bytes). In this case, the starting entry will be 12, and no list is available in this entry. The lookup is performed for the next entry and finally the 128 KB region list is found (entry 17). When the first not-empty entry is found, the algorithm proceeds to the next step, which is illustrated below.
 
-<img src="_images/mem-pagealloc3.png" style="width: 550px">
+<img src="_images/mem-pagealloc3.png" width="550px">
 
 The first page set is removed from the list and divided into two 64 KB regions. The upper 64 KB region is added to the `size[16]` entry and then split. The first 64 KB region is split into two 32 KB regions. The upper 32 KB region is returned to the `size[15]` entry. Next, the first half of the region is divided into two 16 KB regions, and finally only one page is available. This page is returned as an allocation result. The complexity of this allocation is O(log<sub>2</sub>N). The maximum number of steps which should be performed is the size of `size[]` array minus the log<sub>2</sub>(page size). The maximum cost of page allocation on a 32-bit address space is 20 steps.
 
-##Page deallocation
+## Page deallocation
 
 Page deallocation is defined as the process opposite to the page allocation process.
 
@@ -92,7 +93,7 @@ Page deallocation is defined as the process opposite to the page allocation proc
 
 Let us assume that the page allocated in the previous section must be released. The first step is to analyze the neighborhood of the page based on the `pages[]` array. The array is sorted and it is assumed that the next page for the released `page_t` is the `page_t` structure, describing the physical page located right after the released page or the page located on higher physical addresses. If the next `page_t` structure describes the neighboring page, and if it is marked as free, the merging process is performed. The next page is removed from the `sizes[]` array and merged with the page which should be released. If the region created in this way is located right before the free region of the same size, the merging process is repeated. The next steps are repeated forming larger regions until there are no free neighboring regions.
 
-<img src="_images/mem-pagealloc4.png" style="width: 600px">
+<img src="_images/mem-pagealloc4.png" width="600px">
 
 ## Page allocation for non-MMU architectures
 

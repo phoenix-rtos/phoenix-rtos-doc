@@ -2,16 +2,11 @@
 
 Device driver server in the Phoenix-RTOS ecosystem communicate with other processes using message interface. In the typical case driver server have one port on which all request are placed by clients. This port can be either registered within native namespace or special file(s) can be created within the filesystem.
 
-##Port creation
+## Port creation
 
-Port, endpoint of the message communication, can be created using
+Port, endpoint of the message communication, can be created using `portCreate()` function. If zero is returned, then creation succeeded and variable port now contains unique port number assigned by the kernel.
 
->
-int portCreate(u32 *port);
-
-syscall. If zero is returned, then creation succeeded and variable port now contains unique port number assigned by the kernel.
-
-##Registering within namespace
+## Registering within namespace
 
 Freshly created port can not be seen by other processes. To allow clients to find out servers port number, it has to be registered within some namespace. If device driver server wants to register more than one "file" it do not have create separate ports for them. Driver needs to assign each "file" id from it's private pool.
 
@@ -32,18 +27,19 @@ Syscall returns 0 on success.
 
 On systems that contain filesystem special file can be created, which will point to the server's oid. In the first place we need oid of directory which will hold our special file:
 
->
+````C
     #include <sys/msg.h>
->
+
     oid_t dir;
->
+
     lookup("/dev", &dir, NULL);
+````
 
 Then we can create new special file and register:
 
->
+````C
     msg_t msg;
->
+
     msg.type = mtCreate;
     msg.i.create.dir = dir;
     msg.i.create.type = otDev;
@@ -54,10 +50,11 @@ Then we can create new special file and register:
     msg.i.size = strlen(msg.i.data);
     msg.o.data = NULL;
     msg.o.size = 0;
->
+
     msgSend(dir.port, &msg);
-<p>
-##Message types
+````
+
+## Message types
 
 There are several standart types of messages, although device driver servers need to implement only subset of them. With every message type there are 3 common fields:
 
@@ -65,7 +62,7 @@ There are several standart types of messages, although device driver servers nee
 - <b>pid</b> - process id of sender,
 - <b>priority</b> - priority of sender's thread.
 </p><p>
-###mtOpen
+### mtOpen
 
 This message type informs server, there is process trying to open one of it's special files.
 

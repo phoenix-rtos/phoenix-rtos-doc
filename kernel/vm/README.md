@@ -5,20 +5,20 @@ Memory management is the most important part of any operating system kernel, as 
 ## Memory management on architectures equipped with MMU
 MMU architectures are typical for processors used in servers, personal computers and mobile devices such as tablets and smartphones. In this architecture, the program accesses a virtual memory address space which is mapped into the physical memory by MMU hardware using a data structure called a page table located in the physical memory. The role of the MMU in memory address translation is illustrated in the figure below.
 
-<img src="_images/mem-mmu.png" style="width: 450px">
+<img src="_images/mem-mmu.png" width="450px">
 
 The piece of the virtual address space mapped into the physical memory is called a memory page. Typically, the page size used in modern systems is 4KB, but in the past, e.g. the PDP-10, VAX-11 architectures, it was much smaller (512 or 1KB).
 
 ### Initial concept of paging technique
 The concept of paging was first introduced in the late 1960s in order to organize the program memory overlaying for hierarchical memory systems consisting of transistor-based memory, core memory, magnetic disks and tapes. Historically, the virtual address space size was comparable to the physical memory size. The page table was used to point to the data location in the hierarchical memory system and to associate the physical memory location, called a page frame, with the virtual page. When the program accessed the virtual page, processor checked whether the page was present in the physical memory via the presence bit in the page table. If the page was not present in the physical memory, the program execution was interrupted and the page was loaded by the operating system into the physical memory via additional bits defining the data location in the page table. Once the presence bit was successfully loaded and set, the program execution was resumed. The original paging technique is presented below.
 
-<img src="_images/mem-paging1.png" style="width: 650px">
+<img src="_images/mem-paging1.png" width="650px">
 
 ### Current use of paging technique
 
 Over the years, paging has morphed into a technique used for defining the process memory space and for process separation. In general-purpose operating systems, paging is fundamental for memory management. Each process runs in its own virtual memory space and uses all address ranges for their needs. The address space is defined by a set of virtual-to-physical address associations for the MMU defined in the physical memory and stored in a structure which is much more complicated than a page table used in early computers. This is necessary in order to optimize memory consumption and speed up the virtual-to-physical memory translations. When a process is executed on a selected processor, the address space is switched to its virtual space, which prevents it from interfering with other processes. The address space is switched by providing the MMU with new sets of virtual-to-physical associations. In this scheme, some physical pages (for example parts of the program text) can be shared among processes by mapping them simultaneously into two or more processes to minimize the overall memory usage.
 
-<img src="_images/mem-paging2.png" style="width: 600px">
+<img src="_images/mem-paging2.png" width="600px">
 
 A memory management system which relies on paging describes the whole physical memory using physical pages.
 
