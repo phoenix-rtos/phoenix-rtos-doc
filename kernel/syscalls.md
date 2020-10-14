@@ -1,26 +1,98 @@
 # System calls
 
 ## `syscall_debug`
+
+````C
+GETFROMSTACK(ustack, char *, s, 0);
+````
 Displays string given by `s` on kernel console
+ 
+
 
 ## `syscalls_mmap`
+
+````C
+GETFROMSTACK(ustack, void *, vaddr, 0);
+GETFROMSTACK(ustack, size_t, size, 1);
+GETFROMSTACK(ustack, int, prot, 2);
+GETFROMSTACK(ustack, int, flags, 3);
+GETFROMSTACK(ustack, oid_t *, oid, 4);
+GETFROMSTACK(ustack, offs_t, offs, 5);
+````
+
 Maps part of object given by `oid`, `offs` and `size` at `vaddr` with protection attributes given by `prot` using mapping mode defined by `flags`.
 
 ## `syscalls_munmap` 
+
+````C
+GETFROMSTACK(ustack, void *, vaddr, 0);
+GETFROMSTACK(ustack, size_t, size, 1);
+````
+Unmaps part of address space defined by `vaddr` and `size`.
+
 ## `syscalls_sys_fork` 
 ## `syscalls_vforksvc`
 ## `syscalls_exec` 
+````C
+GETFROMSTACK(ustack, char *, path, 0);
+GETFROMSTACK(ustack, char **, argv, 1);
+GETFROMSTACK(ustack, char **, envp, 2);
+````
+
 ## `syscalls_sys_exit`
-## `syscalls_sys_waitpid` 
+````C
+GETFROMSTACK(ustack, int, code, 0);
+````
+
+## `syscalls_sys_waitpid`
+````C
+GETFROMSTACK(ustack, int, pid, 0);
+GETFROMSTACK(ustack, int *, stat, 1);
+GETFROMSTACK(ustack, int, options, 2);
+````
+
 ## `syscalls_threadJoin`
-## `syscalls_getpid` 
-## `syscalls_getppid` 
+````C
+GETFROMSTACK(ustack, time_t, timeout, 0);
+````
+
+## `syscalls_getpid`
+Returns current process identifier
+
+## `syscalls_getppid`
+Returns parent process identifier
+
 ## `syscalls_gettid`
-	syscalls_beginthreadex) 
-	syscalls_endthread) 
-	syscalls_usleep) 
-	syscalls_mutexCreate) 
-	syscalls_phMutexLock) 
+Returns identifier of current thread.
+
+## `syscalls_beginthreadex`
+````C
+GETFROMSTACK(ustack, void *, start, 0);
+GETFROMSTACK(ustack, unsigned int, priority, 1);
+GETFROMSTACK(ustack, void *, stack, 2);
+GETFROMSTACK(ustack, unsigned int, stacksz, 3);
+GETFROMSTACK(ustack, void *, arg, 4);
+GETFROMSTACK(ustack, unsigned int *, id, 5);
+````
+Starts thread from entry point given by `start` at priority defined by `priority`. Thread stack is defined by `stack` and 'stacksz' arguments. Executed thread id is returned in `id` variable.
+
+
+## `syscalls_endthread`
+Terminates executing thread.
+
+## `syscalls_usleep`
+````C
+GETFROMSTACK(ustack, unsigned int, us, 0);
+````
+Suspends thread execution for number of microseconds defined by `us`. 
+
+## `syscalls_mutexCreate`
+````C
+GETFROMSTACK(ustack, unsigned int *, h, 0);
+````
+
+## `syscalls_phMutexLock`
+
 	syscalls_mutexTry) 
 	syscalls_mutexUnlock) 
 	syscalls_condCreate) 
@@ -56,8 +128,12 @@ Maps part of object given by `oid`, `offs` and `size` at `vaddr` with protection
 	## syscalls_signalHandle) 
 	## syscalls_signalPost) 
 	## syscalls_signalMask) 
-	## syscalls_signalSuspend) 
-	## syscalls_priority) 
+	## syscalls_signalSuspend)
+
+## `syscalls_priority`
+````C
+GETFROMSTACK(ustack, int, priority, 0);
+````
 	
 	## syscalls_sys_read) 
 	## syscalls_sys_write) 
@@ -100,7 +176,14 @@ Maps part of object given by `oid`, `offs` and `size` at `vaddr` with protection
 	## syscalls_sys_setpgrp) 
 	## syscalls_sys_getpgrp) 
 	## syscalls_sys_setsid) 
-	## syscalls_sys_spawn) 
+## syscalls_sys_spawn
+
+````C
+GETFROMSTACK(ustack, char *, path, 0);
+GETFROMSTACK(ustack, char **, argv, 1);
+GETFROMSTACK(ustack, char **, envp, 2);
+````
+
 	## syscalls_release) 
 	## syscalls_sbi_putchar) 
 	## syscalls_sbi_getchar)
