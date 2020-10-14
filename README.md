@@ -33,21 +33,23 @@
       4. [Namespace](kernel/proc/namespace.md)
    4. [Common routines](kernel/lib.md)
    5. [System calls](kernel/syscalls.md)
-6. Standard library
+6. [Standard library](libc/README.md)
    1. [IEEE Std 1003.1-2017](libc/ieee_std_1003.1-2017.md)
+   2. [Phoenix-RTOS](phoenix-rtos.md)
+   3. [GNU/Linux](linux.md)
 7. [Device drivers](devices/README.md)
    1. [Device server interface](devices/interfaces.md)
    2. [Accessing hardware](devices/hwaccess.md)
-8. Filesystem servers
-9. Network stack
-10. USB stack
-11. Utilities
-    1. Core utilities
-12. Host utilities
-13. Loader
-14. POSIX server
-15. Ports
-16. Tests and testing process
-17. Coding convention
+   3. [Handling interrupts](devices/interrupts.md)
+8. [Filesystem servers](filesystems/README.md)
+9. [Network stack](lwip/README.md)
+10. [USB stack](usb/README.md)
+11. [Utilities](utils/README.md)
+12. [Host utilities](hostutils/README.md)
+13. [Loader](loader/README.md)
+14. [POSIX server](posixsrv.md)
+15. [Ports](ports/README.md)
+16. [Tests and testing process](tests/README.md)
+17. [Coding convention](coding.md)
 
 
