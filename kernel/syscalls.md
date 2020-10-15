@@ -273,15 +273,70 @@ Setup system time to value given by `offs`.
 
 ## `syscalls_keepidle`
 
+````C
+GETFROMSTACK(ustack, int, t, 0);
+````
+
+## `syscalls_mmdump`
+
+Returns memory map entries associated with calling process.
+
+## `syscalls_platformctl`
+
+````C
+GETFROMSTACK(ustack, void *, ptr, 0);
+````
+
+Executes platform controll call with argument given by `ptr`.
+
+## `syscalls_wdgreload`
+
+Reloads watchdog device when it is available.
+
+## `syscalls_fileAdd`
+
+````C
+GETFROMSTACK(ustack, unsigned int *, h, 0);
+GETFROMSTACK(ustack, oid_t *, oid, 1);
+GETFROMSTACK(ustack, unsigned int, mode, 2);
+````
+
+Adds file given by `oid` to process resources. Added process resource is identified by handle returned in `h` variable. The access mode is set to `mode`.
+
+## `syscalls_fileSet`
+
+````C
+GETFROMSTACK(ustack, unsigned int, h, 0);
+GETFROMSTACK(ustack, char, flags, 1);
+GETFROMSTACK(ustack, oid_t *, oid, 2);
+GETFROMSTACK(ustack, offs_t, offs, 3);
+GETFROMSTACK(ustack, unsigned, mode, 4);
+````
+
+Updates file parameters for file given by resource handle `h`.
+
+## `syscalls_fileGet`
+
+````C
+GETFROMSTACK(ustack, unsigned int, h, 0);
+GETFROMSTACK(ustack, int, flags, 1);
+GETFROMSTACK(ustack, oid_t *, oid, 2);
+GETFROMSTACK(ustack, offs_t *, offs, 3);
+GETFROMSTACK(ustack, unsigned *, mode, 4);
+````
+
+Retrieves file parameters for file given by resource handle `h`.
+
+## syscalls_fileRemove
+
+````C
+GETFROMSTACK(ustack, unsigned int, h, 0);
+````
+
+Removes file given by `h` from resources of calling process.
 
 
-## `syscalls_mmdump` 
-	## syscalls_platformctl) 
-	## syscalls_wdgreload) 
-	## syscalls_fileAdd) 
-	## syscalls_fileSet) 
-	## syscalls_fileGet) 
-	## syscalls_fileRemove) 
+
 	## syscalls_threadsinfo) 
 	## syscalls_meminfo) 
 	## syscalls_perf_start) 
