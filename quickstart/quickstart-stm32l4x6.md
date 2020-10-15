@@ -19,6 +19,7 @@ openocd -f $OPENOCDPATH/scripts/interface/stlink.cfg -f $OPENOCDPATH/scripts/tar
 
 Script can be modified to accomodate other SWD interfaces.
 
+## Using Phoenix-RTOS
 
 Phoenix-RTOS will be launched and `psh` shell command prompt will appear in the terminal.
 
