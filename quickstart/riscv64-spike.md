@@ -7,9 +7,9 @@ The kernel file image can be downloaded from
 ## Running image under spike
 To run image under spike you should type:
 
-```
-  spike _boot/phoenix-riscv64-spike.bbl
-```
+````bash
+spike _boot/phoenix-riscv64-spike.bbl
+````
 
 <img src="_images/spike-riscv64-spike.png" width="700px">
 
