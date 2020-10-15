@@ -1,4 +1,4 @@
-# riscv64-virt
+# Running system on `riscv64-virt`
 This version is designated for RISC-V 64 processor based virt machine implemented by `qemu-system-riscv64`. To launch this version two files should be downloaded - kernel file
 integrated with SBI firmware with embedded UART16550 interface driver, dummyfs filesystem and `psh` shell and disk image with ext2 filesystems.
 

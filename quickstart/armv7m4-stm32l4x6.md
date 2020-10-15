@@ -1,4 +1,5 @@
-# stm32l4x6
+# Running system on `armv7m4-stm32l4x6` (ST STM32L4x)
+
 This version is designated for STM32L4x6 processors with Cortex-M4 core. To launch this version the final flash image should be downloaded. The image is created as the final artifact of `phoenix-rtos-project` building and is located in `_boot` directory. The image consist of kernel, TTY UART driver, RAM disk filesystem and psh (shell).
 
 ## Programming the board
