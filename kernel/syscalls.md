@@ -10,7 +10,11 @@ GETFROMSTACK(ustack, char *, s, 0);
 
 Displays string given by `s` on kernel console
 
+<br>
+
 ## Memory management
+
+Functions allow to manage process address spaces.
 
 ### `syscalls_memMap` (`syscalls_mmap`)
 
@@ -25,6 +29,8 @@ GETFROMSTACK(ustack, offs_t, offs, 5);
 
 Maps part of object given by `oid`, `offs` and `size` at `vaddr` with protection attributes given by `prot` using mapping mode defined by `flags`.
 
+<br>
+
 ### `syscalls_memUnmap` (`syscalls_munmap`)
 
 ````C
@@ -34,13 +40,29 @@ GETFROMSTACK(ustack, size_t, size, 1);
 
 Unmaps part of address space defined by `vaddr` and `size`.
 
+<br>
+
 ### `syscalls_memDump` (`syscalls_mmdump`)
 
 Returns memory map entries associated with calling process.
 
+<br>
+
 ### `syscalls_memGetInfo` (`syscalls_meminfo`)
 
+````C
+GETFROMSTACK(ustack, meminfo_t *, info, 0);
+````
+
+<br>
+
 ### `syscalls_memGetPhysAddr` (`syscalls_va2pa`)
+
+````C
+GETFROMSTACK(ustack, void *, va, 0);
+````
+
+<br>
 
 ## Process management
 
@@ -48,9 +70,13 @@ Returns memory map entries associated with calling process.
 
 Forks current process into two processes.
 
+<br>
+
 ### `syscalls_procVirtualFork` (`syscalls_vforksvc`)
 
 Forks current process into two processes, but they initialy share the address space until `exec()` or `exit()` calls are called. Parent process execution is suspended until `exec()` or `exit()` call as well.
+
+<br>
 
 ### `syscalls_procExec` (`syscalls_exec`)
 
@@ -60,6 +86,8 @@ GETFROMSTACK(ustack, char **, argv, 1);
 GETFROMSTACK(ustack, char **, envp, 2);
 ````
 
+<br>
+
 ### `syscalls_procSpawn` (`syscalls_sys_spawn`)
 
 ````C
@@ -68,11 +96,15 @@ GETFROMSTACK(ustack, char **, argv, 1);
 GETFROMSTACK(ustack, char **, envp, 2);
 ````
 
+<br>
+
 ### `syscalls_procExit` (`syscalls_sys_exit`)
 
 ````C
 GETFROMSTACK(ustack, int, code, 0);
 ````
+
+<br>
 
 ### `syscalls_procWait` (`syscalls_sys_waitpid`)
 
@@ -82,23 +114,44 @@ GETFROMSTACK(ustack, int *, stat, 1);
 GETFROMSTACK(ustack, int, options, 2);
 ````
 
+<br>
+
 ### `syscalls_procGetID` (`syscalls_getpid`)
 
 Returns current process identifier
+
+<br>
 
 ### `syscalls_procGetParentID` (`syscalls_getppid`)
 
 Returns parent process identifier
 
+<br>
+
 ### `syscalls_procSetGroupID` (`syscalls_sys_setpgid`)
+
+````C
+GETFROMSTACK(ustack, pid_t, pid, 0);
+GETFROMSTACK(ustack, pid_t, pgid, 1);
+````
+
+<br>
 
 ### DEPRECATED `syscalls_sys_setpgrp` => `syscalls_procSetGroupID`
 
-### `syscalls_procGetGroupID` (`syscalls_sys_getpgid`) 
+<br>
+
+### `syscalls_procGetGroupID` (`syscalls_sys_getpgid`)
+
+<br>
 
 ### DEPRECATED `syscalls_sys_getpgrp` => `syscalls_procGetGroupID`
 
-### `syscalls_procSetSession` (`syscalls_sys_setsid`) 
+<br>
+
+### `syscalls_procSetSession` (`syscalls_sys_setsid`)
+
+<br>
 
 ## Thread management
 
@@ -115,9 +168,13 @@ GETFROMSTACK(ustack, unsigned int *, id, 5);
 
 Starts thread from entry point given by `start` at priority defined by `priority`. Thread stack is defined by `stack` and `stacksz` arguments. Executed thread id is returned in `id` variable.
 
+<br>
+
 ### `syscalls_threadDestroy` (`syscalls_endthread`)
 
 Terminates executing thread.
+
+<br>
 
 ### `syscalls_threadWait` (`syscalls_threadJoin`)
 
@@ -296,7 +353,7 @@ Lookups for object identifier (`port` and resource `id`) associated with `name`.
 
 ## File operations
 
-### `DEPRECATED` (`syscalls_fileAdd`)
+### `DEPRECATED` (`syscalls_fileAdd`) => `syscalls_fileOpen`
 
 ````C
 GETFROMSTACK(ustack, unsigned int *, h, 0);
@@ -306,10 +363,12 @@ GETFROMSTACK(ustack, unsigned int, mode, 2);
 
 Adds file given by `oid` to process resources. Added process resource is identified by handle returned in `h` variable. The access mode is set to `mode`.
 
-Function is depretacted and should be removed. Functionalty shall be provided by `syscalls_fileOpen`.
+### `syscalls_fileOpen` (`syscalls_sys_open`)
 
-### `syscalls_fileOpen` (`syscalls_sys_open`) 
-
+````C
+GETFROMSTACK(ustack, const char *, filename, 0);
+GETFROMSTACK(ustack, int, oflag, 1);
+````
 
 ### `DEPRECATED` `syscalls_fileSet` => `syscalls_fileRead`, `syscalls_fileWrite`
 
@@ -351,13 +410,26 @@ GETFROMSTACK(ustack, unsigned int, h, 0);
 
 Destroys resource given by `h`.
 
-### `syscalls_sys_read`
+### `syscalls_fileRead` (`syscalls_sys_read`)
+
 ````C
+GETFROMSTACK(ustack, int, fildes, 0);
+GETFROMSTACK(ustack, void *, buf, 1);
+GETFROMSTACK(ustack, size_t, nbyte, 2);
 ````
 
-### `syscalls_sys_write` 
+### `syscalls_fileWrite` (`syscalls_sys_write`)
 
-### `syscalls_sys_close` 
+````C
+GETFROMSTACK(ustack, int, fildes, 0);
+GETFROMSTACK(ustack, void *, buf, 1);
+GETFROMSTACK(ustack, size_t, nbyte, 2);
+````
+
+### `syscalls_fileClose` (`syscalls_sys_close`) 
+
+
+
 ### `syscalls_sys_link` 
 	## syscalls_sys_unlink) 
 	## syscalls_sys_fcntl) 
@@ -371,8 +443,15 @@ Destroys resource given by `h`.
 	## syscalls_sys_fstat) 
 
 	## syscalls_sys_ioctl) 
-	## syscalls_sys_utimes) 
-	## syscalls_sys_poll) 
+	## syscalls_sys_utimes)
+
+### `syscalls_filePoll` (`syscalls_sys_poll`)
+
+````C
+GETFROMSTACK(ustack, struct pollfd *, fds, 0);
+GETFROMSTACK(ustack, nfds_t, nfds, 1);
+GETFROMSTACK(ustack, int, timeout_ms, 2);
+````
 
 ## Communication sockets
 

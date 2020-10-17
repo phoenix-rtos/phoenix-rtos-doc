@@ -2,7 +2,7 @@
 
 To create Phoenix-RTOS image for selected target the `phoenix-rtos-project` repository should be used. This repository aggregates all operating system modules. This chapter contains instruction how to build reference project and how to create the final system image.
 
-## Available target platforms
+## Supported target platforms
 
 The reference Phoenix-RTOS project supports following target platforms:
 
