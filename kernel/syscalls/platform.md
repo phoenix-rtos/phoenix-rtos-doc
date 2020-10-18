@@ -13,3 +13,9 @@ Executes platform controll call with argument given by `ptr`.
 Reloads watchdog device when it is available.
 
 ## `syscalls_platformSyspageProg` (`syscalls_syspageprog`)
+
+## `syscalls_keepidle`
+
+````C
+GETFROMSTACK(ustack, int, t, 0);
+````

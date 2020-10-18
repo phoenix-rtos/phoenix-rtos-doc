@@ -25,7 +25,7 @@
       1. [Page allocator](kernel/vm/page.md)
       2. [Memory mapper](kernel/vm/mapper.md)
       3. [Zone allocator](kernel/vm/zalloc.md)
-      4. [Fine-grained kernel allocator](kernel/vm/kmalloc.md)
+      4. [Fine-grained allocator](kernel/vm/kmalloc.md)
       5. [Memory objects](kernel/vm/objects.md)
    3. [Processes and threads](kernel/proc/README.md)
       1. [Processes creation](kernel/proc/forking.md)
