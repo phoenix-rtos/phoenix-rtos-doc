@@ -93,4 +93,5 @@ Lookups for object identifier (`port` and resource `id`) associated with `name`.
 
 <br>
 
-## `syscalls_sys_tkill`
+## DEPRECATED `syscalls_sys_tkill` => `syscalls_signalPost`
+

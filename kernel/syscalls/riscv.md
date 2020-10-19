@@ -1,4 +1,5 @@
-# RISC-V specific 
+# RISC-V specific
 
-## `syscalls_sbi_putchar` 
-## `syscalls_sbi_getchar`
+## `syscalls_sbiPutChar` (`syscalls_sbi_putchar`)
+
+## `syscalls_sbiGetChar` (`syscalls_sbi_getchar`)

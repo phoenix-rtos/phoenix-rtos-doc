@@ -14,7 +14,7 @@ Reloads watchdog device when it is available.
 
 ## `syscalls_platformSyspageProg` (`syscalls_syspageprog`)
 
-## `syscalls_keepidle`
+## `syscalls_platformKeepIdle` (`syscalls_keepidle`)
 
 ````C
 GETFROMSTACK(ustack, int, t, 0);

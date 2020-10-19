@@ -125,41 +125,90 @@ GETFROMSTACK(ustack, unsigned int, cmd, 1);
 
 ## `syscalls_fileTrunc` (`syscalls_sys_ftruncate`)
 
+````C
+GETFROMSTACK(ustack, int, fildes, 0);
+GETFROMSTACK(ustack, off_t, length, 1);
+````
+
 <br>
 
 ## `syscalls_fileSeek` (`syscalls_sys_lseek`)
+
+````C
+GETFROMSTACK(ustack, int, fildes, 0);
+GETFROMSTACK(ustack, off_t, offset, 1);
+GETFROMSTACK(ustack, int, whence, 2);
+````
 
 <br>
 
 ## `syscalls_fileDup` (`syscalls_sys_dup`)
 
+````C
+GETFROMSTACK(ustack, int, fildes, 0);
+````
+
 <br>
 
 ## `syscalls_fileDup2` (`syscalls_sys_dup2`)
+
+````C
+GETFROMSTACK(ustack, int, fildes, 0);
+GETFROMSTACK(ustack, int, fildes2, 1);
+````
 
 <br>
 
 ## `syscalls_filePipe` (`syscalls_sys_pipe`)
 
+````C
+GETFROMSTACK(ustack, int *, fildes, 0);
+````
+
 <br>
 
 ## `syscalls_fileMakeFifo` (`syscalls_sys_mkfifo`)
+
+````C
+GETFROMSTACK(ustack, const char *, path, 0);
+GETFROMSTACK(ustack, mode_t, mode, 1);
+````
 
 <br>
 
 ## `syscalls_fileChangeMode` (`syscalls_sys_chmod`)
 
+````C
+GETFROMSTACK(ustack, const char *, path, 0);
+GETFROMSTACK(ustack, mode_t, mode, 1);
+````
+
 <br>
 
 ## `syscalls_fileStat` (`syscalls_sys_fstat`)
+
+````C
+GETFROMSTACK(ustack, int, fd, 0);
+GETFROMSTACK(ustack, struct stat *, buf, 1);
+````
 
 <br>
 
 ## `syscalls_fileIoCtl` (`syscalls_sys_ioctl`)
 
+````C
+GETFROMSTACK(ustack, int, fildes, 0);
+GETFROMSTACK(ustack, unsigned long, request, 1);
+````
+
 <br>
 
 ## `syscalls_fileTimes` (`syscalls_sys_utimes`)
+
+````C
+GETFROMSTACK(ustack, const char *, filename, 0);
+GETFROMSTACK(ustack, const struct timeval *, times, 1);
+````
 
 <br>
 
