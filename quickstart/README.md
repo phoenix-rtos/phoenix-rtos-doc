@@ -14,3 +14,6 @@ This chapter presents how to run Phoenix-RTOS on supported targets. It is assume
 ## See also
 
 1. [Table of Contents](../README.md)
+2. [Introduction to Phoenix-RTOS](../introduction.md)
+2. [Phoenix-RTOS architecture](../architecture.md)
+3. [Building Phoenix-RTOS](../building/README.md)

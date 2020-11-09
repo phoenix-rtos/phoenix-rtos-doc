@@ -23,6 +23,15 @@ Device drivers are specific servers responsible for controlling devices. They ca
 File servers are specialized servers implementing filesystem. Similarly to device drivers they implement specific protocol for filesystem operations (for opening, closing, reading and writing files and for operating on directories). Any fileserver can handle any part of the namespace. The selected part of the namespace is assigned to the server by registering its port for the selected directory entry. When applications use the part of the namespace handled by the server during the path resolution procedure, the server`s port is returned in the object identifier and all communication is redirected to the server.
 
 ## Emulation servers
+
 Microkernel architecture allows to easily emulate the application environment of existing operating systems (e.g. POSIX). To provide some OS specific mechanisms which are not supported by native Phoenix-RTOS environment (e.g. POSIX pipes, user and groups etc.) emulation servers should be provided. They implement the additional functionality and together with emulation libraries provide the application environment. The communication protocol implemented by these servers is specific for emulated application environment.
 
+## See also
 
+1. [Table of Contents](README.md)
+2. [Building Phoenix-RTOS](building/README.md)
+3. [Running Phoenix-RTOS on targets](quickstart/README.md)
+4. [Kernel architecture](kernel/README.md)
+5. [Standard library](libphoenix/README.md)
+6. [Device drivers](devices/README.md)
+7. [Filesystems](filesystems/README.md)

@@ -5,13 +5,14 @@ The idea for writing a new real-time operating system was born in 1998 at the Wa
 Ten years on, the embedded systems market has grown exponentially, and a new operating system with efficient implementation and rich functionalities is highly required. Most vendors of the Internet of Things devices (e.g. electricity meters) understand that effective software implementation depends on the operating system. From the perspective of a software developer and an architect of embedded systems for the Internet of Things (IoT), the convergence of the application interface of the operating system for the IoT and the general purpose system significantly improves and simplifies the speed of implementation. It also enables software developers with little experience in developing low level software to develop solutions.
 
 ## Version 2
+
 Developed until 2013, the Phoenix-RTOS version 2 has been widely implemented in data concentrators for the smart grid, smart energy meters, and smart gas meters, etc. The second version of the system is recognised on the market as a real-time system for the smart grid and software-defined solutions. One of the system modules, Phoenix-PRIME, is the world's first software-defined implementation of the PRIME 1.3.6 PLC standard. The system's biggest advantage is the UN*X application interface, which allows for a wide range of uses in open source applications.
 
 The system’s large, monolithic kernel that implements most of the system functionalities is considered the main limitation of the second version of the system, as its consequences include restricted scalability, modularity, testing possibilities, and increased hardware requirements). The system cannot be easily used in microcontroller-based devices and low power consumption devices.
 
 ## Version 3
-The decision to develop a new version of the system was made in response to market needs and the trends in the development of microcontrollers. Also, software-defined approach to device development has gained popularity and a number of partners are already using the system in their devices.
 
+The decision to develop a new version of the system was made in response to market needs and the trends in the development of microcontrollers. Also, software-defined approach to device development has gained popularity and a number of partners are already using the system in their devices.
 
 ## A brief history of operating systems
 
@@ -72,6 +73,7 @@ This table presents a timeline of the most important events in the history of op
 The different colours used in the table identify the various operating system types developed over the years.
 
 ### MULTICS
+
 The history of MULTICS (Multiplexed Information and Computing Service) began with the CTSS operating system developed at MIT. This system was based around the idea of sharing the CPU among a number of concurrently running programs, which means that one computer could be used by multiple users running multiple tasks. The CTSS system was continued as the Multics project with the aim to create the multiuser and multitasking operating system. At the same time, IBM researched the same area to develop the OS/360 operating system for its IBM S/360 machine.
 
 ### <span style="color:blue">UNIX</span>
@@ -80,6 +82,7 @@ Bell Laboratories (AT&T) team involved in the MULTICS project was not satisfied 
 The UNIX marks the beginning of a new era in the development of operating systems as well as a departure from the old principle of system-level programming, which could only be done in an assembler. The source code was licensed to numerous companies and universities. One of them, the University of Berkeley, started their own research on operating systems and created their own version of UNIX called BSD (Berkeley Software Distribution).
 
 ### <span style="color:green">Microkernel architecture</green>
+
 In 1979, a team from Rochester University presented a framework for a distributed computing environment, which consisted of three large computers (IBM 360, DEC KL10, and CERF) and a gateway minicomputer (Data General Eclipse) connected to terminals, the ARPANET network and local PALO minicomputers over the fast Ethernet. The minicomputer chosen as a gateway processor was controlled by the Aleph operating system based on message passing. This operating system was a precursor to the new operating system architecture called microkernel architecture. In this architecture, the operating system kernel is considerably reduced and is responsible only for basic functions like memory management, process management, simple I/O operations and inter-process communication using message passing. Device drivers are partially or completely moved to the user level and are implemented as regular processes handling I/O messages from other parts of the system. The message passing restricts interactions between system modules to a well-structured format that discourages poorly defined dependencies between processes. This approach dramatically increases system scalability. Operating system modules may interact with modules located on remote computers in the same way as with local modules. All system modules are implemented as user level servers providing a set of services for other modules and can be easily removed or added as needed by a given system, allowing for high configurability and modularity.
 
 The Accent operating system, developed at CMU, was the successor of the Aleph (RIG) project. Accent stands out as a relatively pure example of a communication-oriented operating system, i.e. an operating system which uses the abstraction of communication between processes as its basic organising principle. The integration of a virtual memory support, file access and inter-process communication in Accent contribute to improved performance when compared to previous communication-oriented systems (e.g. [1]) as well as a more ‘transparent’ network operating system design.
@@ -88,13 +91,10 @@ The Accent operating system, developed at CMU, was the successor of the Aleph (R
 
 In 1974, while working for Intel Corporation Dr. Gary A. Kildall created CP/M as the first operating system for the new microprocessor. By 1977, CP/M had become the most popular operating system in the fledgling microcomputer (PC) industry. The largest Digital Research licensee of CP/M was a small company, which had started life as Traf-0-Data, and is now known as Microsoft.
 
-
-
 ### <span style="color:red">Realtime operating systems</span>
 
-
-
 ## Evolution problem
+
 The main problems connected with developing an operating system stem from its structure and evolution. These two factors have a dramatic impact on the overall system stability and code effectiveness. The analysis of the source code of the common open source general-purpose operating systems based on a monolithic kernel clearly shows that the code cannot be properly controlled due to multiple files, macros, and add-ons as well as authors promoting their coding philosophy and coding style.
 
 The main disadvantages of monolithic kernels are the dependencies between system components: when a mechanism becomes obsolete, it cannot be easily removed from the kernel, because the functionality of the other components, e.g. device drivers, depends on the mechanism.
@@ -115,5 +115,9 @@ The analysis of trends in microcontroller evolution related to their growing com
 
 Drawing on decades of technological advancements in the field of operating systems, it is possible to create a fully-featured, effective microkernel which allows for the development of both simple applications with no need to use UN*X interface and complex systems which use popular open source components. The kernel size must not exceed 20,000 of code lines. For several years, the idea of creating such a system from scratch has been supported by prominent researchers working in the field of operating systems, including the author of MINIX system A. S. Tanenbaum. An additional advantage of such an effectively implemented system is its reliability and potential for comprehensive tests and audit of the static source code. A well-developed operating system like this is of particular importance for critical applications thanks to a shorter certification process (e.g. acquiring the DO-178C certificate). 
 
+## See also
 
-
+1. [Table of Contents](README.md)
+2. [Phoenix-RTOS architecture](architecture.md)
+3. [Building Phoenix-RTOS](building/README.md)
+4. [Running Phoenix-RTOS on targets](quickstart/README.md)

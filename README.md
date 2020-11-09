@@ -1,10 +1,11 @@
 # Table of Contents
 
 1. [Introduction](introduction.md)
-2. [Building](building/README.md)
+2. [Architecture](architecture.md)
+3. [Building](building/README.md)
     1. [Toolchain and building script](building/toolchain.md)
     2. [Reference project repository](building/project.md)
-3. [Running system on targets](quickstart/README.md)
+4. [Running system on targets](quickstart/README.md)
     1. [Running system on `armv7m4-stm32l4x6` (ST STM32L4x)](quickstart/armv7m4-stm32l4x6.md)
     2. [Running system on `armv7m7-imxrt105x` (NXP i.MX RT105x)](quickstart/armv7m7-imxrt105x.md)
     3. [Running system on `armv7m7-imxrt106x` (NXP i.MX RT106x)](quickstart/armv7m7-imxrt106x.md)
@@ -13,7 +14,6 @@
     6. [Running system on `ia32-generic`](quickstart/ia32-generic.md)
     7. [Running system on `riscv64-virt`](quickstart/riscv64-virt.md)
     8. [Running system on `riscv64-spike`](quickstart/riscv64-spike.md)
-4. [Architecture](architecture.md)
 5. [Kernel](kernel/README.md)
     1. [HAL](kernel/hal/README.md)
         1. [HAL layer for ARMv7 Cortex-M based based targets](kernel/hal/armv7m.md)

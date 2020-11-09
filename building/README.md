@@ -85,3 +85,9 @@ After the build successfully completes, kernel and disk images will be created a
 ## Launching Phoenix-RTOS
 
 To start the created image on target architecture please see [phoenix-rtos-doc/quickstart](../quickstart/README.md) guide.
+
+## See also
+
+1. [Table of Contents](../README.md)
+2. [Phoenix-RTOS architecture](../architecture.md)
+3. [Running Phoenix-RTOS on targets](quickstart/README.md)
