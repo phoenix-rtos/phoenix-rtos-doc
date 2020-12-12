@@ -1,530 +1,530 @@
-# IEEE Std 1003.1-20017 interface
+# IEEE Std 1003.1-20017 Interface
 
 [`_exit`](_exit.impl.md)
-_Exit (1)
-_longjmp (1)
-_setjmp (1)
-_tolower (1)
-_toupper (1)
+[`_Exit`](_Exit.md)
+_longjmp
+_setjmp
+_tolower
+_toupper
 
-a64l (1)
-abort (1)
-abs (1)
-accept (1)
-access (1)
-acos (1)
-acosf (1)
-acosh (1)
-acoshf (1)
-acoshl (1)
-acosl (1)
-alarm (1)
-alphasort (1)
-asctime (1)
-asctime_r (1)
-asin (1)
-asinf (1)
-asinh (1)
-asinhf (1)
-asinhl (1)
-asinl (1)
-assert (1)
-atan (1)
-atan2 (1)
-atan2f (0)
-atan2l (0)
-atanf (0)
-atanh (1)
-atanhf (0)
-atanhl (0)
-atanl (0)
-atexit (1)
-atof (1)
-atoi (1)
-atol (1)
-atoll (0)
+a64l
+abort
+abs
+accept
+access
+acos
+acosf
+acosh
+acoshf
+acoshl
+acosl
+alarm
+alphasort
+asctime
+asctime_r
+asin
+asinf
+asinh
+asinhf
+asinhl
+asinl
+assert
+atan
+atan2
+atan2f
+atan2l
+atanf
+atanh
+atanhf
+atanhl
+atanl
+atexit
+atof
+atoi
+atol
+atoll
 
-basename (1)
-bind (1)
-bsearch (1)
-btowc (1)
+basename
+bind
+bsearch
+btowc
 
-cabs (1)
-cabsf (0)
-cabsl (0)
-cacos (1)
-cacosf (0)
-cacosh (1)
-cacoshf (0)
-cacoshl (0)
-cacosl (0)
-calloc (1)
-carg (1)
-cargf (0)
-cargl (0)
-casin (1)
-casinf (0)
-casinh (1)
-casinhf (0)
-casinhl (0)
-casinl (0)
-catan (1)
-catanf (0)
-catanh (1)
-catanhf (0)
-catanhl (0)
-catanl (0)
-catclose (1)
-catgets (1)
-catopen (1)
-cbrt (1)
-cbrtf (0)
-cbrtl (0)
-ccos (1)
-ccosf (0)
-ccosl (0)
-ceil (1)
-ceilf (0)
-ceill (0)
-cexp (1)
-cexpf (0)
-cexpl (0)
-cfgetispeed (1)
-cfgetospeed (1)
-cfsetispeed (1)
-cfsetospeed (1)
-chdir (1)
-chmod (1)
-chown (1)
-cimag (1)
-cimagf (0)
-cimagl (0)
-clearerr (1)
-clock (1)
-clock_getcpuclockid (1)
-clock_getres (1)
-clock_gettime (0)
-clock_nanosleep (1)
-clock_settime (0)
-clog (1)
-clogf (0)
-clogl (0)
-close (1)
-closedir (1)
-closelog (1)
-confstr (1)
-conj (1)
-conjf (0)
-conjl (0)
-connect (1)
-copysign (1)
-copysignf (0)
-copysignl (0)
-cos (1)
-cosf (0)
-cosh (1)
-coshf (0)
-coshl (0)
-cosl (0)
-cpow (1)
-cpowf (0)
-cpowl (0)
-cproj (1)
-cprojf (0)
-cprojl (0)
-creal (1)
-crealf (0)
-creall (0)
-creat (1)
-crypt (1)
-csin (1)
-csinf (1)
-csinh (1)
-csinhf (0)
-csinhl (0)
-csinl (1)
-csqrt (1)
-csqrtf (0)
-csqrtl (0)
-ctan (1)
-ctanf (0)
-ctanh (1)
-ctanhf (0)
-ctanhl (0)
-ctanl (0)
-ctermid (1)
-ctime (1)
-ctime_r (0)
+cabs
+cabsf
+cabsl
+cacos
+cacosf
+cacosh
+cacoshf
+cacoshl
+cacosl
+calloc
+carg
+cargf
+cargl
+casin
+casinf
+casinh
+casinhf
+casinhl
+casinl
+catan
+catanf
+catanh
+catanhf
+catanhl
+catanl
+catclose
+catgets
+catopen
+cbrt
+cbrtf
+cbrtl
+ccos
+ccosf
+ccosl
+ceil
+ceilf
+ceill
+cexp
+cexpf
+cexpl
+cfgetispeed
+cfgetospeed
+cfsetispeed
+cfsetospeed
+chdir
+chmod
+chown
+cimag
+cimagf
+cimagl
+clearerr
+clock
+clock_getcpuclockid
+clock_getres
+clock_gettime
+clock_nanosleep
+clock_settime
+clog
+clogf
+clogl
+close
+closedir
+closelog
+confstr
+conj
+conjf
+conjl
+connect
+copysign
+copysignf
+copysignl
+cos
+cosf
+cosh
+coshf
+coshl
+cosl
+cpow
+cpowf
+cpowl
+cproj
+cprojf
+cprojl
+creal
+crealf
+creall
+creat
+crypt
+csin
+csinf
+csinh
+csinhf
+csinhl
+csinl
+csqrt
+csqrtf
+csqrtl
+ctan
+ctanf
+ctanh
+ctanhf
+ctanhl
+ctanl
+ctermid
+ctime
+ctime_r
 
-dbm_clearerr (1)
-dbm_close (0)
-dbm_delete (0)
-dbm_error (0)
-dbm_fetch (0)
-dbm_firstkey (0)
-dbm_nextkey (0)
-dbm_open (0)
-difftime (1)
-dirfd (1)
-dirname (1)
-div (1)
-dlclose (1)
-dlerror (1)
-dlopen (1)
-dlsym (1)
-dprintf (1)
-drand48 (1)
-dup (1)
-dup2 (0)
-duplocale (1)
+dbm_clearerr
+dbm_close
+dbm_delete
+dbm_error
+dbm_fetch
+dbm_firstkey
+dbm_nextkey
+dbm_open
+difftime
+dirfd
+dirname
+div
+dlclose
+dlerror
+dlopen
+dlsym
+dprintf
+drand48
+dup
+dup2
+duplocale
 
-encrypt (1)
-endgrent (1)
-endhostent (1)
-endnetent (1)
-endprotoent (1)
-endpwent (1)
-endservent (1)
-endutxent (1)
-erand48 (0)
-erf (1)
-erff (0)
-erfl (0)
-execl (1)
-execle (1)
-execlp (1)
-execv (1)
-execve (1)
-execvp (1)
-exit (1)
-exp (1)
-exp2 (1)
-exp2f (0)
-exp2l (0)
-expf (0)
-expl (0)
-expm1 (1)
-expm1f (0)
-expm1l (0)
+encrypt
+endgrent
+endhostent
+endnetent
+endprotoent
+endpwent
+endservent
+endutxent
+erand48
+erf
+erff
+erfl
+execl
+execle
+execlp
+execv
+execve
+execvp
+exit
+exp
+exp2
+exp2f
+exp2l
+expf
+expl
+expm1
+expm1f
+expm1l
 
-FD_CLR (0)
-FD_ISSET (0)
-FD_SET (0)
-FD_ZERO (0)
+FD_CLR
+FD_ISSET
+FD_SET
+FD_ZERO
 
-fabs (1)
-fabsf (0)
-fabsl (0)
-faccessat (0)
-fadatasync (0)
-fattach (1)
-fchdir (1)
-fchmod (1)
-fchmodat (0)
-fchown (1)
-fchownat (0)
-fclose (1)
-fcntl (1)
-fdatasync (1)
-fdetach (1)
-fdim (1)
-fdimf (0)
-fdiml (0)
-fdopen (1)
-fdopendir (1)
-feclearexcept (1)
-fegetenv (1)
-fegetexceptflag (1)
-fegetround (1)
-feholdexcept (1)
-feof (1)
-feraiseexcept (1)
-ferror (1)
-fesetenv (0)
-fesetexceptflag (0)
-fesetround (0)
-fetestexcept (1)
-feupdateenv (1)
-fexecve (1)
-fflush (1)
-ffs (1)
-fgetc (1)
-fgetpos (1)
-fgets (1)
-fgetwc (1)
-fgetws (1)
-fileno (1)
-flockfile (1)
-floor (1)
-floorf (0)
-floorl (0)
-fma (1)
-fmaf (0)
-fmal (0)
-fmax (1)
-fmaxf (0)
-fmaxl (0)
-fmemopen (1)
-fmin (1)
-fminf (0)
-fminl (0)
-fmod (1)
-fmodf (0)
-fmodl (0)
-fmtmsg (1)
-fnmatch (1)
-fopen (1)
-fork (1)
-fpathconf (1)
-fpclassify (1)
-fprintf (1)
-fputc (1)
-fputs (1)
-fputwc (1)
-fputws (1)
-fread (1)
-free (1)
-freeaddrinfo (1)
-freelocale (1)
-freopen (1)
-frexp (1)
-frexpf (0)
-frexpl (0)
-fscanf (1)
-fseek (1)
-fseeko (0)
-fsetpos (1)
-fstat (1)
-fstatat (1)
-fstatvfs (1)
-fsync (1)
-ftell (1)
-ftello (0)
-ftok (1)
-ftruncate (1)
-trylockfile (0)
-ftw (1)
-funlockfile (0)
-futimens (1)
-fwide (1)
-fwprintf (1)
-fwrite (1)
-fwscanf (1)
+fabs
+fabsf
+fabsl
+faccessat
+fadatasync
+fattach
+fchdir
+fchmod
+fchmodat
+fchown
+fchownat
+fclose
+fcntl
+fdatasync
+fdetach
+fdim
+fdimf
+fdiml
+fdopen
+fdopendir
+feclearexcept
+fegetenv
+fegetexceptflag
+fegetround
+feholdexcept
+feof
+feraiseexcept
+ferror
+fesetenv
+fesetexceptflag
+fesetround
+fetestexcept
+feupdateenv
+fexecve
+fflush
+ffs
+fgetc
+fgetpos
+fgets
+fgetwc
+fgetws
+fileno
+flockfile
+floor
+floorf
+floorl
+fma
+fmaf
+fmal
+fmax
+fmaxf
+fmaxl
+fmemopen
+fmin
+fminf
+fminl
+fmod
+fmodf
+fmodl
+fmtmsg
+fnmatch
+fopen
+fork
+fpathconf
+fpclassify
+fprintf
+fputc
+fputs
+fputwc
+fputws
+fread
+free
+freeaddrinfo
+freelocale
+freopen
+frexp
+frexpf
+frexpl
+fscanf
+fseek
+fseeko
+fsetpos
+fstat
+fstatat
+fstatvfs
+fsync
+ftell
+ftello
+ftok
+ftruncate
+trylockfile
+ftw
+funlockfile
+futimens
+fwide
+fwprintf
+fwrite
+fwscanf
 
-gai_strerror (1)
-getaddrinfo (0)
-getc (1)
-getc_unlocked (1)
-getchar (1)
-getchar_unlocked (0)
-getcwd (1)
-getdate (1)
-getdelim (1)
-getegid (1)
-getenv (1)
-geteuid (1)
-getgid (1)
-getgrent (0)
-getgrgid (1)
-getgrgid_r (0)
-getgrnam (1)
-getgrnam_r (0)
-getgroups (1)
-gethostent (0)
-gethostid (1)
-gethostname (1)
-getitimer (1)
-getline (0)
-getlogin (1)
-getlogin_r (0)
-getnetbyaddr (0)
-getnetbyname (0)
-getnetent (0)
-getpgrp (1)
-getpid (1)
-getppid (1)
-getprotobyname (0)
-getprotobynumber (0)
-getprotoent (0)
-getpwent (0)
-getpwnam (1)
-getpwuid (1)
-gets (1)
-getservbyname (0)
-getservbyport (0)
-getservent (0)
-gettime (1)
-getuid (1)
-getutxent (0)
-getutxid (0)
-getutxline (0)
+gai_strerror
+getaddrinfo
+getc
+getc_unlocked
+getchar
+getchar_unlocked
+getcwd
+getdate
+getdelim
+getegid
+getenv
+geteuid
+getgid
+getgrent
+getgrgid
+getgrgid_r
+getgrnam
+getgrnam_r
+getgroups
+gethostent
+gethostid
+gethostname
+getitimer
+getline
+getlogin
+getlogin_r
+getnetbyaddr
+getnetbyname
+getnetent
+getpgrp
+getpid
+getppid
+getprotobyname
+getprotobynumber
+getprotoent
+getpwent
+getpwnam
+getpwuid
+gets
+getservbyname
+getservbyport
+getservent
+gettime
+getuid
+getutxent
+getutxid
+getutxline
 
-isatty (1)
+isatty
 
-jrand48 (0)
+jrand48
 
-kill (1)
+kill
 
-labs (1)
-lcong48 (0)
-ldexp (1)
-ldiv (1)
-link (1)
-log (1)
-log10 (1)
-longjmp (1)
-lrand48 (0)
-lrand48 (0)
-lseek (1)
-lstat (0)
+labs
+lcong48
+ldexp
+ldiv
+link
+log
+log10
+longjmp
+lrand48
+lrand48
+lseek
+lstat
 
-malloc (1)
-mblen (1)
-mbstowcs (1)
-mbtowc (1)
-memchr (1)
-memcmp (1)
-memcpy (1)
-memmove (1)
-memset (1)
-mkdir (1)
-mkfifo (1)
-mmap (1)
-modf (1)
-mount (1)
-mrand48 (0)
-munmap (1)
+malloc
+mblen
+mbstowcs
+mbtowc
+memchr
+memcmp
+memcpy
+memmove
+memset
+mkdir
+mkfifo
+mmap
+modf
+mount
+mrand48
+munmap
 
-nrand48 (0)
-nrand48 (0)
+nrand48
+nrand48
 
-open (1)
-opendir (1)
-openlog (0)
+open
+opendir
+openlog
 
-pathconf (0)
-perror (1)
-pipe (1)
-pow (1)
-printf (1)
-pselect (1)
-putc (1)
-putc_unlocked (0)
-putchar (1)
-putchar_unlocked (0)
-puts (1)
-pututxline (0)
+pathconf
+perror
+pipe
+pow
+printf
+pselect
+putc
+putc_unlocked
+putchar
+putchar_unlocked
+puts
+pututxline
 
-qsort (1)
+qsort
 
-rand (1)
-rand_r (1)
-read (1)
-readdir (1)
-realloc (1)
-remove (1)
-rename (1)
-rename (1)
-rewind (1)
-rmdir (1)
+rand
+rand_r
+read
+readdir
+realloc
+remove
+rename
+rename
+rewind
+rmdir
 
-scandir (0)
-scanf (1)
-sched_getparam (0)
-seed48 (0)
-select (0)
-setgrent (0)
-sethostent (0)
-setitimer (0)
-setjmp (1)
-setlogmask (0)
-setnetent (0)
-setpgid (1)
-setpgid (1)
-setprotoent (0)
-setpwent (0)
-setservent (0)
-setsid (1)
-setutxent (0)
-setvbuf (1)
-sigaddset (1)
-sigemptyset (1)
-sigfillset (1)
-siglongjmp (1)
-signal (1)
-sigpending (1)
-sigprocmask (1)
-sigsetjmp (1)
-sigsuspend (1)
-sin (1)
-sinh (1)
-sleep (1)
-snprintf (0)
-sprintf (1)
-sqrt (1)
-srand (1)
-srand48 (0)
-sscanf (1)
-stat (1)
-statvfs (0)
-sterror (1)
-stime (1)
-strcat (1)
-strchr (1)
-strcmp (1)
-strcoll (1)
-strcpy (1)
-strcspn (1)
-strlen (1)
-strncat (1)
-strncmp (1)
-strncpy (1)
-strpbrk (1)
-strrchr (1)
-strspn (1)
-strstr (1)
-strtod (1)
-strtok (1)
-strtol (1)
-strtoll (1)
-strtoul (1)
-strtoull (1)
-strxfrm (1)
-swprintf (0)
-swscanf (0)
-syslog (1)
-system (1)
+scandir
+scanf
+sched_getparam
+seed48
+select
+setgrent
+sethostent
+setitimer
+setjmp
+setlogmask
+setnetent
+setpgid
+setpgid
+setprotoent
+setpwent
+setservent
+setsid
+setutxent
+setvbuf
+sigaddset
+sigemptyset
+sigfillset
+siglongjmp
+signal
+sigpending
+sigprocmask
+sigsetjmp
+sigsuspend
+sin
+sinh
+sleep
+snprintf
+sprintf
+sqrt
+srand
+srand48
+sscanf
+stat
+statvfs
+sterror
+stime
+strcat
+strchr
+strcmp
+strcoll
+strcpy
+strcspn
+strlen
+strncat
+strncmp
+strncpy
+strpbrk
+strrchr
+strspn
+strstr
+strtod
+strtok
+strtol
+strtoll
+strtoul
+strtoull
+strxfrm
+swprintf
+swscanf
+syslog
+system
 
-tanh (1)
-tcdrain (1)
-tcflush (1)
-tcgetattr (1)
-tcgetpgrp (1)
-tcsendbreak (1)
-tcsetpgrp (1)
-time (1)
-times (1)
-tmpfile (1)
-tmpnam (1)
+tanh
+tcdrain
+tcflush
+tcgetattr
+tcgetpgrp
+tcsendbreak
+tcsetpgrp
+time
+times
+tmpfile
+tmpnam
 
-umask (1)
-umount (1)
-ungetc (1)
-unlink (1)
-usleep (1)
-utime (1)
-utimensat (0)
+umask
+umount
+ungetc
+unlink
+usleep
+utime
+utimensat
 
-vfork (1)
-vfprintf (1)
-vprintf (1)
-vsprintf (1)
+vfork
+vfprintf
+vprintf
+vsprintf
 
-waitpid (1)
-wcstombs (1)
-wctomb (1)
-wprintf (0)
-write (1)
-wscanf (0)
+waitpid
+wcstombs
+wctomb
+wprintf
+write
+wscanf
 
 

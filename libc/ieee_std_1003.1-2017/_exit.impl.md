@@ -15,14 +15,18 @@ The `_exit()` function does not call functions registered with `atexit()` nor an
 ### Consequences of Process Termination:
 
 * All of the file descriptors, directory streams, conversion descriptors, and message catalog descriptors open in the calling process are closed.
+
 * If the parent process of the calling process has set its `SA_NOCLDWAIT` flag or has set the action for the `SIGCHLD` signal to `SIG_IGN`:
-  
+
   * The process' status information, if any, is discarded.
 
-    - The lifetime of the calling process ends immediately. If `SA_NOCLDWAIT` is set, it is implementation-defined whether a `SIGCHLD` signal is sent to the parent process.
-    - If a thread in the parent process of the calling process is blocked in `wait()`, `waitpid()`, or `waitid()`, and the parent process has no remaining child processes in the set of waited-for children, the `wait()`, `waitid()`, or `waitpid()` function fails and sets errno to `[ECHILD]`.
-		Otherwise:
-    - Status information is generated.
+  * The lifetime of the calling process ends immediately. If `SA_NOCLDWAIT` is set, it is implementation-defined whether a `SIGCHLD` signal is sent to the parent process.
+
+  * If a thread in the parent process of the calling process is blocked in `wait()`, `waitpid()`, or `waitid()`, and the parent process has no remaining child processes in the set of waited-for children, the `wait()`, `waitid()`, or `waitpid()` function fails and sets errno to `[ECHILD]`.
+
+* Otherwise:
+
+  * Status information is generated.
     - The calling process is transformed into a zombie process. Its status information is made available to the parent process until the process' lifetime ends.
     - The process' lifetime shall end once its parent obtains the process' status information via a currently-blocked or future call to `wait()`, `waitid()` (without WNOWAIT), or `waitpid()`.
     - If one or more threads in the parent process of the calling process is blocked in a call to `wait()`, `waitid()`, or `waitpid()` awaiting termination of the process, one (or, if any are calling waitid() with `WNOWAIT`, possibly more) of these threads obtains the process' status information as specified in Status Information and becomes unblocked.
@@ -44,9 +48,9 @@ The `_exit()` function does not call functions registered with `atexit()` nor an
   * If the calling process is a trace controller process, any trace streams that were created by the calling process shall be shut down as described by the `posix_trace_shutdown()` function, and mapping of trace event names to trace event type identifiers of any process built for these trace streams may be deallocated. 
 
 
-###Return value
+### Return value
 
 `_exit()` can never return.
 
-###Errors
+### Errors
 No errors are defined.
