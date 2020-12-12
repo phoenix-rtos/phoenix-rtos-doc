@@ -47,7 +47,7 @@
         13. [RISC-V specific (2)](kernel/syscalls/riscv.md)
     5. [Common routines](kernel/lib.md)
 6. [Standard library](libc/README.md)
-    1. [IEEE Std 1003.1-2017](libc/ieee_std_1003.1-2017.md)
+    1. [IEEE Std 1003.1-2017](libc/ieee_std_1003.1-2017/README.md)
     2. [Phoenix-RTOS](libc/phoenix-rtos.md)
     3. [GNU/Linux](libc/linux.md)
 7. [Device drivers](devices/README.md)

@@ -1,6 +1,6 @@
 # IEEE Std 1003.1-20017 interface
 
-[`_exit`](libc/_exit.md)
+[`_exit`](_exit.impl.md)
 _Exit (1)
 _longjmp (1)
 _setjmp (1)
