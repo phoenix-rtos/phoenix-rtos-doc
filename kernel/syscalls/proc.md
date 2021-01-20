@@ -22,6 +22,16 @@ GETFROMSTACK(ustack, char **, envp, 2);
 
 <br>
 
+### `syscalls_procSpawnSyspage`
+
+````C
+GETFROMSTACK(ustack, char *, map, 0);
+GETFROMSTACK(ustack, char *, name, 1);
+GETFROMSTACK(ustack, char **, argv, 2);
+````
+
+<br>
+
 ### `syscalls_procSpawn` (`syscalls_sys_spawn`)
 
 ````C
