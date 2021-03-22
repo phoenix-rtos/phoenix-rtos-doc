@@ -221,4 +221,10 @@ Following notation for operating system messages should be applied. Message shou
 
 ## Miscellaneous
 
-The `goto` statement shall not be used.
+The `goto` statement shall not be used. The main goal of this prohibition is the minimalization of the spaghetti code generation and the prevention of the linear programming usage.
+
+To better understand our position please read the famous Dijkstra article.
+
+https://homepages.cwi.nl/~storm/teaching/reader/Dijkstra68.pdf
+
+In our opinion usage of `goto` increases the chaos in the source code and absolutely brings no value like minimalization of the number of lines of code. Is also encourages programmers to poor code structurization.
