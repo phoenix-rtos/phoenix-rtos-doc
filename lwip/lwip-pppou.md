@@ -39,7 +39,7 @@ null-modem point-to-point connection in the Phoenix RTOS system.  To enable the
 driver and up the interface just after Phoenix RTOS kernel starts, add e.g. the
 following line to the `plo` script:
 ```
-app flash0 @lwip;/dev/uart3:115200:up xip1 ocram2
+app flash0 -x @lwip;/dev/uart3:115200:up xip1 ocram2
 ```
 
 It is important that the entry is added with the `imxrt-multi` driver or with
@@ -54,6 +54,18 @@ course, you can set other speeds, e.g. 9600, 230400 or 460800. Other connection
 parameters, such as parity and stop bits, are fixed to 8N1, because nowadays
 other values are rarely used, especially for serial PPP connections.
 
+### Default route
+
+By default, `pppou` driver will add the `default route` via itself. If the
+`default route` is not to be added, use the optional `nodefault` parameter,
+as in the example below.
+
+```
+app flash0 -x @lwip;pppou:/dev/uart3:115200:nodefault:up xip1
+```
+
+## Setup device side
+
 For example, on the `imxrt` platforms _(memory map used in example is for i.MX
 RT1064)_ the plo script might look like this:
 
@@ -63,10 +75,10 @@ map dtcm 20000000 20028000 R+W
 map ocram2 20200000 20280000 R+W+E
 map xip1 70000000 70400000 R+E
 kernel flash0
-app flash0 @dummyfs xip1 dtcm
-app flash0 @imxrt-multi xip1 dtcm
-app flash0 @lwip;pppou:/dev/uart3:460800:up xip1 ocram2
-app flash0 @psh xip1 ocram2
+app flash0 -x @dummyfs xip1 dtcm
+app flash0 -x @imxrt-multi xip1 dtcm
+app flash0 -x @lwip;pppou:/dev/uart3:460800:up xip1 ocram2
+app flash0 -x @psh xip1 ocram2
 go!
 ```
 
