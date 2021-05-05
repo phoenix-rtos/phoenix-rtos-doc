@@ -1,27 +1,33 @@
-###Synopsis
+# Synopsis
 
 `#include <stdlib.h>`
 
 `void abort(void);`
 
-###Description
+## Status
+
+Partially implemented
+
+## Description
 
 The `abort()` function causes abnormal program termination to occur. Any open streams are flushed and closed. The `abort()` function is thread-safe. 
 
-###Return value
+## Return value
 
 The `abort()` function never returns.
 
-###Errors
+## Errors
+
 No errors are defined.
 
-###Implementation tasks
+## Implementation tasks
 
 * The abort() function overrides blocking or ignoring the SIGABRT signal.
 
-###Tests
+## Tests
 
 ======
 
-###EXAMPLES
+## EXAMPLES
+
 None.
