@@ -13,7 +13,7 @@ Parially implemented
 
 The `accept()` function extracts the first connection on the queue of pending connections, create a new socket with the same socket type protocol and address family as the specified socket, and allocate a new file descriptor for that socket. The file descriptor is  allocated as described in File Descriptor Allocation.
 
-Arguments:
+### Arguments:
 
 <u>socket</u> - a socket that was created with `socket()`, has been bound to an address with `bind()`, and has issued a successful call to `listen()`.
 <u>address</u> - either a null pointer, or a pointer to a `sockaddr` structure where the address of the connecting socket is returned.
