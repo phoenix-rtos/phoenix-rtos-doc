@@ -68,6 +68,7 @@
     1. [libcgi](corelibs/libcgi.md)
     2. [libgraph](corelibs/libgraph.md)
     3. [libvirtio](corelibs/libvirtio.md)
+    4. [libvga](corelibs/libvga.md)
 14. [Loader](loader/README.md)
 15. [POSIX server](posixsrv.md)
 16. [Ports](ports/README.md)
