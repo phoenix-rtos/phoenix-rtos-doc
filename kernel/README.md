@@ -1,19 +1,19 @@
 # Kernel
 
-Phoenix-RTOS is based on the written from scratch dedicated microkernel. Microkernel is effectively implemented and consists of about 20K lines of code (LoC). Microkernel is responsible for:
+Phoenix-RTOS is based on the written from scratch dedicated microkernel and consists of about 20K lines of code (LoC). Microkernel is responsible for:
 
-   - memory management,
-   - thread and process management,
-   - inter-thread communication and synchronization.
+- memory management,
+- thread and process management,
+- inter-thread communication and synchronization,
+- basic application interface implementation (syscalls).
 
 Kernel is divided into five subsystems.
 
-   - hal - hardware abstraction layer
-   - lib - common routines
-   - vm - virtual memory management
-   - proc - process and thread management
-   - test - test for other subsystems
-
+- hal - hardware abstraction layer
+- lib - common routines
+- vm - virtual memory management
+- proc - process and thread management
+- test - internal tests for kernel subsystems
 
 ## Kernel source code
 
@@ -22,23 +22,14 @@ The source code of the kernel could be obtained using the following command
 >
     git clone http://github.com/phoenix-rtos.com/phoenix-rtos-kernel
 
+## See also
 
-## Compilation
+1. [Table of Contents](../README.md)
+2. [Phoenix-RTOS architecture](../architecture.md)
+3. [Building Phoenix-RTOS](../building/README.md)
+4. [Running Phoenix-RTOS on targets](../quickstart/README.md)
 
-For compilation of the microkernel traditional make system is used. To compile you should define the `TARGET` variable in the main `Makefile` located in `src/` directory. The list of available targets is defined inside the file. The structure of target consist of three parts: `<cpu>-<platform>-<board>`.
-
-After defining the `TARGET` variable the set of command should be used.
-
->
-    make clean
-Removes all intermediate files (e.g. object files).
->
-    make depend
-Analyses dependencies between files and stores it in `.depend` files.
->
-    make
-Compiles kernel and creates the ELF and BIN files in `../src/` directory.
-
-
-
-
+5. [Kernel - HAL Subsystem](hal/README.md)
+6. [Kernel - Processes and threads](proc/README.md)
+7. [Kernel - Memory management](vm/README.md)
+8. [Kernel - System calls](syscalls/README.md)
