@@ -3,6 +3,7 @@
 HAL for RISCV64 architecture is located in `src/hal/riscv64`.
 
 ## Initialization
+
 Kernel execution starts from `_start` symbol located in `_init.S` file.
 
 >
