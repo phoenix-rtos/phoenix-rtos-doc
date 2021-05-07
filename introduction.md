@@ -77,6 +77,7 @@ The different colours used in the table identify the various operating system ty
 The history of MULTICS (Multiplexed Information and Computing Service) began with the CTSS operating system developed at MIT. This system was based around the idea of sharing the CPU among a number of concurrently running programs, which means that one computer could be used by multiple users running multiple tasks. The CTSS system was continued as the Multics project with the aim to create the multiuser and multitasking operating system. At the same time, IBM researched the same area to develop the OS/360 operating system for its IBM S/360 machine.
 
 ### <span style="color:blue">UNIX</span>
+
 Bell Laboratories (AT&T) team involved in the MULTICS project was not satisfied with its results, and they decided to leave it. In their opinion, the system was too complicated and too heavily dependent on hardware. As a result, the system was non-portable and demanded a huge development effort. The team decided to write an operating system using a high level language and ensure that it can be implemented universally on different computer platforms. This was the most revolutionary milestone in the history of operating systems, leading to the creation of the most popular operating system UNIX.
 
 The UNIX marks the beginning of a new era in the development of operating systems as well as a departure from the old principle of system-level programming, which could only be done in an assembler. The source code was licensed to numerous companies and universities. One of them, the University of Berkeley, started their own research on operating systems and created their own version of UNIX called BSD (Berkeley Software Distribution).
@@ -119,5 +120,3 @@ Drawing on decades of technological advancements in the field of operating syste
 
 1. [Table of Contents](README.md)
 2. [Phoenix-RTOS architecture](architecture.md)
-3. [Building Phoenix-RTOS](building/README.md)
-4. [Running Phoenix-RTOS on targets](quickstart/README.md)

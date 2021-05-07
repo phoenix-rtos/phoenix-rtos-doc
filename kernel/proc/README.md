@@ -1,4 +1,4 @@
-# Processes and threads
+# Kernel - Processes and threads
 
 Process and thread abstractions are used to control program executions in Phoenix-RTOS.
 
