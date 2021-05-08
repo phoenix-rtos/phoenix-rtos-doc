@@ -1,6 +1,8 @@
 # Architecture
 
-Phoenix-RTOS operating system starting from version 3 is based on microkernel architecture. It means that system consist of small, effectively implemented microkernel and set of servers communicating over it.
+Phoenix-RTOS operating system starting from version 3 is based on microkernel architecture. It means that system consist of microkernel implementing basic primitives and set of servers based on these primitives and communicating over it. The main advantage of such architecture is high scalability. The disadvantage is performance degradation caused by message passing. Message passing demands in some cases memory copying and additonal thread context switching.
+
+The architecture is schematically presented on figure below.
 
 <img src="_images/arch1.png" >
 

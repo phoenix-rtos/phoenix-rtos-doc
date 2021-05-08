@@ -1,15 +1,23 @@
 # Memory management
 
-Memory management is the most important part of any operating system kernel, as it has a great impact on the overall system performance and scalability. In most modern general-purpose operating systems, memory management is based on paging and the Memory Management Unit (MMU), which is available across many popular hardware architectures (IA32, IA32E, ARMv9). Unfortunately, there are very few operating systems which are able to manage memory either on platforms with and without a MMU. The main goal of the Phoenix-RTOS microkernel is to manage memory on both MMU and non-MMU architectures.
+Memory management is the most important part of any operating system kernel, as it has a great impact on the overall system performance and scalability. The main goal of the memory management is to provide phsycial memory for the purpose of kernel and running programs represented by processes.
 
-## Memory management on architectures equipped with MMU
-MMU architectures are typical for processors used in servers, personal computers and mobile devices such as tablets and smartphones. In this architecture, the program accesses a virtual memory address space which is mapped into the physical memory by MMU hardware using a data structure called a page table located in the physical memory. The role of the MMU in memory address translation is illustrated in the figure below.
+In most modern general-purpose operating systems, memory management is based on paging technique and the Memory Management Unit (MMU) is used. The MMU is available across many popular hardware architectures (e.g. IA32, x86-64, ARMv7 Cortex-A, RISC-V) and is used for translating the linear addresses used by programs executed on the processor core into the physical memory addresses. This translation is based on linear-physical address associations defined inside MMU which are specific for each running process allowing to separate them from each-other. The evolution of paging technique and current use of it in general purupose operating systems are briefly discussed in the further parts of this chapter.
+
+The assumption of use of paging techniqe as the basic method of accessing the memory for running processeses is insufficient when operating system shall handle many hardware architectures starting from low-power microcontrollers and ending with advanced multi-core architectures with gigabytes of physical memory because MMU is available only on some of them. Moreover many modern architectures used for IoT device development and massively parallelized multi-core computers are equipped with a non-uniform physical memory (NUMA) with differrent access characteristics. For example in modern microcontrollers some physical memory segments can be tightly coupled with processor enabling to run real-time application demanding minimal jitter (e.g. for signal processing). On multi-core architectures some physical memory segment can by tightly coupled with particular set of processing cores while others segments can be accessible over switched buses what results in delayed access and performance degradation. Having this in mind in Phoenix-RTOS it was decided to redefine the traditional approach to memory management and some new memory management abstractions and mechanisms were proposed. These abstractions and mechamisms allow to unify the approach for memory management on many types of memory architectures. To understand the details and purpopose of these mechanims memory hardware architecture issues are briefly discussed in this chapter before Phoenix-RTOS memory management functions are briefly presented.
+
+## Paging technique and Memory Management Unit
+
+Processors equipped with MMU are typically used in servers, personal computers and mobile devices such as tablets and smartphones. In this architecture, the linear addresses used by executed program are translated to physical memory addresses using MMU associated with the processor core. This translation is performed with a defined granulation and the piece of the linear address space used for translation to physical address is called a memory page. Typically, the page size used in modern systems varies from 4KB to gigabytes, but in the past, e.g. on the PDP-10, VAX-11 architectures, it was much smaller (512 or 1KB).
+
+MMU holds set of associations between linear and physical addresses defined for the process currently executed on the core. When process context is switched associations specific for the process are flushed from MMU and changed with associatons defined for the new process choosen for execution. The structure used for defining these association is commonly and incorrectly called page table and stored in physical memory. On many architectures associations used for defining the linear address space are automatically downloaded to MMU when linear addres is reached for the first time and association is not present in MMU. This task is performed by a part of MMU called Hardware Page Walker. On some architectures with simple MMU (e.g. eSI-RISC) the operating system define associatons by controlling MMU directly using its registers. In this case page table structure depends on software. The role of the MMU in memory address translation is illustrated in the figure below.
 
 <img src="_images/mem-mmu.png" width="450px">
 
-The piece of the virtual address space mapped into the physical memory is called a memory page. Typically, the page size used in modern systems is 4KB, but in the past, e.g. the PDP-10, VAX-11 architectures, it was much smaller (512 or 1KB).
+In the further considerations the linear address space defined using paging technique will be named synonymously as the virtual address space.
 
 ### Initial concept of paging technique
+
 The concept of paging was first introduced in the late 1960s in order to organize the program memory overlaying for hierarchical memory systems consisting of transistor-based memory, core memory, magnetic disks and tapes. Historically, the virtual address space size was comparable to the physical memory size. The page table was used to point to the data location in the hierarchical memory system and to associate the physical memory location, called a page frame, with the virtual page. When the program accessed the virtual page, processor checked whether the page was present in the physical memory via the presence bit in the page table. If the page was not present in the physical memory, the program execution was interrupted and the page was loaded by the operating system into the physical memory via additional bits defining the data location in the page table. Once the presence bit was successfully loaded and set, the program execution was resumed. The original paging technique is presented below.
 
 <img src="_images/mem-paging1.png" width="650px">
@@ -22,10 +30,21 @@ Over the years, paging has morphed into a technique used for defining the proces
 
 A memory management system which relies on paging describes the whole physical memory using physical pages.
 
-## Non-MMU architectures
-Non-MMU architectures are typical for entry-level microcontrollers like NXP Kinetis and ST STM32 families. They are equipped with embedded flash and tens of kilobytes of SRAM. Both FLASH and SRAM are accessible using the same address space. This address space is also used for communication with internal devices like reset and clock controller, timers, bus controllers, serial interfaces etc. In light of the above, it becomes clear that memory management must be quite advanced while ensuring minimum memory consumption. These two opposing goals affect data structures used for memory management.
+## Direct physical memory access complemented with Memory Protection Unit or segmentation
+
+Entry-level microcontrollers based on ARM Cortex-M architecture massively used in common electronics devices are typically equipped with embedded FLASH memories and tens of kilobytes of SRAM. Both FLASH and SRAM are accessible using the same address space. Because of small amount of RAM the MMU is useless and can lead to  memory usage overhead.
+
+To provide separation of running processes and used by them physical memory the Memory Protection Unit is used. Memory Protection Unit takes part in memory addresing and typically allows to partition memory access by defining set of segments which can be used during the program execution. The number of these segments is usually limited (4, 8, 16). The access to defined memeory segments can be even associated with processor execution mode, so program executed in supervisor mode can operate on more segments then when it is executed in user mode. Processor execution modes and methods of transitioning between them have been Discussed in chapter [Processes and threads](proc/README.md).
+
+There are two strategies of using MPU and memory segmentation. First and more flexible is strategy of switching whole MPU context when process context is switched. This demands to reload of all segments defined by MPU for the executed process with the new set defined for the newly choosen process. The big advantage of this technique is that processes are strictly separated because each of them uses its own set of user segments and shares the privileged segments (e.g. kernel segments). There are two disadvantages of this technique caused by typical MPU limitations. The process of redefining segments is slow because it requires the invalidation of cache memories. The method of defining segments in MPU is limited because segment address and size definition depends on choosen granulation. For example some segments can be defined only if all set of MPU registers is used.
+
+The second strategy, used in Phoenix-RTOS, is based on memory regions/segments defined for the whole operating system and shared between processes. 
+
+
+## Non-uniform memory access
 
 ## Memory management subsystem structure
+
 Memory management subsystem provides following functionalities:
 
   * physical memory allocation
@@ -59,4 +78,12 @@ Memory objects were introduced so that processes could share physical memory; th
 The memory management subsystem is located in the `src/vm` subdirectory. The lowest `pmap` layer is implemented in the HAL.
 
 ## Chapter information
+
 In this chapter main functions of the Phoenix-RTOS memory management are discussed.
+
+## See also
+
+1. [Table of Contents](../README.md)
+2. [Phoenix-RTOS architecture](../architecture.md)
+3. [Building Phoenix-RTOS](../building/README.md)
+4. [Running Phoenix-RTOS on targets](../quickstart/README.md)
