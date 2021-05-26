@@ -30,3 +30,15 @@ If the commands are stored in the `PSH_SYSEXECWL` environment variable, each com
 export PSH_SYSEXECWL="sysexec argD1 argD2 argD3;sysexec argE1 argE2 argE3;sysexec argF1 argF2"
 ```
 if neither `/etc/whitelist` and `PSH_SYSEXECWL` is defined then sysexec will not have any restrictions.
+
+#### Command template
+If command should accept variable or multiple arguments (e.g. program parameters) the command template may be specified using `*` wildcard . Checking will be performed only on arguments prior to `*`.
+
+Command template `sysexec arg1 arg2 *` has following impact:
+```bash
+sysexec arg1 arg2	#executed
+sysexec arg1 arg2 arg3 .. argN	#executed
+sysexec arg3 arg4	#NOT executed
+sysexec arg2 arg1	#NOT executed
+```
+Important note: `*` works only as standalone argument. It does not perform any lexical matching (e.g. `arg*`)
