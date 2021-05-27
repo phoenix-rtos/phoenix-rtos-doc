@@ -8,7 +8,7 @@ In `psh`, each command or set of commands is a separate applet, here's a list of
 
 * `bind`       - binds device to directory
 * `cat`        - concatenate file(s) to standard output
-* `edit`       - text editor
+* [`edit`](psh-applets/edit.md) - text editor
 * `exec`       - replace shell with the given command
 * `exit`       - exits shell
 * `help`       - prints this help message
