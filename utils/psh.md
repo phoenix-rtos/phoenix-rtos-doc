@@ -1,32 +1,32 @@
 # Phoenix Shell (psh)
 
 Phoenix Shell is a compact program that enables you to control the Phoenix-RTOS from the command line.
-## Login
 
-`psh` can be run in login mode by launching it from name `pshlogin`. User credentials are read from `/etc/passwd` file.
+## Applets
 
-Additional user credentials can be passed using the `PSH_DEFUSRPWDHASH` environment variable defined at compile time. `PSH_DEFUSRPWDHASH` should store only one hash of a password. Then one can also log in using:
-- username: defuser
-- password: (corresponding with given hash)
+In `psh`, each command or set of commands is a separate applet, here's a list of the available ones:
 
-------------
-
-
-## Sysexec command white list
-
-The built-in whitelist functionality provides the ability to predefine an available set of `sysexec` commands. These commands can be defined in two ways: 
-- `/etc/whitelist` file
-- `PSH_SYSEXECWL` environment variable at compile time
-
-If storing commands in `/etc/whitelist` file each complete `sysexec` command should be stored in separate line with line length not exceeding 79 characters:
-
-    sysexec argA1 argA2 argA3
-    sysexec argB1 argB2
-    sysexec argC1 argC2 argC3
-
-If the commands are stored in the `PSH_SYSEXECWL` environment variable, each command should end with a semicolon (`;`), as in the example below:
-
-```bash
-export PSH_SYSEXECWL="sysexec argD1 argD2 argD3;sysexec argE1 argE2 argE3;sysexec argF1 argF2"
-```
-if neither `/etc/whitelist` and `PSH_SYSEXECWL` is defined then sysexec will not have any restrictions.
+* `bind`       - binds device to directory
+* `cat`        - concatenate file(s) to standard output
+* [`edit`](psh-applets/edit.md) - text editor
+* `exec`       - replace shell with the given command
+* `exit`       - exits shell
+* `help`       - prints this help message
+* `history`    - prints commands history
+* `kill`       - terminates process
+* [`login`](psh-applets/login.md) - utility for user validation
+* `ls`         - lists files in the namespace
+* `mem`        - prints memory map
+* `mkdir`      - creates directory
+* `mount`      - mounts a filesystem
+* `nc`         - TCP and UDP connections and listens
+* `nslookup`   - queries domain name servers
+* `perf`       - track kernel performance events
+* `ping`       - ICMP ECHO requests
+* `ps`         - prints processes and threads
+* `pshapp`     - delivers `psh` interpreter, `exit`, `pshlogin` and `history` commands
+* `reboot`     - restarts the machine
+* `sync`       - synchronizes device
+* [`sysexec`](psh-applets/sysexec.md) - launch program from syspage using given map
+* `top`        - top utility
+* `touch`      - changes file timestamp
