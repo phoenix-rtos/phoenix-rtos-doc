@@ -3,6 +3,7 @@
 Fine grained allocator implemented by `vm_kmalloc()` function is the main method of dynamic memory allocation used by the Phoenix-RTOS kernel. The operating system kernel uses dynamic data structures to manage dynamic data structures created during the operating system runtime (e.g. process descriptors, threads descriptors, ports). Size of these structure varies from few bytes to tens of kilobytes. The allocator is able to allocate either the group of memory pages and to manage the fragments allocated within the page.
 
 ## Architecture
+
 Fine grained allocator is based on zone allocator. The architecture is presented on the following picture.
 
 Main allocator data structure is `sizes[]` table. Table entries points to list of zone allocators consisting fragments with sizes proportional to the entry number. Fragments have sizes equal to `2^e` where `e` is the entry number.

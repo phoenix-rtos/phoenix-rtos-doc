@@ -59,17 +59,20 @@ Memory management subsystem provides following functionalities:
 
 These functions will be briefly discussed and elaborated more in the particular chapters.
 
-### Physical 
+### Physical memory allocation
+
+Physical memory allocation is the lowest level of the memory management subsystem. It is used to provide memory for the purposes of kernel or mapped object. The are two ways of obtaining physical memory depending on the type of hardwa memory architectures. When paging technique is used the memory is allocated using physical memory pages (page frames). On architecture with direct physical memory access the physical memory is allocated using address space allocation in the particular memory map. It is planned to generalize these techniques in the next version of Phoenix-RTOS memory management susbystem. To understand the physical memory allocation algorithm on architectures using paging technique please refer to [Physical memory allocation using memory pages](page.md).  To understand the physical memory allocation algorithm on architectures with direct memory access please refer to [Physical memory allocation](phys.md).
+
+### Memory mapper
+
+When the page allocator allocates a set of pages, the set must be mapped into an address space to be accessible. The memory address space is managed by the next memory management layer, i.e. the memory mapper. The memory mapper uses a memory map structures to describe memory segments located in address spaces. In MMU architectures, each process owns a separate memory map, and there is one kernel memory map defining the kernel address space. In non-MMU architectures, there is only one map shared by all processes and the kernel.
 
 ### Hardware dependent layer (pmap)
 
 The `pmap` abstraction constitutes the lowest level of the memory management implemented in the HAL. This abstraction implements an interface for managing the MMU and hides hardware details from the upper layers. Its most important function is the `pmap_enter()`, which is used for mapping the page into the process virtual address space.
 
-### Page allocator
-The first layer located on top of the `pmap` is the page allocator. In MMU architectures, it is responsible for allocating a set of physical memory pages. Each physical page is represented by the `page_t` descriptor. In non-MMU architectures, the page allocator allocates fake `page_t` structures used by other layers.
 
-### Memory mapper
-When the page allocator allocates a set of pages, the set must be mapped into an address space to be accessible. The memory address space is managed by the next memory management layer, i.e. the memory mapper. The memory mapper uses a memory map structures to describe memory segments located in address spaces. In MMU architectures, each process owns a separate memory map, and there is one kernel memory map defining the kernel address space. In non-MMU architectures, there is only one map shared by all processes and the kernel.
+
 
 ### Kernel fine-grained allocator
 These two abstractions allow for memory allocation based on the needs of the kernel and processes with the resolution of page size. Such resolution is too large for dynamic allocation of kernel structures and could result in internal memory fragmentation and memory wasting. To omit these problems, zone allocator and fine-grained allocator are developed. They constitute the next layers of the memory management subsystem.
