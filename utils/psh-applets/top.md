@@ -1,0 +1,44 @@
+# top
+
+`top` is a real time processes and threads monitor which lists basic information about currently active processes.
+
+---
+
+`top` may be seen as [`ps`](ps.md) command which updates itself with given rate. Execution of `top` applet may be controlled with command line arguments and further with interactive commands when being 
+
+When `top` is run with `-h` argument the help message is displayed as follows:
+```
+Command line arguments
+  -h:  prints help
+  -H:  starts with threads mode
+  -d:  sets refresh rate (integer greater than 0)
+  -n:  sets number of iterations (by default its infinity)
+
+Interactive commands:
+   <ENTER> or <SPACE>:  refresh
+   H:  toggle threads mode
+   q:  quit
+   P:  sort by CPU
+   M:  sort by MEM
+   T:  sort by TIME
+   N:  sort by PID
+   R:  reverse sorting
+```
+
+If sole:
+```
+top
+``` 
+is run it presents user with a live monitor of processes sorted by *%CPU* usage. The monitor is structured in columns with headers. Each row represents a process.
+
+Column headers are:
+ - PID   - process id
+ - PPID  - parent process id
+ - PR    - priority
+ - STATE - state of process
+ - %CPU  - cpu usage of process
+ - WAIT  - wait for processor time
+ - TIME  - age of process
+ - VMEM  - memory used
+ - CMD   - command that started that process
+ 

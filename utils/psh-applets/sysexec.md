@@ -1,3 +1,15 @@
+# sysexec
+
+`sysexec` is a `psh` utility to run programs on systems without MMU.
+
+---
+
+Usage:
+```
+sysexec map programname [args]...
+```
+
+
 ## Sysexec command white list
 
 The built-in whitelist functionality provides the ability to predefine an available set of `sysexec` commands. These commands can be defined in two ways: 
