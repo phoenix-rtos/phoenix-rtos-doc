@@ -6,7 +6,25 @@
 
 Usage:
 ```
-sysexec map programname [args]...
+sysexec [-m mapname] progname [args]...
+```
+
+The `-m` parameter is optional and allows to specify a non-default memory map where the program data will be placed.
+The default memory map is the one assigned with the `app` command in the plo script.
+
+As an example, if in the script plo it is set:
+```
+app flash1 -x progname xip1 ocram2
+```
+
+then `ocram2` is the default map for an app, so
+```
+sysexec progname arg1 arg2
+```
+
+to use different map with read & write attributes set, provide optional map with `-m` argument:
+```
+sysexec -m dtcm progname arg1 arg2
 ```
 
 
