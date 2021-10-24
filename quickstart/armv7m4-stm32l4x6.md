@@ -3,6 +3,7 @@
 This version is designated for STM32L4x6 processors with Cortex-M4 core. To launch this version the final flash image should be downloaded. The image is created as the final artifact of `phoenix-rtos-project` building and is located in `_boot` directory. The image consist of kernel, TTY UART driver, RAM disk filesystem and psh (shell).
 
 ## Programming the board
+
 To flash the image to the board one will need openocd in version 0.10 or newer (http://openocd.org/). For STLink there is a script available:
 
 ```
@@ -34,3 +35,7 @@ To get the list of working threads and processes please type `ps -t`.
 
 <img src="_images/stm32l4x6-ps.png" width="600px">
 
+## See also
+
+1. [Running system on targets](README.md)
+2. [Table of Contents](../README.md)

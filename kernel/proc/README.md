@@ -68,12 +68,5 @@ The process and thread management subsystem is located in the `src/proc` subdire
 
 ## See also
 
-1. [Table of Contents](../README.md)
-2. [Phoenix-RTOS architecture](../architecture.md)
-3. [Building Phoenix-RTOS](../building/README.md)
-4. [Running Phoenix-RTOS on targets](../quickstart/README.md)
-
-5. [Kernel/HAL Subsystem](hal/README.md)
-6. [Kernel/Processes and threads](proc/README.md)
-7. [Kernel/Memory management](vm/README.md)
-7. [Kernel/Common routines](lib.md)
+1. [Kernel](../README.md)
+2. [Table of Contents](../../README.md)

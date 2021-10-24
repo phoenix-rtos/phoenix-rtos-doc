@@ -17,3 +17,8 @@ To run image under qemu you should type:
 Phoenix-RTOS will be launched and `psh` shell command prompt will appear in the terminal. To get the available command list please type `help`. To get the list of working threads and processes please type `ps -t`.
 
 <img src="_images/qemu-riscv64-virt-ps-t.png" width="700px">
+
+## See also
+
+1. [Running system on targets](README.md)
+2. [Table of Contents](../README.md)

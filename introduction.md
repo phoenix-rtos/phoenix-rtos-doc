@@ -119,4 +119,3 @@ Drawing on decades of technological advancements in the field of operating syste
 ## See also
 
 1. [Table of Contents](README.md)
-2. [Phoenix-RTOS architecture](architecture.md)

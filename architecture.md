@@ -49,5 +49,3 @@ Microkernel architecture allows to easily emulate the application environment of
 ## See also
 
 1. [Table of Contents](README.md)
-2. [Building Phoenix-RTOS](building/README.md)
-3. [Running Phoenix-RTOS on targets](quickstart/README.md)

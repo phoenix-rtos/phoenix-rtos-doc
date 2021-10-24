@@ -39,3 +39,7 @@ To run the image on a regular hardware please be sure that a target system is eq
   dd if=_boot/phoenix-ia32-generic.disk of=/dev/sda
 ```
 
+## See also
+
+1. [Running system on targets](README.md)
+2. [Table of Contents](../README.md)

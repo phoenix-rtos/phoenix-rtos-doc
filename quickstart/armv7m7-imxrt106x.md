@@ -62,3 +62,9 @@ To get the list of working threads and processes please type `ps -t`.
 To get the table of processes please type `top`.
 
 <img src="_images/imxrt106x-top.png" width="1000px">
+
+## See also
+
+1. [Running system on targets](README.md)
+2. [Table of Contents](../README.md)
+

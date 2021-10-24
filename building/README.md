@@ -88,9 +88,7 @@ To start the created image on target architecture please see [phoenix-rtos-doc/q
 
 ## See also
 
-1. [Table of Contents](../README.md)
-2. [Phoenix-RTOS architecture](../architecture.md)
-3. [Running Phoenix-RTOS on targets](../quickstart/README.md)
-4. [Phoenix-RTOS toolchain](toolchain.md)
-5. [Phoenix-RTOS reference project repository](project.md)
+1. [Phoenix-RTOS toolchain](toolchain.md)
+2. [Phoenix-RTOS reference project repository](project.md)
+3. [Table of Contents](../README.md)
 
