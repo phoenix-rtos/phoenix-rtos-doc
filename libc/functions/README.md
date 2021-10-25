@@ -14,6 +14,7 @@
 
 ## b
 
+beginthreadex,
 [`bind`](./b/bind.part-impl.md)
 
 ## c
@@ -25,6 +26,10 @@
 [`close`](./c/close.part-impl.md),
 [`closedir`](./c/closedir.md),
 [`closelog`](./c/closelog.md),
+condBroadcast,
+condCreate,
+condSignal,
+condWait
 [`connect`](./c/connect.part-impl.md),
 [`copysignl`](./c/copysignl.md),
 [`cos`](./c/cos.md),
@@ -34,11 +39,13 @@
 
 ## d
 
+debug,
 [`dprintf`](./d/dprintf.part-impl.md),
 [`dup`](./d/dup.part-impl.md)
 
 ## e
 
+endthread,
 [`execl`](./e/execl.part-impl.md),
 [`execle`](./e/execle.part-impl.md),
 [`execlp`](./e/execlp.part-impl.md),
@@ -104,14 +111,17 @@
 
 ## i
 
+interrupt,
 [`isatty`](./i/isatty.md)
 
 ## k
 
+keepidle,
 [`kill`](./k/kill.md)
 
 ## l
 
+LIST,
 [`labs`](./l/labs.md),
 [`ldexp`](./l/ldexp.md),
 [`ldiv`](./l/ldiv.md),
@@ -119,6 +129,7 @@
 [`log`](./l/log.md),
 [`log10`](./l/log10.md),
 [`longjmp`](./l/longjmp.md),
+lookup,
 [`lseek`](./l/lseek.md),
 [`lstat`](./l/lstat.part-impl.md)
 
@@ -130,14 +141,23 @@
 [`memchr`](./m/memchr.md),
 [`memcmp`](./m/memcmp.md),
 [`memcpy`](./m/memcpy.md),
+meminfo,
 [`memmove`](./m/memmove.md),
 [`memset`](./m/memset.md),
 [`mkdir`](./m/mkdir.md),
 [`mkfifo`](./m/mkfifo.md),
 [`mmap`](./m/mmap.md),
+mmdump,
 [`modf`](./m/modf.md),
 [`mount`](./m/mount.md),
+msgRecv,
+msgRespond,
+msgSend,
 [`munmap`](./m/munmap.md)
+mutexCreate,
+mutexLock,
+mutexTry,
+mutexUnlock
 
 ## o
 
@@ -148,7 +168,18 @@
 ## p
 
 [`perror`](./p/perror.md),
+phProcForkVirt,
+phProcID,
+phProcParentID,
+phResFileAdd,
+phResFileGet,
+phResFileSet,
+phThreadSleep,
 [`pipe`](./p/pipe.md),
+platformctl,
+portCreate,
+portDestroy,
+portRegister,
 [`pow`](./p/pow.md),
 [`printf`](./p/printf.part-impl.md),
 [`putc`](./p/putc.md),
@@ -165,12 +196,15 @@
 
 [`rand`](./r/rand.md),
 [`rand_r`](./r/rand_r.md),
+rbtree,
 [`read`](./r/read.md),
 [`readdir`](./r/readdir.md),
 [`realloc`](./r/realloc.md),
+reboot,
 [`remove`](./r/remove.md),
 [`rename`](./r/rename.md),
 [`rewind`](./r/rewind.md),
+resourceDestroy,
 [`rmdir`](./r/rmdir.md),
 
 ## s
@@ -222,6 +256,8 @@
 [`strtoull`](./s/strtoull.md),
 [`strxfrm`](./s/strxfrm.md),
 [`swprintf`](./s/swprintf.md),
+sysconf,
+syspageprog,
 [`system`](./s/system.md)
 
 ## t
@@ -233,8 +269,13 @@
 [`tcgetpgrp`](./t/tcgetpgrp.md),
 [`tcsendbreak`](./t/tcsendbreak.md),
 [`tcsetpgrp`](./t/tcsetpgrp.md),
+threadID,
+threadInfo,
+threadPriority,
 [`time`](./t/time.md),
+timeGet,
 [`times`](./t/times.md),
+timeSet,
 [`tmpfile`](./t/tmpfile.md),
 [`tmpnam`](./t/tmpnam.md)
 
@@ -249,6 +290,7 @@
 
 ## v
 
+va2pa,
 [`vfork`](./v/vfork.md),
 [`vfprintf`](./v/vfprintf.md),
 [`vprintf`](./v/vprintf.md),
@@ -259,4 +301,5 @@
 [`waitpid`](./w/waitpid.md),
 [`wcstombs`](./w/wcstombs.md),
 [`wctomb`](./w/wctomb.md),
+wdgreload,
 [`write`](./w/write.md)
