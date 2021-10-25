@@ -1,21 +1,33 @@
-###Synopsis
+# Synopsis
+
 `#include <syslog.h>`
 
 `void closelog(void);`
+
 `void openlog(const char *ident, int logopt, int facility);`
+
 `int setlogmask(int maskpri);`
+
 `void syslog(int priority, const char *message, ... /* arguments */);`
 
-###Description
+## Description
+
 All these functions operate on the log file.
+
 The `syslog()` function sends a message to the logging facility (`/dev/log`).
+
 The `openlog()` function sets process attributes that affect subsequent calls to syslog(). 
+
 The `setlogmask()` function sets the log priority mask for the current process to <u>maskpri</u> and returns the previous mask.
+
 The `closelog()` function closes any open file descriptors allocated by previous calls to `openlog()` or `syslog()`.
 
-Arguments:
-<u>ident</u> - a string that is written to all logs identifying the function or the situation, which generated the current log.
+## Arguments:
+
+$ident$ - a string that is written to all logs identifying the function or the situation, which generated the current log.
+
 <u>logopt</u> - logging options,
+
 <u>facility</u> - a logging facility,
 <u>maskpri</u> -  a log priority mask,
 
@@ -27,8 +39,11 @@ The message body is generated from the message and arguments in the same manner 
 As a severity level one of the following values is used:
 
 `LOG_EMERG`     A panic condition.
+
 `LOG_ALERT`     A condition that should be corrected immediately, such as a corrupted system database.
+
 `LOG_CRIT`      Critical conditions, such as hard device errors.
+
 `LOG_ERR`       Errors.
 `LOG_WARNING`   Warning messages.
 `LOG_NOTICE`    Conditions that are not error conditions, but that may require special handling.
@@ -67,15 +82,15 @@ The `setlogmask()` function sets the log priority mask for the current process t
 Symbolic constants for use as values of the <u>logopt</u>, <u>facility</u>, <u>priority</u>, and <u>maskpri</u> arguments are defined in the <`syslog.h`> header.
 
 
-###Return value
+## Return value
 
 The `closelog()`, `openlog()`, and `syslog()` functions do not return a value.
 The `setlogmask()` function returns the previous log priority mask. 
 
-###Errors
+## Errors
 
 No errors are defined. 
 
-###Implementation tasks
+## Implementation tasks
 
 * 
