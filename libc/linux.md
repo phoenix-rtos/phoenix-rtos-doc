@@ -1,1 +1,0 @@
-# GNU/Linux specific functions

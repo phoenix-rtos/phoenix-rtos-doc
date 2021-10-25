@@ -4,10 +4,11 @@
 
 [`_Exit`](_/_Exit.impl.md),
 [`_exit`](_/_exit.impl.md),
-[`_longjmp`](_/_longjmp.tb-impl.md),
+<!--- (`_longjmp`)(_/_longjmp.tb-impl.md),
 [`_setjmp`](_/_setjmp.tb-impl.md),
 [`_tolower`](_/_tolower.tb-impl.md),
 [`_toupper`](_/_toupper.tb-impl.md)
+--->
 
 ## A
 
