@@ -13,6 +13,10 @@ for i in `find . -name "*.md" | sort`; do
 		echo '[`'$fun'`]('$i'),'
 	fi
 	
+	if [ "X$ext" ==  "Ximpl" ]; then
+		echo '[`'$fun'`]('$i'),'
+	fi
+	
 	if [ "X$ext" ==  "Xpart-impl" ]; then
 		echo '[`'$fun'`]('$i'),'
 	fi

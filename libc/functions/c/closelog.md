@@ -10,6 +10,13 @@
 
 `void syslog(int priority, const char *message, ... /* arguments */);`
 
+## Status
+
+Fully implemented.
+
+## Compliance
+
+
 ## Description
 
 All these functions operate on the log file.
