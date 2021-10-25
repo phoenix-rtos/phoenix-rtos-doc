@@ -24,7 +24,7 @@ The value of status may be `0`, `EXIT_SUCCESS`, `EXIT_FAILURE`, or any other val
 
 The functions do not call functions registered with `atexit()` nor any registered signal handlers. Open streams are not flushed, but opened file descriptors are closed. Finally, the calling process is terminated with the consequences described below.
 
-## Consequences of Process Termination
+### Consequences of Process Termination
 
 All of the file descriptors, directory streams, conversion descriptors, and message catalog descriptors open in the calling process are closed.
 
