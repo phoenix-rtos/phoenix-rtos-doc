@@ -32,7 +32,7 @@ If the parent process of the calling process has set the action for the `SIGCHLD
 
 * The process' status information, if any, is discarded.
 
-* The lifetime of the calling process ends immediately and a `SIGCHLD` signal is sent to the parent process
+* The lifetime of the calling process ends immediately and a `SIGCHLD` signal is sent to the parent process.
 
 * If a thread in the parent process of the calling process is blocked in `wait()`, `waitpid()`, or `waitid()`, and the parent process has no remaining child processes in the set of waited-for children, the `wait()`, `waitid()`, or `waitpid()` function fails and sets errno to `[ECHILD]`.
 
