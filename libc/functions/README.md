@@ -10,8 +10,15 @@
 [`abort`](./a/abort.part-impl.md),
 [`accept`](./a/accept.part-impl.md),
 [`acos`](./a/acos.impl.md),
+[`alarm`](./a/alarm.impl.md),
+[`asctime_r`](./a/asctime_r.impl.md),
+[`asctime`](./a/asctime.impl.md),
+[`assert`](./a/assert.impl.md),
 [`atan`](./a/atan.part-impl.md),
 [`atan2`](./a/atan2.part-impl.md),
+[`atexit`](./a/atexit.part-impl.md),
+[`atof`](./a/atof.part-impl.md),
+[`atoi`](./a/atoi.part-impl.md),
 [`atol`](./a/atol.part-impl.md)
 
 ## b
