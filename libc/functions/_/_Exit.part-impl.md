@@ -1,22 +1,27 @@
+# _Exit <!-- function name without parentheses -->
+
 # Synopsis
 
-`#include <stdlib.h>`
+`_Exit()` - terminate the calling process
 
-`void _Exit(int status);`
+## Usage
 
-`#include <unistd.h>`
+```c
+#include <stdlib.h>
 
-`void _exit(int status);`
-
+void _Exit(int status);
+```
+<pre>
+#include &lt<a href="../../headers/unistd.md">unistd.h</a>&gt
+void _exit(int status);
+</pre>
 ## Status
 
-Partially implemented
+**Implementation:** Partially implemented <!-- one of: Implemented | Partially Implemented | Phoenix-RTOS exclusive -->
 
-## Conformance
+**Conformance:** _IEEE Std 1003.1-2017_ <!-- one of: IEEE edition | None -->
 
-IEEE Std 1003.1-2017
-
-## Description
+# Description
 
 The `_Exit()` and `_exit()` functions terminate the calling process. 
 
@@ -62,7 +67,7 @@ Threads terminated by a call to `_Exit()` do not invoke their cancellation clean
 
 If the calling process is a trace controller process, any trace streams that were created by the calling process are shut down as described by the `posix_trace_shutdown()` function, and mapping of trace event names to trace event type identifiers of any process built for these trace streams may be deallocated. 
 
-## Return value
+# Return value
 
 The functions can never return.
 
@@ -70,9 +75,16 @@ The functions can never return.
 
 No errors are defined.
 
-## Tests
+# Additional information
 
-## See Also
+## Examples
+```c
+/* None */
+```
+## Test coverage
+ * No test coverage. <!-- one of: No test coverage | Test coverage present -->
+
+# See Also
 
 1. [Standard library functions](../README.md)
 2. [Table of Contents](../../../README.md)
