@@ -2,12 +2,14 @@
 
 ## _
 
+[`_exit`](./_/_exit.part-impl.md)
 [`_Exit`](./_/_Exit.part-impl.md)
 
 ## a
 
 [`abort`](./a/abort.part-impl.md),
 [`accept`](./a/accept.part-impl.md),
+[`acos`](./a/acos.impl.md),
 [`atan`](./a/atan.part-impl.md),
 [`atan2`](./a/atan2.part-impl.md),
 [`atol`](./a/atol.part-impl.md)

@@ -68,3 +68,8 @@ The `accept()` function may fail if:
 [`EPROTO`] - A protocol error has occurred; for example, the `STREAMS` protocol stack has not been initialized.
 
 ## Tests
+
+## See Also
+
+1. [Standard library functions](../README.md)
+2. [Table of Contents](../../../README.md)
