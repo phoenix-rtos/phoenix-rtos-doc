@@ -2,7 +2,7 @@
 
 ## _
 
-[`_exit`](./_/_exit.part-impl.md)
+[`_exit`](./_/_Exit.part-impl.md)
 [`_Exit`](./_/_Exit.part-impl.md)
 
 ## a
