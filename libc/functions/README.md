@@ -303,3 +303,8 @@ va2pa,
 [`wctomb`](./w/wctomb.md),
 wdgreload,
 [`write`](./w/write.md)
+
+## See also
+
+1. [Standard library](../README.md)
+2. [Table of Contents](../../README.md)

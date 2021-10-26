@@ -9,17 +9,23 @@
 
 Parially implemented
 
+## Conformance
+
+IEEE Std 1003-1-2017
+
 ## Description
 
 The `accept()` function extracts the first connection on the queue of pending connections, create a new socket with the same socket type protocol and address family as the specified socket, and allocate a new file descriptor for that socket. The file descriptor is  allocated as described in File Descriptor Allocation.
 
-### Arguments:
+### Arguments
 
-<u>socket</u> - a socket that was created with `socket()`, has been bound to an address with `bind()`, and has issued a successful call to `listen()`.
-<u>address</u> - either a null pointer, or a pointer to a `sockaddr` structure where the address of the connecting socket is returned.
-<u>address_len</u> - either a null pointer, if address is a null pointer, or a pointer to a `socklen_t` object which on input specifies the length of the supplied `sockaddr` structure, and on output specifies the length of the stored address.
+`socket` - a socket that was created with `socket()`, has been bound to an address with `bind()`, and has issued a successful call to `listen()`.
 
-If address is not a null pointer, the address of the peer for the accepted connection is stored in the `sockaddr` structure pointed to by address, and the length of this address is stored in the object pointed to by <u>address_len</u>.
+`address` - either a null pointer, or a pointer to a `sockaddr` structure where the address of the connecting socket is returned.
+
+`address_len` - either a null pointer, if address is a null pointer, or a pointer to a `socklen_t` object which on input specifies the length of the supplied `sockaddr` structure, and on output specifies the length of the stored address.
+
+If address is not a null pointer, the address of the peer for the accepted connection is stored in the `sockaddr` structure pointed to by address, and the length of this address is stored in the object pointed to by `address_len`.
 
 If the actual length of the address is greater than the length of the supplied `sockaddr` structure, the stored address is truncated.
 
@@ -31,7 +37,7 @@ The accepted socket cannot itself accept more connections. The original socket r
 
 ## Return value
 
-Upon successful completion, `accept()` returns the non-negative file descriptor of the accepted socket. Otherwise, `-1` is returned, `errno` is set to indicate the error, and any object pointed to by <u>address_len</u> remains unchanged.
+Upon successful completion, `accept()` returns the non-negative file descriptor of the accepted socket. Otherwise, `-1` is returned, `errno` is set to indicate the error, and any object pointed to by `address_len` remains unchanged.
 
 ## Errors
 
@@ -59,17 +65,6 @@ Upon successful completion, `accept()` returns the non-negative file descriptor 
 
 The `accept()` function may fail if:
 
-[`EPROTO`] - A protocol error has occurred; for example, the `STREAMS` protocol stack has not been initialized. 
-
-
-## Implementation tasks
-
-* Implement error detection with errors mentioned above.
+[`EPROTO`] - A protocol error has occurred; for example, the `STREAMS` protocol stack has not been initialized.
 
 ## Tests
-
-======
-
-## EXAMPLES
-
-None.
