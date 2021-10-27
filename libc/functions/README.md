@@ -307,11 +307,12 @@ va2pa,
 
 ## w
 
-[`waitpid`](./w/waitpid.md),
-[`wcstombs`](./w/wcstombs.md),
-[`wctomb`](./w/wctomb.md),
+[`wait`](./w/waitpid.part-impl.md),
+[`waitpid`](./w/waitpid.part-impl.md),
+[`wcstombs`](./w/wcstombs.non-impl.md),
+[`wctomb`](./w/wctomb.non-impl.md),
 wdgreload,
-[`write`](./w/write.md)
+[`write`](./w/write.part-impl.md)
 
 ## See also
 
