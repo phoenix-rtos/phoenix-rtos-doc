@@ -14,5 +14,6 @@ The preferred way to deal with this project is to use Phoenix-RTOS reference pro
 ## See also
 
 1. [Standard library functions](functions/README.md)
+2. [Standard library headers](headers/README.md)
 2. [POSIX emulation server](posix.md)
 3. [Table of Contents](../README.md)
