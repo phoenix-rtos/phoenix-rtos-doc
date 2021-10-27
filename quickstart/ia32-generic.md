@@ -4,8 +4,8 @@ This version is designated for generic PC based on IA32 processor. To launch thi
 ## Running image under qemu
 To run image under qemu you should type:
 
-```
-  qemu-system-i386 -hda _boot/phoenix-ia32-generic.disk
+```bash
+./scripts/ia32-generic.sh
 ```
 
 <img src="_images/qemu-ia32-generic.png" width="600px">
