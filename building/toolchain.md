@@ -16,6 +16,7 @@ i386-pc-phoenix-gcc helloworld.c
 ```c
 #ifdef phoenix
     #warning OS is Phoenix-RTOS
+#endif
 ```
 
 ## See also
