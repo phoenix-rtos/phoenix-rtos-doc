@@ -2,7 +2,7 @@
 # Synopsis 
 
 `#include <stdlib.h>`</br>
-`extern int wctomb(char *str, wchar_t wchar)`</br>
+`int wctomb(char *str, wchar_t wchar);`</br>
 
 <!-- #MUST_BE: check status according to implementation -->
 ## Status
