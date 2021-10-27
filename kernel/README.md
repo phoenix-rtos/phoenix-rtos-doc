@@ -2,10 +2,10 @@
 
 Phoenix-RTOS is based on the written from scratch dedicated microkernel and consists of about 20K lines of code (LoC). Microkernel is responsible for:
 
-* memory management,
-* thread and process management,
-* inter-thread communication and synchronization,
-* basic application interface implementation (syscalls).
+* memory management
+* thread and process management
+* inter-thread communication and synchronization
+* basic application interface implementation (syscalls)
 
 Kernel is divided into five subsystems.
 
