@@ -310,7 +310,7 @@ va2pa,
 [`wait`](./w/waitpid.part-impl.md),
 [`waitpid`](./w/waitpid.part-impl.md),
 [`wcstombs`](./w/wcstombs.md),
-[`wctomb`](./w/wctomb.md),
+[`wctomb`](./w/wctomb.non-impl.md),
 wdgreload,
 [`write`](./w/write.part-impl.md)
 
