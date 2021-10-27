@@ -57,7 +57,21 @@ After the build successfully completes, kernel and disk images will be created a
 
 This is the method preferred when you plan to develop Phoenix-RTOS.
 
-Firstly, you need to compile the toolchains for all required target architectures:
+Firstly, you need to install some tools required for compiling toolchain and finally creating Phoenix-RTOS system image.
+There is a list of commands you can use to get them on the Ubuntu 20.04 host operating system
+```bash
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install build-essential
+sudo apt-get install autoconf
+sudo apt-get install texinfo
+sudo apt-get install bcc
+sudo apt-get install genext2fs
+sudo apt-get install libtool
+sudo apt-get install libhidapi-dev
+```
+
+Next, you need to compile the toolchains for all required target architectures:
 
 ```bash
 cd phoenix-rtos-project
@@ -89,6 +103,6 @@ To start the created image on target architecture please see [phoenix-rtos-doc/q
 ## See also
 
 1. [Phoenix-RTOS toolchain](toolchain.md)
-2. [Phoenix-RTOS reference project repository](project.md)
-3. [Table of Contents](../README.md)
-
+2. [Phoenix-RTOS building script](script.md)
+3. [Phoenix-RTOS reference project repository](project.md)
+4. [Table of Contents](../README.md)
