@@ -5,7 +5,7 @@
 3. [Building](building/README.md)
     1. [Toolchain](building/toolchain.md)
     2. [Building script](building/script.md)
-    2. [Reference project repository](building/project.md)
+    3. [Reference project repository](building/project.md)
 4. [Running system on targets](quickstart/README.md)
     1. [Running system on `armv7m4-stm32l4x6` (ST STM32L4x)](quickstart/armv7m4-stm32l4x6.md)
     2. [Running system on `armv7m7-imxrt105x` (NXP i.MX RT105x)](quickstart/armv7m7-imxrt105x.md)
