@@ -312,7 +312,7 @@ va2pa,
 [`wcstombs`](./w/wcstombs.md),
 [`wctomb`](./w/wctomb.md),
 wdgreload,
-[`write`](./w/write.md)
+[`write`](./w/write.part-impl.md)
 
 ## See also
 
