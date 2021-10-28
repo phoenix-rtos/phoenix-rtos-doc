@@ -301,9 +301,9 @@ timeSet,
 
 va2pa,
 [`vfork`](./v/vfork.md),
-[`vfprintf`](./v/vfprintf.md),
-[`vprintf`](./v/vprintf.md),
-[`vsprintf`](./v/vsprintf.md)
+[`vfprintf`](./v/vprintf.part-impl.md),
+[`vprintf`](./v/vprintf.part-impl.md),
+[`vsprintf`](./v/vprintf.part-impl.md)
 
 ## w
 
