@@ -1,16 +1,46 @@
-###Synopsis
+<!-- Documentation template to fill -->
+<!-- #MUST_BE: make good synopsis -->
+# Synopsis 
 
-`#include <stdio.h>`
+`#include <header.h>`</br>
+`int func_template(int x)`</br>
 
-`FILE *tmpfile(void);`
+<!-- #MUST_BE: check status according to implementation -->
+## Status
 
-###Conformance
-IEEE Std 1003.1-2001
+Partially implemented
 
-###Description
+<!-- #MUST_BE: if function shall be posix compliant print the standard signature  -->
+## Conformance
 
-Creates a temporary file in binary update mode (wb+).
+IEEE Std 1003.1-2017 
 
-###Return value
+<!-- #MUST_BE: update description from opengroup AND READ IT and check if it matches  -->
+## Description 
+ 
+The `_Exit()` and `_exit()` functions terminate the calling process. 
 
-###Errors
+<!-- #MUST_BE: check return values by the function  -->
+## Return value
+
+The functions can never return. 
+
+<!-- #MUST_BE: check what errors can cause the function to fail  -->
+## Errors
+
+No errors are defined. 
+
+<!-- #MUST_BE: function by default shall be untested, when tested there should be a link to test location and test command for ia32 test runner  -->
+## Tests
+
+Untested 
+
+<!-- #MUST_BE: check for pending issues in  -->
+## Known bugs 
+
+None
+
+## See Also
+
+1. [Standard library functions](../README.md)
+2. [Table of Contents](../../../README.md)
