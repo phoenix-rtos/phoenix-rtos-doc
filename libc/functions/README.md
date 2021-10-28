@@ -2,8 +2,8 @@
 
 ## _
 
-[`_exit`](./_/_Exit.part-impl.md)
-[`_Exit`](./_/_Exit.part-impl.md)
+[`_exit`](./_/_Exit.part-impl.md) <!-- #updated# -->
+[`_Exit`](./_/_Exit.part-impl.md) <!-- #updated# -->
 
 ## a
 
@@ -24,7 +24,7 @@
 ## b
 
 beginthreadex,
-[`bind`](./b/bind.part-impl.md)
+[`bind`](./b/bind.part-impl.md) <!-- #updated# -->
 
 ## c
 
@@ -68,7 +68,7 @@ endthread,
 
 [`FD_ISSET`](./f/FD_ISSET.md),
 [`fabs`](./f/fabs.md),
-[`fclose`](./f/fclose.part-impl.md),
+[`fclose`](./f/fclose.part-impl.md),s
 [`fcntl`](./f/fcntl.part-impl.md),
 [`fdopen`](./f/fdopen.part-impl.md),
 [`fexecve`](./f/fexecve.part-impl.md),
@@ -96,6 +96,7 @@ endthread,
 [`ftell`](./f/ftell.part-impl.md),
 [`ftello`](./f/ftello.part-impl.md),
 [`ftruncate`](./f/ftruncate.part-impl.md),
+[`futimens`](./u/utime.part-impl.md), <!-- #updated# -->
 [`fwrite`](./f/fwrite.part-impl.md)
 
 ## g
@@ -290,29 +291,29 @@ timeSet,
 
 ## u
 
-[`umask`](./u/umask.part-impl.md),
-[`umount`](./u/umount.phrtos.md),
-[`ungetc`](./u/ungetc.part-impl.md),
-[`unlink`](./u/unlink.part-impl.md),
-[`usleep`](./u/usleep.part-impl.md),
-[`utime`](./u/utime.part-impl.md)
+[`umask`](./u/umask.part-impl.md), <!-- #updated# -->
+[`umount`](./u/umount.phrtos.md), <!-- #updated# -->
+[`ungetc`](./u/ungetc.part-impl.md), <!-- #updated# -->
+[`unlink`](./u/unlink.part-impl.md), <!-- #updated# -->
+[`usleep`](./u/usleep.part-impl.md), <!-- #updated# -->
+[`utime`](./u/utime.part-impl.md) <!-- #updated# -->
 
 ## v
 
 va2pa,
-[`vfork`](./v/vfork.part-impl.md),
-[`vfprintf`](./v/vprintf.part-impl.md),
-[`vprintf`](./v/vprintf.part-impl.md),
-[`vsprintf`](./v/vprintf.part-impl.md)
+[`vfork`](./v/vfork.part-impl.md), <!-- #updated# -->
+[`vfprintf`](./v/vprintf.part-impl.md), <!-- #updated# -->
+[`vprintf`](./v/vprintf.part-impl.md), <!-- #updated# -->
+[`vsprintf`](./v/vprintf.part-impl.md) <!-- #updated# -->
 
 ## w
 
-[`wait`](./w/waitpid.part-impl.md),
-[`waitpid`](./w/waitpid.part-impl.md),
-[`wcstombs`](./w/wcstombs.non-impl.md),
-[`wctomb`](./w/wctomb.non-impl.md),
+[`wait`](./w/waitpid.part-impl.md), <!-- #updated# -->
+[`waitpid`](./w/waitpid.part-impl.md), <!-- #updated# -->
+[`wcstombs`](./w/wcstombs.non-impl.md), <!-- #updated# -->
+[`wctomb`](./w/wctomb.non-impl.md), <!-- #updated# -->
 wdgreload,
-[`write`](./w/write.part-impl.md)
+[`write`](./w/write.part-impl.md) <!-- #updated# -->
 
 ## See also
 
