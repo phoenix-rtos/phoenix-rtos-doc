@@ -291,7 +291,7 @@ timeSet,
 ## u
 
 [`umask`](./u/umask.part-impl.md),
-[`umount`](./u/umount.part-impl.md),
+[`umount`](./u/umount.phrtos.md),
 [`ungetc`](./u/ungetc.part-impl.md),
 [`unlink`](./u/unlink.part-impl.md),
 [`usleep`](./u/usleep.part-impl.md),
