@@ -272,9 +272,9 @@ syspageprog,
 
 ## t
 
-[`tanh`](./t/tanh.md), <!-- #updated# -->
-[`tanhf`](./t/tanh.md), <!-- #updated# -->
-[`tcdrain`](./t/tcdrain.md),
+[`tanh`](./t/tanh.part-impl.md), <!-- #updated# -->
+[`tanhf`](./t/tanh.part-impl.md), <!-- #updated# -->
+[`tcdrain`](./t/tcdrain.part-impl.md), <!-- #updated# -->
 [`tcflush`](./t/tcflush.md),
 [`tcgetattr`](./t/tcgetattr.md),
 [`tcgetpgrp`](./t/tcgetpgrp.md),
