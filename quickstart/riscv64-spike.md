@@ -2,8 +2,6 @@
 This version is designated for RISC-V 64 processor based spike machine implemented by spike (riscv-isa-sim) emulator and `qemu-system-riscv64`. To launch this version
 kernel file integrated with SBI firmware with embedded SBI console driver, dummyfs filesystem and `psh` shell should be downloaded.
 
-The kernel file image can be downloaded from
-
 ## Running image under spike
 To run image under spike you should type:
 
