@@ -1,10 +1,46 @@
-###Synopsis
-`#include <sys/times.h>`
+<!-- Documentation template to fill -->
+<!-- #MUST_BE: make good synopsis -->
+# Synopsis 
 
-`clock_t times(struct tms *buffer);`
+`#include <header.h>`</br>
+`int func_template(int x)`</br>
 
-###Description
+<!-- #MUST_BE: check status according to implementation -->
+## Status
 
-###Return value
+Partially implemented
 
-###Errors
+<!-- #MUST_BE: if function shall be posix compliant print the standard signature  -->
+## Conformance
+
+IEEE Std 1003.1-2017 
+
+<!-- #MUST_BE: update description from opengroup AND READ IT and check if it matches  -->
+## Description 
+ 
+The `_Exit()` and `_exit()` functions terminate the calling process. 
+
+<!-- #MUST_BE: check return values by the function  -->
+## Return value
+
+The functions can never return. 
+
+<!-- #MUST_BE: check what errors can cause the function to fail  -->
+## Errors
+
+No errors are defined. 
+
+<!-- #MUST_BE: function by default shall be untested, when tested there should be a link to test location and test command for ia32 test runner  -->
+## Tests
+
+Untested 
+
+<!-- #MUST_BE: check for pending issues in  -->
+## Known bugs 
+
+None
+
+## See Also
+
+1. [Standard library functions](../README.md)
+2. [Table of Contents](../../../README.md)
