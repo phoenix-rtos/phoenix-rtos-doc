@@ -272,7 +272,8 @@ syspageprog,
 
 ## t
 
-[`tanh`](./t/tanh.md),
+[`tanh`](./t/tanh.md), <!-- #updated# -->
+[`tanhf`](./t/tanh.md), <!-- #updated# -->
 [`tcdrain`](./t/tcdrain.md),
 [`tcflush`](./t/tcflush.md),
 [`tcgetattr`](./t/tcgetattr.md),
