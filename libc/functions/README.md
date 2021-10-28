@@ -290,12 +290,12 @@ timeSet,
 
 ## u
 
-[`umask`](./u/umask.md),
-[`umount`](./u/umount.md),
-[`ungetc`](./u/ungetc.md),
-[`unlink`](./u/unlink.md),
-[`usleep`](./u/usleep.md),
-[`utime`](./u/utime.md)
+[`umask`](./u/umask.part-impl.md),
+[`umount`](./u/umount.part-impl.md),
+[`ungetc`](./u/ungetc.part-impl.md),
+[`unlink`](./u/unlink.part-impl.md),
+[`usleep`](./u/usleep.part-impl.md),
+[`utime`](./u/utime.part-impl.md)
 
 ## v
 
