@@ -277,7 +277,7 @@ syspageprog,
 [`tcdrain`](./t/tcdrain.part-impl.md), <!-- #updated# -->
 [`tcflush`](./t/tcflush.part-impl.md), <!-- #updated# -->
 [`tcgetattr`](./t/tcgetattr.part-impl.md), <!-- #updated# -->
-[`tcgetpgrp`](./t/tcgetpgrp.md),
+[`tcgetpgrp`](./t/tcgetpgrp.part-impl.md), <!-- #updated# -->
 [`tcsendbreak`](./t/tcsendbreak.md),
 [`tcsetpgrp`](./t/tcsetpgrp.md),
 threadID,
