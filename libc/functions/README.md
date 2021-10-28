@@ -278,8 +278,8 @@ syspageprog,
 [`tcflush`](./t/tcflush.part-impl.md), <!-- #updated# -->
 [`tcgetattr`](./t/tcgetattr.part-impl.md), <!-- #updated# -->
 [`tcgetpgrp`](./t/tcgetpgrp.part-impl.md), <!-- #updated# -->
-[`tcsendbreak`](./t/tcsendbreak.md),
-[`tcsetpgrp`](./t/tcsetpgrp.md),
+[`tcsendbreak`](./t/tcsendbreak.part-impl.md), <!-- #updated# -->
+[`tcsetpgrp`](./t/tcsetpgrp.part-impl.md), <!-- #updated# -->
 threadID,
 threadInfo,
 threadPriority,
