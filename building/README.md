@@ -62,12 +62,12 @@ There is a list of commands you can use to get them on the Ubuntu 20.04 host ope
 ```bash
 sudo apt-get update && \
 sudo apt-get upgrade && \
-sudo apt-get install build-essential && \
-sudo apt-get install autoconf && \
-sudo apt-get install texinfo && \
-sudo apt-get install genext2fs && \
-sudo apt-get install libtool && \
-sudo apt-get install libhidapi-dev
+sudo apt-get install build-essential \
+autoconf \
+texinfo \
+genext2fs \
+libtool \
+libhidapi-dev
 ```
 
 Next, you need to compile the toolchains for all required target architectures:
