@@ -29,9 +29,13 @@ Upon successful completion, `0` shall be returned. Otherwise, `-1` shall be retu
 The `tcsetpgrp()` function shall fail if:
 
 * `EBADF` - The _fildes_ argument is not a valid file descriptor.
+
 * `EINVAL` - This implementation does not support the value in the _pgid_id_ argument.
+
 * `EIO` - The process group of the writing process is orphaned, the calling thread is not blocking `SIGTTOU`, and the process is not ignoring SIGTTOU.
+
 * `ENOTTY` - The calling process does not have a controlling terminal, or the file is not the controlling terminal, or the controlling terminal is no longer associated with the session of the calling process.
+
 * `EPERM` - The value of _pgid_id_ is a value supported by the implementation, but does not match the process group ID of a process in the same session as the calling process.
 
 <!-- #MUST_BE: function by default shall be untested, when tested there should be a link to test location and test command for ia32 test runner  -->

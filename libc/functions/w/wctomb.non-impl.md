@@ -37,6 +37,7 @@ In no case shall the value returned be greater than the value of the `MB_CUR_MAX
 ## Errors
 
 The `wctomb()` function shall fail if:
+
 * `EILSEQ` An invalid wide-character code is detected. 
 
 <!-- #MUST_BE: function by default shall be untested, when tested there should be a link to test location and test command for ia32 test runner  -->

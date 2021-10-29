@@ -31,6 +31,7 @@ The functions can never return. Upon successful completion, `tcgetpgrp()` shall 
 The `tcgetpgrp()` function shall fail if:
 
 * `EBADF` - The _fildes_ argument is not a valid file descriptor.
+
 * `ENOTTY` - The calling process does not have a controlling terminal, or the file is not the controlling terminal.
 
 <!-- #MUST_BE: function by default shall be untested, when tested there should be a link to test location and test command for ia32 test runner  -->

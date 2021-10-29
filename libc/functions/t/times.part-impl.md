@@ -46,7 +46,7 @@ Upon successful completion, `times()` shall return the elapsed real time, in clo
 
 The `times()` function shall fail if:
 
-* `EOVERFLOW` - the return value would overflow the range of `clock_t`.</br>
+* `EOVERFLOW` - the return value would overflow the range of `clock_t`.
 
 
 

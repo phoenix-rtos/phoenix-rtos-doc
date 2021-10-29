@@ -36,6 +36,7 @@ Upon successful completion, `0` shall be returned. Otherwise, `-1` shall be retu
 The `tcgetattr()` function shall fail if:
 
 * `EBADF` - The _fildes_ argument is not a valid file descriptor.
+
 * `ENOTTY` - The file associated with _fildes_ is not a terminal.
 
 <!-- #MUST_BE: function by default shall be untested, when tested there should be a link to test location and test command for ia32 test runner  -->

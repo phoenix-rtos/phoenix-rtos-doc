@@ -50,10 +50,15 @@ Write requests to a pipe or FIFO shall be handled in the same way as a regular f
  * If the `O_NONBLOCK` flag is clear, a write request may cause the thread to block, but on normal completion it shall return nbyte.
 
  * If the `O_NONBLOCK` flag is set, `write()` requests shall be handled differently, in the following ways:
+
    * The `write()` function shall not block the thread.
+
    * A write request for `PIPE_BUF` or fewer bytes shall have the following effect: if there is sufficient space available in the pipe, `write()` shall transfer all the data and return the number of bytes requested. Otherwise, `write()` shall transfer no data and return `-1` with errno set to `EAGAIN`.
+
    * A write request for more than `PIPE_BUF` bytes shall cause one of the following:
+
      * When at least one byte can be written, transfer what it can and return the number of bytes written. When all data previously written to the pipe is read, it shall transfer at least `PIPE_BUF` bytes.
+
      * When no data can be written, transfer no data, and return `-1` with errno set to `EAGAIN`.
 
 When attempting to write to a file descriptor (other than a pipe or FIFO) that supports non-blocking writes and cannot accept the data immediately:
@@ -77,9 +82,12 @@ If _fildes_ refers to a typed memory object, the result of the `write()` functio
 If _fildes_ refers to a `STREAM`, the operation of `write()` shall be determined by the values of the minimum and maximum _nbyte_ range (packet size) accepted by the `STREAM`. These values are determined by the topmost `STREAM` module. If _nbyte_ falls within the packet size range, _nbyte_ bytes shall be written. If _nbyte_ does not fall within the range and the minimum packet size value is `0`, `write()` shall break the buffer into maximum packet size segments prior to sending the data downstream (the last segment may contain less than the maximum packet size). If _nbyte_ does not fall within the range and the minimum value is non-zero, `write()` shall fail with errno set to `ERANGE`. Writing a zero-length buffer (_nbyte_ is `0`) to a `STREAMS` device sends `0` bytes with `0` returned. However, writing a zero-length buffer to a `STREAMS`-based pipe or `FIFO` sends no message and `0` is returned. The process may issue `I_SWROPT ioctl()` to enable zero-length messages to be sent across the pipe or `FIFO`.
 
 When writing to a `STREAM`, data messages are created with a priority band of `0`. When writing to a `STREAM` that is not a pipe or `FIFO`:
- * If `O_NONBLOCK` is clear, and the STREAM cannot accept data (the STREAM write queue is full due to internal flow control conditions), write() shall block until data can be accepted.
- * If `O_NONBLOCK` is set and the `STREAM` cannot accept data, `write()` shall return `-1` and set errno to `EAGAIN`.
- * If `O_NONBLOCK` is set and part of the buffer has been written while a condition in which the `STREAM` cannot accept additional data occurs, `write()` shall terminate and return the number of bytes written.
+
+* If `O_NONBLOCK` is clear, and the STREAM cannot accept data (the STREAM write queue is full due to internal flow control conditions), write() shall block until data can be accepted.
+
+* If `O_NONBLOCK` is set and the `STREAM` cannot accept data, `write()` shall return `-1` and set errno to `EAGAIN`.
+
+* If `O_NONBLOCK` is set and part of the buffer has been written while a condition in which the `STREAM` cannot accept additional data occurs, `write()` shall terminate and return the number of bytes written.
 
 In addition, `write()` shall fail if the `STREAM` head has processed an asynchronous error before the call. In this case, the value of errno does not reflect the result of `write()`, but reflects the prior error.
 
@@ -96,20 +104,31 @@ Upon successful completion, these functions shall return the number of bytes act
 The `write()` function shall fail if:
 
 * `EAGAIN` - The file is neither a pipe, nor a `FIFO`, nor a socket, the `O_NONBLOCK` flag is set for the file descriptor, and the thread would be delayed in the `write()` operation.
+
 * `EBADF` - The _fildes_ argument is not a valid file descriptor open for writing.
+
 * `EFBIG` - An attempt was made to write a file that exceeds the implementation-defined maximum file size or the file size limit of the process, and there was no room for any bytes to be written.
+
 * `EFBIG` - The file is a regular file, _nbyte_ is greater than `0`, and the starting position is greater than or equal to the offset maximum established in the open file description associated with fildes.
+
  * `EINTR` - The write operation was terminated due to the receipt of a signal, and no data was transferred.
+
  * `EIO` - The process is a member of a background process group attempting to write to its controlling terminal, `TOSTOP` is set, the calling thread is not blocking `SIGTTOU`, the process is not ignoring `SIGTTOU`, and the process group of the process is orphaned. This error may also be returned under implementation-defined conditions.
+
  * `ENOSPC` - There was no free space remaining on the device containing the file.
+
  * `ERANGE` - The transfer request size was outside the range supported by the `STREAMS` file associated with _fildes_. 
 
 The `write()` function may fail if:
 
  * `EINVAL` - The `STREAM` or multiplexer referenced by _fildes_ is linked (directly or indirectly) downstream from a multiplexer.
+
  * `EIO` - A physical I/O error has occurred.
+
  * `ENOBUFS` - Insufficient resources were available in the system to perform the operation.
+
  * `ENXIO` - A request was made of a nonexistent device, or the request was outside the capabilities of the device.
+
  * `ENXIO` - A hangup occurred on the `STREAM` being written to.
 
 <!-- #MUST_BE: function by default shall be untested, when tested there should be a link to test location and test command for ia32 test runner  -->
