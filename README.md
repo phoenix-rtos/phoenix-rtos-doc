@@ -59,6 +59,8 @@
 9. [Filesystem servers](filesystems/README.md)
 10. [Network stack](lwip/README.md)
 11. [USB stack](usb/README.md)
+    1. [USB Host stack](usb/usbhost.md)
+    2. [libusb](usb/libusb.md)
 12. [Utilities](utils/README.md)
     1. [psh](utils/psh.md)
     2. [psd](utils/psd.md)
