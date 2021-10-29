@@ -24,7 +24,11 @@ In order to run one of the user applications you should type `/usr/bin/appname` 
 ```bash
 /usr/bin/voxeldemo
 ```
-You can type `ctrl + c` to quit the voxeldemo app.
+The screenshot from voxeldemo appliction is presented below.
+
+<img src="_images/qemu-ia32-generic-voxeldemo.png" width="600px">
+
+You can press `ctrl + c` to quit the voxeldemo app.
 
 To get the list of working threads and processes please type:
 
