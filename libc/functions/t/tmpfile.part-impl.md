@@ -40,17 +40,22 @@ Upon successful completion, `tmpfile()` shall return a pointer to the stream of 
 
 The `tmpfile()` function shall fail if:
 
-* `EINTR` - a signal was caught during `tmpfile()`. </br>
-* `EMFILE` - all file descriptors available to the process are currently open. </br>
-* `EMFILE` - `STREAM_MAX` streams are currently open in the calling process. </br>
-* `ENFILE` - the maximum allowable number of files is currently open in the system. </br>
-* `ENOSPC` - the directory or file system which would contain the new file cannot be expanded. </br>
-* `EOVERFLOW` - the file is a regular file and the size of the file cannot be represented correctly in an object of type `off_t`. </br>
+* `EINTR` - a signal was caught during `tmpfile()`.
+
+* `EMFILE` - all file descriptors available to the process are currently open.
+
+* `EMFILE` - `STREAM_MAX` streams are currently open in the calling process.
+
+* `ENFILE` - the maximum allowable number of files is currently open in the system.
+
+* `ENOSPC` - the directory or file system which would contain the new file cannot be expanded.
+
+* `EOVERFLOW` - the file is a regular file and the size of the file cannot be represented correctly in an object of type `off_t`. 
 
 The `tmpfile()` function may fail if:
 
-* `EMFILE` - `FOPEN_MAX` streams are currently open in the calling process. </br>
-* `ENOMEM` - insufficient storage space is available. </br>
+ - `EMFILE` - `FOPEN_MAX` streams are currently open in the calling process. </br>
+ - `ENOMEM` - insufficient storage space is available. </br>
 
 
 
