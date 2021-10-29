@@ -60,14 +60,13 @@ This is the method preferred when you plan to develop Phoenix-RTOS.
 Firstly, you need to install some tools required for compiling toolchain and finally creating Phoenix-RTOS system image.
 There is a list of commands you can use to get them on the Ubuntu 20.04 host operating system
 ```bash
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get install build-essential
-sudo apt-get install autoconf
-sudo apt-get install texinfo
-sudo apt-get install bcc
-sudo apt-get install genext2fs
-sudo apt-get install libtool
+sudo apt-get update && \
+sudo apt-get upgrade && \
+sudo apt-get install build-essential && \
+sudo apt-get install autoconf && \
+sudo apt-get install texinfo && \
+sudo apt-get install genext2fs && \
+sudo apt-get install libtool && \
 sudo apt-get install libhidapi-dev
 ```
 
