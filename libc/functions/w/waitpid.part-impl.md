@@ -46,17 +46,25 @@ The options argument is constructed from the bitwise-inclusive OR of zero or mor
 If `wait()` or `waitpid()` return because the status of a child process is available, these functions shall return a value equal to the process ID of the child process. In this case, if the value of the argument stat_loc is not a null pointer, information shall be stored in the location pointed to by stat_loc. The value stored at the location pointed to by stat_loc shall be `0` if and only if the status returned is from a terminated child process that terminated by one of the following means:
 
 * The process returned `0` from `main()`.
+
 * The process called `_exit()` or `exit()` with a status argument of `0`.
+
 * The process was terminated because the last thread in the process terminated.
 
 Regardless of its value, this information may be interpreted using the following macros, which are defined in `<sys/wait.h>` and evaluate to integral expressions; the stat_val argument is the integer value pointed to by stat_loc.
 
 * `WIFEXITED(stat_val)` - Evaluates to a non-zero value if status was returned for a child process that terminated normally.
+
 * `WEXITSTATUS(stat_val)` - If the value of `WIFEXITED(stat_val)` is non-zero, this macro evaluates to the low-order 8 bits of the status argument that the child process passed to `_exit()` or `exit()`, or the value the child process returned from `main()`.
+
 * `WIFSIGNALED(stat_val)` - Evaluates to a non-zero value if status was returned for a child process that terminated due to the receipt of a signal that was not caught (see `<signal.h>`).
+
 * `WTERMSIG(stat_val)` - If the value of WIFSIGNALED(stat_val) is non-zero, this macro evaluates to the number of the signal that caused the termination of the child process.
+
 * `WIFSTOPPED(stat_val)` - Evaluates to a non-zero value if status was returned for a child process that is currently stopped.
+
 * `WSTOPSIG(stat_val)` - If the value of WIFSTOPPED(stat_val) is non-zero, this macro evaluates to the number of the signal that caused the child process to stop.
+
 * `WIFCONTINUED(stat_val)` - Evaluates to a non-zero value if status was returned for a child process that has continued from a job control stop.
 
 It is unspecified whether the status value returned by calls to `wait()` or `waitpid()` for processes created by `posix_spawn()` or `posix_spawnp()` can indicate a `WIFSTOPPED(stat_val)` before subsequent calls to `wait()` or `waitpid()` indicate `WIFEXITED(stat_val)` as the result of an error detected before the new process image starts executing.
@@ -90,12 +98,15 @@ If a parent process terminates without waiting for all of its child processes to
 
 The `wait()` function shall fail if:
 * `ECHILD` - the calling process has no existing unwaited-for child processes.
+
 * `EINTR`  - the function was interrupted by a signal. The value of the location pointed to by stat_loc is undefined.
 
 The `waitpid()` function shall fail if:
 
 * `ECHILD` - the process specified by pid does not exist or is not a child of the calling process, or the process group specified by pid does not exist or does not have any member process that is a child of the calling process.
+
 * `EINTR` - the function was interrupted by a signal. The value of the location pointed to by stat_loc is undefined.
+
 * `EINVAL` - the options argument is not valid. 
 
 ## Tests

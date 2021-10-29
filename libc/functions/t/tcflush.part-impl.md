@@ -22,7 +22,9 @@ IEEE Std 1003.1-2017
 Upon successful completion, `tcflush()` shall discard data written to the object referred to by _fildes_ (an open file descriptor associated with a terminal) but not transmitted, or data received but not read, depending on the value of _queue_selector_:
 
 * If _queue_selector_ is `TCIFLUSH`, it shall flush data received but not read.
+
 * If _queue_selector_ is `TCOFLUSH`, it shall flush data written but not transmitted.
+
 * If _queue_selector_ is `TCIOFLUSH`, it shall flush both data received but not read and data written but not transmitted.
 
 Attempts to use `tcflush()` from a process which is a member of a background process group on a _fildes_ associated with its controlling terminal shall cause the process group to be sent a `SIGTTOU` signal. If the calling thread is blocking `SIGTTOU` signals or the process is ignoring `SIGTTOU` signals, the process shall be allowed to perform the operation, and no signal is sent.
