@@ -14,7 +14,16 @@ TARGET=ia32-generic phoenix-rtos-build/build.sh clean all
 When you want to compile only the new changes and save time you don't have to use it.
 
 The `all` argument specifies that all system components for a given target should be compiled.
-For example, in ia32-generic target `all` means `core fs image project test ports`
+The available components are listed below:
+- `fs` - filesystem image,
+- `core` - Phoenix-RTOS core, i.e. kernel and other necessary components,
+- `test` - tests,
+- `ports` - phoenix-rtos-ports applications,
+- `project` - project specific part (user applications),
+- `image` - system image to be loaded to the target,
+
+For example, in ia32-generic target `all` means `core fs image project test ports`</br>
+For the other targets `all` can be different components configurations. </br>
 You can also choose what components do you want to build, for example the following command will build system image without test and ports components.
 ```bash
 TARGET=ia32-generic phoenix-rtos-build/build.sh core fs image project
