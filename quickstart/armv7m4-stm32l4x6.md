@@ -1,6 +1,8 @@
 # Running system on `armv7m4-stm32l4x6` (ST STM32L4x)
 
-This version is designated for STM32L4x6 processors with Cortex-M4 core. To launch this version the final flash image should be downloaded. The image is created as the final artifact of `phoenix-rtos-project` building and is located in `_boot` directory. The image consist of kernel, TTY UART driver, RAM disk filesystem and psh (shell).
+This version is designated for STM32L4x6 processors with Cortex-M4 core. To launch this version the final flash image should be provided. The image is created as the final artifact of `phoenix-rtos-project` building and is located in `_boot` directory. The image consist of kernel, TTY UART driver, RAM disk filesystem and psh (shell).
+
+See [how to build the Phoenix-RTOS system image](../building/README.md)
 
 ## Development board
 
@@ -76,9 +78,11 @@ or use openocd directly:
 
 ```
 OPENOCDPATH="/usr/local/share/openocd"
-openocd -f $OPENOCDPATH/scripts/interface/stlink.cfg -f $OPENOCDPATH/scripts/target/stm32l4x.cfg -c "reset_config srst_only srst_nogate connect_assert_srst" -c "program _boot/phoenix-armv7m4-stm32l4x6.bin 0x08000000 verify reset exit"
+openocd -f $OPENOCDPATH/scripts/interface/stlink.cfg \
+-f $OPENOCDPATH/scripts/target/stm32l4x.cfg -c "reset_config srst_only srst_nogate connect_assert_srst" \
+-c "program _boot/phoenix-armv7m4-stm32l4x6.bin 0x08000000 verify reset exit"
 ```
-<img src="_images/openocd-version.png" width="600px">
+<img src="_images/stm32l4x6-openocd.png" width="600px">
 
 Script can be modified to accomodate other SWD interfaces.
 
@@ -92,7 +96,7 @@ To get the available command list please type `help`.
 
 <img src="_images/stm32l4x6-help.png" width="600px">
 
-To get the list of working threads and processes please type `ps -t`.
+To get the list of working processes please type `ps`.
 
 <img src="_images/stm32l4x6-ps.png" width="600px">
 
