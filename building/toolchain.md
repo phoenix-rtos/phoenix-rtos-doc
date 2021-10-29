@@ -7,11 +7,14 @@ The Phoenix-RTOS provides its toolchain, based on GNU CC. It's divided into the 
 
 Each part delivers the tools required to compile for the given architecture simply.
 There are a few reasons why that is helpful
+
 - you can easily compile source code for a given Phoenix-RTOS platform, for example, ia32-generic
 ```bash
 i386-pc-phoenix-gcc helloworld.c
 ```
+
 - you don't need to use many of the compiler switches
+
 - you can check if a program is compiled for Phoenix-RTOS or not, using `phoenix` or `__phoenix__` flag
 ```c
 #ifdef phoenix
