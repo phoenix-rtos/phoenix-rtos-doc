@@ -283,12 +283,12 @@ syspageprog,
 threadID,
 threadInfo,
 threadPriority,
-[`time`](./t/time.md),
+[`time`](./t/time.part-impl.md),
 timeGet,
-[`times`](./t/times.md),
+[`times`](./t/times.part-impl.md),
 timeSet,
-[`tmpfile`](./t/tmpfile.md),
-[`tmpnam`](./t/tmpnam.md)
+[`tmpfile`](./t/tmpfile.part-impl.md),
+[`tmpnam`](./t/tmpnam.part-impl.md)
 
 ## u
 
