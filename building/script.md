@@ -15,11 +15,17 @@ When you want to compile only the new changes and save time you don't have to us
 
 The `all` argument specifies that all system components for a given target should be compiled.
 The available components are listed below:
+
 - `fs` - filesystem image,
+
 - `core` - Phoenix-RTOS core, i.e. kernel and other necessary components,
+
 - `test` - tests,
+
 - `ports` - phoenix-rtos-ports applications,
+
 - `project` - project specific part (user applications),
+
 - `image` - system image to be loaded to the target,
 
 For example, in ia32-generic target `all` means `core fs image project test ports`</br>

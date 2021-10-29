@@ -36,13 +36,21 @@ The main repository of the Phoenix-RTOS is the [phoenix-rtos-project](https://gi
 There are also other directories and files directly in `phoenix-rtos-project`.
 
 - `_fs/` - rootf template,
+
 - `_targets/` - rules for building the system for each hardware target,
+
 - `_user/` - user applications are placed here. Some demos are available from the box - e.g. hello world, voxeldemo,
+
 - `mtd-utils` - outside tool for creating jffs2 partitions,
+
 - `riscv` - bootloader for RISC-V CPU,
+
 - `scripts` - bash scripts for running Phoenix-RTOS on simulators (e.g. QEMU),
+
 - `build.project` - bash include file, defines how to build the whole system, it is included by phoenix-rtos-build/build.sh,
+
 - `busybox-config` - configuration for busybox (baseline Linux based toolkit and shell),
+
 - `docker-build.sh` - script for building using docker (docker allows user to not have toolchain on his or her developement PC).
 
 ## See also
