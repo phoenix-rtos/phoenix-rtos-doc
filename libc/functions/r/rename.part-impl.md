@@ -164,17 +164,14 @@ The `rename()`    and `renameat()`
  functions may fail if:
 
 
- * `EBUSY` - `OB XSR]  The file named by the _old_ or _new_ arguments is a named STREAM. 
+ * `EBUSY` - The file named by the _old_ or _new_ arguments is a named STREAM. 
 
- * `ELOOP` -  
-More than `SYMLOOP_MAX` symbolic links were encountered during resolution of the path argument. 
+ * `ELOOP` -  More than `SYMLOOP_MAX` symbolic links were encountered during resolution of the path argument. 
 
- * `ENAMETOOLONG` -  
-The length of a pathname exceeds `PATH_MAX`, or pathname resolution of a symbolic link produced an intermediate result with a
+ * `ENAMETOOLONG` -  The length of a pathname exceeds `PATH_MAX`, or pathname resolution of a symbolic link produced an intermediate result with a
 length that exceeds `PATH_MAX`. 
 
- * `ETXTBSY` -  
-The file named by _new_ exists and is the last directory entry to a pure procedure (shared text) file that is being executed.
+ * `ETXTBSY` -  The file named by _new_ exists and is the last directory entry to a pure procedure (shared text) file that is being executed.
 
 
 
