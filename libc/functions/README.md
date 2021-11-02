@@ -104,9 +104,9 @@ endthread,
 [`gai_strerror`](./g/gai_strerror.part-impl.md),
 [`getaddrinfo`](./g/getaddrinfo.part-impl.md),
 [`getc`](./g/getc.part-impl.md),
-[`getc_unlocked`](./g/getc_unlocked.part-impl.md),
+[`getc_unlocked`](./p/putchar_unlocked.part-impl.md), <!-- updated -->
 [`getchar`](./g/getchar.md),
-[`getchar_unlocked`](./g/getchar_unlocked.part-impl.md),
+[`getchar_unlocked`](./p/putchar_unlocked.part-impl.md), <!-- updated -->
 [`getcwd`](./g/getcwd.part-impl.md),
 [`getegid`](./g/getegid.md),
 [`getline`](./g/getline.part-impl.md),
@@ -193,14 +193,14 @@ portRegister,
 [`pow`](./p/pow.md),
 [`printf`](./p/printf.part-impl.md), <!-- updated -->
 [`putc`](./p/putc.md),
-[`putc_unlocked`](./p/putc_unlocked.part-impl.md),
+[`putc_unlocked`](./p/putchar_unlocked.part-impl.md), <!-- updated -->
 [`putchar`](./p/putchar.md),
-[`putchar_unlocked`](./p/putchar_unlocked.part-impl.md),
-[`puts`](./p/puts.md)
+[`putchar_unlocked`](./p/putchar_unlocked.part-impl.md), <!-- updated -->
+[`puts`](./p/puts.part-impl.md), <!-- updated -->
 
 ## q
 
-[`qsort`](./q/qsort.md)
+[`qsort`](./q/qsort.part-impl.md) <!-- updated -->
 
 ## r
 
