@@ -49,7 +49,7 @@ condWait
 ## d
 
 debug,
-[`dprintf`](./d/dprintf.part-impl.md),
+[`dprintf`](./d/snprintf.part-impl.md),
 [`dup`](./d/dup.part-impl.md)
 
 ## e
@@ -81,17 +81,17 @@ endthread,
 [`fnmatch`](./f/fnmatch.part-impl.md),
 [`fopen`](./f/fopen.md),
 [`fork`](./f/fork.part-impl.md),
-[`fprintf`](./f/fprintf.part-impl.md),
+[`fprintf`](./f/printf.part-impl.md), <!-- updated -->
 [`fputc`](./f/fputc.part-impl.md),
 [`fputs`](./f/fputs.part-impl.md),
 [`fread`](./f/fread.part-impl.md),
 [`freeaddrinfo`](./f/freeaddrinfo.part-impl.md),
 [`freopen`](./f/freopen.md),
 [`frexp`](./f/frexp.part-impl.md),
-[`fscanf`](./f/fscanf.part-impl.md),
+[`fscanf`](./f/scanf.part-impl.md),
 [`fseek`](./f/fseek.part-impl.md),
 [`fseeko`](./f/fseeko.part-impl.md),
-[`fstat`](./f/fstat.part-impl.md),
+[`fstatat`](./f/stat.part-impl.md), <!-- updated -->
 [`fstatat`](./f/fstatat.part-impl.md),
 [`ftell`](./f/ftell.part-impl.md),
 [`ftello`](./f/ftello.part-impl.md),
@@ -141,7 +141,7 @@ LIST,
 [`longjmp`](./l/longjmp.md),
 lookup,
 [`lseek`](./l/lseek.md),
-[`lstat`](./l/lstat.part-impl.md)
+[`lstat`](./l/stat.part-impl.md), <!-- updated -->
 
 ## m
 
@@ -191,7 +191,7 @@ portCreate,
 portDestroy,
 portRegister,
 [`pow`](./p/pow.md),
-[`printf`](./p/printf.part-impl.md),
+[`printf`](./p/printf.part-impl.md), <!-- updated -->
 [`putc`](./p/putc.md),
 [`putc_unlocked`](./p/putc_unlocked.part-impl.md),
 [`putchar`](./p/putchar.md),
@@ -204,8 +204,8 @@ portRegister,
 
 ## r
 
-[`rand`](./r/rand.md),
-[`rand_r`](./r/rand_r.md),
+[`rand`](./r/srand.part-impl.md), <!-- updated -->
+[`rand_r`](./r/srand.part-impl.md), <!-- updated -->
 rbtree,
 [`read`](./r/read.md),
 [`readdir`](./r/readdir.md),
@@ -220,55 +220,54 @@ resourceDestroy,
 ## s
 
 [`scanf`](./s/scanf.part-impl.md),
-[`setjmp`](./s/setjmp.md),
-[`setpgid`](./s/setpgid.md),
-[`setsid`](./s/setsid.md),
-[`setvbuf`](./s/setvbuf.md),
-[`sigaddset`](./s/sigaddset.md),
-[`sigemptyset`](./s/sigemptyset.md),
-[`sigfillset`](./s/sigfillset.md),
-[`siglongjmp`](./s/siglongjmp.md),
-[`signal`](./s/signal.md),
-[`sigpending`](./s/sigpending.md),
-[`sigprocmask`](./s/sigprocmask.md),
-[`sigsetjmp`](./s/sigsetjmp.md),
-[`sigsuspend`](./s/sigsuspend.md),
-[`sin`](./s/sin.md),
-[`sinh`](./s/sinh.md),
-[`sleep`](./s/sleep.md),
-[`snprintf`](./s/snprintf.part-impl.md),
-[`sprintf`](./s/sprintf.part-impl.md),
-[`sqrt`](./s/sqrt.md),
-[`srand`](./s/srand.md),
-[`sscanf`](./s/sscanf.part-impl.md),
-[`stat`](./s/stat.part-impl.md),
+[`setjmp`](./s/setjmp.part-impl.md), <!-- updated -->
+[`setpgid`](./s/setpgid.part-impl.md), <!-- updated -->
+[`setsid`](./s/setsid.part-impl.md), <!-- updated -->
+[`setvbuf`](./s/setvbuf.part-impl.md), <!-- updated -->
+[`sigaddset`](./s/sigaddset.part-impl.md), <!-- updated -->
+[`sigemptyset`](./s/sigemptyset.part-impl.md), <!-- updated -->
+[`sigfillset`](./s/sigfillset.part-impl.md), <!-- updated -->
+[`siglongjmp`](./s/siglongjmp.part-impl.md), <!-- updated -->
+[`signal`](./s/signal.part-impl.md), <!-- updated -->
+[`sigpending`](./s/sigpending.part-impl.md), <!-- updated -->
+[`sigprocmask`](./s/sigprocmask.part-impl.md), <!-- updated -->
+[`sigsetjmp`](./s/sigsetjmp.part-impl.md), <!-- updated -->
+[`sigsuspend`](./s/sigsuspend.part-impl.md), <!-- updated -->
+[`sinh`](./s/sinh.part-impl.md), <!-- updated -->
+[`sleep`](./s/sleep.part-impl.md), <!-- updated -->
+[`snprintf`](./p/printf.part-impl.md), <!-- updated -->
+[`sprintf`](./p/printf.part-impl.md), <!-- updated -->
+[`sqrt`](./s/sqrt.part-impl.md), <!-- updated -->
+[`srand`](./s/srand.part-impl.md), <!-- updated -->
+[`sscanf`](./s/scanf.part-impl.md), <!-- updated -->
+[`stat`](./s/stat.part-impl.md), <!-- updated -->
 [`sterror`](./s/sterror.md),
 [`stime`](./s/stime.md),
-[`strcat`](./s/strcat.md),
-[`strchr`](./s/strchr.md),
-[`strcmp`](./s/strcmp.md),
-[`strcoll`](./s/strcoll.md),
-[`strcpy`](./s/strcpy.md),
-[`strcspn`](./s/strcspn.md),
-[`strlen`](./s/strlen.md),
-[`strncat`](./s/strncat.md),
-[`strncmp`](./s/strncmp.md),
-[`strncpy`](./s/strncpy.md),
-[`strpbrk`](./s/strpbrk.md),
-[`strrchr`](./s/strrchr.md),
-[`strspn`](./s/strspn.md),
-[`strstr`](./s/strstr.md),
-[`strtod`](./s/strtod.md),
-[`strtok`](./s/strtok.md),
-[`strtol`](./s/strtol.md),
-[`strtoll`](./s/strtoll.md),
-[`strtoul`](./s/strtoul.md),
-[`strtoull`](./s/strtoull.md),
-[`strxfrm`](./s/strxfrm.md),
-[`swprintf`](./s/swprintf.md),
+[`strcat`](./s/strcat.part-impl.md), <!-- updated -->
+[`strchr`](./s/strchr.part-impl.md), <!-- updated -->
+[`strcmp`](./s/strcmp.part-impl.md), <!-- updated -->
+[`strcoll`](./s/strcoll.part-impl.md), <!-- updated -->
+[`strcpy`](./s/strcpy.part-impl.md), <!-- updated -->
+[`strcspn`](./s/strcspn.part-impl.md), <!-- updated -->
+[`strlen`](./s/strlen.part-impl.md), <!-- updated -->
+[`strncat`](./s/strncat.part-impl.md), <!-- updated -->
+[`strncmp`](./s/strncmp.part-impl.md), <!-- updated -->
+[`strncmp`](./s/strncmp.part-impl.md), <!-- updated -->
+[`strpbrk`](./s/strpbrk.part-impl.md), <!-- updated -->
+[`strrchr`](./s/strrchr.part-impl.md), <!-- updated -->
+[`strspn`](./s/strspn.part-impl.md), <!-- updated -->
+[`strstr`](./s/strstr.part-impl.md), <!-- updated -->
+[`strtod`](./s/strtod.part-impl.md), <!-- updated -->
+[`strtok`](./s/strtok.part-impl.md), <!-- updated -->
+[`strtol`](./s/strtol.part-impl.md), <!-- updated -->
+[`strtoll`](./s/strtol.part-impl.md), <!-- updated -->
+[`strtoul`](./s/strtoul.part-impl.md), <!-- updated -->
+[`strtoull`](./s/strtoul.part-impl.md), <!-- updated -->
+[`strxfrm`](./s/strxfrm.part-impl.md), <!-- updated -->
+[`swprintf`](./s/swprintf.md), 
 sysconf,
 syspageprog,
-[`system`](./s/system.md)
+[`system`](./s/system.part-impl.md), <!-- updated -->
 
 ## t
 
@@ -283,12 +282,12 @@ syspageprog,
 threadID,
 threadInfo,
 threadPriority,
-[`time`](./t/time.part-impl.md),
+[`time`](./t/time.part-impl.md), <!-- #updated# -->
 timeGet,
-[`times`](./t/times.part-impl.md),
+[`times`](./t/times.part-impl.md), <!-- #updated# -->
 timeSet,
-[`tmpfile`](./t/tmpfile.part-impl.md),
-[`tmpnam`](./t/tmpnam.part-impl.md)
+[`tmpfile`](./t/tmpfile.part-impl.md), <!-- #updated# -->
+[`tmpnam`](./t/tmpnam.part-impl.md) <!-- #updated# -->
 
 ## u
 
