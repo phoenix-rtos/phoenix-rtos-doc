@@ -21,7 +21,7 @@ To communicate with the board you will need to use an uart-usb converter, like `
   </br>
   <img src="_images/nucleo-pinout.png" width="400px">
   </br>
-  Source: the Nucleo board's schematic, available on https://www.st.com/en/evaluation-tools/nucleo-l4a6zg.html#cad-resources
+  Source: The Nucleo board's schematic, available on https://www.st.com/en/evaluation-tools/nucleo-l4a6zg.html#cad-resources
 
 - Put the converter into your host-pc's usb port
 - Open serial port in terminal using picocom
@@ -70,8 +70,8 @@ openocd -v
 
 If you have openocd, next you can use the following script:
 
-```
-  $ sudo phoenix-rtos-build/scripts/program-stm32l4x6.sh _boot/phoenix-armv7m4-stm32l4x6.bin
+```bash
+sudo phoenix-rtos-build/scripts/program-stm32l4x6.sh _boot/phoenix-armv7m4-stm32l4x6.bin
 ```
 
 or use openocd directly:
