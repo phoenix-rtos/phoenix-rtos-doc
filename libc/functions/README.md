@@ -207,15 +207,15 @@ portRegister,
 [`rand`](./r/srand.part-impl.md), <!-- updated -->
 [`rand_r`](./r/srand.part-impl.md), <!-- updated -->
 rbtree,
-[`read`](./r/read.md),
-[`readdir`](./r/readdir.md),
-[`realloc`](./r/realloc.md),
+[`read`](./r/read.part-impl.md), <!-- updated -->
+[`readdir`](./r/readdir.part-impl.md), <!-- updated -->
+[`realloc`](./r/realloc.part-impl.md), <!-- updated -->
 reboot,
-[`remove`](./r/remove.md),
-[`rename`](./r/rename.md),
-[`rewind`](./r/rewind.md),
+[`remove`](./r/remove.part-impl.md), <!-- updated -->
+[`rename`](./r/rename.part-impl.md), <!-- updated -->
+[`rewind`](./r/rewind.part-impl.md), <!-- updated -->
 resourceDestroy,
-[`rmdir`](./r/rmdir.md),
+[`rmdir`](./r/rmdir.part-impl.md) <!-- updated -->
 
 ## s
 
