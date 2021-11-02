@@ -14,7 +14,11 @@ Phoenix-RTOS will be launched and `psh` shell command prompt will appear in the 
 
 <img src="_images/qemu-ia32-generic.png" width="600px">
 
-To get the available command list please type `help`:
+To get the available command list please type:
+
+```
+help
+```
 
 <img src="_images/qemu-ia32-generic-help.png" width="600px">
 

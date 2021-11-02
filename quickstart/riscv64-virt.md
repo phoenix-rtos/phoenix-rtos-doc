@@ -7,14 +7,30 @@ The files are created as the final artifact of `phoenix-rtos-project` building a
 To run image under qemu you should type:
 
 ```
-  qemu-system-riscv64 -machine virt -serial stdio  -kernel ./phoenix-riscv64-virt.bbl
+./scripts/riscv64-virt.sh
 ```
 
-<img src="_images/qemu-riscv64-virt.png" width="700px">
+<img src="_images/qemu-riscv64-virt1.png" width="600px">
+</br>
+<img src="_images/qemu-riscv64-virt2.png" width="600px">
 
-Phoenix-RTOS will be launched and `psh` shell command prompt will appear in the terminal. To get the available command list please type `help`. To get the list of working threads and processes please type `ps -t`.
+## Using Phoenix-RTOS
 
-<img src="_images/qemu-riscv64-virt-ps-t.png" width="700px">
+Phoenix-RTOS will be launched and `psh` shell command prompt will appear in the terminal. To get the available command list please type:
+
+```
+help
+```
+
+<img src="_images/qemu-riscv64-virt-help.png" width="600px">
+
+To get the list of working processes please type:
+
+```bash
+ps
+```
+
+<img src="_images/qemu-riscv64-virt-ps.png" width="600px">
 
 ## See also
 
