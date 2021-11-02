@@ -202,7 +202,7 @@ In addition, all forms of `fprintf()` shall fail if:
 
 The `dprintf()` function may fail if:
 
- * `EBADF` - The _fildes_ argument is not a valid file descriptor.
+ * `EBADF` - The _fildes_ argument is not a valid file descriptor. 
 
 The   `dprintf()`,  `fprintf()`, and `printf()` functions may fail if:
 
