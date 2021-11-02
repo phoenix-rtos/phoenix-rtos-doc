@@ -1,8 +1,10 @@
 # Running system on `ia32-generic` (PC based on IA32 processor)
 This version is designated for generic PC based on IA32 processor. To launch this version the final disk image should be provided. The image is created as the final artifact of `phoenix-rtos-project` building and is located in `_boot` directory. The image consist of bootloader (plo), kernel, TTY VGA driver, ATA driver with ext2 filesystem.
 
+See [how to build the Phoenix-RTOS system image](../building/README.md)
+
 ## Running image under qemu
-To run the system image under qemu you should type:
+To run the system image under qemu you should type the following command (launched from `phoenix-rtos-project` directory).
 
 ```bash
 ./scripts/ia32-generic.sh
@@ -12,11 +14,7 @@ Phoenix-RTOS will be launched and `psh` shell command prompt will appear in the 
 
 <img src="_images/qemu-ia32-generic.png" width="600px">
 
-To get the available command list please type:
-
-```bash
-help
-```
+To get the available command list please type `help`:
 
 <img src="_images/qemu-ia32-generic-help.png" width="600px">
 
@@ -30,13 +28,13 @@ The screenshot from voxeldemo appliction is presented below.
 
 You can press `ctrl + c` to quit the voxeldemo app.
 
-To get the list of working threads and processes please type:
+To get the list of working processes please type:
 
 ```bash
-ps -t
+ps
 ```
 
-<img src="_images/qemu-ia32-generic-ps-t.png" width="600px">
+<img src="_images/qemu-ia32-generic-ps.png" width="600px">
 
 There is a possibility to run the ash shell, it can be launched using the following command.
 
@@ -51,9 +49,9 @@ Phoenix-RTOS image can be also launched on multiple processor cores. To do this 
 ```bash
 qemu-system-i386 -hda _boot/phoenix-ia32-generic.disk -smp 4
 ```
-The number of detected cores is presented during kernel initialization or can be obtained by counting number of idle threads.
+The number of detected cores is presented during kernel initialization.
 
-<img src="_images/qemu-ia32-generic-ps-t-smp.png" width="600px">
+<img src="_images/qemu-ia32-generic-smp.png" width="600px">
 
 
 ## Running image on regular hardware
