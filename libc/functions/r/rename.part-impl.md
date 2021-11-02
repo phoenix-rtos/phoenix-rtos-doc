@@ -84,46 +84,35 @@ The `rename()`    and `renameat()`
  functions shall fail if:
 
 
- * `EACCES` -   A
-component of either path prefix denies search permission; or one of the directories containing _old_ or _new_ denies
+ * `EACCES` -   A component of either path prefix denies search permission; or one of the directories containing _old_ or _new_ denies
 write permissions; or, write permission is required and is denied for a directory pointed to by the _old_ or _new_
 arguments. 
 
- * `EBUSY` -  
-The directory named by _old_ or _new_ is currently in use by the system or another process, and the implementation
+ * `EBUSY` -  The directory named by _old_ or _new_ is currently in use by the system or another process, and the implementation
 considers this an error. 
 `EEXIST` or `ENOTEMPTY`
  
 The link named by _new_ is a directory that is not an empty directory. 
 
- * `EINVAL` -  
-The _old_ pathname names an ancestor directory of the _new_ pathname, or either pathname argument contains a final
+ * `EINVAL` -  The _old_ pathname names an ancestor directory of the _new_ pathname, or either pathname argument contains a final
 component that is dot or dot-dot. 
 
- * `EIO` -   A
-physical I/O error has occurred. 
+ * `EIO` -   A physical I/O error has occurred. 
 
- * `EISDIR` -  
-The _new_ argument points to a directory and the _old_ argument points to a file that is not a directory. 
+ * `EISDIR` -  The _new_ argument points to a directory and the _old_ argument points to a file that is not a directory. 
 
- * `ELOOP` -   A
-loop exists in symbolic links encountered during resolution of the path argument. 
+ * `ELOOP` -   A loop exists in symbolic links encountered during resolution of the path argument. 
 
- * `EMLINK` -  
-The file named by _old_ is a directory, and the link count of the parent directory of _new_ would exceed `LINK_MAX`. 
+ * `EMLINK` -  The file named by _old_ is a directory, and the link count of the parent directory of _new_ would exceed `LINK_MAX`. 
 
- * `ENAMETOOLONG` -  
-The length of a component of a pathname is longer than `NAME_MAX`. 
+ * `ENAMETOOLONG` -  The length of a component of a pathname is longer than `NAME_MAX`. 
 
- * `ENOENT` -  
-The link named by _old_ does not name an existing file, a component of the path prefix of _new_ does not exist, or either
+ * `ENOENT` -  The link named by _old_ does not name an existing file, a component of the path prefix of _new_ does not exist, or either
 _old_ or _new_ points to an empty string. 
 
- * `ENOSPC` -  
-The directory that would contain _new_ cannot be extended. 
+ * `ENOSPC` -  The directory that would contain _new_ cannot be extended. 
 
- * `ENOTDIR` -   A
-component of either path prefix names an existing file that is neither a directory nor a symbolic link to a directory; or the
+ * `ENOTDIR` -   A component of either path prefix names an existing file that is neither a directory nor a symbolic link to a directory; or the
 _old_ argument names a directory and the _new_ argument names a non-directory file; or the _old_ argument contains
 at least one non- `<slash>` character and ends with one or more trailing `<slash>` characters and the last pathname
 component names an existing file that is neither a directory nor a symbolic link to a directory; or the _old_ argument names
@@ -131,22 +120,18 @@ an existing non-directory file and the _new_ argument names a nonexistent file, 
 character, and ends with one or more trailing `<slash>` characters; or the _new_ argument names an existing non-directory
 file, contains at least one non- `<slash>` character, and ends with one or more trailing `<slash>` characters. 
 `EPERM` or `EACCES`
-[XSI] 
 The S_ISVTX flag is set on the directory containing the file referred to by _old_ and the process does not satisfy the
 criteria specified in XBD Directory Protection with respect to
 old; or _new_ refers to an existing file, the S_ISVTX flag is set on the directory containing this file, and the
 process does not satisfy the criteria specified in XBD Directory
 Protection with respect to this file. 
 
- * `EROFS` -  
-The requested operation requires writing in a directory on a read-only file system. 
+ * `EROFS` -  The requested operation requires writing in a directory on a read-only file system. 
 
- * `EXDEV` -  
-The links named by _new_ and _old_ are on different file systems and the implementation does not support links between
+ * `EXDEV` -  The links named by _new_ and _old_ are on different file systems and the implementation does not support links between
 file systems. 
 
-  In
-addition, the `renameat()` function shall fail if:
+  In addition, the `renameat()` function shall fail if:
 
 
  * `EACCES` - The access mode of the open file description associated with _oldfd_ or _newfd_ is not O_SEARCH and the permissions
