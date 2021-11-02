@@ -177,7 +177,7 @@ mutexUnlock
 
 ## p
 
-[`perror`](./p/perror.md),
+[`perror`](./p/perror.part-impl.md), <!-- updated -->
 phProcForkVirt,
 phProcID,
 phProcParentID,
@@ -185,16 +185,16 @@ phResFileAdd,
 phResFileGet,
 phResFileSet,
 phThreadSleep,
-[`pipe`](./p/pipe.md),
+[`pipe`](./p/pipe.part-impl.md), <!-- updated -->
 platformctl,
 portCreate,
 portDestroy,
 portRegister,
-[`pow`](./p/pow.md),
+[`pow`](./p/pow.part-impl.md), <!-- updated -->
 [`printf`](./p/printf.part-impl.md), <!-- updated -->
-[`putc`](./p/putc.md),
+[`putc`](./p/putc.part-impl.md), <!-- updated -->
 [`putc_unlocked`](./p/putchar_unlocked.part-impl.md), <!-- updated -->
-[`putchar`](./p/putchar.md),
+[`putchar`](./p/putchar.part-impl.md), <!-- updated -->
 [`putchar_unlocked`](./p/putchar_unlocked.part-impl.md), <!-- updated -->
 [`puts`](./p/puts.part-impl.md), <!-- updated -->
 
