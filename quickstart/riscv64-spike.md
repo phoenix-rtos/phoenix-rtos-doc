@@ -4,26 +4,74 @@ This version is designated for RISC-V 64 processor based spike machine implement
 The files are created as the final artifact of `phoenix-rtos-project` building and is located in `_boot` directory. See [how to build the Phoenix-RTOS system image](../building/README.md)
 
 ## Running image under spike
-To run image under spike you should type:
+Firstly, you need to install spike simulator.
+
+  <details>
+  <summary>How to install spike simulator (Ubuntu 20.04)</summary>
+
+  1. Clone the riscv-isa-sim Github repository
+  ```bash
+  git clone https://github.com/riscv-software-src/riscv-isa-sim.git
+  ```
+
+  2. Enter the downloaded repository
+  ```bash
+  cd riscv-isa-sim
+  ```
+
+  3. Install the device-tree-compiler
+  ```bash
+  sudo apt-get update && \
+  sudo apt-get install device-tree-compiler
+  ```
+
+  4. Install the Spike RISC-V ISA Simulator
+  ```bash
+  mkdir build && \
+  cd build && \
+  ../configure --prefix=$RISCV && \
+  make && \
+  sudo make install
+  ```
+
+  </details>
+  </br>
+
+Then, to run the image under spike you should change directory to `phoenix-rtos-project` and type:
 
 ````bash
 spike _boot/phoenix-riscv64-spike.bbl
 ````
 
-<img src="_images/spike-riscv64-spike.png" width="700px">
+<img src="_images/spike-riscv64-spike.png" width="600px">
+
 
 ## Running image under qemu
-To run image under qemu you should type:
+In order to run the system image under qemu you should type the following command from the `phoenix-rtos-project` directory.
+
+```bash
+./scripts/riscv64-spike.sh
+```
+
+<img src="_images/qemu-riscv64-spike.png" width="600px">
+
+## Using Phoenix-RTOS
+
+Phoenix-RTOS will be launched and `psh` shell command prompt will appear in the terminal. To get the available command list please type:
 
 ```
-  qemu-system-riscv64 -machine spike_v1.10 -serial stdio  -kernel _boot/phoenix-riscv64-spike.bbl
+help
 ```
 
-<img src="_images/qemu-riscv64-spike.png" width="700px">
+<img src="_images/qemu-riscv64-spike-help.png" width="600px">
 
-Phoenix-RTOS will be launched and `psh` shell command prompt will appear in the terminal. To get the available command list please type `help`. To get the list of working threads and processes please type `ps -t`.
+To get the list of working processes please type:
 
-<img src="_images/qemu-riscv64-spike-ps-t.png" width="700px">
+```bash
+ps
+```
+
+<img src="_images/qemu-riscv64-spike-ps.png" width="600px">
 
 ## See also
 
