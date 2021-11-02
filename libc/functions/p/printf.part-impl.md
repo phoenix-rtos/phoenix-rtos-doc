@@ -200,16 +200,18 @@ In addition, all forms of `fprintf()` shall fail if:
 
  * `EOVERFLOW` - The value to be returned is greater than `INT_MA`. 
 
- * `EBADF` - The _fildes_ argument is not a valid file descriptor. 
+The `dprintf()` function may fail if:
 
-    The   `dprintf()`,  `fprintf()`, and `printf()` functions may fail if:
+ * `EBADF` - The _fildes_ argument is not a valid file descriptor. 
+     
+The   `dprintf()`,  `fprintf()`, and `printf()` functions may fail if:
 
  * `ENOMEM` - Insufficient storage space is available. 
-
+     
 The `snprintf()` function shall fail if:
 
  * `EOVERFLOW` - The value of `n` is greater than `INT_MA`. 
-
+     
 
 ## Tests
 
