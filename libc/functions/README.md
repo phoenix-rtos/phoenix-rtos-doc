@@ -148,25 +148,26 @@ lookup,
 
 ## m
 
-[`malloc`](./m/malloc.md),
-[`mblen`](./m/mblen.md),
-[`mbtowc`](./m/mbtowc.md),
-[`memchr`](./m/memchr.md),
-[`memcmp`](./m/memcmp.md),
-[`memcpy`](./m/memcpy.md),
+[`malloc`](./m/malloc.part-impl.md), <!-- updated -->
+[`mblen`](./m/mblen.part-impl.md), <!-- updated -->
+[`mbtowc`](./m/mbtowc.part-impl.md), <!-- updated -->
+[`memchr`](./m/memchr.part-impl.md), <!-- updated -->
+[`memcmp`](./m/memcmp.part-impl.md), <!-- updated -->
+[`memcpy`](./m/memcpy.part-impl.md), <!-- updated -->
 meminfo,
-[`memmove`](./m/memmove.md),
-[`memset`](./m/memset.md),
-[`mkdir`](./m/mkdir.md),
-[`mkfifo`](./m/mkfifo.md),
-[`mmap`](./m/mmap.md),
+[`memmove`](./m/memmove.part-impl.md), <!-- updated -->
+[`memset`](./m/memset.part-impl.md), <!-- updated -->
+[`mkdir`](./m/mkdir.part-impl.md), <!-- updated -->
+[`mkfifo`](./m/mkfifo.part-impl.md), <!-- updated -->
+[`mmap`](./m/mmap.part-impl.md), <!-- updated -->
 mmdump,
-[`modf`](./m/modf.md),
+[`modf`](./m/modf.part-impl.md), <!-- updated -->
+[`modff`](./m/modf.part-impl.md), <!-- updated -->
 [`mount`](./m/mount.md),
 msgRecv,
 msgRespond,
 msgSend,
-[`munmap`](./m/munmap.md)
+[`munmap`](./m/munmap.part-impl.md), <!-- updated -->
 mutexCreate,
 mutexLock,
 mutexTry,
