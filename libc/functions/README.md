@@ -58,14 +58,15 @@ debug,
 ## e
 
 endthread,
-[`execl`](./e/execl.part-impl.md),
-[`execle`](./e/execle.part-impl.md),
-[`execlp`](./e/execlp.part-impl.md),
-[`execv`](./e/execv.part-impl.md),
-[`execve`](./e/execve.part-impl.md),
-[`execvp`](./e/execvp.part-impl.md),
-[`exp`](./e/exp.part-impl.md),
-[`expf`](./e/expf.part-impl.md)
+[`execl`](./e/execl.part-impl.md), <!-- updated -->
+[`execle`](./e/execl.part-impl.md), <!-- updated -->
+[`execlp`](./e/execl.part-impl.md), <!-- updated -->
+[`execv`](./e/execl.part-impl.md), <!-- updated -->
+[`execve`](./e/execl.part-impl.md), <!-- updated -->
+[`execvp`](./e/execl.part-impl.md), <!-- updated -->
+[`exit`](./e/exit.part-impl.md), <!-- updated -->
+[`exp`](./e/exp.part-impl.md), <!-- updated -->
+[`expf`](./e/exp.part-impl.md), <!-- updated -->
 
 ## f
 
