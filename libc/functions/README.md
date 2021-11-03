@@ -49,8 +49,11 @@ condWait
 ## d
 
 debug,
-[`dprintf`](./d/snprintf.part-impl.md),
-[`dup`](./d/dup.part-impl.md)
+[`difftime`](./d/difftime.part-impl.md), <!-- updated -->
+[`dirname`](./d/dirname.part-impl.md), <!-- updated -->
+[`dprintf`](./p/printf.part-impl.md), <!-- updated -->
+[`dup`](./d/dup.part-impl.md), <!-- updated -->
+[`dup2`](./d/dup.part-impl.md), <!-- updated -->
 
 ## e
 
@@ -81,7 +84,7 @@ endthread,
 [`fnmatch`](./f/fnmatch.part-impl.md),
 [`fopen`](./f/fopen.md),
 [`fork`](./f/fork.part-impl.md),
-[`fprintf`](./f/printf.part-impl.md), <!-- updated -->
+[`fprintf`](./p/printf.part-impl.md), <!-- updated -->
 [`fputc`](./f/fputc.part-impl.md),
 [`fputs`](./f/fputs.part-impl.md),
 [`fread`](./f/fread.part-impl.md),
