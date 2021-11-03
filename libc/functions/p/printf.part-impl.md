@@ -1,6 +1,6 @@
 # Synopsis 
 `#include <stdio.h>`</br>
-` int dprintf(int _fildes_, const char *restrict format, ...); `</br>
+`int dprintf(int _fildes_, const char *restrict format, ...); `</br>
 `int fprintf(FILE *restrict stream, const char *restrict format, ...);`</br>
 `int printf(const char *restrict format, ...);`</br>
 `int snprintf(char *restrict s, size_t n,`</br>

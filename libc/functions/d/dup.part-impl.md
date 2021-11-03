@@ -1,41 +1,77 @@
-###Synopsis
+# Synopsis 
+`#include <unistd.h>`</br>
+` int dup(int fildes);`</br>
+` int dup2(int fildes, int fildes2);`</br>
 
-`#include <unistd.h>`
-
-`int dup(int fildes);`
-`int dup2(int fildes, int fildes2);`
-
-###Description
-
-The functions duplicate an open file descriptor.
-
-Arguments:
-    
-<u>fildes</u> - the file descriptor to be duplicated.
-<u>fildes2</u> - the file descriptor received as a result of duplication.
+## Status
+Partially implemented
+## Conformance
+IEEE Std 1003.1-2017
+## Description
 
 
-The `dup()` function duplicates an existing object descriptor and returns its value to the calling process.  The argument <u>fildes</u> is a small non-negative integer index in the per-process descriptor table. The new descriptor returned by the call is the lowest numbered descriptor currently not in use by the process.
+The `dup()` function provides an alternative interface to the service provided by `fcntl()` using the `F_DUPFD` command. The call `dup(fildes)` shall be equivalent
+to:
 
-In `dup2()` function, the value of the new descriptor <u>fildes2</u> is specified as a second argument.  If <u>fildes</u> and <u>fildes2</u> are equal, then `dup2() `just returns <u>fildes2</u>; no other changes are made to the existing descriptor.  Otherwise, if descriptor <u>fildes2</u> is already in use, it is first deallocated as if a `close(2)` call had been done.
+`fcntl(fildes, F_DUPFD, 0);`
 
-###Return value
 
-The resulting file descriptor is returned on success,  otherwise `-1` is returned and `errno` set to indicate the error.
+The `dup2()` function shall cause the file descriptor _fildes2_ to refer to the same open file description as the file
+descriptor _fildes_ and to share any locks, and shall return _fildes2_ . If _fildes2_  is already a valid open file
+descriptor, it shall be closed first, unless _fildes_ is equal to _fildes2_  in which case `dup2()` shall return
+_fildes2_  without closing it. If the close operation fails to close _fildes2_ , `dup2()` shall return ``-1`` without
+changing the open file description to which _fildes2_  refers. If _fildes_ is not a valid file descriptor, `dup2()`
+shall return `-1` and shall not close _fildes2_ . If _fildes2_  is less than `0` or greater than or equal to `OPEN_MAX`,
+`dup2()` shall return `-1` with errno set to `EBADF`.
 
-###Errors
+Upon successful completion, if _fildes_ is not equal to _fildes2_ , the `FD_CLOEXEC` flag associated with _fildes2_ 
+shall be cleared. If _fildes_ is equal to _fildes2_ , the `FD_CLOEXEC` flag associated with _fildes2_  shall not be
+changed.
+If _fildes_ refers to a typed memory object, the result of the `dup2()` function is unspecified. 
 
-For the `dup()` function:
 
-[`EBADF`] - The <u>fildes</u> argument is not a valid open file descriptor.
-[`EMFILE`] - All file descriptors available to the process are currently open.
+## Return value
 
-For the `dup2()` function:
 
-[`EBADF`] - The <u>fildes</u> argument is not a valid open file descriptor or the argument <u>fildes2</u> is negative or greater than or equal to {`OPEN_MAX`}.
-[`EINTR`] - The `dup2()` function was interrupted by a signal.
-[`EIO`] -  An I/O error occurred while attempting to close <u>fildes2</u>.
+Upon successful completion a non-negative integer, namely the file descriptor, shall be returned; otherwise, `-1` shall be
+returned and errno set to indicate the error.
 
-###Implementation tasks
 
-* Implement error detection for errors described above.
+## Errors
+
+
+The `dup()` function shall fail if:
+
+
+ * `EBADF` - The _fildes_ argument is not a valid open file descriptor.
+
+ * `EMFILE` - All file descriptors available to the process are currently open.
+
+The `dup2()` function shall fail if:
+
+
+ * `EBADF` - The _fildes_ argument is not a valid open file descriptor or the argument _fildes2_  is negative or greater than or
+equal to `OPEN_MAX`.
+
+ * `EINTR` - The `dup2()` function was interrupted by a signal.
+
+The `dup2()` function may fail if:
+
+
+ * `EIO` - An I/O error occurred while attempting to close _fildes2_ .
+
+
+
+
+
+## Tests
+
+Untested
+
+## Known bugs
+
+None
+
+## See Also 
+1. [Standard library functions](../README.md)
+2. [Table of Contents](../../../README.md)
