@@ -34,7 +34,7 @@ beginthreadex,
 [`clearerr`](./c/clearerr.md),
 [`close`](./c/close.part-impl.md),
 [`closedir`](./c/closedir.md),
-[`closelog`](./c/closelog.md),
+[`closelog`](./o/openlog.part-impl.md), <!-- updated -->
 condBroadcast,
 condCreate,
 condSignal,
@@ -171,9 +171,9 @@ mutexUnlock
 
 ## o
 
-[`open`](./o/open.md),
-[`opendir`](./o/opendir.part-impl.md),
-[`openlog`](./o/openlog.md)
+[`open`](./o/open.part-impl.md), <!-- updated -->
+[`opendir`](./o/opendir.part-impl.md), <!-- updated -->
+[`openlog`](./o/openlog.part-impl.md), <!-- updated -->
 
 ## p
 
