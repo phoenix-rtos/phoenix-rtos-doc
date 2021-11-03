@@ -126,25 +126,25 @@ endthread,
 ## i
 
 interrupt,
-[`isatty`](./i/isatty.md)
+[`isatty`](./i/isatty.part-impl.md), <!-- updated -->
 
 ## k
 
 keepidle,
-[`kill`](./k/kill.md)
+[`kill`](./k/kill.part-impl.md), <!-- updated -->
 
 ## l
 
 LIST,
-[`labs`](./l/labs.md),
-[`ldexp`](./l/ldexp.md),
-[`ldiv`](./l/ldiv.md),
-[`link`](./l/link.md),
-[`log`](./l/log.md),
-[`log10`](./l/log10.md),
-[`longjmp`](./l/longjmp.md),
+[`labs`](./l/labs.part-impl.md), <!-- updated -->
+[`ldexp`](./l/ldexp.part-impl.md), <!-- updated -->
+[`ldiv`](./l/ldiv.part-impl.md), <!-- updated -->
+[`link`](./l/link.part-impl.md), <!-- updated -->
+[`log`](./l/log.part-impl.md), <!-- updated -->
+[`log10`](./l/log10.part-impl.md), <!-- updated -->
+[`longjmp`](./l/longjmp.part-impl.md), <!-- updated -->
 lookup,
-[`lseek`](./l/lseek.md),
+[`lseek`](./l/lseek.part-impl.md), <!-- updated -->
 [`lstat`](./l/stat.part-impl.md), <!-- updated -->
 
 ## m
