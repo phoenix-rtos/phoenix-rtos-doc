@@ -70,11 +70,11 @@ endthread,
 
 ## f
 
-[`FD_ISSET`](./f/FD_ISSET.md),
-[`fabs`](./f/fabs.md),
-[`fclose`](./f/fclose.part-impl.md),s
-[`fcntl`](./f/fcntl.part-impl.md),
-[`fdopen`](./f/fdopen.part-impl.md),
+[`fabs`](./f/fabs.part-impl.md), <!-- updated -->
+[`fabsf`](./f/fabs.part-impl.md), <!-- updated -->
+[`fclose`](./f/fclose.part-impl.md), <!-- updated -->
+[`fcntl`](./f/fcntl.part-impl.md), <!-- updated -->
+[`fdopen`](./f/fdopen.part-impl.md), <!-- updated -->
 [`fexecve`](./f/fexecve.part-impl.md),
 [`fflush`](./f/fflush.part-impl.md),
 [`fgetc`](./f/fgetc.part-impl.md),
