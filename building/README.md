@@ -4,6 +4,10 @@ To create Phoenix-RTOS image for selected target the `phoenix-rtos-project` repo
 
 This chapter contains instruction how to build reference project and how to create the final system image.
 
+## Host operating system
+
+The instructions in the `Building` and `Running system on targets` chapters have been verified for the Ubuntu Linux distribution, so this is the easiest way to start working with Phoenix-RTOS. There is also the possibility to use MacOS, but it's not described in that detail for now. Using Windows isn't supported, but you can create a virtual machine with Ubuntu or try to use Docker.
+
 ## Obtaining the sources
 
 The first step of preparation of the final system image is the repository cloning. The repository should be cloned and **recursively** (to get the submodules):
