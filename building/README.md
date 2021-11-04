@@ -44,7 +44,64 @@ riscv64-virt
 
 This is the quickest way to start development - all necessary tools are distributed in docker image.
 
-To build - provide a `TARGET` via ENV variable:
+Firstly, you need to have a docker installed.
+  <details>
+  <summary>How to get docker (Ubuntu 20.04)</summary>
+
+  - Install required packages
+  ```bash
+sudo apt-get update && \
+sudo apt-get install curl \
+ca-certificates \
+gnupg \
+lsb-release
+  ```
+
+  - Make docker packages available
+  ```bash
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg && \
+echo \
+"deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+$(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+  ```
+
+  - Install docker packages
+  ```bash
+sudo apt-get update && \
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+  ```
+
+  - Check if docker is properly installed (version can be different):
+  ```bash
+sudo docker --version
+  ```
+  <img src="_images/docker-version.png" width="600px">
+
+  - To make calling docker command without `sudo` possible type:
+
+  ```
+sudo groupadd docker
+  ```
+  Even if group `docker` already exists type then:
+
+  ```
+sudo usermod -aG docker $USER && \
+newgrp docker
+  ```
+
+  - Check if running docker images without sudo works properly:
+  ```bash
+docker run hello-world
+  ```
+  <img src="_images/docker-test.png" width="600px">
+
+  For more details and other instructions see
+
+  [docker.com](https://docs.docker.com/engine/install/ubuntu/)
+
+  </details> 
+
+Then, to build - provide a `TARGET` via ENV variable and run the build script:
 
 ```bash
 cd phoenix-rtos-project/
