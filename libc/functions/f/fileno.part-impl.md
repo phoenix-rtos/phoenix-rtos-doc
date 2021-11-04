@@ -1,26 +1,48 @@
-###Synopsis
+# Synopsis 
+`#include <stdio.h>`</br>
+` int fileno(FILE *stream); `</br>
 
-`#include <stdio.h>`
+## Status
+Partially implemented
+## Conformance
+IEEE Std 1003.1-2017
+## Description
 
-`int fileno(FILE *stream);`
 
-###Description
+The `fileno()` function maps a stream pointer to a file descriptor associated with the stream pointed to by _stream_.
 
-The function maps a stream pointer (<u>stream</u>) to a file descriptor.
 
-Arguments:
+## Return value
 
-<u>stream</u> - the pointer to the stream,
 
-###Return value
+Upon successful completion, `fileno()` shall return the integer value of the file descriptor associated with _stream_. Otherwise, the value `-1` shall be returned and `errno` set to indicate the error.
 
-On success the function returns the integer value of the file descriptor associated with <u>stream</u>. Otherwise, the value `-1` is returned and `errno` set to indicate the error. 
 
-###Errors
+## Errors
 
-[`EBADF`]      The file descriptor underlying <u>stream</u> is not a valid file descriptor or
-               The stream is not associated with a file.
 
-###Implementation tasks
+The `fileno()` function shall fail if:
 
- * Implement error handling for the function.
+
+ * `EBADF` - The stream is not associated with a file.
+
+The `fileno()` function may fail if:
+
+
+ * `EBADF` - The file descriptor underlying stream is not a valid file descriptor.
+
+
+
+
+
+## Tests
+
+Untested
+
+## Known bugs
+
+None
+
+## See Also 
+1. [Standard library functions](../README.md)
+2. [Table of Contents](../../../README.md)
