@@ -75,14 +75,15 @@ endthread,
 [`fclose`](./f/fclose.part-impl.md), <!-- updated -->
 [`fcntl`](./f/fcntl.part-impl.md), <!-- updated -->
 [`fdopen`](./f/fdopen.part-impl.md), <!-- updated -->
-[`fexecve`](./f/fexecve.part-impl.md),
-[`fflush`](./f/fflush.part-impl.md),
-[`fgetc`](./f/fgetc.part-impl.md),
-[`fgets`](./f/fgets.part-impl.md),
-[`fileno`](./f/fileno.part-impl.md),
-[`floor`](./f/floor.part-impl.md),
-[`fmod`](./f/fmod.md),
-[`fnmatch`](./f/fnmatch.part-impl.md),
+[`fflush`](./f/fflush.part-impl.md), <!-- updated -->
+[`fgetc`](./f/fgetc.part-impl.md), <!-- updated -->
+[`fgets`](./f/fgets.part-impl.md), <!-- updated -->
+[`fileno`](./f/fileno.part-impl.md), <!-- updated -->
+[`floor`](./f/floor.part-impl.md), <!-- updated -->
+[`floorf`](./f/floor.part-impl.md), <!-- updated -->
+[`fmod`](./f/fmod.part-impl.md), <!-- updated -->
+[`fmodf`](./f/fmod.part-impl.md), <!-- updated -->
+[`fnmatch`](./f/fnmatch.part-impl.md), <!-- updated -->
 [`fopen`](./f/fopen.md),
 [`fork`](./f/fork.part-impl.md),
 [`fprintf`](./p/printf.part-impl.md), <!-- updated -->

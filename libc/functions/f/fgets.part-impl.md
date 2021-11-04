@@ -1,43 +1,41 @@
-###Synopsis
+# Synopsis 
+`#include <stdio.h>`</br>
+` char *fgets(char *restrict s, int n, FILE *restrict stream);`</br>
 
-`#include <stdio.h>`
+## Status
+Partially implemented
+## Conformance
+IEEE Std 1003.1-2017
+## Description
 
-`char *fgets(char *str, int n, FILE *stream);`
 
-###Description
+The `fgets()` function shall read bytes from _stream_ into the array pointed to by _s_ until `n-1` bytes are
+read, or a `<newline>` is read and transferred to _s_, or an end-of-file condition is encountered. A `null` byte shall be
+written immediately after the last byte read into the array. If the end-of-file condition is encountered before any bytes are read,
+the contents of the array pointed to by _s_ shall not be changed.
+The
+`fgets()` function may mark the last data access timestamp of the file associated with _stream_ for update. The last data
+access timestamp shall be marked for update by the first successful execution of `fgetc()`, `fgets()`, `fread()`, `fscanf()`, `getc()`, `getchar()`, `getdelim()`, `getline()`, `gets()`, or `scanf()` using _stream_ that returns data not supplied by a prior call to `ungetc()`. 
 
-The function reads a line from the specified stream and stores it into the string pointed to by <u>str</u>. 
-It stops when either:
 
- * (<u>n</u>-1) characters are read,
- * the newline character is read, 
- * the end-of-file is reached,
+## Return value
 
-whichever comes first.
 
-Arguments:
-<u>str</u> - the result string,
-<u>n</u> - the maximum number of characters to be read,
-<u>stream</u> - the input stream.
+Upon successful completion, fgets() shall return _s_. If the stream is at end-of-file, the end-of-file indicator for the stream shall be set and `fgets()` shall return a `null` pointer. If a read error occurs, the error indicator for the stream shall be set, `fgets()` shall return a `null` pointer and shall set `errno` to indicate the error.
 
-A null byte is written after the last byte read into the array. If the end-of-file condition is encountered before any bytes are read, the contents of the array pointed to by <u>str</u> not changed.
 
-###Return value
+## Errors
 
-Upon successful completion, `fgets()` returns <u>str</u>. 
+Refer to [`fgetc`](./fgetc.part-impl.md).
 
-If the stream is at end-of-file, the end-of-file indicator for the stream is set and `fgets()` returns a null pointer. If a read error occurs, the error indicator for the stream is set, `fgets()` returns a null pointer and sets `errno` to indicate the error. 
+## Tests
 
-###Errors
+Untested
 
-[`EAGAIN`] The `O_NONBLOCK` flag is set for the file descriptor underlying stream and the thread would be delayed in the `fgetc()` operation. 
-[`EBADF`]  The file descriptor underlying stream is not a valid file descriptor open for reading. 
-[`EINTR`]  The read operation was terminated due to the receipt of a signal, and no data was transferred. 
-[`EIO`]    A physical I/O error has occurred, or the process is in a background process group attempting to read from its controlling terminal, and either the calling thread is blocking `SIGTTIN` or the process is ignoring `SIGTTIN` or the process group of the process is orphaned.
-[`EOVERFLOW`]  The file is a regular file and an attempt was made to read at or beyond the offset maximum associated with the corresponding stream. 
-[`ENOMEM`] Insufficient storage space is available. 
-[`ENXIO`]  A request was made of a nonexistent device, or the request was outside the capabilities of the device.
+## Known bugs
 
-###Implementation tasks
+None
 
-* Implement error handling for the function.
+## See Also 
+1. [Standard library functions](../README.md)
+2. [Table of Contents](../../../README.md)

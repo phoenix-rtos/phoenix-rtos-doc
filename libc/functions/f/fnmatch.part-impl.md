@@ -1,49 +1,86 @@
-###Synopsis
+# Synopsis 
+`#include <fnmatch.h>`</br>
+` int fnmatch(const char *pattern, const char *string, int flags);`</br>
 
-`#include <fnmatch.h>`
+## Status
+Partially implemented
+## Conformance
+IEEE Std 1003.1-2017
+## Description
 
-`int fnmatch(const char *pattern, const char *string, int flags);`
 
-###Description
+The `fnmatch()` function shall match patterns as described below. 
+It checks the string specified by the
+_string_ argument to see if it matches the pattern specified by the _pattern_ argument.
 
-The `fnmatch` function  checks the string specified by the <u>string</u> argument to see if it matches the pattern specified by the <u>pattern</u> argument..
+The following patterns matching a single character shall match a single character: ordinary characters, special pattern characters, and pattern bracket expressions. The pattern bracket expression also shall match a single collating element. A `<backslash>` character shall escape the following character. The escaping `<backslash>` shall be discarded. If a pattern ends with an unescaped `<backslash>`, it is unspecified whether the pattern does not match anything or the pattern is treated as invalid.
 
-Arguments:
+An ordinary character is a pattern that shall match itself. It can be any character in the supported character set except for `NUL`, those special shell characters in Quoting that require quoting, and the following three special pattern characters. Matching shall be based on the bit pattern used for encoding the character, not on the graphic representation of the character. If any character (ordinary, shell special, or pattern special) is quoted, that pattern shall match the character itself. The shell special characters always require quoting.
 
-<u>pattern</u> - the pattern to be matched.
-<u>string</u> - the string to check.
-<u>flags</u> - the way to check compatibility of <u>string</u> and <u>pattern</u>.
+When unquoted and outside a bracket expression, the following three characters shall have special meaning in the specification of patterns:
 
-The <u>flags</u> argument modifes the interpretation of <u>pattern</u> and <u>string</u>. It is the bitwise-inclusive `OR` of zero or more of the flags defined in <`fnmatch.h`>. These are:
- 
- * `FNM_NOMATCH` the <u>string</u> does not match the <u>pattern</u>.
- 
- * `FNM_PATHNAME` the interpretation of the <slash> character ( '/' ) in <u>string</u>. If it is set then it should be explicitly matched by a <slash> in <u>pattern</u>; it is not matched by either the <asterisk> or <question-mark> special characters, nor by a bracket expression. If the `FNM_PATHNAME` flag is not set, the <slash> character is treated as an ordinary character.
+ * `?` - A `<question-mark>` is a pattern that shall match any character.
+ * `*` - An `<asterisk>` is a pattern that shall match multiple characters, as described below.
+ * `[` - If an open bracket introduces a bracket expression, except that the `<exclamation-mark>` character `( '!' )` shall replace the `<circumflex>` character `( '^' )` in its role in a non-matching list in the regular expression notation, it shall introduce a pattern bracket expression. A bracket expression starting with an unquoted `<circumflex>` character produces unspecified results. Otherwise, `'['` shall match the character itself.
+When pattern matching is used where shell quote removal is not performed (such as in the argument to the find - name primary when find is being called using one of the exec functions, or in the pattern argument to the `fnmatch()` function), special characters can be escaped to remove their special meaning by preceding them with a `<backslash>` character. This escaping `<backslash>` is discarded. The sequence `"\\"` represents one literal `<backslash>`. All of the requirements and effects of quoting on ordinary, shell special, and special pattern characters shall apply to escaping in this context.
 
- * `FNM_NOESCAPE` if it is not set in <u>flags</u>, a <backslash> character in <u>pattern</u> followed by any other character matches that second character in <u>string</u>. In particular, "\\" matches a <backslash> in <u>string</u>. If <u>pattern</u> ends with an unescaped <backslash>, `fnmatch()` returns a non-zero value (indicating either no match or an error). If `FNM_NOESCAPE` is set, a <backslash> character is treated as an ordinary character.
+The following rules are used to construct patterns matching multiple characters from patterns matching a single character:
 
- * `FNM_PERIOD` if it is <b>set</b> in <u>flags</u>, then a leading <period> ( '.' ) in <u>string</u> matches a <period> in <u>pattern</u>; by the value of `FNM_PATHNAME`:
+* The `<asterisk>` `( '*' )` is a pattern that shall match any string, including the null string.
 
-     - If `FNM_PATHNAME` is set, a <period> is "leading" if it is the first character in <u>string</u> or if it immediately follows a <slash>.
+* The concatenation of patterns matching a single character is a valid pattern that shall match the concatenation of the single characters or collating elements matched by each of the concatenated patterns.
 
-     - If `FNM_PATHNAME` is not set, a <period> is "leading" only if it is the first character of <u>string</u>.
+* The concatenation of one or more patterns matching a single character with one or more `<asterisk>` characters is a valid pattern. In such patterns, each `<asterisk>` shall match a string of zero or more characters, matching the greatest possible number of characters that still allows the remainder of the pattern to match the string.
 
-    If `FNM_PERIOD` is <b>not set</b>, then no special restrictions are placed on matching a period.
 
-###Return value
 
- * `0` if string matches the pattern specified by <u>pattern</u>.
+The _flags_ argument shall modify the interpretation of _pattern_ and _string_. It is the bitwise-inclusive OR of
+zero or more of the _flags_ defined in `<fnmatch.h>`. If the `FNM_PATHNAME` flag is
+set in _flags_, then a `<slash>` character `( '/' )` in _string_ shall be explicitly matched by a `<slash>` in _pattern_; it shall not be matched by either the `<asterisk>` or `<question-mark>` special
+characters, nor by a bracket expression. If the `FNM_PATHNAME` flag is not set, the `<slash>` character shall be treated as an
+ordinary character.
 
- * `FNM_NOMATCH` if there is no match. 
+* If `FNM_NOESCAPE` is not set in _flags_, a `<backslash>` character in _pattern_ followed by any other character
+shall match that second character in _string_. In particular, `"\\"` shall match a `<backslash>` in _string_.
 
- * `-1` if an error occurs.
-    
-###Errors
+* If _pattern_ ends with an unescaped `<backslash>`, `fnmatch()` shall return a non-zero value (indicating either no
+match or an error). If `FNM_NOESCAPE` is set, a `<backslash>` character shall be treated as an ordinary character.
+
+* If `FNM_PERIOD` is set in _flags_, then a leading `<period>` `( '.' )` in _string_ shall match a
+`<period>` in _pattern_, where the location of `"leading"` is indicated by the value of `FNM_PATHNAME`:
+
+
+* If `FNM_PATHNAME` is set, a `<period>` is `"leading"` if it is the first character in _string_ or if it immediately follows a `<slash>`.
+
+
+* If `FNM_PATHNAME` is not set, a `<period>` is `"leading"` only if it is the first character of _string_.
+
+
+If `FNM_PERIOD` is not set, then no special restrictions are placed on matching a period.
+
+
+## Return value
+
+
+If _string_ matches the pattern specified by _pattern_, then `fnmatch()` shall return `0`. If there is no match, `fnmatch()` shall return `FNM_NOMATCH`, which is defined in `<fnmatch.h>`. If an error occurs, `fnmatch()` shall return another non-zero value.
+
+
+## Errors
+
 
 No errors are defined.
 
-###Implementation tasks
 
- * Implement `fnmatch.h` file containing constants mentioned above.
- * Implement the `fnmatch()` function.
- 
+
+
+## Tests
+
+Untested
+
+## Known bugs
+
+None
+
+## See Also 
+1. [Standard library functions](../README.md)
+2. [Table of Contents](../../../README.md)
