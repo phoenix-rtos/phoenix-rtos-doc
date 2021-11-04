@@ -47,6 +47,30 @@ spike _boot/phoenix-riscv64-spike.bbl
 
 
 ## Running image under qemu
+Just like before, you first need to install the emulator.
+  <details>
+  <summary>How to get qemu (Ubuntu 20.04)</summary>
+
+  - Install the required packages
+  ```bash
+sudo apt-get update && \
+sudo apt-get install qemu-kvm \
+qemu virt-manager \
+virt-viewer libvirt-clients \
+libvirt-daemon-system \
+bridge-utils virtinst \
+libvirt-daemon \
+qemu-system-misc
+  ```
+
+  - Check if qemu is properly installed:
+  ```bash
+qemu-system-riscv64 --version
+  ```
+  <img src="_images/qemu-version-riscv64.png" width="600px">
+
+  </details> 
+
 In order to run the system image under qemu you should type the following command from the `phoenix-rtos-project` directory.
 
 ```bash
