@@ -1,40 +1,40 @@
-###Synopsis
+# Synopsis 
+`#include <stdio.h>`</br>
+` size_t fread(void *restrict ptr, size_t size, size_t nitems, FILE *restrict stream);`</br>
 
-`#include <stdio.h>`
+## Status
+Partially implemented
+## Conformance
+IEEE Std 1003.1-2017
+## Description
 
-`size_t fread(void *ptr, size_t size, size_t nmemb, FILE *stream);`
+The `fread()` function shall read into the array pointed to by _ptr_ up to _nitems_ elements whose size is
+specified by _size_ in bytes, from the stream pointed to by _stream_. For each object, size calls shall be made to
+the `fgetc()` function and the results stored, in the order read, in an array of
+unsigned char exactly overlaying the object. The file position indicator for the stream (if defined) shall be advanced by
+the number of bytes successfully read. If an error occurs, the resulting value of the file position indicator for the stream is
+unspecified. If a partial element is read, its value is unspecified.
+The
+`fread()` function may mark the last data access timestamp of the file associated with _stream_ for update. The last data
+access timestamp shall be marked for update by the first successful execution of `fgetc()`, `fgets()`, `fread()`, `fscanf()`, `getc()`, `getchar()`, `getdelim()`, `getline()`, `gets()`, or `scanf()` using _stream_ that returns data not supplied by a prior call to `ungetc()`. 
 
-###Description
 
-The `fread()` function reads data from the given stream into the array pointed to by <u>ptr</u>.
+## Return value
 
-Arguments:
+Upon successful completion, `fread()` shall return the number of elements successfully read which is less than _nitems_ only if a read error or end-of-file is encountered. If _size_ or _nitems_ is `0`, `fread()` shall return `0` and the contents of the array and the state of the stream remain unchanged. Otherwise, if a read error occurs, the error indicator for the stream shall be set and `errno` shall be set to indicate the error.
 
-<u>ptr</u> - an array saving the read data,
-<u>size</u> - a size of an unique item,
-<u>nmemb</u> - a number of items to read,
-<u>stream</u> - the input stream. 
+## Errors
 
-The `fread()` function reads into the array pointed to by <u>ptr</u> up to <u>nmemb</u> elements whose size is specified by <u>size</u> in bytes, from the stream pointed to by <u>stream</u>. For each object, <u>size</u> calls are made to the `fgetc()` function and the results stored, in the order read, in an array of unsigned char exactly overlaying the object. The file position indicator for the stream (if defined) is advanced by the number of bytes successfully read. If an error occurs, the resulting value of the file position indicator for the stream is unspecified. If a partial element is read, its value is unspecified.
+Refer to [fgetc](/fgetc.part-impl.md)
 
-The `fread()` function may mark the last data access timestamp of the file associated with <u>stream</u> for update. The last data access timestamp is marked for update by the first successful execution of `fgetc()`, `fgets()`, `fread()`, `fscanf()`, `getc()`, `getchar()`, `getdelim()`, `getline()`, `gets()`, or <u>scanf()</u> using <u>stream</u> that returns data not supplied by a prior call to <u>ungetc()</u>.
+## Tests
 
-###Return value
+Untested
 
-Upon successful completion, `fread()` returns the number of elements successfully read which is less than <u>nmemb</u> only if a read error or end-of-file is encountered. If size or <u>nitems</u> is `0`, `fread()` returns `0` and the contents of the array and the state of the stream remain unchanged. 
-Otherwise, if a read error occurs, the error indicator for the stream is set, and `errno` is set to indicate the error. 
+## Known bugs
 
-###Errors
+None
 
-[`EAGAIN`] The `O_NONBLOCK` flag is set for the file descriptor underlying stream and the thread would be delayed in the `fgetc()` operation. 
-[`EBADF`]  The file descriptor underlying stream is not a valid file descriptor open for reading. 
-[`EINTR`]  The read operation was terminated due to the receipt of a signal, and no data was transferred. 
-[`EIO`]    A physical I/O error has occurred, or the process is in a background process group attempting to read from its controlling terminal, and either the calling thread is blocking `SIGTTIN` or the process is ignoring `SIGTTIN` or the process group of the process is orphaned.
-[`EOVERFLOW`]  The file is a regular file and an attempt was made to read at or beyond the offset maximum associated with the corresponding stream. 
-[`ENOMEM`] Insufficient storage space is available. 
-[`ENXIO`]  A request was made of a nonexistent device, or the request was outside the capabilities of the device.
-
-###Implementation tasks
-	
- * Implement error handling for the function
-
+## See Also 
+1. [Standard library functions](../README.md)
+2. [Table of Contents](../../../README.md)

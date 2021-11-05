@@ -84,12 +84,12 @@ endthread,
 [`fmod`](./f/fmod.part-impl.md), <!-- updated -->
 [`fmodf`](./f/fmod.part-impl.md), <!-- updated -->
 [`fnmatch`](./f/fnmatch.part-impl.md), <!-- updated -->
-[`fopen`](./f/fopen.md),
-[`fork`](./f/fork.part-impl.md),
+[`fopen`](./f/fopen.part-impl.md), <!-- updated -->
+[`fork`](./f/fork.part-impl.md), <!-- updated -->
 [`fprintf`](./p/printf.part-impl.md), <!-- updated -->
-[`fputc`](./f/fputc.part-impl.md),
-[`fputs`](./f/fputs.part-impl.md),
-[`fread`](./f/fread.part-impl.md),
+[`fputc`](./f/fputc.part-impl.md), <!-- updated -->
+[`fputc`](./f/fputc.part-impl.md), <!-- updated -->
+[`fread`](./f/fread.part-impl.md), <!-- updated -->
 [`freeaddrinfo`](./f/freeaddrinfo.part-impl.md),
 [`freopen`](./f/freopen.md),
 [`frexp`](./f/frexp.part-impl.md),
