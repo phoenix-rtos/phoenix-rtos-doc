@@ -31,7 +31,7 @@ The easiest way to start programming hardware targets using Phoenix-RTOS is to g
 
 ## Preparing the board
 
-- Firstly, you should copy the disk image `phoenix-armv7a9-zynq7000.disk` from the `_boot` directory to SD card and rename it to BOOT.bin.
+- Firstly, you should copy the disk image `phoenix-armv7a9-zynq7000.disk` from the `_boot` directory to SD card and rename it to `BOOT.bin`.
 
 - Then, insert the SD card into the board.
 

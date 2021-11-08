@@ -37,7 +37,7 @@ The easiest way to start programming hardware targets using Phoenix-RTOS is to g
 
 - You should also connect the another micro usb cable to `USB OTG` port. As a result two available usb ports in `i. MX 6ULL - EVK` will be connected to yor host-pc.
 
-- Now you can power up the board, changing the `SW2001` position to `2`. The `D2003` LED should turn green.
+- Now you can power up the board by changing the `SW2001` position to `2`. The `D2003` LED should turn green.
 
 - Now you should verify what USB device on your host-pc is connected with the `DEBUG USB` (console). In order to check that run:
   ```
@@ -66,7 +66,7 @@ You can leave the terminal with serial port open, and follow the next steps.
 
 ## Uploading the Phoenix-RTOS system image to RAM memory
 
-In order to place the disk image on the board, the bootlader (plo) image located in `_boot` directory should be uploaded to the RAM memory using `psu` (Phoenix Serial Uploader) via SDP (Serial Download Protocol). Next, there have to be a short delay for plo usb cdc device to appear. Then `phoenixd` should be launched to make copying programs from `_boot` directory to the image possible. To do that follow the instructions below:
+In order to place the disk image on the board, the bootlader (plo) image located in `_boot` directory should be uploaded to the RAM memory using `psu` (Phoenix Serial Uploader) via SDP (Serial Download Protocol). Next, there has to be a short delay for plo usb cdc device to appear. Then `phoenixd` should be launched to make copying programs from `_boot` directory to the image possible. To do that follow the instructions below:
 
 - To properly run the system image, kernel and other used programs need to be provided in `_boot` directory, so you should copy them from `_build` directory:
 
@@ -75,7 +75,7 @@ In order to place the disk image on the board, the bootlader (plo) image located
   cp phoenix-armv7a7-imx6ull.elf dummyfs imx6ull-uart psh ../../../_boot/)
   ```
 
-  <img src="_images/imx6ull-cpy.png" width="1000px">
+  <img src="_images/imx6ull-cpy.png" width="600px">
 
 - Make sure, that the SW602 switch is in the following configuration (serial downloader mode):
 
@@ -87,7 +87,7 @@ In order to place the disk image on the board, the bootlader (plo) image located
 
 - Change directory to `_boot` and run `psu` as follow:
 
-  ```bash
+  ```
   cd _boot/ && \
   sudo ./psu plo-ram-armv7a7-imx6ull.sdp && \
   sleep 1 && \
@@ -138,7 +138,7 @@ To get the table of processes please type:
 top
 ```
 
-<img src="_images/imxrt106x-top.png" width="600px">
+<img src="_images/imx6ull-top.png" width="600px">
 
 
 ## See also
