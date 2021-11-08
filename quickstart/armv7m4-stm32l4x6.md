@@ -6,7 +6,7 @@ See [how to build the Phoenix-RTOS system image](../building/README.md)
 
 ## Development board
 
-The esiest way to start programming hardware targets using Phoenix-RTOS is to get some of the evaluation boards with specified target processor or microcontroller. In this case [NUCLEO-L4A6ZG](https://www.st.com/en/evaluation-tools/nucleo-l4a6zg.html#overview) is the example of a board with `stm32l4x6` microcontroller.
+The easiest way to start programming hardware targets using Phoenix-RTOS is to get some of the evaluation boards with specified target processor or microcontroller. In this case [NUCLEO-L4A6ZG](https://www.st.com/en/evaluation-tools/nucleo-l4a6zg.html#overview) is the example of a board with `stm32l4x6` microcontroller.
 
 ## Connecting the board
 

@@ -1,10 +1,10 @@
 # Running system on `armv7m7-imxrt106x` (NXP i.MX RT106x)
 
-This version is designed for NXP i.MX RT106x processors with ARM Cortex-M7 core. To launch this version the final disk image and loader image should be provided. The images are created as the final artifact of `phoenix-rtos-project` building and are located in `_boot` directory. The disk image consist of bootloader (plo), kernel, UART driver (tty), dummyfs filesystem server (RAM disk) and psh (shell). The necessary tools to carry out the flashing process are located in `_boot` directory as well.
+This version is designed for NXP i.MX RT106x processors with ARM Cortex-M7 core. To launch this version the final disk image and loader image should be provided. The images are created as the final artifacts of `phoenix-rtos-project` building and are located in `_boot` directory. The disk image consist of bootloader (plo), kernel, UART driver (tty), dummyfs filesystem server (RAM disk) and psh (shell). The necessary tools to carry out the flashing process are located in `_boot` directory as well.
 
 ## Development board
 
-The esiest way to start programming hardware targets using Phoenix-RTOS is to get some of the evaluation boards with specified target processor or microcontroller. In this case [i. MX RT1064 - EVK](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/mimxrt1064-evk-i-mx-rt1064-evaluation-kit:MIMXRT1064-EVK) is the example of a board with the `imxrt106x` processor, where default configuration of peripherals allows to run Phoenix-RTOS.
+The easiest way to start programming hardware targets using Phoenix-RTOS is to get some of the evaluation boards with specified target processor or microcontroller. In this case [i. MX RT1064 - EVK](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/mimxrt1064-evk-i-mx-rt1064-evaluation-kit:MIMXRT1064-EVK) is the example of a board with the `imxrt106x` processor, where default configuration of peripherals allows to run Phoenix-RTOS.
 
 ## Connecting the board
 
