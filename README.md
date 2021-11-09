@@ -17,6 +17,8 @@
     8. [Running system on `riscv64-virt`](quickstart/riscv64-virt.md)
     9. [Running system on `riscv64-spike`](quickstart/riscv64-spike.md)
 5. [Loader](loader/README.md)
+    1. [Architecture](loader/architecture.md)
+    2. [Command-line interface](loader/cli.md)
 6. [Kernel](kernel/README.md)
     1. [HAL](kernel/hal/README.md)
         1. [HAL layer for ARMv7 Cortex-M based based targets](kernel/hal/armv7m.md)
