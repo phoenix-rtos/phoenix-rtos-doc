@@ -2,6 +2,11 @@
 
 This version is designed for Xilinx Zynq-7000 SoC (System on Chip) with ARM Cortex-A9 core. To launch this version the final disk image should be provided. The image is created as the final artifact of `phoenix-rtos-project` building and is located in `_boot` directory. The disk image consist of bootloader (plo), kernel, UART driver (tty), dummyfs filesystem server (RAM disk) and psh (shell). The necessary tools to carry out the flashing process are located in `_boot` directory as well.
 
+## Development board
+
+The easiest way to start programming hardware targets using Phoenix-RTOS is to get some of the evaluation boards with specified target processor or microcontroller. In this case [ZedBoard](https://www.xilinx.com/products/boards-and-kits/1-8dyf-11.html) is the example of a board with the `zynq7000` SoC, where default configuration of peripherals allows to run Phoenix-RTOS.
+
+
 ## Pre-build steps
 
 To make instructions given in this quickstart possible, you should checkout to `feature/syspage` branch and update submodules before building a system image.
@@ -25,10 +30,6 @@ To make instructions given in this quickstart possible, you should checkout to `
   After that you can run `build.sh` script for `armv7a7-imx6ull` target architecture.
 
   See [how to build the Phoenix-RTOS system image](../building/README.md)
-
-## Development board
-
-The easiest way to start programming hardware targets using Phoenix-RTOS is to get some of the evaluation boards with specified target processor or microcontroller. In this case [ZedBoard](https://www.xilinx.com/products/boards-and-kits/1-8dyf-11.html) is the example of a board with the `zynq7000` SoC, where default configuration of peripherals allows to run Phoenix-RTOS.
 
 ## Preparing the board
 
@@ -59,13 +60,15 @@ The easiest way to start programming hardware targets using Phoenix-RTOS is to g
   If your output is like in the screenshot above, the console (`UART` in evaluation board) is on the ACM0 port.
 
 - When the board is connected to your host-pc, open serial port in terminal using picocom and type the console port (in this case ACM0)
-  ```bash
+
+  ```
   picocom -b 115200 --imap lfcrlf /dev/ttyACM0
   ```
+
   <details>
   <summary>How to get picocom (Ubuntu 20.04)</summary>
 
-  ```bash
+  ```
   sudo apt-get update
   sudo apt-get install picocom
   ```
@@ -94,18 +97,19 @@ As you can see the Phoenix-RTOS is now launched from SD card, but we need to run
 ### Copying flash image using PHFS (phoenixd)
 
 To flash the disk image, first you need to verify on which port plo usb device has been appeared. You can check that using `ls` as follow:
-```
+
+```bash
 ls -l /dev/serial/by-id
 ```
 <img src="_images/zynq7000-ls-2.png" width="600px">
 
 To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments (choose suitable ttyACMx device, in this case ttyACM1):
 
-```
+```bash
 cd _boot/
 ```
 
-```
+```bash
 sudo ../_build/host-pc/prog/phoenixd -k phoenix-armv7a9-zynq7000.elf -p /dev/ttyACM1 -b 115200 -s .
 ```
 
@@ -113,7 +117,7 @@ sudo ../_build/host-pc/prog/phoenixd -k phoenix-armv7a9-zynq7000.elf -p /dev/tty
 
 To start copying file, write the following command in the console with plo interface:
 
-```
+```bash
 copy usb0 phoenix-armv7a9-zynq7000.disk flash0 0x0 0x0
 ```
 
@@ -163,7 +167,7 @@ help
 
 If you want to get the list of working processes please type:
 
-```
+```bash
 ps
 ```
 
@@ -171,7 +175,7 @@ ps
 
 To get the table of processes please type:
 
-```
+```bash
 top
 ```
 

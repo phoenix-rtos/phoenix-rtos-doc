@@ -2,6 +2,10 @@
 
 This version is designed for NXP i.MX 6ULL processors with ARM Cortex-A7 core. To launch this version the final disk image and loader image should be provided. The images are created as the final artifacts of `phoenix-rtos-project` building and are located in `_boot` directory. The disk image consist of bootloader (plo), kernel, UART driver (tty), dummyfs filesystem server (RAM disk) and psh (shell). The necessary tools to carry out the uploading process are located in `_boot` directory as well.
 
+## Development board
+
+The easiest way to start programming hardware targets using Phoenix-RTOS is to get some of the evaluation boards with specified target processor or microcontroller. In this case [i. MX 6ULL - EVK](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/evaluation-kit-for-the-i-mx-6ull-and-6ulz-applications-processor:MCIMX6ULL-EVK) is the example of a board with the `imx6ull` processor, where default configuration of peripherals allows to run Phoenix-RTOS.
+
 ## Pre-build steps
 
 To make instructions given in this quickstart possible, you should checkout to `feature/syspage` branch and update submodules before building a system image.
@@ -26,9 +30,6 @@ To make instructions given in this quickstart possible, you should checkout to `
 
   See [how to build the Phoenix-RTOS system image](../building/README.md)
 
-## Development board
-
-The easiest way to start programming hardware targets using Phoenix-RTOS is to get some of the evaluation boards with specified target processor or microcontroller. In this case [i. MX 6ULL - EVK](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/evaluation-kit-for-the-i-mx-6ull-and-6ulz-applications-processor:MCIMX6ULL-EVK) is the example of a board with the `imx6ull` processor, where default configuration of peripherals allows to run Phoenix-RTOS.
 
 ## Connecting the board
 
@@ -51,13 +52,15 @@ The easiest way to start programming hardware targets using Phoenix-RTOS is to g
   If your output is like in the screenshot above, the console (`DEBUG USB` in evaluation board) is on the USB0 port.
 
 - When the board is connected to your host-pc, open serial port in terminal using picocom and type the console port (in this case USB0)
-  ```bash
+
+  ```
   picocom -b 115200 --imap lfcrlf /dev/ttyUSB0
   ```
+
   <details>
   <summary>How to get picocom (Ubuntu 20.04)</summary>
 
-  ```bash
+  ```
   sudo apt-get update
   sudo apt-get install picocom
   ```
@@ -113,7 +116,7 @@ help
 
 Now you can start PhoenixRTOS by typing:
 
-```
+```bash
 go!
 ```
 
@@ -133,7 +136,7 @@ help
 
 If you want to get the list of working processes please type:
 
-```
+```bash
 ps
 ```
 
@@ -141,7 +144,7 @@ ps
 
 To get the table of processes please type:
 
-```
+```bash
 top
 ```
 

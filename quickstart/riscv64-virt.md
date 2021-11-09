@@ -9,27 +9,31 @@ Firstly, you need to install qemu emulator.
   <summary>How to get qemu (Ubuntu 20.04)</summary>
 
   - Install the required packages
-  ```bash
-sudo apt-get update && \
-sudo apt-get install qemu-kvm \
-qemu virt-manager \
-virt-viewer libvirt-clients \
-libvirt-daemon-system \
-bridge-utils virtinst \
-libvirt-daemon \
-qemu-system-misc
+
   ```
+  sudo apt-get update && \
+  sudo apt-get install qemu-kvm \
+  qemu virt-manager \
+  virt-viewer libvirt-clients \
+  libvirt-daemon-system \
+  bridge-utils virtinst \
+  libvirt-daemon \
+  qemu-system-misc
+  ```
+
   - Check if qemu is properly installed:
-  ```bash
-qemu-system-riscv64 --version
+
   ```
+  qemu-system-riscv64 --version
+  ```
+
   <img src="_images/qemu-version-riscv64.png" width="600px">
 
   </details> 
 
 To run image under qemu you should type:
 
-```
+```bash
 ./scripts/riscv64-virt.sh
 ```
 

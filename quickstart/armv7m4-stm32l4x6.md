@@ -26,14 +26,14 @@ To communicate with the board you will need to use an uart-usb converter, like `
 - Put the converter into your host-pc's usb port
 - Open serial port in terminal using picocom
 
-  ```bash
+  ```
   picocom -b 115200 --imap lfcrlf /dev/ttyUSB0
   ```
 
   <details>
   <summary>How to get picocom (Ubuntu 20.04)</summary>
 
-  ```bash
+  ```
   sudo apt-get update && \
   sudo apt-get install picocom
   ```
@@ -104,11 +104,19 @@ Phoenix-RTOS will be launched and `psh` shell command prompt will appear in the 
 
 <img src="_images/stm32l4x6-start.png" width="600px">
 
-To get the available command list please type `help`.
+To get the available command list please type:
+
+```
+help
+```
 
 <img src="_images/stm32l4x6-help.png" width="600px">
 
-To get the list of working processes please type `ps`.
+To get the list of working processes please type:
+
+```bash
+ps
+```
 
 <img src="_images/stm32l4x6-ps.png" width="600px">
 
