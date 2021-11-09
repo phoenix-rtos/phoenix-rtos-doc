@@ -15,12 +15,16 @@ The easiest way to start programming hardware targets using Phoenix-RTOS is to g
 - To communicate with the board you will need to connect the another usb cable, but to `DEBUG USB` port. The on-board uart-usb converter is used here.
 
 - Now you should verify what USB device on your host-pc is connected with the `DEBUG USB` (console). In order to check that run:
-	```bash
-	ls -l /dev/serial/by-id
-	```
-	<img src="_images/imxrt106x-ls.png" width="1000px">
 
-	If your output is like in the screenshot above, the console (`DEBUG USB` in evaluation board) is on the ACM0 port.
+  ```bash
+  ls -l /dev/serial/by-id
+  ```
+
+  </br>
+  <img src="_images/imxrt106x-ls.png" width="1000px">
+  </br>
+
+  If your output is like in the screenshot above, the console (`DEBUG USB` in evaluation board) is on the ACM0 port.
 
 - When the board is connected to your host-pc, open serial port in terminal using picocom and type the console port (in this case ACM0)
   ```bash
@@ -30,7 +34,7 @@ The easiest way to start programming hardware targets using Phoenix-RTOS is to g
   <summary>How to get picocom (Ubuntu 20.04)</summary>
 
   ```bash
-  sudo apt-get update
+  sudo apt-get update && \
   sudo apt-get install picocom
   ```
 
