@@ -18,21 +18,23 @@ To communicate with the board you will need to use an uart-usb converter, like `
   - PL2303 TX (green) - Nucleo USART_B_RX
   - PL2303 RX (white) - Nucleo USART_B_TX
   - PL2303 GND (black) - Nucleo GND
-  </br>
+
   <img src="_images/nucleo-pinout.png" width="400px">
-  </br>
+
   Source: The Nucleo board's schematic, available on https://www.st.com/en/evaluation-tools/nucleo-l4a6zg.html#cad-resources
 
 - Put the converter into your host-pc's usb port
 - Open serial port in terminal using picocom
+
   ```bash
   picocom -b 115200 --imap lfcrlf /dev/ttyUSB0
   ```
+
   <details>
   <summary>How to get picocom (Ubuntu 20.04)</summary>
 
   ```bash
-  sudo apt-get update
+  sudo apt-get update && \
   sudo apt-get install picocom
   ```
 
@@ -44,6 +46,7 @@ You can leave the terminal with serial port open, and follow the next steps.
 ## Flashing the Phoenix-RTOS system image
 
 To flash the image to the board you will need `openocd` in version 0.11. When installing openocd using `apt-get` version can be out of date (0.10). You can check it using
+
 ```bash
 openocd -v
 ```
@@ -53,18 +56,26 @@ openocd -v
 
   - download `openocd-0.11.0-rc2` from [here](https://launchpad.net/ubuntu/+source/openocd)
   - enter the downloaded directory
+
   ```bash
   cd openocd-0.11.0-rc2
   ```
+
   - install openocd
+
   ```bash
   ./configure && make && sudo make install
   ```
+
   - check if the version is correct
+
   ```bash
   openocd -v
   ```
+
+  </br>
   <img src="_images/openocd-version.png" width="600px">
+  </br>
 
   </details> 
 
@@ -76,12 +87,13 @@ sudo phoenix-rtos-build/scripts/program-stm32l4x6.sh _boot/phoenix-armv7m4-stm32
 
 or use openocd directly:
 
-```
+```bash
 OPENOCDPATH="/usr/local/share/openocd"
 openocd -f $OPENOCDPATH/scripts/interface/stlink.cfg \
 -f $OPENOCDPATH/scripts/target/stm32l4x.cfg -c "reset_config srst_only srst_nogate connect_assert_srst" \
 -c "program _boot/phoenix-armv7m4-stm32l4x6.bin 0x08000000 verify reset exit"
 ```
+
 <img src="_images/stm32l4x6-openocd.png" width="600px">
 
 Script can be modified to accomodate other SWD interfaces.
