@@ -43,7 +43,7 @@ Firstly, you need to install spike simulator.
 
 Then, to run the image under spike you should change directory to `phoenix-rtos-project` and type:
 
-```
+```bash
 spike _boot/phoenix-riscv64-spike.bbl
 ```
 

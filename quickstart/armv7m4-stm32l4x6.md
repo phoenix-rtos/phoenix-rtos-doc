@@ -57,19 +57,19 @@ openocd -v
   - download `openocd-0.11.0-rc2` from [here](https://launchpad.net/ubuntu/+source/openocd)
   - enter the downloaded directory
 
-  ```bash
+  ```
   cd openocd-0.11.0-rc2
   ```
 
   - install openocd
 
-  ```bash
+  ```
   ./configure && make && sudo make install
   ```
 
   - check if the version is correct
 
-  ```bash
+  ```
   openocd -v
   ```
 
@@ -88,9 +88,8 @@ sudo phoenix-rtos-build/scripts/program-stm32l4x6.sh _boot/phoenix-armv7m4-stm32
 or use openocd directly:
 
 ```bash
-OPENOCDPATH="/usr/local/share/openocd"
-openocd -f $OPENOCDPATH/scripts/interface/stlink.cfg \
--f $OPENOCDPATH/scripts/target/stm32l4x.cfg -c "reset_config srst_only srst_nogate connect_assert_srst" \
+openocd -f interface/stlink.cfg \
+-f target/stm32l4x.cfg -c "reset_config srst_only srst_nogate connect_assert_srst" \
 -c "program _boot/phoenix-armv7m4-stm32l4x6.bin 0x08000000 verify reset exit"
 ```
 

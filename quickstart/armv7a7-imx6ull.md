@@ -61,7 +61,7 @@ To make instructions given in this quickstart possible, you should checkout to `
   <summary>How to get picocom (Ubuntu 20.04)</summary>
 
   ```
-  sudo apt-get update
+  sudo apt-get update && \
   sudo apt-get install picocom
   ```
 
