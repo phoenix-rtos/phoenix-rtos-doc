@@ -5,11 +5,17 @@ The Phoenix-RTOS loader is a self-sufficient application which does not use any 
 It only includes common syspage's header files from phoenix-rtos-kernel.
 
 Plo is divided into five subsystems:
+
  - cmds - command-line interface
+ - 
  - devices - platform's drivers
+ - 
  - hal - hardware abstraction layer
+ - 
  - lib - common routines
+ - 
  - phfs - phoenix filesystem
+ - 
  - syspage - system configuration structure
 
 
@@ -22,9 +28,13 @@ All available commands are described in the [CLI chapter](cmds.md).
 
 ## Devices
 Devices are the hardware dependent subsystem containing a collection of drivers with a unified interface for the other loader components. Each driver has to register itself using constructor invocation. During bootloader initialization, the registered devices are initialized and appropriate `major.minor` numbers are assigned to them. The other plo's components refer to specific devices using `major.minor` identification. The minor number indicates on the device instance and are assigned dynamically. However, the major numbers are static and refer to the following device types:
+
  - `0` - UART
+ - 
  - `1` - USB
+ - 
  - `2` - STORAGE
+ - 
  - `3` - TTY
 
 Each platform defines its own set of drivers in a `Makefile` file.
@@ -34,12 +44,19 @@ HAL (Hardware Abstraction Layer) is the loader hardware dependent subsystem used
 When loader is ported to the new architecture, only the common hal interface has to be implemented, the rest of the subsystems remain unchanged.
 
 HAL implements the following functionalities:
+
  - platform initialization
+
  - types definition
+
  - basic console
+
  - string functions
+
  - timer controller
+
  - exceptions and interrupts handling
+
  - memory synchronization
 
 ### Platform initialization
@@ -54,7 +71,7 @@ Console is used for presenting plo messages until the device driver for the cons
 
 ### Strings
 
-HAL provides a set of string functions used for data copying and string manipulation. They correspond to ANSI C functions provided by the compiler but the compiler`s functions are not intentionally used. The intention was to implement these functions from scratch to control the details of implementation and external references.
+HAL provides a set of string functions used for data copying and string manipulation. They correspond to ANSI C functions provided by the compiler but the compiler\`s functions are not intentionally used. The intention was to implement these functions from scratch to control the details of implementation and external references.
 
 
 ### Timer
@@ -71,18 +88,28 @@ Furthermore, interrupts interface provides synchronization mechanisms, it allows
 
 ## Common routines
 Common routines contain the following units:
+
  - `circular buffer` - basic interface to push and pop data to buffer
+
  - `console` - unit sets console to specific device and print data on it
+
  - set of functions to handle `character types`
+
  - `error definition`
+
  - `circular doubly-linked list` - basic interface to operate on list
+
  - `logger` - log information with appropriate formatting
+
  - family of `printf functions`
+
  - `variable arguments handling`
 
 ## PHFS
 PHFS (phoenix filesystem) is an abstraction for data access from different devices. This abstraction is used by CLI to copy data/files from different sources to physical memory maps. Currently, phfs supports two protocols for data access:
+
  - `raw` - direct access to storage devices
+
  - `phoenixd` - protocol to exchange data between host and target platform via interfaces like serial or USB, using [Phoenix Daemon](https://github.com/phoenix-rtos/phoenix-rtos-hostutils/tree/master/phoenixd).
 
 In order to use a device in the phoenix filesystem, the user should assign an alias to a dedicated `major.minor` identification of the device with an appropriate protocol type, for example: `phfs usb0 1.0 phoenixd`.
