@@ -10,23 +10,27 @@ Firstly, you need to install spike simulator.
   <summary>How to install spike simulator (Ubuntu 20.04)</summary>
 
   1. Clone the riscv-isa-sim Github repository
-  ```bash
+
+  ```
   git clone https://github.com/riscv-software-src/riscv-isa-sim.git
   ```
 
   2. Enter the downloaded repository
-  ```bash
+
+  ```
   cd riscv-isa-sim
   ```
 
   3. Install the device-tree-compiler
-  ```bash
+
+  ```
   sudo apt-get update && \
   sudo apt-get install device-tree-compiler
   ```
 
   4. Install the Spike RISC-V ISA Simulator
-  ```bash
+
+  ```
   mkdir build && \
   cd build && \
   ../configure --prefix=$RISCV && \
@@ -39,34 +43,38 @@ Firstly, you need to install spike simulator.
 
 Then, to run the image under spike you should change directory to `phoenix-rtos-project` and type:
 
-````bash
+```
 spike _boot/phoenix-riscv64-spike.bbl
-````
+```
 
 <img src="_images/spike-riscv64-spike.png" width="600px">
 
 
 ## Running image under qemu
 Just like before, you first need to install the emulator.
+
   <details>
   <summary>How to get qemu (Ubuntu 20.04)</summary>
 
   - Install the required packages
-  ```bash
-sudo apt-get update && \
-sudo apt-get install qemu-kvm \
-qemu virt-manager \
-virt-viewer libvirt-clients \
-libvirt-daemon-system \
-bridge-utils virtinst \
-libvirt-daemon \
-qemu-system-misc
+
+  ```
+  sudo apt-get update && \
+  sudo apt-get install qemu-kvm \
+  qemu virt-manager \
+  virt-viewer libvirt-clients \
+  libvirt-daemon-system \
+  bridge-utils virtinst \
+  libvirt-daemon \
+  qemu-system-misc
   ```
 
   - Check if qemu is properly installed:
-  ```bash
-qemu-system-riscv64 --version
+
   ```
+  qemu-system-riscv64 --version
+  ```
+
   <img src="_images/qemu-version-riscv64.png" width="600px">
 
   </details> 

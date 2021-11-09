@@ -27,13 +27,15 @@ The easiest way to start programming hardware targets using Phoenix-RTOS is to g
   If your output is like in the screenshot above, the console (`DEBUG USB` in evaluation board) is on the ACM0 port.
 
 - When the board is connected to your host-pc, open serial port in terminal using picocom and type the console port (in this case ACM0)
-  ```bash
+
+  ```
   picocom -b 115200 --imap lfcrlf /dev/ttyACM0
   ```
+
   <details>
   <summary>How to get picocom (Ubuntu 20.04)</summary>
 
-  ```bash
+  ```
   sudo apt-get update && \
   sudo apt-get install picocom
   ```
@@ -107,12 +109,20 @@ As a result Phoenix-RTOS with default configuration and `psh` shell command prom
 ## Using Phoenix-RTOS
 
 
-To get the list of working threads and processes please type `ps -t`.
+To get the list of working threads and processes please type:
+
+```bash
+ps -t
+```
 
 <img src="_images/imxrt106x-ps-t.png" width="1000px">
 
 
-To get the table of processes please type `top`.
+To get the table of processes please type:
+
+```bash
+top
+```
 
 <img src="_images/imxrt106x-top.png" width="1000px">
 

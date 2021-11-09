@@ -9,20 +9,24 @@ Firstly, you need to install qemu emulator.
   <summary>How to get qemu (Ubuntu 20.04)</summary>
 
   - Install the required packages
-  ```bash
-sudo apt-get update && \
-sudo apt-get install qemu-kvm \
-qemu virt-manager \
-virt-viewer libvirt-clients \
-libvirt-daemon-system \
-bridge-utils virtinst \
-libvirt-daemon \
-qemu-system-misc
+
   ```
+  sudo apt-get update && \
+  sudo apt-get install qemu-kvm \
+  qemu virt-manager \
+  virt-viewer libvirt-clients \
+  libvirt-daemon-system \
+  bridge-utils virtinst \
+  libvirt-daemon \
+  qemu-system-misc
+  ```
+
   - Check if qemu is properly installed:
-  ```bash
-qemu-system-i386 --version
+
   ```
+  qemu-system-i386 --version
+  ```
+
   <img src="_images/qemu-version-i386.png" width="600px">
 
   </details> 
@@ -45,7 +49,7 @@ help
 
 <img src="_images/qemu-ia32-generic-help.png" width="600px">
 
-In order to run one of the user applications you should type `/usr/bin/appname` for example:
+In order to run one of the user applications you should type `/usr/bin/appname`, for example:
 ```bash
 /usr/bin/voxeldemo
 ```
