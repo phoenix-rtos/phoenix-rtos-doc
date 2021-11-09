@@ -12,11 +12,12 @@ To make instructions given in this quickstart possible, you should checkout to `
   Launch these commands from `phoenix-rtos-project` directory:
 
   ```
-git remote add origin https://github.com/phoenix-rtos/phoenix-rtos-project.git && \
-git fetch origin feature/syspage && \
-git checkout origin/feature/syspage && \
-git submodule update --recursive
-```
+  git remote add origin https://github.com/phoenix-rtos/phoenix-rtos-project.git && \
+  git fetch origin feature/syspage && \
+  git checkout origin/feature/syspage && \
+  git submodule update --recursive
+  ```
+
   <img src="_images/feature-syspage-checkout.png" width="600px">
 
   </details>
@@ -48,9 +49,11 @@ The easiest way to start programming hardware targets using Phoenix-RTOS is to g
 - Now you can power up the board, changing the `SW8` position to `ON`. The `LD13` LED should turn green.
 
 - Now you should verify, what USB device on your host-pc is connected with the `UART` (console). In order to check that run:
+
   ```
   ls -l /dev/serial/by-id
   ```
+
   <img src="_images/zynq7000-ls.png" width="600px">
 
   If your output is like in the screenshot above, the console (`UART` in evaluation board) is on the ACM0 port.
@@ -105,6 +108,7 @@ cd _boot/
 ```
 sudo ../_build/host-pc/prog/phoenixd -k phoenix-armv7a9-zynq7000.elf -p /dev/ttyACM1 -b 115200 -s .
 ```
+
 <img src="_images/zynq7000-phoenixd.png" width="600px">
 
 To start copying file, write the following command in the console with plo interface:
@@ -149,6 +153,7 @@ To run it you should follow the steps below:
 ## Using Phoenix-RTOS
 
 To get the available command list please type:
+
 ```
 help
 ```
@@ -165,6 +170,7 @@ ps
 <img src="_images/zynq7000-ps.png" width="600px">
 
 To get the table of processes please type:
+
 ```
 top
 ```

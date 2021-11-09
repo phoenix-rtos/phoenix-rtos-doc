@@ -12,11 +12,12 @@ To make instructions given in this quickstart possible, you should checkout to `
   Launch these commands from `phoenix-rtos-project` directory:
 
   ```
-git remote add origin https://github.com/phoenix-rtos/phoenix-rtos-project.git && \
-git fetch origin feature/syspage && \
-git checkout origin/feature/syspage && \
-git submodule update --recursive
-```
+  git remote add origin https://github.com/phoenix-rtos/phoenix-rtos-project.git && \
+  git fetch origin feature/syspage && \
+  git checkout origin/feature/syspage && \
+  git submodule update --recursive
+  ```
+
   <img src="_images/feature-syspage-checkout.png" width="600px">
 
   </details>
@@ -40,9 +41,11 @@ The easiest way to start programming hardware targets using Phoenix-RTOS is to g
 - Now you can power up the board by changing the `SW2001` position to `2`. The `D2003` LED should turn green.
 
 - Now you should verify what USB device on your host-pc is connected with the `DEBUG USB` (console). In order to check that run:
+
   ```
   ls -l /dev/serial/by-id
   ```
+
   <img src="_images/imx6ull-ls.png" width="600px">
 
   If your output is like in the screenshot above, the console (`DEBUG USB` in evaluation board) is on the USB0 port.
@@ -101,6 +104,7 @@ The plo user interface should appear in the console.
 <img src="_images/imx6ull-plo.png" width="600px">
 
 To get the available bootloader command list please type:
+
 ```
 help
 ```
@@ -108,6 +112,7 @@ help
 <img src="_images/imx6ull-plo-help.png" width="600px">
 
 Now you can start PhoenixRTOS by typing:
+
 ```
 go!
 ```
@@ -118,6 +123,7 @@ go!
 
 
 To get the available command list please type:
+
 ```
 help
 ```
@@ -134,6 +140,7 @@ ps
 <img src="_images/imx6ull-ps.png" width="600px">
 
 To get the table of processes please type:
+
 ```
 top
 ```
