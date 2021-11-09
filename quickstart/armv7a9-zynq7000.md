@@ -90,7 +90,12 @@ The Phoenix-RTOS loader is uploaded to the SD card. When the board is power on, 
 
 If you don't see it, please press the `PS-RST` button (`BTN7`), to restart the chip and print initialisation logs.
 
-As you can see the Phoenix-RTOS is now launched from SD card, but we need to run plo (Phoenix-RTOS loader). To do that, you should press any button, for example `enter` within 1 second after restart (using `PS-RST`):
+
+If you are flashing the board a second time and some older Phoenix-RTOS image is uploaded to NOR flash memory, the following output will appear:
+
+<img src="_images/zynq7000-ram-start-2.png" width="600px">
+
+As you can see, the older Phoenix-RTOS image is now launched, but we need to run plo (Phoenix-RTOS loader). To do that, you should press any button, for example `enter` within 1 second after restart (using `PS-RST`):
 
 <img src="_images/zynq7000-plo.png" width="600px">
 
