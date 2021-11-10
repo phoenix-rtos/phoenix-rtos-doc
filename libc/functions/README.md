@@ -90,7 +90,7 @@ endthread,
 [`fputc`](./f/fputc.part-impl.md), <!-- updated -->
 [`fputc`](./f/fputc.part-impl.md), <!-- updated -->
 [`fread`](./f/fread.part-impl.md), <!-- updated -->
-[`freeaddrinfo`](./f/freeaddrinfo.part-impl.md),
+[`freeaddrinfo`](./f/freeaddrinfo.part-impl.md), <!-- updated -->
 [`freopen`](./f/freopen.md),
 [`frexp`](./f/frexp.part-impl.md),
 [`fscanf`](./f/scanf.part-impl.md),
