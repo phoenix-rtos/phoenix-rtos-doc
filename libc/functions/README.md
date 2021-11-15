@@ -91,18 +91,18 @@ endthread,
 [`fputc`](./f/fputc.part-impl.md), <!-- updated -->
 [`fread`](./f/fread.part-impl.md), <!-- updated -->
 [`freeaddrinfo`](./f/freeaddrinfo.part-impl.md), <!-- updated -->
-[`freopen`](./f/freopen.md),
-[`frexp`](./f/frexp.part-impl.md),
-[`fscanf`](./f/scanf.part-impl.md),
-[`fseek`](./f/fseek.part-impl.md),
-[`fseeko`](./f/fseeko.part-impl.md),
-[`fstatat`](./f/stat.part-impl.md), <!-- updated -->
-[`fstatat`](./f/fstatat.part-impl.md),
-[`ftell`](./f/ftell.part-impl.md),
-[`ftello`](./f/ftello.part-impl.md),
-[`ftruncate`](./f/ftruncate.part-impl.md),
+[`freopen`](./f/freopen.part-impl.md), <!-- updated -->
+[`frexp`](./f/frexp.part-impl.md), <!-- updated -->
+[`frexpf`](./f/frexp.part-impl.md), <!-- updated -->
+[`fscanf`](./f/fscanf.part-impl.md), <!-- updated -->
+[`fseek`](./f/fseek.part-impl.md), <!-- updated -->
+[`fseeko`](./f/fseek.part-impl.md), <!-- updated -->
+[`fstatat`](./s/stat.part-impl.md), <!-- updated -->
+[`ftell`](./f/ftell.part-impl.md), <!-- updated -->
+[`ftello`](./f/ftell.part-impl.md), <!-- updated -->
+[`ftruncate`](./f/ftruncate.part-impl.md), <!-- updated -->
 [`futimens`](./u/utime.part-impl.md), <!-- #updated# -->
-[`fwrite`](./f/fwrite.part-impl.md)
+[`fwrite`](./f/fwrite.part-impl.md), <!-- updated -->
 
 ## g
 
@@ -146,7 +146,7 @@ LIST,
 [`longjmp`](./l/longjmp.part-impl.md), <!-- updated -->
 lookup,
 [`lseek`](./l/lseek.part-impl.md), <!-- updated -->
-[`lstat`](./l/stat.part-impl.md), <!-- updated -->
+[`lstat`](./s/stat.part-impl.md), <!-- updated -->
 
 ## m
 
@@ -245,7 +245,8 @@ resourceDestroy,
 [`sprintf`](./p/printf.part-impl.md), <!-- updated -->
 [`sqrt`](./s/sqrt.part-impl.md), <!-- updated -->
 [`srand`](./r/rand.part-impl.md), <!-- updated -->
-[`sscanf`](./s/scanf.part-impl.md), <!-- updated -->
+[`scanf`](./f/fscanf.part-impl.md), <!-- updated -->
+[`sscanf`](./f/fscanf.part-impl.md), <!-- updated -->
 [`stat`](./s/stat.part-impl.md), <!-- updated -->
 [`sterror`](./s/sterror.md),
 [`stime`](./s/stime.md),

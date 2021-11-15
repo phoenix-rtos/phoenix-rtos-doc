@@ -1,56 +1,114 @@
-###Synopsis
+# Synopsis 
+`#include <stdio.h>`</br>
+` int fseek(FILE *stream, long offset, int whence);`</br>
+`int fseeko(FILE *stream, off_t offset, int whence);`</br>
 
-`#include <stdio.h>`
+## Status
+Partially implemented
+## Conformance
+IEEE Std 1003.1-2017
+## Description
 
-`int fseek(FILE *stream, long int offset, int whence);`
-`int fseeko(FILE *stream, off_t offset, int whence);`
 
-###Description
+The purpose is to reposition a file-position indicator in a stream. The `fseek()` function shall set the file-position indicator for the stream pointed to by _stream_. If a read or write
+error occurs, the error indicator for the stream shall be set and `fseek()` fails.
 
-Sets the file position of the stream to the given <u>offset</u>. The argument <u>offset</u> signifies the number of bytes to seek from the given <u>whence</u> position.
+The new position, measured in bytes from the beginning of the file, shall be obtained by adding _offset_ to the position
+specified by _whence_. The specified point is the beginning of the file for `SEEK_SET,` the current value of the file-position
+indicator for `SEEK_CUR,` or end-of-file for `SEEK_END`.
 
-Arguments:
-<u>stream</u> - the stream to position,    
-<u>offset</u> - the number of bytes to seek from the given <u>whence</u> position,
-<u>whence</u> - the starting stream position.
+If the stream is to be used with wide-character input/output functions, the application shall ensure that _offset_ is
+either `0` or a value returned by an earlier call to `ftell()` on the same stream and
+_whence_ is `SEEK_SET`.
 
-The new position, measured in bytes from the beginning of the file, is obtained by adding <u>offset</u> to the position specified by <u>whence</u>. The specified point is the beginning of the file for `SEEK_SET`, the current value of the file-position indicator for `SEEK_CUR`, or end-of-file for `SEEK_END`.
+A successful call to `fseek()` shall clear the end-of-file indicator for the stream and undo any effects of `ungetc()` and `ungetwc()` on the same stream.
 
-If the stream is to be used with wide-character input/output functions, the application ensures that <u>offset</u> is either `0` or a value returned by an earlier call to `ftell()` on the same stream and <u>whence</u> is `SEEK_SET`.
+After an `fseek()` call, the next operation on an update stream may be either input or output.
+If the most recent operation, other than `ftell()`, on a given stream is `fflush()`, the file offset in the underlying open file description shall be adjusted to
+reflect the location specified by `fseek()`.
 
-A successful call to `fseek()` clears the end-of-file indicator for the stream and undo any effects of `ungetc()` and `ungetwc()` on the same stream. After an `fseek()` call, the next operation on an update stream may be either input or output.
+The `fseek()` function shall allow the file-position indicator to be set beyond the end of existing data in the file. If
+data is later written at this point, subsequent reads of data in the gap shall return bytes with the value `0` until data is actually
+written into the gap.
 
-If the most recent operation, other than `ftell()`, on a given stream is `fflush()`, the file offset in the underlying open file description is adjusted to reflect the location specified by `fseek()`.
+The behavior of `fseek()` on devices which are incapable of seeking is implementation-defined. The value of the file offset
+associated with such a device is undefined.
 
-The `fseek()` function allows the file-position indicator to be set beyond the end of existing data in the file. If data is later written at this point, subsequent reads of data in the gap return bytes with the value `0` until data is actually written into the gap.
+If the stream is writable and buffered data had not been written to the underlying file, `fseek()` shall cause the
+unwritten data to be written to the file and shall mark the last data modification and last file status change timestamps of the
+file for update.
 
-If the stream is writable and buffered data had not been written to the underlying file, `fseek()` causes the unwritten data to be written to the file and marks the last data modification and last file status change timestamps of the file for update.
+In a locale with state-dependent encoding, whether `fseek()` restores the stream's shift state is
+implementation-defined.
 
-The `fseeko()` function is equivalent to the `fseek()` function except that the <u>offset</u> argument is of type `off_t`.
+The `fseeko()` function shall be equivalent to the `fseek()` function except that the _offset_ argument is of
+type `off_t`. 
 
-###Return value
 
-The `fseek()` and `fseeko()` functions return `0` if they succeed. Otherwise, they return `-1` and set `errno` to indicate the error. 
+## Return value
 
-###Errors
 
-The `fseek()` and `fseeko()` functions fail if, either the stream is unbuffered or the stream's buffer needed to be flushed, and the call to `fseek()` or `fseeko()` causes an underlying `lseek()` or `write()` to be invoked, and: 
+The `fseek()` and `fseeko()` functions shall return `0` if they succeed.
 
-[`EAGAIN`] The `O_NONBLOCK` flag is set for the file descriptor and the thread would be delayed in the write operation. 
-[`EBADF`]  The file descriptor underlying the stream file is not open for writing or the stream's buffer needed to be flushed and the file is not open. 
-[`EFBIG`]  An attempt was made to write a file that exceeds the maximum file size. or
-           An attempt was made to write a file that exceeds the file size limit of the process. or
-           The file is a regular file and an attempt was made to write at or beyond the offset maximum associated with the corresponding stream. 
-[`EINTR`]  The write operation was terminated due to the receipt of a signal, and no data was transferred. 
-[`EINVAL`] The <u>whence</u> argument is invalid. The resulting file-position indicator would be set to a negative value. 
-[`EIO`]    A physical I/O error has occurred, or the process is a member of a background process group attempting to perform a `write()` to its controlling terminal, `TOSTOP` is set, the calling thread is not blocking SIGTTOU, the process is not ignoring `SIGTTOU`, and the process group of the process is orphaned. 
-[`ENOSPC`] There was no free space remaining on the device containing the file. 
-[`EOVERFLOW`] For `fseek()`, the resulting file offset would be a value which cannot be represented correctly in an object of type `long`. 
-              For `fseeko()`, the resulting file offset would be a value which cannot be represented correctly in an object of type `off_t`. 
-[`EPIPE`]  An attempt was made to write to a pipe or `FIFO` that is not open for reading by any process; a `SIGPIPE` signal is also sent to the thread. 
-[`ESPIPE`] The file descriptor underlying stream is associated with a pipe, `FIFO`, or socket. 
-[`ENXIO`]  A request was made of a nonexistent device, or the request was outside the capabilities of the device. 
+Otherwise, they shall return `-1` and set `errno` to indicate the error.
 
-###Implementation tasks
 
- * Implement error handling
+## Errors
+
+
+The `fseek()`    and `fseeko()` 
+ functions shall fail if, either the stream is unbuffered or the stream's buffer needed to be flushed, and
+the call to `fseek()` or `fseeko()` causes an underlying `lseek()` or `write()` to be invoked, and: 
+
+
+ * `EAGAIN` - The `O_NONBLOCK` flag is set for the file descriptor and the thread would be delayed in the write operation. 
+
+ * `EBADF` - The file descriptor underlying the stream file is not open for writing or the stream's buffer needed to be flushed and the file is
+not open. 
+
+ * `EFBIG` - An attempt was made to write a file that exceeds the maximum file size. 
+
+ * `EFBIG` - An attempt was made to write a file that exceeds the file size limit of the process. 
+
+ * `EFBIG` - The file is a regular file and an attempt was made to write at or beyond the offset maximum associated with the corresponding
+stream. 
+
+ * `EINTR` - The write operation was terminated due to the receipt of a signal, and no data was transferred. 
+
+ * `EINVAL` - The _whence_ argument is invalid. The resulting file-position indicator would be set to a negative value. 
+
+ * `EIO` - A physical I/O error has occurred, or the process is a member of a background process group attempting to perform a `write()` to its controlling terminal, `TOSTOP` is set, the calling thread is not blocking
+`SIGTTOU`, the process is not ignoring `SIGTTOU`, and the process group of the process is orphaned. This error may also be returned
+under implementation-defined conditions. 
+
+ * `ENOSPC` - There was no free space remaining on the device containing the file. 
+
+ * `EOVERFLOW` - For `fseek()`, the resulting file offset would be a value which cannot be represented correctly in an object of type
+`long`. 
+
+ * `EOVERFLOW` - For `fseeko()`, the resulting file offset would be a value which cannot be represented correctly in an object of type
+`off_t`. 
+
+ * `EPIPE` - An attempt was made to write to a pipe or FIFO that is not open for reading by any process; a `SIGPIPE` signal shall also be sent to the
+thread. 
+
+ * `ESPIPE` - The file descriptor underlying stream is associated with a pipe, FIFO, or socket. 
+
+The `fseek()` and `fseeko()` 
+ functions may fail if:
+
+ * `ENXIO` - A request was made of a nonexistent device, or the request was outside the capabilities of the device. 
+
+
+
+## Tests
+
+Untested
+
+## Known bugs
+
+None
+
+## See Also 
+1. [Standard library functions](../README.md)
+2. [Table of Contents](../../../README.md)

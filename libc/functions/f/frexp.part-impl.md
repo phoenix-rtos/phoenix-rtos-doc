@@ -1,40 +1,45 @@
-###Synopsis
+# Synopsis 
+`#include <math.h>`</br>
+` double frexp(double num, int *exp);`</br>
+` float frexpf(float num, int *exp);`</br>
 
-`#include <math.h>`
+## Status
+Partially implemented
+## Conformance
+IEEE Std 1003.1-2017
+## Description
 
-`double frexp(double num, int* exp);`
-`float frexpf(float num, int *exp);`
-`long double frexpl(long double num, int *exp);`
 
-###Description
+The purpose is to extract mantissa and exponent from a double precision number. These functions shall break a floating-point number _num_ into a normalized fraction and an integral power of 2. The
+integer exponent shall be stored in the int object pointed to by _exp_.
 
-The function breaks the floating point number <u>num</u> into its binary significant
 
-* (a floating point with an absolute value between `0.5`(included) and `1.0`(excluded))
-* an integral power of `2`.
- 
-Arguments:
+## Return value
 
-<u>num</u> - a floating point number to be broken,
-<u>exp</u> - an integer exponent. 
 
-###Return value
+For finite arguments, these functions shall return the value `x`, such that `x` has a magnitude in the interval `[½,1)` or `0`, and _num_ equals `x` times `2` raised to the power _*exp_.
 
-For finite arguments, these functions return the value `x`, such that `x` has a magnitude in the interval `[,1)` or `0`, and <u>num</u> equals `x` times `2` raised to the power `*exp`.
+If _num_ is `NaN`, a `NaN` shall be returned, and the value of _*exp_ is unspecified.
 
-If <u>num</u> is `NaN`, a `NaN` is returned, and the value of *<u>exp</u> is unspecified.
+If _num_ is `±0`, `±0` shall be returned, and the value of _*exp_ shall be `0`.
 
-If <u>num</u> is `0`, `0` is returned, and the value of *<u>exp</u> is `0`.
+If _num_ is `±Inf`, _num_ shall be returned, and the value of _*exp_ is unspecified.
 
-If <u>num</u> is `Inf`, <u>num</u> is returned, and the value of *<u>exp</u> is unspecified. 
 
-###Errors
+## Errors
+
 
 No errors are defined.
 
-###Implementation tasks
 
-* `frexp()`: remove strange constant: `1022`.
-* `normalizeSub()`: remove strange constants from the code.
-* Implement `frexpf()`.
-* Implement `frexpl()`.
+## Tests
+
+Untested
+
+## Known bugs
+
+None
+
+## See Also 
+1. [Standard library functions](../README.md)
+2. [Table of Contents](../../../README.md)
