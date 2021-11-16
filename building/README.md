@@ -51,7 +51,7 @@ To get the list of valid targets the `build.sh` script should be launched with e
 
 This is the quickest way to start development - all necessary tools are distributed in docker image.
 
-Firstly, you need to have a docker installed.
+Firstly, you need to have the docker installed.
 
   <details>
   <summary>How to get docker (Ubuntu 20.04)</summary>

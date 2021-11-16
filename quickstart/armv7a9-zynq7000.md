@@ -6,6 +6,8 @@ This version is designed for Xilinx Zynq-7000 SoC (System on Chip) with ARM Cort
 
 The easiest way to start programming hardware targets using Phoenix-RTOS is to get some of the evaluation boards with specified target processor or microcontroller. In this case [ZedBoard](https://www.xilinx.com/products/boards-and-kits/1-8dyf-11.html) is the example of a board with the `zynq7000` SoC, where default configuration of peripherals allows to run Phoenix-RTOS.
 
+If you don't have one, you can check running `armv7a9-zynq7000` target architecture on emulator [here](armv7a9-zynq7000-emu.md).
+
 
 ## Pre-build steps
 
