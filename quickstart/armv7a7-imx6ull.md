@@ -35,9 +35,9 @@ The easiest way to start programming hardware targets using Phoenix-RTOS is to g
 
 - To provide a power supply for the board, you should connect AC Adapter to DC socket on the board. For now leave `SW2001` switch in the `1` position.
 
-- To communicate with the board you will need to connect the usb cable to `DEBUG USB` port. The on-board uart-usb converter is used here.
+- To communicate with the board you will need to connect the usb cable to `DEBUG USB` port (`J1901`). The on-board uart-usb converter is used here.
 
-- You should also connect the another micro usb cable to `USB OTG` port. As a result two available usb ports in `i. MX 6ULL - EVK` will be connected to yor host-pc.
+- You should also connect the another micro usb cable to `USB OTG` port (`J1102`). As a result two available usb ports in `i. MX 6ULL - EVK` will be connected to yor host-pc.
 
 - Now you can power up the board by changing the `SW2001` position to `2`. The `D2003` LED should turn green.
 
