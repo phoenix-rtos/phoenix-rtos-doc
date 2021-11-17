@@ -8,7 +8,7 @@ The easiest way to start programming hardware targets using Phoenix-RTOS is to g
 
 ## Connecting the board
 
-- Firstly make sure, that the J1 jumper is in 3-5 position, so that the power will be supplied from `USB OTG` port.
+- Firstly make sure, that the J1 jumper is in 3-4 position, so that the power will be supplied from `USB OTG` port.
 
 - To provide a power supply for the board and make flashing possible, you should connect usb to micro usb cable between your host pc and `USB OTG` of the development board. Do it first.
 
@@ -21,7 +21,7 @@ The easiest way to start programming hardware targets using Phoenix-RTOS is to g
   ```
 
   </br>
-  <img src="_images/imxrt106x-ls.png" width="1000px">
+  <img src="_images/imxrt106x-ls.png" width="600px">
   </br>
 
   If your output is like in the screenshot above, the console (`DEBUG USB` in evaluation board) is on the ACM0 port.
@@ -56,21 +56,24 @@ NOTE: i. MX RT1064 should be set in Serial Download mode. Set appropriate config
 
 Change directory to `_boot` and run `psu` as follow:
 
-```bash
+```
 cd _boot/
+```
+
+```
 sudo ./psu plo-ram-armv7m7-imxrt106x.sdp
 ```
 The following output is expected:
 
-<img src="_images/imxrt106x-psu-output.png" width="1000px">
+<img src="_images/imxrt106x-psu-output.png" width="600px">
 
 The plo user interface should appear in the console.
 
-<img src="_images/imxrt106x-plo.png" width="1000px">
+<img src="_images/imxrt106x-plo.png" width="600px">
 
 To get the available bootloader command list please type `help`.
 
-<img src="_images/imxrt106x-plo-help.png" width="1000px">
+<img src="_images/imxrt106x-plo-help.png" width="600px">
 
 ### Copying flash image using PHFS (phoenixd)
 
@@ -78,44 +81,55 @@ To flash the disk image, first you need to verify on which port plo usb device h
 ```bash
 ls -l /dev/serial/by-id
 ```
-<img src="_images/imxrt106x-ls-2.png" width="1000px">
+<img src="_images/imxrt106x-ls-2.png" width="600px">
 
 To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments (choose suitable ttyACMx device, in this case ttyACM1):
 
 ```bash
 sudo ./phoenixd -k ../_build/armv7m7-imxrt106x/prog/phoenix-armv7m7-imxrt106x.elf -p /dev/ttyACM1 -b 115200 -s .
 ```
-<img src="_images/imxrt106x-phoenixd.png" width="1000px">
+<img src="_images/imxrt106x-phoenixd.png" width="600px">
 
 To start copying file, write the following command in the console with plo interface:
 
 ```bash
-copy usb0 phoenix-armv7m7-imxrt106x.disk flash0 0x0 0x0
+copy usb0 phoenix-armv7m7-imxrt106x.disk flash1 0x0 0x0
 ```
 
-<img src="_images/imxrt106x-plo-copy.png" width="1000px">
+The `flash1` is the internal flash memory. The alternative option is to copy the system image to external flash memory - `flash0`.
+
+<img src="_images/imxrt106x-plo-copy.png" width="600px">
 
 ### Booting Phoenix-RTOS from internal Flash
 
-To launch Phoenix-RTOS from flash memory, change SW7 switch to Internal Flash mode (`0010` configuration) and restart the board.
+To launch Phoenix-RTOS from flash memory, change SW7 switch to Internal Flash mode (`0010` configuration) and restart the board (you can do it by pushing `SW3` button).
 
 If everything has gone correctly, the bootloader should appear in the terminal, with a console opened. Now you should type `go!` command.
 As a result Phoenix-RTOS with default configuration and `psh` shell command prompt will appear in the terminal.
 
-<img src="_images/imxrt106x-go.png" width="1000px">
-<img src="_images/imxrt106x-start.png" width="1000px">
+<img src="_images/imxrt106x-go.png" width="600px">
+
+</br>
+
+<img src="_images/imxrt106x-start.png" width="600px">
 
 
 ## Using Phoenix-RTOS
 
+If you want to get the available command list please type:
 
-To get the list of working threads and processes please type:
+```
+help
+```
+<img src="_images/imxrt106x-help.png" width="600px">
+
+To get the list of working processes please type:
 
 ```bash
-ps -t
+ps
 ```
 
-<img src="_images/imxrt106x-ps-t.png" width="1000px">
+<img src="_images/imxrt106x-ps.png" width="600px">
 
 
 To get the table of processes please type:
@@ -124,7 +138,7 @@ To get the table of processes please type:
 top
 ```
 
-<img src="_images/imxrt106x-top.png" width="1000px">
+<img src="_images/imxrt106x-top.png" width="600px">
 
 ## See also
 
