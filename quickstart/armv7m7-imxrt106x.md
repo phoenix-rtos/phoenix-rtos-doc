@@ -10,9 +10,9 @@ The easiest way to start programming hardware targets using Phoenix-RTOS is to g
 
 - Firstly make sure, that the J1 jumper is in 3-4 position, so that the power will be supplied from `USB OTG` port.
 
-- To provide a power supply for the board and make flashing possible, you should connect usb to micro usb cable between your host pc and `USB OTG` of the development board. Do it first.
+- To provide a power supply for the board and make flashing possible, you should connect usb to micro usb cable between your host pc and `USB OTG` (`J9`) of the development board. Do it first.
 
-- To communicate with the board you will need to connect the another usb cable, but to `DEBUG USB` port. The on-board uart-usb converter is used here.
+- To communicate with the board you will need to connect the another usb cable, but to `DEBUG USB` port (`J14`). The on-board uart-usb converter is used here.
 
 - Now you should verify what USB device on your host-pc is connected with the `DEBUG USB` (console). In order to check that run:
 

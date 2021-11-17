@@ -10,7 +10,7 @@ The easiest way to start programming hardware targets using Phoenix-RTOS is to g
 
 ## Connecting the board
 
-To provide a power supply for the board and make flashing possible, you have to connect usb to micro usb cable between your host pc and the development board.
+To provide a power supply for the board and make flashing possible, you have to connect usb to micro usb cable between your host pc and the development board (`USB PWR` port, also called `CN1`).
 To communicate with the board you will need to use an uart-usb converter, like `PL2303 TA`.
 
 - Connect TX, RX and GND wires to the USART2 (called also USART_B) in the Nucleo board.
