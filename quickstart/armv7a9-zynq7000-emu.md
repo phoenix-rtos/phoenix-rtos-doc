@@ -1,30 +1,7 @@
 # Running system on `armv7a9-zynq7000` (Xilinx Zynq-7000) on emulator
 
-This quickstart describes how to run Phoenix-RTOS system image for `armv7a9-zynq7000` target architecture using docker and qemu.
-
-## Pre-build steps
-
-To make instructions given in this quickstart possible, you should checkout to `feature/syspage` branch and update submodules before building a system image.
-  <details>
-  <summary> How to checkout to the feature/syspage branch and update submodules </summary>
-  There are diffrent ways to do that, here is one of them.
-
-  Launch these commands from `phoenix-rtos-project` directory:
-
-  ```
-  git remote add origin https://github.com/phoenix-rtos/phoenix-rtos-project.git && \
-  git fetch origin feature/syspage && \
-  git checkout origin/feature/syspage && \
-  git submodule update --recursive
-  ```
-
-  <img src="_images/feature-syspage-checkout.png" width="600px">
-
-  </details>
-
-  After that you can run `build.sh` script for `armv7a7-imx6ull` target architecture.
-
-  See [how to build the Phoenix-RTOS system image](../building/README.md)
+These instructions describe how to run Phoenix-RTOS system image for `armv7a9-zynq7000` target architecture using docker and qemu.
+Note that, the build artifacts, including the system image, should be first provided in the `_boot` directory. If you haven't run the `build.sh` script yet, follow the pre-build steps [here](armv7a9-zynq7000.md) and next run it for `armv7a9-zynq7000` target.
 
 ## Running the system image
 
@@ -145,5 +122,7 @@ If you want to quit, you should click on the terminal window, press `ctrl + a`, 
 
 ## See also
 
-1. [Running system on targets](README.md)
-2. [Table of Contents](../README.md)
+1. [Running system on armv7a9-zynq7000](armv7a9-zynq7000.md)
+2. [Running system on armv7a9-zynq7000 on development board](armv7a9-zynq7000-devboard.md)
+3. [Running system on targets](README.md)
+4. [Table of Contents](../README.md)
