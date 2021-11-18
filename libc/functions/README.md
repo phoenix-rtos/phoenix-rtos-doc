@@ -90,7 +90,7 @@ endthread,
 [`fputc`](./f/fputc.part-impl.md), <!-- updated -->
 [`fputc`](./f/fputc.part-impl.md), <!-- updated -->
 [`fread`](./f/fread.part-impl.md), <!-- updated -->
-[`freeaddrinfo`](./f/freeaddrinfo.part-impl.md), <!-- updated -->
+[`freeaddrinfo`](./g/getaddrinfo.part-impl.md), <!-- updated -->
 [`freopen`](./f/freopen.part-impl.md), <!-- updated -->
 [`frexp`](./f/frexp.part-impl.md), <!-- updated -->
 [`frexpf`](./f/frexp.part-impl.md), <!-- updated -->
@@ -102,27 +102,27 @@ endthread,
 [`ftello`](./f/ftell.part-impl.md), <!-- updated -->
 [`ftruncate`](./f/ftruncate.part-impl.md), <!-- updated -->
 [`futimens`](./u/utime.part-impl.md), <!-- #updated# -->
-[`fwrite`](./f/fwrite.part-impl.md), <!-- updated -->
+[`fwrite`](./f/fwrite.part-impl.md) <!-- updated -->
 
 ## g
 
-[`gai_strerror`](./g/gai_strerror.part-impl.md),
-[`getaddrinfo`](./g/getaddrinfo.part-impl.md),
-[`getc`](./g/getc.part-impl.md),
+[`gai_strerror`](./g/gai_strerror.part-impl.md), <!-- updated -->
+[`getaddrinfo`](./g/getaddrinfo.part-impl.md), <!-- updated -->
+[`getc`](./g/getc.part-impl.md), <!-- updated -->
 [`getc_unlocked`](./p/putchar_unlocked.part-impl.md), <!-- updated -->
-[`getchar`](./g/getchar.md),
+[`getchar`](./g/getchar.part-impl.md), <!-- updated -->
 [`getchar_unlocked`](./p/putchar_unlocked.part-impl.md), <!-- updated -->
-[`getcwd`](./g/getcwd.part-impl.md),
-[`getegid`](./g/getegid.md),
-[`getline`](./g/getline.part-impl.md),
-[`getpgrp`](./g/getpgrp.md),
-[`getpid`](./g/getpid.md),
-[`getppid`](./g/getppid.md),
-[`getpwnam`](./g/getpwnam.md),
-[`getpwuid`](./g/getpwuid.md),
-[`gets`](./g/gets.md),
-[`gettime`](./g/gettime.md),
-[`getuid`](./g/getuid.md)
+[`getcwd`](./g/getcwd.part-impl.md), <!-- updated -->
+[`getegid`](./g/getegid.part-impl.md), <!-- updated -->
+[`getline`](./g/getline.part-impl.md), <!-- updated -->
+[`getpgrp`](./g/getpgrp.part-impl.md), <!-- updated -->
+[`getpid`](./g/getpid.part-impl.md), <!-- updated -->
+[`getppid`](./g/getppid.part-impl.md), <!-- updated -->
+[`getpwnam`](./g/getpwnam.part-impl.md), <!-- updated -->
+[`getpwuid`](./g/getpwuid.part-impl.md), <!-- updated -->
+[`gets`](./g/gets.part-impl.md), <!-- updated -->
+gettime,
+[`getuid`](./g/getuid.part-impl.md), <!-- updated -->
 
 ## i
 

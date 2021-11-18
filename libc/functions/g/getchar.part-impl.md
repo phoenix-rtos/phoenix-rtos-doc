@@ -1,6 +1,6 @@
 # Synopsis 
 `#include <stdio.h>`</br>
-` int getc(FILE *stream);`</br>
+` int getchar(void);`</br>
 
 ## Status
 Partially implemented
@@ -9,9 +9,7 @@ IEEE Std 1003.1-2017
 ## Description
 
 
-The purpose is to get a byte from a stream. The `getc()` function shall be equivalent to `fgetc`, except that if it is
-implemented as a macro it may evaluate stream more than once, so the argument should never be an expression with
-side-effects.
+The purpose is to get a byte from a stdin stream. The `getchar()` function shall be equivalent to `getc(stdin)`.
 
 
 ## Return value
@@ -24,8 +22,6 @@ Refer to [fgetc](../f/fgetc.part-impl.md).
 
 
 Refer to [fgetc](../f/fgetc.part-impl.md).
-
-
 
 
 ## Tests
