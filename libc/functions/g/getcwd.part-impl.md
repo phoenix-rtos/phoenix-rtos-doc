@@ -1,35 +1,60 @@
-###Synopsis
+# Synopsis 
+`#include <unistd.h>`</br>
+` char *getcwd(char *buf, size_t size);`</br>
 
-`#include <unistd.h>`
+## Status
+Partially implemented
+## Conformance
+IEEE Std 1003.1-2017
+## Description
 
-`char *getcwd(char *buf, size_t size);`
 
-###Description
+The purpose is to get the `pathname` of the current working directory. The `getcwd()` function shall place an absolute `pathname` of the current working directory in the array pointed to by
+_buf_, and return _buf_. The `pathname` shall contain no components that are dot or dot-dot, or are symbolic links.
 
-The `getcwd()` function gets the pathname of the current working directory
+If there are multiple `pathnames` that `getcwd()` could place in the array pointed to by _buf_, one beginning with a
+single `<slash>` character and one or more beginning with two `<slash>` characters, then `getcwd()` shall place the
+`pathname` beginning with a single `<slash>` character in the array. The `pathname` shall not contain any unnecessary `<slash>`
+characters after the leading one or two `<slash>` characters.
 
-Arguments:
+The _size_ argument is the size in bytes of the character array pointed to by the _buf_ argument. If _buf_ is a
+`null` pointer, the behavior of `getcwd()` is unspecified.
 
-<u>buf</u> - the result buffer, to which the pathname is put,
-<u>size</u> - the size (in bytes) of the buffer.
 
-The `getcwd()` function places an absolute pathname of the current working directory in the array pointed to by <u>buf</u>, and returns <u>buf</u>. The pathname contains no components that are dot or dot-dot, or are symbolic links.
+## Return value
 
-If there are multiple pathnames that `getcwd()` could place in the array pointed to by <u>buf</u>, one beginning with a single <slash> character and one or more beginning with two <slash> characters, then `getcwd()` places the pathname beginning with a single <slash> character in the array. The pathname does not contain any unnecessary <slash> characters after the leading one or two <slash> characters.
+Upon successful completion, `getcwd()` shall return the _buf_ argument. Otherwise, `getcwd()` shall return a `null` pointer and set `errno` to indicate the error. The contents of the array pointed to by _buf_ are then undefined.
 
-The <u>size</u> argument is the size in bytes of the character array pointed to by the <u>buf</u> argument. If <u>buf</u> is a null pointer, the behavior of `getcwd()` is unspecified.
+## Errors
 
-###Return value
 
-Upon successful completion, `getcwd()` returns the <u>buf</u> argument. Otherwise, `getcwd()` returns a null pointer and sets `errno` to indicate the error. The contents of the array pointed to by <u>buf</u> are then undefined.
+The `getcwd()` function shall fail if:
 
-###Errors
 
-[`EINVAL`] The <u>size</u> argument is 0. 
-[`ERANGE`] The <u>size</u> argument is greater than 0, but is smaller than the length of the string +1. 
-[`EACCES`] Search permission was denied for the current directory, or read or search permission was denied for a directory above the current directory in the file hierarchy.
-[`ENOMEM`] Insufficient storage space is available. 
+ * `EINVAL` - The _size_ argument is `0`.
 
-###Implementation tasks
+ * `ERANGE` - The _size_ argument is greater than `0`, but is smaller than the length of the `string + 1`.
 
-* Implement error handling for the [`EACCES`] error.
+The `getcwd()` function may fail if:
+
+
+ * `EACCES` - Search permission was denied for the current directory, or read or search permission was denied for a directory above the
+current directory in the file hierarchy.
+
+ * `ENOMEM` - Insufficient storage space is available.
+
+
+
+
+
+## Tests
+
+Untested
+
+## Known bugs
+
+None
+
+## See Also 
+1. [Standard library functions](../README.md)
+2. [Table of Contents](../../../README.md)

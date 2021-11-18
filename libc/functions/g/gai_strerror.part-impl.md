@@ -1,42 +1,57 @@
-###Synopsis
+# Synopsis 
+`#include <netdb.h>`</br>
+` const char *gai_strerror(int ecode);`</br>
 
-`#include <netdb.h>`
+## Status
+Partially implemented
+## Conformance
+IEEE Std 1003.1-2017
+## Description
 
-`const char *gai_strerror(int ecode);`
 
-###Description
+The purpose is to address and name information error description. The `gai_strerror()` function shall return a text string describing an error value for the `getaddrinfo()` and `getnameinfo()`
+functions listed in the `<netdb.h>` header.
 
-The `gai_strerror()` function returns an address and name information error description.
+When the _ecode_ argument is one of the following values listed in the `<netdb.h>` header:
 
-Arguments:
-    
-<u>ecode</u> - an error numerical value.
 
-The `gai_strerror()` function returns a text string describing an error value for the `getaddrinfo()` and `getnameinfo()` functions listed in the <`netdb.h`> header.
+* `EAI_AGAIN`
+* `EAI_BADFLAGS`
+* `EAI_FAIL`
+* `EAI_FAMILY`
+* `EAI_MEMORY`
+* `EAI_NONAME`
+* `EAI_OVERFLOW`
+* `EAI_SERVICE`
+* `EAI_SOCKTYPE`
+* `EAI_SYSTEM`
 
-When the <u>ecode</u> argument is one of the following values listed in the <`netdb.h`> header:
 
- [`EAI_AGAIN`]
- [`EAI_BADFLAGS`]
- [`EAI_FAIL`]
- [`EAI_FAMILY`]
- [`EAI_MEMORY`]
- [`EAI_NONAME`]
- [`EAI_OVERFLOW`]
- [`EAI_SERVICE`]
- [`EAI_SOCKTYPE`]
- [`EAI_SYSTEM`]
-     
-the function return value points to a string describing the error. If the argument is not one of those values, the function returns a pointer to a string whose contents indicate an unknown error.
-    
-###Return value
 
-Upon successful completion, gai_strerror() shall return a pointer to an implementation-defined string.
+the function return value shall point to a string describing the error. If the argument is not one of those values, the function
+shall return a pointer to a string whose contents indicate an unknown error.
 
-###Errors
+
+## Return value
+
+Upon successful completion, `gai_strerror()` shall return a pointer to an implementation-defined string.
+
+## Errors
+
 
 No errors are defined.
 
-###Implementation tasks
 
-* implement the `gai_strerror()`,
+
+
+## Tests
+
+Untested
+
+## Known bugs
+
+None
+
+## See Also 
+1. [Standard library functions](../README.md)
+2. [Table of Contents](../../../README.md)
