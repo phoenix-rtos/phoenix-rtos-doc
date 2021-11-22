@@ -7,19 +7,22 @@
 
 ## a
 
-[`abort`](./a/abort.part-impl.md),
-[`accept`](./a/accept.part-impl.md),
-[`acos`](./a/acos.impl.md),
-[`alarm`](./a/alarm.impl.md),
-[`asctime_r`](./a/asctime_r.impl.md),
-[`asctime`](./a/asctime.impl.md),
-[`assert`](./a/assert.impl.md),
-[`atan`](./a/atan.part-impl.md),
-[`atan2`](./a/atan2.part-impl.md),
-[`atexit`](./a/atexit.part-impl.md),
-[`atof`](./a/atof.part-impl.md),
-[`atoi`](./a/atoi.part-impl.md),
-[`atol`](./a/atol.part-impl.md)
+[`abort`](./a/abort.part-impl.md), <!-- updated -->
+[`accept`](./a/accept.part-impl.md), <!-- updated -->
+[`acos`](./a/acos.part-impl.md), <!-- updated -->
+[`acosf`](./a/acos.part-impl.md), <!-- updated -->
+[`alarm`](./a/alarm.part-impl.md), <!-- updated -->
+[`asctime_r`](./a/asctime.part-impl.md), <!-- updated -->
+[`asctime`](./a/asctime.part-impl.md), <!-- updated -->
+[`assert`](./a/assert.part-impl.md), <!-- updated -->
+[`atan`](./a/atan.part-impl.md), <!-- updated -->
+[`atanf`](./a/atan.part-impl.md), <!-- updated -->
+[`atan2`](./a/atan2.part-impl.md), <!-- updated -->
+[`atan2f`](./a/atan2.part-impl.md), <!-- updated -->
+[`atexit`](./a/atexit.part-impl.md), <!-- updated -->
+[`atof`](./a/atof.part-impl.md), <!-- updated -->
+[`atoi`](./a/atoi.part-impl.md), <!-- updated -->
+[`atol`](./a/atol.part-impl.md), <!-- updated -->
 
 ## b
 
@@ -28,23 +31,25 @@ beginthreadex,
 
 ## c
 
-[`calloc`](./c/calloc.part-impl.md),
-[`ceil`](./c/ceil.part-impl.md),
-[`chdir`](./c/chdir.part-impl.md),
-[`clearerr`](./c/clearerr.md),
-[`close`](./c/close.part-impl.md),
-[`closedir`](./c/closedir.md),
+[`calloc`](./c/calloc.part-impl.md), <!-- updated -->
+[`ceil`](./c/ceil.part-impl.md), <!-- updated -->
+[`ceilf`](./c/ceil.part-impl.md), <!-- updated -->
+[`chdir`](./c/chdir.part-impl.md), <!-- updated -->
+[`clearerr`](./c/clearerr.part-impl.md), <!-- updated -->
+[`close`](./c/close.part-impl.md), <!-- updated -->
+[`closedir`](./c/closedir.part-impl.md), <!-- updated -->
 [`closelog`](./o/openlog.part-impl.md), <!-- updated -->
 condBroadcast,
 condCreate,
 condSignal,
 condWait
-[`connect`](./c/connect.part-impl.md),
-[`copysignl`](./c/copysignl.md),
-[`cos`](./c/cos.md),
-[`cosh`](./c/cosh.part-impl.md),
-[`creat`](./c/creat.part-impl.md),
-[`crypt`](./c/crypt.part-impl.md)
+[`connect`](./c/connect.part-impl.md), <!-- updated -->
+[`cos`](./c/cos.part-impl.md), <!-- updated -->
+[`cosf`](./c/cos.part-impl.md), <!-- updated -->
+[`cosh`](./c/cosh.part-impl.md), <!-- updated -->
+[`coshf`](./c/cosh.part-impl.md), <!-- updated -->
+[`creat`](./c/creat.part-impl.md), <!-- updated -->
+[`crypt`](./c/crypt.part-impl.md), <!-- updated -->
 
 ## d
 

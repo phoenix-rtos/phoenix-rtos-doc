@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <stdio.h>`</br>
+
 ` int fileno(FILE *stream); `</br>
 
 ## Status

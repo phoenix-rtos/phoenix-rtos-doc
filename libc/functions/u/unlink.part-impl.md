@@ -3,8 +3,11 @@
 # Synopsis 
 
 `#include <unistd.h>`</br>
+
 `int unlink(const char *path);`</br>
+
 `#include <fcntl.h>`</br>
+
 `int unlinkat(int fd, const char *path, int flag);`</br>
 
 <!-- #MUST_BE: check status according to implementation -->

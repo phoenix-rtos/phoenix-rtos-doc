@@ -1,7 +1,10 @@
 # Synopsis 
 `#include <math.h>`</br>
+
 ` double sinh(double x);`</br>
+
 ` float sinhf(float x);`</br>
+
 ` long double sinhl(long double x);`</br>
 
 ## Status

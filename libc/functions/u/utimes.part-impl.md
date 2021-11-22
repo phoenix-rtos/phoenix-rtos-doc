@@ -2,12 +2,15 @@
 # Synopsis 
 
 `#include <sys/stat.h>`</br>
+
 `int futimens(int fd, const struct timespec times[2]);`
 
 `#include <fcntl.h>`</br>
+
 `int utimensat(int fd, const char *path, const struct timespec times[2], int flag);`
 
 `#include <sys/time.h>`</br>
+
 `int utimes(const char *path, const struct timeval times[2]);`
 
 <!-- #MUST_BE: check status according to implementation -->

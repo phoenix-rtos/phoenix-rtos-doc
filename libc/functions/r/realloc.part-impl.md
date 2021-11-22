@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <stdlib.h>`</br>
+
 ` void *realloc(void *ptr, size_t size);`</br>
 
 ## Status

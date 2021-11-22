@@ -1,12 +1,20 @@
 # Synopsis 
 `#include <unistd.h>`</br>
+
 ` extern char **environ;`</br>
+
 ` int execl(const char *path, const char *arg0, ... /*, (char *)0 */);`</br>
+
 ` int execle(const char *path, const char *arg0, (char *)0, char *const envp[]/*);`</br>
+
 ` int execlp(const char *file, const char *arg0, ... /*, (char *)0 */);`</br>
+
 ` int execv(const char *path, char *const argv[]);`</br>
+
 ` int execve(const char *path, char *const argv[], char *const envp[]);`</br>
+
 ` int execvp(const char *file, char *const argv[]);`</br>
+
 ` int fexecve(int fd, char *const argv[], char *const envp[]);`</br>
 
 ## Status

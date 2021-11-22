@@ -1,7 +1,10 @@
 # Synopsis 
 `#include <sys/stat.h>`</br>
+
 ` int mkdir(const char *path, mode_t mode);`</br>
+
 `#include <fcntl.h>`</br>
+
 ` int mkdirat(int fd, const char *path, mode_t mode);`</br>
 
 ## Status

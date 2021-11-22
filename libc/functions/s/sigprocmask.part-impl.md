@@ -1,7 +1,9 @@
 # Synopsis 
 `#include <signal.h>`</br>
+
 ` int pthread_sigmask(int how, const sigset_t *restrict set,`</br>
 `        sigset_t *restrict oset);`</br>
+
 ` int sigprocmask(int how, const sigset_t *restrict set,`</br>
 `        sigset_t *restrict oset); `</br>
 

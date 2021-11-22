@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <sys/mman.h>`</br>
+
 ` int munmap(void *addr, size_t len);`</br>
 
 ## Status

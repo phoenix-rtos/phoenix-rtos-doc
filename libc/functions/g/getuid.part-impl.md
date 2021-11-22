@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <unistd.h>`</br>
+
 ` uid_t getuid(void);`</br>
 
 ## Status

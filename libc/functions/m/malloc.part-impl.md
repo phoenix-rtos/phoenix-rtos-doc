@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <stdlib.h>`</br>
+
 ` void *malloc(size_t size);`</br>
 
 ## Status

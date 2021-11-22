@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <fnmatch.h>`</br>
+
 ` int fnmatch(const char *pattern, const char *string, int flags);`</br>
 
 ## Status

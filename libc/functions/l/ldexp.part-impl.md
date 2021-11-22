@@ -1,7 +1,10 @@
 # Synopsis 
 `#include <math.h>`</br>
+
 ` double ldexp(double x, int exp);`</br>
+
 ` float ldexpf(float x, int exp);`</br>
+
 ` long double ldexpl(long double x, int exp);`</br>
 
 ## Status

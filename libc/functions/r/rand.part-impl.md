@@ -1,7 +1,10 @@
 # Synopsis 
 `#include <stdlib.h>`</br>
+
 ` int rand(void);`</br>
+
 `int rand_r(unsigned *seed); `</br>
+
 ` void srand(unsigned seed);`</br>
 
 ## Status

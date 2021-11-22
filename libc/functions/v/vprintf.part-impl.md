@@ -2,10 +2,15 @@
 # Synopsis 
 
 `#include <stdarg.h>`</br>
+
 `#include <stdio.h>`</br>
+
 `int vfprintf(FILE *restrict stream, const char *restrict format, va_list ap);`</br>
+
 `int vprintf(const char *restrict format, va_list ap);`</br>
+
 `int vsnprintf(char *restrict s, size_t n, const char *restrict format, va_list ap);`</br>
+
 `int vsprintf(char *restrict s, const char *restrict format, va_list ap);`</br>
 
 ## Status

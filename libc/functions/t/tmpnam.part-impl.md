@@ -1,6 +1,7 @@
 # Synopsis 
 
 `#include <stdio.h>`</br>
+
 `char *tmpnam(char *s); `</br>
 
 

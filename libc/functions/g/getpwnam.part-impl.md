@@ -1,6 +1,8 @@
 # Synopsis 
 `#include <pwd.h>`</br>
+
 ` struct passwd *getpwnam(const char *name);`</br>
+
 ` int getpwnam_r(const char *name, struct passwd *pwd, char *buffer,`</br>
 `        size_t bufsize, struct passwd **result);`</br>
 

@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <stdlib.h>`</br>
+
 ` void qsort(void *base, size_t nel, size_t width, int (*compar)(const void *, const void *));`</br>
 
 ## Status

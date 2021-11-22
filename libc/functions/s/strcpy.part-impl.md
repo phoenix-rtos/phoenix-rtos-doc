@@ -1,6 +1,8 @@
 # Synopsis 
 `#include <string.h>`</br>
+
 `char *stpcpy(char *restrict s1, const char *restrict s2); `</br>
+
 ` char *strcpy(char *restrict s1, const char *restrict s2);`</br>
 
 ## Status

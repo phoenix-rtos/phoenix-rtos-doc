@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <stdio.h>`</br>
+
 ` FILE *fopen(const char *restrict pathname, const char *restrict mode);`</br>
 
 ## Status

@@ -1,7 +1,10 @@
 # Synopsis 
 `#include <math.h>`</br>
+
 ` double pow(double x, double y);`</br>
+
 ` float powf(float x, float y);`</br>
+
 ` long double powl(long double x, long double y);`</br>
 
 ## Status

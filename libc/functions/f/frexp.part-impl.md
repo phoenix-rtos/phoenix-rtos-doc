@@ -1,6 +1,8 @@
 # Synopsis 
 `#include <math.h>`</br>
+
 ` double frexp(double num, int *exp);`</br>
+
 ` float frexpf(float num, int *exp);`</br>
 
 ## Status

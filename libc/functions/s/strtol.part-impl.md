@@ -1,6 +1,8 @@
 # Synopsis 
 `#include <stdlib.h>`</br>
+
 ` long strtol(const char *restrict nptr, char **restrict endptr, int base);`</br>
+
 ` long long strtoll(const char *restrict nptr, char **restrict endptr,`</br>
 `        int base)`</br>
 

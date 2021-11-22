@@ -2,6 +2,7 @@
 # Synopsis 
 
 `#include <unistd.h>`</br>
+
 `extern ssize_t write(int fildes, const void *buf, size_t nbyte);`</br>
 
 <!-- #MUST_BE: check status according to implementation -->

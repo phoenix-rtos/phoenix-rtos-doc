@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <string.h>`</br>
+
 ` size_t strspn(const char *s1, const char *s2);`</br>
 
 ## Status

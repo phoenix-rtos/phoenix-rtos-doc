@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <signal.h>`</br>
+
 ` int kill(pid_t pid, int sig); `</br>
 
 ## Status

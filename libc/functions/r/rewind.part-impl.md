@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <stdio.h>`</br>
+
 ` void rewind(FILE *stream);`</br>
 
 ## Status

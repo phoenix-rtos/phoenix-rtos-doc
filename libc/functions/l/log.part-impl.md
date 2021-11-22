@@ -1,7 +1,10 @@
 # Synopsis 
 `#include <math.h>`</br>
+
 ` double log(double x);`</br>
+
 ` float logf(float x);`</br>
+
 ` long double logl(long double x);`</br>
 
 ## Status

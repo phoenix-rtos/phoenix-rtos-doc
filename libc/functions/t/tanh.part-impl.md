@@ -3,8 +3,11 @@
 # Synopsis 
 
 `#include <math.h>`</br>
+
 `double tanh(double x);`</br>
+
 `float tanhf(float x);`</br>
+
 `long double tanhl(long double x);`</br>
 
 <!-- #MUST_BE: check status according to implementation -->

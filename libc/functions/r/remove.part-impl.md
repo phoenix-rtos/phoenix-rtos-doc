@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <stdio.h>`</br>
+
 ` int remove(const char *path);`</br>
 
 ## Status

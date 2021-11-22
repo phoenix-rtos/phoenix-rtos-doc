@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <stdio.h>`</br>
+
 ` void perror(const char *s);`</br>
 
 ## Status

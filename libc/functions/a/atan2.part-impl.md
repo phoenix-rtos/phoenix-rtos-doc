@@ -1,70 +1,86 @@
-###Synopsis
+# Synopsis 
+`#include <math.h>`</br>
 
-`#include <math.h>`
+` double atan2(double y, double x);`</br>
 
-`double atan2(double y, double x);`
-`float atan2f(float y, float x);`
-`long double atan2l(long double y, long double x);`
+` float atan2f(float y, float x);`</br>
 
-###Description
+## Status
+Partially implemented
+## Conformance
+IEEE Std 1003.1-2017
+## Description
 
-The function computes the principal value of the arc tangent of <u>y</u>/<u>x</u> ,  using the signs of both arguments to determine the quadrant of the return value.
 
-Arguments
-<u>y</u> - first argument of `atan2` (the ordinate of the point)
-<u>x</u> - second argument of `atan2` (the abscissa of the point)
+These functions shall compute the principal value of the arc tangent of _y_/_x_, using the signs of both arguments to
+determine the quadrant of the return value.
 
-###Return value
+An application wishing to check for error situations should set `errno` to zero and call
+`feclearexcept(FE_ALL_EXCEPT)` before calling these functions. On return, if `errno` is non-zero or
+`fetestexcept(FE_INVALID | FE_DIVBYZERO | FE_OVERFLOW | FE_UNDERFLOW)` is non-zero, an error has occurred.
 
-Upon successful completion, the functions returns the arc tangent of <u>y</u>/<u>x</u> in the range [-<span>&#960;</span>, <span>&#960;</span>] radians.
 
-If <u>y</u> is `0` and <u>x</u> is < `0`, <span>&#960;</span> is returned.
+## Return value
 
-If <u>y</u> is `0` and <u>x</u> is > `0`, `0` is returned.
+Upon successful completion, these functions shall return the arc tangent of _y_/_x_ in the range `[-PI,PI]` radians.
 
-If <u>y</u> is < `0` and <u>x</u> is `0`, -<span>&#960;</span>/2 is returned.
+* If _y_ is `±0` and _x_ is < `0`, `±` shall be returned.
 
-If <u>y</u> is > `0` and <u>x</u> is `0`, <span>&#960;</span>/2 is returned.
+* If _y_ is `±0` and _x_ is > `0`, `±0` shall be returned.
 
-If <u>x</u> is `0`, a pole error does not occur.
+* If _y_ is < `0` and _x_ is `±0`, `-/2` shall be returned.
 
-If either <u>x</u> or <u>y</u> is `NaN`, a `NaN` is returned.
+* If _y_ is > `0` and _x_ is `±0`, `/2` shall be returned.
 
-If the IEC 60559 Floating-Point option is supported, <u>y</u>/ <u>x</u> is returned. 
+* If _x_ is `0`, a pole error shall not occur.
 
-If <u>y</u> is `0` and <u>x</u> is `-0`, <span>&#960;</span> is returned.
+* If either _x_ or _y_ is `NaN`, a `NaN` shall be returned.
 
-If <u>y</u> is `0` and <u>x</u> is `+0`, `0` is returned.
+* If the correct value would cause underflow, a range error may occur, and `atan()`, `atan2f()`, and `atan2l()` shall return an implementation-defined value no greater in magnitude than `DBL_MIN`, `FLT_MIN`, and `LDBL_MIN`, respectively.
 
-For finite values of  <u>y</u> > `0`, if <u>x</u> is -`Inf`, <span>&#960;</span> is returned.
+* If the `IEC 60559` Floating-Point option is supported, _y_/_x_ should be returned.
 
-For finite values of  <u>y</u> > `0`, if <u>x</u> is +`Inf`, `0` is returned.
+* If _y_ is `±0` and _x_ is `-0`, `±` shall be returned.
 
-For finite values of <u>x</u>, if <u>y</u> is Inf, <span>&#960;</span>/2 is returned.
+* If _y_ is `±0` and _x_ is `+0`, `±0` shall be returned.
 
-If <u>y</u> is `Inf` and <u>x</u> is -`Inf`, 3<span>&#960;</span>/4 is returned.
+* For finite values of ± _y_ > `0`, if _x_ is `-Inf`, `±` shall be returned.
 
-If <u>y</u> is `Inf` and <u>x</u> is +`Inf`, <span>&#960;</span>/4 is returned.
+* For finite values of ± _y_ > `0`, if _x_ is `+Inf`, `±0` shall be returned.
 
-If both arguments are `0`, the domain error does not occur. 
+* For finite values of _x_, if _y_ is `±Inf`, `±/2` shall be returned.
 
-###Errors
+* If _y_ is `±Inf` and _x_ is `-Inf`, `±3/4` shall be returned.
 
-`[ERANGE]` The result underflows.
+* If _y_ is `±Inf` and _x_ is `+Inf`, `±/4` shall be returned.
 
-If the integer expression (`math_errhandling` & `MATH_ERRNO`) is non-zero, then `errno` is set to `[ERANGE]`. If the integer expression (`math_errhandling` & `MATH_ERREXCEPT`) is non-zero, then the underflow floating-point exception is raised.
+* If both arguments are `0`, a domain error shall not occur.
 
-On error, the expressions (`math_errhandling` & `MATH_ERRNO`) and (`math_errhandling` & `MATH_ERREXCEPT`) are independent of each other, but at least one of them is non-zero.
+## Errors
 
-###Implementation tasks
 
-* Error detection compatible with a description above.
-* Implement atan2f().
-* Implement atan2l().
+These functions may fail if:
 
-###Tests
+* Range Error
+ 
+  The result underflows. 
 
-======
+  If the integer expression `(math_errhandling & MATH_ERRNO)` is non-zero, then `errno` shall be set to `ERANGE`. If the integer expression `(math_errhandling & MATH_ERREXCEPT)` is non-zero, then the underflow floating-point exception
+shall be raised. 
 
-###EXAMPLES
-None.
+
+
+
+
+
+## Tests
+
+Untested
+
+## Known bugs
+
+None
+
+## See Also 
+1. [Standard library functions](../README.md)
+2. [Table of Contents](../../../README.md)

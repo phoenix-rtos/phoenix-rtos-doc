@@ -1,42 +1,46 @@
-###Synopsis
+# Synopsis 
+`#include <math.h>`</br>
 
-`#include <math.h>`
+` double ceil(double x);`</br>
 
-`double ceil(double x);`
-`float ceilf(float x);`
-`long double ceill(long double x);`
+` float ceilf(float x);`</br>
 
-###Description
+## Status
+Partially implemented
+## Conformance
+IEEE Std 1003.1-2017
+## Description
 
-Rounds <u>x</u> upward, returning the smallest integral value that is not less than <u>x</u>.
 
-Arguments:
-<u>x</u> - a value to be rounded.
+These functions shall compute the smallest integral value not less than _x_.
 
-The result has the same sign as <u>x</u>.
 
-If <u>x</u> is `NaN`, a `NaN` is returned.
+## Return value
 
-If <u>x</u> is `0` or `Inf`, <u>x</u> is returned. 
+The result shall have the same sign as _x_.
 
-###Return value
-The rounded <u>x</u> value.
+Upon successful completion, `ceil()` and `ceilf()` shall return the smallest integral value not less than _x_, expressed as a type double, float, or long double, respectively.
 
-###Errors
-These functions raise the inexact floating-point exception if the result differs in value from the argument.
+* If _x_ is `NaN`, a `NaN` shall be returned.
+
+* If _x_ is `±0` or `±Inf`, _x_ shall be returned.
+
+
+## Errors
+
+
 No errors are defined.
 
-###Implementation tasks
 
-* `NaN`, `Inf` and `0` <u>x</u> value handling.
-* Negative values of argument handling.
-* The return value is tested before assigning it to an integer type to avoid the undefined results of an integer overflow.
-* These functions raise the inexact floating-point exception if the result differs in value from the argument.
-* Implement `ceilf()` function.
-* Implement `ceill()` function.
-###Tests
 
-======
+## Tests
 
-###EXAMPLES
-None.
+Untested
+
+## Known bugs
+
+None
+
+## See Also 
+1. [Standard library functions](../README.md)
+2. [Table of Contents](../../../README.md)

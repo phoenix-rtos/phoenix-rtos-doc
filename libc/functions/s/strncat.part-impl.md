@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <string.h>`</br>
+
 ` char *strncat(char *restrict s1, const char *restrict s2, size_t n);`</br>
 
 ## Status

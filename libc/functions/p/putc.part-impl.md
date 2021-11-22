@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <stdio.h>`</br>
+
 ` int putc(int c, FILE *stream);`</br>
 
 ## Status

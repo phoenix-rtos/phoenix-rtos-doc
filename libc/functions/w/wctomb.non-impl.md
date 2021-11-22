@@ -2,6 +2,7 @@
 # Synopsis 
 
 `#include <stdlib.h>`</br>
+
 `int wctomb(char *str, wchar_t wchar);`</br>
 
 <!-- #MUST_BE: check status according to implementation -->

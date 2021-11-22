@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <unistd.h>`</br>
+
 `int pipe(int fildes[2]);`</br>
 
 ## Status

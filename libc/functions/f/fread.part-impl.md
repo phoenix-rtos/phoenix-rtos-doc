@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <stdio.h>`</br>
+
 ` size_t fread(void *restrict ptr, size_t size, size_t nitems, FILE *restrict stream);`</br>
 
 ## Status

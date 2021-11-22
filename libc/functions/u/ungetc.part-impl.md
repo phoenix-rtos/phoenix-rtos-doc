@@ -3,6 +3,7 @@
 # Synopsis 
 
 `#include <stdio.h>`</br>
+
 `int ungetc(int c, FILE *stream);`</br>
 
 <!-- #MUST_BE: check status according to implementation -->

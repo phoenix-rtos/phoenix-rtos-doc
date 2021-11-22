@@ -1,7 +1,10 @@
 # Synopsis 
 `#include <math.h>`</br>
+
 ` double fabs(double x);`</br>
+
 ` float fabsf(float x);`</br>
+
 ` long double fabsl(long double x);`</br>
 
 ## Status

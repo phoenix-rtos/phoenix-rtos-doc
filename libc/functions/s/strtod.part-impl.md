@@ -1,7 +1,10 @@
 # Synopsis 
 `#include <stdlib.h>`</br>
+
 ` double strtod(const char *restrict nptr, char **restrict endptr);`</br>
+
 ` float strtof(const char *restrict nptr, char **restrict endptr);`</br>
+
 ` long double strtold(const char *restrict nptr, char **restrict endptr);`</br>
 
 ## Status

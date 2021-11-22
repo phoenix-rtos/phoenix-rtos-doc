@@ -1,6 +1,7 @@
 # Synopsis 
 
 `#include <sys/times.h>`</br>
+
 `clock_t times(struct tms *buffer);`</br>
 
 

@@ -1,6 +1,8 @@
 # Synopsis 
 `#include <unistd.h>`</br>
+
 ` int dup(int fildes);`</br>
+
 ` int dup2(int fildes, int fildes2);`</br>
 
 ## Status

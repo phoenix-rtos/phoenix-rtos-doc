@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <stdlib.h>`</br>
+
 ` int system(const char *command);`</br>
 
 ## Status

@@ -1,6 +1,7 @@
 # Synopsis 
 
 `#include <time.h>`</br>
+
 `time_t time(time_t *tloc);`</br>
 
 

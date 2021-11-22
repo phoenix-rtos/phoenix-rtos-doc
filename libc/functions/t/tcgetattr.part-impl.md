@@ -3,6 +3,7 @@
 # Synopsis 
 
 `#include <termios.h>`</br>
+
 `int tcgetattr(int fildes, struct termios *termios_p);`
 
 <!-- #MUST_BE: check status according to implementation -->

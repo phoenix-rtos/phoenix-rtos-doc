@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <stdio.h>`</br>
+
 ` int fclose(FILE *stream);`</br>
 
 ## Status

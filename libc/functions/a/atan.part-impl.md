@@ -1,50 +1,57 @@
-###Synopsis
+# Synopsis 
+`#include <math.h>`</br>
 
-`#include <math.h>`
+` double atan(double x);`</br>
 
-`double atan(double x);`
-`float atanf(float x);`
-`long double atanl(long double x);`
+` float atanf(float x);`</br>
 
-###Description
+` long double atanl(long double x);`</br>
 
-These functions return the principal value of the `arc tan` of <u>x</u>, expressed in radians.
+## Status
+Partially implemented
+## Conformance
+IEEE Std 1003.1-2017
+## Description
 
-Arguments
-<u>x</u> - the value for which `arc tan` is computed.
+These functions shall compute the principal value of the arc tangent of their argument _x_.
 
-###Return value
+An application wishing to check for error situations should set `errno` to zero and call `feclearexcept(FE_ALL_EXCEPT)` before calling these functions. On return, if `errno` is non-zero or `fetestexcept(FE_INVALID | FE_DIVBYZERO | FE_OVERFLOW | FE_UNDERFLOW)` is non-zero, an error has occurred.
 
-Upon successful completion, the function returns the arc tangent of <u>x</u> in the range [-<span>&#960;</span>/2,<span>&#960;</span>/2] radians. 
 
-If <u>x</u> is `NaN`, a `NaN` is returned.
+## Return value
 
-If <u>x</u> is `0`, <u>x</u> is returned.
+Upon successful completion, these functions shall return the arc tangent of _x_ in the range `[-PI/2,PI/2]` radians.
 
-If <u>x</u> is `Inf`, <span>&#960;</span>/2 is returned.
+* If _x_ is `NaN`, a `NaN` shall be returned.
 
-If <u>x</u> is subnormal, a range error occurs and <u>x</u> is returned. 
+* If _x_ is `±0`, _x_ shall be returned.
 
-###Errors
+* If _x_ is `±Inf`, `±/2` shall be returned.
 
-`[ERANGE]` (Range Error) - the value of <u>x</u> is subnormal.
+* If _x_ is subnormal, a range error may occur and _x_ should be returned.
 
-If the integer expression (`math_errhandling & MATH_ERRNO`) is non-zero, then `errno` is set to `[ERANGE]`. If the integer expression (`math_errhandling & MATH_ERREXCEPT`) is non-zero, then the underflow floating-point exception is raised. 
+* If _x_ is not returned, `atan()`, `atanf()`, and `atanl()` shall return an implementation-defined value no greater in magnitude than `DBL_MIN`, `FLT_MIN`, and `LDBL_MIN`, respectively.
 
-On error, the expressions (`math_errhandling & MATH_ERRNO`) and (`math_errhandling & MATH_ERREXCEPT`) are independent of each other, but at least one of them must be non-zero.
+## Errors
 
-###Implementation tasks
 
-* implement ERANGE error detection,
-* implement NaN, Inf and subnormal argument handling,
-* implement  underflow floating-point exception raising. 
+These functions may fail if:
 
-* implement atanf(),
-* implement atanl(),
+* Range Error
 
-###Tests
+  The value of _x_ is subnormal. 
 
-======
+  If the integer expression `(math_errhandling & MATH_ERRNO)` is non-zero, then `errno` shall be set to `ERANGE`. If the integer expression `(math_errhandling & MATH_ERREXCEPT)` is non-zero, then the underflow floating-point exception shall be raised.
 
-###EXAMPLES
-None.
+
+## Tests
+
+Untested
+
+## Known bugs
+
+None
+
+## See Also 
+1. [Standard library functions](../README.md)
+2. [Table of Contents](../../../README.md)

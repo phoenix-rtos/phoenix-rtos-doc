@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <netdb.h>`</br>
+
 ` const char *gai_strerror(int ecode);`</br>
 
 ## Status

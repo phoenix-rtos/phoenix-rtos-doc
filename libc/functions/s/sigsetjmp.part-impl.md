@@ -1,5 +1,6 @@
 # Synopsis 
-`[CX]#include <setjmp.h>`</br>
+`#include <setjmp.h>`</br>
+
 ` int sigsetjmp(sigjmp_buf env, int savemask); `</br>
 
 ## Status

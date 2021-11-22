@@ -1,7 +1,9 @@
 # Synopsis 
 `#include <stdio.h>`</br>
+
 ` ssize_t getdelim(char **restrict lineptr, size_t *restrict n,`</br>
 `        int delimiter, FILE *restrict stream);`</br>
+
 ` ssize_t getline(char **restrict lineptr, size_t *restrict n,`</br>
 `        FILE *restrict stream); `</br>
 

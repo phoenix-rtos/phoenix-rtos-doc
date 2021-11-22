@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <unistd.h>`</br>
+
 ` int setpgid(pid_t pid, pid_t pgid);`</br>
 
 ## Status

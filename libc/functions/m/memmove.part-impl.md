@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <string.h>`</br>
+
 ` void *memmove(void *s1, const void *s2, size_t n);`</br>
 
 ## Status

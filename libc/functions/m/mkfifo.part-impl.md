@@ -1,7 +1,10 @@
 # Synopsis 
 `#include <sys/stat.h>`</br>
+
 ` int mkfifo(const char *path, mode_t mode);`</br>
+
 `#include <fcntl.h>`</br>
+
 ` int mkfifoat(int fd, const char *path, mode_t mode);`</br>
 
 ## Status

@@ -1,7 +1,10 @@
 # Synopsis 
 `#include <math.h>`</br>
+
 ` double modf(double x, double *iptr);`</br>
+
 ` float modff(float value, float *iptr);`</br>
+
 ` long double modfl(long double value, long double *iptr);`</br>
 
 ## Status

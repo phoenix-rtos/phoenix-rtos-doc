@@ -1,6 +1,8 @@
 # Synopsis 
 `#include <string.h>`</br>
+
 ` size_t strlen(const char *s);`</br>
+
 `size_t strnlen(const char *s, size_t maxlen); `</br>
 
 ## Status

@@ -1,6 +1,8 @@
 # Synopsis 
 `#include <pwd.h>`</br>
+
 ` struct passwd *getpwuid(uid_t uid);`</br>
+
 ` int getpwuid_r(uid_t uid, struct passwd *pwd, char *buffer,`</br>
 `        size_t bufsize, struct passwd **result);`</br>
 

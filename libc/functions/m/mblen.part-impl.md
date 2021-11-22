@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <stdlib.h>`</br>
+
 ` int mblen(const char *s, size_t n);`</br>
 
 ## Status

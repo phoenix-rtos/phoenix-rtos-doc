@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <stdio.h>`</br>
+
 ` int fflush(FILE *stream);`</br>
 
 ## Status
