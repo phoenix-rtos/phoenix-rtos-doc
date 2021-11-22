@@ -2,6 +2,7 @@
 # Synopsis 
 
 `#include <termios.h>`</br>
+
 `int tcflush(int fildes, int queue_selector);`
 
 <!-- #MUST_BE: check status according to implementation -->

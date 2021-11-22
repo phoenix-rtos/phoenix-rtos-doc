@@ -1,7 +1,10 @@
 # Synopsis 
 `#include <math.h>`</br>
+
 ` double fmod(double x, double y);`</br>
+
 ` float fmodf(float x, float y);`</br>
+
 ` long double fmodl(long double x, long double y);`</br>
 
 ## Status

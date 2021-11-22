@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <string.h>`</br>
+
 ` void *memchr(const void *s, int c, size_t n);`</br>
 
 ## Status

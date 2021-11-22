@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <libgen.h>`</br>
+
 ` char *dirname(char *path); `</br>
 
 ## Status

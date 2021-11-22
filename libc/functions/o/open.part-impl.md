@@ -1,7 +1,10 @@
 # Synopsis 
 `#include <sys/stat.h>`</br>
+
 `#include <fcntl.h>`</br>
+
 ` int open(const char *path, int oflag, ...);`</br>
+
 ` int openat(int fd, const char *path, int oflag, ...);`</br>
 
 ## Status

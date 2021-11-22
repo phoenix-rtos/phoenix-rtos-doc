@@ -1,7 +1,10 @@
 # Synopsis 
 `#include <math.h>`</br>
+
 ` double floor(double x);`</br>
+
 ` float floorf(float x);`</br>
+
 ` long double floorl(long double x);`</br>
 
 ## Status

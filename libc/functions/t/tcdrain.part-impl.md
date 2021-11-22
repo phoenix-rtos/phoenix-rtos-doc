@@ -2,6 +2,7 @@
 # Synopsis 
 
 `#include <termios.h>`</br>
+
 `int tcdrain(int fildes);`
 
 ## Status

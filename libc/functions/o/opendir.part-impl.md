@@ -1,6 +1,8 @@
 # Synopsis 
 `#include <dirent.h>`</br>
+
 ` DIR *fdopendir(int fd);`</br>
+
 ` DIR *opendir(const char *dirname);`</br>
 
 ## Status

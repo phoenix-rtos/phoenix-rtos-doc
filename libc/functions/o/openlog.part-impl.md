@@ -1,8 +1,12 @@
 # Synopsis 
 `#include <syslog.h>`</br>
+
 ` void closelog(void);`</br>
+
 ` void openlog(const char *ident, int logopt, int facility);`</br>
+
 ` int setlogmask(int maskpri);`</br>
+
 ` void syslog(int priority, const char *message, ... /* arguments */); `</br>
 
 ## Status

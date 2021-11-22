@@ -3,6 +3,7 @@
 # Synopsis 
 
 `#include <sys/mount.h>`</br>
+
 `int umount(const char *path);`</br>
 
 <!-- #MUST_BE: check status according to implementation -->

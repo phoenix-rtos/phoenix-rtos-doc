@@ -1,7 +1,9 @@
 # Synopsis 
 `#include <stdlib.h>`</br>
+
 ` unsigned long strtoul(const char *restrict str,`</br>
 `        char **restrict endptr, int base);`</br>
+
 ` unsigned long long strtoull(const char *restrict str,`</br>
 `        char **restrict endptr, int base);`</br>
 

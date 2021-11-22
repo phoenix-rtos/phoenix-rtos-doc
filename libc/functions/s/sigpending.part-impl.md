@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <signal.h>`</br>
+
 ` int sigpending(sigset_t *set); `</br>
 
 ## Status

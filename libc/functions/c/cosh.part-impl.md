@@ -1,34 +1,56 @@
-###Synopsis
+# Synopsis 
+`#include <math.h>`</br>
 
-`#include <math.h>`
+` double cosh(double x);`</br>
 
-`double cosh(double x);`
-`float coshf(float x);`
-`long double coshl(long double x);`
+` float coshf(float x);`</br>
 
-###Description
+## Status
+Partially implemented
+## Conformance
+IEEE Std 1003.1-2017
+## Description
 
-Calculates the hyperbolic cosine of <u>x</u>.
 
-###Return value
 
-On success the function returns the hyperbolic cosine of <u>x</u>.
+These functions shall compute the hyperbolic cosine of their argument _x_.
 
-If the correct value would cause overflow, a range error occurs and `cosh()`, `coshf()`, and `coshl()` return the value of the macro `HUGE_VAL`, `HUGE_VALF`, and `HUGE_VALL`, respectively.
+An application wishing to check for error situations should set `errno` to zero and call `feclearexcept(FE_ALL_EXCEPT)` before calling these functions. On return, if `errno` is non-zero or `fetestexcept(FE_INVALID | FE_DIVBYZERO | FE_OVERFLOW | FE_UNDERFLOW)` is non-zero, an error has occurred.
 
-If <u>x</u> is `NaN`, a `NaN` is returned.
 
-If <u>x</u> is `0`, the value `1.0` is returned.
+## Return value
 
-If <u>x</u> is `Inf`, `+Inf` is returned.
+Upon successful completion, these functions shall return the hyperbolic cosine of _x_.
 
-###Errors
+* If the correct value would cause overflow, a range error shall occur and `cosh()`, `coshf()`, and `coshl()` shall return the value of the macro `HUGE_VAL`, and `HUGE_VALF` respectively.
 
-`[ERANGE]` - the result causes overflow.
+* If _x_ is `NaN`, a `NaN` shall be returned.
 
-If the integer expression (`math_errhandling & MATH_ERRNO`) is non-zero, then `errno` is set to `[ERANGE]`. 
-If the integer expression (`math_errhandling & MATH_ERREXCEPT`) is non-zero, then the overflow floating-point exception is raised.
+* If _x_ is `±0`, the value `1.0` shall be returned.
 
-###Implementation tasks
+* If _x_ is `±Inf`, `+Inf` shall be returned.
 
-* Implement the functions: cosh(), coshf() and coshl() with error handling described above
+## Errors
+
+
+These functions shall fail if:
+
+* Range Error
+  The result would cause an overflow. 
+
+  If the integer expression `(math_errhandling & MATH_ERRNO)` is non-zero, then `errno` shall be set to `ERANGE`. If the integer expression `(math_errhandling & MATH_ERREXCEPT)` is non-zero, then the overflow floating-point exception shall
+be raised.
+
+
+
+## Tests
+
+Untested
+
+## Known bugs
+
+None
+
+## See Also 
+1. [Standard library functions](../README.md)
+2. [Table of Contents](../../../README.md)

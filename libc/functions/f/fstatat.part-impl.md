@@ -1,9 +1,14 @@
 # Synopsis 
 `#include <fcntl.h>`</br>
+
 `#include <sys/stat.h>`</br>
+
 ` int fstatat(int fd, const char *restrict path,`</br>
+
 `        struct stat *restrict buf, int flag);`</br>
+
 ` int lstat(const char *restrict path, struct stat *restrict buf);`</br>
+
 ` int stat(const char *restrict path, struct stat *restrict buf);`</br>
 
 ## Status

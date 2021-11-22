@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <unistd.h>`</br>
+
 ` int ftruncate(int fildes, off_t length);`</br>
 
 ## Status

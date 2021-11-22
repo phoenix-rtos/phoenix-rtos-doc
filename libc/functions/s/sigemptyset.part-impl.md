@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <signal.h>`</br>
+
 ` int sigemptyset(sigset_t *set); `</br>
 
 ## Status

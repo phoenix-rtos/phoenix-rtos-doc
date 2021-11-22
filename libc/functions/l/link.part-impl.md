@@ -1,7 +1,10 @@
 # Synopsis 
 `#include <unistd.h>`</br>
+
 ` int link(const char *path1, const char *path2);`</br>
+
 `#include <fcntl.h>`</br>
+
 ` int linkat(int fd1, const char *path1, int fd2, const char *path2, int flag);`</br>
 
 ## Status

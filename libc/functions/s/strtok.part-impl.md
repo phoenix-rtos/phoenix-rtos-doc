@@ -1,7 +1,10 @@
 # Synopsis 
 `#include <string.h>`</br>
+
 ` char *strtok(char *restrict s, const char *restrict sep);`</br>
+
 `char *strtok_r(char *restrict s, const char *restrict sep,`</br>
+
 `        char **restrict state); `</br>
 
 ## Status

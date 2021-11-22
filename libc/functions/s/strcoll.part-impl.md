@@ -1,7 +1,10 @@
 # Synopsis 
 `#include <string.h>`</br>
+
 ` int strcoll(const char *s1, const char *s2);`</br>
+
 `int strcoll_l(const char *s1, const char *s2, locale_t locale); `</br>
+
 
 ## Status
 Partially implemented

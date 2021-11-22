@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <stdio.h>`</br>
+
 ` int fputs(const char *restrict s, FILE *restrict stream);`</br>
 
 ## Status

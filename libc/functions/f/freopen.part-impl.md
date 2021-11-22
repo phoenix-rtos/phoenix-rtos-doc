@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <stdio.h>`</br>
+
 ` FILE *freopen(const char *restrict pathname, const char *restrict mode, FILE *restrict stream);`</br>
 
 

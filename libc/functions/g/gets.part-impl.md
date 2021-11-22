@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <stdio.h>`</br>
+
 ` char *gets(char *s); `</br>
 
 ## Status

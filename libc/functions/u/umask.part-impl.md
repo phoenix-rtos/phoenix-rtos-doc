@@ -3,6 +3,7 @@
 # Synopsis 
 
 `#include <sys/stat.h>`</br>
+
 `mode_t umask(mode_t cmask);`</br>
 
 <!-- #MUST_BE: check status according to implementation -->

@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <signal.h>`</br>
+
 ` void (*signal(int sig, void (*func)(int)))(int);`</br>
 
 ## Status

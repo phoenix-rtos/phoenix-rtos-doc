@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <stdio.h>`</br>
+
 ` int setvbuf(FILE *restrict stream, char *restrict buf, int type,`</br>
 `        size_t size);`</br>
 

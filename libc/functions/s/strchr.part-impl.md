@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <string.h>`</br>
+
 `char *strchr(const char *s, int c);`</br>
 
 ## Status

@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <string.h>`</br>
+
 ` char *strpbrk(const char *s1, const char *s2);`</br>
 
 ## Status

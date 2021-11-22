@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <stdio.h>`</br>
+
 ` int fgetc(FILE *stream);`</br>
 
 ## Status

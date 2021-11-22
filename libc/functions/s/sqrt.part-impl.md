@@ -1,7 +1,10 @@
 # Synopsis 
 `#include <math.h>`</br>
+
 ` double sqrt(double x);`</br>
+
 ` float sqrtf(float x);`</br>
+
 ` long double sqrtl(long double x);`</br>
 
 ## Status

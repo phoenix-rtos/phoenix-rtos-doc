@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <unistd.h>`</br>
+
 ` int isatty(int fildes);`</br>
 
 ## Status

@@ -1,6 +1,8 @@
 # Synopsis 
 `#include <stdlib.h>`</br>
+
 ` ldiv_t ldiv(long numer, long denom);`</br>
+
 ` lldiv_t lldiv(long long numer, long long denom);`</br>
 
 ## Status

@@ -1,31 +1,40 @@
-###Synopsis
+# Synopsis 
+`#include <stdlib.h>`</br>
 
-`#include <stdlib.h>`
+` long atol(const char *nptr);`</br>
 
-`long atol(const char *str);`
-`long long atoll(const char *str);`
+## Status
+Partially implemented
+## Conformance
+IEEE Std 1003.1-2017
+## Description
 
-###Description
 
-The function converts the string pointed to by the argument <u>str</u> to a long integer (type `long int`) for `atol` or type `long long int` for `atoll`.
+The purpose is to convert a string to a long integer. Except as noted below, the call `atol(nptr)` shall be equivalent to:
 
-Arguments:
-<u>str</u> - the string to be converted.
- 
-###Return value
+`strtol(`_`nptr`_`, (char **)NULL, 10)`
 
-The converted value if the value can be represented.
+The handling of errors may differ. If the value cannot be represented, the behavior is undefined.
 
-###Errors
+
+## Return value
+
+This function shall return the converted value if the value can be represented.
+
+## Errors
+
+
 No errors are defined.
 
-###Implementation tasks
 
-* Implement atoll() function.
+## Tests
 
-###Tests
+Untested
 
-======
+## Known bugs
 
-###EXAMPLES
-None.
+None
+
+## See Also 
+1. [Standard library functions](../README.md)
+2. [Table of Contents](../../../README.md)

@@ -1,7 +1,10 @@
 # Synopsis 
 `#include <stdio.h>`</br>
+
 ` int fscanf(FILE *restrict stream, const char *restrict format, ...);`</br>
+
 ` int scanf(const char *restrict format, ...);`</br>
+
 ` int sscanf(const char *restrict s, const char *restrict format, ...);`</br>
 
 ## Status

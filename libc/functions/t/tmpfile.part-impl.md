@@ -1,6 +1,7 @@
 # Synopsis 
 
 `#include <stdio.h>`</br>
+
 `FILE *tmpfile(void);`</br>
 
 

@@ -1,6 +1,8 @@
 # Synopsis 
 `#include <stdlib.h>`</br>
+
 ` long labs(long i);`</br>
+
 ` long long llabs(long long i);`</br>
 
 ## Status

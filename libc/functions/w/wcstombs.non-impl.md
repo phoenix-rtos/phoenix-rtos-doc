@@ -2,6 +2,7 @@
 # Synopsis 
 
 `#include <stdlib.h>`</br>
+
 `size_t wcstombs(char *str, const wchar_t *pwcs, size_t n);`</br>
 
 <!-- #MUST_BE: check status according to implementation -->

@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <unistd.h>`</br>
+
 ` gid_t getegid(void);`</br>
 
 ## Status

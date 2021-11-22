@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <stdio.h>`</br>
+
 ` FILE *fdopen(int fildes, const char *mode); `</br>
 
 ## Status

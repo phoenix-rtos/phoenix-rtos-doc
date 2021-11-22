@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <stdio.h>`</br>
+
 ` char *fgets(char *restrict s, int n, FILE *restrict stream);`</br>
 
 ## Status

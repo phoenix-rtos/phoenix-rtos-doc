@@ -1,5 +1,6 @@
 # Synopsis 
-`[CX]#include <signal.h>`</br>
+`#include <signal.h>`</br>
+
 ` int sigsuspend(const sigset_t *sigmask); `</br>
 
 ## Status

@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <stdio.h>`</br>
+
 ` int puts(const char *s);`</br>
 
 ## Status

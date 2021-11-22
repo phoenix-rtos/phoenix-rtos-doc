@@ -1,6 +1,8 @@
 # Synopsis 
 `#include <stdio.h>`</br>
+
 ` int fseek(FILE *stream, long offset, int whence);`</br>
+
 `int fseeko(FILE *stream, off_t offset, int whence);`</br>
 
 ## Status

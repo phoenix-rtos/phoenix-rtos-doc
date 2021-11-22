@@ -1,8 +1,12 @@
 # Synopsis 
 `#include <stdio.h>`</br>
+
 ` int getc_unlocked(FILE *stream);`</br>
+
 ` int getchar_unlocked(void);`</br>
+
 ` int putc_unlocked(int c, FILE *stream);`</br>
+
 ` int putchar_unlocked(int c); `</br>
 
 ## Status

@@ -2,6 +2,7 @@
 # Synopsis 
 
 `#include <unistd.h>`</br>
+
 `int usleep(useconds_t useconds);`</br>
 
 ## Status

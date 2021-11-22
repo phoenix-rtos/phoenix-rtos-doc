@@ -1,7 +1,10 @@
 # Synopsis 
 `#include <sys/socket.h>`</br>
-` #include <netdb.h>`</br>
+
+`#include <netdb.h>`</br>
+
 ` void freeaddrinfo(struct addrinfo *ai);`</br>
+
 ` int getaddrinfo(const char *restrict nodename,`</br>
 `        const char *restrict _servname_,`</br>
 `        const struct addrinfo *restrict hints,`</br>

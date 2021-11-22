@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <time.h>`</br>
+
 ` double difftime(time_t time1, time_t time0);`</br>
 
 ## Status

@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <fcntl.h>`</br>
+
 ` int fcntl(int fildes, int cmd, ...);`</br>
 
 ## Status

@@ -1,12 +1,9 @@
 # Synopsis 
 `#include <dirent.h>`</br>
+
 ` struct dirent *readdir(DIR *dirp);`</br>
-<<<<<<< HEAD
+
 ` int readdir_r(DIR *restrict dirp, struct dirent *restrict entry, struct dirent **restrict result);`</br>
-=======
-` int readdir_r(DIR *restrict dirp, struct dirent *restrict entry,`</br>
-`        struct dirent **restrict result);`</br>
->>>>>>> read(), readdir(), realloc(), remove(), rename(), rewind(), rmdir() documentation added
 
 ## Status
 Partially implemented

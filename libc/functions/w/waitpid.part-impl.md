@@ -1,7 +1,9 @@
 # Synopsis <!-- #MUST_BE: make good synopsis -->
 
 `#include <sys/wait.h>`</br> <!-- #MUST_BE: check status according to implementation -->
+
 `pid_t waitpid(pid_t pid, int *status, int options)`</br>
+
 `pid_t wait(int *status)`</br>
 
 ## Status

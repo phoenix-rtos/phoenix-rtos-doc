@@ -1,6 +1,8 @@
 # Synopsis 
 `#include <stdio.h>`</br>
+
 ` long ftell(FILE *stream);`</br>
+
 `off_t ftello(FILE *stream); `</br>
 
 ## Status

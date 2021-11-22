@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <unistd.h>`</br>
+
 ` int rmdir(const char *path);`</br>
 
 ## Status

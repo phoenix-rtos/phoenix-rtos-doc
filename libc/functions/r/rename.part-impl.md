@@ -1,7 +1,10 @@
 # Synopsis 
 `#include <stdio.h>`</br>
+
 ` int rename(const char *old, const char *new);`</br>
+
 `#include <fcntl.h>`</br>
+
 `int renameat(int oldfd, const char *old, int newfd, const char *new); `</br>
 
 ## Status

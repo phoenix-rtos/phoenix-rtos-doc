@@ -1,7 +1,10 @@
 # Synopsis 
 `#include <math.h>`</br>
+
 ` double exp(double x);`</br>
+
 ` float expf(float x);`</br>
+
 ` long double expl(long double x);`</br>
 
 ## Status
