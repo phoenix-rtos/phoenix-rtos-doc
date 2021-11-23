@@ -77,7 +77,7 @@ In order to place the disk image on the board, the bootlader (plo) image located
 - To properly run the system image, kernel and other used programs need to be provided in `_boot` directory, so you should copy them from `_build` directory:
 
   ```
-  (cd _build/armv7a7-imx6ull/prog/ && \
+  (cd _build/armv7a7-imx6ull/prog.stripped/ && \
   cp phoenix-armv7a7-imx6ull.elf dummyfs imx6ull-uart psh ../../../_boot/)
   ```
 
