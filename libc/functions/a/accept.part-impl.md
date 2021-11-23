@@ -1,75 +1,99 @@
-# Synopsis
-
-`#include <sys/socket.h>`
-
-`int accept(int socket, struct sockaddr *address,
-       socklen_t *address_len);`
+# Synopsis 
+`#include <sys/socket.h>`</br>
+` int accept(int socket, struct sockaddr *restrict address,`</br>
+`        socklen_t *restrict address_len);`</br>
 
 ## Status
 
-Parially implemented
+Partially implemented
 
 ## Conformance
 
-IEEE Std 1003-1-2017
+IEEE Std 1003.1-2017
 
 ## Description
 
-The `accept()` function extracts the first connection on the queue of pending connections, create a new socket with the same socket type protocol and address family as the specified socket, and allocate a new file descriptor for that socket. The file descriptor is  allocated as described in File Descriptor Allocation.
+The `accept()` function shall extract the first connection on the queue of pending connections, create a new socket with
+the same socket type protocol and address family as the specified _socket_, and allocate a new file descriptor for that socket. The
+file descriptor shall be allocated as described in File Descriptor
+Allocation.
 
-### Arguments
+The `accept()` function takes the following arguments:
 
-`socket` - a socket that was created with `socket()`, has been bound to an address with `bind()`, and has issued a successful call to `listen()`.
+* _`socket`_ Specifies a socket that was created with `socket()`, has been bound to an _address_ with `bind()`, and has issued a successful call to `listen()`.
+* _`address`_ Either a `null` pointer, or a pointer to a sockaddr structure where the address of the connecting socket shall be
+returned.
+* _`address_len`_ Either a `null` pointer, if _address_ is a `null` pointer, or a pointer to a `socklen_t` object which on input specifies
+the length of the supplied sockaddr structure, and on output specifies the length of the stored address.
 
-`address` - either a null pointer, or a pointer to a `sockaddr` structure where the address of the connecting socket is returned.
+If _address_ is not a `null` pointer, the address of the peer for the accepted connection shall be stored in the
+`sockaddr` structure pointed to by _address_, and the length of this address shall be stored in the object pointed to by _`address_len`_.
 
-`address_len` - either a null pointer, if address is a null pointer, or a pointer to a `socklen_t` object which on input specifies the length of the supplied `sockaddr` structure, and on output specifies the length of the stored address.
+If the actual length of the address is greater than the length of the supplied sockaddr structure, the stored address shall be truncated.
 
-If address is not a null pointer, the address of the peer for the accepted connection is stored in the `sockaddr` structure pointed to by address, and the length of this address is stored in the object pointed to by `address_len`.
+If the protocol permits connections by unbound clients, and the peer is not bound, then the value stored in the object pointed
+to by _address_ is unspecified.
 
-If the actual length of the address is greater than the length of the supplied `sockaddr` structure, the stored address is truncated.
-
-If the protocol permits connections by unbound clients, and the peer is not bound, then the value stored in the object pointed to by address is unspecified.
-
-If the listen queue is empty of connection requests and `O_NONBLOCK` is not set on the file descriptor for the socket, `accept()` blocks until a connection is present. If the `listen()` queue is empty of connection requests and `O_NONBLOCK` is set on the file descriptor for the socket, `accept()` fails and sets `errno` to [`EAGAIN`] or [`EWOULDBLOCK`].
+If the listen queue is empty of connection requests and `O_NONBLOCK` is not set on the file descriptor for the socket,
+`accept()` shall block until a connection is present. If the `listen()` queue is
+empty of connection requests and `O_NONBLOCK` is set on the file descriptor for the socket, `accept()` shall fail and set
+`errno` to `EAGAIN` or `EWOULDBLOCK`.
 
 The accepted socket cannot itself accept more connections. The original socket remains open and can accept more connections.
 
+
 ## Return value
 
-Upon successful completion, `accept()` returns the non-negative file descriptor of the accepted socket. Otherwise, `-1` is returned, `errno` is set to indicate the error, and any object pointed to by `address_len` remains unchanged.
+Upon successful completion, `accept()` shall return the non-negative file descriptor of the accepted socket. Otherwise, `-1` shall be returned, `errno` shall be set to indicate the error, and any object pointed to by _address_len_ shall remain unchanged.
 
 ## Errors
 
-[`EAGAIN`] or [`EWOULDBLOCK`] - `O_NONBLOCK` is set for the socket file descriptor and no connections are present to be accepted.
 
-[`EBADF`] - The socket argument is not a valid file descriptor.
+The `accept()` function shall fail if:
 
-[`ECONNABORTED`] - A connection has been aborted.
+`EAGAIN` or `EWOULDBLOCK`
 
-[`EINTR`] - The `accept`() function was interrupted by a signal that was caught before a valid connection arrived.
+O_NONBLOCK is set for the _socket_ file descriptor and no connections are present to be accepted.
 
-[`EINVAL`] - The socket is not accepting connections.
+ * `EBADF` - The _socket_ argument is not a valid file descriptor.
+`ECONNABORTED`
 
-[`EMFILE`] - All file descriptors available to the process are currently open.
+A connection has been aborted.
 
-[`ENFILE`] - The maximum number of file descriptors in the system is already open.
+ * `EINTR` - The `accept()` function was interrupted by a signal that was caught before a valid connection arrived.
 
-[`ENOBUFS`] - No buffer space is available.
+ * `EINVAL` - The _socket_ is not accepting connections.
 
-[`ENOMEM`] - There was insufficient memory available to complete the operation.
+ * `EMFILE` - All file descriptors available to the process are currently open.
 
-[`ENOTSOCK`] - The socket argument does not refer to a socket.
+ * `ENFILE` - The maximum number of file descriptors in the system are already open.
 
-[`EOPNOTSUPP`] - The socket type of the specified socket does not support accepting connections.
+ * `ENOBUFS` - No buffer space is available.
+
+ * `ENOMEM` - There was insufficient memory available to complete the operation.
+
+ * `ENOTSOCK` - The _socket_ argument does not refer to a socket.
+
+ * `EOPNOTSUPP` - The socket type of the specified _socket_ does not support accepting connections.
 
 The `accept()` function may fail if:
 
-[`EPROTO`] - A protocol error has occurred; for example, the `STREAMS` protocol stack has not been initialized.
+
+ * `EPROTO` - A protocol error has occurred; [OB XSR]   for example, the STREAMS protocol stack has not been initialized.
+
+
+
+
+
 
 ## Tests
 
-## See Also
+Untested
 
+## Known bugs
+
+None
+
+## See Also 
 1. [Standard library functions](../README.md)
 2. [Table of Contents](../../../README.md)
