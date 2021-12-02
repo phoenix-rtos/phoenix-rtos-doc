@@ -1,6 +1,6 @@
 # Running system on `armv7m7-imxrt106x` (NXP i.MX RT106x)
 
-This version is designed for NXP i.MX RT106x processors with ARM Cortex-M7 core. To launch this version the final disk image and loader image should be provided. The images are created as the final artifacts of `phoenix-rtos-project` building and are located in `_boot` directory. The disk image consist of bootloader (plo), kernel, UART driver (tty), dummyfs filesystem server (RAM disk) and psh (shell). The necessary tools to carry out the flashing process are located in `_boot` directory as well.
+This version is designed for NXP i.MX RT106x processors with ARM Cortex-M7 core. To launch this version the final disk image and loader image should be provided. The images are created as the final artifacts of `phoenix-rtos-project` building and are located in `_boot` directory. The disk image consist of bootloader (plo), kernel, UART driver (tty), dummyfs filesystem server (RAM disk) and psh (shell). Necessary tools to carry out the flashing process are located in `_boot` directory as well.
 
 ## Development board
 
@@ -8,7 +8,7 @@ The easiest way to start programming hardware targets using Phoenix-RTOS is to g
 
 ## Connecting the board
 
-- Firstly make sure, that the J1 jumper is in 3-4 position, so that the power will be supplied from `USB OTG` port.
+- Firstly make sure, that the J1 jumper is in 3-4 position, so that the power will be supplied from `USB OTG` port. This is the simplest way, but the good practice is using an usb hub. You can provide power using AC adapter and DC connector too (1-2 jumper position).
 
 - To provide a power supply for the board and make flashing possible, you should connect usb to micro usb cable between your host pc and `USB OTG` (`J9`) of the development board. Do it first.
 
