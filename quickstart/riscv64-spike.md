@@ -1,10 +1,10 @@
 # Running system on `riscv64-spike`
-This version is designated for RISC-V 64 processor based spike machine implemented by spike (riscv-isa-sim) emulator and `qemu-system-riscv64`. To launch this version two files should be provided - kernel file integrated with SBI firmware with embedded SBI console driver, dummyfs filesystem and `psh` shell and disk image with ext2 filesystem.
+This version is designated for RISC-V 64 processor based spike machine implemented by the spike (riscv-isa-sim) emulator and `qemu-system-riscv64`. To launch this version two files should be provided - kernel file integrated with SBI firmware with embedded SBI console driver, dummyfs filesystem and `psh` shell, and disk image with ext2 filesystem.
 
-The files are created as the final artifact of `phoenix-rtos-project` building and is located in `_boot` directory. See [how to build the Phoenix-RTOS system image](../building/README.md)
+The files are created as the final artifact of the `phoenix-rtos-project` building and are located in the `_boot` directory. See [how to build the Phoenix-RTOS system image](../building/README.md)
 
-## Running image under spike
-Firstly, you need to install spike simulator.
+## Running image under the spike
+Firstly, you need to install a spike simulator.
 
   <details>
   <summary>How to install spike simulator (Ubuntu 20.04)</summary>
@@ -41,7 +41,7 @@ Firstly, you need to install spike simulator.
   </details>
   </br>
 
-Then, to run the image under spike you should change directory to `phoenix-rtos-project` and type:
+Then, to run the image under spike you should change the directory to `phoenix-rtos-project` and type:
 
 ```bash
 spike _boot/phoenix-riscv64-spike.bbl
@@ -79,7 +79,7 @@ Just like before, you first need to install the emulator.
 
   </details> 
 
-In order to run the system image under qemu you should type the following command from the `phoenix-rtos-project` directory.
+To run the system image under qemu you should type the following command from the `phoenix-rtos-project` directory.
 
 ```bash
 ./scripts/riscv64-spike.sh
@@ -89,7 +89,7 @@ In order to run the system image under qemu you should type the following comman
 
 ## Using Phoenix-RTOS
 
-Phoenix-RTOS will be launched and `psh` shell command prompt will appear in the terminal. To get the available command list please type:
+Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal. To get the available command list please type:
 
 ```
 help

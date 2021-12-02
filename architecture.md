@@ -1,6 +1,6 @@
 # Architecture
 
-Phoenix-RTOS operating system starting from version 3 is based on microkernel architecture. It means that system consist of microkernel implementing basic primitives and set of servers based on these primitives and communicating over it. The main advantage of such architecture is high scalability. The disadvantage is performance degradation caused by message passing. Message passing demands in some cases memory copying and additonal thread context switching.
+Phoenix-RTOS operating system starting from version 3 is based on microkernel architecture. It means that system consists of microkernel implementing basic primitives and set of servers based on these primitives and communicating over it. The main advantage of such architecture is high scalability. The disadvantage is performance degradation caused by message passing. Message passing demands in some cases memory copying and additional thread context switching.
 
 The architecture is schematically presented on figure below.
 
@@ -14,7 +14,7 @@ To understand the microkernel architecture please refer to chapter [Kernel archi
 
 ## Interprocess communication
 
-The main functionality provided by microkernel necessary to implement the operating system is the interprocess communication (IPC). On the figure above microkernel was shown as the bus between other system components and this is the main factor which differentiates the microkernel-based operating system from the traditional monolithic kernel based operating system. All system components interact with each other using message passing. For example file operations are performed by communicating with file servers. Such approach affects tremendously system scalability and modularity. The local communication based on shared memory can be easily extended to the remote communication using network. The modules (servers) implementing specific functionalities can be easily added and removed from the system due to message passing restricting interactions between them to a well-structured format. Servers partition the operating system functionality in the natural way. The message passing should be implemented in such a way that minimizes the communication overhead. Consequently it should be supported by some virtual memory mechanisms like physical memory sharing. In the further considerations it is assumed that messages are sent to the ports registered by servers. Ports together with identifiers of data structures operated by servers (e.g. files) identify operating system objects.
+The main functionality provided by microkernel necessary to implement the operating system is the interprocess communication (IPC). In the figure above microkernel was shown as the bus between other system components and this is the main factor which differentiates the microkernel-based operating system from the traditional monolithic kernel based operating system. All system components interact with each other using message passing. For example file operations are performed by communicating with file servers. Such approach affects tremendously system scalability and modularity. The local communication based on shared memory can be easily extended to the remote communication using network. The modules (servers) implementing specific functionalities can be easily added and removed from the system due to message passing restricting interactions between them to a well-structured format. Servers partition the operating system functionality in the natural way. The message passing should be implemented in such a way that minimizes the communication overhead. Consequently it should be supported by some virtual memory mechanisms like physical memory sharing. In the further considerations it is assumed that messages are sent to the ports registered by servers. Ports together with identifiers of data structures operated by servers (e.g. files) identify operating system objects.
 
 Interprocess communication has been described in [Kernel - Processes and threads - Message passing](kernel/proc/msg.md) chapter.
 
@@ -28,7 +28,7 @@ Standard library has been described in [Standard library](libc/README.md) chapte
 
 In the microkernel architecture servers plays very important role in the whole operating system. They provide functionalities removed from the traditional, monolithic kernel and moved to the user space. Good examples of such functionalities are file management or device management (device drivers). The main method for communicating with server is message passing. Each server allocates and registers set of ports used to receive messages from other system components. For example the file server registers new port in the filesystem space. Device driver registers new name in the `/dev` directory.
 
-Server concept and server registering are desribed in [Kernel - Processes and threads - Servers and namespace](kernel/proc/namespace.md) chapter.
+Server concept and server registering are described in [Kernel - Processes and threads - Servers and namespace](kernel/proc/namespace.md) chapter.
 
 ## Device drivers
 

@@ -1,6 +1,6 @@
 # Running system on targets
 
-This chapter presents how to run Phoenix-RTOS on supported targets. It is assumed that `phoenix-rtos-project` is built and building artifacts are available in `_boot` directory. The building process has been described in [phoenix-rtos-doc/building](../building/README.md).
+This chapter presents how to run Phoenix-RTOS on supported targets. It is assumed that `phoenix-rtos-project` is built and building artifacts are available in the `_boot` directory. The building process has been described in [phoenix-rtos-doc/building](../building/README.md).
 
 - [Running system on `armv7m4-stm32l4x6` (ST STM32L4x)](armv7m4-stm32l4x6.md)
 - [Running system on `armv7m7-imxrt105x` (NXP i.MX RT105x)](armv7m7-imxrt105x.md)

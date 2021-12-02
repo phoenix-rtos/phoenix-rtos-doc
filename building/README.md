@@ -1,18 +1,18 @@
 # Building Phoenix-RTOS image
 
-To create Phoenix-RTOS image for selected target the `phoenix-rtos-project` repository should be used. This repository aggregates all operating system modules - kernel, standard library, device drivers, filesystems, utilities and loader. Read more about `phoenix-rtos-project` submodule repositories [here](project.md).
+To create a Phoenix-RTOS image for the selected target the `phoenix-rtos-project` repository should be used. This repository aggregates all operating system modules - kernel, standard library, device drivers, filesystems, utilities, and loader. Read more about `phoenix-rtos-project` submodule repositories [here](project.md).
 
-This chapter contains instruction how to build reference project and how to create the final system image.
+This chapter contains instructions on how to build a reference project and how to create the final system image.
 
 ## Host operating system
 
-Instructions in the `Building` and `Running system on targets` chapters have been verified for the Ubuntu Linux distribution, so this is the easiest way to start working with Phoenix-RTOS. There is also the possibility to use MacOS, but it's not described in that details for now. Using Windows isn't supported, but you can create a virtual machine with Ubuntu or try to use Docker.
+Instructions in the `Building` and `Running system on targets` chapters have been verified for the Ubuntu Linux distribution, so this is the easiest way to start working with Phoenix-RTOS. There is also the possibility to use MacOS, but it's not described in that detail for now. Using Windows isn't supported, but you can create a virtual machine with Ubuntu or try to use Docker.
 
 ## Obtaining the sources
 
-The first step of preparation of the final system image is the repository cloning. 
+The first step of the preparation of the final system image is repository cloning. 
 
-To do that and make next instructions possible, it's recommended to update currently installed packages and, if need be, install git:
+To do that and make the next instructions possible, it's recommended to update currently installed packages and, if need be, install git:
 
 ```bash
 sudo apt-get update && \
@@ -28,7 +28,7 @@ git clone --recursive https://github.com/phoenix-rtos/phoenix-rtos-project.git
 
 ## Supported target platforms
 
-The reference Phoenix-RTOS project supports following target platforms:
+The reference Phoenix-RTOS project supports the following target platforms:
 
 * armv7m4-stm32l4x6
 * armv7m7-imxrt105x
@@ -39,7 +39,7 @@ The reference Phoenix-RTOS project supports following target platforms:
 * riscv64-spike
 * riscv64-virt
 
-To get the list of valid targets the `build.sh` script should be launched with empty `TARGET` variable , eg:
+To get the list of valid targets the `build.sh` script should be launched with an empty `TARGET` variable, eg:
 
 ```bash
 ./phoenix-rtos-build/build.sh
@@ -49,7 +49,7 @@ To get the list of valid targets the `build.sh` script should be launched with e
 
 ## Building using docker
 
-This is the quickest way to start development - all necessary tools are distributed in docker image.
+This is the quickest way to start development - all necessary tools are distributed in a docker image.
 
 Firstly, you need to have the docker installed.
 
@@ -82,7 +82,7 @@ Firstly, you need to have the docker installed.
   sudo apt-get install docker-ce docker-ce-cli containerd.io
   ```
 
-  - Check if docker is properly installed (version can be different):
+  - Check if Docker is properly installed (version can be different):
 
   ```
   sudo docker --version
@@ -123,13 +123,13 @@ cd phoenix-rtos-project/
 TARGET=ia32-generic ./docker-build.sh clean all
 ```
 
-After the build successfully completes, kernel and disk images will be created and placed in the `_boot` directory.
+After the build completes, kernel and disk images will be created and placed in the `_boot` directory.
 
-## Building using native toolchain
+## Building using the native toolchain
 
 This is the method preferred when you plan to develop Phoenix-RTOS.
 
-Firstly, you need to install some tools required for compiling toolchain and finally creating Phoenix-RTOS system image.
+Firstly, you need to install some tools required for compiling the toolchain and finally create the Phoenix-RTOS system image.
 There is a list of commands you can use to get them on the Ubuntu 20.04 host operating system
 
 ```bash
@@ -161,7 +161,7 @@ cd phoenix-rtos-project
 (cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh riscv64-phoenix ~/toolchains/riscv64-phoenix)
 ```
 
-Toolchain binaries should be added to PATH variable:
+Toolchain binaries should be added to the PATH variable:
 
 ```bash
 export PATH=$PATH:~/toolchains/i386-pc-phoenix/i386-pc-phoenix/bin/
@@ -175,7 +175,7 @@ To build a project - provide a `TARGET` via ENV variable:
 TARGET=ia32-generic ./phoenix-rtos-build/build.sh clean all
 ```
 
-After the build successfully completes, kernel and disk images will be created and placed in the `_boot` directory.
+After the build completes, kernel and disk images will be created and placed in the `_boot` directory.
 
 ## Launching Phoenix-RTOS
 

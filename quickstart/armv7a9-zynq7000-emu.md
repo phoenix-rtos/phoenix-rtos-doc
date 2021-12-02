@@ -1,6 +1,6 @@
 # Running system on `armv7a9-zynq7000` (Xilinx Zynq-7000) on emulator
 
-These instructions describe how to run Phoenix-RTOS system image for `armv7a9-zynq7000` target architecture using docker and qemu.
+These instructions describe how to run the Phoenix-RTOS system image for the `armv7a9-zynq7000` target architecture using docker and qemu.
 Note that, the build artifacts, including the system image, should be first provided in the `_boot` directory. If you haven't run the `build.sh` script yet, follow the pre-build steps [here](armv7a9-zynq7000.md) and next run it for `armv7a9-zynq7000` target.
 
 ## Running the system image
@@ -36,7 +36,7 @@ Firstly, you need to have the docker installed.
   sudo apt-get install docker-ce docker-ce-cli containerd.io
   ```
 
-  - Check if docker is properly installed (version can be different):
+  - Check if Docker is properly installed (version can be different):
 
   ```
   sudo docker --version
