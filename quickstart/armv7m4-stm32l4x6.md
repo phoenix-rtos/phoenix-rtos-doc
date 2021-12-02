@@ -1,19 +1,19 @@
 # Running system on `armv7m4-stm32l4x6` (ST STM32L4x)
 
-This version is designated for STM32L4x6 processors with Cortex-M4 core. To launch this version the final flash image should be provided. The image is created as the final artifact of `phoenix-rtos-project` building and is located in `_boot` directory. The image consist of kernel, TTY UART driver, RAM disk filesystem and psh (shell).
+This version is designated for STM32L4x6 processors with Cortex-M4 core. To launch this version the final flash image should be provided. The image is created as the final artifact of the `phoenix-rtos-project` building and is located in the `_boot` directory. The image consists of a kernel, TTY UART driver, RAM disk filesystem, and psh (shell).
 
 See [how to build the Phoenix-RTOS system image](../building/README.md)
 
 ## Development board
 
-The easiest way to start programming hardware targets using Phoenix-RTOS is to get some of the evaluation boards with specified target processor or microcontroller. In this case [NUCLEO-L4A6ZG](https://www.st.com/en/evaluation-tools/nucleo-l4a6zg.html#overview) is the example of a board with `stm32l4x6` microcontroller.
+The easiest way to start programming hardware targets using Phoenix-RTOS is to get some of the evaluation boards with a specified target processor or microcontroller. In this case [NUCLEO-L4A6ZG](https://www.st.com/en/evaluation-tools/nucleo-l4a6zg.html#overview) is the example of a board with `stm32l4x6` microcontroller.
 
 ## Connecting the board
 
-To provide a power supply for the board and make flashing possible, you have to connect usb to micro usb cable between your host pc and the development board (`USB PWR` port, also called `CN1`).
-To communicate with the board you will need to use an uart-usb converter, like `PL2303 TA`.
+To provide a power supply for the board and make flashing possible, you have to connect a USB to micro USB cable between your host pc and the development board (`USB PWR` port, also called `CN1`).
+To communicate with the board you will need to use a UART-USB converter, like `PL2303 TA`.
 
-- Connect TX, RX and GND wires to the USART2 (called also USART_B) in the Nucleo board.
+- Connect TX, RX, and GND wires to the USART2 (called also USART_B) in the Nucleo board.
   For example, using PL2303 TA:
   - PL2303 TX (green) - Nucleo USART_B_RX
   - PL2303 RX (white) - Nucleo USART_B_TX
@@ -23,7 +23,7 @@ To communicate with the board you will need to use an uart-usb converter, like `
 
   Source: The Nucleo board's schematic, available on https://www.st.com/en/evaluation-tools/nucleo-l4a6zg.html#cad-resources
 
-- Put the converter into your host-pc's usb port
+- Put the converter into your host PC's USB port
 - Open serial port in terminal using picocom
 
   ```
@@ -41,7 +41,7 @@ To communicate with the board you will need to use an uart-usb converter, like `
   </details>
   </br>
 
-You can leave the terminal with serial port open, and follow the next steps.
+You can leave the terminal with the serial port open, and follow the next steps.
 
 ## Flashing the Phoenix-RTOS system image
 
@@ -95,11 +95,11 @@ openocd -f interface/stlink.cfg \
 
 <img src="_images/stm32l4x6-openocd.png" width="600px">
 
-Script can be modified to accomodate other SWD interfaces.
+The script can be modified to accommodate other SWD interfaces.
 
 ## Using Phoenix-RTOS
 
-Phoenix-RTOS will be launched and `psh` shell command prompt will appear in the terminal with the serial port opened.
+Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal with the serial port opened.
 
 <img src="_images/stm32l4x6-start.png" width="600px">
 

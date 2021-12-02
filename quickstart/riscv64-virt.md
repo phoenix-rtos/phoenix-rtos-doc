@@ -1,7 +1,7 @@
 # Running system on `riscv64-virt`
-This version is designated for RISC-V 64 processor based virt machine implemented by `qemu-system-riscv64`. To launch this version two files should be provided - kernel file integrated with SBI firmware with embedded UART16550 interface driver, dummyfs filesystem and `psh` shell and disk image with ext2 filesystem.
+This version is designated for RISC-V 64 processor based virt machine implemented by `qemu-system-riscv64`. To launch this version two files should be provided - kernel file integrated with SBI firmware with embedded UART16550 interface driver, dummyfs filesystem and the`psh` shell and disk image with ext2 filesystem.
 
-The files are created as the final artifact of `phoenix-rtos-project` building and is located in `_boot` directory. See [how to build the Phoenix-RTOS system image](../building/README.md)
+The files are created as the final artifact of the `phoenix-rtos-project` building and is located in the `_boot` directory. See [how to build the Phoenix-RTOS system image](../building/README.md)
 
 ## Running image under qemu
 Firstly, you need to install qemu emulator.
@@ -31,7 +31,7 @@ Firstly, you need to install qemu emulator.
 
   </details> 
 
-To run image under qemu you should type:
+To run the image under qemu you should type:
 
 ```bash
 ./scripts/riscv64-virt.sh
@@ -43,7 +43,7 @@ To run image under qemu you should type:
 
 ## Using Phoenix-RTOS
 
-Phoenix-RTOS will be launched and `psh` shell command prompt will appear in the terminal. To get the available command list please type:
+Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal. To get the available command list please type:
 
 ```
 help

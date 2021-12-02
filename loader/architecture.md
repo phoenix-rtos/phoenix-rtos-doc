@@ -40,7 +40,7 @@ Devices are the hardware dependent subsystem containing a collection of drivers 
 Each platform defines its own set of drivers in a `Makefile` file.
 
 ## HAL
-HAL (Hardware Abstraction Layer) is the loader hardware dependent subsystem used for adopting it to the particular hardware platform. It provides the unified interface for the other plo components.
+HAL (Hardware Abstraction Layer) is the loader hardware dependent subsystem used for adapting it to the particular hardware platform. It provides the unified interface for the other plo components.
 When loader is ported to the new architecture, only the common hal interface has to be implemented, the rest of the subsystems remain unchanged.
 
 HAL implements the following functionalities:

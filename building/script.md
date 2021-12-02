@@ -30,7 +30,7 @@ The available components are listed below:
 
 For example, in ia32-generic target `all` means `core fs image project test ports`</br>
 For the other targets `all` can be different components configurations. </br>
-You can also choose what components do you want to build, for example the following command will build system image without test and ports components.
+You can also choose what components do you want to build, for example, the following command will build a system image without test and ports components.
 ```bash
 TARGET=ia32-generic phoenix-rtos-build/build.sh core fs image project
 ```

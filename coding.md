@@ -23,13 +23,13 @@ Each operating system source file is marked with label with the following struct
      * %LICENSE%
      */
 
-Main label blocks are separated with empty line. The first label block informs that file is the part of Phoenix-RTOS operating system. In next block the information about the operating system module is provided. In this example, the file belongs to operating system kernel. Third label block describes the file functionality. In presented example label, the file implements `pmap` interface - the hardware dependent part of memory management subsystem for managing the MMU or MPU (part of HAL). Fourth label block presents copyright notices and authors of the file. Newest copyrights are located on the top. Copyrights are associated with dates informing about the development periods separated with comas. In the example label the file was developed in years 2014-2015 and in the earlier period of 2005-2006. Presented file has three authors sorted according to the importance of their contribution. All names are presented. Next block contains the information that file belongs to the operating system project. The %LICENSE% macro is used to inject the license conditions.
+Main label blocks are separated with empty line. The first label block informs that file is the part of Phoenix-RTOS operating system. In next block the information about the operating system module is provided. In this example, the file belongs to operating system kernel. Third label block describes the file functionality. In presented example label, the file implements `pmap` interface - the hardware dependent part of memory management subsystem for managing the MMU or MPU (part of HAL). Fourth label block presents copyright notices and authors of the file. Newest copyrights are located on the top. Copyrights are associated with dates informing about the development periods separated with commas. In the example label the file was developed in years 2014-2015 and in the earlier period of 2005-2006. Presented file has three authors sorted according to the importance of their contribution. All names are presented. Next block contains the information that file belongs to the operating system project. The %LICENSE% macro is used to inject the license conditions.
 
 Labels in each file should be constructed according to presented rules. Modification of these rules is not allowed.
 
 ## Indentation
 
-Code indentation is based on tabulator. It is not allowed to make indentation with space character. The source code used for development tests (e.g. printf debug) should be entered without indentation. The following code presents correctly formatted code with one line (`lib_printf`) entered for debug purposes. The inserted line should be removed in the final code.
+Code indentation is based on tabulator. It is not allowed to make an indentation with space character. The source code used for development tests (e.g. printf debug) should be entered without indentation. The following code presents correctly formatted code with one line (`lib_printf`) entered for debug purposes. The inserted line should be removed in the final code.
 
 >
     int main(void)
@@ -77,7 +77,7 @@ Function should be not longer than 200 lines of code and not shorter than 10 lin
 
 ## Variables
 
-Variable should be named with one short words without the underline characters. If one word is not enough for variable name than use camelCase. When defining a variable assign it a value, do no assume that is't value is zero.
+Variables should be named with one short words without the underline characters. If one word is not enough for variable name then use camelCase. When defining a variable assign it a value, do not assume that isn't value is zero.
 
 ## Local variables
 
@@ -105,7 +105,7 @@ Local variables should be defined before the function code according to ANSI C 8
 
 ## Global variables
 
-Global variables should be used only is their absolutely necessary. You should avoid using globally initialised variables. If they are used, global variables can only be placed in common structures. The structure should be named after the system module that implements it, followed by _common. Example notation is shown below.
+Global variables should be used only if they're absolutely necessary. You should avoid using globally initialized variables. If they are used, global variables can only be placed in common structures. The structure should be named after the system module that implements it, followed by _common. Example notation is shown below.
 
 >
     struct {
@@ -125,7 +125,7 @@ No space should be used after the following unary operators:
 >
     &  *  +  -  ~  ! 
 
-The `sizeof` and `typeof`are treated as functions and are to be used with accordance to the following notation:
+The `sizeof` and `typeof`are treated as functions and are to be used in accordance to the following notation:
 
 >
     sizeof(x)  
@@ -154,7 +154,7 @@ Notation of conditional expression is presented below.
       ...
     }
  
-A space should be used after a keyword of the conditional instruction. Opening and closing braces should be used only if the body of the conditional instruction is longer than one line. The opening brace should be put in the same line as the keyword of the conditional instruction. The closing brace should be placed after the last line of the conditional istruction in a new line.
+A space should be used after a keyword of the conditional instruction. Opening and closing braces should be used only if the body of the conditional instruction is longer than one line. The opening brace should be put in the same line as the keyword of the conditional instruction. The closing brace should be placed after the last line of the conditional instruction in a new line.
 
 ## Type definition
 
@@ -175,7 +175,7 @@ One line comment should look like the following example.
 >
     /* comment */
 
-All comments should be brief and placed only in essential parts of the code. Comments are not the place to copy parts of the specifications. Nor are they the place to express programmers novel writing skills.
+All comments should be brief and placed only in essential parts of the code. Comments are not the place to copy parts of the specifications. Nor are they the place to express programmer's novel writing skills.
 
 The use of any kind of documentation generator (e.g. doxygen) is strictly forbidden.
 
@@ -192,7 +192,7 @@ The header with the `#include" preprocessing directive should be placed after th
 
 It is advised not to use MACROS in the code.
 
-It is not advised to use preprocessor conditionals like `#if` or `ifdef'. The use of preprocessing conditionals makes it harder to follow the code logic. If it is absolute necessary to use preprocessing conditionals, they ought to be formatted as the following example.
+It is not advised to use preprocessor conditionals like `#if` or `ifdef'. The use of preprocessing conditionals makes it harder to follow the code logic. If it is absolutely necessary to use preprocessing conditionals, they ought to be formatted as the following example.
 
 >
     #ifndef NOMMU
@@ -227,4 +227,4 @@ To better understand our position please read the famous Dijkstra article.
 
 https://homepages.cwi.nl/~storm/teaching/reader/Dijkstra68.pdf
 
-In our opinion usage of `goto` increases the chaos in the source code and absolutely brings no value like minimalization of the number of lines of code. Is also encourages programmers to poor code structurization.
+In our opinion usage of `goto` increases the chaos in the source code and absolutely brings no value like minimalization of the number of lines of code. It also encourages programmers to poor code structurization.
