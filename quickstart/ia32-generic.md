@@ -1,7 +1,7 @@
 # Running system on `ia32-generic` (PC based on IA32 processor)
 This version is designated for generic PC based on the IA32 processor. To launch this version the final disk image should be provided. The image is created as the final artifact of the `phoenix-rtos-project` building and is located in the `_boot` directory. The image consists of the bootloader (plo), kernel, TTY VGA driver, ATA driver with ext2 filesystem.
 
-See [how to build the Phoenix-RTOS system image](../building/README.md)
+See [how to build the Phoenix-RTOS system image](../building/README.md).
 
 ## Running image under qemu
 Firstly, you need to install qemu emulator.
