@@ -49,7 +49,7 @@ The easiest way to start programming hardware targets using Phoenix-RTOS is to g
 
   <img src="_images/imx6ull-ls.png" width="600px">
 
-  If your output is like in the screenshot above, the console (`DEBUG USB` in the evaluation board) is on the USB0 port.
+  If your output is like in the screenshot above, the console (`DEBUG USB` in the evaluation board) is on the `USB0` port.
 
 - When the board is connected to your host-pc, open serial port in terminal using picocom and type the console port (in this case USB0)
 

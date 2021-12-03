@@ -3,6 +3,8 @@
 These instructions describe how to run the Phoenix-RTOS system image for the `armv7a9-zynq7000` target architecture using docker and qemu.
 Note that, the build artifacts, including the system image, should be first provided in the `_boot` directory. If you haven't run the `build.sh` script yet, follow the pre-build steps [here](armv7a9-zynq7000.md) and next run it for `armv7a9-zynq7000` target.
 
+See [how to build the Phoenix-RTOS system image](../building/README.md).
+
 ## Running the system image
 
 Firstly, you need to have the docker installed.

@@ -1,6 +1,8 @@
-# Running system on `armv7m7-imxrt117x` (NXP i.MX RT106x)
+# Running system on `armv7m7-imxrt117x` (NXP i.MX RT117x)
 
 This version is designed for NXP i.MX RT117x processors with ARM Cortex-M7 core. To launch this version the final disk image and loader image should be provided. The images are created as the final artifacts of the `phoenix-rtos-project` building and are located in the `_boot` directory. The disk image consists of the bootloader (plo), kernel, UART driver (tty), dummyfs filesystem server (RAM disk), and `psh` (shell). Necessary tools to carry out the flashing process are located in the `_boot` directory as well.
+
+See [how to build the Phoenix-RTOS system image](../building/README.md).
 
 ## Development board
 
@@ -8,7 +10,7 @@ The easiest way to start programming hardware targets using Phoenix-RTOS is to g
 
 ## Connecting the board
 
-- Firstly make sure, that the J38 jumper is in the `3-4` position so that the power will be supplied from the `USB OTG` port. It is the simplest way, but the good practice is using a USB hub. You can provide power using an AC adapter and DC connector too. (1-2 jumper position)
+- Firstly make sure, that the `J38` jumper is in the `3-4` position, so that the power will be supplied from the `USB OTG` port. It is the simplest way, but the good practice is using a USB hub. You can provide power using an AC adapter and DC connector too (1-2 jumper position).
 
 - To provide a power supply for the board and make flashing possible, you should connect a USB to micro USB cable between your host pc and `USB OTG` (`J20`) of the development board. Do it first.
 
@@ -24,7 +26,7 @@ The easiest way to start programming hardware targets using Phoenix-RTOS is to g
   <img src="_images/imxrt117x-ls.png" width="600px">
   </br>
 
-  If your output is like in the screenshot above, the console (`DEBUG USB` in the evaluation board) is on the ACM0 port.
+  If your output is like in the screenshot above, the console (`DEBUG USB` in the evaluation board) is on the `ACM0` port.
 
 - When the board is connected to your host-pc, open serial port in terminal using picocom and type the console port (in this case ACM0)
 
@@ -50,7 +52,7 @@ The process comes down to a few steps, described below.
 
 ### Uploading Phoenix-RTOS loader (plo) to the RAM memory
 
-To flash the disk image to the board, the bootloader (plo) image located in the `_boot` directory should be uploaded to the RAM using `psu` (Phoenix Serial Uploader) via SDP (Serial Download Protocol).
+To flash the disk image to the board, the bootloader (plo) image located in the `_boot` directory should be uploaded to the RAM using `psu` (Phoenix Serial Uploader) via `SDP` (Serial Download Protocol).
 
 NOTE: `i. MX RT1176` should be set in Serial Download mode. Set the appropriate configuration of the `SW1` switch on `MIMXRT1170-EVK`, which is `0001`. If the configuration was different you should restart the board after the change and open the serial port using picocom once again.
 
@@ -60,9 +62,10 @@ Change directory to `_boot` and run `psu` as follow:
 cd _boot/
 ```
 
-```
+```bash
 sudo ./psu plo-ram-armv7m7-imxrt117x.sdp
 ```
+
 The following output is expected:
 
 <img src="_images/imxrt117x-psu-output.png" width="600px">
@@ -108,8 +111,6 @@ If everything has gone correctly, the bootloader should appear in the terminal, 
 As a result, Phoenix-RTOS with the default configuration and the `psh` shell command prompt will appear in the terminal.
 
 <img src="_images/imxrt117x-go.png" width="600px">
-
-</br>
 
 <img src="_images/imxrt117x-start.png" width="600px">
 

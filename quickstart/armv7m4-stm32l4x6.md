@@ -2,7 +2,7 @@
 
 This version is designated for STM32L4x6 processors with Cortex-M4 core. To launch this version the final flash image should be provided. The image is created as the final artifact of the `phoenix-rtos-project` building and is located in the `_boot` directory. The image consists of a kernel, TTY UART driver, RAM disk filesystem, and psh (shell).
 
-See [how to build the Phoenix-RTOS system image](../building/README.md)
+See [how to build the Phoenix-RTOS system image](../building/README.md).
 
 ## Development board
 
