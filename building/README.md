@@ -108,6 +108,7 @@ Firstly, you need to have the docker installed.
   ```
   docker run hello-world
   ```
+
   <img src="_images/docker-test.png" width="600px">
 
   For more details and other instructions see
@@ -120,17 +121,19 @@ Then, to build - provide a `TARGET` via ENV variable and run the build script:
 
 ```bash
 cd phoenix-rtos-project/
-TARGET=ia32-generic ./docker-build.sh clean all
+TARGET=ia32-generic ./docker-build.sh all
 ```
 
 After the build completes, kernel and disk images will be created and placed in the `_boot` directory.
+
+You can read more about the building script options [here](script.md).
 
 ## Building using the native toolchain
 
 This is the method preferred when you plan to develop Phoenix-RTOS.
 
 Firstly, you need to install some tools required for compiling the toolchain and finally create the Phoenix-RTOS system image.
-There is a list of commands you can use to get them on the Ubuntu 20.04 host operating system
+There is a list of commands you can use to get them on the Ubuntu 20.04 host operating system.
 
 ```bash
 sudo apt-get update && \
@@ -169,13 +172,17 @@ export PATH=$PATH:~/toolchains/arm-phoenix/arm-phoenix/bin/
 export PATH=$PATH:~/toolchains/riscv64-phoenix/riscv64-phoenix/bin/
 ```
 
+Read more about the Phoenix-RTOS toolchain [here](toolchain.md).
+
 To build a project - provide a `TARGET` via ENV variable:
 
 ```bash
-TARGET=ia32-generic ./phoenix-rtos-build/build.sh clean all
+TARGET=ia32-generic ./phoenix-rtos-build/build.sh all
 ```
 
 After the build completes, kernel and disk images will be created and placed in the `_boot` directory.
+
+You can read more about the building script options [here](script.md).
 
 ## Launching Phoenix-RTOS
 
