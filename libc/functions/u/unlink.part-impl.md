@@ -52,28 +52,43 @@ Upon successful completion, these functions shall return `0`. Otherwise, these f
 These functions shall fail and shall not unlink the file if:
 
 * `EACCES` - Search permission is denied for a component of the path prefix, or write permission is denied on the directory containing the directory entry to be removed.
+
 * `EBUSY` - The file named by the _path_ argument cannot be unlinked because it is being used by the system or another process and the implementation considers this an error.
+
 * `ELOOP` - A loop exists in symbolic links encountered during resolution of the _path_ argument.
+
 * `ENAMETOOLONG` - The length of a component of a pathname is longer than `NAME_MAX`.
+
 * `ENOENT` - A component of _path_ does not name an existing file or _path_ is an empty string.
+
 * `ENOTDIR` - A component of the _path_ prefix names an existing file that is neither a directory nor a symbolic link to a directory, or the _path_ argument contains at least one non-`<slash>` character and ends with one or more trailing `<slash>` characters and the last pathname component names an existing file that is neither a directory nor a symbolic link to a directory.
+
 * `EPERM` - The file named by _path_ is a directory, and either the calling process does not have appropriate privileges, or the implementation prohibits using `unlink()` on directories.
+
 * `EPERM` or `EACCES` - The `S_ISVTX` flag is set on the directory containing the file referred to by the _path_ argument and the process does not satisfy the criteria specified in XBD Directory Protection.
+
 * `EROFS` - The directory entry to be unlinked is part of a read-only file system.
 
 The `unlinkat()` function shall fail if:
 
 * `EACCES` - The access mode of the open file description associated with _fd_ is not `O_SEARCH` and the permissions of the directory underlying _fd_ do not permit directory searches.
+
 * `EBADF` - The _path_ argument does not specify an absolute path and the _fd_ argument is neither `AT__fd_CWD` nor a valid file descriptor open for reading or searching.
+
 * `ENOTDIR` - The _path_ argument is not an absolute path and _fd_ is a file descriptor associated with a non-directory file.
+
 * `EEXIST` or `ENOTEMPTY` - The flag parameter has the `AT_REMOVEDIR` bit set and the _path_ argument names a directory that is not an empty directory, or there are hard links to the directory other than dot or a single entry in dot-dot.
+
 * `ENOTDIR` - The flag parameter has the `AT_REMOVEDIR` bit set and _path_ does not name a directory.
 
 These functions may fail and not unlink the file if:
 
 * `EBUSY` - The file named by _path_ is a named `STREAM`.
+
 * `ELOOP` - More than `SYMLOOP_MAX` symbolic links were encountered during resolution of the _path_ argument.
+
 * `ENAMETOOLONG` - The length of a pathname exceeds `PATH_MAX`, or pathname resolution of a symbolic link produced an intermediate result with a length that exceeds `PATH_MAX`.
+
 * `ETXTBSY` - The entry to be unlinked is the last directory entry to a pure procedure (shared text) file that is being executed.
 
 

@@ -48,12 +48,11 @@ The `munmap()` function shall fail if:
  * `EINVAL` - Addresses in the range [_addr_,_addr_+_len_) are outside the valid range for the address space of a
 process.
 
- * `EINVAL` - The _len_ argument is `0`.
+ * `EINVAL` - The _len_ argument is `0`. </br>
 
-The `munmap()` function may fail if:
+The `munmap()` function may fail if: </br>
 
-
- * `EINVAL` - The _addr_ argument is not a multiple of the page size as returned by `sysconf()`.
+ * `EINVAL` - The _addr_ argument is not a multiple of the page size as returned by `sysconf()`. </br>
 
 
 

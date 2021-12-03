@@ -19,11 +19,11 @@ There are a few reasons why that is helpful
 
 - You can check if a program is compiled for Phoenix-RTOS or not, using `phoenix` or `__phoenix__` flag
 
-  ```
-  #ifdef phoenix
-      #warning OS is Phoenix-RTOS
-  #endif
-  ```
+```c
+#ifdef phoenix
+    #warning OS is Phoenix-RTOS
+#endif
+```
 
 ## See also
 

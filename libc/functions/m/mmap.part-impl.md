@@ -178,8 +178,7 @@ The `mmap()` function shall fail if:
  * `EACCES` - The fildes argument is not open for read, regardless of the protection specified, or fildes is not open for write
 and `PROT_WRITE` was specified for a `MAP_SHARED` type mapping.
 
- * `EAGAIN` - 
-The mapping could not be locked in memory, if required by `mlockall()`, due to a lack
+ * `EAGAIN` - The mapping could not be locked in memory, if required by `mlockall()`, due to a lack
 of resources. 
 
  * `EBADF` - The fildes argument is not a valid open file descriptor.
@@ -195,18 +194,14 @@ of resources.
  * `ENOMEM` - `MAP_FIXED` was specified, and the range [_addr_,_addr_+_len_) exceeds that allowed for the address space of a
 process; or, if `MAP_FIXED` was not specified and there is insufficient room in the address space to effect the mapping.
 
- * `ENOMEM` - 
-The mapping could not be locked in memory, if required by `mlockall()`, because it
+ * `ENOMEM` - The mapping could not be locked in memory, if required by `mlockall()`, because it
 would require more space than the system is able to supply. 
 
- * `ENOMEM` - 
-Not enough unallocated memory resources remain in the typed memory object designated by fildes to allocate _len_ bytes.
+ * `ENOMEM` - Not enough unallocated memory resources remain in the typed memory object designated by fildes to allocate _len_ bytes.
 
 
- * `ENOTSUP` - `MAP_FIXED` or `MAP_PRIVATE` was specified in the _flags_ argument and the implementation does not support this functionality.
-
-
-The implementation does not support the combination of accesses requested in the _prot_ argument.
+ * `ENOTSUP` - `MAP_FIXED` or `MAP_PRIVATE` was specified in the _flags_ argument and the implementation does not support this functionality. </br>
+ The implementation does not support the combination of accesses requested in the _prot_ argument.
 
 
  * `ENXIO` - Addresses in the range [off,off+_len_) are invalid for the object specified by fildes.
@@ -214,8 +209,7 @@ The implementation does not support the combination of accesses requested in the
  * `ENXIO` - `MAP_FIXED` was specified in _flags_ and the combination of _addr_, _len_, and off is invalid for the
 object specified by fildes.
 
- * `ENXIO` - 
-The fildes argument refers to a typed memory object that is not accessible from the calling process. 
+ * `ENXIO` - The fildes argument refers to a typed memory object that is not accessible from the calling process. 
 
  * `EOVERFLOW` - The file is a regular file and the value of off plus _len_ exceeds the offset maximum established in the open file
 description associated with fildes.
@@ -224,7 +218,7 @@ description associated with fildes.
 The `mmap()` function may fail if:
 
 
- * `EINVAL` - The _addr_ argument (if `MAP_FIXED` was specified) or off is not a multiple of the page size as returned by `sysconf()`, or is considered invalid by the implementation.
+ - `EINVAL` - The _addr_ argument (if `MAP_FIXED` was specified) or off is not a multiple of the page size as returned by `sysconf()`, or is considered invalid by the implementation. </br>
 
 
 

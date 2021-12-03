@@ -36,18 +36,18 @@ Upon successful completion, `0` shall be returned. Otherwise, `-1` shall be retu
 
 The `utime()` function shall fail if:
 
-* `EACCES` - Search permission is denied by a component of the _path_ prefix; or the _times_ argument is a `null` pointer and the effective user ID of the process does not match the owner of the file, the process does not have write permission for the file, and the process does not have appropriate privileges.
-* `ELOOP` - A loop exists in symbolic links encountered during resolution of the _path_ argument.
-* `ENAMETOOLONG` - The length of a component of a pathname is longer than `NAME_MAX`.
-* `ENOENT` - A component of _path_ does not name an existing file or _path_ is an empty string.
-* `ENOTDIR` - A component of the _path_ prefix names an existing file that is neither a directory nor a symbolic link to a directory, or the _path_ argument contains at least one non- `<slash>` character and ends with one or more trailing `<slash>` characters and the last pathname component names an existing file that is neither a directory nor a symbolic link to a directory.
-* `EPERM` - The _times_ argument is not a `null` pointer and the effective user ID of the calling process does not match the owner of the file and the calling process does not have appropriate privileges.
-* `EROFS` - The file system containing the file is read-only.
+ * `EACCES` - Search permission is denied by a component of the _path_ prefix; or the _times_ argument is a `null` pointer and the effective user ID of the process does not match the owner of the file, the process does not have write permission for the file, and the process does not have appropriate privileges. </br>
+ * `ELOOP` - A loop exists in symbolic links encountered during resolution of the _path_ argument. </br>
+ * `ENAMETOOLONG` - The length of a component of a pathname is longer than `NAME_MAX`. </br>
+ * `ENOENT` - A component of _path_ does not name an existing file or _path_ is an empty string. </br>
+ * `ENOTDIR` - A component of the _path_ prefix names an existing file that is neither a directory nor a symbolic link to a directory, or the _path_ argument contains at least one non- `<slash>` character and ends with one or more trailing `<slash>` characters and the last pathname component names an existing file that is neither a directory nor a symbolic link to a directory. </br>
+ * `EPERM` - The _times_ argument is not a `null` pointer and the effective user ID of the calling process does not match the owner of the file and the calling process does not have appropriate privileges. </br>
+ * `EROFS` - The file system containing the file is read-only. </br>
 
 The `utime()` function may fail if:
 
-* `ELOOP` - More than `SYMLOOP_MAX` symbolic links were encountered during resolution of the _path_ argument.
-* `ENAMETOOLONG` - The length of a pathname exceeds `PATH_MAX`, or pathname resolution of a symbolic link produced an intermediate result with a length that exceeds `PATH_MAX`.
+ * `ELOOP` - More than `SYMLOOP_MAX` symbolic links were encountered during resolution of the _path_ argument.  </br>
+ * `ENAMETOOLONG` - The length of a pathname exceeds `PATH_MAX`, or pathname resolution of a symbolic link produced an intermediate result with a length that exceeds `PATH_MAX`.  </br>
 
 <!-- #MUST_BE: function by default shall be untested, when tested there should be a link to test location and test command for ia32 test runner  -->
 ## Tests

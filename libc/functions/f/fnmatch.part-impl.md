@@ -20,10 +20,10 @@ An ordinary character is a pattern that shall match itself. It can be any charac
 
 When unquoted and outside a bracket expression, the following three characters shall have special meaning in the specification of patterns:
 
- * `?` - A `<question-mark>` is a pattern that shall match any character.
- * `*` - An `<asterisk>` is a pattern that shall match multiple characters, as described below.
- * `[` - If an open bracket introduces a bracket expression, except that the `<exclamation-mark>` character `( '!' )` shall replace the `<circumflex>` character `( '^' )` in its role in a non-matching list in the regular expression notation, it shall introduce a pattern bracket expression. A bracket expression starting with an unquoted `<circumflex>` character produces unspecified results. Otherwise, `'['` shall match the character itself.
-When pattern matching is used where shell quote removal is not performed (such as in the argument to the find - name primary when find is being called using one of the exec functions, or in the pattern argument to the `fnmatch()` function), special characters can be escaped to remove their special meaning by preceding them with a `<backslash>` character. This escaping `<backslash>` is discarded. The sequence `"\\"` represents one literal `<backslash>`. All of the requirements and effects of quoting on ordinary, shell special, and special pattern characters shall apply to escaping in this context.
+ * `?` - A `<question-mark>` is a pattern that shall match any character. </br>
+ * `*` - An `<asterisk>` is a pattern that shall match multiple characters, as described below. </br>
+ * `[` - If an open bracket introduces a bracket expression, except that the `<exclamation-mark>` character `( '!' )` shall replace the `<circumflex>` character `( '^' )` in its role in a non-matching list in the regular expression notation, it shall introduce a pattern bracket expression. </br>
+ A bracket expression starting with an unquoted `<circumflex>` character produces unspecified results. Otherwise, `'['` shall match the character itself. When pattern matching is used where shell quote removal is not performed (such as in the argument to the find - name primary when find is being called using one of the exec functions, or in the pattern argument to the `fnmatch()` function), special characters can be escaped to remove their special meaning by preceding them with a `<backslash>` character. This escaping `<backslash>` is discarded. The sequence `"\\"` represents one literal `<backslash>`. All of the requirements and effects of quoting on ordinary, shell special, and special pattern characters shall apply to escaping in this context.
 
 The following rules are used to construct patterns matching multiple characters from patterns matching a single character:
 

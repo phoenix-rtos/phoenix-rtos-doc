@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <sys/socket.h>`</br>
+
 ` int accept(int socket, struct sockaddr *restrict address,`</br>
 `        socklen_t *restrict address_len);`</br>
 

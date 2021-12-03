@@ -134,10 +134,10 @@ If a length modifier appears with any conversion specifier other than as specifi
 
 The following conversion specifiers are valid:
 
-* `d` - Matches an optionally signed decimal integer, whose format is the same as expected for the subject sequence of `strtol()` with the value `10` for the base argument. In the absence of a size modifier,
-the application shall ensure that the corresponding argument is a pointer to `int`.
-* `i` - Matches an optionally signed integer, whose format is the same as expected for the subject sequence of `strtol()` with `0` for the base argument. In the absence of a size modifier, the
-application shall ensure that the corresponding argument is a pointer to `int`.
+* `d` - Matches an optionally signed decimal integer, whose format is the same as expected for the subject sequence of `strtol()` with the value `10` for the base argument. In the absence of a size modifier, the application shall ensure that the corresponding argument is a pointer to `int`.
+
+* `i` - Matches an optionally signed integer, whose format is the same as expected for the subject sequence of `strtol()` with `0` for the base argument. In the absence of a size modifier, the application shall ensure that the corresponding argument is a pointer to `int`.
+
 * `o` - Matches an optionally signed octal integer, whose format is the same as expected for the subject sequence of `strtoul()` with the value `8` for the base argument. In the absence of a size modifier,
 the application shall ensure that the corresponding argument is a pointer to `unsigned`.
 
@@ -209,9 +209,10 @@ argument shall be converted, but one shall be consumed. If the conversion specif
 character or a field width, the behavior is undefined.
 
 * `C` - Equivalent to `lc`. 
+
 * `S` - Equivalent to `ls`. 
-* `%` - Matches a single `'%'` character; no conversion or assignment occurs. The complete conversion specification shall be
-`%%`.
+
+* `%` - Matches a single `'%'` character; no conversion or assignment occurs. The complete conversion specification shall be `%%`.
 
 If a conversion specification is invalid, the behavior is undefined.
 
@@ -254,7 +255,7 @@ In addition, the `fscanf()` function shall fail if:
 
 In addition, the `fscanf()` function may fail if:
 
- * `EINVAL` - There are insufficient arguments. 
+ - `EINVAL` - There are insufficient arguments.
 
 
 

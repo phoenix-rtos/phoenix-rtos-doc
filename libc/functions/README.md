@@ -106,7 +106,6 @@ endthread,
 [`ftell`](./f/ftell.part-impl.md), <!-- updated -->
 [`ftello`](./f/ftell.part-impl.md), <!-- updated -->
 [`ftruncate`](./f/ftruncate.part-impl.md), <!-- updated -->
-[`futimens`](./u/utime.part-impl.md), <!-- #updated# -->
 [`fwrite`](./f/fwrite.part-impl.md) <!-- updated -->
 
 ## g
@@ -230,7 +229,7 @@ resourceDestroy,
 
 ## s
 
-[`scanf`](./s/scanf.part-impl.md),
+[`sscanf`](./f/fscanf.part-impl.md), <!-- updated -->
 [`setjmp`](./s/setjmp.part-impl.md), <!-- updated -->
 [`setpgid`](./s/setpgid.part-impl.md), <!-- updated -->
 [`setsid`](./s/setsid.part-impl.md), <!-- updated -->
@@ -276,7 +275,6 @@ resourceDestroy,
 [`strtoul`](./s/strtoul.part-impl.md), <!-- updated -->
 [`strtoull`](./s/strtoul.part-impl.md), <!-- updated -->
 [`strxfrm`](./s/strxfrm.part-impl.md), <!-- updated -->
-[`swprintf`](./s/swprintf.md), 
 sysconf,
 syspageprog,
 [`system`](./s/system.part-impl.md), <!-- updated -->

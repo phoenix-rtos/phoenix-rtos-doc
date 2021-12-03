@@ -48,7 +48,7 @@ If the correct value would cause underflow, and is representable, a range error 
 
 These functions shall fail if:
 
-* Range Error - The result overflows. </br>
+ * Range Error - The result overflows. </br>
  If the integer expression `(math_errhandling & MATH_ERRNO)` is non-zero, then `errno` shall be set to `ERANGE`. If
 the integer expression `(math_errhandling & MATH_ERREXCEPT)` is non-zero, then the overflow floating-point exception shall
 be raised.
@@ -56,7 +56,7 @@ be raised.
 
 These functions may fail if:
 
-* Range Error - The result underflows. </br> 
+ * Range Error - The result underflows. </br> 
  If the integer expression `(math_errhandling & MATH_ERRNO)` is non-zero, then `errno` shall be set to `ERANGE`. If
 the integer expression `(math_errhandling & MATH_ERREXCEPT)` is non-zero, then the underflow floating-point exception
 shall be raised.
