@@ -1,6 +1,7 @@
 # Toolchain
 
 The Phoenix-RTOS provides its toolchain, based on GNU CC. It's divided into the following parts
+
 - arm-phoenix
 - i386-pc-phoenix
 - riscv64-phoenix
@@ -8,19 +9,21 @@ The Phoenix-RTOS provides its toolchain, based on GNU CC. It's divided into the 
 Each part delivers the tools required to compile for the given architecture simply.
 There are a few reasons why that is helpful
 
-- you can easily compile source code for a given Phoenix-RTOS platform, for example, ia32-generic
-```bash
-i386-pc-phoenix-gcc helloworld.c
-```
+- You can easily compile source code for a given Phoenix-RTOS platform, for example, ia32-generic:
 
-- you don't need to use many of the compiler switches
+  ```bash
+  i386-pc-phoenix-gcc helloworld.c
+  ```
 
-- you can check if a program is compiled for Phoenix-RTOS or not, using `phoenix` or `__phoenix__` flag
-```c
-#ifdef phoenix
-    #warning OS is Phoenix-RTOS
-#endif
-```
+- You don't need to use many of the compiler switches
+
+- You can check if a program is compiled for Phoenix-RTOS or not, using `phoenix` or `__phoenix__` flag
+
+  ```
+  #ifdef phoenix
+      #warning OS is Phoenix-RTOS
+  #endif
+  ```
 
 ## See also
 
