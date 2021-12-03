@@ -62,7 +62,8 @@ indicate the error, and the signal mask of the process shall be unchanged.
 The `pthread_sigmask()` and `sigprocmask()` functions shall fail if:
 
 
- * `EINVAL` - The value of the how argument is not equal to one of the defined values.
+ - `EINVAL` - The value of the how argument is not equal to one of the defined values. </br>
+  
 
 The `pthread_sigmask()` function shall not return an error code of `EINT`.
 

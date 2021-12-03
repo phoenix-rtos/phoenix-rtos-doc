@@ -47,7 +47,7 @@ If _x_ is not returned, `tanh()`, `tanhf()`, and `tanhl()` shall return an imple
 
 These functions may fail if:
 
-* `ERANGE` - The value of _x_ is subnormal.
+ - `ERANGE` - The value of _x_ is subnormal.
 
 If the integer expression `(math_errhandling & MATH_ERRNO)` is non-zero, then errno shall be set to `ERANGE`. If the integer expression `(math_errhandling & MATH_ERREXCEPT)` is non-zero, then the underflow floating-point exception shall be raised.
 

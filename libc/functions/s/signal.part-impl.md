@@ -78,15 +78,12 @@ for the specified signal sig. Otherwise, `SIG_ERR` shall be returned and a posit
 The `signal()` function shall fail if:
 
 
- * `EINVAL` - 
-The _sig_ argument is not a valid signal number or an attempt is made to catch a signal that cannot be caught or ignore a
+ - `EINVAL` - The _sig_ argument is not a valid signal number or an attempt is made to catch a signal that cannot be caught or ignore a
 signal that cannot be ignored. 
 
 The `signal()` function may fail if:
 
-
- * `EINVAL` -  An
-attempt was made to set the action to `SIG_DFL` for a signal that cannot be caught or ignored (or both). 
+ - `EINVAL` - An attempt was made to set the action to `SIG_DFL` for a signal that cannot be caught or ignored (or both). 
 
 
 ## Tests

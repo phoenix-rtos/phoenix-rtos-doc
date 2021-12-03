@@ -41,10 +41,12 @@ Upon successful completion, `0` shall be returned. Otherwise, `-1` shall be retu
 The `tcflush()` function shall fail if:
 
 * `EBADF` - The _fildes_ argument is not a valid file descriptor.
-* `EINVAL` - The _queue_selector_ argument is not a supported value.
-* `EIO` - The process group of the writing process is orphaned, the calling thread is not blocking SIGTTOU, and the process is not ignoring SIGTTOU.
-* `ENOTTY` - The file associated with _fildes_ is not a terminal.
 
+* `EINVAL` - The _queue_selector_ argument is not a supported value.
+
+* `EIO` - The process group of the writing process is orphaned, the calling thread is not blocking SIGTTOU, and the process is not ignoring SIGTTOU.
+
+* `ENOTTY` - The file associated with _fildes_ is not a terminal.
 
 
 <!-- #MUST_BE: function by default shall be untested, when tested there should be a link to test location and test command for ia32 test runner  -->

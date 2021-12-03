@@ -60,14 +60,12 @@ be created.
  * `EEXIST` - The named file already exists.
 
  * `ELOOP` - A loop exists in symbolic links encountered during resolution of the _path_ argument.
-`ENAMETOOLONG`
 
-The length of a component of a pathname is longer than `NAME_MAX`.
+ * `ENAMETOOLONG` - The length of a component of a pathname is longer than `NAME_MAX`.
 
  * `ENOENT` - A component of the path prefix of _path_ does not name an existing file or _path_ is an empty string.
-`ENOENT` or `ENOTDIR`
 
-The _path_ argument contains at least one non- `<slash>` character and ends with one or more trailing `<slash>`
+ * `ENOENT` or `ENOTDIR` - The _path_ argument contains at least one non- `<slash>` character and ends with one or more trailing `<slash>`
 characters. If _path_ without the trailing `<slash>` characters would name an existing file, an `ENOENT` error shall not
 occur.
 
@@ -90,15 +88,10 @@ descriptor open for reading or searching.
 
 These functions may fail if:
 
-
  * `ELOOP` - More than `SYMLOOP_MAX` symbolic links were encountered during resolution of the _path_ argument.
-`ENAMETOOLONG`
 
-The length of a pathname exceeds `PATH_MAX`, or pathname resolution of a symbolic link produced an intermediate result with a
+ * `ENAMETOOLONG` - The length of a pathname exceeds `PATH_MAX`, or pathname resolution of a symbolic link produced an intermediate result with a
 length that exceeds `PATH_MAX`.
-
-
-
 
 
 ## Tests

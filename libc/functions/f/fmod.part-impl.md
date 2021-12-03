@@ -46,7 +46,7 @@ If the correct value would cause underflow, and is representable, a range error 
 
 These functions shall fail if:
 
-* `Domain Error` - The _x_ argument is infinite or _y_ is zero. </br>
+ * `Domain Error` - The _x_ argument is infinite or _y_ is zero. </br>
  If the integer expression `(math_errhandling & MATH_ERRNO)` is non-zero, then `errno` shall be set to `EDOM`. If
 the integer expression `(math_errhandling & MATH_ERREXCEPT)` is non-zero, then the invalid floating-point exception shall
 be raised.
@@ -54,7 +54,7 @@ be raised.
 
 These functions may fail if:
 
-* `Range Error` - The result underflows. </br>
+ * `Range Error` - The result underflows. </br>
  If the integer expression `(math_errhandling & MATH_ERRNO)` is non-zero, then `errno` shall be set to `ERANGE`. If
 the integer expression `(math_errhandling & MATH_ERREXCEPT)` is non-zero, then the underflow floating-point exception
 shall be raised.
