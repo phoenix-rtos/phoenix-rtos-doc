@@ -1,6 +1,6 @@
 # ping
 
-`ping` is a `psh` applet related to networking. It allows checking and measuring ICMP (Internet Control Message Protocol) request / response time.
+`ping` is a `psh` applet related to networking. It allows checking and measuring ICMP (Internet Control Message Protocol) request/response time.
 
 ---
 
@@ -16,3 +16,8 @@ Options
   -W:  socket timetout, default 2000
 ```
 
+## See also
+
+1. [Phoenix-RTOS shell](psh.md)
+2. [Phoenix-RTOS Utilities](README.md)
+3. [Table of Contents](../README.md)

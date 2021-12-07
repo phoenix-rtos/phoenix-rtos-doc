@@ -1,6 +1,6 @@
 # Reference project repository
 
-The main repository of the Phoenix-RTOS is the [phoenix-rtos-project](https://github.com/phoenix-rtos/phoenix-rtos-project.git). The project consists of the following Github submodule repositories.
+The main repository of Phoenix-RTOS is the [phoenix-rtos-project](https://github.com/phoenix-rtos/phoenix-rtos-project.git). The project consists of the following Github submodule repositories.
 
 - [libphoenix](https://github.com/phoenix-rtos/libphoenix.git) </br>
     Standard C library. Written from scratch for Phoenix-RTOS
@@ -21,7 +21,7 @@ The main repository of the Phoenix-RTOS is the [phoenix-rtos-project](https://gi
 - [phoenix-rtos-lwip](https://github.com/phoenix-rtos/phoenix-rtos-lwip.git) </br>
     LwIP network stack
 - [phoenix-rtos-ports](https://github.com/phoenix-rtos/phoenix-rtos-ports.git) </br>
-    Linux (and potentially other OSes) applications ported to the Phoenix-RTOS
+    Linux (and potentially other OSes) applications ported to Phoenix-RTOS
 - [phoenix-rtos-posixsrv](https://github.com/phoenix-rtos/phoenix-rtos-posixsrv.git) </br>
     POSIX server; userspace server that is providing additional POSIX features not provided by the kernel itself (e.g. pipes)
 - [phoenix-rtos-tests](https://github.com/phoenix-rtos/phoenix-rtos-tests.git) </br>

@@ -1,6 +1,6 @@
 # Toolchain
 
-The Phoenix-RTOS provides its toolchain, based on GNU CC. It's divided into the following parts
+Phoenix-RTOS provides its toolchain, based on GNU CC. It's divided into the following parts
 
 - arm-phoenix
 - i386-pc-phoenix

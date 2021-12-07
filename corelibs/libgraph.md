@@ -8,13 +8,16 @@ Source code: https://github.com/phoenix-rtos/phoenix-rtos-corelibs/tree/master/l
 The library supports following graphics operations with 1, 2 and 4-byte color depth:
 
 - drawing lines
-![image](_images/line.png)
+
+  ![image](_images/line.png)
 
 - drawing rectangles
-![image](_images/rect.png)
+
+  ![image](_images/rect.png)
 
 - filling polygons
-![image](_images/fill.png)
+
+  ![image](_images/fill.png)
 
 - printing text
 

@@ -1,6 +1,6 @@
 # Running system on `armv7a7-imx6ull` (NXP i.MX 6ULL)
 
-This version is designed for NXP i.MX 6ULL processors with ARM Cortex-A7 core. To launch this version the final disk image and loader image should be provided. The images are created as the final artifacts of the `phoenix-rtos-project` building and are located in the `_boot` directory. The disk image consists of the bootloader (plo), kernel, UART driver (tty), dummyfs filesystem server (RAM disk), and psh (shell). Necessary tools to carry out the uploading process are located in the `_boot` directory as well.
+This version is designed for NXP i.MX 6ULL processors with ARM Cortex-A7 core. To launch this version the final disk image and loader image should be provided. Images are created as the final artifacts of the `phoenix-rtos-project` building and are located in the `_boot` directory. The disk image consists of bootloader (plo), kernel, UART driver (tty), dummyfs filesystem server (RAM disk), and psh (shell). Necessary tools to carry out the uploading process are located in the `_boot` directory as well.
 
 ## Pre-build steps
 
@@ -24,7 +24,7 @@ To make instructions given in this quickstart possible, you should check out to 
 
   After that, you can run the `build.sh` script for the `armv7a7-imx6ull` target architecture.
 
-  See [how to build the Phoenix-RTOS system image](../building/README.md)
+  See [how to build a Phoenix-RTOS system image](../building/README.md)
 
 ## Development board
 
