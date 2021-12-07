@@ -28,7 +28,7 @@ git clone --recursive https://github.com/phoenix-rtos/phoenix-rtos-project.git
 
 ## Supported target platforms
 
-The reference Phoenix-RTOS project supports the following target platforms:
+The Phoenix-RTOS reference project supports the following target platforms:
 
 * armv7m4-stm32l4x6
 * armv7m7-imxrt105x
@@ -132,7 +132,7 @@ You can read more about the building script options [here](script.md).
 
 This is the method preferred when you plan to develop Phoenix-RTOS.
 
-Firstly, you need to install some tools required for compiling the toolchain and finally create the Phoenix-RTOS system image.
+Firstly, you need to install some tools required for compiling the toolchain and finally create a Phoenix-RTOS system image.
 There is a list of commands you can use to get them on the Ubuntu 20.04 host operating system.
 
 ```bash

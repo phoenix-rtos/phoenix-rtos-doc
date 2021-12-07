@@ -89,7 +89,7 @@ The memory management subsystem is located in the `src/vm` subdirectory. The low
 
 ## Chapter information
 
-In this chapter main functions of the Phoenix-RTOS memory management are discussed.
+In this chapter main functions of Phoenix-RTOS memory management are discussed.
 
 ## See also
 

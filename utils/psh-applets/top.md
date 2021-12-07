@@ -4,11 +4,11 @@
 
 ---
 
-`top` may be seen as [`ps`](ps.md) command which updates itself with given rate. Execution of `top` applet may be controlled with command line arguments and further with interactive commands when being 
+`top` may be seen as [`ps`](ps.md) command which updates itself with a given rate. Execution of `top` applet may be controlled with command-line arguments and further with interactive commands when being 
 
 When `top` is run with `-h` argument the help message is displayed as follows:
 ```
-Command line arguments
+Command-line arguments
   -h:  prints help
   -H:  starts with threads mode
   -d:  sets refresh rate (integer greater than 0)
@@ -29,7 +29,7 @@ If sole:
 ```
 top
 ``` 
-is run it presents user with a live monitor of processes sorted by *%CPU* usage. The monitor is structured in columns with headers. Each row represents a process.
+is run it presents the user with a live monitor of processes sorted by *%CPU* usage. The monitor is structured in columns with headers. Each row represents a process.
 
 Column headers are:
  - PID   - process id
@@ -41,4 +41,9 @@ Column headers are:
  - TIME  - age of process
  - VMEM  - memory used
  - CMD   - command that started that process
- 
+
+## See also
+
+1. [Phoenix-RTOS shell](psh.md)
+2. [Phoenix-RTOS Utilities](README.md)
+3. [Table of Contents](../README.md)

@@ -1,6 +1,6 @@
 # nc
 
-`nc` is a `psh` applet related with networking. It allows for managing TCP and UDP connections, and sending data through them.
+`nc` is a `psh` applet related to networking. It allows for managing TCP and UDP connections and sending data through them.
 
 ---
 
@@ -16,3 +16,9 @@ Options
   -s:  source addr
   -u:  datagram socket
 ```
+
+## See also
+
+1. [Phoenix-RTOS shell](psh.md)
+2. [Phoenix-RTOS Utilities](README.md)
+3. [Table of Contents](../README.md)

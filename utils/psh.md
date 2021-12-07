@@ -1,8 +1,8 @@
 # Phoenix Shell (psh)
 
-Phoenix Shell is a compact program that enables you to control the Phoenix-RTOS from the command line.
+The Phoenix Shell is a compact program that enables you to control Phoenix-RTOS from the command line.
 
-`psh` presents itself with a commandline where user can enter commands to control the Phoenix-RTOS system, manage files and processes. 
+`psh` presents itself with a command line where user can enter commands to control the Phoenix-RTOS system, manage files and processes. 
 
 ## Overview
  - [How to use `psh`](#Usage)
@@ -11,9 +11,9 @@ Phoenix Shell is a compact program that enables you to control the Phoenix-RTOS 
  - [Restrictions](#Restrictions)
 
 ## Usage
-If psh is in control of the commandline each new line starts with `(psh)%` prompt. User can then enter desired command. See [Applets](#Applets) for list of available commands.
+If the `psh` is in control of the command line each new line starts with `(psh)%` prompt. The user can then enter the desired command. See [Applets](#Applets) for a list of available commands.
 
-If `psh` command is run with `-h` parameter the help message is displayed as follows:
+If the `psh` command is run with `-h` parameter the help message is displayed as follows:
 ```
 usage: psh [options] [script path] or no args to run shell interactively
   -i <script path>:  selects psh script to execute
@@ -54,11 +54,16 @@ In `psh`, each command or set of commands is a separate applet, here's a list of
 * [`/`](psh-applets/runfile.md)      - executes a file
 
 ## Executing
-When executing `psh` from a name "psh" it is only possible to enter interactive mode or executa a script with `-i`. 
+When executing the `psh` from a name "psh" it is only possible to enter interactive mode or execute a script with `-i`. 
 
-If `psh` is launched with different name that corresponds to an available applet then the new psh executes only that applet and then close. Executing `psh` with different name can be achieved using symbolic links.
+If the `psh` is launched with a different name that corresponds to an available applet then the new `psh` executes only that applet and then close. Executing `psh` with a different name can be achieved using symbolic links.
 
 
 ## Restrictions
 
-Only one interactive session of `psh` can be run in a scope of a `psh` process. For now running `psh` does not spawn new process, so in order to invoke a second, independent shell user must execute a `psh` binary file. See [`exec`](psh-applets/exec.md) or [`/`](psh-applets/runfile.md) for examples.
+Only one interactive session of the `psh` can be run in a scope of a `psh` process. For now, running `psh` does not spawn a new process, so in order to invoke a second, independent shell user must execute a `psh` binary file. See [`exec`](psh-applets/exec.md) or [`/`](psh-applets/runfile.md) for examples.
+
+## See also
+
+1. [Phoenix-RTOS Utilities](README.md)
+2. [Table of Contents](../README.md)

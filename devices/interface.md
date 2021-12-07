@@ -1,31 +1,32 @@
 # Interface
 
-Device driver server in the Phoenix-RTOS ecosystem communicate with other processes using message interface. In the typical case driver server have one port on which all request are placed by clients. This port can be either registered within native namespace or special file(s) can be created within the filesystem.
+The device driver server in a Phoenix-RTOS ecosystem communicates with other processes using a message interface. In the typical case, the driver server has one port on which all requests are placed by clients. This port can be either registered within the native namespace or special file(s) can be created within the filesystem.
 
 ## Port creation
 
-Port, endpoint of the message communication, can be created using `portCreate()` function. If zero is returned, then creation succeeded and variable port now contains unique port number assigned by the kernel.
+Port, the endpoint of the message communication, can be created using the `portCreate()` function. If zero is returned, then creation succeeded and the variable port now contains a unique port number assigned by the kernel.
 
-## Registering within namespace
+## Registering within a namespace
 
-Freshly created port can not be seen by other processes. To allow clients to find out servers port number, it has to be registered within some namespace. If device driver server wants to register more than one "file" it do not have create separate ports for them. Driver needs to assign each "file" id from it's private pool.
+The freshly created port can not be seen by other processes. To allow clients to find out the server's port number, it has to be registered within some namespace. If the device driver server wants to register more than one "file" it does not have to create separate ports for them. The driver needs to assign each "file" id from its private pool.
 
-Assume we want to create SPI server which manages 2 instances of device - spi0 and spi1. We can manage both using only one port by registering the same port as <i>/dev/spi0</i> with id = 1 and <i>/dev/spi1</i> with id = 2. Every message driver receives contain information to which oid it has been sent. This enables driver to recognize to which special file message has been adressed to.
+Assume we want to create an SPI server that manages 2 instances of the device - spi0 and spi1. We can manage both using only one port by registering the same port as `/dev/spi0` with id = 1 and `/dev/spi1` with id = 2. Every message driver receives contains information to which `oid` (object id) it has been sent. This enables the driver to recognize to which special file message has been addressed to.
 
-If system does not have root filesystem, port can be registered within Phoenix native filesystem by using syscall
+If the system does not have a root filesystem, a port can be registered within Phoenix native filesystem by using syscall
 
->
-    int portRegister(u32 port, const char *name, oid_t *oid);
+```c
+int portRegister(u32 port, const char *name, oid_t *oid);
+```
 
 where
 
-- <b>port</b> - port number aquired from portCreate,
-- <b>name</b> - path in the namespace, e.g. "/uart0",
-- <b>oid</b> - optional argument containing instance id.
+- _`port`_ - port number aquired from portCreate,
+- _`name`_ - path in the namespace, e.g. "/uart0",
+- _`oid`_ - optional argument containing instance id.
 
 Syscall returns 0 on success.
 
-On systems that contain filesystem special file can be created, which will point to the server's oid. In the first place we need oid of directory which will hold our special file:
+On systems that contain filesystem special file can be created, which will point to the server's `oid`. In the first place we need `oid` of directory which will hold our special file:
 
 ````C
     #include <sys/msg.h>
@@ -35,7 +36,7 @@ On systems that contain filesystem special file can be created, which will point
     lookup("/dev", &dir, NULL);
 ````
 
-Then we can create new special file and register:
+Then we can create a new special file and register:
 
 ````C
     msg_t msg;
@@ -56,64 +57,69 @@ Then we can create new special file and register:
 
 ## Message types
 
-There are several standart types of messages, although device driver servers need to implement only subset of them. With every message type there are 3 common fields:
+There are several standard types of messages, although device driver servers need to implement an only subset of them. With every message type there are 3 common fields:
 
-- <b>type</b> - type of message,
-- <b>pid</b> - process id of sender,
-- <b>priority</b> - priority of sender's thread.
-</p><p>
+- _`type`_ - type of message,
+- _`pid`_ - process id of sender,
+- _`priority`_ - priority of sender's thread.
+
 ### mtOpen
 
-This message type informs server, there is process trying to open one of it's special files.
+This message type informs the server, there is a process trying to open one of its special files.
 
-- <b>i.openclose.oid</b> - oid of the file being opened,
-- <b>i.openclose.flags</b> - flags with which file is being opened.
+- _`i.openclose.oid`_ - `oid` of the file being opened,
+- _`i.openclose.flags`_ - flags with which file is being opened.
 
-Server can respond to this message via o.io.err field:
+The server can respond to this message via the o.io.err field:
 
-- <b>EOK</b> if success,
-- <b>ENOENT</b> if no such file exist, 
-- <b>EPERM</b> if client has not sufficient privilege.
-</p><p>
-###mtClose
+- _`EOK`_ if success,
+- _`ENOENT`_ if no such file exist, 
+- _`EPERM`_ if client has not sufficient privilege.
 
-This message type informs server, there is process trying to close one of it's special files.
+### mtClose
 
-- <b>i.openclose.oid</b> - oid of the file being closed.
+This message type informs the server, there is a process trying to close one of its special files.
+
+- _`i.openclose.oid`_ - `oid` of the file being closed.
 
 Server can respond to this message via o.io.err field.
-</p><p>
-###mtRead
 
-This message type queries read from the device driver server.
+### mtRead
 
-- <b>i.io.oid</b> - oid of the file being read from,
-- <b>i.io.offs</b> - offset in the file,
-- <b>i.io.len</b> - length of the read,
-- <b>i.io.mode</b> - flags with which file has been opened,
-- <b>o.data</b> - buffer for data,
-- <b>o.size</b> - length of the o.data buffer.
+These message-type queries are read from the device driver server.
 
-Operation should block client until all requested data becomes available.
+- _`i.io.oid`_ - `oid` of the file being read from,
+- _`i.io.offs`_ - offset in the file,
+- _`i.io.len`_ - length of the read,
+- _`i.io.mode`_ - flags with which file has been opened,
+- _`o.data`_ - buffer for data,
+- _`o.size`_ - length of the o.data buffer.
+
+The operation should block the client until all requested data becomes available.
 
 Number of read bytes or error is returned via o.io.err.
-</p><p>
-###mtWrite
 
-This message type queries write to the device driver server.
+### mtWrite
 
-<b>i.io.oid</b> - oid of the file being written to,
-<b>i.io.offs</b> - offset in the file,
-<b>i.io.len</b> - length of the write,
-<b>i.io.mode</b> - flags with which file has been opened,
-<b>i.data</b> - buffer with data,
-<b>i.size</b> - length of the i.data buffer.
+These message-type queries write to the device driver server.
 
-Operation should block client until all requested data is written to the device.
+_`i.io.oid`_ - `oid` of the file being written to,
+_`i.io.offs`_ - offset in the file,
+_`i.io.len`_ - length of the write,
+_`i.io.mode`_ - flags with which file has been opened,
+_`i.data`_ - buffer with data,
+_`i.size`_ - length of the i.data buffer.
+
+The operation should block the client until all requested data is written to the device.
 
 Number of written bytes or error is returned via o.io.err.
-</p><p>
-###mtDevCtl
 
-This message type allows to define entirely custom structure for input and output to/from a device server. This structure should be serialized/deserialized to/from message i.raw/o.raw fields. Additional data can be passed in i.data and o.data fields.
-</p>
+### mtDevCtl
+
+This message type allows defining an entirely custom structure for input and output to/from a device server. This structure should be serialized/deserialized to/from message i.raw/o.raw fields. Additional data can be passed in i.data and o.data fields.
+
+## See also
+
+1. [Access to device hardware registers](hwaccess.md)
+2. [Handling interrupts](interrupts.md)
+3. [Table of Contents](../README.md)
