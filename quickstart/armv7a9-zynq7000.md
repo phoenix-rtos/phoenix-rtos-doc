@@ -9,11 +9,9 @@ To make instructions given in this quickstart possible, you should check out to 
   <summary> How to checkout to the feature/syspage branch and update submodules </summary>
   There are diffrent ways to do that, here is one of them.
 
-  Launch these commands from the `phoenix-rtos-project` directory:
+  Launch these commands from the `phoenix-rtos-project` directory after repository cloning:
 
   ```
-  git remote add origin https://github.com/phoenix-rtos/phoenix-rtos-project.git && \
-  git fetch origin feature/syspage && \
   git checkout origin/feature/syspage && \
   git submodule update --recursive
   ```

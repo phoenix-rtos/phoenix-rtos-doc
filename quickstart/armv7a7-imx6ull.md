@@ -12,8 +12,6 @@ To make instructions given in this quickstart possible, you should check out to 
   Launch these commands from the `phoenix-rtos-project` directory:
 
   ```
-  git remote add origin https://github.com/phoenix-rtos/phoenix-rtos-project.git && \
-  git fetch origin feature/syspage && \
   git checkout origin/feature/syspage && \
   git submodule update --recursive
   ```
