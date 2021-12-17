@@ -24,6 +24,11 @@ To communicate with the board you will need to use a UART-USB converter, like `P
   Source: The Nucleo board's schematic, available on https://www.st.com/en/evaluation-tools/nucleo-l4a6zg.html#cad-resources
 
 - Put the converter into your host PC's USB port
+
+  The picture below presents how the board should be connected:
+
+  <img src="_images/stm32l4x6-connections.png" width="400px">
+
 - Open serial port in terminal using picocom
 
   ```

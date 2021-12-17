@@ -21,6 +21,10 @@ See [how to build the Phoenix-RTOS system image](../building/README.md).
 
 - You should also connect another micro USB cable to the `USB OTG` port (`J13`).
 
+  The picture below presents how the board should be connected:
+
+  <img src="_images/zynq7000-connections.png" width="600px">
+
 - Now you can power up the board, changing the `SW8` position to `ON`. The `LD13` LED should turn green.
 
 - Now you should verify, what USB device on your host-pc is connected with the `UART` (console). To check that run:
