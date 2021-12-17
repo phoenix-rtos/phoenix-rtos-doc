@@ -55,15 +55,16 @@ shall be set to describe an initial conversion state.
 The
 file descriptor associated with the opened stream shall be allocated and opened as if by a call to `open()` with the following flags:
 
+<!-- Here we are using Hebrew Punctuation Paseq (U+05C0), because of wrong formatting on Phoenix-RTOS website -->
 
 | `fopen()` Mode         | `open()` Flags                        |
 |------------------------|---------------------------------------|
 | `r` or `rb`            | `O_RDONLY`                            |
-| `w` or `wb`            | `O_WRONLY` \| `O_CREAT` \| `O_TRUNC`  |
-| `a` or `ab`            | `O_WRONLY` \| `O_CREAT` \| `O_APPEND` |
+| `w` or `wb`            | `O_WRONLY ׀ O_CREAT ׀ O_TRUNC`        |
+| `a` or `ab`            | `O_WRONLY ׀ O_CREAT ׀ O_APPEND`       |
 | `r+` or `rb+` or `r+b` | `O_RDWR`                              |
-| `w+` or `wb+` or `w+b` | `O_RDWR` \| `O_CREAT` \| `O_TRUNC`    |
-| `a+` or `ab+` or `a+b` | `O_RDWR` \| `O_CREAT` \| `O_APPEND`   |
+| `w+` or `wb+` or `w+b` | `O_RDWR ׀ O_CREAT ׀ O_TRUNC`          |
+| `a+` or `ab+` or `a+b` | `O_RDWR ׀ O_CREAT ׀ O_APPEND`         |
 
 
 ## Return value
