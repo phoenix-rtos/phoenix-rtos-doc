@@ -16,6 +16,10 @@ The easiest way to start programming hardware targets using Phoenix-RTOS is to g
 
 - To communicate with the board you will need to connect another USB cable, but to `DEBUG USB` port (`J11`). The onboard UART-USB converter is used here.
 
+  The picture below presents how the board should be connected:
+
+  <img src="_images/imxrt117x-connections.png" width="600px">
+
 - Now you should verify what USB device on your host-pc is connected with the `DEBUG USB` (console). In order to check that run:
 
   ```bash
