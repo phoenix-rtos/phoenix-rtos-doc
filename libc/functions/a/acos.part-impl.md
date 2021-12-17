@@ -1,7 +1,10 @@
 # Synopsis 
 `#include <math.h>`</br>
+
 ` double acos(double x);`</br>
+
 ` float acosf(float x);`</br>
+
 ` long double acosl(long double x);`</br>
 
 ## Status
