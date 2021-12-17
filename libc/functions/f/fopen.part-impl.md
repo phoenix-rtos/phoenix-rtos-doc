@@ -56,14 +56,14 @@ The
 file descriptor associated with the opened stream shall be allocated and opened as if by a call to `open()` with the following flags:
 
 
-| `fopen()` Mode         | `open()` Flags                |
-|------------------------|-------------------------------|
-| `r` or `rb`            | `O_RDONLY`                    |
-| `w` or `wb`            | `O_WRONLY\|O_CREAT\|O_TRUNC`  |
-| `a` or `ab`            | `O_WRONLY\|O_CREAT\|O_APPEND` |
-| `r+` or `rb+` or `r+b` | `O_RDWR`                      |
-| `w+` or `wb+` or `w+b` | `O_RDWR\|O_CREAT\|O_TRUNC`    |
-| `a+` or `ab+` or `a+b` | `O_RDWR\|O_CREAT\|O_APPEND`   |
+| `fopen()` Mode         | `open()` Flags                        |
+|------------------------|---------------------------------------|
+| `r` or `rb`            | `O_RDONLY`                            |
+| `w` or `wb`            | `O_WRONLY` \| `O_CREAT` \| `O_TRUNC`  |
+| `a` or `ab`            | `O_WRONLY` \| `O_CREAT` \| `O_APPEND` |
+| `r+` or `rb+` or `r+b` | `O_RDWR`                              |
+| `w+` or `wb+` or `w+b` | `O_RDWR` \| `O_CREAT` \| `O_TRUNC`    |
+| `a+` or `ab+` or `a+b` | `O_RDWR` \| `O_CREAT` \| `O_APPEND`   |
 
 
 ## Return value

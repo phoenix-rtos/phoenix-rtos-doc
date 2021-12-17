@@ -1,5 +1,6 @@
 # Synopsis 
 `#include <unistd.h>`</br>
+
 ` unsigned alarm(unsigned seconds);`</br>
 
 ## Status
