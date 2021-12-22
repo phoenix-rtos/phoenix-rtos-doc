@@ -230,6 +230,7 @@ resourceDestroy,
 ## s
 
 [`sscanf`](./f/fscanf.part-impl.md), <!-- updated -->
+[`setbuf`](./s/setbuf.part-impl.md), <!-- updated -->
 [`setjmp`](./s/setjmp.part-impl.md), <!-- updated -->
 [`setpgid`](./s/setpgid.part-impl.md), <!-- updated -->
 [`setsid`](./s/setsid.part-impl.md), <!-- updated -->
