@@ -19,13 +19,13 @@ character. The _delimiter_ argument is an `int`, the value of which the applicat
 representable as an `unsigned` `char` of equal value that terminates the read process. If the _delimiter_ argument has any
 other value, the behavior is undefined.
 
-The application shall ensure that <sup>⚹</sup>_lineptr_ is a valid argument that could be passed to the `free()` function. If <sup>⚹</sup>n_ is non-zero, the application shall ensure that <sup>⚹</sup>lineptr_
-either points to an object of size at least <sup>⚹</sup>n_ bytes, or is a `null` pointer.
+The application shall ensure that _`*lineptr`_ is a valid argument that could be passed to the `free()` function. If _`*n`_ is non-zero, the application shall ensure that _`*lineptr`_
+either points to an object of size at least _`*n`_ bytes, or is a `null` pointer.
 
-If <sup>⚹</sup>lineptr_ is a `null` pointer or if the object pointed to by <sup>⚹</sup>lineptr_ is of insufficient size, an object shall be
+If _`*lineptr`_ is a `null` pointer or if the object pointed to by _`*lineptr`_ is of insufficient size, an object shall be
 allocated as if by `malloc()` or the object shall be reallocated as if by `realloc()`, respectively, such that the object is large enough to hold the characters to be
-written to it, including the terminating `NUL`, and <sup>⚹</sup>n_ shall be set to the new size. If the object was allocated, or if the
-reallocation operation moved the object, <sup>⚹</sup>lineptr_ shall be updated to point to the new object or new location. The
+written to it, including the terminating `NUL`, and _`*n`_ shall be set to the new size. If the object was allocated, or if the
+reallocation operation moved the object, _`*lineptr`_ shall be updated to point to the new object or new location. The
 characters read, including any delimiter, shall be stored in the object, and a terminating `NUL` added when the _delimiter_ or
 end-of-file is encountered.
 
