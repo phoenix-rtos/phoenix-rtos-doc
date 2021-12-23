@@ -160,7 +160,7 @@ lookup,
 [`memchr`](./m/memchr.part-impl.md), <!-- updated -->
 [`memcmp`](./m/memcmp.part-impl.md), <!-- updated -->
 [`memcpy`](./m/memcpy.part-impl.md), <!-- updated -->
-meminfo,
+[`meminfo`](./m/meminfo.impl.md), <!-- updated -->
 [`memmove`](./m/memmove.part-impl.md), <!-- updated -->
 [`memset`](./m/memset.part-impl.md), <!-- updated -->
 [`mkdir`](./m/mkdir.part-impl.md), <!-- updated -->
