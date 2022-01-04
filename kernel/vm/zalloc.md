@@ -4,13 +4,11 @@ Zone allocator is used to allocate memory inside the allocated pages mapped into
 
 Each zone used for allocation is described using `vm_zone_t` header.
 
->
+```c
     typedef struct _vm_zone_t {
         struct _vm_zone_t *next;
         struct _vm_zone_t *prev;
->
         rbnode_t linkage;
->
         size_t blocksz;
         volatile unsigned int blocks;
         volatile unsigned int used;
@@ -18,6 +16,7 @@ Each zone used for allocation is described using `vm_zone_t` header.
         void *first;
         page_t *pages;
     } vm_zone_t;
+```
 
 For purposes of fine grained allocator (described in the next chapter) zones are linked using the `next` and `prev` attributes. Attribute `linkage` is used for adding zone headers into the red-black tree used by fine grained allocator for memory deallocation. Attributes `blocksz` and `blocks` define the chunk size and number of chunks in the zone. Attribute `used` stores the number of chunks already allocated. Virtual address at which page set is mapped is pointed by `vaddr`. The first page descriptor of pages set constituting the zone is pointed by `pages` attribute. Attibute `first` points the first free chunk in the zone.
 

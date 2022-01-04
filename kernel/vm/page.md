@@ -24,9 +24,8 @@ When the memory management subsystem is initialized, the `_page_init()` function
 
 The memory for the structure is allocated using a heap extension. This extension is performed by using the `_page_sbrk()` function, which allocates a new page from the pool using the `_page_alloc() `function and maps it into the kernel address space directly with `pmap_enter()` at the top of the heap. Pages are allocated using a regular allocation algorithm but data structures used for allocation are not fully initialized. The array creation algorithm is presented below.
 
->
+```c
     for (page = (page_t *)*bss;;) {
->
       if ((void *)page + sizeof(page_t) >= (*top))
         _page_sbrk(pmap, bss, top);
 
@@ -53,7 +52,7 @@ The memory for the structure is allocated using a heap extension. This extension
       if (addr < SIZE_PAGE)
         break;
     }
-
+```
 The initialization loop in each iteration discovers a new physical page using the `pmap_getPage()`. The function fills the newly allocated `page_t` structure and returns the next valid physical address in the `addr` argument. The returned page is flagged as either free or allocated using the `flags` attribute. The next two upper bits of this attribute define the page ownership: a page can belong to the kernel, application or boot loader (memory reserved by BIOS on a PC is marked in this way). The next upper bits define the page usage in the specific domain defined by ownership. For example, pages marked as allocated by the kernel may be allocated for specific purposes (stack, heap, interrupt table, page table etc.).
 
 ### Presentation of page array during the boot process
@@ -99,15 +98,13 @@ Let us assume that the page allocated in the previous section must be released. 
 
 In non-MMU architectures, the page_t structure is only allocated as needed by upper layers (i.e. a memory mapper). It does not correspond to a real memory segment. During the kernel initialization, a pool of page_t structures is created, assuming a given page size. The number of `page_t` entries is proportional to the size of physical memory.
 
->
+```c
     void _page_init(pmap_t *pmap, void **bss, void **top)
     {
         page_t *p;
         unsigned int i;
- >
         pages.freesz = VADDR_MAX - (unsigned int)(*bss);
         ..
- >
         /* Prepare allocation queue */
         for (p = pages.freeq, i = 0; i < pages.freeqsz; i++) {
                 p->next = p + 1;
@@ -116,6 +113,7 @@ In non-MMU architectures, the page_t structure is only allocated as needed by up
         (pages.freeq + pages.freeqsz - 1)->next = NULL;
         ..
     }
+```
 
 The assumed page size depends on the architecture and the available memory size. For microcontrollers with a small memory size, the page size is typically 256 bytes.
 
