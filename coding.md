@@ -168,11 +168,12 @@ New types can only be defined if it is absolutely necessary.
 
 When the C programming language is used only C language comments should be used. It means that only `/* */` are allowed and `//` are not to be used at all. A two line comment is presented below.
 
->
+```c
     /*
      * line 1
      * line 2
      */
+```
 
 One line comment should look like the following example.
 
