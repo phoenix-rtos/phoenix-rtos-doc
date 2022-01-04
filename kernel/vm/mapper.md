@@ -10,17 +10,18 @@ A memory map (`vm_map_t` structure) is the main structure used for describing th
 
 The map definition and its entry is presented below.
 
->
+```c
     typedef struct _vm_map_t {
         pmap_t pmap;
         void *start;
         void *stop;
         rbtree_t tree;
     } vm_map_t;
+```
 
 The `start`, `stop` attributes define the beginning and ending of the address space described by the map. The `pmap` attribute defines the `pmap` structure encapsulating the hardware-dependent structures used by the MMU for address resolution. The tree attribute stores the red-black tree of map entries.
 
->
+```c
     typedef struct _map_entry_t {
         rbnode_t linkage;
         struct _map_entry_t *next;
@@ -36,6 +37,7 @@ The `start`, `stop` attributes define the beginning and ending of the address sp
         vm_map_t *map;
         offs_t offs;
     } map_entry_t;
+```
 
 Each `map_entry_t` constitutes a tree node (the `linkage` field) and the tree is constructed on the basis of the virtual address value (`vaddr`). The virtual address points to the segment address. It is complemented by the segment size, segment attributes and two special attributes: `rmaxgap` and `lmaxgap`, which store the size of the maximum gap between the segments in the left or right subtree of the current node. The segment attributes are defined by the `flags` field. The `object` field points to the object mapped into the address space. The `NULL` value of this field contains the information that mapping is anonymous (no object is mapped). The offset (`offs`) defines the in-object location of the data which should be copied into the memory.
 

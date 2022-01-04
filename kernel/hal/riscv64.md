@@ -6,14 +6,15 @@ HAL for RISCV64 architecture is located in `src/hal/riscv64`.
 
 Kernel execution starts from `_start` symbol located in `_init.S` file.
 
->
+```assembler
     _start:
         /* Mask all interrupts */
         csrw sie, zero
->
+
         /* Disable FPU */
         li t0, SR_FS
         csrc sstatus, t0
+```
 
 First instructions mask interrupts and disable FPU.
 
@@ -46,39 +47,41 @@ After evaluating hardware configuration initial kernel page tables are initializ
 
 The relocation offset is calculated.
 
->
+```assembler
         /* Relocate stack */
         la sp, pmap_common
         li t0, 3 * SIZE_PAGE + SIZE_PAGE              /* pdirs + stack */
         add sp, sp, t0
         add sp, sp, a1
->
+
         /* Relocate syspage */
         la a0, syspage
         ld t0, (a0)
         add t0, t0, a1
         sd t0, (a0)
+```
 
 And relocation of stack and syspage is performed.
 
->
+```assembler
         /* Point stvec to virtual address of intruction after satp write */
         la a0, 1f
         add a0, a0, a1
         csrw stvec, a0
->
+
         la a0, pmap_common
         srl a0, a0, 12
         li a1, 0x8000000000000000
         or a0, a0, a1
->
+
         sfence.vma
         csrw sptbr, a0
     1:
+```
 
 The above sequence enables paging and pass execution to proper virtual address by setting the trap vector.
 
->
+
         /* Add dummy page fault trap handler */
         la a0, .Lsecondary_park
         csrw stvec, a0

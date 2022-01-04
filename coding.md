@@ -6,7 +6,7 @@ The chapter presents coding convention used in the implementation files of Phoen
 
 Each operating system source file is marked with label with the following structure.
 
->
+```c
     /*
      * Phoenix-RTOS
      *
@@ -22,6 +22,7 @@ Each operating system source file is marked with label with the following struct
      *
      * %LICENSE%
      */
+```
 
 Main label blocks are separated with empty line. The first label block informs that file is the part of Phoenix-RTOS operating system. In next block the information about the operating system module is provided. In this example, the file belongs to operating system kernel. Third label block describes the file functionality. In presented example label, the file implements `pmap` interface - the hardware dependent part of memory management subsystem for managing the MMU or MPU (part of HAL). Fourth label block presents copyright notices and authors of the file. Newest copyrights are located on the top. Copyrights are associated with dates informing about the development periods separated with commas. In the example label the file was developed in years 2014-2015 and in the earlier period of 2005-2006. Presented file has three authors sorted according to the importance of their contribution. All names are presented. Next block contains the information that file belongs to the operating system project. The %LICENSE% macro is used to inject the license conditions.
 
@@ -31,27 +32,28 @@ Labels in each file should be constructed according to presented rules. Modifica
 
 Code indentation is based on tabulator. It is not allowed to make an indentation with space character. The source code used for development tests (e.g. printf debug) should be entered without indentation. The following code presents correctly formatted code with one line (`lib_printf`) entered for debug purposes. The inserted line should be removed in the final code.
 
->
+```c
     int main(void)
     {
         _hal_init();
         hal_consolePrint(ATTR_BOLD, "Phoenix-RTOS microkernel v. " VERSION "\n");
->
+
         _vm_init(&main_common.kmap, &main_common.kernel);
         _proc_init(&main_common.kmap, &main_common.kernel);
         _syscalls_init();
->
+
     lib_printf("DEBUG: starting first process...\n");
->
+
         /* Start init process */
         proc_start(main_initthr, NULL, (const char *)"init");
->
+
         /* Start scheduling, leave current stack */
         hal_cpuEnableInterrupts();
         hal_cpuReschedule();
->
+
         return 0;
     }
+```
 
 ## Source files
 
@@ -83,35 +85,36 @@ Variables should be named with one short words without the underline characters.
 
 Local variables should be defined before the function code according to ANSI C 89 standard. The stack usage and number of local variables should be minimized. Static local variables are not allowed.
 
->
+```c
     void *_kmalloc_alloc(u8 hdridx, u8 idx)
     {
         void *b;
         vm_zone_t *z = kmalloc_common.sizes[idx];
->
+
         b = _vm_zalloc(z, NULL);
         kmalloc_common.allocsz += (1 << idx);
->
+
         if (idx == hdridx)
                 kmalloc_common.hdrblocks--;
->
+
         if (z->used == z->blocks) {
                 _vm_zoneRemove(&kmalloc_common.sizes[idx], z);
                 _vm_zoneAdd(&kmalloc_common.used, z);
         }
->
+
         return b;
     }
+```
 
 ## Global variables
 
 Global variables should be used only if they're absolutely necessary. You should avoid using globally initialized variables. If they are used, global variables can only be placed in common structures. The structure should be named after the system module that implements it, followed by _common. Example notation is shown below.
 
->
+```c
     struct {
         spinlock_t spinlock;
     } pmap_common;
-
+```
 
 ## Operators
 
@@ -137,10 +140,10 @@ In case of increment `++` and decrement `--` operators following rules should be
 
 Notation of conditional expression is presented below.
 
->
+```c
     if (expr)
       line 1  
->
+
     if (expr0) {
       line 1
       ...
@@ -153,7 +156,8 @@ Notation of conditional expression is presented below.
       line 1
       ...
     }
- 
+```
+
 A space should be used after a keyword of the conditional instruction. Opening and closing braces should be used only if the body of the conditional instruction is longer than one line. The opening brace should be put in the same line as the keyword of the conditional instruction. The closing brace should be placed after the last line of the conditional instruction in a new line.
 
 ## Type definition
@@ -194,23 +198,24 @@ It is advised not to use MACROS in the code.
 
 It is not advised to use preprocessor conditionals like `#if` or `ifdef'. The use of preprocessing conditionals makes it harder to follow the code logic. If it is absolutely necessary to use preprocessing conditionals, they ought to be formatted as the following example.
 
->
+```c
     #ifndef NOMMU
         process->mapp = &process->map;
         process->amap = NULL;
->
+
         vm_mapCreate(process->mapp, (void *)VADDR_MIN, process_common.kmap->start);
->
+
         /* Create pmap */
         p = vm_pageAlloc(SIZE_PAGE, PAGE_OWNER_KERNEL | PAGE_KERNEL_PTABLE);
         vaddr = vm_mmap(process_common.kmap, process_common.kmap->start, p, 1 << p->idx, NULL, 0, 0);
->
+
         pmap_create(&process->mapp->pmap, &process_common.kmap->pmap, p, vaddr);
     #else
         process->mapp = process_common.kmap;
         process->amap = NULL;
         process->lazy = 1;
     #endif
+```
 
 ## Operating system messages
 
