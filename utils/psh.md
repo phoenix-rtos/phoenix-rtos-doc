@@ -40,7 +40,7 @@ In `psh`, each command or set of commands is a separate applet, here's a list of
 * [`history`](psh-applets/history.md)    - prints commands history
 * `kill`       - terminates process
 * [`ls`](psh-applets/ls.md)         - lists files in the namespace
-* `mem`        - prints memory map
+* [`mem`](psh-applets/mem.md)        - prints memory map
 * [`mkdir`](psh-applets/mkdir.md)      - creates directory
 * `mount`      - mounts a filesystem
 * [`nc`](psh-applets/nc.md)         - TCP and UDP connections and listens
