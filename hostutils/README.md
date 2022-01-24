@@ -8,7 +8,7 @@ The source code of host utilities is placed in the [phoenix-rtos-hostutils](http
 
 Following programs are possible to use:
 
-- [Phoenix-RTOS disk tool](psh.md), called `psdisk`,
+- [Phoenix-RTOS disk tool](psdisk.md), called `psdisk`,
 - Phoenix-RTOS serial uploader, called `psu`,
 - Phoenix-RTOS daemon, called `phoenixd`
 
