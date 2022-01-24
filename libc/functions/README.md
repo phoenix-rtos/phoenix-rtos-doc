@@ -105,6 +105,7 @@ endthread,
 [`fseek`](./f/fseek.part-impl.md), <!-- updated -->
 [`fseeko`](./f/fseek.part-impl.md), <!-- updated -->
 [`fstatat`](./s/stat.part-impl.md), <!-- updated -->
+[`fsync`](./f/fsync.not-impl.md), <!-- updated -->
 [`ftell`](./f/ftell.part-impl.md), <!-- updated -->
 [`ftello`](./f/ftell.part-impl.md), <!-- updated -->
 [`ftruncate`](./f/ftruncate.part-impl.md), <!-- updated -->
@@ -167,7 +168,7 @@ lookup,
 [`memchr`](./m/memchr.part-impl.md), <!-- updated -->
 [`memcmp`](./m/memcmp.part-impl.md), <!-- updated -->
 [`memcpy`](./m/memcpy.part-impl.md), <!-- updated -->
-[`meminfo`](./m/meminfo.impl.md), <!-- updated -->
+meminfo,
 [`memmove`](./m/memmove.part-impl.md), <!-- updated -->
 [`memset`](./m/memset.part-impl.md), <!-- updated -->
 [`mkdir`](./m/mkdir.part-impl.md), <!-- updated -->
