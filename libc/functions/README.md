@@ -77,6 +77,8 @@ endthread,
 
 [`fabs`](./f/fabs.part-impl.md), <!-- updated -->
 [`fabsf`](./f/fabs.part-impl.md), <!-- updated -->
+[`fchdir`](./f/fchdir.not-impl.md), <!-- updated -->
+[`fchown`](./f/fchown.not-impl.md), <!-- updated -->
 [`fclose`](./f/fclose.part-impl.md), <!-- updated -->
 [`fcntl`](./f/fcntl.part-impl.md), <!-- updated -->
 [`fdopen`](./f/fdopen.part-impl.md), <!-- updated -->
@@ -118,7 +120,12 @@ endthread,
 [`getchar_unlocked`](./p/putchar_unlocked.part-impl.md), <!-- updated -->
 [`getcwd`](./g/getcwd.part-impl.md), <!-- updated -->
 [`getegid`](./g/getegid.part-impl.md), <!-- updated -->
+[`geteuid`](./g/geteuid.not-impl.md), <!-- updated -->
+[`getgid`](./g/getgid.not-impl.md), <!-- updated -->
+[`getgroups`](./g/getgroups.not-impl.md), <!-- updated -->
 [`getline`](./g/getline.part-impl.md), <!-- updated -->
+[`getlogin`](./g/getlogin.not-impl.md), <!-- updated -->
+[`getlogin_r`](./g/getlogin.not-impl.md), <!-- updated -->
 [`getpgrp`](./g/getpgrp.part-impl.md), <!-- updated -->
 [`getpid`](./g/getpid.part-impl.md), <!-- updated -->
 [`getppid`](./g/getppid.part-impl.md), <!-- updated -->
@@ -231,9 +238,13 @@ resourceDestroy,
 
 [`sscanf`](./f/fscanf.part-impl.md), <!-- updated -->
 [`setbuf`](./s/setbuf.part-impl.md), <!-- updated -->
+[`setegid`](./s/setegid.not-impl.md), <!-- updated -->
+[`seteuid`](./s/seteuid.not-impl.md), <!-- updated -->
+[`setgid`](./s/setgid.not-impl.md), <!-- updated -->
 [`setjmp`](./s/setjmp.part-impl.md), <!-- updated -->
 [`setpgid`](./s/setpgid.part-impl.md), <!-- updated -->
 [`setsid`](./s/setsid.part-impl.md), <!-- updated -->
+[`setuid`](./s/setuid.not-impl.md), <!-- updated -->
 [`setvbuf`](./s/setvbuf.part-impl.md), <!-- updated -->
 [`sigaddset`](./s/sigaddset.part-impl.md), <!-- updated -->
 [`sigemptyset`](./s/sigemptyset.part-impl.md), <!-- updated -->
@@ -278,6 +289,7 @@ resourceDestroy,
 [`strxfrm`](./s/strxfrm.part-impl.md), <!-- updated -->
 sysconf,
 syspageprog,
+[`sync`](./s/sync.not-impl.md), <!-- updated -->
 [`system`](./s/system.part-impl.md), <!-- updated -->
 
 ## t
@@ -299,6 +311,8 @@ timeGet,
 timeSet,
 [`tmpfile`](./t/tmpfile.part-impl.md), <!-- #updated# -->
 [`tmpnam`](./t/tmpnam.part-impl.md) <!-- #updated# -->
+[`ttyname`](./t/ttyname.not-impl.md), <!-- updated -->
+[`ttyname_r`](./t/ttyname.not-impl.md), <!-- updated -->
 
 ## u
 
