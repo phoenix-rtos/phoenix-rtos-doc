@@ -1,7 +1,7 @@
 # Synopsis 
-`#include <unistd.h>`</br>
+`#include <unistd.h>`
 
-` gid_t getegid(void);`</br>
+` gid_t getgid(void);`
 
 ## Status
 Declared, not implemented
@@ -10,18 +10,22 @@ IEEE Std 1003.1-2017
 ## Description
 
 
-The `getegid()` function shall return the effective group ID of the calling process. The `getegid()` function shall not modify `errno`.
+The `getgid()` function shall return the real group ID of the calling process. The `getgid()` function shall not
+modify `errno`.
 
 
 ## Return value
 
 
-The `getegid()` function shall always be successful and no return value is reserved to indicate an error.
+The `getgid()` function shall always be successful and no return value is reserved to indicate an error.
+
 
 ## Errors
 
 
 No errors are defined.
+
+
 
 
 ## Tests
