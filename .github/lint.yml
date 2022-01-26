@@ -1,0 +1,25 @@
+# vim:sw=2:ts=2
+# static linters which can be run in a single repo (do not need phoenix-rtos-project)
+name: lint
+
+# on events
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  codespell:
+    name: codespell
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2  # current PR merge commit + 1 back
+
+      - name: Run codespell
+        uses: plettich/action-codespell@master
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review
