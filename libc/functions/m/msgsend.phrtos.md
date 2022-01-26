@@ -15,7 +15,7 @@ After calling the `msgSend()` function the sending thread is suspended until the
 
 This function ensures that either message was processed by a recipient or that it was not sent at all.
 
-This function is part of interprocess communication mechanisms in Phoenix-RTOS. For more information about messaging process and msg_t` message structure please refer to [Message Passing](../../../kernel/proc/msg.md).
+This function is part of interprocess communication mechanisms in Phoenix-RTOS. For more information about messaging process and `msg_t` message structure please refer to [Message Passing](../../../kernel/proc/msg.md).
 
 ## Return value
 
@@ -25,13 +25,11 @@ If an error occurred during a function call an error value shall be returned. Ot
 
 This function shall fall if:
 
- * `-EINVAL` - _port_ does not name an existing port, or _port_ is closed.
-
- * `-EINVAL` - _m_ points to an uninitialized message structure.
+ * `-EINVAL` - _port_ does not name an existing port, or _port_ is closed, or _m_ points to an uninitialized message structure.
 
 This function may fall if:
 
- * `-EINTR` - calling thread was woken up by signal before the message was sent.
+ * `-EINTR` - calling thread was woken up by signal before the message was received by the server.
 
 ## Tests
 

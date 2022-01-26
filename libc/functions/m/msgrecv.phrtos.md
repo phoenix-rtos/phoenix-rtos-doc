@@ -15,6 +15,7 @@ Upon calling `msgRecv()` the receiving thread is suspended until one of the foll
  - a new message is received
  - port is closed
  - an error occurs
+ - signal is received
 
  `msgRecv()` does not finish the communication between sender and receiver and is only used to get contents of a message. To properly finish the communication `msgRespond()` shall be called with appropriate `*rid` value to respond to the message and end communication between processes. If no `msgRespond()` is called the message sender will wait indefinetely for a response.
 
@@ -31,6 +32,10 @@ If an error occurred during a function call an error value shall be returned. Ot
 This function shall fall if:
 
  * `-EINVAL` - _port_ does not name an existing port, or _port_ is closed
+
+ * `-EINTR` - thread was woken up by signal during waiting for messages in `msgRecv()`
+
+ * `-ENOMEM` - insufficient memory is available for allocating incoming message
 
 ## Tests
 
