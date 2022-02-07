@@ -69,7 +69,7 @@ openocd -v
   - install openocd
 
   ```
-  ./configure && make && sudo make install
+  sudo apt-get install libusb-1.0 && ./configure --enable-stlink && make && sudo make install
   ```
 
   - check if the version is correct
