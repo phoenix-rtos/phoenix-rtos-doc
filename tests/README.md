@@ -11,10 +11,10 @@ Read more about the reference project repository [here](../building/project.md).
 The simplest way to run tests is launching `runner.py` locally.
 The example below shows how to run all tests for the `ia32-generic` target architecture.
 
-First, build the system image with a serial console:
+First, build the system image with a serial console and the test component:
 
 ```
-TARGET=ia32-generic CONSOLE=serial SYSPAGE='psh pc-ata uart16550' ./phoenix-rtos-build/build.sh all
+TARGET=ia32-generic CONSOLE=serial SYSPAGE='psh pc-ata uart16550' ./phoenix-rtos-build/build.sh all test
 ```
 
 For more information about building script please see the [building script](../building/script.md) chapter.
