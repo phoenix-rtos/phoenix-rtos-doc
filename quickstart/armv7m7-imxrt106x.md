@@ -107,10 +107,7 @@ The `flash1` is the internal flash memory. The alternative option is to copy the
 
 To launch Phoenix-RTOS from flash memory, change SW7 switch to Internal Flash mode (`0010` configuration) and restart the board (you can do it by pushing the `SW3` button).
 
-If everything has gone correctly, the bootloader should appear in the terminal, with a console opened. Now you should type the `go!` command.
-As a result, Phoenix-RTOS with the default configuration and the `psh` shell command prompt will appear in the terminal.
-
-<img src="_images/imxrt106x-go.png" width="600px">
+If everything has gone correctly, Phoenix-RTOS with the default configuration and the `psh` shell command prompt will appear in the terminal after 2 seconds. If there is a need to enter the bootloader, the waiting for input should be interrupted by pressing any key. Then you can exit plo by passing `go!` command.
 
 <img src="_images/imxrt106x-start.png" width="600px">
 

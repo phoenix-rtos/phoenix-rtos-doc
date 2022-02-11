@@ -1,7 +1,7 @@
 # Running system on `armv7a9-zynq7000` (Xilinx Zynq-7000) on development board
 
 These instructions describe how to run a Phoenix-RTOS system image for `armv7a9-zynq7000` target architecture using an evaluation board.
-Note that, the build artifacts, including the system image, should be first provided in the `_boot` directory. If you haven't run the `build.sh` script yet, follow the pre-build steps [here](armv7a9-zynq7000.md) and next run it for `armv7a9-zynq7000` target.
+Note that, the build artifacts, including the system image, should be first provided in the `_boot` directory. If you haven't run the `build.sh` script yet, run it for `armv7a9-zynq7000` target.
 
 See [how to build the Phoenix-RTOS system image](../building/README.md).
 
@@ -93,7 +93,7 @@ cd _boot/
 ```
 
 ```bash
-sudo ../_build/host-pc/prog/phoenixd -k phoenix-armv7a9-zynq7000.elf -p /dev/ttyACM1 -b 115200 -s .
+sudo ./phoenixd -k phoenix-armv7a9-zynq7000.elf -p /dev/ttyACM1 -b 115200 -s .
 ```
 
 <img src="_images/zynq7000-phoenixd.png" width="600px">
