@@ -14,7 +14,7 @@ The example below shows how to run all tests for the `ia32-generic` target archi
 First, build the system image with a serial console and the test component:
 
 ```
-TARGET=ia32-generic CONSOLE=serial SYSPAGE='psh pc-ata uart16550' ./phoenix-rtos-build/build.sh all test
+TARGET=ia32-generic CONSOLE=serial ./phoenix-rtos-build/build.sh all test
 ```
 
 For more information about building script please see the [building script](../building/script.md) chapter.

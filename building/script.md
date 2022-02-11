@@ -40,7 +40,7 @@ TARGET=ia32-generic phoenix-rtos-build/build.sh core fs image project test
 For ia32-generic target, running the system in a separate window isn't the only option. There is the possibility to run it in a terminal, in that case, you have to set a few other variables.
 
 ```bash
-TARGET=ia32-generic CONSOLE=serial SYSPAGE='psh pc-ata uart16550' ./phoenix-rtos-build/build.sh all
+TARGET=ia32-generic CONSOLE=serial ./phoenix-rtos-build/build.sh all
 ```
 
 After the build completes, the disk image and all files needed to run it will be created and placed in the _boot directory.
