@@ -2,28 +2,6 @@
 
 This version is designed for NXP i.MX 6ULL processors with ARM Cortex-A7 core. To launch this version the final disk image and loader image should be provided. Images are created as the final artifacts of the `phoenix-rtos-project` building and are located in the `_boot` directory. The disk image consists of bootloader (plo), kernel, UART driver (tty), dummyfs filesystem server (RAM disk), and psh (shell). Necessary tools to carry out the uploading process are located in the `_boot` directory as well.
 
-## Pre-build steps
-
-To make instructions given in this quickstart possible, you should check out to `feature/syspage` branch and update submodules before building a system image.
-  <details>
-  <summary> How to checkout to the feature/syspage branch and update submodules </summary>
-  There are diffrent ways to do that, here is one of them.
-
-  Launch these commands from the `phoenix-rtos-project` directory:
-
-  ```
-  git checkout origin/feature/syspage && \
-  git submodule update --recursive
-  ```
-
-  <img src="_images/feature-syspage-checkout.png" width="600px">
-
-  </details>
-
-  After that, you can run the `build.sh` script for the `armv7a7-imx6ull` target architecture.
-
-  See [how to build a Phoenix-RTOS system image](../building/README.md)
-
 ## Development board
 
 The easiest way to start programming hardware targets using Phoenix-RTOS is to get some of the evaluation boards with a specified target processor or microcontroller. In this case [i. MX 6ULL - EVK](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/evaluation-kit-for-the-i-mx-6ull-and-6ulz-applications-processor:MCIMX6ULL-EVK) is the example of a board with the `imx6ull` processor, where the default configuration of peripherals allows to run Phoenix-RTOS.
