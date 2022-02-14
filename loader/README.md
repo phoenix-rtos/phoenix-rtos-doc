@@ -10,11 +10,15 @@ The Phoenix-RTOS loader supports the following target platforms:
 
  * armv7m7-imxrt117x
 
- * armv7a9-zynq7000 (under development)
+ * armv7a9-zynq7000
 
  * armv7a7-imx6ull (under development)
 
  * ia32-generic
+
+ * riscv64-spike (under development)
+
+ * riscv64-virt (under development)
 
 ## Functionality
 The loader can be treated as a first-stage and second-stage bootloader. It can be loaded to RAM via JLink or other tools specified by the platforms' vendors or booted from supported devices, such as a NOR flash (e.g. using FlexSPI, Quad SPI), NAND flash or SD card.
