@@ -44,7 +44,7 @@ Firstly, you need to have the docker installed.
   sudo docker --version
   ```
 
-  <img src="../building/_images/docker-version.png" width="600px">
+  <img src="_images/docker-version.png" width="600px">
 
   - To make calling docker command without `sudo` possible type:
 
@@ -64,7 +64,8 @@ Firstly, you need to have the docker installed.
   ```
   docker run hello-world
   ```
-  <img src="../building/_images/docker-test.png" width="600px">
+
+  <img src="_images/docker-test.png" width="600px">
 
   For more details and other instructions see
 
