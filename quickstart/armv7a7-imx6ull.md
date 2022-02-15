@@ -48,16 +48,7 @@ You can leave the terminal with the serial port open, and follow the next steps.
 
 ## Uploading the Phoenix-RTOS system image to RAM
 
-In order to place the disk image on the board, the bootloader (plo) image located in the `_boot` directory should be uploaded to the RAM using `psu` (Phoenix Serial Uploader) via SDP (Serial Download Protocol). Next, there has to be a short delay for the plo USB CDC device to appear. Then `phoenixd` should be launched to make copying programs from the `_boot` directory to the image possible. To do that follow the instructions below:
-
-- To properly run the system image, kernel and other used programs need to be provided in the `_boot` directory, so you should copy them from the `_build` directory:
-
-  ```
-  (cd _build/armv7a7-imx6ull/prog.stripped/ && \
-  cp phoenix-armv7a7-imx6ull.elf dummyfs imx6ull-uart psh ../../../_boot/)
-  ```
-
-  <img src="_images/imx6ull-cpy.png" width="600px">
+In order to place the disk image on the board, `psu` (Phoenix Serial Uploader) and the `imx6ull-ram.sdp` (Serial Download Protocol) script should be used. 
 
 - Make sure, that the SW602 switch is in the following configuration (serial downloader mode):
 
@@ -67,36 +58,17 @@ In order to place the disk image on the board, the bootloader (plo) image locate
 
   If it was in a different position you have to restart the board after the change and connect to the serial port a second time.
 
-- Change directory to `_boot` and run `psu` as follow:
+- Change directory to `_boot` and run `psu` as follows:
 
   ```
-  cd _boot/ && \
-  sudo ./psu plo-ram-armv7a7-imx6ull.sdp && \
-  sleep 1 && \
-  sudo ./phoenixd -k phoenix-armv7a7-imx6ull.elf -p /dev/ttyACM0 -b 115200 -s .
+  sudo ./psu ../phoenix-rtos-hostutils/psu/imx6ull-ram.sdp
   ```
 
   <img src="_images/imx6ull-psu.png" width="600px">
 
-The plo user interface should appear in the console.
+- If everything has gone correctly, Phoenix-RTOS with the default configuration and the `psh` shell command prompt will appear in the terminal.
 
-<img src="_images/imx6ull-plo.png" width="600px">
-
-To get the available bootloader command list please type:
-
-```
-help
-```
-
-<img src="_images/imx6ull-plo-help.png" width="600px">
-
-Now you can start PhoenixRTOS by typing:
-
-```bash
-go!
-```
-
-<img src="_images/imx6ull-psh.png" width="600px">
+  <img src="_images/imx6ull-psh.png" width="600px">
 
 ## Using Phoenix-RTOS
 
