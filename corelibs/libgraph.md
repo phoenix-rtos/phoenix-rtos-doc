@@ -29,7 +29,7 @@ Examples of applications, which use graphics library (`ia32-generic` target arch
 
 - `voxeldemo`
 
-  ![Output sample](_images/voxeldemo.gif)
+  ![Output sample](_gifs/voxeldemo.gif)
 
   Source code can be found in the `_user` directory in [phoenix-rtos-project](https://github.com/phoenix-rtos/phoenix-rtos-project.git) repository.
 
@@ -238,7 +238,7 @@ int main(void)
   graph_fill(&graph, 402, 55, 0x00000FF, GRAPH_FILL_BOUND, GRAPH_QUEUE_HIGH);
   ```
 
-  ![Output sample](_images/fill.gif)
+  ![Output sample](_gifs/fill.gif)
 
 - Printing text using libgraph
 
@@ -258,7 +258,7 @@ int main(void)
   graph_move(&graph, 100, 100, 100, 100, 300, 300, GRAPH_QUEUE_HIGH);
   ```
 
-  ![Output sample](_images/move.gif)
+  ![Output sample](_gifs/move.gif)
 
 - Copying raw bitmap into a screen
 
@@ -341,7 +341,7 @@ int main(void)
   graph_colorset(&graph, buff[0], 0, 1);
   ```
 
-  ![Output sample](_images/colorset.gif)
+  ![Output sample](_gifs/colorset.gif)
 
 - Moving a cursor
   The `cursor.h` header file with cursor shape data (`amask`, `xmask`) has to be included.
@@ -356,7 +356,7 @@ int main(void)
   graph_cursorhide(&graph);
   ```
 
-  ![Output sample](_images/cursor.gif)
+  ![Output sample](_gifs/cursor.gif)
 
 ## Generating an image bitmap and displaying it using libgraph
 
