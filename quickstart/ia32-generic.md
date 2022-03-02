@@ -53,9 +53,9 @@ In order to run one of the user applications you should type `/usr/bin/appname`,
 ```bash
 /usr/bin/voxeldemo
 ```
-The screenshot from the voxeldemo application is presented below.
+The result is presented below.
 
-<img src="_images/qemu-ia32-generic-voxeldemo.png" width="600px">
+<img src="_gifs/voxeldemo.gif" width="600px">
 
 You can press `ctrl + c` to quit the voxeldemo app.
 
