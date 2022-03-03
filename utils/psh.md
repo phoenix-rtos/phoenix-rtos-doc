@@ -43,6 +43,7 @@ In `psh`, each command or set of commands is a separate applet, here's a list of
 * [`nslookup`](psh-applets/nslookup.md)   - queries domain name servers
 * `perf`       - track kernel performance events
 * [`ping`](psh-applets/ping.md)       - ICMP ECHO requests
+* [`pm`](psh-applets/pm.md)         - monitors processes
 * [`ps`](psh-applets/ps.md)         - prints processes and threads
 * [`pshapp`](psh-applets/pshapp.md)     - delivers `psh` interpreter, `exit`, `pshlogin` and `history` commands
 * [`pshlogin`](psh-applets/pshlogin.md) - launches `psh` with user authentication
