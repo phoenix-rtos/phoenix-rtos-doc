@@ -39,8 +39,7 @@ beginthreadex,
 [`close`](./c/close.part-impl.md), <!-- updated -->
 [`closedir`](./c/closedir.part-impl.md), <!-- updated -->
 [`closelog`](./o/openlog.part-impl.md), <!-- updated -->
-[`condBroadcast`](./c/condSignal.phrtos.md),
-[`condCreate`][`condBroadcast`](./c/condCreate.phrtos.md),
+[`condCreate`](./c/condCreate.phrtos.md),
 [`condBroadcast`](./c/condSignal.phrtos.md),
 [`condWait`](./c/condWait.phrtos.md),
 [`connect`](./c/connect.part-impl.md), <!-- updated -->
