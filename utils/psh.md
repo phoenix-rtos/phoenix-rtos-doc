@@ -28,6 +28,7 @@ In `psh`, each command or set of commands is a separate applet, here's a list of
 
 * `bind`       - binds device to directory
 * [`cat`](psh-applets/cat.md)        - concatenate file(s) to standard output
+* [`df`](psh-applets/df.md) - print filesystem statistics
 * [`echo`](psh-applets/echo.md)       - display a line of text
 * [`edit`](psh-applets/edit.md) - text editor
 * [`exec`](psh-applets/exec.md)       - replace shell with the given command
