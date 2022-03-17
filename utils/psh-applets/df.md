@@ -13,7 +13,7 @@ Usage: df [options] [files]
   -h: print this help message
 ```
 
-The utility prints information about the filesystem on which each file specified in `files` argument resides. The displayed information consists of:
+The utility prints information about the filesystem on which each file specified in `files` argument resides. The information displayed consists of:
 1. Filesystem - mounted device path
 2. Type - filesystem type, optional (see `-T` option)
 3. 1K-blocks/Inodes - total number of 1K blocks/inodes available to the filesystem
@@ -22,6 +22,11 @@ The utility prints information about the filesystem on which each file specified
 6. Capacity - used blocks/inodes percent
 7. Mounted on - filesystem mount point
 
+The inodes statistics are available only for `ext2` filesystem. Neither `dummyfs` nor `jffs2` collect such global data.
+
+The example of checking root directory on ia32-generic target architecture:
+
+![image](_images/df_example.png)
 
 ## See also
 
