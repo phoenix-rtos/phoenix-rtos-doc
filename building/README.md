@@ -143,7 +143,8 @@ autoconf \
 texinfo \
 genext2fs \
 libtool \
-libhidapi-dev
+libhidapi-dev \
+python3
 ```
 
 Next, you need to compile the toolchains for all required target architectures:
