@@ -1,7 +1,7 @@
-# Running system on `armv7a9-zynq7000` (Xilinx Zynq-7000) on emulator
+# Running system on `armv7a9-zynq7000-qemu` (Xilinx Zynq-7000, qemu emulator)
 
-These instructions describe how to run a Phoenix-RTOS system image for the `armv7a9-zynq7000` target architecture using docker and qemu.
-Note that, the build artifacts, including the system image, should be first provided in the `_boot` directory. If you haven't run the `build.sh` script yet, run it for `armv7a9-zynq7000` target.
+These instructions describe how to run a Phoenix-RTOS system image for the `armv7a9-zynq7000-qemu` target architecture using docker.
+Note that, the build artifacts, including the system image, should be first provided in the `_boot` directory. If you haven't run the `build.sh` script yet, run it for `armv7a9-zynq7000-qemu` target.
 
 See [how to build the Phoenix-RTOS system image](../building/README.md).
 
