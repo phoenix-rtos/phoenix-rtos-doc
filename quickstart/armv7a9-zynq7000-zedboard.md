@@ -1,13 +1,13 @@
-# Running system on `armv7a9-zynq7000` (Xilinx Zynq-7000) on development board
+# Running system on `armv7a9-zynq7000-zedboard` (Xilinx Zynq-7000, Zedboard development board)
 
-These instructions describe how to run a Phoenix-RTOS system image for `armv7a9-zynq7000` target architecture using an evaluation board.
-Note that, the build artifacts, including the system image, should be first provided in the `_boot` directory. If you haven't run the `build.sh` script yet, run it for `armv7a9-zynq7000` target.
+These instructions describe how to run a Phoenix-RTOS system image for `armv7a9-zynq7000-zedboard` target architecture.
+Note that, the build artifacts, including the system image, should be first provided in the `_boot` directory. If you haven't run the `build.sh` script yet, run it for `armv7a9-zynq7000-zedboard` target.
 
 See [how to build the Phoenix-RTOS system image](../building/README.md).
 
 ## Preparing the board
 
-- Firstly, you should copy the disk image `phoenix-armv7a9-zynq7000.disk` from the `_boot` directory to the SD card and rename it to `BOOT.bin`.
+- Firstly, you should copy the disk image `phoenix-armv7a9-zynq7000-zedboard.disk` from the `_boot` directory to the SD card and rename it to `BOOT.bin`.
 
 - Then, insert the SD card into the board.
 
@@ -73,9 +73,9 @@ If you are flashing the board a second time and some older Phoenix-RTOS image is
 
 <img src="_images/zynq7000-ram-start-2.png" width="600px">
 
-As you can see, the older Phoenix-RTOS image is now launched, but we need to run plo (Phoenix-RTOS loader). To do that, you should press any button, for example, `enter` within 1 second after restart (using `PS-RST`):
+As you can see, plo (Phoenix-RTOS loader) is launched. You can press `enter` to see the prompt. 
 
-<img src="_images/zynq7000-plo.png" width="600px">
+If You need, You can run Phoenix-RTOS from RAM memory using `go!` command here, but if You want to flash the system image please follow the next steps.
 
 ### Copying flash image using PHFS (phoenixd)
 
@@ -93,7 +93,7 @@ cd _boot/
 ```
 
 ```bash
-sudo ./phoenixd -k phoenix-armv7a9-zynq7000.elf -p /dev/ttyACM1 -b 115200 -s .
+sudo ./phoenixd -p /dev/ttyACM1 -b 115200 -s .
 ```
 
 <img src="_images/zynq7000-phoenixd.png" width="600px">
@@ -101,7 +101,7 @@ sudo ./phoenixd -k phoenix-armv7a9-zynq7000.elf -p /dev/ttyACM1 -b 115200 -s .
 To start copying the file, write the following command in the console with plo interface:
 
 ```bash
-copy usb0 phoenix-armv7a9-zynq7000.disk flash0 0x0 0x0
+copy usb0 phoenix-armv7a9-zynq7000-zedboard.disk flash0 0x0 0x0
 ```
 
 <img src="_images/zynq7000-plo-copy.png" width="600px">
