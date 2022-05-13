@@ -38,6 +38,8 @@ The Phoenix-RTOS reference project supports the following target platforms:
 * ia32-generic
 * riscv64-spike
 * riscv64-virt
+* armv7a9-zynq7000-qemu
+* armv7a9-zynq7000-zedboard
 
 To get the list of valid targets the `build.sh` script should be launched with an empty `TARGET` variable, eg:
 
@@ -143,7 +145,8 @@ autoconf \
 texinfo \
 genext2fs \
 libtool \
-libhidapi-dev
+libhidapi-dev \
+python3
 ```
 
 Next, you need to compile the toolchains for all required target architectures:

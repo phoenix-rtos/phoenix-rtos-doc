@@ -17,7 +17,7 @@ Interrupt syscall registers callback function to be executed when the interrupt 
 
 The callback function is invoked directly from the kernel space with interrupts globally disabled. It allows the handler to be able to prevent the same interrupt to be executed again (e.g. when an interrupt is caused by the signal level, not edge).
 
-If handler returns value > 0 then kernel performs `condSignal()` on a conditional passed when registering interrupt. If this feature is not needed, one can pass 0 as _`cond`_.
+If handler returns value >= 0 then kernel performs `condSignal()` on a conditional passed when registering interrupt. If this feature is not needed, one can pass 0 as _`cond`_.
 
 ## See also
 
