@@ -141,6 +141,7 @@ There is a list of commands you can use to get them on the Ubuntu 20.04 host ope
 sudo apt-get update && \
 sudo apt-get upgrade && \
 sudo apt-get install build-essential \
+mtd-utils \
 autoconf \
 texinfo \
 genext2fs \
