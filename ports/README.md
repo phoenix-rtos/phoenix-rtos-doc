@@ -18,6 +18,7 @@ Following ports are possible to use:
 - `lighttpd`- web server optimized for speed-critical environments,
 - `lua` - programming language designed primarily for embedded use in applications,
 - `lzo` - portable lossless data compression library,
+- [mbedtls](mbedtls.md) - an open source, portable, easy to use SSL library,
 - `micropython` - lean and efficient implementation of the Python 3 programming language,
 - `openssl`- toolkit for general-purpose cryptography and secure communication,
 - `openvpn`- open source connection protocol used to facilitate a secure tunnel between two points in a network,
