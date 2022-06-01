@@ -46,7 +46,7 @@ set-group-ID.
 
 ## Tests
 
-Untested
+Tested
 
 ## Known bugs
 
