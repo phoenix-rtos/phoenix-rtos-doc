@@ -335,6 +335,8 @@ va2pa,
 
 [`wait`](./w/waitpid.part-impl.md), <!-- #updated# -->
 [`waitpid`](./w/waitpid.part-impl.md), <!-- #updated# -->
+[`wcscmp`](./w/wcscmp.impl.md), <!-- #updated# -->
+[`wcslen`](./w/wcslen.non-impl.md), <!-- #updated# -->
 [`wcstombs`](./w/wcstombs.non-impl.md), <!-- #updated# -->
 [`wctomb`](./w/wctomb.non-impl.md), <!-- #updated# -->
 wdgreload,
