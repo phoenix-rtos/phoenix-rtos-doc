@@ -1,4 +1,4 @@
-# Running system on `armv7m4-stm32l4x6` (ST STM32L4x)
+# Running system on `armv7m4-stm32l4x6-nucleo` (ST STM32L4x)
 
 This version is designated for STM32L4x6 processors with Cortex-M4 core. To launch this version the final flash image should be provided. The image is created as the final artifact of the `phoenix-rtos-project` building and is located in the `_boot` directory. The image consists of a kernel, TTY UART driver, RAM disk filesystem, and psh (shell).
 
@@ -79,7 +79,7 @@ openocd -v
   ```
 
   </br>
-  <img src="_images/openocd-version.png" width="600px">
+  <img src="_images/openocd-version.png" width="700px">
   </br>
 
   </details> 
@@ -87,7 +87,7 @@ openocd -v
 If you have openocd, next you can use the following script:
 
 ```bash
-sudo phoenix-rtos-build/scripts/program-stm32l4x6.sh _boot/phoenix-armv7m4-stm32l4x6.bin
+sudo phoenix-rtos-build/scripts/program-stm32l4x6.sh _boot/armv7m4-stm32l4x6-nucleo/phoenix.disk
 ```
 
 or use openocd directly:
@@ -95,10 +95,10 @@ or use openocd directly:
 ```bash
 openocd -f interface/stlink.cfg \
 -f target/stm32l4x.cfg -c "reset_config srst_only srst_nogate connect_assert_srst" \
--c "program _boot/phoenix-armv7m4-stm32l4x6.bin 0x08000000 verify reset exit"
+-c "program _boot/armv7m4-stm32l4x6-nucleo/phoenix.disk 0x08000000 verify reset exit"
 ```
 
-<img src="_images/stm32l4x6-openocd.png" width="600px">
+<img src="_images/stm32l4x6-openocd.png" width="700px">
 
 The script can be modified to accommodate other SWD interfaces.
 
@@ -106,7 +106,9 @@ The script can be modified to accommodate other SWD interfaces.
 
 Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal with the serial port opened.
 
-<img src="_images/stm32l4x6-start.png" width="600px">
+<img src="_images/stm32l4x6-start.png" width="700px">
+
+ - Note: You can also enter plo (Phoenix-RTOS loader) by pressing any button, for example, `enter` within some time after reset (using `RESET B2`).
 
 To get the available command list please type:
 
@@ -114,7 +116,7 @@ To get the available command list please type:
 help
 ```
 
-<img src="_images/stm32l4x6-help.png" width="600px">
+<img src="_images/stm32l4x6-help.png" width="700px">
 
 To get the list of working processes please type:
 
@@ -122,7 +124,7 @@ To get the list of working processes please type:
 ps
 ```
 
-<img src="_images/stm32l4x6-ps.png" width="600px">
+<img src="_images/stm32l4x6-ps.png" width="700px">
 
 ## See also
 

@@ -1,4 +1,4 @@
-# Running system on `armv7a7-imx6ull` (NXP i.MX 6ULL)
+# Running system on `armv7a7-imx6ull-evk` (NXP i.MX 6ULL)
 
 This version is designed for NXP i.MX 6ULL processors with ARM Cortex-A7 core. To launch this version the final disk image and loader image should be provided. Images are created as the final artifacts of the `phoenix-rtos-project` building and are located in the `_boot` directory. The disk image consists of bootloader (plo), kernel, UART driver (tty), dummyfs filesystem server (RAM disk), and psh (shell). Necessary tools to carry out the uploading process are located in the `_boot` directory as well.
 
@@ -23,7 +23,7 @@ The easiest way to start programming hardware targets using Phoenix-RTOS is to g
   ls -l /dev/serial/by-id
   ```
 
-  <img src="_images/imx6ull-ls.png" width="600px">
+  <img src="_images/imx6ull-ls.png" width="700px">
 
   If your output is like in the screenshot above, the console (`DEBUG USB` in the evaluation board) is on the `USB0` port.
 
@@ -58,17 +58,17 @@ In order to place the disk image on the board, `psu` (Phoenix Serial Uploader) a
 
   If it was in a different position you have to restart the board after the change and connect to the serial port a second time.
 
-- Change directory to `_boot` and run `psu` as follows:
+- Change directory to `_boot/armv7a7-imx6ull-evk` and run `psu` as follows:
 
   ```
-  sudo ./psu ../phoenix-rtos-hostutils/psu/imx6ull-ram.sdp
+  sudo ./psu ../../phoenix-rtos-hostutils/psu/imx6ull-ram.sdp
   ```
 
-  <img src="_images/imx6ull-psu.png" width="600px">
+  <img src="_images/imx6ull-psu.png" width="700px">
 
 - If everything has gone correctly, Phoenix-RTOS with the default configuration and the `psh` shell command prompt will appear in the terminal.
 
-  <img src="_images/imx6ull-psh.png" width="600px">
+  <img src="_images/imx6ull-psh.png" width="700px">
 
 ## Using Phoenix-RTOS
 
@@ -79,7 +79,7 @@ To get the available command list please type:
 help
 ```
 
-<img src="_images/imx6ull-help.png" width="600px">
+<img src="_images/imx6ull-help.png" width="700px">
 
 
 If you want to get the list of working processes please type:
@@ -88,7 +88,7 @@ If you want to get the list of working processes please type:
 ps
 ```
 
-<img src="_images/imx6ull-ps.png" width="600px">
+<img src="_images/imx6ull-ps.png" width="700px">
 
 To get the table of processes please type:
 
@@ -96,7 +96,7 @@ To get the table of processes please type:
 top
 ```
 
-<img src="_images/imx6ull-top.png" width="600px">
+<img src="_images/imx6ull-top.png" width="700px">
 
 
 ## See also
