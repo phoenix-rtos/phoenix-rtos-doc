@@ -23,7 +23,7 @@ See [how to build the Phoenix-RTOS system image](../building/README.md).
 
   The picture below presents how the board should be connected:
 
-  <img src="_images/zynq7000-connections.png" width="600px">
+  <img src="_images/zynq7000-connections.png" width="700px">
 
 - Now you can power up the board, changing the `SW8` position to `ON`. The `LD13` LED should turn green.
 
@@ -33,7 +33,7 @@ See [how to build the Phoenix-RTOS system image](../building/README.md).
   ls -l /dev/serial/by-id
   ```
 
-  <img src="_images/zynq7000-ls.png" width="600px">
+  <img src="_images/zynq7000-ls.png" width="700px">
 
   If your output is like in the screenshot above, the console (`UART` in the evaluation board) is on the `ACM0` port.
 
@@ -64,7 +64,7 @@ The process comes down to a few steps, described below.
 
 The Phoenix-RTOS loader is uploaded to the SD card. When the board is powered on, the following output will appear on the serial port:
 
-<img src="_images/zynq7000-ram-start.png" width="600px">
+<img src="_images/zynq7000-ram-start.png" width="700px">
 
 If you don't see it, please press the `PS-RST` button (`BTN7`), to restart the chip and print initialization logs.
 
@@ -78,11 +78,11 @@ If You are flashing the board a second time and some older Phoenix-RTOS image is
 
 The following output will appear:
 
-<img src="_images/zynq7000-ram-start-2.png" width="600px">
+<img src="_images/zynq7000-ram-start-2.png" width="700px">
 
 As you can see, the older Phoenix-RTOS image is now launched, but we need to run plo (Phoenix-RTOS loader). To do that, you should press any button, for example, `enter` within 1 second after reset (using `PS-RST`):
 
-<img src="_images/zynq7000-plo.png" width="600px">
+<img src="_images/zynq7000-plo.png" width="700px">
 
 ### Copying flash image using PHFS (phoenixd)
 
@@ -91,27 +91,27 @@ To flash the disk image, first, you need to verify on which port plo USB device 
 ```bash
 ls -l /dev/serial/by-id
 ```
-<img src="_images/zynq7000-ls-2.png" width="600px">
+<img src="_images/zynq7000-ls-2.png" width="700px">
 
 To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments (choose suitable ttyACMx device, in this case, ttyACM1):
 
 ```
-cd _boot/
+cd _boot/armv7a9-zynq7000-zedboard
 ```
 
 ```bash
 sudo ./phoenixd -p /dev/ttyACM1 -b 115200 -s .
 ```
 
-<img src="_images/zynq7000-phoenixd.png" width="600px">
+<img src="_images/zynq7000-phoenixd.png" width="700px">
 
 To start copying the file, write the following command in the console with plo interface:
 
 ```bash
-copy usb0 phoenix-armv7a9-zynq7000-zedboard.disk flash0 0x0 0x0
+copy usb0 phoenix.disk flash0 0x0 0x0
 ```
 
-<img src="_images/zynq7000-plo-copy.png" width="600px">
+<img src="_images/zynq7000-plo-copy.png" width="700px">
 
 ### Booting Phoenix-RTOS from NOR flash memory
 
@@ -132,7 +132,7 @@ To run it you should follow the steps below:
   ls -l /dev/serial/by-id/
   ```
 
-  <img src="_images/zynq7000-ls-3.png" width="600px">
+  <img src="_images/zynq7000-ls-3.png" width="700px">
 
 - connect to that port:
 
@@ -142,7 +142,7 @@ To run it you should follow the steps below:
 
 - restart the chip using the `PS-RST` button to print initialization logs:
 
-  <img src="_images/zynq7000-qspi-start.png" width="600px">
+  <img src="_images/zynq7000-qspi-start.png" width="700px">
 
 *If You has already set the `NOR flash` mode You can only press `PS-RST` button.
 
@@ -154,7 +154,7 @@ To get the available command list please type:
 help
 ```
 
-<img src="_images/zynq7000-help.png" width="600px">
+<img src="_images/zynq7000-help.png" width="700px">
 
 
 If you want to get the list of working processes please type:
@@ -163,7 +163,7 @@ If you want to get the list of working processes please type:
 ps
 ```
 
-<img src="_images/zynq7000-ps.png" width="600px">
+<img src="_images/zynq7000-ps.png" width="700px">
 
 To get the table of processes please type:
 
@@ -171,7 +171,7 @@ To get the table of processes please type:
 top
 ```
 
-<img src="_images/zynq7000-top.png" width="600px">
+<img src="_images/zynq7000-top.png" width="700px">
 
 
 ## See also

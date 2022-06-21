@@ -1,4 +1,4 @@
-# Running system on `armv7m7-imxrt117x` (NXP i.MX RT117x)
+# Running system on `armv7m7-imxrt117x-evk` (NXP i.MX RT117x)
 
 This version is designed for NXP i.MX RT117x processors with ARM Cortex-M7 core. To launch this version the final disk image and loader image should be provided. The images are created as the final artifacts of the `phoenix-rtos-project` building and are located in the `_boot` directory. The disk image consists of the bootloader (plo), kernel, UART driver (tty), dummyfs filesystem server (RAM disk), and `psh` (shell). Necessary tools to carry out the flashing process are located in the `_boot` directory as well.
 
@@ -18,7 +18,7 @@ The easiest way to start programming hardware targets using Phoenix-RTOS is to g
 
   The picture below presents how the board should be connected:
 
-  <img src="_images/imxrt117x-connections.png" width="600px">
+  <img src="_images/imxrt117x-connections.png" width="700px">
 
 - Now you should verify what USB device on your host-pc is connected with the `DEBUG USB` (console). In order to check that run:
 
@@ -27,7 +27,7 @@ The easiest way to start programming hardware targets using Phoenix-RTOS is to g
   ```
 
   </br>
-  <img src="_images/imxrt117x-ls.png" width="600px">
+  <img src="_images/imxrt117x-ls.png" width="700px">
   </br>
 
   If your output is like in the screenshot above, the console (`DEBUG USB` in the evaluation board) is on the `ACM0` port.
@@ -63,24 +63,20 @@ NOTE: `i. MX RT1176` should be set in Serial Download mode. Set the appropriate 
 Change directory to `_boot` and run `psu` as follow:
 
 ```
-cd _boot/
+cd _boot/armv7m7-imxrt117x-evk
 ```
 
 ```bash
-sudo ./psu plo-ram-armv7m7-imxrt117x.sdp
+sudo ./psu plo-ram.sdp
 ```
-
-The following output is expected:
-
-<img src="_images/imxrt117x-psu-output.png" width="600px">
 
 The plo user interface should appear in the console.
 
-<img src="_images/imxrt117x-plo.png" width="600px">
+<img src="_images/imxrt117x-plo.png" width="700px">
 
 To get the available bootloader command list please type `help`.
 
-<img src="_images/imxrt117x-plo-help.png" width="600px">
+<img src="_images/imxrt117x-plo-help.png" width="700px">
 
 ### Copying flash image using PHFS (phoenixd)
 
@@ -88,22 +84,20 @@ To flash the disk image, first, you need to verify on which port plo USB device 
 ```bash
 ls -l /dev/serial/by-id
 ```
-<img src="_images/imxrt117x-ls-2.png" width="600px">
+<img src="_images/imxrt117x-ls-2.png" width="700px">
 
 To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments (choose suitable ttyACMx device, in this case, ttyACM1):
 
 ```bash
-sudo ./phoenixd -k ../_build/armv7m7-imxrt117x/prog/phoenix-armv7m7-imxrt117x.elf -p /dev/ttyACM1 -b 115200 -s .
+sudo ./phoenixd -p /dev/ttyACM1 -b 115200 -s .
 ```
-<img src="_images/imxrt117x-phoenixd.png" width="600px">
+<img src="_images/imxrt117x-phoenixd.png" width="700px">
 
 To start copying a file, write the following command in the console with plo interface:
 
 ```bash
-copy usb0 phoenix-armv7m7-imxrt117x.disk flash0 0x0 0x0
+copy usb0 phoenix.disk flash0 0x0 0x0
 ```
-
-<img src="_images/imxrt117x-plo-copy.png" width="600px">
 
 The `flash0` is the external flash memory.
 
@@ -113,7 +107,7 @@ To launch Phoenix-RTOS from flash memory, change the `SW1` switch to Internal Bo
 
 If everything has gone correctly, Phoenix-RTOS with the default configuration and the `psh` shell command prompt will appear in the terminal after 2 seconds. If there is a need to enter the bootloader, the waiting for input should be interrupted by pressing any key. Then you can exit plo by passing `go!` command.
 
-<img src="_images/imxrt117x-start.png" width="600px">
+<img src="_images/imxrt117x-start.png" width="700px">
 
 
 ## Using Phoenix-RTOS
@@ -123,7 +117,7 @@ If you want to get the available command list please type:
 ```
 help
 ```
-<img src="_images/imxrt117x-help.png" width="600px">
+<img src="_images/imxrt117x-help.png" width="700px">
 
 To get the list of working processes please type:
 
@@ -131,7 +125,7 @@ To get the list of working processes please type:
 ps
 ```
 
-<img src="_images/imxrt117x-ps.png" width="600px">
+<img src="_images/imxrt117x-ps.png" width="700px">
 
 
 To get the table of processes please type:
@@ -140,7 +134,7 @@ To get the table of processes please type:
 top
 ```
 
-<img src="_images/imxrt117x-top.png" width="600px">
+<img src="_images/imxrt117x-top.png" width="700px">
 
 ## See also
 

@@ -44,7 +44,7 @@ Firstly, you need to have the docker installed.
   sudo docker --version
   ```
 
-  <img src="_images/docker-version.png" width="600px">
+  <img src="_images/docker-version.png" width="700px">
 
   - To make calling docker command without `sudo` possible type:
 
@@ -65,7 +65,7 @@ Firstly, you need to have the docker installed.
   docker run hello-world
   ```
 
-  <img src="_images/docker-test.png" width="600px">
+  <img src="_images/docker-test.png" width="700px">
 
   For more details and other instructions see
 
@@ -76,12 +76,14 @@ Firstly, you need to have the docker installed.
 Now, with docker installed you can run Phoenix-RTOS using the following command:
 
 ```
-./docker-devel.sh scripts/armv7a9-zynq7000.sh
+./docker-devel.sh scripts/armv7a9-zynq7000-qemu.sh
 ```
 
 As a result, you should see `psh` (Phoenix-RTOS shell).
 
-<img src="_images/zynq7000-emu-start.png" width="600px">
+ - Note: It may take a while.
+
+<img src="_images/zynq7000-emu-start.png" width="700px">
 
   <details>
   <summary>Why there is no need to install qemu?</summary>
@@ -100,7 +102,7 @@ To get the available command list please type:
 help
 ```
 
-<img src="_images/zynq7000-emu-help.png" width="600px">
+<img src="_images/zynq7000-emu-help.png" width="700px">
 
 
 If you want to get the list of working processes please type:
@@ -109,7 +111,7 @@ If you want to get the list of working processes please type:
 ps
 ```
 
-<img src="_images/zynq7000-emu-ps.png" width="600px">
+<img src="_images/zynq7000-emu-ps.png" width="700px">
 
 To get the table of processes please type:
 
@@ -117,15 +119,15 @@ To get the table of processes please type:
 top
 ```
 
-<img src="_images/zynq7000-emu-top.png" width="600px">
+<img src="_images/zynq7000-emu-top.png" width="700px">
 
 If you want to quit, you should click on the terminal window, press `ctrl + a`, release it, and next press the `x` key.
 
-<img src="_images/zynq7000-emu-terminate.png" width="600px">
+<img src="_images/zynq7000-emu-terminate.png" width="700px">
 
 ## See also
 
 1. [Running system on armv7a9-zynq7000](armv7a9-zynq7000.md)
-2. [Running system on armv7a9-zynq7000 on development board](armv7a9-zynq7000-devboard.md)
+2. [Running system on armv7a9-zynq7000 on development board](armv7a9-zynq7000-zedboard.md)
 3. [Running system on targets](README.md)
 4. [Table of Contents](../README.md)
