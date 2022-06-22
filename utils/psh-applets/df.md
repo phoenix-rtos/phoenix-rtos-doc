@@ -24,7 +24,7 @@ The utility prints information about the filesystem on which each file specified
 
 The inodes statistics are available only for `ext2` filesystem. Neither `dummyfs` nor `jffs2` collect such global data.
 
-The example of checking root directory on ia32-generic target architecture:
+The example of checking root directory on ia32-generic-qemu target architecture:
 
 ![image](_images/df_example.png)
 

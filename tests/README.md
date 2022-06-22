@@ -9,12 +9,12 @@ Read more about the reference project repository [here](../building/project.md).
 ## Using test runner locally
 
 The simplest way to run tests is launching `runner.py` locally.
-The example below shows how to run all tests for the `ia32-generic` target architecture.
+The example below shows how to run all tests for the `ia32-generic-qemu` target architecture.
 
 First, build the system image with a serial console and the test component:
 
 ```
-TARGET=ia32-generic CONSOLE=serial ./phoenix-rtos-build/build.sh all test
+TARGET=ia32-generic-qemu CONSOLE=serial ./phoenix-rtos-build/build.sh all test
 ```
 
 For more information about building script please see the [building script](../building/script.md) chapter.
@@ -22,7 +22,7 @@ For more information about building script please see the [building script](../b
 In the next step, change the directory to `phoenix-rtos-tests` and run the following command:
 
 ```bash
-python3 runner.py -T ia32-generic
+python3 runner.py -T ia32-generic-qemu
 ```
 
 The expected output is shown in the screenshot below:
