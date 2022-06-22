@@ -48,11 +48,11 @@ To use functions provided by `mbedtls` please place the specific `mbedtls` libra
   }
   ```
 
-- Note: Please remember that `PORTS_MBEDTLS` should be set to `y` in the specific building script in `_targets` directory.
+- Note: Please remember that `PORTS_MBEDTLS` should be set to `y` in the specific building script in `_projects` directory or using an environment variable.
 
 ## Running tests
 
-To build `mbedtls` tests please type `LONG_TEST=y` before calling `build.sh`.
+To build `mbedtls` tests please set `LONG_TEST=y` environment variable before calling `build.sh`.
 
 In order to run the specific test please type in psh: `/bin/test_name mbedtls_test_configs/test_name.datax`, for example:
 
@@ -62,7 +62,7 @@ In order to run the specific test please type in psh: `/bin/test_name mbedtls_te
 
  - Running all tests and parsing results isn't supported in Phoenix-RTOS Test Runner yet.
 
- - The following tests require setting actual date before running(using `date` command in psh, for example: `date -s @1653990793`), because of certificates' creation date:
+ - The following tests require setting current date before running(using `date` command in psh, for example: `date -s @1653990793`), because of certificates' creation date:
    - `test_suite_ssl`
    - `test_suite_x509`
 
@@ -77,7 +77,7 @@ Currently, there are 3/2695 unresolved failing test cases in `test_suite_ssl`:
 
  - `DTLS renegotiation: legacy break handshake`
 
-There are also listed failing test cases not related strictly to problems with `mbedtls`:
+There are also failing test cases not related strictly to problems with `mbedtls`:
 
  - `net_poll beyond FD_SETSIZE` in `test_suite_net` - https://github.com/phoenix-rtos/phoenix-rtos-project/issues/408
 
