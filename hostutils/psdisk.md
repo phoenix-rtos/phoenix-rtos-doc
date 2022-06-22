@@ -5,7 +5,7 @@ https://github.com/phoenix-rtos/phoenix-rtos-filesystems/tree/master/ptable
 
 
 ## Preliminary information
-In Phoenix-RTOS this memory scheme was introduced in a flash server (https://github.com/phoenix-rtos/phoenix-rtos-devices/tree/master/storage/imxrt-flash) for armv7m7-imxrt106x (NXP i.MX RT106x). It can be distinguished by the following partition types:
+In Phoenix-RTOS this memory scheme was introduced in a flash server (https://github.com/phoenix-rtos/phoenix-rtos-devices/tree/master/storage/imxrt-flash) for armv7m7-imxrt106x-evk (NXP i.MX RT106x). It can be distinguished by the following partition types:
 - raw - partition provides direct access only to a selected part of memory,
 - MeterFS - partition contains access to a file system created for meter profile data storage (https://github.com/phoenix-rtos/phoenix-rtos-filesystems/tree/master/meterfs).
 

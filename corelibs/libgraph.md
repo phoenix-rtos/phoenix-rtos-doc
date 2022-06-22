@@ -25,7 +25,7 @@ The library supports the following graphics adapters:
 
 ## libgraph apps
 
-Examples of applications, which use graphics library (`ia32-generic` target architecture).
+Examples of applications, which use graphics library (`ia32-generic-qemu` target architecture).
 
 - `voxeldemo`
 
@@ -153,7 +153,7 @@ Examples of applications, which use graphics library (`ia32-generic` target arch
   Retrieves a color palette used in 8-bit indexed color mode.. The retrieved color map from _`first`_ to _`last`_ element is passed to a buffer pointed by the _`colors`_ argument.
 
 - `int graph_cursorset(graph_t *graph, const unsigned char *amask, const unsigned char *xmask, unsigned int bg, unsigned int fg)` </br>
-  Sets cursor icon, _`amask`_ (`AND` mask) and _`xmask`_ (`XOR` mask) arguments determine the shape of the cursor. Default cursor shape is defined in `cursor.h` header file placed in `gfx` directory in `phoenix-rtos-tests` repository. There is possibility to pass cursor colors - outline color (`bg` argument) and main color (`fg` argument). The following color format should be applied: `0xAARRGGBB`, where `A` represents alpha, so when it's set to `0xff` 100% opacity is provided. Opacity isn't supported for cirrus graphics adapter (default for `ia32-generic` target).
+  Sets cursor icon, _`amask`_ (`AND` mask) and _`xmask`_ (`XOR` mask) arguments determine the shape of the cursor. Default cursor shape is defined in `cursor.h` header file placed in `gfx` directory in `phoenix-rtos-tests` repository. There is possibility to pass cursor colors - outline color (`bg` argument) and main color (`fg` argument). The following color format should be applied: `0xAARRGGBB`, where `A` represents alpha, so when it's set to `0xff` 100% opacity is provided. Opacity isn't supported for cirrus graphics adapter (default for `ia32-generic-qemu` target).
 
 - `int graph_cursorpos(graph_t *graph, unsigned int x, unsigned int y)` </br>
   Sets cursor position.
@@ -190,7 +190,7 @@ Examples of applications, which use graphics library (`ia32-generic` target arch
 
 ## How to use the graphics library
 
-Few simple examples of `libgraph` functions usage. Default graphics adapter (`cirrus`) for `ia32-generic` running script is used, default color depth is 4 bytes. Before calling mentioned functions following initialization was applied:
+Few simple examples of `libgraph` functions usage. Default graphics adapter (`cirrus`) for `ia32-generic-qemu` running script is used, default color depth is 4 bytes. Before calling mentioned functions following initialization was applied:
 
 ```c
 #include <graph.h>
