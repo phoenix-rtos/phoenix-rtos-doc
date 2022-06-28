@@ -75,6 +75,7 @@
     2. [libvirtio](corelibs/libvirtio.md)
     3. [libvga](corelibs/libvga.md)
     4. [libgraph](corelibs/libgraph.md)
+    4. [libuuid](corelibs/libuuid.md)
 15. [Ports](ports/README.md)
 16. [Tests and testing process](tests/README.md)
 17. [Coding convention](coding.md)
