@@ -25,6 +25,7 @@ Following ports are possible to use:
 - `pcre` - library that implements regular expression pattern matching using the same syntax and semantics as Perl 5,
 - `scep` - client-only implementation of the `SCEP` (Cisco System's Simple Certificate Enrollment Protocol),
 - `wpa_supplicant` - Wi-Fi Protected Access client and `IEEE 802.1X` supplicant
+- [azure_sdk](azure_sdk.md) - Azure IoT C Software Development Kit
 
 <!-- #TODO: add chapters on how to use each of this tool -->
 
