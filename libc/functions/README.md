@@ -39,10 +39,9 @@ beginthreadex,
 [`close`](./c/close.part-impl.md), <!-- updated -->
 [`closedir`](./c/closedir.part-impl.md), <!-- updated -->
 [`closelog`](./o/openlog.part-impl.md), <!-- updated -->
-condBroadcast,
-condCreate,
-condSignal,
-condWait
+[`condCreate`](./c/condCreate.phrtos.md),
+[`condBroadcast`](./c/condSignal.phrtos.md),
+[`condWait`](./c/condWait.phrtos.md),
 [`connect`](./c/connect.part-impl.md), <!-- updated -->
 [`cos`](./c/cos.part-impl.md), <!-- updated -->
 [`cosf`](./c/cos.part-impl.md), <!-- updated -->
@@ -77,6 +76,8 @@ endthread,
 
 [`fabs`](./f/fabs.part-impl.md), <!-- updated -->
 [`fabsf`](./f/fabs.part-impl.md), <!-- updated -->
+[`fchdir`](./f/fchdir.not-impl.md), <!-- updated -->
+[`fchown`](./f/fchown.not-impl.md), <!-- updated -->
 [`fclose`](./f/fclose.part-impl.md), <!-- updated -->
 [`fcntl`](./f/fcntl.part-impl.md), <!-- updated -->
 [`fdopen`](./f/fdopen.part-impl.md), <!-- updated -->
@@ -103,6 +104,7 @@ endthread,
 [`fseek`](./f/fseek.part-impl.md), <!-- updated -->
 [`fseeko`](./f/fseek.part-impl.md), <!-- updated -->
 [`fstatat`](./s/stat.part-impl.md), <!-- updated -->
+[`fsync`](./f/fsync.not-impl.md), <!-- updated -->
 [`ftell`](./f/ftell.part-impl.md), <!-- updated -->
 [`ftello`](./f/ftell.part-impl.md), <!-- updated -->
 [`ftruncate`](./f/ftruncate.part-impl.md), <!-- updated -->
@@ -118,7 +120,12 @@ endthread,
 [`getchar_unlocked`](./p/putchar_unlocked.part-impl.md), <!-- updated -->
 [`getcwd`](./g/getcwd.part-impl.md), <!-- updated -->
 [`getegid`](./g/getegid.part-impl.md), <!-- updated -->
+[`geteuid`](./g/geteuid.not-impl.md), <!-- updated -->
+[`getgid`](./g/getgid.not-impl.md), <!-- updated -->
+[`getgroups`](./g/getgroups.not-impl.md), <!-- updated -->
 [`getline`](./g/getline.part-impl.md), <!-- updated -->
+[`getlogin`](./g/getlogin.not-impl.md), <!-- updated -->
+[`getlogin_r`](./g/getlogin.not-impl.md), <!-- updated -->
 [`getpgrp`](./g/getpgrp.part-impl.md), <!-- updated -->
 [`getpid`](./g/getpid.part-impl.md), <!-- updated -->
 [`getppid`](./g/getppid.part-impl.md), <!-- updated -->
@@ -160,7 +167,7 @@ lookup,
 [`memchr`](./m/memchr.part-impl.md), <!-- updated -->
 [`memcmp`](./m/memcmp.part-impl.md), <!-- updated -->
 [`memcpy`](./m/memcpy.part-impl.md), <!-- updated -->
-meminfo,
+[`meminfo`](./m/meminfo.impl.md), <!-- updated -->
 [`memmove`](./m/memmove.part-impl.md), <!-- updated -->
 [`memset`](./m/memset.part-impl.md), <!-- updated -->
 [`mkdir`](./m/mkdir.part-impl.md), <!-- updated -->
@@ -231,9 +238,13 @@ resourceDestroy,
 
 [`sscanf`](./f/fscanf.part-impl.md), <!-- updated -->
 [`setbuf`](./s/setbuf.part-impl.md), <!-- updated -->
+[`setegid`](./s/setegid.not-impl.md), <!-- updated -->
+[`seteuid`](./s/seteuid.not-impl.md), <!-- updated -->
+[`setgid`](./s/setgid.not-impl.md), <!-- updated -->
 [`setjmp`](./s/setjmp.part-impl.md), <!-- updated -->
 [`setpgid`](./s/setpgid.part-impl.md), <!-- updated -->
 [`setsid`](./s/setsid.part-impl.md), <!-- updated -->
+[`setuid`](./s/setuid.not-impl.md), <!-- updated -->
 [`setvbuf`](./s/setvbuf.part-impl.md), <!-- updated -->
 [`sigaddset`](./s/sigaddset.part-impl.md), <!-- updated -->
 [`sigemptyset`](./s/sigemptyset.part-impl.md), <!-- updated -->
@@ -278,6 +289,7 @@ resourceDestroy,
 [`strxfrm`](./s/strxfrm.part-impl.md), <!-- updated -->
 sysconf,
 syspageprog,
+[`sync`](./s/sync.not-impl.md), <!-- updated -->
 [`system`](./s/system.part-impl.md), <!-- updated -->
 
 ## t
@@ -299,6 +311,8 @@ timeGet,
 timeSet,
 [`tmpfile`](./t/tmpfile.part-impl.md), <!-- #updated# -->
 [`tmpnam`](./t/tmpnam.part-impl.md) <!-- #updated# -->
+[`ttyname`](./t/ttyname.not-impl.md), <!-- updated -->
+[`ttyname_r`](./t/ttyname.not-impl.md), <!-- updated -->
 
 ## u
 
@@ -321,6 +335,8 @@ va2pa,
 
 [`wait`](./w/waitpid.part-impl.md), <!-- #updated# -->
 [`waitpid`](./w/waitpid.part-impl.md), <!-- #updated# -->
+[`wcscmp`](./w/wcscmp.impl.md), <!-- #updated# -->
+[`wcslen`](./w/wcslen.non-impl.md), <!-- #updated# -->
 [`wcstombs`](./w/wcstombs.non-impl.md), <!-- #updated# -->
 [`wctomb`](./w/wctomb.non-impl.md), <!-- #updated# -->
 wdgreload,

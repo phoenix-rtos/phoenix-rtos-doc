@@ -4,7 +4,7 @@
 ` gid_t getegid(void);`</br>
 
 ## Status
-Partially implemented
+Declared, not implemented
 ## Conformance
 IEEE Std 1003.1-2017
 ## Description

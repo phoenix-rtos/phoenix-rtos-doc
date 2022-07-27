@@ -28,6 +28,9 @@ In `psh`, each command or set of commands is a separate applet, here's a list of
 
 * `bind`       - binds device to directory
 * [`cat`](psh-applets/cat.md)        - concatenate file(s) to standard output
+* [`date`](psh-applets/date.md)        - print/set the system date
+* [`df`](psh-applets/df.md) - prints filesystem statistics
+* [`echo`](psh-applets/echo.md)       - display a line of text
 * [`edit`](psh-applets/edit.md) - text editor
 * [`exec`](psh-applets/exec.md)       - replace shell with the given command
 * [`exit`](psh-applets/exit.md)       - exits shell
@@ -42,6 +45,7 @@ In `psh`, each command or set of commands is a separate applet, here's a list of
 * [`nslookup`](psh-applets/nslookup.md)   - queries domain name servers
 * `perf`       - track kernel performance events
 * [`ping`](psh-applets/ping.md)       - ICMP ECHO requests
+* [`pm`](psh-applets/pm.md)         - monitors processes
 * [`ps`](psh-applets/ps.md)         - prints processes and threads
 * [`pshapp`](psh-applets/pshapp.md)     - delivers `psh` interpreter, `exit`, `pshlogin` and `history` commands
 * [`pshlogin`](psh-applets/pshlogin.md) - launches `psh` with user authentication

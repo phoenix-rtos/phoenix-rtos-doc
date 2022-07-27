@@ -9,7 +9,7 @@ Phoenix-RTOS provides its toolchain, based on GNU CC. It's divided into the foll
 Each part delivers the tools required to compile for the given architecture simply.
 There are a few reasons why that is helpful
 
-- You can easily compile source code for a given Phoenix-RTOS platform, for example, ia32-generic:
+- You can easily compile source code for a given Phoenix-RTOS platform, for example, ia32-generic-qemu:
 
   ```bash
   i386-pc-phoenix-gcc helloworld.c

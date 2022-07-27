@@ -30,14 +30,19 @@ git clone --recursive https://github.com/phoenix-rtos/phoenix-rtos-project.git
 
 The Phoenix-RTOS reference project supports the following target platforms:
 
-* armv7m4-stm32l4x6
-* armv7m7-imxrt105x
-* armv7m7-imxrt106x
-* armv7m7-imxrt117x
-* armv7a7-imx6ull
-* ia32-generic
-* riscv64-spike
-* riscv64-virt
+* armv7a7-imx6ull-evk
+* armv7a9-zynq7000-qemu
+* armv7a9-zynq7000-zedboard
+* armv7a9-zynq7000-zturn
+* armv7m4-stm32l4x6-nucleo
+* armv7m7-imxrt105x-evk
+* armv7m7-imxrt106x-evk
+* armv7m7-imxrt117x-evk
+* host-generic-pc
+* ia32-generic-pc
+* ia32-generic-qemu
+* riscv64-generic-qemu
+* riscv64-generic-spike
 
 To get the list of valid targets the `build.sh` script should be launched with an empty `TARGET` variable, eg:
 
@@ -121,7 +126,7 @@ Then, to build - provide a `TARGET` via ENV variable and run the build script:
 
 ```bash
 cd phoenix-rtos-project/
-TARGET=ia32-generic ./docker-build.sh all
+TARGET=ia32-generic-qemu ./docker-build.sh all
 ```
 
 After the build completes, kernel and disk images will be created and placed in the `_boot` directory.
@@ -139,11 +144,13 @@ There is a list of commands you can use to get them on the Ubuntu 20.04 host ope
 sudo apt-get update && \
 sudo apt-get upgrade && \
 sudo apt-get install build-essential \
+mtd-utils \
 autoconf \
 texinfo \
 genext2fs \
 libtool \
-libhidapi-dev
+libhidapi-dev \
+python3
 ```
 
 Next, you need to compile the toolchains for all required target architectures:
@@ -177,7 +184,7 @@ Read more about the Phoenix-RTOS toolchain [here](toolchain.md).
 To build a project - provide a `TARGET` via ENV variable:
 
 ```bash
-TARGET=ia32-generic ./phoenix-rtos-build/build.sh all
+TARGET=ia32-generic-qemu ./phoenix-rtos-build/build.sh all
 ```
 
 After the build completes, kernel and disk images will be created and placed in the `_boot` directory.
