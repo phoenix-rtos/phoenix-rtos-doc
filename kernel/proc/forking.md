@@ -10,19 +10,30 @@ This technique can be only implemented only on processors equipped with MMU prov
 
 ## Creating new process using `vfork()`
 
-Historically vfork() is designed to be used in the specific case where the child will exec() another program, and the parent can block until this happens. A traditional fork() requires duplicating all the memory of the parent process in the child what leads to a significant overhead. The goal of the vfork() function was to reduce this overhead by preventing unecessary memory copying when new process is created. Usually after proces creation using fork() function a new program is executed. In such case traditional fork before exec() leads to unecessary overhead (memory is copied to the child process then is freed and replaced by new memory objects as the result of exec()).
+Historically `vfork()` is designed to be used in the specific case where the child will `exec()` another program, and the parent can block until this happens. A traditional fork() requires duplicating all the memory of the parent process in the child what leads to a significant overhead. The goal of the`vfork()` function was to reduce this overhead by preventing unecessary memory copying when new process is created. Usually after proces creation using `fork()` function a new program is executed. In such case traditional fork before `exec()` leads to unecessary overhead (memory is copied to the child process then is freed and replaced by new memory objects as the result of `exec()`).
 
-In UN*X operatng system history "The Mach VM system" added Copy On Write (COW), which made the fork() much cheaper, and in BSD 4.4, vfork() was made synonymous to fork().
+In UN*X operatng system history "The Mach VM system" added Copy On Write (COW), which made the `fork()` much cheaper, and in BSD 4.4, `vfork()` was made synonymous to `fork()`.
 
-vfork() function has another important repercussions for non-MMU architectures. Because of it semantics it allows to launch a new process it the same way like using fork() what enables application portability.
+`vfork()` function has another important repercussions for non-MMU architectures. Because of it semantics it allows to launch a new process it the same way like using fork() what enables application portability.
 
-Some consider the semantics of vfork() to be an architectural blemish and POSIX.1-2008 removed vfork() from the standard and replaced by posix_spawn(). The POSIX rationale for the posix_spawn() function notes that that function, which provides functionality equivalent to fork()+exec(), is designed to be implementable on systems that lack an MMU.
+Some consider the semantics of `vfork()` to be an architectural blemish and POSIX.1-2008 removed `vfork()` from the standard and replaced by `posix_spawn()`. The POSIX rationale for the `posix_spawn()` function notes that that function, which provides functionality equivalent to `fork()`+`exec()`, is designed to be implementable on systems that lack an MMU.
 
 ## Process termination
 
-## Binary object (program) execution
+Process can be terminated abnormally - as the consequence of receiving signal or normally after executing `exit()` function. When process exits all of its threads are terminated, all memory objects are unmapped and all resource handles are freed/closed.  The parent process receives `SIGCHLD` signal notifying it about the child termination. `SIGCHLD` signal plays other imortant role in process termination sequence. It allows to safety remove remaining child process resources which are not able to be removed during the process runtime (e.g last thread kernel stack).
+
+## Program execution
+
+To execute new program the binary object representing it should be mapped into the process linear address space and control have to be passed to the program entry point. This is the responsibility of `exec()` family functions.
+
+On non-MMU architectures there is one important step performed after binary object is mapped and before control is passed to the program entry point. This is the program rellocation with recalculates some of programm structures (e.g. `GOT`) used for accessing the variables during the runtime. The rellocation depends on the current location of program in memory.
 
 ## Thread management
+
+`beginthread()`
+`beginthreadex()`
+`endthread()`
+
 
 ## See also
 
