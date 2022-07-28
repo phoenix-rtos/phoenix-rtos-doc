@@ -25,7 +25,7 @@ When message is sent by the `proc_send` function the sending thread is suspended
 
 To prevent copying of big data blocks over the kernel when communication goes between threads assigned to separate processes special optimization is introduced. When message is received by the receiving thread input and output buffers are transparently mapped into the receiver address space. To prevent interference with other data, if any of these buffers is not aligned with the page, the heading or tailing part of this buffer is copied to the newly allocated page mapped instead of the original page. When receiving thread responses to the message the buffers are unmapped and heading or tailing parts are copied to the original page located in sender address space. This technique is briefly presented on following figure.
 
-<img src="http://r.dcs.redcdn.pl/http/o2/phoesys/documentation/proc-msg1.png" style=" width: 500px">
+<img src="_images/proc-msg1.png" style=" width: 500px">
 
 There is another type of optimization. If input or output data size is lower then page size and data fits into the buffer used for application header passing the data is copied instead of using virtual memory capabilities which provide extra overhead for small messages.
  
