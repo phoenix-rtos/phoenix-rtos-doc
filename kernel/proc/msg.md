@@ -29,3 +29,11 @@ To prevent copying of big data blocks over the kernel when communication goes be
 There is another type of optimization. If input or output data size is lower then page size and data fits into the buffer used for application header passing the data is copied instead of using virtual memory capabilities which provide extra overhead for small messages.
  
 
+
+## See also
+
+1. [Kernel - Processes and threads](README.MD)
+2. [Kernel - Processes and threads - Process creation](forking.md)
+3. [Kernel - Processes and threads - Synchronization primitives](sync.md)
+4. [Kernel - Processes and threads - Namespace](namespace.md)
+5. [Table of Contents](../../README.md)

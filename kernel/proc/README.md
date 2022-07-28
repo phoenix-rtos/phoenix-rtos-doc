@@ -1,6 +1,6 @@
 # Kernel - Processes and threads
 
-Process and thread abstractions are used to control program executions in Phoenix-RTOS.
+Process and thread abstractions are used to control the program execution in Phoenix-RTOS.
 
 ## Process
 
@@ -58,7 +58,7 @@ Because of software partitioning requirements on some processors new execution m
 
 ## Thread transitioning between execution modes
 
-During program execution within thread processor can transition between many execution modes. Transitioning takes place as the consequence of hardware interrupt, exception or program trap. Commonly method of definition of desired mode switch is the extended interrupt vector descriptor.
+During program execution within a thread, processor can transit between many execution modes. Transitioning takes place as the consequence of hardware interrupt, exception or program trap. When one of the mentioned events appears processor transit into the execution mode defined by interrupt/exception/trap vector descriptor. After the transition to the specified executon mode the processor programming model is extended with instructions specific for this mode and address spaces specific to this mode are accessible for the program. When execution on particular execution mode finishes program returns to the previous mode and restores previous program execution context. This return is performed using special processor instrucion. On most processors it is the instruction use to notify of the end of interrupt handling.
 
 ## Process separation
 
@@ -73,8 +73,8 @@ The process and thread management subsystem is located in the `src/proc` subdire
 ## See also
 
 1. [Kernel](../README.md)
-2. [Process creation](forking.md)
-3. [Synchronization primitives](sync.md)
-4. [Message passing](msg.md)
-5. [Namespace](namespace.md)
+2. [Kernel - Processes and threads - Process creation](forking.md)
+3. [Kernel - Processes and threads - Synchronization primitives](sync.md)
+4. [Kernel - Processes and threads - Message passing](msg.md)
+5. [Kernel - Processes and threads - Namespace](namespace.md)
 6. [Table of Contents](../../README.md)
