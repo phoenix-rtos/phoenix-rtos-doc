@@ -1,14 +1,14 @@
-# Processes creation
+# Kernel - Processes and threads - Processes creation
 
-Processes are created in Phoenix-RTOS using forking technique. When new process should be created the current process forks into two instances - parent and child.
+Processes are created in Phoenix-RTOS using forking technique. When new process is created the current process forks into two instances - parent and child.
 
-## Creating new process using fork()
+## Creating new process using `fork()`
 
-The well-known method of creating new process in general purpose operting systems (e.g. UN*X) is forking technique. The explanation of this method is quite simple. In certain point of time process calls `fork()` system call which creates new process (child process) based on address space and operating system resources used by process calling `fork()` (named parent process). From this point of time processess are separated and their operate and own address spaces what means that all modification of memory are visible only in processes modifying this memory.
+The well-known method of creating new process in general purpose operting systems (e.g. UN*X) is a forking. The explanation of this method is quite simple. In the certain point of time process calls `fork()` system call which creates new process (child process) based on linear address space and operating system resources used by process calling `fork()` (parent process). From this point of time processess are separated and their operate on their own address spaces what means that all modification of process memory are visible only within them. For example lets consider process A forking into processes A and B. After forking, process A modifies variable located at address `addr` and stores there value 1 and process B modifies the same variable at address `addr` and stores there 2. The modification are specific for the forked processes and operating system assures that process A sees the variable located at `addr` as 1 and process B sees it as 2.
 
-This technique can be effectively implemented on processors equipped with MMU providing mechansms for memory virtualization (e.g. paging) which enables programs to use the same linear address to access different segments of physical memory.
+This technique can be only implemented on processors equipped with MMU providing mechansms for memory virtualization (e.g. paging) which enables programs to use the same linear address to access different segments of physical memory. On processors lacked of MMU the `fork()` method is unavailable and it is replaced by `vfork()`.
 
-## Creating new process using vfork()
+## Creating new process using `vfork()`
 
 
 ## See also
