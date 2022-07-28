@@ -26,14 +26,13 @@ Process can be terminated abnormally - as the consequence of receiving signal or
 
 To execute new program the binary object representing it should be mapped into the process linear address space and control have to be passed to the program entry point. This is the responsibility of `exec()` family functions.
 
-On non-MMU architectures there is one important step performed after binary object is mapped and before control is passed to the program entry point. This is the program rellocation with recalculates some of programm structures (e.g. `GOT`) used for accessing the variables during the runtime. The rellocation depends on the current location of program in memory.
+On non-MMU architectures there is one important step performed after binary object is mapped and before control is passed to the program entry point. This is the program rellocation with recalculates some of programm structures (e.g. `GOT`) used for accessing variables during the runtime. The rellocation depends on the current location of program in memory.
 
 ## Thread management
 
 `beginthread()`
 `beginthreadex()`
 `endthread()`
-
 
 ## See also
 
