@@ -7,7 +7,7 @@ The `cat` utility provided as a `psh` applet can be used to concatenate files an
 If used with `-h` parameter it prints the help message with possible arguments and parameters as follows:
 
 ```bash
-Usage: %s [options] [files]
+Usage: cat [options] [files]
   -h:  shows this help message
 ```
 
