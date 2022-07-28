@@ -36,7 +36,7 @@ On non-MMU architectures there is one important step performed after binary obje
 
 ## See also
 
-1. [Kernel - Processes and threads](README.MD)
+1. [Kernel - Processes and threads](README.md)
 2. [Kernel - Processes and threads - Synchronization primitives](sync.md)
 3. [Kernel - Processes and threads - Message passing](msg.md)
 4. [Kernel - Processes and threads - Namespace](namespace.md)
