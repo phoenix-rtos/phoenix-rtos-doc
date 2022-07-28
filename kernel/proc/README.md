@@ -21,8 +21,9 @@ To understand properly Phoenix-RTOS process model it should be discussed either 
 ## Process model on architectures equipped with MMU
 
 Process model for MMU architectures has been presented on the following picture.
-
-<img src="_images/proc-model.jpg" width="600" halign="center">
+<center>
+<img src="_images/proc-model.jpg" width="650" align="center">
+</center>
 
 The linear address space is defined individually per process using MMU (Memory Management Unit) and virtual addressing. It means that the linear address space is virtual and each linear address is translated into the physical address. The translation of virtual address takes place with a granulation of memory page size and is performed using MMU (Memory Management Unit) - a hardware unit located between CPU address bus and system address bus.
 
@@ -38,7 +39,9 @@ Virtual addressing and private address spaces have also big impact on memory sha
 
 The process model on non-MMU architecture has been presented below.
 
-<img src="_images/proc-model2.png" width="600">
+<center>
+<img src="_images/proc-model2.png" width="650">
+</center>
 
 The main difference between process model on MMU and non-MMU architectures is the lack of virtual addressing. Each process uses the same linear address space. Some of linear addresses can be excluded from the process linear address space using segment definition unit (e.g. MPU on ARM) or can be excluded conditionally depending and the processor execution mode.
 
