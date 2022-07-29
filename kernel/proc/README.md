@@ -76,7 +76,7 @@ The process and thread management subsystem is located in the `src/proc` subdire
 ## See also
 
 1. [Kernel](../README.md)
-2. [Kernel - Processes and threads - Process creation](forking.md)
+2. [Kernel - Processes and threads - Management](forking.md)
 3. [Kernel - Processes and threads - Synchronization primitives](sync.md)
 4. [Kernel - Processes and threads - Message passing](msg.md)
 5. [Kernel - Processes and threads - Namespace](namespace.md)

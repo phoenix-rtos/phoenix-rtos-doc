@@ -1,4 +1,4 @@
-# Kernel - Processes and threads - Processes creation
+# Kernel - Processes and threads - Management
 
 Processes are created in Phoenix-RTOS using forking technique. When new process is created the current process forks into two instances - parent and child. There are two functions used for process creation in Phoenix-RTOS - each of them should be used depending on the platform and MMU presence. The differences between these functions and circumstnces of their usage are discussed in this chapter.
 

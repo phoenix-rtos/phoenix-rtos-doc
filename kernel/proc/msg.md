@@ -34,7 +34,7 @@ There is another type of optimization. If input or output data size is lower the
 ## See also
 
 1. [Kernel - Processes and threads](README.md)
-2. [Kernel - Processes and threads - Process creation](forking.md)
+2. [Kernel - Processes and threads - Management](forking.md)
 3. [Kernel - Processes and threads - Synchronization primitives](sync.md)
 4. [Kernel - Processes and threads - Namespace](namespace.md)
 5. [Table of Contents](../../README.md)
