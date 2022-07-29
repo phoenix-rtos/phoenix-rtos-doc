@@ -15,7 +15,7 @@ Sinlocks are widely used to synchronize memory access between synchronous code e
 Overall spinlock lock implementation has been presented below in C using preprocessor macros to represent blocks of processor-specific assembly code.
 
 ```c
-    SAVE_INTERRUPT_STATE(CURRENT_CPU, state);
+    SAVE_INTERRUPTS_STATE(CURRENT_CPU, state);
     DISABLE_INTERRUPTS;
 
     while (!TEST_AND_SET(0, spinlock));
@@ -25,12 +25,12 @@ Spinlock unlocking operation is quite simple. Processor atomically changes spinl
 
 ```c
     TEST_AND_SET(1, spinlock);
-    RESTORE_INTERRUPT_STATE(CURRENT_CPU, state);
+    RESTORE_INTERRUPTS_STATE(CURRENT_CPU, state);
 ```
 
 ## Locks and mutexes
 
-Locks are used to synchronize access to critical sections inside kernel using scheduling mechanism.
+Locks are used to synchronize access to critical sections inside kernel using scheduling mechanism.  The main difference between locks and spinlocks is that they use passive waiting (removal from scheduler queues) insteat of active waiting (iterations until spinlock value becomes non-zero).
 
 ## Conditional variables
 
