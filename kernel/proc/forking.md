@@ -14,7 +14,7 @@ Historically `vfork()` is designed to be used in the specific case where the chi
 
 In UN*X operatng system history "The Mach VM system" added Copy On Write (COW), which made the `fork()` much cheaper, and in BSD 4.4, `vfork()` was made synonymous to `fork()`.
 
-`vfork()` function has another important repercussions for non-MMU architectures. Because of it semantics it allows to launch a new process it the same way like using fork() what enables application portability.
+`vfork()` function has another important repercussions for non-MMU architectures. Because of it semantics it allows to launch a new process it the same way like using `fork()` what enables application portability.
 
 Some consider the semantics of `vfork()` to be an architectural blemish and POSIX.1-2008 removed `vfork()` from the standard and replaced by `posix_spawn()`. The POSIX rationale for the `posix_spawn()` function notes that that function, which provides functionality equivalent to `fork()`+`exec()`, is designed to be implementable on systems that lack an MMU.
 
@@ -30,9 +30,7 @@ On non-MMU architectures there is one important step performed after binary obje
 
 ## Thread management
 
-`beginthread()`
-`beginthreadex()`
-`endthread()`
+To manage threads  `beginthread()`, `beginthreadex()`, `endthread()` functions should be used.
 
 ## See also
 
