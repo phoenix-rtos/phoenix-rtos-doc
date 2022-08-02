@@ -28,6 +28,7 @@ In `psh`, each command or set of commands is a separate applet, here's a list of
 
 * `bind`       - binds device to directory
 * [`cat`](psh-applets/cat.md)        - concatenate file(s) to standard output
+* [`cd`](psh-applets/cd.md)         - change working directory
 * [`cp`](psh-applets/cp.md)         - copy file
 * [`date`](psh-applets/date.md)        - print/set the system date
 * [`df`](psh-applets/df.md) - prints filesystem statistics
