@@ -118,3 +118,8 @@ GETFROMSTACK(ustack, int, protocol, 2);
 GETFROMSTACK(ustack, int, socket, 0);
 GETFROMSTACK(ustack, int, how, 1);
 ````
+
+## See also
+
+1. [System calls](README.md)
+2. [Table of Contents](../../README.md)

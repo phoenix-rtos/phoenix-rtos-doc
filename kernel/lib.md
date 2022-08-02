@@ -2,14 +2,19 @@
 
 Common routines ara located in `src/lib` subdirectory.
 
-##Print function
+## Print function
 
-##Cyclic list
+## Cyclic list
 
-##Red-Black tree
+## Red-Black tree
 
-##Random number generation
+## Random number generation
 
-##String manipulation
+## String manipulation
 
-##Binary search
+## Binary search
+
+## See also
+
+1. [Kernel](../README.md)
+2. [Table of Contents](../README.md)

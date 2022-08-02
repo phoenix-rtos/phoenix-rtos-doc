@@ -62,3 +62,20 @@ An example of adding a system call is conducted based on the `threadsinfo` sysca
 ```
 
 4. The system call can be invoked in user application by including `sys/threads.h` header. This example syscall is used by the `ps` applet in the `psh` (Phoenix-Shell).
+
+## See also
+
+1. [System calls - Debug](debug.md)
+2. [System calls - Memory management](mem.md)
+3. [System calls -  Processes management](proc.md)
+4. [System calls - Threads management](threads.md)
+5. [System calls - Threads synchronization](sync.md)
+6. [System calls - Inter-process communication](ipc.md)
+7. [System calls - File operations](file.md)
+8. [System calls - Socket operations](socket.md)
+9. [System calls - Interrupts management](interrupts.md)
+10. [System calls - Performance monitoring](perf.md)
+11. [System calls - Time management](time.md)
+12. [System calls - Platform management](platform.md)
+13. [System calls - RISC-V specific](riscv.md)
+14. [Table of Contents](../../README.md)
