@@ -1,4 +1,4 @@
-# Reference project repository
+# Reference project
 
 The main repository of Phoenix-RTOS is the [phoenix-rtos-project](https://github.com/phoenix-rtos/phoenix-rtos-project.git). The project consists of the following Github submodule repositories.
 
@@ -55,6 +55,7 @@ There are also other directories and files directly in `phoenix-rtos-project`.
 
 ## See also
 
-1. [Phoenix-RTOS toolchain](toolchain.md)
-2. [Phoenix-RTOS building script](script.md)
-3. [Table of Contents](../README.md)
+1. [Building Phoenix-RTOS image](README.md)
+2. [Building script](script.md)
+3. [Toolchain](toolchain.md)
+4. [Table of Contents](../README.md)

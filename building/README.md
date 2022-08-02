@@ -197,7 +197,7 @@ To start the created image on target architecture please see [phoenix-rtos-doc/q
 
 ## See also
 
-1. [Phoenix-RTOS toolchain](toolchain.md)
-2. [Phoenix-RTOS building script](script.md)
-3. [Phoenix-RTOS reference project repository](project.md)
+1. [Toolchain](toolchain.md)
+2. [Building script](script.md)
+3. [Reference project](project.md)
 4. [Table of Contents](../README.md)

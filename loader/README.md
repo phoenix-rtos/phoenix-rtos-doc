@@ -40,5 +40,5 @@ The source code of the loader can be obtained with the following command:
 ## See also
 
 1. [Architecture](architecture.md)
-2. [CLI](cli.md)
+2. [Command-line interface](cli.md)
 3. [Table of Contents](../README.md)

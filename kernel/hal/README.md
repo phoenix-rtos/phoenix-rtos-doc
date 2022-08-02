@@ -65,9 +65,9 @@ Context is described using `cpu_contex_t` structure.
 
 ## See also
 
-1. [Table of Contents](README.md)
-2. [Kernel](../kernel.md)
-3. [Kernel - HAL for ARMv7 Cortex-M based targets](armv7m.md)
-4. [Kernel - HAL for ARMv7 Cortex-A based targets](armv7a.md)
-5. [Kernel - HAL for IA32 targets](ia32.md)
-6. [Kernel - HAL for RISC-V 64 based targets](riscv64.md)
+1. [Kernel](../README.md)
+2. [Kernel - HAL for ARMv7 Cortex-M based targets](armv7m.md)
+3. [Kernel - HAL for ARMv7 Cortex-A based targets](armv7a.md)
+4. [Kernel - HAL for IA32 targets](ia32.md)
+5. [Kernel - HAL for RISC-V 64 based targets](riscv64.md)
+6. [Table of Contents](../README.md)

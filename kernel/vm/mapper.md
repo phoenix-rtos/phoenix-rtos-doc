@@ -167,4 +167,14 @@ It is not possible to map pages directly into the process address space on the u
 The `vm_mmap()` function  maps object into the address space starting from address specified as function argument. Other function arguments define the size of the mapping, the attributes of the finally created memory segment, the object handle and flags determining the function behavior. If fixed mapping is specified in the flags argument mapping tries to map object at specified address. If address range of requested mapping overlaps with existing mapping the function will fail.
 
 ### Memory regions
+
 A NUMA machine has different memory controllers with different distances to specific CPUs. 
+
+## See also
+
+1. [Kernel - Memory management](README.md)
+2. [Kernel - Memory management - Page allocator](page.md)
+3. [Kernel - Memory management - Zone allocator](zalloc.md)
+4. [Kernel - Memory management - Fine grained allocator](kmalloc.md)
+5. [Kernel - Memory management - Memory objects](objects.md)
+6. [Table of Contents](../../README.md)

@@ -76,7 +76,6 @@ When process is forked the memory space of child process is created based on mem
 
 The memory sharing technique based on shadowing of particular pages instead of whole objects eliminates the problem of long chains of shadow objects existing in BSD VM.
 
-
 ## Memory objects in Phoenix-RTOS
 
 Phoenix-RTOS derives the memory object architecture from BSD UVM. The structure of its memory management subsystem in the process context is presented on the following figure. 
@@ -85,4 +84,11 @@ Phoenix-RTOS derives the memory object architecture from BSD UVM. The structure 
 
 There are three main differences between UVM and Phoenix-RTOS memory objects. Objects are identified by oid_t and handled by external servers and data is fetched and stored using message passing. Processes are not swappable, so there is no swap server for anonymous objects. Memory objects are supported as well on non-MMU architectures, but functionality is simplified.
 
+## See also
 
+1. [Kernel - Memory management](README.md)
+2. [Kernel - Memory management - Page allocator](page.md)
+3. [Kernel - Memory management - Memory mapper](mapper.md)
+4. [Kernel - Memory management - Zone allocator](zalloc.md)
+5. [Kernel - Memory management - Fine grained allocator](kmalloc.md)
+6. [Table of Contents](../../README.md)

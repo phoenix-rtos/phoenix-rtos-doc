@@ -30,9 +30,8 @@ List all of the available commands in plo (some of them are available only on th
  * `test-ddr`  - perform test DDR, usage: `test-ddr`
  * `wait`      - waits in milliseconds or in infinite loop, usage: `wait [ms]`
 
-
 ## See also
 
-1. [Table of Contents](../README.md)
-2. [Loader](README.md)
-3. [Architecture](architecture.md)
+1. [Loader](README.md)
+2. [Architecture](architecture.md)
+3. [Table of Contents](../README.md)

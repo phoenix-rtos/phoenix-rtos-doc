@@ -98,3 +98,9 @@ The above sequence enables paging and pass execution to proper virtual address b
         wfi
         j .Lsecondary_park
 ```
+
+1. [Kernel - HAL Subsystem](README.md)
+2. [Kernel - HAL for ARMv7 Cortex-M based targets](armv7m.md)
+3. [Kernel - HAL for ARMv7 Cortex-A based targets](armv7a.md)
+4. [Kernel - HAL for IA32 targets](ia32.md)
+5. [Table of Contents](../../README.md)

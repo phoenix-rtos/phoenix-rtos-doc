@@ -27,7 +27,7 @@ There are a few reasons why that is helpful
 
 ## See also
 
-1. [Phoenix-RTOS building script](script.md)
-2. [Phoenix-RTOS reference project repository](project.md)
-3. [Table of Contents](../README.md)
-
+1. [Building Phoenix-RTOS image](README.md)
+2. [Building script](script.md)
+3. [Reference project](project.md)
+4. [Table of Contents](../README.md)

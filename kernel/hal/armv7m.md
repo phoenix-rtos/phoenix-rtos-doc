@@ -37,5 +37,10 @@ Next memory part defines exception and interrupt handlers.
       ldr r0, =_edata
       bl main
 
+## See also
 
-
+1. [Kernel - HAL Subsystem](README.md)
+2. [Kernel - HAL for ARMv7 Cortex-A based targets](armv7a.md)
+3. [Kernel - HAL for IA32 targets](ia32.md)
+4. [Kernel - HAL for RISC-V 64 based targets](riscv64.md)
+5. [Table of Contents](../../README.md)

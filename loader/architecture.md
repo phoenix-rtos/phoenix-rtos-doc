@@ -120,6 +120,6 @@ Low-level kernel initialization is based on `syspage_t` structure. This structur
 
 ## See also
 
-1. [Table of Contents](../README.md)
-2. [Loader](README.md)
-3. [CLI](cli.md)
+1. [Loader](README.md)
+2. [Command-line interface](cli.md)
+3. [Table of Contents](../README.md)

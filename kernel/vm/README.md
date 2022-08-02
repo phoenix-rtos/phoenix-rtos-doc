@@ -93,7 +93,10 @@ In this chapter main functions of Phoenix-RTOS memory management are discussed.
 
 ## See also
 
-1. [Table of Contents](../README.md)
-2. [Phoenix-RTOS architecture](../architecture.md)
-3. [Building Phoenix-RTOS](../building/README.md)
-4. [Running Phoenix-RTOS on targets](../quickstart/README.md)
+1. [Kernel](../README.md)
+2. [Kernel - Memory management - Page allocator](page.md)
+3. [Kernel - Memory management - Memory mapper](mapper.md)
+4. [Kernel - Memory management - Zone allocator](zalloc.md)
+5. [Kernel - Memory management - Fine grained allocator](kmalloc.md)
+6. [Kernel - Memory management - Memory objects](objects.md)
+7. [Table of Contents](../../README.md)
