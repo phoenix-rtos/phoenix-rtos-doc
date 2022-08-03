@@ -50,6 +50,7 @@ In `psh`, each command or set of commands is a separate applet, here's a list of
 * [`ps`](psh-applets/ps.md)         - prints processes and threads
 * [`pshapp`](psh-applets/pshapp.md)     - delivers `psh` interpreter, `exit`, `pshlogin` and `history` commands
 * [`pshlogin`](psh-applets/pshlogin.md) - launches `psh` with user authentication
+* [`pwd`](psh-applets/pwd.md)         - prints the name of current working directory
 * `reboot`     - restarts the machine
 * `sync`       - synchronizes device
 * [`sysexec`](psh-applets/sysexec.md) - launch program from syspage using given map
