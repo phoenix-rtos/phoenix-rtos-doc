@@ -21,6 +21,7 @@ If handler returns value >= 0 then kernel performs `condSignal()` on a condition
 
 ## See also
 
-1. [Access to device hardware registers](hwaccess.md)
-2. [Message interface](interface.md)
-3. [Table of Contents](../README.md)
+1. [Device drivers](README.md)
+2. [Access to device hardware registers](hwaccess.md)
+3. [Message interface](interface.md)
+4. [Table of Contents](../README.md)

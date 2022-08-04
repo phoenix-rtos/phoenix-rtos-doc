@@ -120,6 +120,7 @@ This message type allows defining an entirely custom structure for input and out
 
 ## See also
 
-1. [Access to device hardware registers](hwaccess.md)
-2. [Handling interrupts](interrupts.md)
-3. [Table of Contents](../README.md)
+1. [Device drivers](README.md)
+2. [Access to device hardware registers](hwaccess.md)
+3. [Handling interrupts](interrupts.md)
+4. [Table of Contents](../README.md)

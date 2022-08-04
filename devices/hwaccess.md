@@ -55,6 +55,7 @@ On architectures without `MMU` access to the hardware registers does not require
 
 ## See also
 
-1. [Handling interrupts](interrupts.md)
-2. [Message interface](interface.md)
-3. [Table of Contents](../README.md)
+1. [Device drivers](README.md)
+2. [Handling interrupts](interrupts.md)
+3. [Message interface](interface.md)
+4. [Table of Contents](../README.md)
