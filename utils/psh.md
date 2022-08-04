@@ -28,6 +28,7 @@ In `psh`, each command or set of commands is a separate applet, here's a list of
 
 * `bind`       - binds device to directory
 * [`cat`](psh-applets/cat.md)        - concatenate file(s) to standard output
+* [`cd`](psh-applets/cd.md)         - change working directory
 * [`cp`](psh-applets/cp.md)         - copy file
 * [`date`](psh-applets/date.md)        - print/set the system date
 * [`df`](psh-applets/df.md) - prints filesystem statistics
@@ -50,6 +51,7 @@ In `psh`, each command or set of commands is a separate applet, here's a list of
 * [`ps`](psh-applets/ps.md)         - prints processes and threads
 * [`pshapp`](psh-applets/pshapp.md)     - delivers `psh` interpreter, `exit`, `pshlogin` and `history` commands
 * [`pshlogin`](psh-applets/pshlogin.md) - launches `psh` with user authentication
+* [`pwd`](psh-applets/pwd.md)         - prints the name of current working directory
 * `reboot`     - restarts the machine
 * `sync`       - synchronizes device
 * [`sysexec`](psh-applets/sysexec.md) - launch program from syspage using given map
