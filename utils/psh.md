@@ -72,5 +72,5 @@ Only one interactive session of the `psh` can be run in a scope of a `psh` proce
 
 ## See also
 
-1. [Phoenix-RTOS Utilities](README.md)
+1. [Utilities](README.md)
 2. [Table of Contents](../README.md)
