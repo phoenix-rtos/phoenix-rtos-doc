@@ -45,6 +45,7 @@ In `psh`, each command or set of commands is a separate applet, here's a list of
 * `mount`      - mounts a filesystem
 * [`nc`](psh-applets/nc.md)         - TCP and UDP connections and listens
 * [`nslookup`](psh-applets/nslookup.md)   - queries domain name servers
+* [`ntpclient`](psh-applets/ntpclient.md)   - set the system's date from a remote host
 * `perf`       - track kernel performance events
 * [`ping`](psh-applets/ping.md)       - ICMP ECHO requests
 * [`pm`](psh-applets/pm.md)         - monitors processes
