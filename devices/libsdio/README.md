@@ -2,7 +2,7 @@
 
 ## General description
 
-libsdio is a static, precompiled library containing a generic SDIO driver which directly controls platform hardware. This driver defines an API providing basic interface control functionality.
+libsdio is a static, precompiled library containing a generic SDIO driver which directly controls the platform hardware. This driver defines an API providing basic interface control functionality.
 
 ## Platform support
 
@@ -19,7 +19,7 @@ libsdio is a static, precompiled library containing a generic SDIO driver which 
 - no support for multiple SDIO devices
 - no support for SDIO in SPI mode
 - only 4-bit data transfer mode supported
-- only 50/25 MHz clock speeds available
+- only 50/25 MHz clock speeds available on imx6ull
 
 ## API summary
 
@@ -99,7 +99,7 @@ typedef void (*sdio_event_handler_t)(void *arg);
 
 **Description:**
 
-This type describes a function pointer for an interrupt handler. Handlers of interrupts events are assigned to a specific event, and every event can only have a single handler. Handler argument is provided during handler registration using `sdio_eventRegister`, and will remain unchanged until the handler registration is modified via the same function.
+This type describes a callback for an interrupt handler. Handlers of interrupts events are assigned to a specific event, and every event can only have a single handler. Handler argument is provided during handler registration using `sdio_eventRegister`, and will remain unchanged until the handler registration is modified via the same function.
 
 ---
 
@@ -109,7 +109,7 @@ int sdio_init(void);
 
 **Description:**
 
-This function initializes the SDIO inteface hardware and tries to detect and select the connected device. It has to be called before any other API function. Should no device be present or it could not respond to SDIO initialization sequence, this function will return an error code and free unusued resources it acquired.
+This function initializes the SDIO inteface hardware and tries to detect and select the connected device. It has to be called before any other API function. Should no device be present or it does not respond to SDIO initialization sequence, this function shall return an error code and free resources it acquired.
 
 > **NOTE:** Calling this function more than once after successful completion will have no effect. In order to reinitialize the interface, `sdio_free` should be called between concurrent `sdio_init` calls instead.
 
@@ -133,7 +133,7 @@ void sdio_free(void);
 
 **Description:**
 
-This function will free the SDIO bus, reset the host controller, deregister and disable all previously registered event handlers. Calling this function before `sdio_init` has no effect.
+This function frees the SDIO bus, reset the host controller, deregister and disable all previously registered event handlers. Calling this function before `sdio_init` has no effect.
 
 > **NOTE:** Due to its current implementation, calling this function does not allow for creation of new library instances in other running processes.
 
@@ -178,7 +178,7 @@ int sdio_transferDirect(sdio_dir_t dir, uint32_t address, uint8_t area, uint8_t 
 
 **Description:**
 
-This function initiates a direct, single 8-bit register read/write opetation. When `dir` is specified as `sdio_write` the byte inside the `data` buffer is written to the card, otherwise if `dir` is specified as `sdio_read` , the buffer is set to the value read from the card.
+This function initiates a direct, single 8-bit register read/write opetation. When `dir` is specified as `sdio_write` the byte inside the `data` buffer is written to the device, otherwise if `dir` equals `sdio_read` , the buffer is set to the value read from the device.
 
 > **NOTE:** This function is a blocking call which only returns upon successful transfer completion or failure.
 
@@ -225,7 +225,7 @@ This function initiates an indirect, multi-byte transfer of up to 2048 bytes at 
 
 > **NOTE:** `len` parameter has to be a multiple of `blocksz` when performing a block transfer with `blockMode` set to *true*.
 
-> **NOTE:** `address` parameter specifies only the base address of the transfer. If `blockMode` is set to *true*, then the address is automatically incremented by the card with every following block.
+> **NOTE:** `address` parameter specifies only the base address of the transfer. If `blockMode` is set to *true*, then the address is automatically incremented by the device with every completed block.
 
 **Returns:**
 
