@@ -58,6 +58,7 @@
     1. [Device server interface](devices/interface.md)
     2. [Accessing hardware](devices/hwaccess.md)
     3. [Handling interrupts](devices/interrupts.md)
+    4. [libsdio](devices/libsdio/README.md)
 9. [Filesystem servers](filesystems/README.md)
 10. [Network stack](lwip/README.md)
 11. [USB stack](usb/README.md)
