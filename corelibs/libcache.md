@@ -16,8 +16,8 @@
     - [Bitmasks](#bitmasks)
     - [Data structures](#data-structures)
 - [Cache operations](#cache-operations)
-    - [Read](#reading-from-the-cache-to-a-buffer)
-    - [Write](#writing-a-buffer-to-the-cache)
+    - [Read](#reading-a-buffer-from-a-device-via-the-cache)
+    - [Write](#writing-a-buffer-to-a-device-via-the-cache)
     - [Flush](#flushing-the-cache)
     - [Invalidate](#invalidating-the-cache)
 - [Running tests](#running-tests)
@@ -53,11 +53,11 @@ typedef ssize_t (*cache_writeCb_t)(uint64_t offset, const void *buffer, size_t c
 
 ### Functions
 ```c
-cachectx_t *cache_init(size_t srcMemSize, size_t size, size_t lineSize, const cache_ops_t *ops);
+cachectx_t *cache_init(size_t srcMemSize, size_t lineSize, size_t linesCnt, const cache_ops_t *ops);
 ```
 | Status | Description | Return value | Remarks |
 |--------|-------------|--------------| ------- |
-|Implemented <br /><br />Tests in progress| Initializes the cache for use. Stores the size of the cached disk/flash as `srcMemSize` (in bytes). Sets the cache memory size to `size` and the cache line size to `lineSize` (both in bytes). <br /><br /> Registers cached source memory interface (`ops`) which contains write and read callbacks as well as device driver context. | **On success:** a pointer to initialized cache of type `cachectx_t` <br /><br /> **On failure:** NULL | `size` has to be a multiple of `lineSize`. <br /><br /> The `size` to `lineSize` ratio has to be a multiple of the number of ways in a set (see: [Associativity](#associativity)).
+|Implemented <br /><br />Tests in progress| Initializes the cache for use. Stores the size of the cached disk/flash as `srcMemSize` (in bytes). Sets the cache line size to `lineSize` (in bytes) and the number of cache lines to `linesCnt`. <br /><br /> Registers cached source memory interface (`ops`) which contains write and read callbacks as well as device driver context. | **On success:** a pointer to initialized cache of type `cachectx_t` <br /><br /> **On failure:** NULL | The `linesCnt` argument has to be a multiple of the number of ways in a set (see: [Associativity](#associativity)).
 
 ```c
 int cache_deinit(cachectx_t *cache);
@@ -97,12 +97,12 @@ int cache_invalidate(cachectx_t *cache, const uint64_t begAddr, const uint64_t e
 
 ## Configurable cache parameters
 ### Size
-1. The size of the cache and the size of a single line (both in bytes) can be set in run-time during a call to the `cache_init` function. These paremeters cannot be reconfigured once set.
+1. The size of the cache line (in bytes) and the number of the lines can be set in run-time during a call to the `cache_init` function. These paremeters cannot be reconfigured once set.
 
-2. `size` has to be a multiple of `lineSize`, the `size` to `lineSize` ratio has to be a multiple of the number of ways in a set (`LIBCACHE_NUM_WAYS`).
+2. The number of cache lines has to be divisible by [associativity](#associativity).
 
 ### Associativity
-The number of ways in a set (i.e. the number of lines) is defined in a form of a macro directive `LIBCACHE_NUM_WAYS`. The value is set to 4 by default as it was deemed suitable for typical uses.
+The number of ways in a set (i.e. the number of lines in a set) is defined in a form of a macro directive `LIBCACHE_NUM_WAYS`. The value is set to 4 by default as it was deemed suitable for typical uses.
 <br /><br />
 Other common associativities are 1 (a fully associative cache), 2, 4 and 8. Larger sets and higher associativity lead to fewer cache conflicts and lower miss rates at the expense of hardware cost.
 
@@ -141,7 +141,7 @@ _DISCLAIMER: The numbers of bits corresponding to tag, set index and offset may 
 
 ### Bitmasks
 Three bitmasks are computed and stored. They are applied to memory addresses in order to extract specific bits corresponding to tag, set index and offset. The tag is used to identify a cache line within a set. The offset indicates the position of a specific byte in that cache line.
-
+`
 | Parameter | How it is computed |
 | --------- | ------------------ |
 | Set index | (full address _RIGHT SHIFT BY_ offset address width) _AND_ set mask |
@@ -157,7 +157,7 @@ Each cache set stores a table of cache lines (green table in image below). Moreo
 
 ## Cache operations
 The index in set-associative cache identifies a set of cache lines that may contain the requested data. During a read or write (create/update) operation every line within the set is examined to check whether the line's tag matches the tag computed from a supplied memory address and that the VALID bit of that line is set. If both these conditions are met, we have a _cache hit_. Otherwise, on a _cache miss_, a new block of memory in form of a cache line has to be loaded into the set, replacing the _Least Recently Used_ (LRU) line in that set.
-### Reading from the cache to a buffer
+### Reading a buffer from a device via the cache
 In order to read up to count bytes from a source memory address, a valid buffer has to be supplied. Set index, tag and offset of the first byte to be read from a cache line marked by the tag are computed from the requested memory address. <br /><br /> The user might want to read just a few bytes starting from the offset. However, when count goes beyond the maximum offset of the line, a read from multiple lines is performed. At first, a chunk of data of size equal to <pre>(size of cache line - offset of the first byte)</pre> is read into the buffer. Depending on the size of the requested data, a few next whole cache lines might be read into the buffer. The address of the first whole line is computed as follows: 
 <pre>
 (address of the first byte to be read - offset of the first byte) + size of a cache line</pre>
@@ -168,8 +168,8 @@ In order to read up to count bytes from a source memory address, a valid buffer 
 3. The pointer to the found line is returned.
 
 The desired chunk of data is read from the obtained line and written to the buffer supplied by the user.
-### Writing a buffer to the cache
-Writing to the cache is implemented similarly to reading: data is written in the cache chunk-by-chunk from a supplied buffer. <br /><br /> The user might want to update just a few bytes in a specific cache line, hence the line needs to be found in the cache first. On success the bytes starting from the offset are updated and a chosen write policy is executed. <br /><br /> If it happens that a line mapped from a specific address does not exist in the cache, it is created and written to the cache according to the algorithm below:
+### Writing a buffer to a device via the cache
+Writing via the cache is implemented similarly to reading: data is written in the cache chunk-by-chunk from a supplied buffer. <br /><br /> The user might want to update just a few bytes in a specific cache line, hence the line needs to be found in the cache first. On success the bytes starting from the offset are updated and a chosen write policy is executed. <br /><br /> If it happens that a line mapped from a specific address does not exist in the cache, it is created and written to the cache according to the algorithm below:
 
 1. The pointer to the LRU line is removed from the circular doubly linked list and dereferenced to find a pointee (a line in the green table).
 2. The line pointed to may be flushed to the cached source memory for coherence. Afterwards it is substituted by a new cache line.
