@@ -23,6 +23,7 @@
     - [Write](#writing-a-buffer-to-a-device-via-the-cache)
     - [Flush](#flushing-the-cache)
     - [Invalidate](#invalidating-the-cache)
+    - [Clean](#cleaning-the-cache)
 - [Running tests](#running-tests)
 - [Navigation links](#See-also)
 
@@ -95,8 +96,14 @@ int cache_invalidate(cachectx_t *cache, const uint64_t begAddr, const uint64_t e
 ```
 | Status | Description | Return value | Remarks |
 |--------|-------------|--------------| ------- |
-| Implemented <br /><br />Tested | Invalidates a range of cache lines starting from an address `begAddr` up to `endAddr`. <br /><br /> Clears the validity bit for lines in that range. | **On success:** 0 (i.e. all lines marked with the validity bit in the given range were successfully invalidated) <br /><br /> **On failure:** an error number  | Fails if `begAddr` is greater than `endAddr` or/and `begAddr` is greater than `srcMemSize` (`EINVAL`). <br /><br /> This operation does not synchronize the dirty lines with the cached source memory. The user needs to call `cache_flush` before invalidation, otherwise the data gets permanently lost.
+| Implemented <br /><br />Tested | Invalidates a range of cache lines starting from an address `begAddr` up to `endAddr`. <br /><br /> Clears the validity bit for lines in that range. | **On success:** 0 (i.e. all lines marked with the validity bit in the given range were successfully invalidated) <br /><br /> **On failure:** an error number  | Fails if `begAddr` is greater than `endAddr` or/and `begAddr` is greater than `srcMemSize` (`EINVAL`). <br /><br /> This operation does **not** synchronize the dirty lines with the cached source memory and leads to **permanent** data loss. In order to save the important data it is advised to call `cache_clean` instead.
 
+```c
+int cache_clean(cachectx_t *cache, const uint64_t begAddr, const uint64_t endAddr);
+```
+| Status | Description | Return value | Remarks |
+|--------|-------------|--------------| ------- |
+| Implemented <br /><br /> Untested | Combines cache flush and invalidation in an atomic way and performs these operations in range of addresses starting from `begAddr` up to `endAddr`. | **On success:** 0 (i.e. all lines in given range were successfully flushed to the cached source memory and invalidated) <br /><br /> **On failure:** an error number | Fails if `begAddr` is greater than `endAddr` or/and `begAddr` is greater than `srcMemSize` (`EINVAL`). <br /><br /> May fail due to problems with the cached source memory (`EIO`). <br /><br /> Does **not** invalidate a line that failed to flush. |
 
 ## Configurable cache parameters
 ### Size
@@ -132,7 +139,7 @@ _Full address of 64 bits (fixed in implementation, unalterable), associativity o
 | --------- | ------------------ | ------- |
 Offset address width | log<sub>2</sub>(cache line size) | log<sub>2</sub>(64) = 6 bits |
 | Number of sets | number of cache lines / associativity | 32/4 = 8 sets |
-| Set index width | log<sub>2</sub>(number of sets) | log<sub>2</sub> = 3 bits |
+| Set index width | log<sub>2</sub>(number of sets) | log<sub>2</sub>(8) = 3 bits |
 | Tag width | full address width - set index width - offset width | 64 - 3 - 6 = 55 bits |
 
 The above example is illustrated in the image below.
@@ -180,12 +187,15 @@ Writing via the cache is implemented similarly to reading: data is written in th
 3. A pointer to the new cache line is added in the tail of the circular doubly linked list. The line pointed to becomes the MRU line.
 4. The pointers to the lines are re-sorted according to the tag (dark grey table).
 
-
 ### Flushing the cache
 The flush operation is used to synchronize the contents of the cache with the cached source memory so that they stay coherent.  <br /><br /> The operation requires a beginning and an end address, as it is performed within a range of addresses.
 ### Invalidating the cache
-A range of the cached source memory addresses can be invalidated and data removed so that the lines can be overwritten. The data is not being synchronized with the cached source memory during this operation, therefore it cannot be retrieved once the lines become invalidated.
+A range of the cached source memory addresses can be invalidated and data removed so that the lines can be overwritten. The data is not being synchronized with the cached source memory during this operation, therefore it cannot be retrieved once the lines become invalidated. 
 
+In order to save the important data on the source memory and invalidate the lines in the cache it is advised to perform cache clean instead.
+
+### Cleaning the cache
+The clean operation combines both cache flush and cache invalidate operations in atomic way while also providing a better efficiency than if the user were to perform cache flush followed by cache invalidate.
 ## Running tests
 Phoenix-RTOS libcache library provides a set of functional tests that are available in [phoenix-rtos-tests](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master). The tests can be run for different platforms, e.g. `ia32-generic-qemu` target:
 
