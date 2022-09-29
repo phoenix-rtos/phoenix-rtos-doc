@@ -61,7 +61,7 @@ cachectx_t *cache_init(size_t srcMemSize, size_t lineSize, size_t linesCnt, cons
 ```
 | Status | Description | Return value | Remarks |
 |--------|-------------|--------------| ------- |
-|Implemented <br /><br />Tested| Initializes the cache for use. Stores the size of the cached source memory as `srcMemSize` (in bytes). Sets the cache line size to `lineSize` (in bytes) and the number of cache lines to `linesCnt`. <br /><br /> Registers cached source memory interface (`ops`) which contains write and read callbacks as well as device driver context. | **On success:** a pointer to initialized cache of type `cachectx_t` <br /><br /> **On failure:** NULL | The `linesCnt` argument has to be a multiple of the number of ways in a set (see: [Associativity](#associativity)).
+|Implemented <br /><br />Tested| Initializes the cache for use. Stores the size of the cached source memory as `srcMemSize` (in bytes). Sets the cache line size to `lineSize` (in bytes) and the number of cache lines to `linesCnt`. <br /><br /> Registers cached source memory interface (`ops`) which contains write and read callbacks as well as device driver context. | **On success:** a pointer to initialized cache of type `cachectx_t` <br /><br /> **On failure:** NULL | The `linesCnt` argument has to be a multiple of the number of ways in a set (see: [Associativity](#associativity)). <br /><br /> Copies and stores the contents pointed to by `ops`: `writeCb`, `readCb` as well as the pointer `ctx`. Note that a pointer to `cache_devCtx_t` is stored, **not** its contents.
 
 ```c
 int cache_deinit(cachectx_t *cache);
