@@ -13,8 +13,9 @@ There are following Phoenix-RTOS libraries:
 - Common Gateway Interface library called `libcgi`,
 - Video Graphics Array access library called `libvga`, used in graphic adapters implementation, for example Cirrus,
 - Virtual I/O Device library called `libvirtio`, used for device emulation,
-- Universally Unique identifiers library(libuuid.md) called `libuuid`
-- [Cache library](libcache.md) called `libcache` which provides the user with n-way set-associative cache
+- Universally Unique identifiers library(libuuid.md) called `libuuid`,
+- [Cache library](libcache.md) called `libcache` which provides the user with n-way set-associative cache,
+- [Software watchdog library](libswdg.md) called `libswdg` which provides the user with multi-channel software watchdog.
 
 <!-- #TODO: add chapters on how to use each of this library in separate chapters -->
 
