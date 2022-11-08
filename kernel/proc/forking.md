@@ -1,16 +1,16 @@
 # Kernel - Processes and threads - Management
 
-Processes are created in Phoenix-RTOS using forking technique. When new process is created the current process forks into two instances - parent and child. There are two functions used for process creation in Phoenix-RTOS - each of them should be used depending on the platform and MMU presence. The differences between these functions and circumstnces of their usage are discussed in this chapter.
+Processes are created in Phoenix-RTOS using forking technique. When new process is created the current process forks into two processes - parent (process which initiializes fork) and child. There are two forking functions used for process creation in Phoenix-RTOS - each of them should be used depending on the platform and MMU presence. The differences between these functions and circumstnces of their usage are discussed in this chapter.
 
 ## Creating new process using `fork()`
 
-The well-known method of creating new process in general purpose operting systems (e.g. UN*X) is a forking. The explanation of this method is quite simple. In the certain point of time process calls `fork()` system call which creates new process (child process) based on linear address space and operating system resources used by process calling `fork()` (parent process). From this point of time processess are separated and their operate on their own address spaces what means that all modification of process memory are visible only within them. For example lets consider process A forking into processes A and B. After forking, process A modifies variable located at address `addr` and stores there value 1 and process B modifies the same variable at address `addr` and stores there 2. The modification are specific for the forked processes and operating system assures that process A sees the variable located at `addr` as 1 and process B sees it as 2.
+The well-known method of creating new process in general purpose operting systems (e.g. UN*X) is a forking. The explanation of this method is quite simple. In the certain point of time a thread within a process calls `fork()` system call which creates a new process (child process) based on linear address space and operating system resources used by process calling `fork()` (parent process) and launches the thread within a chiild process. From this point of time processess are separated and their operate on their own address spaces what means that all modification of process memory are visible only within them. For example lets consider process A forking into processes A and B. After forking, one of the threads of process A modifies variable located at address `addr` and stores there value 1 and thread of process B modifies the same variable at address `addr` and stores there 2. The modification are specific for the forked processes and operating system assures that process A sees the variable located at `addr` as 1 and process B sees it as 2.
 
-This technique can be only implemented only on processors equipped with MMU providing mechansms for memory virtualization (e.g. paging) which enables programs to use the same linear address to access different segments of physical memory. On processors lacked of MMU the `fork()` method is unavailable and it is replaced by `vfork()`.
+This technique can be only implemented when processors is equipped with MMU providing mechansims for memory virtualization (e.g. paging) which enables programs to use the same linear address to access different segments of physical memory. On processors lacked of MMU the `fork()` method is unavailable and it is replaced by `vfork()`.
 
 ## Creating new process using `vfork()`
 
-Historically `vfork()` is designed to be used in the specific case where the child will `exec()` another program, and the parent can block until this happens. A traditional fork() requires duplicating all the memory of the parent process in the child what leads to a significant overhead. The goal of the`vfork()` function was to reduce this overhead by preventing unecessary memory copying when new process is created. Usually after proces creation using `fork()` function a new program is executed. In such case traditional fork before `exec()` leads to unecessary overhead (memory is copied to the child process then is freed and replaced by new memory objects as the result of `exec()`).
+Historically `vfork()` is designed to be used in the specific case where the child will `exec()` another program, and the parent can block until this happens. A traditional `fork()` requires duplicating all the memory of the parent process in the child what leads to a significant overhead. The goal of the`vfork()` function was to reduce this overhead by preventing unecessary memory copying when new process is created. Usually after proces creation using `fork()` function a new program is executed. In such case traditional fork before `exec()` leads to unecessary overhead (memory is copied to the child process then is freed and replaced by new memory objects as the result of `exec()`).
 
 In UN*X operatng system history "The Mach VM system" added Copy On Write (COW), which made the `fork()` much cheaper, and in BSD 4.4, `vfork()` was made synonymous to `fork()`.
 
@@ -24,13 +24,15 @@ Process can be terminated abnormally - as the consequence of receiving signal or
 
 ## Program execution
 
-To execute new program the binary object representing it should be mapped into the process linear address space and control have to be passed to the program entry point. This is the responsibility of `exec()` family functions.
+To execute a new program the representing it binary object should be mapped into the process linear address space and control have to be passed to the program entry point. This is the responsibility of `exec()` family functions.
 
-On non-MMU architectures there is one important step performed after binary object is mapped and before control is passed to the program entry point. This is the program rellocation with recalculates some of programm structures (e.g. `GOT`) used for accessing variables during the runtime. The rellocation depends on the current location of program in memory.
+On non-MMU architectures there is one important step performed after binary object is mapped and before control is passed to the program entry point. This step is the program rellocation with recalculates some of programm structures (e.g. `GOT`) used for accessing variables during the runtime. The rellocation depends on the current memeory location of program.
 
 ## Thread management
 
-To manage threads  `beginthread()`, `beginthreadex()`, `endthread()` functions should be used.
+While process represents a memory space and operating system resources devoted for particular executed program the thread represents the program instruction stream executed concurrently to other threads in the process context (using defined linear address space and associated operating system resources). To manage threads  `beginthread()`, `endthread()` functions should be used.
+
+`beginthread()` function starts a new thread using function address and stack allocated by a calling thread. The kernel stacks for all of desired thread execution modes are allocated. `enthread()` function terminates callng thread and releases alloacted kernel stacks.
 
 ## See also
 

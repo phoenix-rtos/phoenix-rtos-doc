@@ -30,7 +30,9 @@ Spinlock unlocking operation is quite simple. Processor atomically changes spinl
 
 ## Locks and mutexes
 
-Locks are used to synchronize access to critical sections inside kernel using scheduling mechanism.  The main difference between locks and spinlocks is that they use passive waiting (removal from scheduler queues) insteat of active waiting (iterations until spinlock value becomes non-zero).
+Locks are used to synchronize access to critical sections inside kernel using scheduling mechanism. The main difference between locks and spinlocks is that they use passive waiting (removal from scheduler queues) instead of active waiting (iterations until spinlock value becomes non-zero). Locks can be used only when  process subsystem is initializes and scheduler is working.
+
+Each lock consit of spinlock, state variable and wating queue. 
 
 ## Conditional variables
 

@@ -1,19 +1,19 @@
 # HAL subsystem
 
-HAL (Hardware Abstraction Layer) is the kernel hardware dependent subsystem used for adopting it to the particular hardware platform. It provides the unified interface for other kernel subsystems. It is the only subsytem required to be changed when kernel is ported to the new hardware architecture.
+HAL (Hardware Abstraction Layer) is the kernel hardware dependent subsystem used for adopting it to the particular hardware platform. It provides the unified interface for other kernel subsystems. It is the only subsystem required to be changed when kernel is ported to the new hardware architecture.
 
 HAL implements following functionalities:
 
-* Kernel initialization,
-* Basic type definitions,
-* Definition of syspage structure,
-* Basic synchronization (spinlocks),
-* Kernel console,
-* String functions (memcpy, memset),
-* Exception and interrupt handling,
+* kernel initialization,
+* basic type definitions,
+* definition of syspage structure,
+* basic synchronization (spinlocks),
+* kernel console,
+* string functions (memcpy, memset),
+* exception and interrupt handling,
 * MMU or MPU management,
-* Timer support,
-* Context switching.
+* timer support,
+* context switching.
 
 Theses functionalities are briefly discussed in this chapter.
 
@@ -41,7 +41,7 @@ Console is used for presenting kernel messages until first process and terminal 
 
 HAL provides set of string functions used for data copying and string manipulation. They correspond to ANSI C functions provided by compiler but compiler`s functions are not intentionally used. The intention was to implement these functions from scratch to control the details of implementation and external references.
 
-## MMU/MPU management
+## MMU or MPU management
 
 HAL is responsible for the lowest part of the memory managements subsystem - `pmap`. This layer provides functions used for controlling the MMU or MPU. When no memory control units are available these functions should be empty.
 
