@@ -10,7 +10,8 @@ When program opens the file registered by a device driver it receives `oid` poin
 <img src="_images/proc-namespace2.png" style=" width: 450px">
 
 1. [Kernel - Processes and threads](README.md)
-2. [Kernel - Processes and threads - Management](forking.md)
-3. [Kernel - Processes and threads - Synchronization primitives](sync.md)
-4. [Kernel - Processes and threads - Message passing](msg.md)
-5. [Table of Contents](../../README.md)
+2. [Kernel - Processes and threads - Scheduler](scheduler.md)
+3. [Kernel - Processes and threads - Management](forking.md)
+4. [Kernel - Processes and threads - Synchronization primitives](sync.md)
+5. [Kernel - Processes and threads - Message passing](msg.md)
+6. [Table of Contents](../../README.md)
