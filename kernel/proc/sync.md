@@ -40,8 +40,8 @@ Each lock consit of spinlock, state variable and wating queue.
 ## See also
 
 1. [Kernel - Processes and threads](README.md)
-2. [Kernel - Processes and threads - Management](forking.md)
-3. [Kernel - Processes and threads - Message passing](msg.md)
-4. [Kernel - Processes and threads - Namespace](namespace.md)
-5. [Table of Contents](../../README.md)
-
+2. [Kernel - Processes and threads - Scheduler](scheduler.md)
+3. [Kernel - Processes and threads - Management](forking.md)
+4. [Kernel - Processes and threads - Message passing](msg.md)
+5. [Kernel - Processes and threads - Namespace](namespace.md)
+6. [Table of Contents](../../README.md)
