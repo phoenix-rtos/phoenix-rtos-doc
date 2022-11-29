@@ -58,6 +58,7 @@ In `psh`, each command or set of commands is a separate applet, here's a list of
 * [`sysexec`](psh-applets/sysexec.md) - launch program from syspage using given map
 * [`top`](psh-applets/top.md)        - top utility
 * [`touch`](psh-applets/touch.md)      - changes file timestamp
+* [`umount`](psh-applets/umount.md) - unmount a filesystem
 * [`uptime`](psh-applets/uptime.md) - prints how long the system has been running
 * [`/`](psh-applets/runfile.md)      - executes a file
 
