@@ -24,12 +24,12 @@ Upon successful completion, `fputs()` shall return a non-negative number. Otherw
 
 ## Errors
 
-Refer to [fputc](/fputc.part-impl.md)
+Refer to [fputc](fputc.part-impl.md)
 
 
 ## Tests
 
-Untested
+Tested in [test-libc](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/libc).
 
 ## Known bugs
 
