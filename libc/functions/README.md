@@ -81,6 +81,8 @@ endthread,
 [`fclose`](./f/fclose.part-impl.md), <!-- updated -->
 [`fcntl`](./f/fcntl.part-impl.md), <!-- updated -->
 [`fdopen`](./f/fdopen.part-impl.md), <!-- updated -->
+[`feof`](./f/feof.impl.md), <!-- updated -->
+[`ferror`](./f/ferror.impl.md), <!-- updated -->
 [`fflush`](./f/fflush.part-impl.md), <!-- updated -->
 [`fgetc`](./f/fgetc.part-impl.md), <!-- updated -->
 [`fgets`](./f/fgets.part-impl.md), <!-- updated -->
@@ -94,7 +96,7 @@ endthread,
 [`fork`](./f/fork.part-impl.md), <!-- updated -->
 [`fprintf`](./p/printf.part-impl.md), <!-- updated -->
 [`fputc`](./f/fputc.part-impl.md), <!-- updated -->
-[`fputc`](./f/fputc.part-impl.md), <!-- updated -->
+[`fputs`](./f/fputs.part-impl.md), <!-- updated -->
 [`fread`](./f/fread.part-impl.md), <!-- updated -->
 [`freeaddrinfo`](./g/getaddrinfo.part-impl.md), <!-- updated -->
 [`freopen`](./f/freopen.part-impl.md), <!-- updated -->
@@ -119,6 +121,7 @@ endthread,
 [`getchar`](./g/getchar.part-impl.md), <!-- updated -->
 [`getchar_unlocked`](./p/putchar_unlocked.part-impl.md), <!-- updated -->
 [`getcwd`](./g/getcwd.part-impl.md), <!-- updated -->
+[`getdelim`](./g/getline.part-impl.md), <!-- updated -->
 [`getegid`](./g/getegid.part-impl.md), <!-- updated -->
 [`geteuid`](./g/geteuid.not-impl.md), <!-- updated -->
 [`getgid`](./g/getgid.not-impl.md), <!-- updated -->
@@ -194,6 +197,7 @@ mutexUnlock
 
 ## p
 
+[`pclose`](./p/pclose.part-impl.md), <!-- updated -->
 [`perror`](./p/perror.part-impl.md), <!-- updated -->
 phProcForkVirt,
 phProcID,
@@ -207,6 +211,7 @@ platformctl,
 portCreate,
 portDestroy,
 portRegister,
+[`popen`](./p/popen.part-impl.md), <!-- updated -->
 [`pow`](./p/pow.part-impl.md), <!-- updated -->
 [`printf`](./p/printf.part-impl.md), <!-- updated -->
 [`putc`](./p/putc.part-impl.md), <!-- updated -->
@@ -262,7 +267,6 @@ resourceDestroy,
 [`sqrt`](./s/sqrt.part-impl.md), <!-- updated -->
 [`srand`](./r/rand.part-impl.md), <!-- updated -->
 [`scanf`](./f/fscanf.part-impl.md), <!-- updated -->
-[`sscanf`](./f/fscanf.part-impl.md), <!-- updated -->
 [`stat`](./s/stat.part-impl.md), <!-- updated -->
 [`sterror`](./s/sterror.md),
 [`stime`](./s/stime.md),
@@ -328,8 +332,13 @@ timeSet,
 va2pa,
 [`vfork`](./v/vfork.part-impl.md), <!-- #updated# -->
 [`vfprintf`](./v/vprintf.part-impl.md), <!-- #updated# -->
+[`vdprintf`](./v/vprintf.part-impl.md), <!-- #updated# -->
+[`vfprintf`](./v/vprintf.part-impl.md), <!-- #updated# -->
+[`vfscanf`](./v/vscanf.part-impl.md), <!-- #updated# -->
 [`vprintf`](./v/vprintf.part-impl.md), <!-- #updated# -->
+[`vscanf`](./v/vscanf.part-impl.md), <!-- #updated# -->
 [`vsprintf`](./v/vprintf.part-impl.md) <!-- #updated# -->
+[`vsscanf`](./v/vscanf.part-impl.md), <!-- #updated# -->
 
 ## w
 

@@ -1,24 +1,40 @@
-###Synopsis
+# Synopsis 
+`#include <stdio.h>`</br>
 
-`#include <stdio.h>`
+`int feof(FILE *stream);`</br>
 
-`int feof(FILE *stream);`
+## Status
+Implemented
+## Conformance
+IEEE Std 1003.1-2017
+## Description
 
-###Description
 
-Tests the end-of-file indicator for the given stream.
+The `feof()` function shall test the end-of-file indicator for the stream pointed to by _stream_.
 
-Arguments:
-<u>stream</u> - the stream to be tested.
+The `feof()` function shall not change the setting of errno if stream is valid.
 
-###Return value
 
-`1`if the end-of-file indicator is set  for the given stream,  `0` otherwise.
+## Return value
 
-###Errors
+
+The `feof()` function shall return non-zero if and only if the end-of-file indicator is set for stream.
+
+
+## Errors
+
 
 No errors are defined.
 
-###Implementation tasks
+
+## Tests
+
+Tested in [test-libc](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/libc).
+
+## Known bugs
 
 None
+
+## See Also 
+1. [Standard library functions](../README.md)
+2. [Table of Contents](../../../README.md)

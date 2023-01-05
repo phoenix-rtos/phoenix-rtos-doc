@@ -2,8 +2,9 @@
 # Synopsis 
 
 `#include <stdarg.h>`</br>
-
 `#include <stdio.h>`</br>
+
+`int vdprintf(int fildes, const char *restrict format, va_list ap);`</br>
 
 `int vfprintf(FILE *restrict stream, const char *restrict format, va_list ap);`</br>
 
