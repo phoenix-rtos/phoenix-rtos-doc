@@ -18,7 +18,7 @@ If the allocated fragment is the last free fragment from the zone, the zone is r
 
 ## Memory deallocation
 
-When fragment is deallocated the first step is to find proper zone based on its virtual address. The zone RB-tree is searched. When zone is estblished the fragment is releases using `vm_zfree()` call and returned to the zone. When zone is empty it is released and allocated memory is returned to the operating system pool.
+When fragment is deallocated the first step is to find proper zone based on its virtual address. The zone RB-tree is searched. When zone is established the fragment is released using `vm_zfree()` call and returned to the zone. When zone is empty it is released and allocated memory is returned to the operating system pool.
 
 ## See also
 
