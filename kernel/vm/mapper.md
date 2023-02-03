@@ -41,7 +41,7 @@ The `start`, `stop` attributes define the beginning and ending of the address sp
 
 Each `map_entry_t` constitutes a tree node (the `linkage` field) and the tree is constructed on the basis of the virtual address value (`vaddr`). The virtual address points to the segment address. It is complemented by the segment size, segment attributes and two special attributes: `rmaxgap` and `lmaxgap`, which store the size of the maximum gap between the segments in the left or right subtree of the current node. The segment attributes are defined by the `flags` field. The `object` field points to the object mapped into the address space. The `NULL` value of this field contains the information that mapping is anonymous (no object is mapped). The offset (`offs`) defines the in-object location of the data which should be copied into the memory.
 
-###Understanding the map tree representation
+### Understanding the map tree representation
 
 The figure below briefly presents the idea behind describing the address space with a memory map based on a binary tree.
 
@@ -55,25 +55,27 @@ Page mapping is performed using the `_map_find()` function. The function tries t
 
 The mapping algorithm is presented below. Due to its complexity, it will be discussed step by step: a fragment of the code is followed by an explanation of each step.
 
->
+```c
     void *_map_find(vm_map_t *map, void *vaddr, size_t size, map_entry_t **prev, map_entry_t **next)
     {
         map_entry_t *e = lib_treeof(map_entry_t, linkage, map->tree.root);
 
         *prev = NULL;
         *next = NULL;
+```
 
 The first entry is assigned to the root entry of the map. The pointers for neighbors are nulled.
 
->
+```c
         if (map->stop - size < vaddr)
             return NULL;
         if (vaddr < map->start)
             vaddr = map->start;
+```
 
 The address of the mapping is checked according to the map range.
 
->
+```c
         while (e != NULL) {
 
             if ((size <= e->lmaxgap) && ((vaddr + size) <= e->vaddr)) {
@@ -84,10 +86,11 @@ The address of the mapping is checked according to the map range.
                 e = lib_treeof(map_entry_t, linkage, e->linkage.left);
                 continue;
             }
+```
 
 The mapping address and sizes are compared with the left child of the node. If the address is less than the address of the current node and there is a space for the mapping, the left child is selected for the next iteration.
 
->
+```c
             if (size <= e->rmaxgap) {
                 *prev = e;
 
@@ -97,10 +100,11 @@ The mapping address and sizes are compared with the left child of the node. If t
                 e = lib_treeof(map_entry_t, linkage, e->linkage.right);
                 continue;
             }
+```
 
 If the mapping address is not less than the address of the current node, the tree is traversed using the right child.
 
->
+```c
             for (;; e = lib_treeof(map_entry_t, linkage, e->linkage.parent)) {
                 if (e->linkage.parent == &nil)
                     return NULL;
@@ -110,44 +114,48 @@ If the mapping address is not less than the address of the current node, the tre
                     break;
             }
             e = lib_treeof(map_entry_t, linkage, e->linkage.parent);
+```
 
 If we get lost in the tree (the mapping address should be decreased to fulfill the size requirement), the tree is traversed up until the right child with a proper maximum gap is found.
 
->
+```c
             for (*next = e; (*next)->linkage.parent != &nil;
                 *next = lib_treeof(map_entry_t, linkage, (*next)->linkage.parent))
 
                 if ((*next) == lib_treeof(map_entry_t, linkage, (*next)->linkage.parent->left))
                     break;
             *next = lib_treeof(map_entry_t, linkage, (*next)->linkage.parent);
+```
 
 When we find a new node from which we should move to the right, the right neighbor is established. The tree is traversed starting from the parent of the new node until the node representing the right becomes the left child. In this case, the right neighbor is the parent of this node.
 
->
+```c
             *prev = e;
+```
 
 The left neighbor points to the new node.
 
->
+```c
             if (e->linkage.right == &nil)
                 return e->vaddr + e->size;
 
             e = lib_treeof(map_entry_t, linkage, e->linkage.right);
+```
 
 The tree is traversed to the right, starting from the new node. If the new node does not have the right child, the mapping is performed after the new node.
 
->
+```c
         }
 
         return vaddr;
     }
-
+```
 
 ## Map entry allocator
 
 There is a dependency problem with memory mappings.
 
->
+```c
     typedef struct _map_arena_t {
         struct _map_arena_t *next;
         struct _map_arena_t *prev;
@@ -158,7 +166,7 @@ There is a dependency problem with memory mappings.
         map_entry_t *free;
         map_entry_t entries[];
     } map_arena_t;
-
+```
 
 ## Object mapping function
 

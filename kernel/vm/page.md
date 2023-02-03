@@ -72,7 +72,7 @@ The page allocator in the Phoenix-RTOS kernel is based on a well-known buddy alg
 
 Each square corresponds to a physical page, with the assumed page size of 4096 bytes. The main structure used in the allocation is the `sizes[]` array. The `size[]` array is created on the basis of the `page[]` array during the memory management initialization.
 
-The `size[]` array contains pointers to lists of physically coherent sets of pages. The n-the entry of `sizes[]` array points to the list of sets whose size is the n-th power of 2. For example, an entry with the 0 index points to page sets whose size is 1 byte. An entry with the 12 index points to sets containing 4096 bytes of physical memory.
+The `size[]` array contains pointers to lists of physically coherent sets of pages. The n-th entry of `sizes[]` array points to the list of sets whose size is the n-th power of 2. For example, an entry with the 0 index points to page sets whose size is 1 byte. An entry with the 12 index points to sets containing 4096 bytes of physical memory.
 
 The initialization algorithm divides all accessible physical space into regions of maximum size. This means that during the allocation process a region should be divided into smaller regions and the obtained free regions should be added to the proper lists pointed by the `size[]` array.
 

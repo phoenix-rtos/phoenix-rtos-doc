@@ -10,12 +10,13 @@ Port is the communication endpoint used for passing messages between executed th
 ## Data transfer
 Kernel implements message passing by the following functions.
 
->
-    extern int proc_send(u32 port, msg_t *msg);
->
-    extern int proc_recv(u32 port, msg_t *msg, unsigned int *rid);
->
-    extern int proc_respond(u32 port, msg_t *msg, unsigned int rid);
+```c
+extern int proc_send(u32 port, msg_t *msg);
+
+extern int proc_recv(u32 port, msg_t *msg, unsigned int *rid);
+
+extern int proc_respond(u32 port, msg_t *msg, unsigned int rid);
+```
 
 Structure `msg_t` identifies message type and and consist of two main parts - input part and output part.
 

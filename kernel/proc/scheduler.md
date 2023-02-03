@@ -2,7 +2,7 @@
 The operating system scheduler controls threads execution with a predetermined policy. It is a part of Phoenix-RTOS having the most significant influence on the performance and responsiveness of the whole system.
 
 ## Scheduling policy
-The scheduling algorithm is defined in the `threads_schedule` function. It is invoked by timer interrupt or voluntary reschedule (`hal_cpuReschedule`). Each function's invocation changes the context of the currently executed thread to the next one, available in a thread's ready queue. The scheduling policy determined which thread shall be chosen for the next execution. In Phoenix-RTOS, there is used a priority preempted round-robin algorithm. There are eight priority levels, the smallest value holds the highest priority.
+The scheduling algorithm is defined in the `threads_schedule` function. It is invoked by timer interrupt or voluntary reschedule (`hal_cpuReschedule`). Each function's invocation changes the context of the currently executed thread to the next one, available in a thread's ready queue. The scheduling policy determined which thread shall be chosen for the next execution. In Phoenix-RTOS a priority preempted round-robin algorithm is used. There are eight priority levels, the smallest value holds the highest priority.
 
 
 The thread management unit contains an eight-element array, where each of them holds a pointer to the list of threads of the same priority. A scheduling algorithm is defined as follows:
