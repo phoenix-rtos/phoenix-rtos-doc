@@ -8,6 +8,16 @@ Read more about the reference project repository [here](../building/project.md).
 
 ## Using test runner locally
 
+### One time setup
+Python packages required by the testing script have to be installed.
+
+To do this change the directory to `phoenix-rtos-tests` and run
+```
+pip3 install -r requirements.txt
+```
+
+### Running tests
+
 The simplest way to run tests is launching `runner.py` locally.
 The example below shows how to run all tests for the `ia32-generic-qemu` target architecture.
 
