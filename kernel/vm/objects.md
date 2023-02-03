@@ -23,7 +23,7 @@ The process address space in Phoenix-RTOS is presented on the following figure.
 
 <img src="_images/mem-objects2.png" width="550px">
 
-In Phoenix-RTOS objects are supported by operating system servers and are referenced by `oid` identifiers. Each `oid` consists of server communication port number and in-server object identifier. If object is accessed within the process the memory management subsystem allocates the new page and asks the server identified by `oid` for the data. The data if retrieved from the server by sending the proper messages and are stored in the allocated page and mapped into the process at requested virtual address. 
+In Phoenix-RTOS objects are supported by operating system servers and are referenced by `oid` identifiers. Each `oid` consists of server communication port number and in-server object identifier. If object is accessed within the process the memory management subsystem allocates the new page and asks the server identified by `oid` for the data. The data is retrieved from the server by sending the proper messages and are stored in the allocated page and mapped into the process at requested virtual address. 
 
 The main difference between the monolithic kernel approach and Phoenix-RTOS is that memory segments correspond to objects identified by oids (port and in-server id) handled by external servers, so operating system kernel is free of file abstraction. This allows to maintain the small size of kernel and emulate many file sharing and inheritance strategies on the user level (POSIX, Windows etc.) or event to create the final operating system lacked of filesystem abstraction.
 
