@@ -48,7 +48,9 @@ GETFROMSTACK(ustack, unsigned int, m, 1);
 GETFROMSTACK(ustack, time_t, timeout, 2);
 ````
 
-Waits on conditional given by 'h' for number of microseconds giveb by `timeout`. Before suspending a calling thread execution mutex identified by `m` handle is unlocked to enable other thread modifying variables used to check condtionals after conditional signalisation. When conditional variable is signaled mutex `m` is locked.
+Waits on conditional given by 'h' for number of microseconds given by `timeout`. Before suspending a calling thread execution mutex identified by `m` handle is unlocked to enable other thread modifying variables used to check condtonals after conditional signalisation. When conditional variable is signaled mutex `m` is locked.
+
+libc wrapper: [int condWait(handle_t h, handle_t m, time_t timeout)](../../libc/functions/c/condWait.phrtos.md)
 
 ## `syscalls_condSignal`
 

@@ -30,8 +30,10 @@ currently owns the mutex that threads calling `condWait()` have associated with 
 during their waits; however, if predictable scheduling behavior is required, then that mutex shall be locked by the thread calling
 `condBroadcast()` or `condSignal()`.
 
-The `condBroadcast()` and `condSignal()` functions shall have no effect if there are no threads
-currently blocked on cond.
+When there is no thread waiting on condition invoking `condBroadcast()` and `condSignal()` internal condition state
+is changed. First condWait invoked on condition exits imidately without waiting. This property is known as being
+"sticky". Condition signaling performed on userspace interrupt handler is performed without lock acquired. Sticky
+condition implementation ensures that signals sent without lock can be reliably detected.
 
 The behavior is undefined if the value specified by the cond argument to `condBroadcast()` or
 `condSignal()` does not refer to an initialized condition variable.
