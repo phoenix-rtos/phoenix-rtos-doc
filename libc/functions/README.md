@@ -35,6 +35,7 @@ beginthreadex,
 [`ceil`](./c/ceil.part-impl.md), <!-- updated -->
 [`ceilf`](./c/ceil.part-impl.md), <!-- updated -->
 [`chdir`](./c/chdir.part-impl.md), <!-- updated -->
+[`clearenv`](./c/clearenv.part-impl.md), <!-- updated -->
 [`clearerr`](./c/clearerr.part-impl.md), <!-- updated -->
 [`close`](./c/close.part-impl.md), <!-- updated -->
 [`closedir`](./c/closedir.part-impl.md), <!-- updated -->
@@ -123,6 +124,7 @@ endthread,
 [`getcwd`](./g/getcwd.part-impl.md), <!-- updated -->
 [`getdelim`](./g/getline.part-impl.md), <!-- updated -->
 [`getegid`](./g/getegid.part-impl.md), <!-- updated -->
+[`getenv`](./g/getenv.part-impl.md), <!-- updated -->
 [`geteuid`](./g/geteuid.not-impl.md), <!-- updated -->
 [`getgid`](./g/getgid.not-impl.md), <!-- updated -->
 [`getgroups`](./g/getgroups.not-impl.md), <!-- updated -->
@@ -222,6 +224,7 @@ portRegister,
 [`putc_unlocked`](./p/putchar_unlocked.part-impl.md), <!-- updated -->
 [`putchar`](./p/putchar.part-impl.md), <!-- updated -->
 [`putchar_unlocked`](./p/putchar_unlocked.part-impl.md), <!-- updated -->
+[`putenv`](./p/putenv.part-impl.md), <!-- updated -->
 [`puts`](./p/puts.part-impl.md), <!-- updated -->
 
 ## q
@@ -331,6 +334,7 @@ timeSet,
 [`umount`](./u/umount.phrtos.md), <!-- #updated# -->
 [`ungetc`](./u/ungetc.part-impl.md), <!-- #updated# -->
 [`unlink`](./u/unlink.part-impl.md), <!-- #updated# -->
+[`unsetenv`](./u/unsetenv.part-impl.md) <!-- #updated# -->
 [`usleep`](./u/usleep.part-impl.md), <!-- #updated# -->
 [`utime`](./u/utime.part-impl.md) <!-- #updated# -->
 
