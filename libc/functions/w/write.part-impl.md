@@ -3,12 +3,14 @@
 
 `#include <unistd.h>`</br>
 
-`extern ssize_t write(int fildes, const void *buf, size_t nbyte);`</br>
+`ssize_t write(int fildes, const void *buf, size_t nbyte);`</br>
+`ssize_t pwrite(int fildes, const void *buf, size_t nbyte, off_t offset);`</br>
 
 <!-- #MUST_BE: check status according to implementation -->
 ## Status
 
-Partially implemented
+Partially implemented `write`</br>
+Not implemented `pwrite`</br>
 
 <!-- #MUST_BE: if function shall be posix compliant print the standard signature  -->
 ## Conformance
@@ -131,6 +133,24 @@ The `write()` function may fail if:
  * `ENXIO` - A request was made of a nonexistent device, or the request was outside the capabilities of the device.
 
  * `ENXIO` - A hangup occurred on the `STREAM` being written to.
+
+ The `pwrite()` function shall fail if:
+
+ * `EINVAL` - The file is a regular file or block special file, and the offset argument is negative. The file offset shall remain unchanged.
+
+ * `ESPIPE` - The file is incapable of seeking.
+
+ The `write()` function shall fail if:
+
+ * `EAGAIN` - The file is a pipe or `FIFO`, the `O_NONBLOCK` flag is set for the file descriptor, and the thread would be delayed in the write operation.
+
+ * `EAGAIN` or `EWOULDBLOCK` - The file is a socket, the `O_NONBLOCK` flag is set for the file descriptor, and the thread would be delayed in the write operation.
+
+ * `ECONNRESET` - A write was attempted on a socket that is not connected.
+
+ * `EPIPE` - An attempt is made to write to a pipe or `FIFO` that is not open for reading by any process, or that only has one end open. A `SIGPIPE` signal shall also be sent to the thread.
+
+ * `EPIPE` - A write was attempted on a socket that is shut down for writing, or is no longer connected. In the latter case, if the socket is of type `SOCK_STREAM`, a `SIGPIPE` signal shall also be sent to the thread.
 
 <!-- #MUST_BE: function by default shall be untested, when tested there should be a link to test location and test command for ia32 test runner  -->
 ## Tests

@@ -1,7 +1,7 @@
 # Synopsis 
 `#include <string.h>`</br>
 
-` int strncmp(const char *s1, const char *s2, size_t n);`</br>
+`int strncmp(const char *s1, const char *s2, size_t n);`</br>
 
 ## Status
 Partially implemented

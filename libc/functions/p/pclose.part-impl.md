@@ -15,7 +15,7 @@ The `pclose()` function shall close a stream that was opened by `popen()`, wait 
 
 * `waitpid()` with a pid argument less than or equal to 0 or equal to the process ID of the command line interpreter
 
-* Any other function not defined in this volume of `POSIX.1-2017` that could do one of the above
+* Any other function not defined in `POSIX.1-2017` that could do one of the above
 
 In any case, `pclose()` shall not return before the child process created by `popen()` has terminated.
 

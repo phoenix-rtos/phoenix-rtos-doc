@@ -1,7 +1,7 @@
 # Synopsis 
 `#include <sys/mman.h>`</br>
 
-` void meminfo(meminfo_t *info);`</br>
+`void meminfo(meminfo_t *info);`</br>
 
 ## Description
 

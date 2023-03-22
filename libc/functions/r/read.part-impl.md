@@ -1,9 +1,9 @@
 # Synopsis 
 `#include <unistd.h>`</br>
 
-` ssize_t pread(int fildes, void *buf, size_t nbyte, off_t offset);`</br>
+`ssize_t pread(int fildes, void *buf, size_t nbyte, off_t offset);`</br>
 
-` ssize_t read(int fildes, void *buf, size_t nbyte);`</br>
+`ssize_t read(int fildes, void *buf, size_t nbyte);`</br>
 
 ## Status
 Partially implemented
@@ -29,6 +29,7 @@ No data transfer shall occur past the current end-of-file. If the starting posit
 returned. If the file refers to a device special file, the result of subsequent `read()` requests is
 implementation-defined.
 If the value of _nbyte_ is greater than `SSIZE_MAX`, the result is implementation-defined.
+
 When attempting to read from an empty pipe or `FIFO`:
 
 
