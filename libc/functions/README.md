@@ -129,12 +129,15 @@ endthread,
 [`getline`](./g/getline.part-impl.md), <!-- updated -->
 [`getlogin`](./g/getlogin.not-impl.md), <!-- updated -->
 [`getlogin_r`](./g/getlogin.not-impl.md), <!-- updated -->
+[`getopt`](./g/getopt.part-impl.md), <!-- updated -->
+[`getpgid`](./g/getpgid.part-impl.md), <!-- updated -->
 [`getpgrp`](./g/getpgrp.part-impl.md), <!-- updated -->
 [`getpid`](./g/getpid.part-impl.md), <!-- updated -->
 [`getppid`](./g/getppid.part-impl.md), <!-- updated -->
 [`getpwnam`](./g/getpwnam.part-impl.md), <!-- updated -->
 [`getpwuid`](./g/getpwuid.part-impl.md), <!-- updated -->
 [`gets`](./g/gets.part-impl.md), <!-- updated -->
+[`getsid`](./g/getsid.part-impl.md), <!-- updated -->
 gettime,
 [`getuid`](./g/getuid.part-impl.md), <!-- updated -->
 
@@ -167,6 +170,7 @@ lookup,
 [`malloc`](./m/malloc.part-impl.md), <!-- updated -->
 [`mblen`](./m/mblen.part-impl.md), <!-- updated -->
 [`mbtowc`](./m/mbtowc.part-impl.md), <!-- updated -->
+[`memccpy`](./m/memccpy.not-impl.md), <!-- updated -->
 [`memchr`](./m/memchr.part-impl.md), <!-- updated -->
 [`memcmp`](./m/memcmp.part-impl.md), <!-- updated -->
 [`memcpy`](./m/memcpy.part-impl.md), <!-- updated -->
@@ -244,6 +248,7 @@ resourceDestroy,
 [`sscanf`](./f/fscanf.part-impl.md), <!-- updated -->
 [`setbuf`](./s/setbuf.part-impl.md), <!-- updated -->
 [`setegid`](./s/setegid.not-impl.md), <!-- updated -->
+[`setenv`](./s/setenv.part-impl.md), <!-- updated -->
 [`seteuid`](./s/seteuid.not-impl.md), <!-- updated -->
 [`setgid`](./s/setgid.not-impl.md), <!-- updated -->
 [`setjmp`](./s/setjmp.part-impl.md), <!-- updated -->
@@ -280,6 +285,7 @@ resourceDestroy,
 [`strncat`](./s/strncat.part-impl.md), <!-- updated -->
 [`strncmp`](./s/strncmp.part-impl.md), <!-- updated -->
 [`strncmp`](./s/strncmp.part-impl.md), <!-- updated -->
+[`strncpy`](./s/strncpy.part-impl.md), <!-- updated -->
 [`strpbrk`](./s/strpbrk.part-impl.md), <!-- updated -->
 [`strrchr`](./s/strrchr.part-impl.md), <!-- updated -->
 [`strspn`](./s/strspn.part-impl.md), <!-- updated -->
@@ -314,7 +320,8 @@ timeGet,
 [`times`](./t/times.part-impl.md), <!-- #updated# -->
 timeSet,
 [`tmpfile`](./t/tmpfile.part-impl.md), <!-- #updated# -->
-[`tmpnam`](./t/tmpnam.part-impl.md) <!-- #updated# -->
+[`tmpnam`](./t/tmpnam.part-impl.md), <!-- #updated# -->
+[`truncate`](./t/truncate.part-impl.md), <!-- updated -->
 [`ttyname`](./t/ttyname.not-impl.md), <!-- updated -->
 [`ttyname_r`](./t/ttyname.not-impl.md), <!-- updated -->
 

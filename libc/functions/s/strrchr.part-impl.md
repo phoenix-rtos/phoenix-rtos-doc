@@ -1,7 +1,7 @@
 # Synopsis 
 `#include <string.h>`</br>
 
-` char *strrchr(const char *s, int c);`</br>
+`char *strrchr(const char *s, int c);`</br>
 
 ## Status
 Partially implemented

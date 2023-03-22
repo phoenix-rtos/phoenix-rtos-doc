@@ -1,7 +1,7 @@
 # Synopsis 
 `#include <string.h>`</br>
 
-` void *memcpy(void *restrict s1, const void *restrict s2, size_t n);`</br>
+`void *memcpy(void *restrict s1, const void *restrict s2, size_t n);`</br>
 
 ## Status
 Partially implemented

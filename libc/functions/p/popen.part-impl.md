@@ -21,11 +21,11 @@ The `popen()` function shall ensure that any streams from previous `popen()` cal
 
 The _mode_ argument to `popen()` is a string that specifies `I/O` mode:
 
-If _mode_ is `r`, when the child process is started, its file descriptor `STDOUT_FILENO` shall be the writable end of the pipe, and the file descriptor `fileno(stream)` in the calling process, where stream is the stream pointer returned by `popen()`, shall be the readable end of the pipe.
+ * If _mode_ is `r`, when the child process is started, its file descriptor `STDOUT_FILENO` shall be the writable end of the pipe, and the file descriptor `fileno(stream)` in the calling process, where stream is the stream pointer returned by `popen()`, shall be the readable end of the pipe.
 
-If _mode_ is `w`, when the child process is started its file descriptor `STDIN_FILENO` shall be the readable end of the pipe, and the file descriptor `fileno(stream)` in the calling process, where stream is the stream pointer returned by `popen()`, shall be the writable end of the pipe.
+ * If _mode_ is `w`, when the child process is started its file descriptor `STDIN_FILENO` shall be the readable end of the pipe, and the file descriptor `fileno(stream)` in the calling process, where stream is the stream pointer returned by `popen()`, shall be the writable end of the pipe.
 
-If _mode_ is any other value, the result is unspecified.
+ * If _mode_ is any other value, the result is unspecified.
 
 After `popen()`, both the parent and the child process shall be capable of executing independently before either terminates.
 
