@@ -13,4 +13,5 @@ This chapter presents how to run Phoenix-RTOS on supported targets. It is assume
 7. [Running system on `ia32-generic-qemu`](ia32-generic-qemu.md)
 8. [Running system on `riscv64-generic-qemu`](riscv64-generic-qemu.md)
 9. [Running system on `riscv64-generic-spike`](riscv64-generic-spike.md)
-10. [Table of Contents](../README.md)
+10. [Running system on `sparcv8leon3-gr716-mini`](sparcv8leon3-gr716-mini.md)
+11. [Table of Contents](../README.md)

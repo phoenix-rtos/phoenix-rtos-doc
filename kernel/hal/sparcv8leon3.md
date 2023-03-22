@@ -1,8 +1,7 @@
-# HAL for ARMv7 Cortex-A based targets
+# HAL for SPARCv8 LEON3 based targets
 
-ARMv7m HAL layer supports microcontrollers based on ARM Cortex-Ax architecture. Source code is located in `hal/armv7a` directory.
-
-## Initialization
+SPARCv8 LEON3 HAL layer supports microcontrollers based on SPARCv8 architecture.
+Source code is located in `hal/sparcv8leon3` directory.
 
 ## See also
 
