@@ -90,6 +90,7 @@ The Phoenix-RTOS reference project supports the following target platforms:
 * ia32-generic-qemu
 * riscv64-generic-qemu
 * riscv64-generic-spike
+* sparcv8leon3-gr716-mini
 
 To get the list of valid targets the `build.sh` script should be launched with an empty `TARGET` variable, eg:
 
@@ -317,24 +318,25 @@ cd phoenix-rtos-project
 (cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh i386-pc-phoenix ~/toolchains/i386-pc-phoenix)
 (cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh arm-phoenix ~/toolchains/arm-phoenix)
 (cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh riscv64-phoenix ~/toolchains/riscv64-phoenix)
+(cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh sparc-phoenix ~/toolchains/sparc-phoenix)
 ```
 
 Toolchain binaries should be added to the PATH variable:
 
 ```bash
-export PATH=$PATH:$HOME/toolchains/i386-pc-phoenix/i386-pc-phoenix/bin/:$HOME/toolchains/arm-phoenix/arm-phoenix/bin/:$HOME/toolchains/riscv64-phoenix/riscv64-phoenix/bin/
+export PATH=$PATH:$HOME/toolchains/i386-pc-phoenix/i386-pc-phoenix/bin/:$HOME/toolchains/arm-phoenix/arm-phoenix/bin/:$HOME/toolchains/riscv64-phoenix/riscv64-phoenix/bin/:$HOME/toolchains/sparc-phoenix/sparc-phoenix/bin/
 ```
 
 You should keep the `PATH` variable updated. There are various methods to do that, for example you can place the export in `.bashrc` file on `Ubuntu`:
 
   ```bash
-  echo "export PATH=$PATH:$HOME/toolchains/i386-pc-phoenix/i386-pc-phoenix/bin/:$HOME/toolchains/arm-phoenix/arm-phoenix/bin/:$HOME/toolchains/riscv64-phoenix/riscv64-phoenix/bin/" >> $HOME/.bashrc
+  echo "export PATH=$PATH:$HOME/toolchains/i386-pc-phoenix/i386-pc-phoenix/bin/:$HOME/toolchains/arm-phoenix/arm-phoenix/bin/:$HOME/toolchains/riscv64-phoenix/riscv64-phoenix/bin/:$HOME/toolchains/sparc-phoenix/sparc-phoenix/bin/" >> $HOME/.bashrc
   ```
 
 or in `.zshrc` on MacOS:
 
   ```bash
-  echo "export PATH=\$PATH:\$HOME/toolchains/i386-pc-phoenix/i386-pc-phoenix/bin/:\$HOME/toolchains/arm-phoenix/arm-phoenix/bin/:\$HOME/toolchains/riscv64-phoenix/riscv64-phoenix/bin/" >> $HOME/.zshrc
+  echo "export PATH=\$PATH:\$HOME/toolchains/i386-pc-phoenix/i386-pc-phoenix/bin/:\$HOME/toolchains/arm-phoenix/arm-phoenix/bin/:\$HOME/toolchains/riscv64-phoenix/riscv64-phoenix/bin/:\$HOME/toolchains/sparc-phoenix/sparc-phoenix/bin/" >> $HOME/.zshrc
   ```
 
 Read more about the Phoenix-RTOS toolchain [here](toolchain.md).
