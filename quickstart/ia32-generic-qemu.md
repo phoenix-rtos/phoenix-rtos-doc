@@ -6,7 +6,7 @@ See [how to build the Phoenix-RTOS system image](../building/README.md).
 ## Running image under qemu
 Firstly, you need to install qemu emulator.
   <details>
-  <summary>How to get qemu (Ubuntu 20.04)</summary>
+  <summary>How to get qemu (Ubuntu)</summary>
 
   - Install the required packages
 
@@ -19,6 +19,26 @@ Firstly, you need to install qemu emulator.
   bridge-utils virtinst \
   libvirt-daemon \
   qemu-system-misc
+  ```
+
+  - Check if qemu is properly installed:
+
+  ```
+  qemu-system-i386 --version
+  ```
+
+  <img src="_images/qemu-version-i386.png" width="700px">
+
+  </details> 
+
+  <details>
+  <summary>How to get qemu (Mac OS)</summary>
+
+  - Install the required packages
+
+  ```
+  brew update && \
+  brew install qemu
   ```
 
   - Check if qemu is properly installed:
