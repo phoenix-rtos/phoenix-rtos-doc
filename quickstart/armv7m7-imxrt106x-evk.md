@@ -16,6 +16,10 @@ The easiest way to start programming hardware targets using Phoenix-RTOS is to g
 
 - To communicate with the board you will need to connect another USB cable, but to `DEBUG USB` port (`J14`). The onboard UART-USB converter is used here.
 
+  The picture below presents how the board should be connected:
+
+  <img src="_images/imxrt106x-connections.jpg" width="700px">
+
 - Now you should verify what USB device on your host-pc is connected with the `DEBUG USB` (console). To check that run:
 
   ```bash
@@ -54,7 +58,9 @@ The process comes down to a few steps, described below.
 
 In order to flash the disk image to the board, the bootloader (plo) image located in the `_boot` directory should be uploaded to the RAM using `psu` (Phoenix Serial Uploader) via `SDP` (Serial Download Protocol).
 
-NOTE: i. MX RT1064 should be set in Serial Download mode. Set the appropriate configuration of SW7 switch on i. MX RT1064 - EVK, which is `0001`. If the configuration was different you should restart the board after the change and open the serial port using picocom once again.
+NOTE: i. MX RT1064 should be set in Serial Download mode. Set the appropriate configuration of SW7 switch on i. MX RT1064 - EVK, which is `0001` as it is shown below. If the configuration was different you should restart the board after the change and open the serial port using picocom once again.
+
+  <img src="_images/imxrt106x-serial-download.jpg" width="500px">
 
 Change directory to `_boot/armv7m7-imxrt106x-evk` and run `psu` as follow:
 
@@ -99,7 +105,9 @@ The `flash1` is the internal flash memory. The alternative option is to copy the
 
 ### Booting Phoenix-RTOS from internal Flash
 
-To launch Phoenix-RTOS from flash memory, change SW7 switch to Internal Flash mode (`0010` configuration) and restart the board (you can do it by pushing the `SW3` button).
+To launch Phoenix-RTOS from flash memory, change SW7 switch to Internal Flash mode (`0010` configuration as presented in the photo below) and restart the board (you can do it by pushing the `SW3` button).
+
+  <img src="_images/imxrt106x-internal-flash.jpg" width="500px">
 
 If everything has gone correctly, Phoenix-RTOS with the default configuration and the `psh` shell command prompt will appear in the terminal after 2 seconds. If there is a need to enter the bootloader, the waiting for input should be interrupted by pressing any key. Then you can exit plo by passing `go!` command.
 
