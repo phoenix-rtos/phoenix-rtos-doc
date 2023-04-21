@@ -6,7 +6,7 @@ The files are created as the final artifact of the `phoenix-rtos-project` buildi
 ## Running image under qemu
 Firstly, you need to install qemu emulator.
   <details>
-  <summary>How to get qemu (Ubuntu 20.04)</summary>
+  <summary>How to get qemu (Ubuntu)</summary>
 
   - Install the required packages
 
@@ -27,9 +27,39 @@ Firstly, you need to install qemu emulator.
   qemu-system-riscv64 --version
   ```
 
-  <img src="_images/qemu-version-riscv64.png" width="700px">
+  ```bash
+  ~$ qemu-system-riscv64 --version
+  QEMU emulator version 4.2.1 (Debian 1:4.2-3ubuntu6.24)
+  Copyright (c) 2003-2019 Fabrice Bellard and the QEMU Project developers
+  ~$
+  ```
 
-  </details> 
+  </details>
+
+  <details>
+  <summary>How to get qemu (Mac OS)</summary>
+
+  - Install the required packages
+
+  ```
+  brew update && \
+  brew install qemu
+  ```
+
+  - Check if qemu is properly installed:
+
+  ```
+  qemu-system-riscv64 --version
+  ```
+
+  ```bash
+  ~$ qemu-system-riscv64 --version
+  QEMU emulator version 8.0.0
+  Copyright (c) 2003-2022 Fabrice Bellard and the QEMU Project developers
+  ~$
+  ```
+
+  </details>
 
 To run the image under qemu you should type:
 
