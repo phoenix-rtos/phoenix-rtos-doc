@@ -27,9 +27,14 @@ Firstly, you need to install qemu emulator.
   qemu-system-i386 --version
   ```
 
-  <img src="_images/qemu-version-i386.png" width="700px">
+  ```bash
+  ~$ qemu-system-i386 --version
+  QEMU emulator version 4.2.1 (Debian 1:4.2-3ubuntu6.24)
+  Copyright (c) 2003-2019 Fabrice Bellard and the QEMU Project developers
+  ~$
+  ```
 
-  </details> 
+  </details>
 
   <details>
   <summary>How to get qemu (Mac OS)</summary>
@@ -47,9 +52,14 @@ Firstly, you need to install qemu emulator.
   qemu-system-i386 --version
   ```
 
-  <img src="_images/qemu-version-i386.png" width="700px">
+  ```bash
+  ~$ qemu-system-i386 --version
+  QEMU emulator version 8.0.0
+  Copyright (c) 2003-2022 Fabrice Bellard and the QEMU Project developers
+  ~$
+  ```
 
-  </details> 
+  </details>
 
 To run the system image under qemu you should type the following command (launched from `phoenix-rtos-project` directory).
 
