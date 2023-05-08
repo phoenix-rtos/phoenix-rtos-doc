@@ -94,8 +94,9 @@ Local variables should be defined before the function code according to ANSI C 8
         b = _vm_zalloc(z, NULL);
         kmalloc_common.allocsz += (1 << idx);
 
-        if (idx == hdridx)
+        if (idx == hdridx) {
                 kmalloc_common.hdrblocks--;
+        }
 
         if (z->used == z->blocks) {
                 _vm_zoneRemove(&kmalloc_common.sizes[idx], z);
@@ -141,8 +142,9 @@ In case of increment `++` and decrement `--` operators following rules should be
 Notation of conditional expression is presented below.
 
 ```c
-    if (expr)
-      line 1  
+    if (expr) {
+      line 1
+    }
 
     if (expr0) {
       line 1
@@ -158,7 +160,7 @@ Notation of conditional expression is presented below.
     }
 ```
 
-A space should be used after a keyword of the conditional instruction. Opening and closing braces should be used only if the body of the conditional instruction is longer than one line. The opening brace should be put in the same line as the keyword of the conditional instruction. The closing brace should be placed after the last line of the conditional instruction in a new line.
+A space should be used after a keyword of the conditional instruction. Opening and closing braces should be always used. The opening brace should be put in the same line as the keyword of the conditional instruction. The closing brace should be placed after the last line of the conditional instruction in a new line.
 
 ## Type definition
 
