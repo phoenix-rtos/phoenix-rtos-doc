@@ -142,7 +142,7 @@ Providing that internet connection is working and the current date is set, you c
 
 You can read messages received from Azure, for example using `AzureIotHub VS Code Extension` by clicking `Start Monitoring Built-in Event Endpoint`:
 
- ```
+```
 [IoTHubMonitor] [6:07:21 PM] Message received from [ia32-generic-qemu]:
 "test_message"
 [IoTHubMonitor] [6:07:21 PM] Message received from [ia32-generic-qemu]:
