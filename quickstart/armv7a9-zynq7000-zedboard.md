@@ -232,5 +232,6 @@ top
 
 1. [Running system on armv7a9-zynq7000](armv7a9-zynq7000.md)
 2. [Running system on armv7a9-zynq7000 on emulator](armv7a9-zynq7000-qemu.md)
-3. [Running system on targets](README.md)
-4. [Table of Contents](../README.md)
+3. [Running system on armv7a9-zynq7000-zturn](armv7a9-zynq7000-zturn.md)
+4. [Running system on targets](README.md)
+5. [Table of Contents](../README.md)
