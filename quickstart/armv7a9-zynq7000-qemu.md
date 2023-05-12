@@ -128,6 +128,7 @@ If you want to quit, you should click on the terminal window, press `ctrl + a`, 
 ## See also
 
 1. [Running system on armv7a9-zynq7000](armv7a9-zynq7000.md)
-2. [Running system on armv7a9-zynq7000 on development board](armv7a9-zynq7000-zedboard.md)
-3. [Running system on targets](README.md)
-4. [Table of Contents](../README.md)
+2. [Running system on armv7a9-zynq7000-zedboard](armv7a9-zynq7000-zedboard.md)
+3. [Running system on armv7a9-zynq7000-zturn](armv7a9-zynq7000-zturn.md)
+4. [Running system on targets](README.md)
+5. [Table of Contents](../README.md)
