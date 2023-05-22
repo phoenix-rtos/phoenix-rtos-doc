@@ -147,6 +147,7 @@ gettime,
 
 interrupt,
 [`isatty`](./i/isatty.part-impl.md), <!-- updated -->
+[`ioctl`](./i/ioctl.part-impl.md), <!-- updated -->
 
 ## k
 
