@@ -294,6 +294,7 @@ resourceDestroy,
 [`strspn`](./s/strspn.part-impl.md), <!-- updated -->
 [`strstr`](./s/strstr.part-impl.md), <!-- updated -->
 [`strtod`](./s/strtod.part-impl.md), <!-- updated -->
+[`strtof`](./s/strtod.part-impl.md), <!-- updated -->
 [`strtok`](./s/strtok.part-impl.md), <!-- updated -->
 [`strtol`](./s/strtol.part-impl.md), <!-- updated -->
 [`strtoll`](./s/strtol.part-impl.md), <!-- updated -->
