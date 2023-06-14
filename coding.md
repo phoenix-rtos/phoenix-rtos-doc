@@ -2,6 +2,10 @@
 
 The chapter presents coding convention used in the implementation files of Phoenix-RTOS.
 
+## C language standard
+
+In general code should be compliant with C99 (without GNU extensions) standard.
+
 ## File label
 
 Each operating system source file is marked with label with the following structure.
@@ -73,17 +77,35 @@ The underline character at the start of the function name means that function is
 
 Functions used internally in C file should be declared as static. Functions used only inside the selected subsystem could be named with the name of the module instead of the name of subsystem. Functions exported outside the subsystem must be named with subsystem name only.
 
+All external (i.e. non-static) symbols (including functions) of a library must be prefixed with a library name. For example, lets say we have library `libfoo` and it's function called `init`. This function must be prefixed with either `foo` or `libfoo` - prefix has to be unique and be consistent within the library:
+
+```c
+    int libfoo_init(void);
+
+    /* or */
+
+    int foo_init(void);
+```
+
+If a library consists of submodules (i.e. well separated modules within one library) then second underscore can be used to separate library from submodule and from functionality names. Please note that in general such functions shouldn't be a part of API, but need to adhere to namespace rules as can not be `static` also. Example of this naming scheme:
+
+```c
+    int libfoo_bar_start();
+```
+
 ## Function length
 
 Function should be not longer than 200 lines of code and not shorter than 10 lines of code.
 
 ## Variables
 
-Variables should be named with one short words without the underline characters. If one word is not enough for variable name then use camelCase. When defining a variable assign it a value, do not assume that isn't value is zero.
+Variables should be named with one short words without the underline characters. If one word is not enough for variable name then use camelCase. When defining a variable assign it a value, do not assume that its value is zero. **In the kernel code always initialize global/static variables in runtime.** There's not `.bss` and `.data` initialization in the kernel.
 
-## Local variables
+`const` should be used whenever it is not expected or prohibited for value to change.
 
-Local variables should be defined before the function code according to ANSI C 89 standard. The stack usage and number of local variables should be minimized. Static local variables are not allowed.
+## Local variables - kernel
+
+Local variables should be defined before the function code. The stack usage and number of local variables should be minimized. Static local variables are not allowed.
 
 ```c
     void *_kmalloc_alloc(u8 hdridx, u8 idx)
@@ -107,33 +129,59 @@ Local variables should be defined before the function code according to ANSI C 8
     }
 ```
 
-## Global variables
+## Local variables - libphoenix, userspace
 
-Global variables should be used only if they're absolutely necessary. You should avoid using globally initialized variables. If they are used, global variables can only be placed in common structures. The structure should be named after the system module that implements it, followed by _common. Example notation is shown below.
+Scope of local variables should be minimalized, as the stack usage and number of local variables. It is advised to avoid reusing variables for different purposes across the function. Static local variables are allowed.
 
 ```c
-    struct {
+    void countSheeps(herd_t *herd)
+    {
+        static int lastCount = 0;
+        int count = 0;
+
+        for (size_t i = 0; i < sizeof(herd->sheeps) / sizeof(herd->sheeps[0]); ++i) {
+            if (herd->sheeps[i] != NULL) {
+                ++count;
+            }
+        }
+
+        printf("Counted %d sheeps (last time it was %d)\n", count, lastCount);
+        lastCount = count;
+    }
+```
+
+## Global variables
+
+In the kernel code global variables should be always initialized in runtime. Global variables should be used only if they're absolutely necessary. Scope should be limited whenever possible by using `static`. If they are used, global variables can only be placed in common structures. The structure should be named after the system module that implements it, followed by `_common`. Example notation is shown below.
+
+```c
+    static struct {
         spinlock_t spinlock;
     } pmap_common;
 ```
+
+It is acceptable to omit module name in user space applications (i.e. not in the kernel) and name the structure `common`, only if static is used.
 
 ## Operators
 
 One space character should be used after and before the following binary and ternary operators:
 
->
+```c
     =  +  -  <  >  *  /  %  |  &  ^  <=  >=  ==  !=  ?  :
+```
 
 No space should be used after the following unary operators:
 
->
+```c
     &  *  +  -  ~  ! 
+```
 
 The `sizeof` and `typeof`are treated as functions and are to be used in accordance to the following notation:
 
->
-    sizeof(x)  
+```c
+    sizeof(x)
     typeof(x)
+```
 
 In case of increment `++` and decrement `--` operators following rules should be applied. If they are postfix, no space should be used before the operator. If they are prefix, no space should be used after the operator.
 
@@ -164,7 +212,14 @@ A space should be used after a keyword of the conditional instruction. Opening a
 
 ## Type definition
 
-New types can only be defined if it is absolutely necessary.
+New types can only be defined if it is absolutely necessary. if `typedef` is used for a structure/union, structure/union should be left anonymous if possible:
+
+```c
+    typedef struct {
+       int foo;
+       int bar;
+    } foobar_t;
+```
 
 ## Comments
 
@@ -179,23 +234,37 @@ When the C programming language is used only C language comments should be used.
 
 One line comment should look like the following example.
 
->
+```c
     /* comment */
+```
 
 All comments should be brief and placed only in essential parts of the code. Comments are not the place to copy parts of the specifications. Nor are they the place to express programmer's novel writing skills.
 
 The use of any kind of documentation generator (e.g. doxygen) is strictly forbidden.
 
+## Code disabling
+
+Leaving disabled, dead code should be avoided, version control should be relied upon to hold obsolete code. However, should it be necessary, preprocessor should be used:
+
+```c
+        releveantCode();
+
+    #if 0
+        obsoleteFunction();
+    #endif
+```
+
 ## Preprocessor
 
-The header with the `#include" preprocessing directive should be placed after the label. The example header notation is shown below.
+The header with the `#include` preprocessing directive should be placed after the label. The example header notation is shown below.
 
->
+```c
     #include "pmap.h"
     #include "spinlock.h"
     #include "string.h"
     #include "console.h"
     #include "stm32.h
+```
 
 It is advised not to use MACROS in the code.
 
@@ -224,8 +293,13 @@ It is not advised to use preprocessor conditionals like `#if` or `ifdef'. The us
 
 Following notation for operating system messages should be applied. Message should start from a subsystem name, which should be followed by colon and a message body. An example is shown below.
 
->
+```c
     lib_printf("main: Starting syspage programs (%d) and init\n", syspage->progssz);
+```
+
+## Coding guidelines
+
+MISRA C:2012 coding guideline standard should be adhered to in all matters not addressed in this guideline (advisory rules are optional).
 
 ## Miscellaneous
 
