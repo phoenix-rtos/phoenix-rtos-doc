@@ -1,13 +1,13 @@
-###Synopsis
+# Synopsis
 
 `#include <stdio.h>`
 
 `int sprintf(char *str, const char *format, ...);`
 
-###Description
+## Description
 
 Sends formatted output to a string.
 
-###Return value
+### Return value
 
-###Errors
+### Errors

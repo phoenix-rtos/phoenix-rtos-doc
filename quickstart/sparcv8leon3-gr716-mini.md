@@ -1,7 +1,7 @@
 # Running system on `sparcv8leon3-gr716-mini`
 
 These instructions describe how to run Phoenix-RTOS on the `sparcv8leon3-gr716-mini` target. Note that the build
-artifacts, including the system image should be provided in the `_boot` directory.If you have not built the system
+artifacts, including the system image should be provided in the `_boot` directory. If you have not built the system
 image yet, please refer to the [Building Phoenix-RTOS image](../building/README.md) section.
 
 ## Connecting the board
@@ -44,7 +44,7 @@ grmon -uart /dev/ttyUSB0 -baud 115200
 </br>
 
 The `-baud` parameter specifies the baud rate of the `AHBUART1` interface.
-Optionally you can pass  the `-gdb` parameter, which enables the GDB server on port 2222.
+Optionally you can pass the `-gdb` parameter, which enables the GDB server on port 2222.
 Default CPU clock frequency is 50 MHz.
 
 To load the bootloader (`plo`) to the RAM, run the following commands in the `GRMON` monitor:

@@ -1,11 +1,13 @@
-# ping
+# Ping
 
-`ping` is a `psh` applet related to networking. It allows checking and measuring ICMP (Internet Control Message Protocol) request/response time.
+`ping` is a `psh` applet related to networking. It allows checking and measuring ICMP
+(Internet Control Message Protocol) request/response time.
 
 ---
 
 When running `ping` with `-h` parameter the help message is displayed as follows:
-```
+
+```bash
 Usage: ping [options] address
 Options
   -h:  prints help

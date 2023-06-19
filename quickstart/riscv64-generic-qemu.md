@@ -1,16 +1,21 @@
 # Running system on `riscv64-generic-qemu`
-This version is designated for RISC-V 64 processor based virt machine implemented by `qemu-system-riscv64`. To launch this version two files should be provided - kernel file integrated with SBI firmware with embedded UART16550 interface driver, dummyfs filesystem and the`psh` shell and disk image with ext2 filesystem.
 
-The files are created as the final artifact of the `phoenix-rtos-project` building and are located in the `_boot` directory. See [how to build the Phoenix-RTOS system image](../building/README.md).
+This version is designated for RISC-V 64 processors based virt machine implemented by `qemu-system-riscv64`.
+To launch this version two files should be provided - kernel file integrated with SBI firmware with embedded UART16550
+interface driver, dummyfs filesystem and the`psh` shell and disk image with ext2 filesystem.
 
-## Running image under qemu
-Firstly, you need to install qemu emulator.
+The files are created as the final artifact of the `phoenix-rtos-project` building and are located in the `_boot`
+directory. See [how to build the Phoenix-RTOS system image](../building/README.md).
+
+## Running image under QEMU
+
+Firstly, you need to install QEMU emulator.
   <details>
-  <summary>How to get qemu (Ubuntu)</summary>
+  <summary>How to get QEMU (Ubuntu)</summary>
 
-  - Install the required packages
+- Install the required packages
 
-  ```
+  ```bash
   sudo apt-get update && \
   sudo apt-get install qemu-kvm \
   qemu virt-manager \
@@ -21,9 +26,9 @@ Firstly, you need to install qemu emulator.
   qemu-system-misc
   ```
 
-  - Check if qemu is properly installed:
+- Check if QEMU is properly installed:
 
-  ```
+  ```bash
   qemu-system-riscv64 --version
   ```
 
@@ -37,22 +42,22 @@ Firstly, you need to install qemu emulator.
   </details>
 
   <details>
-  <summary>How to get qemu (Mac OS)</summary>
+  <summary>How to get QEMU (Mac OS)</summary>
 
-  - Install the required packages
+- Install the required packages
 
-  ```
+  ```zsh
   brew update && \
   brew install qemu
   ```
 
-  - Check if qemu is properly installed:
+- Check if QEMU is properly installed:
 
-  ```
+  ```zsh
   qemu-system-riscv64 --version
   ```
 
-  ```bash
+  ```zsh
   ~$ qemu-system-riscv64 --version
   QEMU emulator version 8.0.0
   Copyright (c) 2003-2022 Fabrice Bellard and the QEMU Project developers
@@ -61,7 +66,7 @@ Firstly, you need to install qemu emulator.
 
   </details>
 
-To run the image under qemu you should type:
+To run the image under QEMU you should type:
 
 ```bash
 ./scripts/riscv64-generic-qemu.sh
@@ -73,9 +78,10 @@ To run the image under qemu you should type:
 
 ## Using Phoenix-RTOS
 
-Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal. To get the available command list please type:
+Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal. To get the available
+command list please type:
 
-```
+```plaintext
 help
 ```
 

@@ -20,11 +20,14 @@ The `bind()` function binds a name to socket `socket`.
 
 `socket` - the file descriptor of the socket.
 
-`address` - the pointer to a sockaddr structure containing the address to be bound to the socket. The length and format of the address depend on the address family of the socket.
+`address` - the pointer to a sockaddr structure containing the address to be bound to the socket. The length and format
+of the address depend on the address family of the socket.
 
 `address_len` - the length of the `sockaddr` structure pointed to by the `address` argument.
 
-The `bind()` function assigns a local socket address `address` to a socket identified by descriptor `socket` that has no local socket address assigned. Sockets created with the `socket()` function are initially unnamed; they are identified only by their address family.
+The `bind()` function assigns a local socket address `address` to a socket identified by descriptor `socket` that has no
+local socket address assigned. Sockets created with the `socket()` function are initially unnamed; they are identified
+only by their address family.
 
 ## Return value
 
@@ -44,9 +47,11 @@ The `bind()` function assigns a local socket address `address` to a socket ident
 
 [`EBADF`] - the socket argument is not a valid file descriptor.
 
-[`EINPROGRESS`] - `O_NONBLOCK` is set for the file descriptor for the socket and the assignment cannot be immediately performed; the assignment is performed asynchronously.
+[`EINPROGRESS`] - `O_NONBLOCK` is set for the file descriptor for the socket and the assignment cannot be immediately
+performed; the assignment is performed asynchronously.
 
-[`EINVAL`] - the socket is already bound to an address, and the protocol does not support binding to a new address; or the socket has been shut down.
+[`EINVAL`] - the socket is already bound to an address, and the protocol does not support binding to a new address; or
+the socket has been shut down.
 
 [`ENOBUFS`] - insufficient resources were available to complete the call.
 
@@ -54,33 +59,41 @@ The `bind()` function assigns a local socket address `address` to a socket ident
 
 [`EOPNOTSUPP`] - the socket type of the specified socket does not support binding to an address.
 
-[`EACCES`] - the specified address is protected and the current user does not have permission to bind to it.
+[`EACCES`] - the specified address is protected, and the current user does not have permission to bind to it.
 
 [`EINVAL`] - the `address_len` argument is not a valid length for the address family.
 
 [`EISCONN`] - the socket is already connected.
 
-[`ELOOP`] - more than {`SYMLOOP_MAX`} symbolic links were encountered during resolution of the pathname in `address<`.
+[`ELOOP`] - more than {`SYMLOOP_MAX`} symbolic links were encountered during resolution of the path name in `address<`.
 
-[`ENAMETOOLONG`] - the length of a pathname exceeds {`PATH_MAX`}, or pathname resolution of a symbolic link produced an intermediate result with a length that exceeds {`PATH_MAX`}.
+[`ENAMETOOLONG`] - the length of a path name exceeds {`PATH_MAX`}, or path name resolution of a symbolic link produced
+an intermediate result with a length that exceeds {`PATH_MAX`}.
 
 If the address family of the socket is `AF_UNIX`, then `bind()` fails if:
 
-[`EACCES`] - a component of the path prefix denies search permission, or the requested name requires writing in a directory with a mode that denies write permission.
+[`EACCES`] - a component of the path prefix denies search permission, or the requested name requires writing in a
+directory with a mode that denies write permission.
 
 [`EDESTADDRREQ`] or [`EISDIR`] - the `address` argument is a null pointer.
 
 [`EIO`] - an I/O error occurred.
 
-[`ELOOP`] - a loop exists in symbolic links encountered during resolution of the pathname in `address`.
+[`ELOOP`] - a loop exists in symbolic links encountered during resolution of the path name in `address`.
 
-[`ENAMETOOLONG`] - the length of a component of a pathname is longer than {`NAME_MAX`}.
+[`ENAMETOOLONG`] - the length of a component of a path name is longer than {`NAME_MAX`}.
 
-[`ENOENT`] - a component of the path prefix of the pathname in `address` does not name an existing file or the pathname is an empty string.
+[`ENOENT`] - a component of the path prefix of the path name in `address` does not name an existing file or the path
+name is an empty string.
 
-[`ENOENT`] or [`ENOTDIR`] - the pathname in `address` contains at least one non- / character and ends with one or more trailing / characters. If the pathname without the trailing / characters would name an existing file, an [`ENOENT`] error shall not occur.
+[`ENOENT`] or [`ENOTDIR`] - the path name in `address` contains at least one non- / character and ends with one or more
+trailing / characters. If the path name without the trailing / characters would name an existing file,
+a [`ENOENT`] error shall not occur.
 
-[`ENOTDIR`] - a component of the path prefix of the pathname in `address` names an existing file that is neither a directory nor a symbolic link to a directory, or the pathname in `address` contains at least one non- / character and ends with one or more trailing / characters and the last pathname component names an existing file that is neither a directory nor a symbolic link to a directory.
+[`ENOTDIR`] - a component of the path prefix of the path name in `address` names an existing file that is neither a
+directory nor a symbolic link to a directory, or the path name in `address` contains at least one non- / character and
+ends with one or more trailing / characters and the last path name component names an existing file that is neither a
+directory nor a symbolic link to a directory.
 
 [`EROFS`] - the name would reside on a read-only file system.
 

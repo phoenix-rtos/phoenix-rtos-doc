@@ -1,6 +1,7 @@
-# cat
+# Cat
 
-The `cat` utility provided as a `psh` applet can be used to concatenate files and print their content to standard output.
+The `cat` utility provided as a `psh` applet can be used to concatenate files and print their content to standard
+output.
 
 ---
 
@@ -17,7 +18,7 @@ To print a file using `cat` the filename must be specified as an argument. Follo
 cat file1 file2
 ```
 
-The command above will concatenate and print files `file1` and `file2` (in that order)  to standard output.
+The command above will concatenate and print files `file1` and `file2` (in that order) to standard output.
 
 ## See also
 

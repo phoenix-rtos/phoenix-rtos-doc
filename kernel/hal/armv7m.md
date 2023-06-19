@@ -1,6 +1,7 @@
 # HAL for ARMv7 Cortex-M based targets
 
-ARMv7m HAL layer supports microcontrollers based on ARM Cortex-Mx architecture. Source code is located in `hal/armv7m` directory.
+ARMv7m HAL layer supports microcontrollers based on ARM Cortex-Mx architecture. Source code is located in `hal/armv7m`
+directory.
 
 ## Initialization
 
@@ -9,7 +10,8 @@ ARMv7m HAL layer supports microcontrollers based on ARM Cortex-Mx architecture. 
     .word _end + 1024 + 256
     .word _start
 
-First two words on memory address 0x00000000 define initial stack and code entrypoint. Stack is set at the end of BSS + size of the stack.
+First two words on memory address 0x00000000 define initial stack and code entry point. Stack is set at the end of
+BSS + size of the stack.
 
 >
     .word _exceptions_dispatch /* NMI */

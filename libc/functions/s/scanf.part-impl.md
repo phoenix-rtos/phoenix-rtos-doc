@@ -1,13 +1,13 @@
-###Synopsis
+# Synopsis
 
 `#include <stdio.h>`
 
 `int scanf(const char *format, ...);`
 
-###Description
+## Description
 
 Reads formatted input from stdin.
 
-###Return value
+### Return value
 
-###Errors
+### Errors

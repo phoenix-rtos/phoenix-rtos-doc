@@ -1,4 +1,4 @@
-# cp
+# Cp
 
 The `cp` utility provided as a `psh` applet can be used to copy files.
 
@@ -18,9 +18,10 @@ To copy a file using `cp` source and destination must be specified as arguments.
 cp foo bar
 ```
 
-creates a file `bar` which is a copy of file `foo`. If `bar` existed it is overwritten.
+Creates a file `bar` which is a copy of file `foo`. If `bar` existed it is overwritten.
 
-To create a copy of the same name destination filename can be omitted and only destination directory can be provided. Following command:
+To create a copy of the same name destination filename can be omitted, and only destination directory can be provided.
+Following command:
 
 ```bash
 cp foo directory/

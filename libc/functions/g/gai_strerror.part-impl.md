@@ -1,20 +1,24 @@
-# Synopsis 
-`#include <netdb.h>`</br>
+# Synopsis
 
-` const char *gai_strerror(int ecode);`</br>
+`#include <netdb.h>`
+
+`const char *gai_strerror(int ecode);`
 
 ## Status
+
 Partially implemented
+
 ## Conformance
+
 IEEE Std 1003.1-2017
+
 ## Description
 
-
-The purpose is to address and name information error description. The `gai_strerror()` function shall return a text string describing an error value for the `getaddrinfo()` and `getnameinfo()`
+The purpose is to address and name information error description. The `gai_strerror()` function shall return a text
+string describing an error value for the `getaddrinfo()` and `getnameinfo()`
 functions listed in the `<netdb.h>` header.
 
 When the _ecode_ argument is one of the following values listed in the `<netdb.h>` header:
-
 
 * `EAI_AGAIN`
 * `EAI_BADFLAGS`
@@ -27,11 +31,8 @@ When the _ecode_ argument is one of the following values listed in the `<netdb.h
 * `EAI_SOCKTYPE`
 * `EAI_SYSTEM`
 
-
-
-the function return value shall point to a string describing the error. If the argument is not one of those values, the function
-shall return a pointer to a string whose contents indicate an unknown error.
-
+The function return value shall point to a string describing the error. If the argument is not one of those values, the
+function shall return a pointer to a string whose contents indicate an unknown error.
 
 ## Return value
 
@@ -39,11 +40,7 @@ Upon successful completion, `gai_strerror()` shall return a pointer to an implem
 
 ## Errors
 
-
 No errors are defined.
-
-
-
 
 ## Tests
 
@@ -53,6 +50,7 @@ Untested
 
 None
 
-## See Also 
+## See Also
+
 1. [Standard library functions](../README.md)
 2. [Table of Contents](../../../README.md)

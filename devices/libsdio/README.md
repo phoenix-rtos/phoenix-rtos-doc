@@ -1,8 +1,9 @@
-# libsdio
+# Libsdio
 
 ## General description
 
-libsdio is a static, precompiled library containing a generic SDIO driver which directly controls the platform hardware. This driver defines an API providing basic interface control functionality.
+Libsdio is a static, precompiled library containing a generic SDIO driver which directly controls the platform hardware.
+This driver defines an API providing basic interface control functionality.
 
 ## Platform support
 
@@ -74,9 +75,10 @@ typedef void (*sdio_event_handler_t)(void *arg);
 
 ## API description
 
-Following sections describe the API in detail, including the behaviour of certain functions.
+Following sections describe the API in detail, including the behavior of certain functions.
 
-> **NOTE:** Codes returned by API calls are defined in `<errno.h>` header, which provides more detailed information about specific values.
+> **NOTE:** Codes returned by API calls are defined in `<errno.h>` header, which provides more detailed information
+about specific values.
 
 ---
 
@@ -89,7 +91,8 @@ typedef enum {
 
 **Description:**
 
-This enumeration type is meant as parameter for `sdio_transferDirect` and `sdio_transferBulk` functions to indicate the direction of a given data transfer.
+This enumeration type is meant as parameter for `sdio_transferDirect` and `sdio_transferBulk` functions to indicate the
+direction of a given data transfer.
 
 ---
 
@@ -99,7 +102,9 @@ typedef void (*sdio_event_handler_t)(void *arg);
 
 **Description:**
 
-This type describes a callback for an interrupt handler. Handlers of interrupts events are assigned to a specific event, and every event can only have a single handler. Handler argument is provided during handler registration using `sdio_eventRegister`, and will remain unchanged until the handler registration is modified via the same function.
+This type describes a callback for an interrupt handler. Handlers of interrupts events are assigned to a specific event,
+and every event can only have a single handler. Handler argument is provided during handler registration using
+`sdio_eventRegister`, and will remain unchanged until the handler registration is modified via the same function.
 
 ---
 
@@ -109,9 +114,12 @@ int sdio_init(void);
 
 **Description:**
 
-This function initializes the SDIO inteface hardware and tries to detect and select the connected device. It has to be called before any other API function. Should no device be present or it does not respond to SDIO initialization sequence, this function shall return an error code and free resources it acquired.
+This function initializes the SDIO interface hardware and tries to detect and select the connected device. It has to be
+called before any other API function. Should no device be present, or it does not respond to SDIO initialization
+sequence, this function shall return an error code and free resources it acquired.
 
-> **NOTE:** Calling this function more than once after successful completion will have no effect. In order to reinitialize the interface, `sdio_free` should be called between concurrent `sdio_init` calls instead.
+> **NOTE:** Calling this function more than once after successful completion will have no effect. In order to
+reinitialize the interface, `sdio_free` should be called between concurrent `sdio_init` calls instead.
 
 **Parameters:**
 
@@ -122,7 +130,7 @@ This function initializes the SDIO inteface hardware and tries to detect and sel
 | code    | description                 |
 |---------|-----------------------------|
 |  EOK    | success                     |
-| -EIO    | I/O hardware fault occured  |
+| -EIO    | I/O hardware fault occurred  |
 | -ENOMEM | not enough memory available |
 
 ---
@@ -133,9 +141,11 @@ void sdio_free(void);
 
 **Description:**
 
-This function frees the SDIO bus, reset the host controller, deregister and disable all previously registered event handlers. Calling this function before `sdio_init` has no effect.
+This function frees the SDIO bus, reset the host controller, deregister and disable all previously registered event
+handlers. Calling this function before `sdio_init` has no effect.
 
-> **NOTE:** Due to its current implementation, calling this function does not allow for creation of new library instances in other running processes.
+> **NOTE:** Due to its current implementation, calling this function does not allow for creation of new library
+instances in other running processes.
 
 **Parameters:**
 
@@ -150,9 +160,11 @@ This function frees the SDIO bus, reset the host controller, deregister and disa
 ```c
 int sdio_config(uint32_t freq, uint16_t blocksz);
 ```
+
 **Description:**
 
-This function provides a configuration interface for the SDIO bus controller. This function can be called at any time after `sdio_init`.
+This function provides a configuration interface for the SDIO bus controller. This function can be called at any time
+after `sdio_init`.
 
 **Parameters:**
 
@@ -168,7 +180,7 @@ This function provides a configuration interface for the SDIO bus controller. Th
 |  EOK       | success                            |
 | -EINVAL    | provided `blocksz` is invalid      |
 | -ETIMEDOUT | device configuration took too long |
-| -EIO       | I/O hardware fault occured         |
+| -EIO       | I/O hardware fault occurred         |
 
 ---
 
@@ -178,7 +190,9 @@ int sdio_transferDirect(sdio_dir_t dir, uint32_t address, uint8_t area, uint8_t 
 
 **Description:**
 
-This function initiates a direct, single 8-bit register read/write opetation. When `dir` is specified as `sdio_write` the byte inside the `data` buffer is written to the device, otherwise if `dir` equals `sdio_read` , the buffer is set to the value read from the device.
+This function initiates a direct, single 8-bit register read/write operation. When `dir` is specified as `sdio_write`
+the byte inside the `data` buffer is written to the device, otherwise if `dir` equals `sdio_read`, the buffer is set
+to the value read from the device.
 
 > **NOTE:** This function is a blocking call which only returns upon successful transfer completion or failure.
 
@@ -189,7 +203,7 @@ This function initiates a direct, single 8-bit register read/write opetation. Wh
 | [in] `sdio_dir_t dir`    | transfer direction                | sdio_read / sdio_write |
 | [in] `uint32_t address`  | card register address to access   | *any 17-bit value*     |
 | [in] `uint8_t area`      | card I/O area index to access     | *any 3-bit value*      |
-| [in/out] `uint8_t *data` | bi-directional single byte buffer | *any valid pointer*    |
+| [in/out] `uint8_t *data` | bidirectional single byte buffer | *any valid pointer*    |
 
 **Returns:**
 
@@ -208,7 +222,8 @@ int sdio_transferBulk(sdio_dir_t dir, int blockMode, uint32_t address, uint8_t a
 
 **Description:**
 
-This function initiates an indirect, multi-byte transfer of up to 2048 bytes at once. As is the case with `sdio_transferDirect`, this call can service bi-directional transfers.
+This function initiates an indirect, multibyte transfer of up to 2048 bytes at once. As is the case with
+`sdio_transferDirect`, this call can service bidirectional transfers.
 
 > **NOTE:** This function is a blocking call which only returns upon successful transfer completion or failure.
 
@@ -220,19 +235,20 @@ This function initiates an indirect, multi-byte transfer of up to 2048 bytes at 
 | [in] `int blockMode`     | divide transfer into blocks      | *boolean*              |
 | [in] `uint32_t address`  | card base address to access      | *any 17-bit value*     |
 | [in] `uint8_t area`      | card I/O area index to access    | *any 3-bit value*      |
-| [in/out] `uint8_t *data` | bi-directional multi byte buffer | *any valid pointer*    |
-| [in] `size_t len`        | total transfer size in bytes     | <=2048                 |
+| [in/out] `uint8_t *data` | bidirectional multibyte buffer   | *any valid pointer*    |
+| [in] `size_t len`        | total transfer size in bytes     | ≤2048                 |
 
-> **NOTE:** `len` parameter has to be a multiple of `blocksz` when performing a block transfer with `blockMode` set to *true*.
-
-> **NOTE:** `address` parameter specifies only the base address of the transfer. If `blockMode` is set to *true*, then the address is automatically incremented by the device with every completed block.
+> **NOTE:** `len` parameter has to be a multiple of `blocksz` when performing a block transfer with `blockMode` set to
+*true*.
+> **NOTE:** `address` parameter specifies only the base address of the transfer. If `blockMode` is set to *true*, then
+the address is automatically incremented by the device with every completed block.
 
 **Returns:**
 
 | code       | description                               |
 |------------|-------------------------------------------|
 |  EOK       | success                                   |
-| -EIO       | I/O hardware fault occured                |
+| -EIO       | I/O hardware fault occurred                |
 | -EBUSY     | interface is currently busy               |
 | -ETIMEDOUT | transfer request was not serviced in time |
 | -EINVAL    | *see parameters section*                  |
@@ -243,7 +259,10 @@ This function initiates an indirect, multi-byte transfer of up to 2048 bytes at 
 int sdio_eventRegister(uint8_t event, sdio_event_handler_t handler, void *arg);
 ```
 
-This function registers an event handler to be called when a given interrupt event occurs. An interrupt event will not be signalled until its detection is enabled by `sdio_eventEnable`. Please note that only one handler can be registered per event - calling this function multiple times for the same event will result in the previous handler being overwritten. In order to deregister the handler one can pass `NULL` as the `handler` parameter.
+This function registers an event handler to be called when a given interrupt event occurs. An interrupt event will not
+be signalled until its detection is enabled by `sdio_eventEnable`. Please note that only one handler can be registered
+per event - calling this function multiple times for the same event will result in the previous handler being
+overwritten. In order to deregister the handler one can pass `NULL` as the `handler` parameter.
 
 **Parameters:**
 
@@ -270,7 +289,8 @@ This function registers an event handler to be called when a given interrupt eve
 int sdio_eventEnable(uint8_t event, int enabled);
 ```
 
-This function can enable or disable interrupt event signalling of the SD host controller. If a handler is registered via `sdio_eventRegister` for a given enabled event, it will be called when an interrupt fires.
+This function can enable or disable interrupt event signalling of the SD host controller. If a handler is registered via
+`sdio_eventRegister` for a given enabled event, it will be called when an interrupt fires.
 
 **Parameters:**
 
@@ -279,7 +299,7 @@ This function can enable or disable interrupt event signalling of the SD host co
 | [in] `uint8_t event` | event for which signalling enable is to be set | *see note below* |
 | [in] `int enabled`   | state of signalling enable (1/0)               | *boolean*        |
 
-> **NOTE:** `event` argument is passed using appropriate defines beggining with `SDIO_EVENT`.
+> **NOTE:** `event` argument is passed using appropriate defines beginning with `SDIO_EVENT`.
 
 **Returns:**
 
@@ -287,4 +307,3 @@ This function can enable or disable interrupt event signalling of the SD host co
 |---------|-------------------------------|
 |  EOK    | success                       |
 | -EINVAL | provided `event` is not valid |
-

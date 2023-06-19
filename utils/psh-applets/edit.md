@@ -42,7 +42,7 @@ example, `[18:8]`), indicating the eighteenth row and eighth column.
 
 ## Tabulator
 
-By default tab stop is set to 4 characters. To enter `\t` character press `Tab`
+By default, tab stop is set to 4 characters. To enter `\t` character press `Tab`
 key on your keyboard, the text will be adjusted using current tab stop setting.
 
 ## Saving or exiting without saving

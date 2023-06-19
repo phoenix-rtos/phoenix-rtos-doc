@@ -1,6 +1,6 @@
 # Common routines
 
-Common routines ara located in `src/lib` subdirectory.
+Common routines are located in `src/lib` subdirectory.
 
 ## Print function
 

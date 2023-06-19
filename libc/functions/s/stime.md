@@ -1,11 +1,11 @@
-###Synopsis
+# Synopsis
 
 `#include <stdlib.h>`
 
 `int stime(const time_t *t);`
 
-###Description
+## Description
 
-###Return value
+### Return value
 
-###Errors
+### Errors

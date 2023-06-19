@@ -113,7 +113,7 @@ If you want to flash the system image please follow the next steps.
 ### Copying image to flash memory using PHFS (phoenixd)
 
 To flash the disk image, first, you need to verify on which port plo USB device has appeared. You can check that using
-`ls` as follow:
+`ls` as follows:
 
 ```plaintext
 ls -l /dev/serial/by-id
@@ -137,7 +137,7 @@ sudo ./phoenixd -p /dev/ttyACM0 -b 115200 -s .
 If you encountered some problems during this step please see
 [common problems](armv7a9-zynq7000.md#common-problems-on-zynq7000-boards).
 
-Before flashing, good practise is to erase older file system on flash memory (this is done to avoid errors).
+Before flashing, good practice is to erase older file system on flash memory (this is done to avoid errors).
 
 ### Erasing the area intended for file system
 
@@ -240,6 +240,6 @@ top
 
 1. [Running system on armv7a9-zynq7000](armv7a9-zynq7000.md)
 2. [Running system on armv7a9-zynq7000 on emulator](armv7a9-zynq7000-qemu.md)
-3. [Running system on armv7a9-zynq7000 on zedboard](armv7a9-zynq7000-zedboard.md)
+3. [Running system on armv7a9-zynq7000 on Zedboard](armv7a9-zynq7000-zedboard.md)
 4. [Running system on targets](README.md)
 5. [Table of Contents](../README.md)

@@ -1,10 +1,11 @@
-###Synopsis
+# Synopsis
+
 `#include <unistd.h>`
 
 `uid_t getuid(void);`
 
-###Description
+## Description
 
-###Return value
+## Return value
 
-###Errors
+## Errors

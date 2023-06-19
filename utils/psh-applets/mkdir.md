@@ -1,11 +1,12 @@
-# mkdir
+# Mkdir
 
 `mkdir` is a utility that creates a directory.
 
 ---
 
-Usage: 
-```
+Usage:
+
+```bash
 mkdir <dir path>...
 ```
 

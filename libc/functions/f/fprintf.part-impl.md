@@ -1,13 +1,13 @@
-###Synopsis
+# Synopsis
 
 `#include <stdio.h>`
 
 `int fprintf(FILE *stream, const char *format, ...);`
 
-###Description
+## Description
 
 Sends formatted output to a stream.
 
-###Return value
+## Return value
 
-###Errors
+## Errors

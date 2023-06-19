@@ -1,25 +1,33 @@
 <!-- Documentation template to fill -->
-# Synopsis 
+# Synopsis
 
-`#include <termios.h>`</br>
+`#include <termios.h>`
 
 `int tcdrain(int fildes);`
 
 ## Status
 
 Partially implemented
+
 ## Conformance
 
-IEEE Std 1003.1-2017 
-## Description 
- 
-The `tcdrain()` function shall block until all output written to the object referred to by _fildes_ is transmitted. The _fildes_ argument is an open file descriptor associated with a terminal.
+IEEE Std 1003.1-2017
 
-Any attempts to use `tcdrain()` from a process which is a member of a background process group on a _fildes_ associated with its controlling terminal, shall cause the process group to be sent a `SIGTTOU` signal. If the calling thread is blocking `SIGTTOU` signals or the process is ignoring `SIGTTOU` signals, the process shall be allowed to perform the operation, and no signal is sent.
+## Description
+
+The `tcdrain()` function shall block until all output written to the object referred to by _fildes_ is transmitted. The
+_fildes_ argument is an open file descriptor associated with a terminal.
+
+Any attempts to use `tcdrain()` from a process which is a member of a background process group on a _fildes_ associated
+with its controlling terminal, shall cause the process group to be sent a `SIGTTOU` signal. If the calling thread is
+blocking `SIGTTOU` signals or the process is ignoring `SIGTTOU` signals, the process shall be allowed to perform the
+operation, and no signal is sent.
 
 ## Return value
 
-Upon successful completion, `0` shall be returned. Otherwise, `-1` shall be returned and `errno` set to indicate the error. 
+Upon successful completion, `0` shall be returned. Otherwise, `-1` shall be returned and `errno` set to indicate the
+error.
+
 ## Errors
 
 The `tcdrain()` function shall fail if:
@@ -28,17 +36,19 @@ The `tcdrain()` function shall fail if:
 
 * `EINTR` - A signal interrupted `tcdrain()`.
 
-* `EIO` - The process group of the writing process is orphaned, the calling thread is not blocking `SIGTTOU`, and the process is not ignoring `SIGTTOU`.
+* `EIO` - The process group of the writing process is orphaned, the calling thread is not blocking `SIGTTOU`, and the
+process is not ignoring `SIGTTOU`.
 
 * `ENOTTY` - The file associated with _fildes_ is not a terminal.
 
-<!-- #MUST_BE: function by default shall be untested, when tested there should be a link to test location and test command for ia32 test runner  -->
+<!-- #MUST_BE: function by default shall be untested, when tested there should be a link to test location and test 
+command for ia32 test runner  -->
 ## Tests
 
-Untested 
+Untested
 
 <!-- #MUST_BE: check for pending issues in  -->
-## Known bugs 
+## Known bugs
 
 None
 

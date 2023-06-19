@@ -2,56 +2,57 @@
 
 In the era of IoT, when the goal is to address every device on the Internet
 with IP, even on the simplest microcontroller, may face a barrier in the form
-of the lack of a proper interface (Ethernet, WiFi) the use of uart in
-conjunction with an appropriate adapter, be it USB, bluetooth or
+of the lack of a proper interface (Ethernet, Wi-Fi) the use of uart in
+conjunction with an appropriate adapter, be it USB, Bluetooth or
 optical/infrared uart may be the easiest to connect both worlds.
 
 Almost every microcontroller has at least one uart, may not have Ethernet MAC,
-WiFi or bluetooth, but uart/serial null-modem connection is possible always and
+Wi-Fi or Bluetooth, but uart/serial null-modem connection is possible always and
 the most legitimate and proven protocol to deliver IP world is PPP.
 
-## Build and setup the device
+## Build and set up the device
 
 Before you start [building Phoenix RTOS](/building/) with
 [network stack — LwIP](/lwip/README.md), you need to adjust the custom
 build.project script, in function `b_build_project()` add the following lines:
 
-```
+```bash
 b_log "Builing phoenix-rtos-lwip"
 (cd phoenix-rtos-lwip && make $MAKEFLAGS $CLEAN all)
 ```
 
 some targets may require adding also
 
-```
+```bash
 b_install "$PREFIX_PROG_STRIPPED/lwip" /sbin
 ```
 
 next it is required to add `lwip` to syspage programs with `PROGS` variable,
 e.g.:
 
-```
+```bash
 PROGS=("dummyfs" "imxrt-multi" "lwip" "psh")
 ```
 
-If `phoenix-rtos-build` builds` phoenix-rtos-lwip` correctly, you can start the
+If `phoenix-rtos-build` builds`phoenix-rtos-lwip` correctly, you can start the
 null-modem point-to-point connection in the Phoenix RTOS system.  To enable the
 driver and up the interface just after Phoenix RTOS kernel starts, add e.g. the
 following line to the `plo` script:
-```
+
+```plaintext
 app flash0 -x @lwip;/dev/uart3:115200:up xip1 ocram2
 ```
 
 It is important that the entry is added with the `imxrt-multi` driver or with
 the appropriate platform serial driver. Driver that is used in the example is
 `imxrt-multi` available for `imxrt` targets, it will create an entry in `/dev`
-direcroty e.g. `uart3` corresponding to the auxiliary uart port instance on
+directory e.g. `uart3` corresponding to the auxiliary uart port instance on
 i.MX RT1064-EVK board, where uart1 is already used for the systems console.
 
 The configuration field `:115200:` is optional and represents the connection
-speed (value of 115200 bauds is the default baudrate and can be omitted).  Of
+speed (value of 115200 bauds is the default baud rate and can be omitted).  Of
 course, you can set other speeds, e.g. 9600, 230400 or 460800. Other connection
-parameters, such as parity and stop bits, are fixed to 8N1, because nowadays
+parameters, such as parity and stop bits, are fixed to 8N1, because nowadays,
 other values are rarely used, especially for serial PPP connections.
 
 ### Default route
@@ -60,7 +61,7 @@ By default, `pppou` driver will add the `default route` via itself. If the
 `default route` is not to be added, use the optional `nodefault` parameter,
 as in the example below.
 
-```
+```plaintext
 app flash0 -x @lwip;pppou:/dev/uart3:115200:nodefault:up xip1
 ```
 
@@ -69,7 +70,7 @@ app flash0 -x @lwip;pppou:/dev/uart3:115200:nodefault:up xip1
 For example, on the `imxrt` platforms _(memory map used in example is for i.MX
 RT1064)_ the plo script might look like this:
 
-```
+```plaintext
 map itcm 0 58000 R+E
 map dtcm 20000000 20028000 R+W
 map ocram2 20200000 20280000 R+W+E
@@ -84,10 +85,12 @@ go!
 
 Alternatively, `phoenix-rtos-lwip` can also be started with the command `psh`
 sysexec (NON-MMU targets) at any time:
-```
+
+```plaintext
 sysexec ocram2 lwip pppou:/dev/uart3:115200:up
 ```
-if provided the LwIP server has not already been running, and on MMU architectures
+
+If provided the LwIP server has not already been running, and on MMU architectures
 either using the `exec` command or directly in `psh` command prompt.
 
 Once the `phoenix-rtos-lwip` server has started, you can make sure by issuing
@@ -105,7 +108,7 @@ side you must also configure the connection, if it is Linux or BSD, you can
 use, for example this command (prepend `pppd` with `sudo`, `doas` or `su`
 command if `root` user rights are required):
 
-```
+```bash
 pppd /dev/ttyUSB0 460800 10.0.0.1:10.0.0.2 lock local noauth nocrtscts nodefaultroute maxfail 0 persist
 ```
 
@@ -125,7 +128,8 @@ Additional `/dev` entries will be created like `ifstatus`, `route` and `pf`.
 ## Enabling IPv6 (dual stack)
 
 Add the following line at the top of file `phoenix-rtos-lwip/include/default-opts/lwipopts.h` and rebuild.
-```
+
+```c
 #define LWIP_IPV6 1
 ```
 
@@ -137,9 +141,9 @@ link-local address like `fe80::55a0:6c87:7de3:611b`
 ## Debugging
 
 Compile `phoenix-rtos-lwip` pppou driver with logging enabled, and then on host
-use the following command that enable full `pppd` debuging
+use the following command that enable full `pppd` debugging
 
-```
+```bash
 pppd /dev/ttyUSB0 <speed> 10.0.0.1:10.0.0.2 lock local nodetach noauth debug dump nocrtscts nodefaultroute maxfail 0 holdoff 1
 ```
 

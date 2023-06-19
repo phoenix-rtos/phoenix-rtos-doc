@@ -1,8 +1,7 @@
-# pwd
-
+# Pwd
 
 The `pwd` command provided as a `psh` applet writes
-the full pathname of the current working directory
+the full path name of the current working directory
 to the standard output.
 
 ---

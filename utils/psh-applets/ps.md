@@ -1,10 +1,12 @@
 # ps
 
-`ps` is a `psh` applet that displays a snapshot of processes and threads in the system. For an updating view or column names please refer to [top](top.md) applet. 
+`ps` is a `psh` applet that displays a snapshot of processes and threads in the system. For an updating view or column
+names please refer to [top](top.md) applet.
 
 ---
 When running `ps` with `-h` parameter the help message is displayed as follows:
-```
+
+```bash
 Usage: ping [options] address
 Options
   Usage: ps [options]

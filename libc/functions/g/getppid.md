@@ -1,10 +1,11 @@
-###Synopsis
+# Synopsis
+
 `#include <unistd.h>`
 
 `pid_t getppid(void);`
 
-###Description
+## Description
 
-###Return value
+## Return value
 
-###Errors
+## Errors

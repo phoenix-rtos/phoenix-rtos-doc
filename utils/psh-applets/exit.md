@@ -1,6 +1,6 @@
-# exit
+# Exit
 
-`exit` command closes the Phoenix SHell.
+`exit` command closes the Phoenix Shell (PSH).
 
 ## See also
 

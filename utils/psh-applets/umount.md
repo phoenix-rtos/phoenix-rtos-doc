@@ -1,4 +1,4 @@
-# umount
+# Umount
 
 The `umount` utility unmounts a filesystem.
 

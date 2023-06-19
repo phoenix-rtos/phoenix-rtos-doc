@@ -1,18 +1,27 @@
 # Interface
 
-The device driver server in a Phoenix-RTOS ecosystem communicates with other processes using a message interface. In the typical case, the driver server has one port on which all requests are placed by clients. This port can be either registered within the native namespace or special file(s) can be created within the filesystem.
+The device driver server in a Phoenix-RTOS ecosystem communicates with other processes using a message interface. In
+the typical case, the driver server has one port on which all requests are placed by clients. This port can be either
+registered within the native namespace or special file(s) can be created within the filesystem.
 
 ## Port creation
 
-Port, the endpoint of the message communication, can be created using the `portCreate()` function. If zero is returned, then creation succeeded and the variable port now contains a unique port number assigned by the kernel.
+Port, the endpoint of the message communication, can be created using the `portCreate()` function. If zero is returned,
+then creation succeeded and the variable port now contains a unique port number assigned by the kernel.
 
 ## Registering within a namespace
 
-The freshly created port can not be seen by other processes. To allow clients to find out the server's port number, it has to be registered within some namespace. If the device driver server wants to register more than one "file" it does not have to create separate ports for them. The driver needs to assign each "file" id from its private pool.
+The freshly created port can not be seen by other processes. To allow clients to find out the server's port number, it
+has to be registered within some namespace. If the device driver server wants to register more than one "file" it does
+not have to create separate ports for them. The driver needs to assign each "file" ID from its private pool.
 
-Assume we want to create an SPI server that manages 2 instances of the device - spi0 and spi1. We can manage both using only one port by registering the same port as `/dev/spi0` with id = 1 and `/dev/spi1` with id = 2. Every message driver receives contains information to which `oid` (object id) it has been sent. This enables the driver to recognize to which special file message has been addressed to.
+Assume we want to create an SPI server that manages 2 instances of the device - spi0 and spi1. We can manage both using
+only one port by registering the same port as `/dev/spi0` with id = 1 and `/dev/spi1` with id = 2. Every message driver
+receives contains information to which `oid` (object ID) it has been sent. This enables the driver to recognize to
+which special file message has been addressed to.
 
-If the system does not have a root filesystem, a port can be registered within Phoenix native filesystem by using syscall
+If the system does not have a root filesystem, a port can be registered within Phoenix native filesystem by using
+syscall
 
 ```c
 int portRegister(u32 port, const char *name, oid_t *oid);
@@ -20,13 +29,14 @@ int portRegister(u32 port, const char *name, oid_t *oid);
 
 where
 
-- _`port`_ - port number aquired from portCreate,
+- _`port`_ - port number acquired from portCreate,
 - _`name`_ - path in the namespace, e.g. "/uart0",
-- _`oid`_ - optional argument containing instance id.
+- _`oid`_ - optional argument containing instance ID.
 
 Syscall returns 0 on success.
 
-On systems that contain filesystem special file can be created, which will point to the server's `oid`. In the first place we need `oid` of directory which will hold our special file:
+On systems that contain filesystem special file can be created, which will point to the server's `oid`. In the first
+place we need `oid` of directory which will hold our special file:
 
 ````C
     #include <sys/msg.h>
@@ -57,10 +67,11 @@ Then we can create a new special file and register:
 
 ## Message types
 
-There are several standard types of messages, although device driver servers need to implement an only subset of them. With every message type there are 3 common fields:
+There are several standard types of messages, although device driver servers need to implement an only subset of them.
+With every message type there are 3 common fields:
 
 - _`type`_ - type of message,
-- _`pid`_ - process id of sender,
+- _`pid`_ - process ID of sender,
 - _`priority`_ - priority of sender's thread.
 
 ### mtOpen
@@ -73,7 +84,7 @@ This message type informs the server, there is a process trying to open one of i
 The server can respond to this message via the o.io.err field:
 
 - _`EOK`_ if success,
-- _`ENOENT`_ if no such file exist, 
+- _`ENOENT`_ if no such file exist,
 - _`EPERM`_ if client has not sufficient privilege.
 
 ### mtClose
@@ -105,7 +116,7 @@ These message-type queries write to the device driver server.
 
 _`i.io.oid`_ - `oid` of the file being written to,
 _`i.io.offs`_ - offset in the file,
-_`i.io.len`_ - length of the write,
+_`i.io.len`_ - length of write,
 _`i.io.mode`_ - flags with which file has been opened,
 _`i.data`_ - buffer with data,
 _`i.size`_ - length of the i.data buffer.
@@ -116,7 +127,9 @@ Number of written bytes or error is returned via o.io.err.
 
 ### mtDevCtl
 
-This message type allows defining an entirely custom structure for input and output to/from a device server. This structure should be serialized/deserialized to/from message i.raw/o.raw fields. Additional data can be passed in i.data and o.data fields.
+This message type allows defining an entirely custom structure for input and output to/from a device server. This
+structure should be serialized/deserialized to/from message i.raw/o.raw fields. Additional data can be passed in i.data
+and o.data fields.
 
 ## See also
 

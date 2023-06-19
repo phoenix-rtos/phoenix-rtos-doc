@@ -1,11 +1,13 @@
-# touch
+# Touch
 
-`touch` is a `psh` applet related to files. It updates the timestamp of a file. A new file is created if it does not exist.
+`touch` is a `psh` applet related to files. It updates the timestamp of a file. A new file is created if it does not
+exist.
 
 ---
 
 Usage:
-```
+
+```bash
 usage: touch <file path>...
 ```
 
