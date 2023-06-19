@@ -1,25 +1,26 @@
-###Synopsis
+# Synopsis
 
 `#include <stdlib.h>`
 
 `void free(void *ptr);`
 
-###Description
+## Description
 
-The function deallocates the memory previously allocated by a call to `calloc()`, `malloc()`, or `realloc()`. If <u>ptr</u> is a `NULL` pointer, no operation is performed.
+The function deallocates the memory previously allocated by a call to `calloc()`, `malloc()`, or `realloc()`. If _ptr_
+is a `NULL` pointer, no operation is performed.
 
 Arguments:
 
-<u>ptr</u> - the pointer to the allocated earlier memory.
+_ptr_ - the pointer to the allocated earlier memory.
 
-###Return value
+## Return value
 
 None.
 
-###Errors
+## Errors
 
 No errors are defined.
 
-###Implementation tasks
+## Implementation tasks
 
 * None.

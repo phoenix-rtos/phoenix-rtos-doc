@@ -5,10 +5,13 @@
 ---
 
 Prefixing filename with `/` executes the file. Usage:
-```
+
+```bash
 /filename
 ```
-will execute a file called filename, but in contrast to [`exec`](exec.md) the current shell will not be substituted by the file process.
+
+Will execute a file called filename, but in contrast to [`exec`](exec.md) the current shell will not be substituted by
+the file process.
 
 The value of an executed file will not be returned from `/`
 

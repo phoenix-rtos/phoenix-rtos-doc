@@ -1,4 +1,4 @@
-# date
+# Date
 
 The `date` utility provided as a `psh` applet can be used to print or set system date and time.
 
@@ -16,14 +16,19 @@ NOTE: FORMAT string not supported by options: '-s', '-d'
 ```
 
 ## Date printing
-To print current system date execute command without parameters. Default format of date is `<dayname, dd monthname yy hh:mm:ss>`:
-```
+
+To print current system date execute command without parameters. Default format of date is
+`<dayname, dd monthname yy hh:mm:ss>`:
+
+```bash
 (psh)% date
 Thu, 01 Jan 70 00:00:01
 (psh)%
 ```
 
-Printing accepts `FORMAT` string that describes how or what part of date should be printed. Available formats are listed further in this document. Format string should start with `+` sign.
+Printing accepts `FORMAT` string that describes how or what part of date should be printed. Available formats are listed
+further in this document. Format string should start with `+` sign.
+
 ``` bash
 (psh)% date +%H:%M:%S
 00:02:34
@@ -31,7 +36,10 @@ Printing accepts `FORMAT` string that describes how or what part of date should 
 ```
 
 ## Date setting
-To set date execute command with option `-s` and pass time in standard POSIX format (seconds since `Thu, 01 Jan 70 00:00:00`). Succesfull set of date prints newly set date.
+
+To set date execute command with option `-s` and pass time in standard POSIX format
+(seconds since `Thu, 01 Jan 70 00:00:00`). Successful set of date prints newly set date.
+
 ```bash
 (psh)% date -s 1630000000
 Thu, 26 Aug 21 17:46:41
@@ -40,10 +48,13 @@ Thu, 26 Aug 21 17:46:42
 (psh)%
 ```
 
-__Note:__ `-s` option temporarily does not support `FORMAT` string and it accepts
+__Note:__ `-s` option temporarily does not support `FORMAT` string, and it accepts
 
 ## Date parsing
-To parse and print date without setting it execute command with option `-d` and pass `@EPOCH` parameter which is in standard POSIX time.
+
+To parse and print date without setting it execute command with option `-d` and pass `@EPOCH` parameter which is in
+standard POSIX time.
+
 ```bash
 (psh)% date -d @1630000000
 Thu, 26 Aug 21 17:46:41

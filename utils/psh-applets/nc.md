@@ -1,11 +1,13 @@
-# nc
+# Nc
 
-`nc` is a `psh` applet related to networking. It allows for managing TCP and UDP connections and sending data through them.
+`nc` is a `psh` applet related to networking. It allows for managing TCP and UDP connections and sending data through
+them.
 
 ---
 
 Running `nc` with `-h` argument prints help message as follows:
-```
+
+```bash
 Usage: nc [options] [destination] [port]
 Options
   -4:  IPv4 only

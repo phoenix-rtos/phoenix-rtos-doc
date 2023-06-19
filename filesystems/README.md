@@ -1,6 +1,7 @@
 # Filesystems
 
-Filesystems in Phoenix-RTOS are supported using file servers. File servers are specialized servers implementing specific communication protocols. During the start, each file server registers its port in the filesystem space.
+Filesystems in Phoenix-RTOS are supported using file servers. File servers are specialized servers implementing specific
+communication protocols. During the start, each file server registers its port in the filesystem space.
 
 ## Source code
 

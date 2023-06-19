@@ -1,10 +1,14 @@
-# mem
+# Mem
 
-`mem` is a utility tool that provides detailed information about the current status of memory maps and paging. In general,a memory map is a structure of data that indicates how memory is arranged. In different contexts, the term "memory map" can have different meanings, for more detailed information, refer to the [Memory management](../../kernel/vm/README.md) section.
+`mem` is a utility tool that provides detailed information about the current status of memory maps and paging.
+In general, a memory map is a structure of data that indicates how memory is arranged. In different contexts, the term
+"memory map" can have different meanings, for more detailed information, refer to the
+[Memory management](../../kernel/vm/README.md) section.
 
 ---
 Usage:
-```
+
+```bash
 mem [options]
 Options:
   -p:  prints pages map
@@ -55,7 +59,8 @@ The following markings are used:
 
 Referring to the screenshot above:
 
-The first page is allocated by kernel, next two pages are used for CPU purposes and `syspage_t` structure, two pages for paging, one reserved by kernel stack, 128 reserved by kernel heap, and so on.
+The first page is allocated by kernel, next two pages are used for CPU purposes and `syspage_t` structure, two pages for
+paging, one reserved by kernel stack, 128 reserved by kernel heap, and so on.
 
 A page view is not available on targets without `MMU` (memory management unit).
 
@@ -65,7 +70,8 @@ Calling `mem -m [pid]` or `mem -m kernel` prints information about entries of a 
 
 <img src="_images/mem-m-output.png" width="600px">
 
-By default (when calling without arguments) memory map of current process is printed out. There is also a possibility to pass the id of a process (`pid`) or pass the `kernel` argument, which displays information about the kernel process.
+By default, (when calling without arguments) memory map of current process is printed out. There is also a possibility
+to pass the ID of a process (`pid`) or pass the `kernel` argument, which displays information about the kernel process.
 
 The column titles in the table displayed are as follows:
 
@@ -73,8 +79,8 @@ The column titles in the table displayed are as follows:
 - `PROT` - read, write and execute permissions of the specified entry
 - `FLAGS` - additional information about entry presented using flags (temporarily unavailable)
 - `OFFSET` - mapped memory offset within object
-- `OBJECT` - entry description, it can be `(anonymous)`, `mem` or `object_port.object_id`, there can be printed information about `anonsize` in kilobytes too.
-
+- `OBJECT` - entry description, it can be `(anonymous)`, `mem` or `object_port.object_id`, there can be printed
+information about `anonsize` in kilobytes too.
 
 ## See also
 

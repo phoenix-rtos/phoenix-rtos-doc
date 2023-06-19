@@ -1,4 +1,4 @@
-# df
+# Df
 
 The `df` utility prints mounted filesystem statistics (disk space/inodes usage).
 
@@ -13,10 +13,12 @@ Usage: df [options] [files]
   -h: print this help message
 ```
 
-The utility prints information about the filesystem on which each file specified in `files` argument resides. The information displayed consists of:
+The utility prints information about the filesystem on which each file specified in `files` argument resides.
+The information displayed consists of:
+
 1. Filesystem - mounted device path
 2. Type - filesystem type, optional (see `-T` option)
-3. 1K-blocks/Inodes - total number of 1K blocks/inodes available to the filesystem
+3. 1K-blocks/inodes - total number of 1K blocks/inodes available to the filesystem
 4. Used - total number of 1K blocks/inodes used by the filesystem
 5. Available - total number of 1K blocks/inodes free for use by the filesystem
 6. Capacity - used blocks/inodes percent
@@ -26,7 +28,7 @@ The inodes statistics are available only for `ext2` filesystem. Neither `dummyfs
 
 The example of checking root directory on ia32-generic-qemu target architecture:
 
-![image](_images/df_example.png)
+![Image](_images/df_example.png)
 
 ## See also
 

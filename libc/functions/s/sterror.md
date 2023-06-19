@@ -1,13 +1,13 @@
-###Synopsis
+# Synopsis
 
 `#include <string.h>`
 
 `char *strerror(int errnum);`
 
-###Description
+## Description
 
-Searches an internal array for the error number errnum and returns a pointer to an error message string.
+Searches an internal array for the error number `errnum` and returns a pointer to an error message string.
 
-###Return value
+### Return value
 
-###Errors
+### Errors

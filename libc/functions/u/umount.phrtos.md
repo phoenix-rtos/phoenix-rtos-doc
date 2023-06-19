@@ -1,10 +1,10 @@
 <!-- Documentation template to fill -->
 <!-- #MUST_BE: make good synopsis -->
-# Synopsis 
+# Synopsis
 
-`#include <sys/mount.h>`</br>
+`#include <sys/mount.h>`
 
-`int umount(const char *path);`</br>
+`int umount(const char *path);`
 
 <!-- #MUST_BE: check status according to implementation -->
 ## Status
@@ -17,8 +17,8 @@ Declared, not implemented
 Phoenix-RTOS specific
 
 <!-- #MUST_BE: update description from opengroup AND READ IT and check if it matches  -->
-## Description 
- 
+## Description
+
 `umount()` remove the attachment of the filesystem mounted on target under _path_.
 
 <!-- #MUST_BE: check return values by the function  -->
@@ -29,15 +29,16 @@ On success, zero is returned. On error, `-1` is returned, and `errno` is set to 
 <!-- #MUST_BE: check what errors can cause the function to fail  -->
 ## Errors
 
-No errors are defined. 
+No errors are defined.
 
-<!-- #MUST_BE: function by default shall be untested, when tested there should be a link to test location and test command for ia32 test runner  -->
+<!-- #MUST_BE: function by default shall be untested, when tested there should be a link to test location and test
+command for ia32 test runner  -->
 ## Tests
 
-Untested 
+Untested
 
 <!-- #MUST_BE: check for pending issues in  -->
-## Known bugs 
+## Known bugs
 
 None
 

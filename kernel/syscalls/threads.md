@@ -11,23 +11,18 @@ GETFROMSTACK(ustack, void *, arg, 4);
 GETFROMSTACK(ustack, unsigned int *, id, 5);
 ````
 
-Starts thread from entry point given by `start` at priority defined by `priority`. Thread stack is defined by `stack` and `stacksz` arguments. Executed thread id is returned in `id` variable.
-
-<br>
+Starts thread from entry point given by `start` at priority defined by `priority`. Thread stack is defined by `stack`
+and `stacksz` arguments. Executed thread ID is returned in `id` variable.
 
 ## `syscalls_threadDestroy` (`syscalls_endthread`)
 
 Terminates executing thread.
-
-<br>
 
 ## `syscalls_threadWait` (`syscalls_threadJoin`)
 
 ````C
 GETFROMSTACK(ustack, time_t, timeout, 0);
 ````
-
-<br>
 
 ## `syscalls_threadSleep` (`syscalls_usleep`)
 
@@ -36,8 +31,6 @@ GETFROMSTACK(ustack, unsigned int, us, 0);
 ````
 
 Suspends thread execution for number of microseconds defined by `us`.
-
-<br>
 
 ## `syscalls_threadGetInfo` (`syscalls_threadinfo`)
 
@@ -48,21 +41,15 @@ GETFROMSTACK(ustack, threadinfo_t *, info, 1);
 
 Returns thread information `info` for thread given by `n`.
 
-<br>
-
 ## `syscalls_threadGetID` (`syscalls_gettid`)
 
 Returns identifier of calling thread.
-
-<br>
 
 ## `syscalls_threadSetPriority` (`syscalls_priority`)
 
 ````C
 GETFROMSTACK(ustack, int, priority, 0);
 ````
-
-<br>
 
 ## See also
 

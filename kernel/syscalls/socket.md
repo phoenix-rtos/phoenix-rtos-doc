@@ -1,6 +1,6 @@
 # Communication sockets
 
-## `syscalls_sockAccept` `(syscalls_sys_accept`)
+## `syscalls_sockAccept` `(syscalls_sys_accept)`
 
 ````C
 GETFROMSTACK(ustack, int, socket, 0);
@@ -8,9 +8,8 @@ GETFROMSTACK(ustack, struct sockaddr *, address, 1);
 GETFROMSTACK(ustack, socklen_t *,address_len, 2);
 ````
 
-Accepts incomming connection on socket given by `socket`. Connection information is returned in variables `address` and `len`.
-
-<br>
+Accepts incoming connection on socket given by `socket`. Connection information is returned in variables `address` and
+ `len`.
 
 ## `syscalls_sockAccept4` (`syscalls_sys_accept4`)
 
@@ -21,9 +20,8 @@ GETFROMSTACK(ustack, socklen_t *,address_len, 2);
 GETFROMSTACK(ustack, int, flags, 3);
 ````
 
-<br>
-
 ## `syscalls_sockBind` (`syscalls_sys_bind`)
+
 ````C
 GETFROMSTACK(ustack, int, socket, 0);
 GETFROMSTACK(ustack, const struct sockaddr *, address, 1);
@@ -63,7 +61,6 @@ GETFROMSTACK(ustack, int, optname, 2);
 GETFROMSTACK(ustack, const void *, optval, 3);
 GETFROMSTACK(ustack, socklen_t, optlen, 4);
 ````
-
 
 ## `syscalls_sockGetSockOpt` (`syscalls_sys_getsockopt`)
 

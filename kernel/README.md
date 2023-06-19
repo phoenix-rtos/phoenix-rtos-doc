@@ -1,6 +1,7 @@
 # Kernel
 
-Phoenix-RTOS is based on the written from scratch dedicated microkernel and consists of about 20K lines of code (LoC). Microkernel is responsible for:
+Phoenix-RTOS is based on the written from scratch dedicated microkernel and consists of about 20K lines of code (LoC).
+Microkernel is responsible for:
 
 * memory management
 * thread and process management
@@ -9,11 +10,11 @@ Phoenix-RTOS is based on the written from scratch dedicated microkernel and cons
 
 Kernel is divided into five subsystems.
 
-- hal - hardware abstraction layer
-- lib - common routines
-- vm - virtual memory management
-- proc - process and thread management
-- test - internal tests for kernel subsystems
+* Hal - hardware abstraction layer
+* Lib - common routines
+* Vm - virtual memory management
+* Proc - process and thread management
+* Test - internal tests for kernel subsystems
 
 ## Kernel source code
 

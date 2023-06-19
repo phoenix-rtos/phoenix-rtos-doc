@@ -1,25 +1,30 @@
-# exec
+# Exec
 
-`exec` applet provides a way to execute a command/executable file. The shell from which it is run is replaced with that file. 
+`exec` applet provides a way to execute a command/executable file. The shell from which it is run is replaced with that
+file.
 
 ---
 
 If used without any parameters specified it prints help message as follows:
 
-```
+```bash
 usage: %s command [args]...
 ```
 
-where `[args]` are arguments passed to the file/command being executed.
+Where `[args]` are arguments passed to the file/command being executed.
 
 As an example a new `psh` can be run using the `exec` command:
-```
+
+```bash
 exec /bin/psh
 ```
-### exec return values
+
+## Exec return values
+
 `exec` command, by default, returns the value returned by executed file. The `exec` specific errors are:
- - `ENOMEM` if there is not enough memory to execute a command
- - `EINVAL` if the executable file has no valid form
+
+- `ENOMEM` if there is not enough memory to execute a command
+- `EINVAL` if the executable file has no valid form
 
 ## See also
 

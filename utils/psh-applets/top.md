@@ -1,13 +1,15 @@
-# top
+# Top
 
 `top` is a real time processes and threads monitor which lists basic information about currently active processes.
 
 ---
 
-`top` may be seen as [`ps`](ps.md) command which updates itself with a given rate. Execution of `top` applet may be controlled with command-line arguments and further with interactive commands when being 
+`top` may be seen as [`ps`](ps.md) command which updates itself with a given rate. Execution of `top` applet may be
+controlled with command-line arguments and further with interactive commands when being
 
 When `top` is run with `-h` argument the help message is displayed as follows:
-```
+
+```bash
 Command-line arguments
   -h:  prints help
   -H:  starts with threads mode
@@ -26,21 +28,25 @@ Interactive commands:
 ```
 
 If sole:
-```
+
+```bash
 top
-``` 
-is run it presents the user with a live monitor of processes sorted by *%CPU* usage. The monitor is structured in columns with headers. Each row represents a process.
+```
+
+Is run it presents the user with a live monitor of processes sorted by *%CPU* usage. The monitor is structured in
+columns with headers. Each row represents a process.
 
 Column headers are:
- - PID   - process id
- - PPID  - parent process id
- - PR    - priority
- - STATE - state of process
- - %CPU  - cpu usage of process
- - WAIT  - wait for processor time
- - TIME  - age of process
- - VMEM  - memory used
- - CMD   - command that started that process
+
+- PID - process ID,
+- PPID - parent process ID,
+- PR - priority,
+- STATE - state of process,
+- %CPU - CPU usage of process,
+- WAIT - wait for processor time,
+- TIME - age of process,
+- VMEM - memory used,
+- CMD - command that started that process,
 
 ## See also
 

@@ -1,5 +1,4 @@
-Azure IoT C SDK Port
-===================
+# Azure IoT C SDK Port
 
 ## Contents
 
@@ -16,7 +15,9 @@ Azure IoT C SDK Port
 
 There are stored adaptations needed to run `azure-iot-sdk-c` on Phoenix-RTOS.
 
-Azure IoT C Software Development Kit provides the interface to communicate easily with Azure IoT Hub, Azure IoT Central, and to Azure IoT Device Provisioning. It's intended for apps written in C99 (or newer) or C++. For more information please visit the [Azure IoT C SDK Github](https://github.com/Azure/azure-iot-sdk-c).
+Azure IoT C Software Development Kit provides the interface to communicate easily with Azure IoT Hub, Azure IoT Central,
+and to Azure IoT Device Provisioning. It's intended for apps written in C99 (or newer) or C++. For more information
+please visit the [Azure IoT C SDK GitHub](https://github.com/Azure/azure-iot-sdk-c).
 
 ## Supported version
 
@@ -24,22 +25,27 @@ The supported version is [LTS_01_2022](https://github.com/Azure/azure-iot-sdk-c/
 
 ## Quickstart for ia32-generic-qemu
 
-This simple guide is recommended for getting familiar with using `azure_sdk` on Phoenix-RTOS. You will need to have a `hub` created in [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/#overview) and a device within it. Each device has its connection string, which will be needed in the following instructions.
+This simple guide is recommended for getting familiar with using `azure_sdk` on Phoenix-RTOS. You will need to have a
+`hub` created in [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/#overview) and a device within it.
+Each device has its connection string, which will be needed in the following instructions.
 
 First, please build the project with the `ports` component and set `AZURE_CONNECTION_STRING` (see below):
 
-```
+```Bash
 TARGET=ia32-generic-qemu AZURE_CONNECTION_STRING="HostName=test-hub.azure-devices.net;DeviceId=ia32-generic-qemu;SharedAccessKey=xxxxxxxxx=" ./phoenix-rtos-build/build.sh clean all
 ```
 
- - Note: The connection string above is only an example, please use your own.
+- Note: The connection string above is only an example, please use your own.
 
- - Note: You do not need all of the ports provided for the `ia32-generic-qemu` target architecture. The necessary ports are: `busybox`, `openssl`, `curl` and `azure_sdk`. [Here](https://github.com/phoenix-rtos/phoenix-rtos-doc/blob/master/building/script.md) you can find more about building scripts.
+- Note: You do not need all the ports provided for the `ia32-generic-qemu` target architecture. The necessary ports
+are: `busybox`, `openssl`, `curl` and `azure_sdk`.
+[Here](https://github.com/phoenix-rtos/phoenix-rtos-doc/blob/master/building/script.md) you can find more about
+building scripts.
 
+Next, you will need an internet connection. Here is an example of how to set up a network connection on
+`ia32-generic-qemu`:
 
-Next, you will need an internet connection. Here is an example of how to setup a network connection on `ia32-generic-qemu`:
-
-### Network setup on ia32-generic-qemu
+## Network setup on ia32-generic-qemu
 
 - Note: This guide was tested on `Ubuntu 20.04 LTS` host OS.
 
@@ -47,102 +53,106 @@ There are few steps to follow:
 
  1. Create and set up `vibr0` bridge on a host using `qemu-bridge-helper`:
 
-  - Install the required package and ensure that `libvirtd` is running:
+    - Install the required package and ensure that `libvirtd` is running:
 
-  ```
-  sudo apt-get update
-  sudo apt-get install qemu-system-common
-  systemctl enable libvirtd.service
-  systemctl start libvirtd.service
-  ```
+      ```bash
+      sudo apt-get update
+      sudo apt-get install qemu-system-common
+      systemctl enable libvirtd.service
+      systemctl start libvirtd.service
+      ```
 
-  - Start the default network bridge, and configure it to run on startup.
+    - Start the default network bridge, and configure it to run on startup.
 
-  ```
-  sudo virsh net-autostart --network default
-  sudo virsh net-start --network default
-  ```
+      ```bash
+      sudo virsh net-autostart --network default
+      sudo virsh net-start --network default
+      ```
 
-  - After that verify that the IP range `192.168.122.1/24` is reported by the `vibr0` bridge:
+    - After that verify that the IP range `192.168.122.1/24` is reported by the `vibr0` bridge:
 
-  ```
-  ip addr show virbr0
-  ```
+      ```bash
+      ip addr show virbr0
+      ```
 
-  - The expected output:
+    - The expected output:
 
-  ```
-   virbr0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default qlen 1000
-      link/ether xx:xx:xx:xx:xx:xx brd ff:ff:ff:ff:ff:ff
-      inet 192.168.122.1/24 brd 192.168.122.255 scope global virbr0
-         valid_lft forever preferred_lft forever
-  ```
+      ```bash
+       virbr0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default qlen 1000
+          link/ether xx:xx:xx:xx:xx:xx brd ff:ff:ff:ff:ff:ff
+          inet 192.168.122.1/24 brd 192.168.122.255 scope global virbr0
+             valid_lft forever preferred_lft forever
+      ```
 
-  - Set up `qemu-bridge-helper` (`chmod` is used here to allow running qemu without root privileges)
+    - Set up `qemu-bridge-helper` (`chmod` is used here to allow running QEMU without root privileges)
 
-  ```
-  echo "allow virbr0" > /etc/qemu/bridge.conf
-  sudo chmod a+rw /etc/qemu/bridge.conf
-  ```
+      ```bash
+      echo "allow virbr0" > /etc/qemu/bridge.conf
+      sudo chmod a+rw /etc/qemu/bridge.conf
+      ```
 
-  - If `/etc/qemu` directory does not exist, create it and provide required privileges:
+    - If `/etc/qemu` directory does not exist, create it and provide required privileges:
 
-  ```
-  sudo mkdir /etc/qemu
-  sudo chmod a+rw /etc/qemu
-  echo "allow virbr0" > /etc/qemu/bridge.conf
-  sudo chmod a+rw /etc/qemu/bridge.conf
-  ```
+      ```bash
+      sudo mkdir /etc/qemu
+      sudo chmod a+rw /etc/qemu
+      echo "allow virbr0" > /etc/qemu/bridge.conf
+      sudo chmod a+rw /etc/qemu/bridge.conf
+      ```
 
-  <img src="_images/azure_sdk_vibr_setup.png" width="700px">
+      <img src="_images/azure_sdk_vibr_setup.png" width="700px">
 
-  - Sources: https://apiraino.github.io/qemu-bridge-networking/, https://mike42.me/blog/2019-08-how-to-use-the-qemu-bridge-helper-on-debian-10
+    - Sources: <https://apiraino.github.io/qemu-bridge-networking/>,
+     <https://mike42.me/blog/2019-08-how-to-use-the-qemu-bridge-helper-on-debian-10>
 
  2. Launch `qemu` using a starting script with `net` suffix:
 
-  ```
-  ./scripts/ia32-generic-qemu-net.sh
-  ```
+      ```bash
+      ./scripts/ia32-generic-qemu-net.sh
+      ```
 
  3. Configure network and run `ash` (Busybox applet) using `rc` script:
 
-  - Note: By default `IP` is assigned using `DHCP`. For other possibilities please check the configuration file located in `_projects/ia32-generic-qemu/rootfs-overlay/etc/rc.conf.d/network`
+      - Note: By default `IP` is assigned using `DHCP`. For other possibilities please check the configuration file
+       located in `_projects/ia32-generic-qemu/rootfs-overlay/etc/rc.conf.d/network`
 
-  - Note: There are other programs executed by the script. For more information please check the content of the `rc` file for `ia32-generic-qemu` in `_projects/ia32-generic-qemu/rootfs-overlay/etc/rc`
+      - Note: There are other programs executed by the script. For more information please check the content of the `rc`
+       file for `ia32-generic-qemu` in `_projects/ia32-generic-qemu/rootfs-overlay/etc/rc`
 
-  ```
-  /linuxrc
-  ```
+        ```bash
+        /linuxrc
+        ```
 
-  - As you can see, the advanced version of `Phoenix-RTOS` with `POSIX` shell has been started:
+      - As you can see, the advanced version of `Phoenix-RTOS` with `POSIX` shell has been started:
 
-  <img src="_images/azure_linuxrc.png" width="700px">
+        <img src="_images/azure_linuxrc.png" width="700px">
 
-  - Now you can check the internet connection using the `ping` applet.
+      - Now you can check the internet connection using the `ping` applet.
 
-  - To complete the configuration please set the current date using `date` applet, like below:
+      - To complete the configuration please set the current date using `date` applet, like below:
 
-  <img src="_images/azure_date.png" width="700px">
+        <img src="_images/azure_date.png" width="700px">
 
-  - Note: The required argument entered after `@` is EPOCH (POSIX time format) - you can gt it for example from [here](https://www.epochconverter.com/).
+      - Note: The required argument entered after `@` is EPOCH (POSIX time format) - you can gt it for example from
+       [here](https://www.epochconverter.com/).
 
+## Running the IoThub Client sample
 
+Providing that internet connection is working, and the current date is set, you can run `iothub_ll_telemetry_sample`:
 
-### Running the IoThub Client sample
-
-Providing that internet connection is working and the current date is set, you can run `iothub_ll_telemetry_sample`:
-
-```
+```bash
 /bin/iothub_ll_telemetry_sample
 ```
 
 <img src="_images/azure_sample.png" width="700px">
 
- - Note: The entered connection string was added to the sample's source code. You can find it in `_build/ia32-generic-qemu/azure_sdk/azure-iot-sdk-c-lts_01_2022/iothub_client/samples/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c`.
+- Note: The entered connection string was added to the sample's source code. You can find it in
+`_build/ia32-generic-qemu/azure_sdk/azure-iot-sdk-c-lts_01_2022/iothub_client/samples/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c`.
 
-You can read messages received from Azure, for example using `AzureIotHub VS Code Extension` by clicking `Start Monitoring Built-in Event Endpoint`:
+You can read messages received from Azure, for example using `AzureIotHub VS Code Extension` by clicking
+`Start Monitoring Built-in Event Endpoint`:
 
-```
+```bash
 [IoTHubMonitor] [6:07:21 PM] Message received from [ia32-generic-qemu]:
 "test_message"
 [IoTHubMonitor] [6:07:21 PM] Message received from [ia32-generic-qemu]:
@@ -157,15 +167,23 @@ You can read messages received from Azure, for example using `AzureIotHub VS Cod
 
 ## Using azure-iot-sdk-c
 
-The above guide shows how to run only one of the provided samples. To write your own programs using the SDK please read the following instructions. It may be helpful for the other architectures, like `armv7m7-imxrt106x-evk`, where the previously generated sample may not work. That's the reason, why the following example is adjusted to the configuration with `mbedtls` intended for 'smaller' targets (now only the `imxrt106x` is supported). If you want to write your own programs intented for the `openssl` configuration ('larger' targets, like `ia32-generic-qemu`) there will be a few differences, e.g. there is no need for setting the certificate in code and increasing the stack size in Makefile.
+The above guide shows how to run only one of the provided samples. To write your own programs using the SDK please read
+the following instructions. It may be helpful for the other architectures, like `armv7m7-imxrt106x-evk`, where the
+previously generated sample may not work. That's the reason, why the following example is adjusted to the configuration
+with `mbedtls` intended for 'smaller' targets (now only the `imxrt106x` is supported). If you want to write your own
+programs intended for the `openssl` configuration ('larger' targets, like `ia32-generic-qemu`) there will be a few
+differences, e.g. there is no need for setting the certificate in code and increasing the stack size in Makefile.
 
-To use functions provided by `azure-iot-sdk-c` please append specific `azure` libraries (and possibly `mbedtls` libraries) to `LIBS` variable in `Makefile` and include the required header file. Below is an example of a simple program similar to `iothub_client_ll_telemetry_sample`. You can place it for example in the `_user` directory:
+To use functions provided by `azure-iot-sdk-c` please append specific `azure` libraries (and possibly `mbedtls`
+libraries) to `LIBS` variable in `Makefile` and include the required header file. Below is an example of a simple
+program similar to `iothub_client_ll_telemetry_sample`. You can place it for example in the `_user` directory:
 
- - Note: The SDK was tested for the `armv7m7-imxrt106x` target architecture with the `mbedtls` port, but remember that internet connection and the current date also have to be provided.
+- Note: The SDK was tested for the `armv7m7-imxrt106x` target architecture with the `mbedtls` port, but remember
+that internet connection and the current date also have to be provided.
 
- - Makefile - linking with Azure SDK and mbedtls libraries.
+- Makefile - linking with Azure SDK and mbedtls libraries.
 
-  ```
+  ```makefile
   NAME := sample
   LOCAL_SRCS := main.c
   LIBS := libiothub_client libiothub_client_mqtt_transport libumqtt libaziotsharedutil libmbedtls libmbedx509 libmbedcrypto
@@ -174,7 +192,7 @@ To use functions provided by `azure-iot-sdk-c` please append specific `azure` li
   include $(binary.mk)
   ```
 
- - Source code:
+- Source code:
 
   ```C
   #include "iothub.h"
@@ -326,9 +344,10 @@ To use functions provided by `azure-iot-sdk-c` please append specific `azure` li
   }
   ```
 
-- Note: Please remember that `PORTS_AZURE_SDK` and environment variables for other required ports should be set to `y` in the specific building script in `_projects` directory or using an environment variable.
+- Note: Please remember that `PORTS_AZURE_SDK` and environment variables for other required ports should be set to `y`
+in the specific building script in `_projects` directory or using an environment variable.
 
-## Running tests
+### Running tests
 
 To build `azure_sdk` tests please set `LONG_TEST=y` environment variable before calling `build.sh`.
 
@@ -336,6 +355,10 @@ In the result unit tests for the `c-utility` component should be placed in the `
 
 The tests have `ut_exe` suffix, for example: `connectionstringparser_ut_exe`. You run it as follows:
 
-```
+```bash
 /bin/connectionstringparser_ut_exe
 ```
+
+## Known bugs
+
+- None

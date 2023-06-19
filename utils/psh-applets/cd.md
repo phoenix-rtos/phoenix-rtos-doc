@@ -1,4 +1,4 @@
-# cd
+# Cd
 
 The `cd` command provided as a `psh` applet can be used to change the current working directory.
 
@@ -6,12 +6,14 @@ The `cd` command provided as a `psh` applet can be used to change the current wo
 
 If used with `-h` as the argument it prints the basic usage, which is:
 
-```
+```bash
 Usage: cd [directory]
 ```
 
-The `directory` argument of the `cd` command is an absolute or relative pathname which becomes the new working directory.
-To change the working directory with the `cd` command, the target `directory` may be specified as in the following example:
+The `directory` argument of the `cd` command is an absolute or relative path name which becomes the new working
+directory.
+To change the working directory with the `cd` command, the target `directory` may be specified as in the following
+example:
 
 ```bash
 cd /usr/bin
@@ -35,7 +37,6 @@ It is possible to switch back to the previous working directory by using `-` (a 
 (psh)% cd -
 /etc
 ```
-
 
 ## See also
 

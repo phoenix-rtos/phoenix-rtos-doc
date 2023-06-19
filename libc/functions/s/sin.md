@@ -1,13 +1,13 @@
-###Synopsis
+# Synopsis
 
 `#include <math.h>`
 
 `double sin(double x);`
 
-###Description
+## Description
 
 Returns the sine of an angle of x radians.
 
-###Return value
+### Return value
 
-###Errors
+### Errors

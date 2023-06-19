@@ -6,15 +6,11 @@
 GETFROMSTACK(ustack, void *, ptr, 0);
 ````
 
-Executes platform controll call with argument given by `ptr`.
-
-<br>
+Executes platform controls call with argument given by `ptr`.
 
 ## `syscall_platformWdogReload` (`syscalls_wdgreload`)
 
 Reloads watchdog device when it is available.
-
-<br>
 
 ## `syscalls_platformSyspageProg` (`syscalls_syspageprog`)
 
@@ -22,8 +18,6 @@ Reloads watchdog device when it is available.
 GETFROMSTACK(ustack, syspageprog_t *, prog, 0);
 GETFROMSTACK(ustack, int, i, 1);
 ````
-
-<br>
 
 ## `syscalls_platformKeepIdle` (`syscalls_keepidle`)
 
