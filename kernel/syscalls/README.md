@@ -1,35 +1,50 @@
 # System calls
 
-System call (commonly abbreviated to syscall) is an entry point to execute a specific user program's request to a service from the kernel. The operating system kernel runs in a privileged mode to protect a sensitive software and hardware parts from the other software components. A user application executing in an unprivileged mode does not have access to the protected data. Performing a hardware interrupt or conducting a trap handled by the kernel, the user application can obtain sensitive data from the kernel, e.g. an information about all processes running in the system.
+System call (commonly abbreviated to syscall) is an entry point to execute a specific user program's request to a
+service from the kernel. The operating system kernel runs in a privileged mode to protect a sensitive software and
+hardware parts from the other software components. A user application executing in an unprivileged mode does not have
+access to the protected data. Performing a hardware interrupt or conducting a trap handled by the kernel, the user
+application can obtain sensitive data from the kernel, e.g. an information about all processes running in the system.
 
 ## Prototypes and definition
 
-In Phoenix-RTOS prototypes and definitions of the the system calls are located in the `libphoenix` library. A list of the all system calls is placed in a `phoenix-rtos-kernel/include/syscalls.h` header files, grouped by categories.
+In Phoenix-RTOS prototypes and definitions of the the system calls are located in the `libphoenix` library. A list of
+the all system calls is placed in a `phoenix-rtos-kernel/include/syscalls.h` header files, grouped by categories.
 
-System call prototypes should be placed in the an appropriate header file in the `libphoenix` standard library, referring to the syscall's category.
-System call definitions are placed in the `arch/$(TARGET_SUFF)/syscalls.S` file and are created based on a syscall list via macro. Each definition triggers an exception (e.g. SuperVisor Call - svc instruction for ARM Cortex-M or Cortex-A) with an appropriate syscall identification number handled by the kernel in the privileged mode. Arguments are passed according to the target platform ABI (Application Binary Interface).
+System call prototypes should be placed in the an appropriate header file in the `libphoenix` standard library,
+referring to the syscall's category.
+System call definitions are placed in the `arch/$(TARGET_SUFF)/syscalls.S` file and are created based on a syscall list
+via macro. Each definition triggers an exception (e.g. SuperVisor Call - svc instruction for ARM Cortex-M or Cortex-A)
+with an appropriate syscall identification number handled by the kernel in the privileged mode. Arguments are passed
+according to the target platform ABI (Application Binary Interface).
 
-Handler definitions for system calls are located in the `phoenix-rtos-kernel/syscalls.c` file. Each handler should contain an appropriate return type consistent with the prototype in `libphoenix` (in practice `int`) and take the user stack pointer as an argument. The syscall's parameters can be obtained from the user stack using the macro `GETFROMSTACK(stack_ptr, arg_type, var, id)`.
+Handler definitions for system calls are located in the `phoenix-rtos-kernel/syscalls.c` file. Each handler should
+contain an appropriate return type consistent with the prototype in `libphoenix` (in practice `int`) and take the user
+stack pointer as an argument. The syscall's parameters can be obtained from the user stack using the macro
+`GETFROMSTACK(stack_ptr, arg_type, var, id)`.
 
-Phoenix-RTOS in kernel mode has access to the calling process memory, so the pointer to the data in the user space can be passed as an argument to system call and used in the kernel space.
+Phoenix-RTOS in kernel mode has access to the calling process memory, so the pointer to the data in the user space can
+be passed as an argument to system call and used in the kernel space.
 
 ## Adding syscall
 
-An example of adding a system call is conducted based on the `threadsinfo` syscall. The procedure should be performed as follows:
+An example of adding a system call is conducted based on the `threadsinfo` syscall. The procedure should be performed as
+follows:
 
-1. Add syscall's declaration in `libphoenix`, e.g. `libphoenix/inlude/sys/threads.h`:
+1.Add syscall's declaration in `libphoenix`, e.g. `libphoenix/inlude/sys/threads.h`:
 
 ```C
     extern int threadsinfo(int n, threadinfo_t *info);
 ```
 
-2. Update the syscall list in `phoenix-rtos-kernel/include/syscalls.h`. It is recommended to insert a new syscall at the end of the list:
+2.Update the syscall list in `phoenix-rtos-kernel/include/syscalls.h`. It is recommended to insert a new syscall at the
+end of the list:
 
 ```C
     ID(threadsinfo) \
 ```
 
-3. Create a syscall handler in `phoenix-rtos-kernel/syscalls.c`:
+3.Create a syscall handler in `phoenix-rtos-kernel/syscalls.c`:
 
 ```C
     int syscalls_threadsinfo(void *ustack)
@@ -61,7 +76,8 @@ An example of adding a system call is conducted based on the `threadsinfo` sysca
     }
 ```
 
-4. The system call can be invoked in user application by including `sys/threads.h` header. This example syscall is used by the `ps` applet in the `psh` (Phoenix-Shell).
+4.The system call can be invoked in user application by including `sys/threads.h` header. This example syscall is used
+by the `ps` applet in the `psh` (Phoenix-Shell).
 
 ## See also
 

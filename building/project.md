@@ -1,6 +1,8 @@
 # Reference project
 
-The main repository of Phoenix-RTOS is the [phoenix-rtos-project](https://github.com/phoenix-rtos/phoenix-rtos-project.git). The project consists of the following Github submodule repositories.
+The main repository of Phoenix-RTOS is the
+[phoenix-rtos-project](https://github.com/phoenix-rtos/phoenix-rtos-project.git).
+The project consists of the following Github submodule repositories.
 
 - [libphoenix](https://github.com/phoenix-rtos/libphoenix.git) </br>
     Standard C library. Written from scratch for Phoenix-RTOS
@@ -23,7 +25,8 @@ The main repository of Phoenix-RTOS is the [phoenix-rtos-project](https://github
 - [phoenix-rtos-ports](https://github.com/phoenix-rtos/phoenix-rtos-ports.git) </br>
     Linux (and potentially other OSes) applications ported to Phoenix-RTOS
 - [phoenix-rtos-posixsrv](https://github.com/phoenix-rtos/phoenix-rtos-posixsrv.git) </br>
-    POSIX server; userspace server that is providing additional POSIX features not provided by the kernel itself (e.g. pipes)
+    POSIX server; userspace server that is providing additional POSIX features not provided by the kernel itself (e.g.
+    pipes)
 - [phoenix-rtos-tests](https://github.com/phoenix-rtos/phoenix-rtos-tests.git) </br>
     Tests based on our own framework
 - [phoenix-rtos-usb](https://github.com/phoenix-rtos/phoenix-rtos-usb.git) </br>
@@ -47,11 +50,13 @@ There are also other directories and files directly in `phoenix-rtos-project`.
 
 - `scripts` - bash scripts for running Phoenix-RTOS on simulators (e.g. QEMU),
 
-- `build.project` - bash include file, defines how to build the whole system, it is included by phoenix-rtos-build/build.sh,
+- `build.project` - bash include file, defines how to build the whole system, it is included by
+phoenix-rtos-build/build.sh,
 
 - `busybox-config` - configuration for busybox (baseline Linux based toolkit and shell),
 
-- `docker-build.sh` - script for building using docker (docker allows user to not have toolchain on his or her development PC).
+- `docker-build.sh` - script for building using docker (docker allows user to not have toolchain on his or
+her development PC).
 
 ## See also
 

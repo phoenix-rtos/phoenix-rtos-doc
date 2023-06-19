@@ -2,8 +2,10 @@
 
 Phoenix-RTOS provides libraries, which enable the development of applications.
 
-The source code is available in the [phoenix-rtos-corelibs](https://github.com/phoenix-rtos/phoenix-rtos-corelibs) Github repository.
-The example of usage can be found in the `_user` directory, placed in [phoenix-rtos-project](https://github.com/phoenix-rtos/phoenix-rtos-project).
+The source code is available in the [phoenix-rtos-corelibs](https://github.com/phoenix-rtos/phoenix-rtos-corelibs)
+Github repository.
+The example of usage can be found in the `_user` directory, placed in
+[phoenix-rtos-project](https://github.com/phoenix-rtos/phoenix-rtos-project).
 
 Read more about reference project repository [here](../project.md).
 

@@ -1,14 +1,18 @@
-# Synopsis 
+# Synopsis
+
 `#include <libgen.h>`</br>
 
 ` char *dirname(char *path); `</br>
 
 ## Status
-Partially implemented
-## Conformance
-IEEE Std 1003.1-2017
-## Description
 
+Partially implemented
+
+## Conformance
+
+IEEE Std 1003.1-2017
+
+## Description
 
 The `dirname()` function shall take a pointer to a character string that contains a pathname, and return a pointer to a
 string that is a pathname of the parent directory of that file. The `dirname()` function shall not perform pathname
@@ -24,24 +28,17 @@ may then be overwritten by a subsequent call to `dirname()`.
 
 The `dirname()` function need not be thread-safe.
 
-
 ## Return value
-
 
 The `dirname()` function shall return a pointer to a string as described above.
 
 The `dirname()` function may modify the string pointed to by _path_, and may return a pointer to internal storage. The
-returned pointer might be invalidated or the storage might be overwritten by a subsequent call to `dirname()`. The returned
-pointer might also be invalidated if the calling thread is terminated.
-
+returned pointer might be invalidated or the storage might be overwritten by a subsequent call to `dirname()`.
+The returned pointer might also be invalidated if the calling thread is terminated.
 
 ## Errors
 
-
 No errors are defined.
-
-
-
 
 ## Tests
 
@@ -51,6 +48,7 @@ Untested
 
 None
 
-## See Also 
+## See Also
+
 1. [Standard library functions](../README.md)
 2. [Table of Contents](../../../README.md)

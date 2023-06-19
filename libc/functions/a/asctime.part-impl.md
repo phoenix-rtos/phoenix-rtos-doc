@@ -1,26 +1,29 @@
-# Synopsis 
+# Synopsis
+
 `#include <time.h>`</br>
 
-` char *asctime(const struct tm *timeptr);`</br>
+`char *asctime(const struct tm *timeptr);`</br>
 
-` char *asctime_r(const struct tm *restrict tm, char *restrict buf);`</br>
+`char *asctime_r(const struct tm *restrict tm, char *restrict buf);`</br>
 
 ## Status
-Partially implemented
-## Conformance
-IEEE Std 1003.1-2017
-## Description
 
+Partially implemented
+
+## Conformance
+
+IEEE Std 1003.1-2017
+
+## Description
 
 The `asctime()` function shall convert the broken-down time in the structure pointed to by _timeptr_ into a string in
 the form:
 
 `Sun Sep 16 01:03:52 1973\n\0`
 
-
 using the equivalent of the following algorithm:
 
-```
+```c
 char *asctime(const struct tm *timeptr)
 {
 	static char wday_name[7][3] = {
@@ -42,11 +45,10 @@ char *asctime(const struct tm *timeptr)
 }
 ```
 
-
 However, the behavior is undefined if `timeptr->tm_wday` or `timeptr->tm_mon` are not within the
 normal ranges as defined in `<time.h>`, or if `timeptr->tm_year`
-exceeds `INT_MAX-1990,` or if the above algorithm would attempt to generate more than 26 bytes of output (including the terminating
-`null`).
+exceeds `INT_MAX-1990,` or if the above algorithm would attempt to generate more than 26 bytes of output (including
+the terminating `null`).
 
 The tm structure is defined in the `<time.h>` header.
 The
@@ -58,22 +60,22 @@ returned in either of these objects by any of the other functions.
 The `asctime()` function need not be thread-safe.
 
 The `asctime_r()` function shall convert the broken-down time in the structure pointed to by _tm_ into a string (of
-the same form as that returned by `asctime()`, and with the same undefined behavior when input or output is out of range) that
-is placed in the user-supplied buffer pointed to by _buf_ (which shall contain at least 26 bytes) and then return _buf_.
-
-
+the same form as that returned by `asctime()`, and with the
+same undefined behavior when input or output is out of range)
+that is placed in the user-supplied buffer pointed to by _buf_ (which shall contain at least 26 bytes)
+and then return _buf_.
 
 ## Return value
 
-Upon successful completion, `asctime()` shall return a pointer to the string. If the function is unsuccessful, it shall return `NULL`.
+Upon successful completion, `asctime()` shall return a pointer to the string. If the function is unsuccessful,
+it shall return `NULL`.
 
-Upon successful completion, `asctime_r()` shall return a pointer to a character string containing the date and time. This string is pointed to by the argument _buf_. If the function is unsuccessful, it shall return `NULL`.
+Upon successful completion, `asctime_r()` shall return a pointer to a character string containing the date and time.
+This string is pointed to by the argument _buf_. If the function is unsuccessful, it shall return `NULL`.
 
 ## Errors
 
-
 No errors are defined.
-
 
 ## Tests
 
@@ -83,6 +85,7 @@ Untested
 
 None
 
-## See Also 
+## See Also
+
 1. [Standard library functions](../README.md)
 2. [Table of Contents](../../../README.md)

@@ -1,22 +1,26 @@
-###Synopsis
+### Synopsis
+
 `#include <libgen.h>`
 
 `char *basename(char *path);`
 
-###Description
+### Description
 
-The `basename()` function takes the pathname pointed to by <u>path</u> and returns a pointer to the final component of the pathname, deleting any trailing '/' characters.
+The `basename()` function takes the pathname pointed to by _path_ and returns a pointer to the final component of
+the pathname, deleting any trailing '/' characters.
 
 Arguments:
-<u>path</u> - the pathname to be stripped.
+_path_ - the pathname to be stripped.
 
-If the string pointed to by <u>path</u> consists entirely of the '/' character, `basename()` returns a pointer to the string "/". If the string pointed to by <u>path</u> is exactly "//", "/" is returned.
+If the string pointed to by _path_ consists entirely of the '/' character, `basename()` returns a pointer to the
+string "/". If the string pointed to by _path_ is exactly "//", "/" is returned.
 
-If <u>path</u> is a null pointer or points to an empty string, `basename()` returns a pointer to the string ".".
+If _path_ is a null pointer or points to an empty string, `basename()` returns a pointer to the string ".".
 
-###Return value
-The basename() function shall return a pointer to the final component of <u>path</u>.
+### Return value
 
-###Errors
+The basename() function shall return a pointer to the final component of _path_.
+
+### Errors
 
 No errors are defined.

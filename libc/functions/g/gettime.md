@@ -1,11 +1,11 @@
-###Synopsis
+# Synopsis
 
 `#include <stdlib.h>`
 
 `int gettime(time_t *tp);`
 
-###Description
+## Description
 
-###Return value
+## Return value
 
-###Errors
+## Errors
