@@ -46,6 +46,9 @@ The resulting request will be in such form: 2 bits describe direction (`00`: non
 
 It is worth to note that to get data sent to driver inside message, one should use `ioctl_unapck()`.
 
+Also, if you are willing to pass structure with pointer in _arg_ argument of `ioctl()` you
+should custom pack your message in `ioctl_pack()` (see ioctl_pack() implementation).
+
 
 ## Return value
 
