@@ -8,7 +8,8 @@ The concrete implementation of the Simsensor publishes prepared measurement read
 
 ## Supported sensors
 
-Currently, all types of sensors supported by Sensorhub have their simulated type. The naming convention assumes the use
+Currently, all types of sensors supported by [Sensorhub](sensorhub.md) have their simulated type. The naming convention
+assumes the use
 of the `_sim` suffix, for example, `baro_sim` for the barometer.
 
 ## File format
@@ -17,8 +18,8 @@ The concrete simulated sensor needs a special `CSV` file, which contains measure
 
 ### Columns
 
-- The first column contains the ID of a sensor type, which corresponds to IDs from Sensorhub. The first column contains
-the ID of a sensor type, which corresponds to the IDs from Sensorhub. Furthermore, as described in the
+- The first column contains the ID of a sensor type, which corresponds to IDs from [Sensorhub](sensorhub.md). The first
+column contains the ID of a sensor type, which corresponds to the IDs from Sensorhub. Furthermore, as described in the
 [Timestamps logic](#timestamps-logic) section, the end scenario indicator can be used as a value of this field.
 All currently available values are listed below.
 
