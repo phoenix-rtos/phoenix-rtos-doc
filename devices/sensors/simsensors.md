@@ -19,7 +19,7 @@ The concrete simulated sensor needs a special `CSV` file, which contains measure
 
 - The first column contains the ID of a sensor type, which corresponds to IDs from Sensorhub. The first column contains
 the ID of a sensor type, which corresponds to the IDs from Sensorhub. Furthermore, as described in the
-`Measurement publishing algorithm` section, the end scenario indicator can be used as a value of this field.
+[Timestamps logic](#timestamps-logic) section, the end scenario indicator can be used as a value of this field.
 All currently available values are listed below.
 
 | Sensor type   | ID |
@@ -34,7 +34,7 @@ All currently available values are listed below.
 
 - The second column contains a timestamp of a particular measurement. The timestamp should be in **milliseconds**.
 It is important to note that it does not have to be a real-time timestamp. The precise meaning of a timestamp
-is described in the section `Measurement publishing algorithm`.
+is described in the section [Timestamps logic](#timestamps-logic).
 
 - In consecutive columns, measurement results are stored. Depending on a particular sensor type meaning of a particular
 column can be different. Below all the possibilities are described.
@@ -103,6 +103,27 @@ SensorID,Timestamp,Fld1,Fld2, ...
 First two columns - `SensorID` and `Timestamp` are mandatory. The rest of header columns are optional. Value of these
 fields is not specified.
 
+### Timestamps logic
+
+Timestamps from file represents the time delays between subsequent measurements. Precise algorithm:
+
+ 1. Read first measurement and publish it with current time,
+ 1. Read next measurement and calculate offset between actual and previous timestamp from file,
+ 1. Wait for offset milliseconds,
+ 1. Publish measurement with timestamp equal to previously published timestamp plus offset.
+
+It is undefined behavior, when previous timestamp is bigger than the current one. In file, they should be sorted in not
+descending order.
+
+### Ending and looping scenario
+
+By default, when simsonsor encounter last measurement in a file, then it goes to the beginning of the file and repeats
+reading all measurements. Timestamps monotonicity is preserved. Time span between the last reading and the first one
+from file is considered to be equal to 0. In practice the time between publishes is as small as possible.
+
+It is also possible to end the scenario. For this purpose special end scenario indicator - `0` should be placed in
+first column (as described in [this section](#columns)). Simsensor doesn't publish any new events after this symbol.
+
 ### File example
 
 ```csv
@@ -117,19 +138,6 @@ SensorID,Timestamp,Field1,Field2,Field3
 8,2282614538,-1,-68,-2,0
 1,2282617192,723,-517,-9783,0
 ```
-
-## Measurement publishing algorithm
-
-Simsensor operates on rows from scenario file. Depending on the type of particular row different actions are taken as
-described below.
-
-| Row type                        | Action                                                                                                                                |
-|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
-| Header                          | Headers are ignored by the program                                                                                                    |
-| First row with measurement      | Publish measurement with current time (time obtained from the device)                                                                 |
-| Subsequent row with measurement | Calculate time span from timestamp in file between previous and current measurement. Wait that amount of time and publish measurement |
-| End scenario indicator          | Stop publishing new measurements                                                                                                      |
-| End of scenario file            | Go back to the beginning of the file and repeat reading the scenario from the beginning.                                              |
 
 ## Usage
 
