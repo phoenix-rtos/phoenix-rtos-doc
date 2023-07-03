@@ -13,6 +13,20 @@ If you don't have one, you can check the running system for this target architec
 
 - [Running system on `armv7a9-zynq7000-qemu`](armv7a9-zynq7000-qemu.md)
 
+## Common problems on zynq7000 boards
+
+- Phoenix-RTOS loader does not appear:
+  - When booting using SD card: Make sure that a proper `BOOT.bin` file
+  is placed on the card, and it's in a binary format (right click -> properties):
+
+      <img src="_images/zynq7000-problems-file-type.png" width="400px">
+
+  - Try to open picocom for a second time (it could got stuck).
+
+  - Power down a board and try once again (changing boot modes needs restart by power off).
+
+  - When booting using SD card: Make sure that SD card is not broken, you can try to format it by yourself.
+
 ## See also
 
 1. [Running system on targets](README.md)
