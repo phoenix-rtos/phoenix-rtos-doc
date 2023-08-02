@@ -1,6 +1,8 @@
 # Synopsis
 
-`#include <unistd.h>`
+`#include <unistd.h>`</br>
+
+`int isatty(int fildes);`</br>
 
 `int isatty(int fildes);`
 
@@ -14,20 +16,21 @@ IEEE Std 1003.1-2017
 
 ## Description
 
-The `isatty()` function shall test whether fildes, an open file descriptor, is associated with a terminal device.
+The `isatty()` function shall test whether _fildes_, an open file descriptor, is associated with a terminal
+device.
 
 ## Return value
 
-The `isatty()` function shall return 1 if fildes is associated with a terminal; otherwise, it shall return 0 and may
-set errno to indicate the error.
+The `isatty()` function shall return `1` if _fildes_ is associated with a terminal; otherwise, it shall return `0` and
+may set errno to indicate the error.
 
 ## Errors
 
 The `isatty()` function may fail if:
 
-* `EBADF` - The fildes argument is not a valid open file descriptor.
+* `EBADF` - The _fildes_ argument is not a valid open file descriptor.
 
-* `ENOTTY` - The file associated with the fildes argument is not a terminal.
+* `ENOTTY` - The file associated with the _fildes_ argument is not a terminal.
 
 ## Tests
 

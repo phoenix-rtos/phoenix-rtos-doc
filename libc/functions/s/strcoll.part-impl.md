@@ -19,10 +19,10 @@ IEEE Std 1003.1-2017
 The `strcoll()` and `strcoll_l()`
 functions shall compare the string pointed to by _s1_ to the string pointed to by _s2_, both interpreted as appropriate
 to the `LC_COLLATE` category of the current _locale_, or of the _locale_ represented by _locale_, respectively.
-The `strcoll()` and `strcoll_l()` functions shall not change the setting of errno if successful.
+The `strcoll()` and `strcoll_l()` functions shall not change the setting of `errno` if successful.
 
 Since no return value is reserved to indicate an error, an application wishing to check for error situations should set
-errno to 0, then call `strcoll()`, or `strcoll_l()` then check errno.
+`errno` to `0`, then call `strcoll()`, or `strcoll_l()` then check `errno`.
 The behavior is undefined if the _locale_ argument to `strcoll_l()` is the special _locale_ object `LC_GLOBAL_LOCALE`
 or is not a valid _locale_ object handle.
 
