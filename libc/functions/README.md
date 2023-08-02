@@ -1,6 +1,6 @@
 # Functions
 
-## _
+## \_
 
 [`_exit`](./_/_Exit.part-impl.md) <!-- #updated# -->
 [`_Exit`](./_/_Exit.part-impl.md) <!-- #updated# -->
@@ -99,6 +99,7 @@ endthread,
 [`fputc`](./f/fputc.part-impl.md), <!-- updated -->
 [`fputs`](./f/fputs.part-impl.md), <!-- updated -->
 [`fread`](./f/fread.part-impl.md), <!-- updated -->
+[`free`](./f/free.part-impl.md), <!-- updated -->
 [`freeaddrinfo`](./g/getaddrinfo.part-impl.md), <!-- updated -->
 [`freopen`](./f/freopen.part-impl.md), <!-- updated -->
 [`frexp`](./f/frexp.part-impl.md), <!-- updated -->
@@ -106,6 +107,7 @@ endthread,
 [`fscanf`](./f/fscanf.part-impl.md), <!-- updated -->
 [`fseek`](./f/fseek.part-impl.md), <!-- updated -->
 [`fseeko`](./f/fseek.part-impl.md), <!-- updated -->
+[`fstat`](./f/fstat.part-impl.md), <!-- updated -->
 [`fstatat`](./s/stat.part-impl.md), <!-- updated -->
 [`fsync`](./f/fsync.not-impl.md), <!-- updated -->
 [`ftell`](./f/ftell.part-impl.md), <!-- updated -->
@@ -146,8 +148,20 @@ gettime,
 ## i
 
 interrupt,
+[`isalnum`](./i/isalnum.part-impl.md), <!-- updated -->
+[`isalpha`](./i/isalpha.part-impl.md), <!-- updated -->
 [`isatty`](./i/isatty.part-impl.md), <!-- updated -->
 [`ioctl`](./i/ioctl.part-impl.md), <!-- updated -->
+[`isblank`](./i/isblank.part-impl.md), <!-- updated -->
+[`iscntrl`](./i/iscntrl.part-impl.md), <!-- updated -->
+[`isdigit`](./i/isdigit.part-impl.md), <!-- updated -->
+[`isgraph`](./i/isgraph.part-impl.md), <!-- updated -->
+[`islower`](./i/islower.part-impl.md), <!-- updated -->
+[`isprint`](./i/isprint.part-impl.md), <!-- updated -->
+[`ispunct`](./i/ispunct.part-impl.md), <!-- updated -->
+[`isspace`](./i/isspace.part-impl.md), <!-- updated -->
+[`isupper`](./i/isupper.part-impl.md), <!-- updated -->
+[`isxdigit`](./i/isxdigit.part-impl.md), <!-- updated -->
 
 ## k
 
@@ -285,6 +299,8 @@ resourceDestroy,
 [`strcoll`](./s/strcoll.part-impl.md), <!-- updated -->
 [`strcpy`](./s/strcpy.part-impl.md), <!-- updated -->
 [`strcspn`](./s/strcspn.part-impl.md), <!-- updated -->
+[`strdup`](./s/strdup.part-impl.md), <!-- updated -->
+[`strerror`](./s/strerror.part-impl.md), <!-- updated -->
 [`strlen`](./s/strlen.part-impl.md), <!-- updated -->
 [`strncat`](./s/strncat.part-impl.md), <!-- updated -->
 [`strncmp`](./s/strncmp.part-impl.md), <!-- updated -->
@@ -292,6 +308,7 @@ resourceDestroy,
 [`strncpy`](./s/strncpy.part-impl.md), <!-- updated -->
 [`strpbrk`](./s/strpbrk.part-impl.md), <!-- updated -->
 [`strrchr`](./s/strrchr.part-impl.md), <!-- updated -->
+[`strsignal`](./s/strsignal.part-impl.md), <!-- updated -->
 [`strspn`](./s/strspn.part-impl.md), <!-- updated -->
 [`strstr`](./s/strstr.part-impl.md), <!-- updated -->
 [`strtod`](./s/strtod.part-impl.md), <!-- updated -->
@@ -325,6 +342,8 @@ timeGet,
 timeSet,
 [`tmpfile`](./t/tmpfile.part-impl.md), <!-- #updated# -->
 [`tmpnam`](./t/tmpnam.part-impl.md), <!-- #updated# -->
+[`tolower`](./t/tolower.part-impl.md), <!-- #updated# -->
+[`toupper`](./t/toupper.part-impl.md), <!-- #updated# -->
 [`truncate`](./t/truncate.part-impl.md), <!-- updated -->
 [`ttyname`](./t/ttyname.not-impl.md), <!-- updated -->
 [`ttyname_r`](./t/ttyname.not-impl.md), <!-- updated -->
