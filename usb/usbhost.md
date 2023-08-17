@@ -24,9 +24,9 @@ which it would then communicate in terms of scheduling transfers and detecting d
 Hubs are the basis of the USB devices tree. Each HCD has its own Root Hub with at least one port. Both Root Hubs and
 additional physical hub devices are managed using the hub driver, which is the only USB class driver implemented as a
 part of the USB stack, while other USB classes are implemented as separate processes. The hub driver is responsible for
-managing port status changes, e.g. devices connection or disconnection. When a new device is connected the hub module
+managing port status changes, e.g. device connection or disconnection. When a new device is connected the hub module
 performs the enumeration process and binds a device with appropriate drivers. On the device disconnection, it shall
-unbind a device from drivers, destroy a device and all its resources.
+unbind a device from drivers, and destroy a device and all its resources.
 
 ## Drivers
 
@@ -57,7 +57,7 @@ device, e.g. `/dev/umass0`, `/dev/umass1`, `/dev/usbacm0`, etc.
 ## Pipes
 
 Pipes are a software abstraction of a USB endpoint. Drivers communicate with specific endpoints using pipes. A pipe is
-characterized with a direction (in or out) and type (control, bulk, interrupt isochronous). A device driver first
+characterized by a direction (in or out) and type (control, bulk, interrupt isochronous). A device driver first
 **opens** a pipe by sending a USB `open` message (implemented in `libusb` as `usb_open()` function). A driver gives
 details on a pipe it requests to open. If the USB Host stack finds an endpoint on a given device interface with given
 direction and type, it creates a pipe, allocates a `id` unique in the context of the driver and returns the ID to the

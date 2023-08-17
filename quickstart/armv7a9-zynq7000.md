@@ -28,7 +28,7 @@ from the site below.
 
 - Phoenix-RTOS loader does not appear:
   - When booting using SD card: Make sure that a proper `BOOT.bin` file
-  is placed on the card, and it's in a binary format (right click → properties):
+  is placed on the card, and that it's in a binary format (right click → properties):
 
       <img src="_images/zynq7000-problems-file-type.png" width="400px">
 

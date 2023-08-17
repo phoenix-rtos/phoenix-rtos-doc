@@ -50,7 +50,7 @@ only by their address family.
 [`EINPROGRESS`] - `O_NONBLOCK` is set for the file descriptor for the socket and the assignment cannot be immediately
 performed; the assignment is performed asynchronously.
 
-[`EINVAL`] - the socket is already bound to an address, and the protocol does not support binding to a new address; or
+[`EINVAL`] - the socket is already bound to an address, and the protocol does not support binding to a new address, or
 the socket has been shut down.
 
 [`ENOBUFS`] - insufficient resources were available to complete the call.

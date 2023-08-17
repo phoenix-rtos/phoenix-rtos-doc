@@ -17,7 +17,7 @@ Following ports are possible to use:
 
 - `busybox` - application suite that provides several UN*X utilities,
 - `curl` - command-line tool for transferring data using various network protocols,
-- `dropbear` - package that that provides SSH-compatible server and client,
+- `dropbear` - package that provides SSH-compatible server and client,
 - `jansson` - library for encoding, decoding and manipulating JSON data,
 - `libevent`- library that provides asynchronous event notification,
 - `lighttpd`- web server optimized for speed-critical environments,
@@ -32,7 +32,7 @@ Following ports are possible to use:
 - `wpa_supplicant` - Wi-Fi Protected Access client and `IEEE 802.1X` supplicant
 - [azure_sdk](azure_sdk.md) - Azure IoT C Software Development Kit
 
-<!-- #TODO: add chapters on how to use each of this tool -->
+<!-- #TODO: add chapters on how to use each of these tools -->
 
 ## See also
 

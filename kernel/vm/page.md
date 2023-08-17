@@ -127,10 +127,10 @@ is illustrated below.
 
 The first page set is removed from the list and divided into two 64 KB regions. The upper 64 KB region is added to the
 `size[16]` entry and then split. The first 64 KB region is split into two 32 KB regions. The upper 32 KB region is
-returned to the `size[15]` entry. Next, the first half of the region is divided into two 16 KB regions, and finally
+returned to the `size[15]` entry. Next, the first half of the region is divided into two 16 KB regions, and finally,
 only one page is available. This page is returned as an allocation result. The complexity of this allocation is
 <!-- markdownlint-disable -->
-O(log<sub>2</sub>N). The maximum number of steps which should be performed is the size of `size[]` array minus
+O(log<sub>2</sub>N). The maximum number of steps that should be performed is the size of `size[]` array minus
 the log<sub>2</sub>(page size). The maximum cost of page allocation on a 32-bit address space is 20 steps.
 <!-- markdownlint-enable -->
 
@@ -141,7 +141,7 @@ Page deallocation is defined as the process opposite to the page allocation proc
 ### Sample deallocation
 
 Let us assume that the page allocated in the previous section must be released. The first step is to analyze the
-neighborhood of the page based on the `pages[]` array. The array is sorted and it is assumed that the
+neighborhood of the page based on the `pages[]` array. The array is sorted, and it is assumed that the
 next page for the released `page_t` is the `page_t` structure, describing the physical page located right
 after the released page or the page located on higher physical addresses. If the next `page_t` structure describes
 the neighboring page, and if it is marked as free, the merging process is performed. The next page is removed from
@@ -174,8 +174,8 @@ created, assuming a given page size. The number of `page_t` entries is proportio
     }
 ```
 
-The assumed page size depends on the architecture and the available memory size. For microcontrollers with a small
-memory size, the page size is typically 256 bytes.
+The assumed page size depends on the architecture and the available memory size. For microcontrollers with small memory
+sizes, the page size is typically 256 bytes.
 
 Page allocation is quite simple. It just retrieves the first `page_t` entry from the pool. In the deallocation process,
 a `page_t` is returned to the pool. It must be noted that the real memory allocation is performed during the memory

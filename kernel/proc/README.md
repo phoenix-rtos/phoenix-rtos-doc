@@ -78,8 +78,8 @@ services.
 Virtual addressing and private address spaces have also big impact on memory sharing. When a new process is created it
 can define its private map based on already allocated and named physical memory (see
 [Memory objects](../vm/objects.md)). This map can be derived from the map of parent process or can be established from
-scratch. The smart use of copy-on-write technique allow to allocate the physical memory only for local modifications
-made by process threads during their execution (see [Memory objects](../vm/objects.md)).
+scratch. The smart use of copy-on-write technique allows for the allocation of physical memory only for local
+modifications made by process threads during their execution (see [Memory objects](../vm/objects.md)).
 
 ## Process model on architectures not equipped with MMU
 
@@ -128,19 +128,19 @@ transit into the execution mode defined by interrupt/exception/trap vector descr
 specified execution mode the processor programming model is extended with instructions specific for this mode and
 address spaces specific to this mode are accessible for the program. When execution on particular execution mode
 finishes program returns to the previous mode and restores previous program execution context. This return is performed
-using special processor instruction. On most processors it is the instruction use to notify of the end of interrupt
+using special processor instruction. On most processors, it is the instruction used to notify of the end of interrupt
 handling.
 
 ## Process separation
 
 Phoenix-RTOS process model based on address spaces complemented by execution modes constitutes a very powerful mechanism
 for program separation. Global address spaces can be selectively mapped into the linear address space of selected
-processes. Private address spaces can effectively prevent the interference between processes, but they can be seamlessly
+processes. Private address spaces can effectively prevent interference between processes, but they can be seamlessly
 used when MMU is available.
 
 Some address spaces (e.g. kernel address space) can be attributed with the processor execution mode required to
-access to them. Using extended processor execution modes (e.g. ARM TrustZone or IA32 rings) the intermediate privilege
-modes can be introduced. This technique allows to separate the sensitive parts or program executed within a process
+access them. Using extended processor execution modes (e.g. ARM TrustZone or IA32 rings) the intermediate privilege
+modes can be introduced. This technique allows for separating the sensitive parts or program executed within a process
 from other parts. Privileged and separated address spaces mapped into many processes can consist shared data and code
 used for example for emulation or to implement managed execution environments.
 

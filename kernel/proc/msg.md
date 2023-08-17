@@ -20,7 +20,7 @@ extern int proc_recv(u32 port, msg_t *msg, unsigned int *rid);
 extern int proc_respond(u32 port, msg_t *msg, unsigned int rid);
 ```
 
-Structure `msg_t` identifies message type and consist of two main parts - input part and output part.
+Structure `msg_t` identifies message type and consists of two main parts - input part and output part.
 
 Input part points to the input buffer and defines its size. It contains also a small buffer for passing the message
 application header. The output part has symmetrical architecture to input buffer. It contains the pointer to output
@@ -29,7 +29,7 @@ buffer, output buffer data length and buffer for output application header.
 When message is sent by the `proc_send` function the sending thread is suspended until the receiving thread executes
 `proc_recv` function, reads data from input buffer, writes the final answer to the output buffer and executes
 `proc_respond`. The `rid` word identifies the receiving context and should be provided to the `proc_respond` function.
-There is possible to execute a lot of instruction between receiving and responding procedure. Responding function is
+There is possible to execute a lot of instructions between receiving and responding procedures. Responding function is
 used to wake up the sending thread and inform it that data in output buffer are completed.
 
 To prevent copying of big data blocks over the kernel when communication goes between threads assigned to separate

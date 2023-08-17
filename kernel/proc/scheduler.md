@@ -18,7 +18,7 @@ the same priority. A scheduling algorithm is defined as follows:
 2. The current thread's context for the interrupted core is saved and added to the end of its priority list.
 3. The next available thread with the highest priority is selected to be run and is removed from the ready thread list.
 If a selected thread is a ghost (a thread whose process has ended execution) and has not been executed in a supervisor
-mode, it is added to the ghosts list and the reaper thread is woke up.
+mode, it is added to the ghosts list and the reaper thread woke up.
 4. For the selected thread, the following actions are performed:
     * A global pointer to the current thread is changed to the selected one,
     * A pointer to the kernel stack is updated to the stack of a new thread,

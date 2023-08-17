@@ -58,7 +58,7 @@ other operation. `chanCount` has to be greater than zero, `priority` has to be g
 ### Notes
 
 - All channels start disabled,
-- Channel configuration does not change it's state, channel needs to be enabled if it was not prior,
+- Channel configuration does not change its state, channel needs to be enabled if it was not prior,
 - Callback function **must not** call any libswdg functions! Deadlock will occur.
 
 ## Using libswdg
@@ -86,4 +86,4 @@ int main()
 }
 ```
 
-Should `doAppStuff()` function hang/crash for more than 30 seconds, system will reset.
+Should `doAppStuff()` function hang/crash for more than 30 seconds, the system will reset.

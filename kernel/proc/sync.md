@@ -9,7 +9,7 @@ Spinlocks are used in kernel for active synchronization of instruction streams e
 processing cores. They are implemented using special processor instruction allowing to atomically exchange value stored
 in processor register with a value stored in a memory at specified linear address. This processor instruction belongs
 to the class of so-called `test-and-set` instructions introduced especially for synchronization purposes. Their logic
-may slightly vary between specific processor architectures but the overall semantic remains consistent with atomic
+may slightly vary between specific processor architectures, but the overall semantics remains consistent with atomic
 exchange between memory and processor register.
 
 Spinlocks are the basic method of synchronization used to implement mechanisms based on the thread scheduling. They are
@@ -39,7 +39,7 @@ processor-specific assembly code.
 ```
 
 Spinlock unlocking operation is quite simple. Processor atomically changes spinlock value in memory to non-zero and
-restores its interrupt state based on state saved in spinlock. It is worth to add that operation on spinlock should
+restores its interrupt state based on state saved in spinlock. It is worth adding that operation on spinlock should
 save and restore processor state from the variable assigned specifically for this particular processor.
 
 ```c
@@ -51,10 +51,10 @@ save and restore processor state from the variable assigned specifically for thi
 
 Locks are used to synchronize access to critical sections inside kernel using scheduling mechanism. The main difference
 between locks and spinlocks is that they use passive waiting (removal from scheduler queues) instead of active waiting
-(iterations until spinlock value becomes non-zero). Locks can be used only when process subsystem is initializes and
+(iterations until spinlock value becomes non-zero). Locks can be used only when process subsystem is initialized and
 scheduler is working.
 
-Each lock consist of spinlock, state variable and waiting queue.
+Each lock consists of spinlock, state variable and waiting queue.
 
 ## Conditional variables
 

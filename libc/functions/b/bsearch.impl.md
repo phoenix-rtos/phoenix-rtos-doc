@@ -21,8 +21,8 @@ member that matches the object pointed to by _key_.  The size (in bytes) of each
 by _size_.
 
 The contents of the array should be in ascending sorted order according to the comparison function referenced by
-`compar`.  The `compar` routine is expected to have two arguments which point to the key object and to an array member,
-in that order.  It should return an integer which is less than, equal to, or greater than zero if the key object is
+`compar`.  The `compar` routine is expected to have two arguments that point to the key object and to an array member,
+in that order.  It should return an integer that is less than, equal to, or greater than zero if the key object is
 found, respectively, to be less than, to match, or be greater than the array member.
 
 ### Return value

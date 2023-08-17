@@ -206,13 +206,13 @@ Firstly, you need to have the docker installed.
   export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
   ```
 
-  It's recommended to place it in `.zshrc` startup script to export in every time during startup:
+  It's recommended to place it in `.zshrc` startup script to export it every time during startup:
 
   ```bash
   echo 'export PATH=/Applications/Docker.app/Contents/Resources/bin:$PATH' >> $HOME/.zshrc
   ```
 
-- Check if Docker is properly installed by checking version:
+- Check if Docker is properly installed by checking its version:
 
   ``` bash
   docker --version
@@ -308,7 +308,7 @@ There is a list of commands you can use to get them: on both Ubuntu and macOS ho
   *Note that you have to place the `gnubin` path that provides `make` before the `/usr/bin` in the `PATH` environment
   variable to use the `gnu` version (as it is done above).
 
-  Phoenix-RTOS requires the `endian.h` header, which may exist, but not be visible. If during the buildig you discover
+  Phoenix-RTOS requires the `endian.h` header, which may exist, but not be visible. If during the building you discover
   the following error:
   `fatal error: 'endian.h' file not found`
   please create the symlink to this header by the given command:

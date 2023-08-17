@@ -1,15 +1,15 @@
 # System calls
 
 System call (commonly abbreviated to syscall) is an entry point to execute a specific user program's request to a
-service from the kernel. The operating system kernel runs in a privileged mode to protect a sensitive software and
+service from the kernel. The operating system kernel runs in a privileged mode to protect sensitive software and
 hardware parts from the other software components. A user application executing in an unprivileged mode does not have
 access to the protected data. Performing a hardware interrupt or conducting a trap handled by the kernel, the user
-application can obtain sensitive data from the kernel, e.g. an information about all processes running in the system.
+application can obtain sensitive data from the kernel, e.g. information about all processes running in the system.
 
 ## Prototypes and definition
 
 In Phoenix-RTOS prototypes and definitions of the system calls are located in the `libphoenix` library. A list of
-the all system calls is placed in a `phoenix-rtos-kernel/include/syscalls.h` header files, grouped by categories.
+all system calls is placed in a `phoenix-rtos-kernel/include/syscalls.h` header files, grouped by categories.
 
 System call prototypes should be placed in the appropriate header file in the `libphoenix` standard library,
 referring to the syscall's category.

@@ -54,7 +54,7 @@ returned, and `errno` shall be set to indicate the error.
 
 The `freopen()` function shall fail if:
 
-* `EACCES` - Search permission is denied on a component of the path prefix, or the file exists and the permissions
+* `EACCES` - Search permission is denied on a component of the path prefix, or the file exists, and the permissions
 specified by _mode_ are denied, or the file does not exist and write permission is denied for the parent directory of
 the file to be created.
 

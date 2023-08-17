@@ -40,5 +40,5 @@ jobs:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-review
           disabled_rules: "ENGLISH_WORD_REPEAT_RULE,RB_RB_COMMA[3],REP_PASSIVE_VOICE[6],AI[1],ID_CASING[2],ENGLISH_WORD_REPEAT_BEGINNING_RULE,EN_UNPAIRED_BRACKETS"
-          # TODO: make languagetool not check the code blocks and enable back most of rules mentioned below:
+          # TODO: make languagetool not check the code blocks and enable back rules mentioned below:
           # "ENGLISH_WORD_REPEAT_RULE,RB_RB_COMMA[3],AI[1],ID_CASING[2],EN_UNPAIRED_BRACKETS"

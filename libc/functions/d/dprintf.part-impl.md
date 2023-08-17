@@ -89,7 +89,7 @@ digit string is treated as zero. If a precision appears with any other conversio
 
 * A conversion specifier character that indicates the type of conversion to be applied.
 
-A field width, or precision, or both, may be indicated by a (`'*'`). In this case an argument of type
+A field width, or precision, or both, may be indicated by a (`'*'`). In this case, an argument of type
 `int` supplies the field width or precision. Applications ensure that arguments specifying field width, or precision,
 or both appear in that order before the argument, if any, to be converted. A negative field width is taken as a `'-'`
 flag followed by a positive field width. A negative precision is taken as if the precision were omitted. In format

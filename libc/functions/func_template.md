@@ -11,7 +11,7 @@
 
 Partially implemented
 
-<!-- #MUST_BE: if function shall be posix compliant print the standard signature  -->
+<!-- #MUST_BE: if function shall be POSIX compliant print the standard signature  -->
 ## Conformance
 
 IEEE Std 1003.1-2017

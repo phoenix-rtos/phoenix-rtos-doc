@@ -16,7 +16,7 @@
 There are stored adaptations needed to run `azure-iot-sdk-c` on Phoenix-RTOS.
 
 Azure IoT C Software Development Kit provides the interface to communicate easily with Azure IoT Hub, Azure IoT Central,
-and to Azure IoT Device Provisioning. It's intended for apps written in C99 (or newer) or C++. For more information
+and Azure IoT Device Provisioning. It's intended for apps written in C99 (or newer) or C++. For more information
 please visit the [Azure IoT C SDK GitHub](https://github.com/Azure/azure-iot-sdk-c).
 
 ## Supported version
@@ -168,7 +168,7 @@ You can read messages received from Azure, for example using `AzureIotHub VS Cod
 ## Using azure-iot-sdk-c
 
 The above guide shows how to run only one of the provided samples. To write your own programs using the SDK please read
-the following instructions. It may be helpful for the other architectures, like `armv7m7-imxrt106x-evk`, where the
+the following instructions. It may be helpful for other architectures, like `armv7m7-imxrt106x-evk`, where the
 previously generated sample may not work. That's the reason, why the following example is adjusted to the configuration
 with `mbedtls` intended for 'smaller' targets (now only the `imxrt106x` is supported). If you want to write your own
 programs intended for the `openssl` configuration ('larger' targets, like `ia32-generic-qemu`) there will be a few
@@ -351,7 +351,7 @@ in the specific building script in `_projects` directory or using an environment
 
 To build `azure_sdk` tests please set `LONG_TEST=y` environment variable before calling `build.sh`.
 
-In the result unit tests for the `c-utility` component should be placed in the `/bin` directory.
+In the result, unit tests for the `c-utility` component should be placed in the `/bin` directory.
 
 The tests have `ut_exe` suffix, for example: `connectionstringparser_ut_exe`. You run it as follows:
 

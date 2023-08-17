@@ -1,6 +1,6 @@
 # Running system on `riscv64-generic-qemu`
 
-This version is designated for RISC-V 64 processors based virt machine implemented by `qemu-system-riscv64`.
+This version is designated for RISC-V 64 processors based virtual machine implemented by `qemu-system-riscv64`.
 To launch this version two files should be provided - kernel file integrated with SBI firmware with embedded UART16550
 interface driver, dummyfs filesystem and the`psh` shell and disk image with ext2 filesystem.
 
@@ -42,7 +42,7 @@ Firstly, you need to install QEMU emulator.
   </details>
 
   <details>
-  <summary>How to get QEMU (Mac OS)</summary>
+  <summary>How to get QEMU (macOS)</summary>
 
 - Install the required packages
 

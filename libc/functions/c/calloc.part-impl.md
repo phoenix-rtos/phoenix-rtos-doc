@@ -18,7 +18,7 @@ The purpose is to allocate a memory. The `calloc()` function shall allocate unus
 elements each of whose size in bytes is
 _elsize_. The space shall be initialized to all bits `0`.
 
-The order and contiguity of storage allocated by successive calls to `calloc()` is unspecified. The pointer returned if
+The order and contiguity of storage allocated by successive calls to `calloc()` are unspecified. The pointer returned if
 the allocation succeeds shall be suitably aligned so that it may be assigned to a pointer to any type of object and then
 used to access such an object or an array of such objects in the space allocated (until the space is explicitly freed or
 reallocated). Each such allocation shall yield a pointer to an object disjoint from any other object. The pointer

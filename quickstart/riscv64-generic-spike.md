@@ -86,7 +86,7 @@ Just like before, you first need to install the emulator.
   </details>
 
   <details>
-  <summary>How to get QEMU (Mac OS)</summary>
+  <summary>How to get QEMU (macOS)</summary>
 
 - Install the required packages
 

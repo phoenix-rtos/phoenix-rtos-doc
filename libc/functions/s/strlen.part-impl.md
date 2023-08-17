@@ -19,7 +19,7 @@ IEEE Std 1003.1-2017
 The `strlen()` function shall compute the number of bytes in the string to which _s_ points, not including the
 terminating `NUL` character.
 The
-`strnlen()` function shall compute the smaller of the number of bytes in the array to which _s_ points, not including
+`strnlen()` function shall compute the smallest of the number of bytes in the array to which _s_ points, not including
 any terminating `NUL` character, or the value of the _maxlen_ argument. The `strnlen()` function shall never examine
 more than _maxlen_ bytes of the array pointed to by _s_.
 

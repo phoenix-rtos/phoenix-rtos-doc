@@ -55,7 +55,7 @@ The behavior is undefined if the value specified by the _h_ or mutex _m_ argumen
 to an initialized condition variable or an initialized mutex object, respectively.
 
 If _timeout_ is nonzero `-ETIME` is returned if condition is not signaled after waiting for _timeout_ microseconds. Zero
-_timeout_ waits indefinitely until condition is signalled. Note that due to internal implementation timeout is restarted
+_timeout_ waits indefinitely until condition is signaled. Note that due to internal implementation timeout is restarted
 when signal is received (retry on `EINTR`).
 
 ## Return value

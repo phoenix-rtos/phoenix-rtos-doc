@@ -33,7 +33,7 @@ Devices are the hardware dependent subsystem containing a collection of drivers 
 loader components. Each driver has to register itself using constructor invocation. During bootloader initialization,
 the registered devices are initialized and appropriate `major.minor` numbers are assigned to them. The other plo's
 components refer to specific devices using `major.minor` identification. The minor number indicates on the device
-instance and are assigned dynamically. However, the major numbers are static and refer to the following device types:
+instance and is assigned dynamically. However, the major numbers are static and refer to the following device types:
 
 * `0` - UART
 * `1` - USB
@@ -77,7 +77,7 @@ PLLs, external memory controllers like DDR and preparing other crucial component
 
 Console is used for presenting plo messages until the device driver for the console is initialized. It is typically
 based on UART, but it can use other display devices (on IA32 there is a console based on VGA graphics adapter and
-keyboard). Initially the console should be kept as simple as possible, so it works from the early boot stage. It
+keyboard). Initially, the console should be kept as simple as possible, so it works from the early boot stage. It
 does not use interrupts or other HAL mechanisms, nor allow the loader to read data.
 
 ### Strings
@@ -104,7 +104,7 @@ Common routines contain the following units:
 
 * `circular buffer` - basic interface to push and pop data to buffer
 
-* `console` - unit sets console to specific device and print data on it
+* `console` - unit sets console to specific device and prints data on it
 
 * set of functions to handle `character types`
 

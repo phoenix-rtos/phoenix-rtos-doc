@@ -81,7 +81,7 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
   Initializes the `graph_t` structure and opens a context for the specified graphics adapter. The uninitialized
   `graph_t` structure should be passed in the _`graph`_ argument and the graphics _`adapter`_ should be chosen from the
   following list:
-  - `GRAPH_NONE` - the graphics adapter isn't specified, in this case the function returns `-ENODEV`
+  - `GRAPH_NONE` - the graphics adapter isn't specified, in this case, the function returns `-ENODEV`
   - `GRAPH_VIRTIOGPU` - generic VirtIO GPU graphics adapter
   - `GRAPH_VGA` - generic VGA graphics adapter
   - `GRAPH_CIRRUS` - Cirrus Logic graphics adapter
@@ -98,8 +98,8 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
 - `int graph_mode(graph_t *graph, graph_mode_t mode, graph_freq_t freq)`
 
   Sets graphics mode with specified screen refresh rate frequency. The initialized _`graph`_ structure should be passed,
-  and _`mode`_ should be chosen from the `graph_mode_t` enum, placed in the `graph.h` header. The common graphics modes
-  are presented below:
+  and _`mode`_ should be chosen from the `graph_mode_t` enum, and placed in the `graph.h` header. The common graphics
+  modes are presented below:
   - `GRAPH_DEFMODE` - default graphics mode
   - `GRAPH_ON` - display enabled mode
   - `GRAPH_OFF` - display disabled mode
@@ -157,20 +157,20 @@ color, graph_queue_t queue)`
 - `int graph_fill(graph_t *graph, unsigned int x, unsigned int y, unsigned int color, graph_fill_t type, graph_queue_t
 queue)`
 
-  Fills a closed figure with color specified in the _`color`_ argument ((_`x`_, _`y`_) should be any point inside the
-  figure to fill). The following `graph_fill_t` color fill methods are supported:
+  Fills a closed figure with the color specified in the _`color`_ argument ((_`x`_, _`y`_) should be any point inside
+  the figure to fill). The following `graph_fill_t` color fill methods are supported:
   - `GRAPH_FILL_FLOOD` - works like Windows paint bucket tool (floods homogeneous area, all pixels inside the polygon
   with color values same as the one at (_`x`_, _`y`_) flood origin point)
 
   - `GRAPH_FILL_BOUND` - fills the polygon until an edge of the same color as the fill color is found. It can't fill the
-  figure with color different from the figure boundary
+  figure with a color different from the figure boundary
 
 - `int graph_print(graph_t *graph, const graph_font_t *font, const char *text, unsigned int x, unsigned int y, unsigned
 char dx, unsigned char dy, unsigned int color, graph_queue_t queue)`
 
   Prints text pointed by the _`text`_ argument. Font data should be passed to `graph_font_t` structure. The example is
   stored in `gfx` directory in [phoenix-rtos-tests](https://github.com/phoenix-rtos/phoenix-rtos-tests.git)
-  repository (`font.h` file). The remaining arguments are similar to those from functions above.
+  repository (`font.h` file). The remaining arguments are similar to those from the functions above.
 
 - `int graph_move(graph_t *graph, unsigned int x, unsigned int y, unsigned int dx, unsigned int dy, int mx, int my,
 graph_queue_t queue)`
@@ -182,15 +182,15 @@ graph_queue_t queue)`
 unsigned int dstspan, graph_queue_t queue)`
 
   Copies a bitmap pointed by the _`src`_ argument into bitmap pointed by the _`dst`_ argument. The area which is copied
-  is limited by a rectangle with _`dx`_ and _`dy`_ dimensions. There should also be specified span arguments, which is
-  the total width of a source/destination bitmap multiplied by its color depth. When copying some part of a bitmap,
-  _`src`_ should point to the proper element, same with destination buffer.
+  is limited by a rectangle with _`dx`_ and _`dy`_ dimensions. There should also be specified span arguments, which
+  represent the total width of a source/destination bitmap multiplied by its color depth. When copying some part
+  of a bitmap, _`src`_ should point to the proper element, and the same applies to the destination buffer.
 
 - `int graph_colorset(graph_t *graph, const unsigned char *colors, unsigned char first, unsigned char last)`
 
   Sets a color palette used for 8-bit indexed color mode. A color map should be passed in _`cmap`_ argument. The range
   of changing colors is set by passing _`first`_ and _`last`_ arguments. If a set color palette's size is lower than a
-  default one, remaining colors are the same.
+  default one, the remaining colors are the same.
 
 - `graph_colorget(graph_t *graph, unsigned char *colors, unsigned char first, unsigned char last)`
 
@@ -202,9 +202,10 @@ int fg)`
 
   Sets cursor icon, _`amask`_ (`AND` mask) and _`xmask`_ (`XOR` mask) arguments determine the shape of the cursor.
   Default cursor shape is defined in `cursor.h` header file placed in `gfx` directory in `phoenix-rtos-tests`
-  repository. There is possibility to pass cursor colors - outline color (`bg` argument) and main color (`fg` argument).
-  The following color format should be applied: `0xAARRGGBB`, where `A` represents alpha, so when it's set to `0xff`
-  100% opacity is provided. Opacity isn't supported for cirrus graphics adapter (default for `ia32-generic-qemu` target)
+  repository. There is a possibility to pass cursor colors - outline color (`bg` argument) and main color
+  (`fg` argument). The following color format should be applied: `0xAARRGGBB`, where `A` represents alpha, so when it's
+  set to `0xff` 100% opacity is provided. Opacity isn't supported for cirrus graphics adapter
+  (default for `ia32-generic-qemu` target)
 
 - `int graph_cursorpos(graph_t *graph, unsigned int x, unsigned int y)`
 
@@ -253,7 +254,8 @@ int fg)`
 ## How to use the graphics library
 
 Few simple examples of `libgraph` functions usage. Default graphics adapter (`cirrus`) for `ia32-generic-qemu` running
-script is used, default color depth is 4 bytes. Before calling mentioned functions following initialization was applied:
+script is used, the default color depth is 4 bytes. Before calling mentioned functions the following initialization
+was applied:
 
 ```c
 #include <graph.h>
@@ -305,7 +307,7 @@ int main(void)
 
 - Printing text using libgraph
 
-  Header file with a font data in `graph_font_t` structure has to be included. The example of `font.h` is placed in
+  Header file with font data in `graph_font_t` structure has to be included. The example of `font.h` is placed in
   `gfx` directory in [phoenix-rtos-tests](https://github.com/phoenix-rtos/phoenix-rtos-tests) repository.
 
   ```C
@@ -444,12 +446,12 @@ There are few steps to follow:
   - for other color depths - export the file to C source/header format (a dialog window pops up with additional options
   for color conversion)
 
-- At this point image binary data should be available (either as array in `.c` or `.h` file or raw hex dump)
+- At this point image binary data should be available (either as an array in `.c` or `.h` file or raw hex dump)
 
 - Custom image data formatting might be required
 
-If the image bitmap is ready, there is possibility to display it using `graph_copy()`. Please see the proper example in
-[How to use libgraph](#how-to-use-the-graphics-library) chapter.
+If the image bitmap is ready, there is a possibility to display it using `graph_copy()`. Please see the proper example
+in [How to use libgraph](#how-to-use-the-graphics-library) chapter.
 
 ## See also
 

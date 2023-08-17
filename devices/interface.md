@@ -18,7 +18,7 @@ not have to create separate ports for them. The driver needs to assign each "fil
 Assume we want to create an SPI server that manages 2 instances of the device - spi0 and spi1. We can manage both using
 only one port by registering the same port as `/dev/spi0` with id = 1 and `/dev/spi1` with id = 2. Every message driver
 receives contains information to which `oid` (object ID) it has been sent. This enables the driver to recognize to
-which special file message has been addressed to.
+which special file message has been addressed.
 
 If the system does not have a root filesystem, a port can be registered within Phoenix native filesystem by using
 syscall
@@ -67,8 +67,8 @@ Then we can create a new special file and register:
 
 ## Message types
 
-There are several standard types of messages, although device driver servers need to implement an only subset of them.
-With every message type there are 3 common fields:
+There are several standard types of messages, although device driver servers need to implement only a subset of them.
+With every message type, there are 3 common fields:
 
 - _`type`_ - type of message,
 - _`pid`_ - process ID of sender,

@@ -6,7 +6,7 @@ of the lack of a proper interface (Ethernet, Wi-Fi) the use of uart in
 conjunction with an appropriate adapter, be it USB, Bluetooth or
 optical/infrared uart may be the easiest to connect both worlds.
 
-Almost every microcontroller has at least one uart, may not have Ethernet MAC,
+Almost every microcontroller has at least one uart, and may not have Ethernet MAC,
 Wi-Fi or Bluetooth, but uart/serial null-modem connection is possible always and
 the most legitimate and proven protocol to deliver IP world is PPP.
 

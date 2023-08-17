@@ -200,10 +200,11 @@ possible.
 
 ## Example 2: unit tests using C
 
-In this section, we will explore another type of test: unit testing. When we talk about testing, unit testing often come
-to mind, which is why the test runner has native support for unit testing. Similar to the previous section, we start by
-creating a C file named `dummy.c` located in the `phoenix-rtos-tests/dummy` directory. To write unit tests, we will use
-the modified [Unity Test](http://www.throwtheswitch.org/unity), a third party unit testing framework built for C.
+In this section, we will explore another type of test: unit testing. When we talk about testing, unit testing often
+comes to mind, which is why the test runner has native support for unit testing. Similar to the previous section,
+we start by creating a C file named `dummy.c` located in the `phoenix-rtos-tests/dummy` directory. To write unit tests,
+we will use the modified [Unity Test](http://www.throwtheswitch.org/unity), a third party unit testing framework
+built for C.
 
 ```c
 #include <string.h>
@@ -478,12 +479,12 @@ Now let's go through the tests and try to understand the final configuration:
 
 - The `arg_zero` test specifies that the `test-hello-arg` executable should be executed without any arguments
 (`execute: test-hello-arg`). We provide the `hello_arg_harness.py` as the harness. In the `kwargs` section, we set
-`argc` to `0`. This dictionary is passed later to the harness as `kwargs` parameter. Additional, we exclude the
+`argc` to `0`. This dictionary is passed later to the harness as `kwargs` parameter. Additionally, we exclude the
 `armv7a9-zynq7000-qemu` target for this specific test. As a result, it will be run on the `ia32-generic-qemu` and
 `host-generic-pc` targets.
 - The `arg_two` test specifies that the `test-hello-arg` should be executed with two arguments: `arg1` and `arg2`
 (`execute: test-hello-arg arg1 arg2`). We provide the `hello_arg_harness.py` as the harness. In the `kwargs` section, we
-set `argc` to `2`. Additional, we specify that this test should only run on the `ia32-generic-qemu` target.
+set `argc` to `2`. Additionally, we specify that this test should only run on the `ia32-generic-qemu` target.
 - The `arg_hello` test specifies that the `test-hello-arg` executable should be executed with the argument `world`. We
 provide the `hello_arg_harness.py` as the harness. In the `kwargs` section, we set `input` to `Adios!`. This word will
 be used as the input to the `test-hello-arg`. We also set `nightly` to false for this specific test. Thanks to that, the
