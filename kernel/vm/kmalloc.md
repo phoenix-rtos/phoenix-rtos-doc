@@ -3,23 +3,23 @@
 Fine-grained allocator implemented by `vm_kmalloc()` function is the main method of dynamic memory allocation used by
 the Phoenix-RTOS kernel. The operating system kernel uses dynamic data structures to manage dynamic data structures
 created during the operating system runtime (e.g. process descriptors, threads descriptors, ports). Size of these
-structure varies from few bytes to tens of kilobytes. The allocator is able to allocate either the group of memory pages
-and to manage the fragments allocated within the page.
+structures varies from few bytes to tens of kilobytes. The allocator can allocate either the group of memory pages and
+manage the fragments allocated within the page.
 
 ## Architecture
 
 Fine-grained allocator is based on zone allocator. The architecture is presented on the following picture.
 
-Main allocator data structure is `sizes[]` table. Table entries points to list of zone allocators consisting fragments
+Main allocator data structure is `sizes[]` table. Table entries point to list of zone allocators consisting of fragments
 with sizes proportional to the entry number. Fragments have sizes equal to `2^e` where `e` is the entry number.
 
 ## Memory allocation
 
-The first step of allocation process is the calculation of entry number. The best fit strategy is used, so the requested
-size is rounded to the nearest power of two. After calculating the entry number the fragment is allocated from the first
-zone associated with the entry number.
+The first step of the allocation process is the calculation of entry number. The best fit strategy is used, so the
+requested size is rounded to the nearest power of two. After calculating the entry number the fragment is allocated
+from the first zone associated with the entry number.
 
-If the selected entry is empty and there is no empty zones associated with the entry, the new zone is created and added
+If the selected entry is empty and there are no empty zones associated with the entry, the new zone is created and added
 to the list. New zone is added either to `sizes[]` table and to the zone RB-tree. The zone RB-tree is used to find the
 proper zone when a fragment is released.
 

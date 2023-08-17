@@ -29,7 +29,7 @@ before calling these functions. On return, if `errno` is non-zero or
 
 Upon successful completion, these functions shall return the arc cosine of _x_, in the range `[0, pi]` radians.
 
-For finite values of _x_ not in the range `[-1,1]`, a domain error shall occur, and either a `NaN` (if supported), or
+For finite values of _x_ not in the range `[-1,1]`, a domain error shall occur, and either a `NaN` (if supported) or
 an implementation-defined value shall be returned.
 
 * If _x_ is `NaN`, a `NaN` shall be returned.

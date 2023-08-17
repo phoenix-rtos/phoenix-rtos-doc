@@ -7,7 +7,7 @@ Phoenix-RTOS provides its toolchain, based on GNU CC. It's divided into the foll
 - riscv64-phoenix
 - sparc-phoenix
 
-Each part delivers the tools required to compile for the given architecture simply.
+Each part delivers the tools required to compile the given architecture simply.
 There are a few reasons why that is helpful
 
 - You can easily compile source code for a given Phoenix-RTOS platform, for example, ia32-generic-qemu:

@@ -20,7 +20,7 @@ To generate an image with a flash memory size, the user should use `-o` option.
 
 ## Examples
 
-The following example generates a partition table for MICRON MT25QL01GBBB. The size of the memory and sector bases on
+The following example generates a partition table for MICRON MT25QL01GBBB. The size of the memory and sector based on
 data from <https://pl.mouser.com/datasheet/2/671/MT25Q_QLKT_L_01G_BBB_0-1283539.pdf>
 
 ### Creating partition table

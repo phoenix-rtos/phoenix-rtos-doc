@@ -81,7 +81,7 @@ space is switched.
 
 Timer is the fundamental device for the operating system kernel. It is used for preemptive scheduling and time
 management. HAL is responsible for the implementation of two timers - a scheduler timer and high precision timer.
-On some architectures, they can be based on one hardware device but commonly the are based on two separate devices.
+On some architectures, they can be based on one hardware device, but commonly they are based on two separate devices.
 The interface provided for the upper layer unifies these devices and hides implementation details.
 
 HAL implements one function for operating on timers and defines two interrupt numbers respectively for timers used for

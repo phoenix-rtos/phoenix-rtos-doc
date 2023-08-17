@@ -61,7 +61,7 @@ does not contain the `MAP_FAILED` value, which would indicate that `mmap` failed
 
 ### ISA without MMU
 
-On architectures without `MMU` access to the hardware registers does not require prior memory mapping. Registers can be
+On architectures without `MMU`, access to the hardware registers does not require prior memory mapping. Registers can be
 accessed by directly setting a volatile pointer to the desired physical base address.
 
 ## See also

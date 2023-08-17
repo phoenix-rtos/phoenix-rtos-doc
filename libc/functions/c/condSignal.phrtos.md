@@ -25,8 +25,9 @@ variable _h_ (if any threads are blocked on _h_).
 
 If more than one thread is blocked on a condition variable, the scheduling policy shall determine the order in which
 threads are unblocked. When each thread unblocked as a result of a `condBroadcast()` or `condSignal()` returns from its
-call to `condWait()`, the thread shall own the mutex with which it called `condWait()`. The thread(s) that are unblocked
-shall contend for the mutex according to the scheduling policy (if applicable), and as if each had called `mutexLock()`.
+call to `condWait()`, the thread shall own the mutex with which it is called `condWait()`. The thread(s) that are
+unblocked shall contend for the mutex according to the scheduling policy (if applicable),
+and as if each had called `mutexLock()`.
 
 The `condBroadcast()` or `condSignal()` functions may be called by a thread whether it
 currently owns the mutex that threads calling `condWait()` have associated with the condition variable

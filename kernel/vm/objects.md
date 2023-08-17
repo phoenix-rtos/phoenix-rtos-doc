@@ -2,16 +2,16 @@
 
 Memory objects were introduced to share the physical memory between processes allowing to identify the sets of
 allocated memory pages or segments of physical memory on non-MMU architectures. When process maps object into its memory
-space kernel allocates physical memory for the objects data and copies it from the backing storage (e.g. filesystem).
-When other process maps the same object into its address space the most of already allocated memory for the object
+space kernel allocates physical memory for the object's data and copies it from the backing storage (e.g. filesystem).
+When other process maps the same object into its address space most of the already allocated memory for the object
 purposes can be shared. Only the memory for local in-process modifications should be allocated. The technique used for
 allocating the memory for the purposes of in-process object modifications when the write access is performed is known as
 copy-on-write. It is based on some features of MMU or segment management unit
 
-Memory objects are used to optimize the memory usage. They are also used as the basis for shared libraries. The shared
-libraries are the libraries loaded during the process execution. They are loaded using object mapping technique, what
-result that only one library code instance exists in memory. Library data segments are allocated using copy-on-write
-technique. To use the shared library in the process context the dynamic linking should be performed.
+Memory objects are used to optimize memory usage. They are also used as the basis for shared libraries. The shared
+libraries are the libraries loaded during the process execution. They are loaded using object mapping technique, which
+results that only one library code instance exists in memory. Library data segments are allocated using copy-on-write
+technique. To use the shared library in the process context dynamic linking should be performed.
 
 Memory objects were introduced in Mach operating system. They were quickly derived from it and implemented in UN*X BSD
 and other operating systems. The Mach and BSD implementations were not optimal because of the way of implementation of
@@ -25,7 +25,7 @@ microkernel.
 
 Process’s address space is constituted by set of mapped objects. In traditional operating system memory objects
 correspond with files or devices (and are identified by `vnode`, `inode` etc.) or with anonymous objects representing
-the dynamically allocated physical memory. There are two strategies of retrieving object data into the process memory –
+the dynamically allocated physical memory. There are two strategies for retrieving object data into the process memory –
 immediate retrieval strategy when object is mapped (e.g. during process start) and lazy on-demand retrieval strategy
 when virtual page is first-time accessed during the runtime.
 
@@ -46,8 +46,8 @@ process stack (stack used by the main thread). As well as `bss` and `heap` segme
 object. After the stack kernel segments are mapped. These segments are inaccessible when the thread runs on the
 user-level. When control is transferred explicitly to the kernel via the system call or implicitly via interrupt,
 the executed program is able to access this memory. The described mechanism of separation of the kernel from user memory
-is the basic mechanism constituting the operating system security and reliability and preventing the interference
-between the operating system and processes.
+is the basic mechanism constituting the operating system's security and reliability and preventing interference between
+the operating system and processes.
 
 The process address space in Phoenix-RTOS is presented on the following figure.
 
@@ -62,7 +62,7 @@ process at requested virtual address.
 The main difference between the monolithic kernel approach and Phoenix-RTOS is that memory segments correspond to
 objects identified by oids (port and in-server ID) handled by external servers, so operating system kernel is free of
 file abstraction. This allows to maintain the small size of kernel and emulate many file sharing and inheritance
-strategies on the user level (POSIX, Windows etc.) or event to create the final operating system lacked of filesystem
+strategies on the user level (POSIX, Windows etc.) or event to create the final operating system lacking of filesystem
 abstraction.
 
 ## Memory objects in Mach/BSD operating systems
@@ -105,8 +105,8 @@ The following figure shows how shadow object chains are formed in BSD VM.
 
 <img src="_images/mem-objects-bsd4.png" width="550px">
 
-A three-page file object is copy-on-write memory mapped into a process’ address space. The first column shows the first
-step of memory mappings. The new entry with the needs-copy and copy-on-write flags is allocated. It points the
+A three-page file object is copy-on-write memory mapped into a process’s address space. The first column shows the first
+step of memory mappings. The new entry with the needs-copy and copy-on-write flags is allocated. It points to the
 underlying object. Once a writ fault occurs, a new memory object is created and that object tracks all the pages that
 have been copied and modified.
 
@@ -119,7 +119,7 @@ read-write into the faulting process’ address space.
 
 The third column shows the BSD VM data structures after the process with the copy-on-write mapping forks a child, the
 parent writes to the middle page, and the child writes to the right-hand page. When the parent forks, the child receives
-a copy-on-write copy of the parent’s mapping. This is done by write protecting the parent’s mappings and setting
+a copy-on-write copy of the parent’s mapping. This is done by writing protecting the parent’s mappings and setting
 needs-copy in both processes. When the parent faults on the middle page, a second shadow object is allocated for it and
 inserted on top of the first shadow object. When the child faults on the right-hand page the same thing happens,
 resulting in the allocation of a third shadow object.
@@ -127,7 +127,7 @@ resulting in the allocation of a third shadow object.
 Shadow objects are very problematic In terms of operating system efficiency and resource management.
 
 Presented copy-on-write mechanism can leak memory by allowing pages that are no longer accessible to remain within an
-object chain. In the example the remaining shadow object chain contains three copies of the middle page, but only two
+object chain. In the example, the remaining shadow object chain contains three copies of the middle page, but only two
 are accessible. The page in the first shadow object is no longer accessible and should be freed to prevent the memory
 leak. BSD VM attempts to collapse a shadow object chain when it is possible (e.g. when new shadow object is created),
 but searching for objects that can be collapsed is a complex process.
@@ -168,7 +168,7 @@ the process context is presented on the following figure.
 <img src="_images/mem-objects-phoenix.png" width="400px">
 
 There are three main differences between UVM and Phoenix-RTOS memory objects. Objects are identified by oid_t and
-handled by external servers and data is fetched and stored using message passing. Processes are not swap'able, so there
+handled by external servers and data is fetched and stored using message passing. Processes are not swappable, so there
 is no swap server for anonymous objects. Memory objects are supported as well on non-MMU architectures, but
 functionality is simplified.
 

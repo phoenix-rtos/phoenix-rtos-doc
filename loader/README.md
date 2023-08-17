@@ -31,7 +31,7 @@ Acting as a first-stage, plo configures the memory controllers and a variety of 
 platform. It is also responsible for setting the initial processor's clocks values and preparing the board for the
 kernel. The loader runs in a supervisor mode and doesn't support FPU and MMU on all architectures.
 
-During the second-stage booting, it loads the operating system and selected applications from storage devices or via
+During the second-stage of booting, it loads the operating system and selected applications from storage devices or via
 interfaces like serial or USB (acting as USB client) to the memory. For more complex platforms, additional work can
 be performed like loading bit stream to FPGA or testing specific components.
 

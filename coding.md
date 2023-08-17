@@ -126,7 +126,7 @@ Function should be not longer than 200 lines of code and not shorter than 10 lin
 ## Variables
 
 Variables should be named with one short words without the underline characters. If one word is not enough for variable
-name then use camelCase. When defining a variable assign it a value, do not assume that its value is zero. **In the
+name then use camelCase. When defining a variable, assign it a value, do not assume that its value is zero. **In the
 kernel code always initialize global/static variables in runtime.** There's not `.bss` and `.data` initialization in
 the kernel.
 

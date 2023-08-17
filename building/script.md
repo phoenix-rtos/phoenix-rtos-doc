@@ -9,7 +9,7 @@ TARGET=ia32-generic-qemu phoenix-rtos-build/build.sh all
 
 As you can see there can be other arguments like `all`.
 
-You can also use the `clean` argument to clean last build artifacts.
+You can also use the `clean` argument to clean the last build artifacts.
 
 ```bash
 TARGET=ia32-generic-qemu phoenix-rtos-build/build.sh clean all
@@ -33,8 +33,8 @@ The available components are listed below:
 - `image` - system image to be loaded to the target,
 
 For example, in ia32-generic-qemu target `all` means `core fs image project ports`.</br>
-For the other targets `all` can be different components configurations. </br>
-You can also choose what components do you want to build, for example the following command will build a system image
+For the other targets, `all` can be different components configurations. </br>
+You can also choose what components you want to build, for example, the following command will build a system image
 without test and ports components.
 The `ports` component compiling process can take a while. If you need to build the system image quickly, you can use the
 command above.

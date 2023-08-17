@@ -16,7 +16,7 @@ A memory map (`vm_map_t` structure) is the main structure used for describing th
 red-black tree structure, the memory map stores entries (`map_entry_t`) which describe the memory segments. The memory
 map belongs both to the kernel and processes. In non-MMU architectures, the kernel and processes share the same memory
 map. In MMU architectures, each process has its own separate memory map defining the user mappings. The kernel uses a
-separate memory map which describes the parts of the address space which belong to the kernel.
+separate memory map that describes the parts of the address space which belong to the kernel.
 
 The map definition and its entry is presented below.
 

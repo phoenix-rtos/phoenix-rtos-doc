@@ -30,7 +30,7 @@ List all the available commands in plo (some of them are available only on the s
 * `phfs` - registers device in phfs, usage: `phfs [<alias> <major.minor> [protocol]]`
 * `script` - shows script, usage: `script [<dev> <name> <magic>]`
 * `test-ddr` - perform test DDR, usage: `test-ddr`
-* `wait` - waits in milliseconds or in infinite loop, usage: `wait [ms]`
+* `wait` - waits in milliseconds or in an infinite loop, usage: `wait [ms]`
 
 ## See also
 

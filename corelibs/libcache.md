@@ -227,11 +227,11 @@ into the buffer. The address of the first whole line is computed as follows:
 ```(address of the first byte to be read - offset of the first byte) + size of a cache line```
 
  The addresses of following lines are computed by adding the size of a whole cache line to the address of a previous
- line. Each of these addresses is mapped on to a specific cache set. Lookup in a set is performed according to the
+ line. Each of these addresses is mapped onto a specific cache set. Lookup in a set is performed according to the
  algorithm below:
 
-1. The tag computed from the memory address becomes a part of a key used to perform binary search in a table of pointers
-to cache lines sorted by the tag (dark gray table in the image above).
+1. The tag computed from the memory address becomes a part of a key used to perform a binary search in a table of
+pointers to cache lines sorted by the tag (dark gray table in the image above).
 2. If a line marked by the tag is found, it becomes the MRU line. The pointers in the circular doubly linked list are
 rearranged so that this line is stored in the tail of the list.
 3. The pointer to the found line is returned.
@@ -244,10 +244,10 @@ Writing via the cache is implemented similarly to reading: data is written in th
 buffer.
 
 The user might want to update just a few bytes in a specific cache line, hence the line needs to be
-found in the cache first. On success the bytes starting from the offset are updated and a chosen to write policy is
+found in the cache first. On success, the bytes starting from the offset are updated and a chosen to write policy is
 executed.
 
-If it happens that a line mapped from a specific address does not exist in the cache, it is
+If it happens, that a line mapped from a specific address does not exist in the cache, it is
 created and written to the cache according to the algorithm below:
 
 1. The pointer to the LRU line is removed from the circular doubly linked list and dereferenced to find a pointer (a
@@ -277,7 +277,7 @@ cache clean instead.
 
 ### Cleaning the cache
 
-The clean operation combines both cache flush and cache invalidate operations in atomic way while also providing a
+The clean operation combines both cache flush and cache invalidate operations in an atomic way while also providing
 better efficiency than if the user were to perform cache flush followed by cache invalidate.
 
 ## Running tests
