@@ -285,7 +285,6 @@ There is a list of commands you can use to get them: on both Ubuntu and MacOS ho
   make \
   wget \
   gnu-sed \
-  binutils \
   hidapi \
   python3
   ```
@@ -296,15 +295,13 @@ There is a list of commands you can use to get them: on both Ubuntu and MacOS ho
   It's also required to add appropriate paths to the `PATH` environment variable:
 
   ```bash
-  BINUTILS_VERSION=$(ls $(brew --prefix)/Cellar/binutils/)
-  BINUTILS_BIN_PATH=$(brew --prefix)/Cellar/binutils/$BINUTILS_VERSION/bin
-  export PATH=$(brew --prefix make)/libexec/gnubin:$(brew --prefix gnu-sed)/libexec/gnubin:$BINUTILS_BIN_PATH:$PATH
+  export PATH=$(brew --prefix make)/libexec/gnubin:$(brew --prefix gnu-sed)/libexec/gnubin:$PATH
   ```
 
   and keep it updated, for example by placing the export in the startup script:
 
   ```bash
-  echo "export PATH=\$(brew --prefix make)/libexec/gnubin:\$(brew --prefix gnu-sed)/libexec/gnubin:$BINUTILS_BIN_PATH:\$PATH" >> $HOME/.zshrc
+  echo "export PATH=\$(brew --prefix make)/libexec/gnubin:\$(brew --prefix gnu-sed)/libexec/gnubin:\$PATH" >> $HOME/.zshrc
   ```
 
   *Note that you have to place the `gnubin` path that provides `make` before the `/usr/bin` in the `PATH` environment
