@@ -180,7 +180,7 @@ Firstly, you need to have the docker installed.
   </details>
 
   <details>
-  <summary>Installing Docker on MacOS (click to expand)</summary>
+  <summary>Installing Docker on macOS (click to expand)</summary>
 
   You can find the up-to-date instructions on <https://docs.docker.com/desktop/install/mac-install/>
 
@@ -209,7 +209,7 @@ Firstly, you need to have the docker installed.
   It's recommended to place it in `.zshrc` startup script to export in every time during startup:
 
   ```bash
-  echo "export PATH=\"/Applications/Docker.app/Contents/Resources/bin:\$PATH\"" >> $HOME/.zshrc
+  echo 'export PATH=/Applications/Docker.app/Contents/Resources/bin:$PATH' >> $HOME/.zshrc
   ```
 
 - Check if Docker is properly installed by checking version:
@@ -251,7 +251,7 @@ This is the method preferred when you plan to develop Phoenix-RTOS.
 
 Firstly, you need to install some tools required for compiling the toolchain and finally create a
 Phoenix-RTOS system image.
-There is a list of commands you can use to get them: on both Ubuntu and MacOS host operating systems.
+There is a list of commands you can use to get them: on both Ubuntu and macOS host operating systems.
 
   <details>
   <summary>Intalling required tools for native build on Ubuntu (click to expand)</summary>
@@ -272,7 +272,7 @@ There is a list of commands you can use to get them: on both Ubuntu and MacOS ho
   </details>
 
   <details>
-  <summary>Intalling required tools for native build on MacOS (click to expand)</summary>
+  <summary>Intalling required tools for native build on macOS (click to expand)</summary>
 
   ```bash
   brew update && \
@@ -301,7 +301,7 @@ There is a list of commands you can use to get them: on both Ubuntu and MacOS ho
   and keep it updated, for example by placing the export in the startup script:
 
   ```bash
-  echo "export PATH=\$(brew --prefix make)/libexec/gnubin:\$(brew --prefix gnu-sed)/libexec/gnubin:\$PATH" >> $HOME/.zshrc
+  echo 'export PATH=$(brew --prefix make)/libexec/gnubin:$(brew --prefix gnu-sed)/libexec/gnubin:$PATH' >> $HOME/.zshrc
   ```
 
   *Note that you have to place the `gnubin` path that provides `make` before the `/usr/bin` in the `PATH` environment
@@ -344,10 +344,10 @@ in `.bashrc` file on `Ubuntu`:
   echo "export PATH=$PATH:$HOME/toolchains/i386-pc-phoenix/i386-pc-phoenix/bin/:$HOME/toolchains/arm-phoenix/arm-phoenix/bin/:$HOME/toolchains/riscv64-phoenix/riscv64-phoenix/bin/:$HOME/toolchains/sparc-phoenix/sparc-phoenix/bin/" >> $HOME/.bashrc
   ```
 
-or in `.zshrc` on MacOS:
+or in `.zshrc` on macOS:
 
   ```bash
-  echo "export PATH=\$PATH:\$HOME/toolchains/i386-pc-phoenix/i386-pc-phoenix/bin/:\$HOME/toolchains/arm-phoenix/arm-phoenix/bin/:\$HOME/toolchains/riscv64-phoenix/riscv64-phoenix/bin/:\$HOME/toolchains/sparc-phoenix/sparc-phoenix/bin/" >> $HOME/.zshrc
+  echo 'export PATH=$PATH:$HOME/toolchains/i386-pc-phoenix/i386-pc-phoenix/bin/:$HOME/toolchains/arm-phoenix/arm-phoenix/bin/:$HOME/toolchains/riscv64-phoenix/riscv64-phoenix/bin/:$HOME/toolchains/sparc-phoenix/sparc-phoenix/bin/' >> $HOME/.zshrc
   ```
 
 Read more about the Phoenix-RTOS toolchain [here](toolchain.md).
