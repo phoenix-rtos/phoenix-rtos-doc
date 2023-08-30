@@ -283,6 +283,7 @@ There is a list of commands you can use to get them: on both Ubuntu and macOS ho
   automake \
   genext2fs \
   make \
+  libelf \
   wget \
   gnu-sed \
   hidapi \
