@@ -110,8 +110,22 @@ copy uart3 phoenix.disk flash0 0x0 0x0
 
 The `flash0` is an external flash memory.
 
+To successfully boot from the external flash, BCH error corection codes must be also written to the flash memory.
+File containing BCH error correction codes is located in the `_boot` directory and is named `plo.bch`.
+During system build, address at which the BCH error correction codes should be written is printed in the `plo`
+console, as shown below:
+
+<img src="_images/gr716-bch.png" width="700px">
+
+In this case, the file should be written to the address `0xffcb20`. To do this, write the following command in the
+console with the `plo` interface:
+
+```bash
+copy uart3 plo.bch flash0 0xffcb20 0x0
+```
+
 After copying is done, reset the board to start the operating system. To reboot, write `reboot` command in the `plo`
-console.
+console or press the reset button on the board.
 
 ## Using Phoenix-RTOS
 
