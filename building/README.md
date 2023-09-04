@@ -21,8 +21,11 @@ This chapter contains instructions on how to build a reference project and how t
 
 Instructions in the `Building` and `Running system on targets` chapters have been verified for the Ubuntu
 (20.04 and 22.04 versions) Linux distribution and macOS (tested on macOS Monterey 12.6.1), so this is the easiest way
-to start working with Phoenix-RTOS. Using Windows isn't supported yet, but you can create a virtual machine with Ubuntu
-or try to use Docker.
+to start working with Phoenix-RTOS. Windows is also supported, by using `Cygwin` or `WSL`.
+
+For more information follow:
+
+- [Windows setup](windows.md)
 
 ## Obtaining the sources
 
@@ -75,6 +78,7 @@ be, install git:
   ```
 
   </details>
+  &nbsp;
 
 Then, the repository should be cloned **recursively** (to get the submodules):
 
@@ -233,6 +237,7 @@ Firstly, you need to have the docker installed.
   ```
 
   </details>
+  &nbsp;
 
 Then, to build - provide a `TARGET` via ENV variable and run the build script:
 
@@ -318,6 +323,7 @@ There is a list of commands you can use to get them: on both Ubuntu and macOS ho
   ```
 
   </details>
+  &nbsp;
 
 Next, you need to compile the toolchains for all required target architectures:
 
@@ -370,7 +376,8 @@ guide.
 
 ## See also
 
-1. [Toolchain](toolchain.md)
-2. [Building script](script.md)
-3. [Reference project](project.md)
-4. [Table of Contents](../README.md)
+1. [Windows setup](windows.md)
+2. [Toolchain](toolchain.md)
+3. [Building script](script.md)
+4. [Reference project](project.md)
+5. [Table of Contents](../README.md)
