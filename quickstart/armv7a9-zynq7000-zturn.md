@@ -182,7 +182,7 @@ To run it you should follow the steps below:
 
 - Power off the board by disconnecting USB_OTG and USB_UART connectors
 
-- Configure jumpers as depicted (`JP2:ON`, `JP1:OFF`):
+- Configure jumpers as depicted (`JP2:ON`, `JP1:ON`):
 
   <img src="_images/zynq7000-zturn-flash-boot.jpg" width="400px">
 
