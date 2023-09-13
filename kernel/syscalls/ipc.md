@@ -41,7 +41,7 @@ responds to this message.
 ````C
 GETFROMSTACK(ustack, u32, port, 0);
 GETFROMSTACK(ustack, msg_t *, msg, 1);
-GETFROMSTACK(ustack, unsigned long int *, rid, 2);
+GETFROMSTACK(ustack, msg_rid_t *, rid, 2);
 ````
 
 Receives message `msg` from queue identified by `port`. The reception context is stored in variable `rid`.
@@ -51,7 +51,7 @@ Receives message `msg` from queue identified by `port`. The reception context is
 ````C
 GETFROMSTACK(ustack, u32, port, 0);
 GETFROMSTACK(ustack, msg_t *, msg, 1);
-GETFROMSTACK(ustack, unsigned long int, rid, 2);
+GETFROMSTACK(ustack, msg_rid_t, rid, 2);
 ````
 
 Responds to message `msg` using reception context `rid`.
