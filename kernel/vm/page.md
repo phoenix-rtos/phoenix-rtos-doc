@@ -95,6 +95,20 @@ free pages (marked with periods). The `B` character informs that next pages are 
 This page is followed by a gap (i.e. the gap after the 640 KB of address space). After the gap, there are 16
 pages allocated to BIOS and 32509 free pages. At the end of the address space, there are 64 pages reserved by BIOS.
 
+| Letter | Page Type                                  | Description                            |
+| :----: | ------------------------------------------ | -------------------------------------- |
+|   .    | `PAGE_FREE`                                | Free page                              |
+|   x    | `Memory gap`                               | Memory gap                             |
+|   B    | `PAGE_OWNER_BOOT`                          | Reserved by Bootloader / BIOS          |
+|   A    | `PAGE_OWNER_APP`                           | Used by application                    |
+|   K    | `PAGE_OWNER_KERNEL`                        | Used by kernel for unspecified reasons |
+|   Y    | `PAGE_OWNER_KERNEL \| PAGE_KERNEL_SYSPAGE` | Used by `syspage_t`                    |
+|   C    | `PAGE_OWNER_KERNEL \| PAGE_KERNEL_CPU`     | Reserved for CPU specific purposes     |
+|   P    | `PAGE_OWNER_KERNEL \| PAGE_KERNEL_PTABLE`  | Used for paging                        |
+|   S    | `PAGE_OWNER_KERNEL \| PAGE_KERNEL_STACK`   | Used as kernel stack                   |
+|   H    | `PAGE_OWNER_KERNEL \| PAGE_KERNEL_HEAP`    | Used as kernel heap                    |
+|   U    | `UNDEFINED`                                | Undefined                              |
+
 ## Page allocation
 
 The page allocator in the Phoenix-RTOS kernel is based on a well-known buddy algorithm. The figure below shows a
