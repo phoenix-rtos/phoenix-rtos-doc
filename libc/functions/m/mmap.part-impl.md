@@ -79,12 +79,23 @@ _flags_ parameter as described below.
 The parameter _flags_ provide other information about the handling of the mapped data. The value of _flags_ is the
 bitwise-inclusive OR of these options, defined in `<sys/mman.h>`:
 
-| __Symbolic Constant__  |   __Description__              |
-|--------------------|----------------------------|
-|   `MAP_SHARED`       |   Changes are shared.      |
-|   `MAP_PRIVATE`      |   Changes are private.     |
-|   `MAP_FIXED`        |   Interpret _addr_ exactly.  |
-|   `PROT_NONE`        |   Data cannot be accessed. |
+| __Symbolic Constant__  |   __Description__                                             |
+|------------------------|---------------------------------------------------------------|
+|   `MAP_SHARED`         |   Changes are shared.                                         |
+|   `MAP_PRIVATE`        |   Changes are private.                                        |
+|   `MAP_FIXED`          |   Interpret _addr_ exactly.                                   |
+|   `MAP_ANONYMOUS`      |   Map is not backed by a file.                                |
+|   `MAP_ANON`           |   Alias to `MAP_ANONYMOUS`.                                   |
+|   `MAP_NONE`           |   Noop flag.                                                  |
+|   `MAP_FIXED`          |   Interpret _addr_ exactly.                                   |
+|   `MAP_DEVICE`         |   Map hardware device.                                        |
+|   `MAP_NEEDSCOPY`      |   Mark that pages need copy on first access.                  |
+|   `MAP_CONTIGUOUS`     |   Map using contiguous frames.                                |
+|   `MAP_UNCACHED`       |   Pages will not be cached.                                   |
+|   `MAP_NOINHERIT`      |   Child processes will not inherit this mapping.              |
+|   `MAP_PHYSMEM`        |   Mapping of physical memory at given address is requested.   |
+
+Flags `MAP_PHYSMEM` and `MAP_CONTIGUOUS` require flag `MAP_ANONYMOUS` to be used as well.
 
 It is implementation-defined whether `MAP_FIXED` shall be supported.
 `MAP_FIXED` shall be supported on XSI-conformant systems.
