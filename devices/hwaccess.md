@@ -51,10 +51,10 @@ the `mmap` syscall:
 ```c
     #include <sys/mman.h>
 
-    void *vaddr = mmap(NULL, SIZE_PAGE, PROT_READ | PROT_WRITE, MAP_UNCACHED, OID_PHYSMEM, paddr);
+    void *vaddr = mmap(NULL, SIZE_PAGE, PROT_READ | PROT_WRITE, MAP_UNCACHED | MAP_PHYSMEM | MAP_ANONYMOUS, -1, paddr);
 ```
 
-The above example maps one page (typically 4 KiB) of physical memory (as indicated by `OID_PHYSMEM`) starting from the
+The above example maps one page (typically 4 KiB) of physical memory (as indicated by `MAP_PHYSMEM`) starting from the
 `paddr` address with read (`PROT_READ`) and write (`PROT_WRITE`) permissions at the lowest possible virtual address
 (as indicated by the first argument). The `vaddr` address returned from `mmap` should be checked to make sure that it
 does not contain the `MAP_FAILED` value, which would indicate that `mmap` failed to perform the desired mapping.
