@@ -10,7 +10,7 @@ See [how to build the Phoenix-RTOS system image](../building/README.md).
 ## Running image under QEMU
 
 Firstly, you need to install QEMU emulator.
-  <details>
+<details>
   <summary>How to get QEMU (Ubuntu)</summary>
 
 - Install the required packages
@@ -41,8 +41,8 @@ Firstly, you need to install QEMU emulator.
 
   </details>
 
-  <details>
-  <summary>How to get qemu (Mac OS)</summary>
+<details>
+  <summary>How to get QEMU (macOS)</summary>
 
 - Install the required packages
 
