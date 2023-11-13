@@ -179,7 +179,7 @@ Firstly, you need to have the docker installed.
 
   </details>
 
-  <details>
+<details>
   <summary>Installing Docker on macOS (click to expand)</summary>
 
   You can find the up-to-date instructions on <https://docs.docker.com/desktop/install/mac-install/>
@@ -224,7 +224,7 @@ Firstly, you need to have the docker installed.
   docker run hello-world
   ```
 
-  *If you see the following error: `ERROR: Cannot connect to the Docker daemon at unix:///var/run/docker.sock.`
+- If you see the following error: `ERROR: Cannot connect to the Docker daemon at unix:///var/run/docker.sock.`
   you can try to install `colima` and check once again:
 
   ```bash
