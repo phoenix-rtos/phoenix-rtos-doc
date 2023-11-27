@@ -52,11 +52,21 @@ The onboard UART-USB converter is used here.
 
 - Now you should verify, what USB device on your host-pc is connected with the `UART` (console). To check that run:
 
+  - On Ubuntu:
+
   ```bash
   ls -l /dev/serial/by-id
   ```
 
   <img src="_images/zynq7000-ls.png" width="700px">
+
+  - On macOS:
+
+  ```bash
+  ls -l /dev/tty.*
+  ```
+
+  <img src="_images/zynq7000-ls-mac.png" width="700px">
 
   If your output is like in the screenshot above, the console (`UART` in the evaluation board) is on the `ACM0` port.
 
@@ -64,21 +74,33 @@ The onboard UART-USB converter is used here.
  open serial port in terminal using picocom and type the console port (in this case ACM0)
 
   ```bash
-  picocom -b 115200 --imap lfcrlf /dev/ttyACM0
+  picocom -b 115200 --imap lfcrlf /dev/tty[port]
   ```
 
-  <details>
-  <summary>How to get picocom and run it without privileges (Ubuntu)</summary>
+<details>
+
+<summary>How to get picocom and run it without privileges (Ubuntu 22.04)</summary>
+
+```bash
+sudo apt-get update && \
+sudo apt-get install picocom
+```
+
+To use picocom without sudo privileges run this command and then restart:
+
+```bash
+sudo usermod -a -G tty <yourname>
+```
+
+</details>
+</br>
+
+ <details>
+  <summary>How to get picocom (macOS)</summary>
 
   ```bash
-  sudo apt-get update && \
-  sudo apt-get install picocom
-  ```
-
-  To use picocom without sudo privileges run this command and then restart:
-
-  ```bash
-  sudo usermod -a -G tty <yourname>
+  brew update &&\
+  brew install picocom
   ```
 
   </details>
@@ -140,28 +162,38 @@ Please wait until erasing is finished.
 To flash the disk image, first, you need to verify on which port plo USB device has appeared.
 You can check that using `ls` as follow:
 
-```plaintext
+- On Ubuntu:
+
+```bash
 ls -l /dev/serial/by-id
 ```
 
 <img src="_images/zynq7000-ls-2.png" width="700px">
 
+- On macOS:
+
+```bash
+ls -l /dev/tty.*
+```
+
+<img src="_images/zynq7000-ls2-mac.png" width="700px">
+
 To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments
  (choose suitable ttyACMx device, in this case, ttyACM1):
 
-```plaintext
+```bash
 cd _boot/armv7a9-zynq7000-zedboard
 ```
 
-```plaintext
-sudo ./phoenixd -p /dev/ttyACM1 -b 115200 -s .
+```bash
+sudo ./phoenixd -p /dev/tty[port] -b 115200 -s .
 ```
 
 <img src="_images/zynq7000-phoenixd.png" width="700px">
 
 To start copying the file, write the following command in the console with plo interface:
 
-```plaintext
+```bash
 copy usb0 phoenix.disk flash0 0x0 0x0
 ```
 
@@ -186,16 +218,26 @@ To run it you should follow the steps below:
 
 - Check which port the console appeared on:
 
+  - On Ubuntu:
+
   ```bash
   ls -l /dev/serial/by-id/
   ```
 
   <img src="_images/zynq7000-ls-3.png" width="700px">
 
+  - On macOS:
+
+  ```bash
+  ls -l /dev/tty.*
+  ```
+
+  <img src="_images/zynq7000-ls-mac.png" width="700px">
+
 - connect to that port:
 
   ```bash
-  picocom -b 115200 --imap lfcrlf /dev/ttyACM0
+  picocom -b 115200 --imap lfcrlf /dev/tty[port]
   ```
 
 - restart the chip using the `PS-RST` button to print initialization logs:
