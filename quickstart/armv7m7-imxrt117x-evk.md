@@ -39,13 +39,21 @@ onboard UART-USB converter is used here.
 - Now you should verify what USB device on your host-pc is connected with the `DEBUG USB` (console). In order to check
 that run:
 
+- On Ubuntu:
+
   ```bash
   ls -l /dev/serial/by-id
   ```
 
-  </br>
   <img src="_images/imxrt117x-ls.png" width="700px">
-  </br>
+
+  - On macOS:
+
+  ```bash
+  ls -l /dev/tty.*
+  ```
+
+  <img src="_images/imxrt117x-ls-mac.png" width="700px">
 
   If your output is like in the screenshot above, the console (`DEBUG USB` in the evaluation board) is on the `ACM0`
   port.
@@ -54,15 +62,32 @@ that run:
 (in this case ACM0)
 
   ```bash
-  picocom -b 115200 --imap lfcrlf /dev/ttyACM0
+  picocom -b 115200 --imap lfcrlf /dev/tty[port]
   ```
 
   <details>
-  <summary>How to get picocom (Ubuntu 20.04)</summary>
+  <summary>How to get picocom and run it without privileges (Ubuntu 22.04)</summary>
 
   ```bash
   sudo apt-get update && \
   sudo apt-get install picocom
+  ```
+
+  To use picocom without sudo privileges run this command and then restart:
+
+  ```bash
+  sudo usermod -a -G tty <yourname>
+  ```
+
+  </details>
+  </br>
+
+  <details>
+  <summary>How to get picocom (macOS)</summary>
+
+  ```bash
+  brew update &&\
+  brew install picocom
   ```
 
   </details>
@@ -106,17 +131,27 @@ To get the available bootloader command list please type `help`.
 To flash the disk image, first, you need to verify on which port plo USB device has appeared. You can check that using
 `ls` as follows:
 
+- On Ubuntu:
+
 ```bash
 ls -l /dev/serial/by-id
 ```
 
 <img src="_images/imxrt117x-ls-2.png" width="700px">
 
+- On macOS:
+
+```bash
+ls -l /dev/tty.*
+```
+
+<img src="_images/imxrt117x-ls-mac2.png" width="700px">
+
 To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments (choose suitable
 ttyACMx device, in this case, ttyACM1):
 
 ```bash
-sudo ./phoenixd -p /dev/ttyACM1 -b 115200 -s .
+sudo ./phoenixd -p /dev/tty[port] -b 115200 -s .
 ```
 
 <img src="_images/imxrt117x-phoenixd.png" width="700px">
@@ -152,7 +187,7 @@ help
 
 To get the list of working processes please type:
 
-```bash
+```plaintext
 ps
 ```
 
@@ -160,7 +195,7 @@ ps
 
 To get the table of processes please type:
 
-```bash
+```plaintext
 top
 ```
 

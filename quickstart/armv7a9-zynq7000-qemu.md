@@ -14,7 +14,7 @@ See [how to build the Phoenix-RTOS system image](../building/README.md).
 Firstly, you need to have the docker installed.
 
   <details>
-  <summary>How to get docker (Ubuntu 20.04)</summary>
+  <summary>How to get docker (Ubuntu 22.04)</summary>
 
 - Install required packages
 
@@ -77,6 +77,61 @@ Firstly, you need to have the docker installed.
 
   </details>
 
+  <details>
+  <summary>How to get docker (macOS)</summary>
+
+ You can find the up-to-date instructions on <https://docs.docker.com/desktop/install/mac-install/>
+
+  To make this process simpler, below is an example of installation for Mac with the Intel chip:
+
+  Download the installer:
+
+  ```bash
+  curl -o Docker.dmg "https://desktop.docker.com/mac/main/amd64/Docker.dmg?utm_source=docker&amp;utm_medium=webreferral&amp;utm_campaign=docs-driven-download-mac-amd64"
+  ```
+
+  Run the following commands to install Docker:
+
+  ```bash
+  sudo hdiutil attach Docker.dmg && \
+  sudo /Volumes/Docker/Docker.app/Contents/MacOS/install && \
+  sudo hdiutil detach /Volumes/Docker
+  ```
+
+  Then add the path to `docker` binaries to the `PATH` environment variable:
+
+  ```bash
+  export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
+  ```
+
+  It's recommended to place it in `.zshrc` startup script to export it every time during startup:
+
+  ```bash
+  echo 'export PATH=/Applications/Docker.app/Contents/Resources/bin:$PATH' >> $HOME/.zshrc
+  ```
+
+- Check if Docker is properly installed by checking its version:
+
+  ``` bash
+  docker --version
+  ```
+
+- Check if running docker images without sudo works properly:
+
+  ``` bash
+  docker run hello-world
+  ```
+
+  *If you see the following error: `ERROR: Cannot connect to the Docker daemon at unix:///var/run/docker.sock.`
+  you can try to install `colima` and check once again:
+
+  ```bash
+  brew install colima && \
+  colima start
+  ```
+
+  </details>
+
 Now, with docker installed you can run Phoenix-RTOS using the following command:
 
 ```bash
@@ -102,7 +157,7 @@ As a result, you should see `psh` (Phoenix-RTOS shell).
 
 To get the available command list please type:
 
-```bash
+```plaintext
 help
 ```
 
@@ -110,7 +165,7 @@ help
 
 If you want to get the list of working processes please type:
 
-```bash
+```plaintext
 ps
 ```
 
@@ -118,7 +173,7 @@ ps
 
 To get the table of processes please type:
 
-```bash
+```plaintext
 top
 ```
 

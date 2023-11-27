@@ -38,36 +38,84 @@ To communicate with the board you will need to use a UART-USB converter, like `P
 
   <img src="_images/stm32l4x6-connections.png" width="400px">
 
+- Now you should verify, what USB device on your host-pc is connected with the `UART` (console). To check that run:
+
+  - On Ubuntu:
+
+  ```bash
+    ls -l /dev/serial/by-id
+  ```
+
+  <img src="_images/stm32l4x6-ls.png" width="700px">
+
+  - On macOS:
+
+  ```bash
+  ls -l /dev/tty.*
+  ```
+
+  <img src="_images/stm32l4x6-ls-macos.png" width="700px">
+
 - Open serial port in terminal using picocom
 
   ```bash
-  picocom -b 115200 --imap lfcrlf /dev/ttyUSB0
+  picocom -b 115200 --imap lfcrlf /dev/tty[port]
   ```
 
   <details>
-  <summary>How to get picocom (Ubuntu 20.04)</summary>
+  <summary>How to get picocom and run it without privileges (Ubuntu 22.04)</summary>
 
   ```bash
   sudo apt-get update && \
   sudo apt-get install picocom
   ```
 
+  To use picocom without sudo privileges run this command and then restart:
+
+  ```bash
+  sudo usermod -a -G tty <yourname>
+  ```
+
   </details>
-  </br>
+
+  <details>
+  <summary>How to get picocom (macOS)</summary>
+
+  ```bash
+  brew update &&\
+  brew install picocom
+  ```
+
+  </details>
 
 You can leave the terminal with the serial port open, and follow the next steps.
 
 ## Flashing the Phoenix-RTOS system image
 
-To flash the image to the board you will need `openocd` in version 0.11. When installing openocd using `apt-get` version
-can be out of date (0.10). You can check it using
+To flash the image to the board you will need `openocd` in version 0.11 or 0.12. You can check it using
 
 ```bash
 openocd -v
 ```
 
   <details>
-  <summary>How to get openocd in version 0.11 (Ubuntu 20.04)</summary>
+  <summary>How to get openocd in version 0.11 (Ubuntu 22.04)</summary>
+
+To install from the default repositoriy:
+
+- use `apt-get`
+
+  ```bash
+  sudo apt-get install openocd
+  ```
+
+- check if the version is correct
+
+  ```bash
+  openocd -v
+  ```
+
+To install manually:
 
 - download `openocd-0.11.0-rc2` from [here](https://launchpad.net/ubuntu/+source/openocd)
 - enter the downloaded directory
@@ -88,11 +136,28 @@ openocd -v
   openocd -v
   ```
 
-  </br>
   <img src="_images/openocd-version.png" width="700px">
-  </br>
 
   </details>
+
+  <details>
+  <summary>How to get openocd (macOS) </summary>
+
+  - install openocd
+
+    ```bash
+    brew update &&\
+    brew install open-ocd
+    ```
+
+  - check if the version is correct
+
+    ```bash
+    openocd -v
+    ```
+
+  </details>
+  </br>
 
 If you have openocd, next you can use the following script:
 
@@ -132,7 +197,7 @@ help
 
 To get the list of working processes please type:
 
-```bash
+```plaintext
 ps
 ```
 
