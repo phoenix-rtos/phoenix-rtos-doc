@@ -41,6 +41,7 @@ In `psh`, each command or set of commands is a separate applet, here's a list of
 - [`edit`](psh-applets/edit.md) - text editor
 - [`exec`](psh-applets/exec.md) - replace shell with the given command
 - [`exit`](psh-applets/exit.md) - exits shell
+- [`export`](psh-applets/pshapp-env.md#export) - set and export variables list to environment
 - [`help`](psh-applets/help.md) - prints this help message
 - [`history`](psh-applets/history.md) - prints commands history
 - `kill` - terminates process
@@ -54,6 +55,7 @@ In `psh`, each command or set of commands is a separate applet, here's a list of
 - `perf` - track kernel performance events
 - [`ping`](psh-applets/ping.md) - ICMP ECHO requests
 - [`pm`](psh-applets/pm.md)- monitors processes
+- [`printenv`](psh-applets/printenv.md) - print all or part of environment
 - [`ps`](psh-applets/ps.md)- prints processes and threads
 - [`pshapp`](psh-applets/pshapp.md) - delivers `psh` interpreter, `exit`, `pshlogin` and `history` commands
 - [`pshlogin`](psh-applets/pshlogin.md) - launches `psh` with user authentication
@@ -64,6 +66,7 @@ In `psh`, each command or set of commands is a separate applet, here's a list of
 - [`top`](psh-applets/top.md) - top utility
 - [`touch`](psh-applets/touch.md)- changes file timestamp
 - [`umount`](psh-applets/umount.md) - unmount a filesystem
+- [`unset`](psh-applets/pshapp-env.md#unset) - unset list of environment variables
 - [`uptime`](psh-applets/uptime.md) - prints how long the system has been running
 - [`/`](psh-applets/runfile.md)- executes a file
 
