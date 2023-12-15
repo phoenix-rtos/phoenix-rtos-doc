@@ -7,7 +7,8 @@ GETFROMSTACK(ustack, time_t *, praw, 0);
 GETFROMSTACK(ustack, time_t *, poffs, 1);
 ````
 
-Returns current time in `praw` and `poffs` variables.
+Set `praw` to system time in microseconds from system boot. Set `poffs` to
+offset configured in `syscalls_timeSet`. Unused arguments can be set to NULL.
 
 ## `syscalls_timeSet` (`syscalls_settime`)
 
@@ -15,7 +16,9 @@ Returns current time in `praw` and `poffs` variables.
 GETFROMSTACK(ustack, time_t, offs, 0);
 ````
 
-Setup system time to value given by `offs`.
+Set offset value returned from `syscalls_timeSet`. This is shared between all
+processes. It is not used for system time calculations so value interpretation
+is not specified here. Default offset on boot is `0`.
 
 ## See also
 
