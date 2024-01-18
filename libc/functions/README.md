@@ -142,7 +142,6 @@ endthread,
 [`getpwuid`](./g/getpwuid.part-impl.md), <!-- updated -->
 [`gets`](./g/gets.part-impl.md), <!-- updated -->
 [`getsid`](./g/getsid.part-impl.md), <!-- updated -->
-gettime,
 [`getuid`](./g/getuid.part-impl.md), <!-- updated -->
 
 ## i

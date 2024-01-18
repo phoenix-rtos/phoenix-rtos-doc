@@ -351,7 +351,6 @@ gets
 getservbyname
 getservbyport
 getservent
-gettime
 getuid
 getutxent
 getutxid
