@@ -1,12 +1,11 @@
 # Running system on `riscv64-generic-spike`
 
-This version is designated for RISC-V 64 processors based spike machine implemented by the spike (riscv-isa-sim)
-emulator and `qemu-system-riscv64`. To launch this version two files should be provided - kernel file integrated
-with SBI firmware with embedded SBI console driver, dummyfs filesystem and `psh` shell, and disk image with ext2
-filesystem.
+This version is designated for RISC-V 64 processors based spike machine implemented by the Spike (`riscv-isa-sim`)
+emulator. To launch this version `phoenix.osbi` file should be provided - system image with integrated OpenSBI
+bootloader, containing PLO, kernel, console driver, dummyfs filesystem and the `psh` shell.
 
-The files are created as the final artifact of the `phoenix-rtos-project` building and are located in the `_boot`
-directory. See [how to build the Phoenix-RTOS system image](../building/README.md)
+The file is created as the final artifact of the `phoenix-rtos-project` build and is located in the `_boot` directory.
+See [how to build the Phoenix-RTOS system image](../building/README.md)
 
 ## Running image under the spike
 
@@ -15,10 +14,10 @@ Firstly, you need to install a spike simulator.
   <details>
   <summary>How to install spike simulator (Ubuntu 20.04)</summary>
 
-  1. Clone the riscv-isa-sim GitHub repository in a `1.1.0` version.
+  1. Clone the `riscv-isa-sim` GitHub repository. System was tested on commit `5fa1cd54` on `master` branch.
 
       ```bash
-      git clone https://github.com/riscv-software-src/riscv-isa-sim.git --branch v1.1.0 --single-branch
+      git clone https://github.com/riscv-software-src/riscv-isa-sim.git --single-branch
       ```
 
   2. Enter the downloaded repository
@@ -27,14 +26,20 @@ Firstly, you need to install a spike simulator.
       cd riscv-isa-sim
       ```
 
-  3. Install the device-tree-compiler
+  3. Check out the commit `5fa1cd54`
+
+      ```bash
+      git checkout 5fa1cd54
+      ```
+
+  4. Install the device-tree-compiler
 
       ```bash
       sudo apt-get update && \
       sudo apt-get install device-tree-compiler
       ```
 
-  4. Install the Spike RISC-V ISA Simulator
+  5. Install the Spike RISC-V ISA Simulator
 
       ```bash
       mkdir build && \
@@ -50,73 +55,12 @@ Firstly, you need to install a spike simulator.
 Then, to run the image under spike you should change the directory to `phoenix-rtos-project` and type:
 
 ```bash
-spike _boot/riscv64-generic-spike/phoenix.bbl
-```
-
-<img src="_images/riscv64-generic-spike-spike.png" width="700px">
-
-## Running image under QEMU
-
-Just like before, you first need to install the emulator.
-
-  <details>
-  <summary>How to get QEMU (Ubuntu 20.04)</summary>
-
-- Install the required packages
-
-  ```bash
-  sudo apt-get update && \
-  sudo apt-get install qemu-kvm \
-  qemu virt-manager \
-  virt-viewer libvirt-clients \
-  libvirt-daemon-system \
-  bridge-utils virtinst \
-  libvirt-daemon \
-  qemu-system-misc
-  ```
-
-- Check if QEMU is properly installed:
-
-  ```bash
-  qemu-system-riscv64 --version
-  ```
-
-  <img src="_images/qemu-version-riscv64.png" width="700px">
-
-  </details>
-
-  <details>
-  <summary>How to get QEMU (macOS)</summary>
-
-- Install the required packages
-
-  ```zsh
-  brew update && \
-  brew install qemu
-  ```
-
-- Check if QEMU is properly installed:
-
-  ```zsh
-  qemu-system-riscv64 --version
-  ```
-
-  ```zsh
-  ~$ qemu-system-riscv64 --version
-  QEMU emulator version 8.0.0
-  Copyright (c) 2003-2022 Fabrice Bellard and the QEMU Project developers
-  ~$
-  ```
-
-  </details>
-
-To run the system image under QEMU you should type the following command from the `phoenix-rtos-project` directory.
-
-```bash
 ./scripts/riscv64-generic-spike.sh
 ```
 
-<img src="_images/riscv64-generic-spike-qemu.png" width="700px">
+<img src="_images/riscv64-generic-spike1.png" width="700px">
+</br>
+<img src="_images/riscv64-generic-spike2.png" width="700px">
 
 ## Using Phoenix-RTOS
 
