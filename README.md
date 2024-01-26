@@ -17,6 +17,8 @@
     8. [Running system on `riscv64-generic-qemu`](quickstart/riscv64-generic-qemu.md)
     9. [Running system on `riscv64-generic-spike`](quickstart/riscv64-generic-spike.md)
     10. [Running system on `sparcv8leon3-gr716-mini`](quickstart/sparcv8leon3-gr716-mini.md)
+    11. [Running system on `sparcv8leon3-gr716-mimas`](quickstart/sparcv8leon3-gr716-mimas.md)
+    12. [Running system on `sparcv8leon3-gr712rc-board`](quickstart/sparcv8leon3-gr712rc-board.md)
 5. [Loader](loader/README.md)
     1. [Architecture](loader/architecture.md)
     2. [Command-line interface](loader/cli.md)
