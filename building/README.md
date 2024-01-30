@@ -47,6 +47,7 @@ be, install git:
 
   <details>
   <summary>Installing git on macOS (click to expand)</summary>
+&nbsp;
 
   You will need the command line tools for `Xcode` and `Homebrew` package, if you don't have it you can install it by
   typing:
@@ -185,6 +186,7 @@ Firstly, you need to have the docker installed.
 
 <details>
   <summary>Installing Docker on macOS (click to expand)</summary>
+&nbsp;
 
   You can find the up-to-date instructions on <https://docs.docker.com/desktop/install/mac-install/>
 
@@ -337,6 +339,19 @@ cd phoenix-rtos-project
 (cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh riscv64-phoenix ~/toolchains/riscv64-phoenix)
 (cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh sparc-phoenix ~/toolchains/sparc-phoenix)
 ```
+
+<details>
+<summary> Errors and warnings that may occur during the toolchain compilation </summary>
+&nbsp;
+
+If you have encountered some issue during the toolchain build - you probably interrupted a build before or the files in
+the `toolchains` directory are broken for some reason. Removing a directory for a specific architecture
+(arm-phoenix/i386-pc-phoenix/riscv64-phoenix/sparc-phoenix) and launching a build once again should help.
+
+`NOTE:` Even during the correct compilation process there may be some unresolved warnings.
+
+</details>
+  &nbsp;
 
 Toolchain binaries should be added to the PATH variable:
 
