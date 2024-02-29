@@ -30,7 +30,7 @@ from the site below.
   - When booting using SD card: Make sure that a proper `BOOT.bin` file
   is placed on the card, and that it's in a binary format (right click → properties):
 
-      <img src="_images/zynq7000-problems-file-type.png" width="400px">
+      ![Image](_images/zynq7000-problems-file-type.png)
 
   - Try to open picocom for a second time (it could get stuck).
 

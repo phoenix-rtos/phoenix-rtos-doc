@@ -100,7 +100,7 @@ There are few steps to follow:
       sudo chmod a+rw /etc/qemu/bridge.conf
       ```
 
-      <img src="_images/azure_sdk_vibr_setup.png" width="700px">
+      ![Image](_images/azure_sdk_vibr_setup.png)
 
     - Sources: <https://apiraino.github.io/qemu-bridge-networking/>,
      <https://mike42.me/blog/2019-08-how-to-use-the-qemu-bridge-helper-on-debian-10>
@@ -125,13 +125,13 @@ There are few steps to follow:
 
       - As you can see, the advanced version of `Phoenix-RTOS` with `POSIX` shell has been started:
 
-        <img src="_images/azure_linuxrc.png" width="700px">
+        ![Image](_images/azure_linuxrc.png)
 
       - Now you can check the internet connection using the `ping` applet.
 
       - To complete the configuration please set the current date using `date` applet, like below:
 
-        <img src="_images/azure_date.png" width="700px">
+        ![Image](_images/azure_date.png)
 
       - Note: The required argument entered after `@` is EPOCH (POSIX time format) - you can gt it for example from
        [here](https://www.epochconverter.com/).
@@ -144,7 +144,7 @@ Providing that internet connection is working, and the current date is set, you 
 /bin/iothub_ll_telemetry_sample
 ```
 
-<img src="_images/azure_sample.png" width="700px">
+![Image](_images/azure_sample.png)
 
 - Note: The entered connection string was added to the sample's source code. You can find it in
 `_build/ia32-generic-qemu/azure_sdk/azure-iot-sdk-c-lts_01_2022/iothub_client/samples/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c`.

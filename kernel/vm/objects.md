@@ -32,7 +32,7 @@ when virtual page is first-time accessed during the runtime.
 The process address space in the traditional operating system (e.g. BSD) is graphically presented on following picture.
 Black circles represent pages allocated for the object purposes, holding the object data.
 
-<img src="_images/mem-objects1.png" width="500px">
+![Image](_images/mem-objects1.png)
 
 The first memory segment is constituted by the data from `/bin/process` file. It is mapped as the text, so it means that
 it is marked as readable and executable.
@@ -51,7 +51,7 @@ the operating system and processes.
 
 The process address space in Phoenix-RTOS is presented on the following figure.
 
-<img src="_images/mem-objects2.png" width="550px">
+![Image](_images/mem-objects2.png)
 
 In Phoenix-RTOS objects are supported by operating system servers and are referenced by `oid` identifiers. Each `oid`
 consists of server communication port number and in-server object identifier. If object is accessed within the process
@@ -70,7 +70,7 @@ abstraction.
 To understand the memory objects idea let’s analyze the traditional approach implemented in Mach/BSD operating systems.
 The structure of Mach/BSD memory subsystem in the process context is presented on the following figure.
 
-<img src="_images/mem-objects-bsd1.png" width="550px">
+![Image](_images/mem-objects-bsd1.png)
 
 The process virtual address space is described by `vmspace` structure holding the list of memory maps
 (user and kernel map). Each map stores entries defining the segment addresses, attributes and linked with
@@ -103,7 +103,7 @@ bottom-most object is called a shadow object chain.
 
 The following figure shows how shadow object chains are formed in BSD VM.
 
-<img src="_images/mem-objects-bsd4.png" width="550px">
+![Image](_images/mem-objects-bsd4.png)
 
 A three-page file object is copy-on-write memory mapped into a process’s address space. The first column shows the first
 step of memory mappings. The new entry with the needs-copy and copy-on-write flags is allocated. It points to the
@@ -141,7 +141,7 @@ inefficient looping over many shadow objects.
 To solve problems with shadow objects chaining the anonymous mapping was introduced (Sun OS VM system). It based on two
 abstractions - anon and amap.
 
-<img src="_images/mem-objects-uvm.png" width="600px">
+![Image](_images/mem-objects-uvm.png)
 
 Anon is the structure representing page of anonymous memory. It is created when copy-on-write flags of map entry are set
 and process writes data to memory. Amap the structure created for particular map entry when needs-copy for the entry is
@@ -165,7 +165,7 @@ long chains of shadow objects existing in BSD VM.
 Phoenix-RTOS derives the memory object architecture from BSD UVM. The structure of its memory management subsystem in
 the process context is presented on the following figure.
 
-<img src="_images/mem-objects-phoenix.png" width="400px">
+![Image](_images/mem-objects-phoenix.png)
 
 There are three main differences between UVM and Phoenix-RTOS memory objects. Objects are identified by oid_t and
 handled by external servers and data is fetched and stored using message passing. Processes are not swappable, so there

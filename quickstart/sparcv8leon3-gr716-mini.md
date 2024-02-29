@@ -25,7 +25,7 @@ First, check on which port the board is connected to the computer. To do this, r
 ls -l /dev/serial/by-id
 ```
 
-<img src="_images/gr716-ls.png" width="700px">
+![Image](_images/gr716-ls.png)
 
 In this case, the debug UART is connected to the `ttyUSB0` port.
 Launch the `GRMON` monitor using the following command:
@@ -80,7 +80,7 @@ go
 
 The bootloader interface should appear in the console.
 
-<img src="_images/gr716-plo.png" width="700px">
+![Image](_images/gr716-plo.png)
 
 ### Copying flash image using PHFS (phoenixd)
 
@@ -98,7 +98,7 @@ To provide the disk image to the bootloader, `phoenixd` has to be launched with 
 sudo ./phoenixd -p /dev/ttyUSB3 -b 115200 -s .
 ```
 
-<img src="_images/gr716-phoenixd.png" width="700px">
+![Image](_images/gr716-phoenixd.png)
 
 To start copying a file, write the following command in the console with the `plo` interface:
 
@@ -106,7 +106,7 @@ To start copying a file, write the following command in the console with the `pl
 copy uart3 phoenix.disk flash0 0x0 0x0
 ```
 
-<img src="_images/gr716-copy.png" width="700px">
+![Image](_images/gr716-copy.png)
 
 The `flash0` is an external flash memory.
 
@@ -115,7 +115,7 @@ File containing BCH error correction codes is located in the `_boot` directory a
 During system build, address at which the BCH error correction codes should be written is printed in the `plo`
 console, as shown below:
 
-<img src="_images/gr716-bch.png" width="700px">
+![Image](_images/gr716-bch.png)
 
 In this case, the file should be written to the address `0xffcb20`. To do this, write the following command in the
 console with the `plo` interface:
@@ -131,7 +131,7 @@ console or press the reset button on the board.
 
 After reboot, Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal.
 
-<img src="_images/gr716-start.png" width="700px">
+![Image](_images/gr716-start.png)
 
 - Note: You can also enter `plo` by pressing any button within some time after reset.
 
@@ -141,7 +141,7 @@ To get the available command list type:
 help
 ```
 
-<img src="_images/gr716-help.png" width="700px">
+![Image](_images/gr716-help.png)
 
 To get the list of working processes type:
 
@@ -149,7 +149,7 @@ To get the list of working processes type:
 ps
 ```
 
-<img src="_images/gr716-ps.png" width="700px">
+![Image](_images/gr716-ps.png)
 
 ## See also
 

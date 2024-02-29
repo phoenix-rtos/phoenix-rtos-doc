@@ -63,7 +63,7 @@ data which should be copied into the memory.
 
 The figure below briefly presents the idea behind describing the address space with a memory map based on a binary tree.
 
-<img src="_images/mem-map1.png">
+![Image](_images/mem-map1.png)
 
 The sample tree presented in the figure above will help you better understand the map structure. The root node points to
 the segment located approximately in the middle of the address space described by the map (the address range is defined

@@ -8,13 +8,13 @@ file on the server. It is done because the file server handling particular file 
 namespace handled by the other server or by the kernel. File server mounts its namespace to the existing namespace
 handled by existing file servers. The namespace mounting functionality is presented on the following picture.
 
-<img src="_images/proc-namespace.png" style=" width: 450px">
+![Image](_images/proc-namespace.png)
 
 In the case of device drivers, they register special names in the namespace and associate them with the specific `oids`.
 When program opens the file registered by a device driver it receives `oid` pointed directly to the device driver
 server, so all communication is redirected to this server. This idea has been briefly presented on following figure.
 
-<img src="_images/proc-namespace2.png" style=" width: 450px">
+![Image](_images/proc-namespace2.png)
 
 1. [Kernel - Processes and threads](README.md)
 2. [Kernel - Processes and threads - Scheduler](scheduler.md)
