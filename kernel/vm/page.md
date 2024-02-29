@@ -29,7 +29,7 @@ When the memory management subsystem is initialized, the `_page_init()` function
 upper (hardware-independent) layers of the memory management subsystem. The page array is located at the beginning of
 the kernel heap, right after the kernel BSS segment.
 
-<img src="_images/mem-pagealloc1.png">
+![Image](_images/mem-pagealloc1.png)
 
 The memory for the structure is allocated using a heap extension. This extension is performed by using the
 `_page_sbrk()` function, which allocates a new page from the pool using the `_page_alloc()`function and maps it into the
@@ -114,7 +114,7 @@ pages allocated to BIOS and 32509 free pages. At the end of the address space, t
 The page allocator in the Phoenix-RTOS kernel is based on a well-known buddy algorithm. The figure below shows a
 graphical illustration of data structures used in this algorithm.
 
-<img src="_images/mem-pagealloc2.png">
+![Image](_images/mem-pagealloc2.png)
 
 Each square corresponds to a physical page, with the assumed page size of 4096 bytes. The main structure used in
 the allocation is the `sizes[]` array. The `size[]` array is created on the basis of the `page[]` array during
@@ -137,7 +137,7 @@ and no list is available in this entry. The lookup is performed for the next ent
 list is found (entry 17). When the first not-empty entry is found, the algorithm proceeds to the next step, which
 is illustrated below.
 
-<img src="_images/mem-pagealloc3.png" width="550px">
+![Image](_images/mem-pagealloc3.png)
 
 The first page set is removed from the list and divided into two 64 KB regions. The upper 64 KB region is added to the
 `size[16]` entry and then split. The first 64 KB region is split into two 32 KB regions. The upper 32 KB region is
@@ -163,7 +163,7 @@ the `sizes[]` array and merged with the page which should be released. If the re
 right before the free region of the same size, the merging process is repeated. The next steps are repeated forming
 larger regions until there are no free neighboring regions.
 
-<img src="_images/mem-pagealloc4.png" width="600px">
+![Image](_images/mem-pagealloc4.png)
 
 ## Page allocation for non-MMU architectures
 

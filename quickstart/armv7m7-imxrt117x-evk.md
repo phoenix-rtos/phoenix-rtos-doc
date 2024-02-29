@@ -34,7 +34,7 @@ onboard UART-USB converter is used here.
 
   The picture below presents how the board should be connected:
 
-  <img src="_images/imxrt117x-connections.png" width="700px">
+  ![Image](_images/imxrt117x-connections.png)
 
 - Now you should verify what USB device on your host-pc is connected with the `DEBUG USB` (console). In order to check
 that run:
@@ -45,7 +45,7 @@ that run:
   ls -l /dev/serial/by-id
   ```
 
-  <img src="_images/imxrt117x-ls.png" width="700px">
+  ![Image](_images/imxrt117x-ls.png)
 
   - On macOS:
 
@@ -53,7 +53,7 @@ that run:
   ls -l /dev/tty.*
   ```
 
-  <img src="_images/imxrt117x-ls-mac.png" width="700px">
+  ![Image](_images/imxrt117x-ls-mac.png)
 
   If your output is like in the screenshot above, the console (`DEBUG USB` in the evaluation board) is on the `ACM0`
   port.
@@ -120,11 +120,11 @@ sudo ./psu plo-ram.sdp
 
 The plo user interface should appear in the console.
 
-<img src="_images/imxrt117x-plo.png" width="700px">
+![Image](_images/imxrt117x-plo.png)
 
 To get the available bootloader command list please type `help`.
 
-<img src="_images/imxrt117x-plo-help.png" width="700px">
+![Image](_images/imxrt117x-plo-help.png)
 
 ### Copying flash image using PHFS (phoenixd)
 
@@ -137,7 +137,7 @@ To flash the disk image, first, you need to verify on which port plo USB device 
 ls -l /dev/serial/by-id
 ```
 
-<img src="_images/imxrt117x-ls-2.png" width="700px">
+![Image](_images/imxrt117x-ls-2.png)
 
 - On macOS:
 
@@ -145,7 +145,7 @@ ls -l /dev/serial/by-id
 ls -l /dev/tty.*
 ```
 
-<img src="_images/imxrt117x-ls-mac2.png" width="700px">
+![Image](_images/imxrt117x-ls-mac2.png)
 
 To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments (choose suitable
 ttyACMx device, in this case, ttyACM1):
@@ -154,7 +154,7 @@ ttyACMx device, in this case, ttyACM1):
 sudo ./phoenixd -p /dev/tty[port] -b 115200 -s .
 ```
 
-<img src="_images/imxrt117x-phoenixd.png" width="700px">
+![Image](_images/imxrt117x-phoenixd.png)
 
 To start copying a file, write the following command in the console with plo interface:
 
@@ -173,7 +173,7 @@ If everything has gone correctly, Phoenix-RTOS with the default configuration an
 appear in the terminal after 2 seconds. If there is a need to enter the bootloader, the waiting for input should be
 interrupted by pressing any key. Then you can exit plo by passing `go!` command.
 
-<img src="_images/imxrt117x-start.png" width="700px">
+![Image](_images/imxrt117x-start.png)
 
 ## Using Phoenix-RTOS
 
@@ -183,7 +183,7 @@ If you want to get the available command list please type:
 help
 ```
 
-<img src="_images/imxrt117x-help.png" width="700px">
+![Image](_images/imxrt117x-help.png)
 
 To get the list of working processes please type:
 
@@ -191,7 +191,7 @@ To get the list of working processes please type:
 ps
 ```
 
-<img src="_images/imxrt117x-ps.png" width="700px">
+![Image](_images/imxrt117x-ps.png)
 
 To get the table of processes please type:
 
@@ -199,7 +199,7 @@ To get the table of processes please type:
 top
 ```
 
-<img src="_images/imxrt117x-top.png" width="700px">
+![Image](_images/imxrt117x-top.png)
 
 ## See also
 

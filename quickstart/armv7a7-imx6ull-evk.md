@@ -35,7 +35,7 @@ in `i. MX 6ULL - EVK` will be connected to your host-pc.
   ls -l /dev/serial/by-id
   ```
 
-  <img src="_images/imx6ull-ls.png" width="700px">
+  ![Image](_images/imx6ull-ls.png)
 
   If your output is like in the screenshot above, the console (`DEBUG USB` in the evaluation board) is on the `USB0`
   port.
@@ -89,11 +89,11 @@ the RAM using `psu` (Phoenix Serial Uploader) via `SDP` (Serial Download Protoco
 
 - The plo user interface should appear in the console.
 
-<img src="_images/imx6ull-plo.png" width="700px">
+![Image](_images/imx6ull-plo.png)
 
 - To get the available bootloader command list please type `help`.
 
-<img src="_images/imx6ull-plo-help.png" width="700px">
+![Image](_images/imx6ull-plo-help.png)
 
 ### Copying flash image using PHFS (phoenixd)
 
@@ -104,7 +104,7 @@ To flash the disk image, first, you need to verify on which port plo USB device 
 ls -l /dev/serial/by-id
 ```
 
-<img src="_images/imx6ull-ls-2.png" width="700px">
+![Image](_images/imx6ull-ls-2.png)
 
 To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments
 (choose suitable ttyACMx device, in this case, ttyACM0):
@@ -113,7 +113,7 @@ To share disk image to the bootloader, `phoenixd` has to be launched with the fo
 sudo ./phoenixd -p /dev/ttyACM0 -b 115200 -s .
 ```
 
-<img src="_images/imx6ull-phoenixd.png" width="700px">
+![Image](_images/imx6ull-phoenixd.png)
 
 To start copying a file, write the following command in the console with plo interface:
 
@@ -144,7 +144,7 @@ If everything has gone correctly, Phoenix-RTOS with the default configuration an
 appear in the terminal after 2 seconds. If there is a need to enter the bootloader, the waiting for input should be
 interrupted by pressing any key. Then you can exit plo by passing `go!` command.
 
-<img src="_images/imx6ull-start.png" width="700px">
+![Image](_images/imx6ull-start.png)
 
 ## Uploading the Phoenix-RTOS system image to RAM
 
@@ -166,12 +166,12 @@ Uploader) and the `imx6ull-ram.sdp` (Serial Download Protocol) script should be 
   sudo ./psu ../../phoenix-rtos-hostutils/psu/imx6ull-ram.sdp
   ```
 
-  <img src="_images/imx6ull-psu.png" width="700px">
+  ![Image](_images/imx6ull-psu.png)
 
 - If everything has gone correctly, Phoenix-RTOS with the default configuration and the `psh` shell command prompt will
 appear in the terminal.
 
-  <img src="_images/imx6ull-psh.png" width="700px">
+  ![Image](_images/imx6ull-psh.png)
 
 ## Using Phoenix-RTOS
 
@@ -181,7 +181,7 @@ To get the available command list please type:
 help
 ```
 
-<img src="_images/imx6ull-help.png" width="700px">
+![Image](_images/imx6ull-help.png)
 
 If you want to get the list of working processes please type:
 
@@ -189,7 +189,7 @@ If you want to get the list of working processes please type:
 ps
 ```
 
-<img src="_images/imx6ull-ps.png" width="700px">
+![Image](_images/imx6ull-ps.png)
 
 To get the table of processes please type:
 
@@ -197,7 +197,7 @@ To get the table of processes please type:
 top
 ```
 
-<img src="_images/imx6ull-top.png" width="700px">
+![Image](_images/imx6ull-top.png)
 
 ## See also
 

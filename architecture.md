@@ -9,7 +9,7 @@ Message passing demands in some cases memory copying and additional thread conte
 
 The architecture is schematically presented on figure below.
 
-<img src="_images/arch1.png" >
+![Image](_images/arch1.png)
 
 ## Microkernel
 

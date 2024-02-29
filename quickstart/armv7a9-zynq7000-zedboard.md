@@ -23,7 +23,7 @@ Otherwise, you can simply use plo from the already flashed image.
 - To allow booting from SD card, set the jumpers to
  the following configuration (`JP11`: `110`, `JP10`: `011`, `JP9`: `011`, `JP8`: `110`, `JP7`: `110`):
 
-  <img src="_images/zynq7000-sd-boot-mode.jpg" width="400px">
+  ![Image](_images/zynq7000-sd-boot-mode.jpg)
 
 ### Loading plo from NOR flash
 
@@ -32,7 +32,7 @@ Otherwise, you can simply use plo from the already flashed image.
 - To allow loading from NOR flash,
 set the jumpers to the following configuration (`JP11`: `110`, `JP10`: `011`, `JP9`: `110`, `JP8`: `110`, `JP7`: `110`):
 
-  <img src="_images/zynq7000-qspi-boot-mode.jpg" width="400px">
+  ![Image](_images/zynq7000-qspi-boot-mode.jpg)
 
 ### Loading plo - common steps
 
@@ -46,7 +46,7 @@ The onboard UART-USB converter is used here.
 
   The picture below presents how the board should be connected:
 
-  <img src="_images/zynq7000-connections.png" width="700px">
+  ![Image](_images/zynq7000-connections.png)
 
 - Now you can power up the board, changing the `SW8` position to `ON`. The `LD13` LED should turn green.
 
@@ -58,7 +58,7 @@ The onboard UART-USB converter is used here.
   ls -l /dev/serial/by-id
   ```
 
-  <img src="_images/zynq7000-ls.png" width="700px">
+  ![Image](_images/zynq7000-ls.png)
 
   - On macOS:
 
@@ -66,7 +66,7 @@ The onboard UART-USB converter is used here.
   ls -l /dev/tty.*
   ```
 
-  <img src="_images/zynq7000-ls-mac.png" width="700px">
+  ![Image](_images/zynq7000-ls-mac.png)
 
   If your output is like in the screenshot above, the console (`UART` in the evaluation board) is on the `ACM0` port.
 
@@ -114,17 +114,17 @@ At first before any flashing, you need to enter Phoenix-RTOS loader (plo), which
 
 If there wasn't an older system image in the NOR flash the following output should appear:
 
-<img src="_images/zynq7000-sd-plo.png" width="700px">
+![Image](_images/zynq7000-sd-plo.png)
 
 If you don't see it, please press the `PS-RST` button (`BTN7`) to restart the chip.
 
 Providing that Phoenix-RTOS is present in the flash memory you will probably see the system startup:
 
-<img src="_images/zynq7000-ram-start-2.png" width="700px">
+![Image](_images/zynq7000-ram-start-2.png)
 
 You want to press the `PS-RST` button (`BTN7`) again and interrupt `Waiting for input` by pressing any key to enter plo:
 
-<img src="_images/zynq7000-plo.png" width="700px">
+![Image](_images/zynq7000-plo.png)
 
 If you encountered some problems during this step please see
  [common problems](armv7a9-zynq7000.md#common-problems-on-zynq7000-boards).
@@ -153,7 +153,7 @@ Quick description of used arguments:
   - block size: `0x10000` (`erase_size`)
   - clean marker size: `16` (value specific for `jffs2` on `NOR` flash)
 
-<img src="_images/zynq7000-plo-erase.png" width="700px">
+![Image](_images/zynq7000-plo-erase.png)
 
 Please wait until erasing is finished.
 
@@ -168,7 +168,7 @@ You can check that using `ls` as follow:
 ls -l /dev/serial/by-id
 ```
 
-<img src="_images/zynq7000-ls-2.png" width="700px">
+![Image](_images/zynq7000-ls-2.png)
 
 - On macOS:
 
@@ -176,7 +176,7 @@ ls -l /dev/serial/by-id
 ls -l /dev/tty.*
 ```
 
-<img src="_images/zynq7000-ls2-mac.png" width="700px">
+![Image](_images/zynq7000-ls2-mac.png)
 
 To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments
  (choose suitable ttyACMx device, in this case, ttyACM1):
@@ -189,7 +189,7 @@ cd _boot/armv7a9-zynq7000-zedboard
 sudo ./phoenixd -p /dev/tty[port] -b 115200 -s .
 ```
 
-<img src="_images/zynq7000-phoenixd.png" width="700px">
+![Image](_images/zynq7000-phoenixd.png)
 
 To start copying the file, write the following command in the console with plo interface:
 
@@ -197,7 +197,7 @@ To start copying the file, write the following command in the console with plo i
 copy usb0 phoenix.disk flash0 0x0 0x0
 ```
 
-<img src="_images/zynq7000-plo-copy.png" width="700px">
+![Image](_images/zynq7000-plo-copy.png)
 
 ### Booting Phoenix-RTOS from NOR flash memory
 
@@ -212,7 +212,7 @@ To run it you should follow the steps below:
 
 - Change jumpers position as follows (`JP11`: `110`, `JP10`: `011`, `JP9`: `110`, `JP8`: `110`, `JP7`: `110`):
 
-  <img src="_images/zynq7000-qspi-boot-mode.jpg" width="400px">
+  ![Image](_images/zynq7000-qspi-boot-mode.jpg)
 
 - Power on the board using `SW8`
 
@@ -224,7 +224,7 @@ To run it you should follow the steps below:
   ls -l /dev/serial/by-id/
   ```
 
-  <img src="_images/zynq7000-ls-3.png" width="700px">
+  ![Image](_images/zynq7000-ls-3.png)
 
   - On macOS:
 
@@ -232,7 +232,7 @@ To run it you should follow the steps below:
   ls -l /dev/tty.*
   ```
 
-  <img src="_images/zynq7000-ls-mac.png" width="700px">
+  ![Image](_images/zynq7000-ls-mac.png)
 
 - connect to that port:
 
@@ -242,7 +242,7 @@ To run it you should follow the steps below:
 
 - restart the chip using the `PS-RST` button to print initialization logs:
 
-  <img src="_images/zynq7000-qspi-start.png" width="700px">
+  ![Image](_images/zynq7000-qspi-start.png)
 
 ## Using Phoenix-RTOS
 
@@ -252,7 +252,7 @@ To get the available command list please type:
 help
 ```
 
-<img src="_images/zynq7000-help.png" width="700px">
+![Image](_images/zynq7000-help.png)
 
 If you want to get the list of working processes please type:
 
@@ -260,7 +260,7 @@ If you want to get the list of working processes please type:
 ps
 ```
 
-<img src="_images/zynq7000-ps.png" width="700px">
+![Image](_images/zynq7000-ps.png)
 
 To get the table of processes please type:
 
@@ -268,7 +268,7 @@ To get the table of processes please type:
 top
 ```
 
-<img src="_images/zynq7000-top.png" width="700px">
+![Image](_images/zynq7000-top.png)
 
 ## See also
 

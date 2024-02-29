@@ -34,7 +34,7 @@ UART-USB converter is used here.
 
   The picture below presents how the board should be connected:
 
-  <img src="_images/imxrt106x-connections.jpg" width="700px">
+  ![Image](_images/imxrt106x-connections.jpg)
 
 - Now you should verify what USB device on your host-pc is connected with the `DEBUG USB` (console). To check that run:
 
@@ -44,7 +44,7 @@ UART-USB converter is used here.
   ls -l /dev/serial/by-id
   ```
 
-  <img src="_images/imxrt106x-ls.png" width="700px">
+  ![Image](_images/imxrt106x-ls.png)
 
   - On macOS:
 
@@ -52,7 +52,7 @@ UART-USB converter is used here.
   ls -l /dev/tty.*
   ```
 
-  <img src="_images/imxrt106x-ls-mac.png" width="700px">
+  ![Image](_images/imxrt106x-ls-mac.png)
 
   If your output is like in the screenshot above, the console (`DEBUG USB` in the evaluation board) is on the `ACM0`
   port.
@@ -107,7 +107,7 @@ NOTE: i. MX RT1064 should be set in Serial Download mode. Set the appropriate co
 i.MX RT1064 - EVK, which is `0001` as it is shown below. If the configuration was different you should restart
 the board after the change and open the serial port using picocom once again.
 
-  <img src="_images/imxrt106x-serial-download.jpg" width="500px">
+  ![Image](_images/imxrt106x-serial-download.jpg)
 
 Change directory to `_boot/armv7m7-imxrt106x-evk` and run `psu` as follows:
 
@@ -121,11 +121,11 @@ sudo ./psu plo-ram.sdp
 
 The plo user interface should appear in the console.
 
-<img src="_images/imxrt106x-plo.png" width="700px">
+![Image](_images/imxrt106x-plo.png)
 
 To get the available bootloader command list please type `help`.
 
-<img src="_images/imxrt106x-plo-help.png" width="700px">
+![Image](_images/imxrt106x-plo-help.png)
 
 ### Copying flash image using PHFS (phoenixd)
 
@@ -138,7 +138,7 @@ using `ls` as follows:
 ls -l /dev/serial/by-id
 ```
 
-<img src="_images/imxrt106x-ls-2.png" width="700px">
+![Image](_images/imxrt106x-ls-2.png)
 
 - On macOS:
 
@@ -146,7 +146,7 @@ ls -l /dev/serial/by-id
 ls -l /dev/tty.*
 ```
 
-<img src="_images/imxrt106x-ls-mac2.png" width="700px">
+![Image](_images/imxrt106x-ls-mac2.png)
 
 To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments
 (choose suitable ttyACMx device, in this case, ttyACM1):
@@ -155,7 +155,7 @@ To share disk image to the bootloader, `phoenixd` has to be launched with the fo
 sudo ./phoenixd -p /dev/tty[port] -b 115200 -s .
 ```
 
-<img src="_images/imxrt106x-phoenixd.png" width="700px">
+![Image](_images/imxrt106x-phoenixd.png)
 
 To start copying a file, write the following command in the console with plo interface:
 
@@ -171,13 +171,13 @@ flash memory - `flash0`.
 To launch Phoenix-RTOS from flash memory, change SW7 switch to Internal Flash mode (`0010` configuration as presented
 in the photo below) and restart the board (you can do it by pushing the `SW3` button).
 
-  <img src="_images/imxrt106x-internal-flash.jpg" width="500px">
+  ![Image](_images/imxrt106x-internal-flash.jpg)
 
 If everything has gone correctly, Phoenix-RTOS with the default configuration and the `psh` shell command prompt will
 appear in the terminal after 2 seconds. If there is a need to enter the bootloader, the waiting for input should be
 interrupted by pressing any key. Then you can exit plo by passing `go!` command.
 
-<img src="_images/imxrt106x-start.png" width="700px">
+![Image](_images/imxrt106x-start.png)
 
 ## Using Phoenix-RTOS
 
@@ -187,7 +187,7 @@ If you want to get the available command list please type:
 help
 ```
 
-<img src="_images/imxrt106x-help.png" width="700px">
+![Image](_images/imxrt106x-help.png)
 
 To get the list of working processes please type:
 
@@ -195,7 +195,7 @@ To get the list of working processes please type:
 ps
 ```
 
-<img src="_images/imxrt106x-ps.png" width="700px">
+![Image](_images/imxrt106x-ps.png)
 
 To get the table of processes please type:
 
@@ -203,7 +203,7 @@ To get the table of processes please type:
 top
 ```
 
-<img src="_images/imxrt106x-top.png" width="700px">
+![Image](_images/imxrt106x-top.png)
 
 ## See also
 
