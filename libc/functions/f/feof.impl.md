@@ -1,4 +1,6 @@
-# Synopsis
+# feof
+
+## Synopsis
 
 `#include <stdio.h>`
 

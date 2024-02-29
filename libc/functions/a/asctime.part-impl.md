@@ -1,4 +1,6 @@
-# Synopsis
+# asctime
+
+## Synopsis
 
 `#include <time.h>`</br>
 

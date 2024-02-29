@@ -1,4 +1,6 @@
-# Synopsis
+# sigaddset
+
+## Synopsis
 
 `#include <signal.h>`
 

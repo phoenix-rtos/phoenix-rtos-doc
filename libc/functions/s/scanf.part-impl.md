@@ -1,4 +1,6 @@
-# Synopsis
+# scanf
+
+## Synopsis
 
 `#include <stdio.h>`
 

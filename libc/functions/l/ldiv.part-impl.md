@@ -1,4 +1,6 @@
-# Synopsis
+# ldiv
+
+## Synopsis
 
 `#include <stdlib.h>`
 

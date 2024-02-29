@@ -1,4 +1,6 @@
-# Synopsis
+# fseek
+
+## Synopsis
 
 `#include <stdio.h>`
 

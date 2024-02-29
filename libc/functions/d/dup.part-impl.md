@@ -1,4 +1,6 @@
-# Synopsis
+# dup
+
+## Synopsis
 
 `#include <unistd.h>`
 

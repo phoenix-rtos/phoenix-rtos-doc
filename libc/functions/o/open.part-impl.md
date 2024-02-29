@@ -1,4 +1,6 @@
-# Synopsis
+# open
+
+## Synopsis
 
 `#include <sys/stat.h>`
 

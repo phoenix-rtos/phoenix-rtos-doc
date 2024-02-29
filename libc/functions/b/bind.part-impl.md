@@ -1,4 +1,6 @@
-# Synopsis
+# bind
+
+## Synopsis
 
 `#include <sys/socket.h>`
 

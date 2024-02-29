@@ -1,4 +1,6 @@
-# Synopsis
+# strtoull
+
+## Synopsis
 
 `#include <stdlib.h>`
 

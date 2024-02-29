@@ -1,4 +1,6 @@
-# Synopsis
+# munmap
+
+## Synopsis
 
 `#include <sys/mman.h>`
 

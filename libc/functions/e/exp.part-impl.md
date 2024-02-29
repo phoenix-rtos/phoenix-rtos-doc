@@ -1,4 +1,6 @@
-# Synopsis
+# exp
+
+## Synopsis
 
 `#include <math.h>
 

@@ -1,4 +1,6 @@
-# Synopsis
+# getline
+
+## Synopsis
 
 `#include <stdio.h>`
 

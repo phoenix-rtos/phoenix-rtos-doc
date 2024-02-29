@@ -1,4 +1,6 @@
-# Synopsis
+# atof
+
+## Synopsis
 
 `#include <stdlib.h>`</br>
 

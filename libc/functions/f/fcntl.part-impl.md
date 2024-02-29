@@ -1,4 +1,6 @@
-# Synopsis
+# fcntl
+
+## Synopsis
 
 `#include <fcntl.h>`</br>
 

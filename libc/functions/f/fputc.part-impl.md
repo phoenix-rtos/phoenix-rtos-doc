@@ -1,4 +1,6 @@
-# Synopsis
+# fputc
+
+## Synopsis
 
 `#include <stdio.h>`
 

@@ -1,4 +1,6 @@
-# Synopsis
+# freeaddrinfo
+
+## Synopsis
 
 `#include <sys/socket.h>`
 

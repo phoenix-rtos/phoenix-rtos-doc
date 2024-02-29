@@ -1,4 +1,6 @@
-# Synopsis
+# log10
+
+## Synopsis
 
 `#include <math.h>`
 

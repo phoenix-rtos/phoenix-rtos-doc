@@ -1,4 +1,6 @@
-# Synopsis
+# syslog
+
+## Synopsis
 
 `#include <syslog.h>`
 

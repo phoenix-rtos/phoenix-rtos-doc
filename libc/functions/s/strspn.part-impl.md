@@ -1,4 +1,6 @@
-# Synopsis
+# strspn
+
+## Synopsis
 
 `#include <string.h>`
 

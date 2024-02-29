@@ -1,4 +1,6 @@
-# Synopsis
+# closelog
+
+## Synopsis
 
 `#include <syslog.h>`
 

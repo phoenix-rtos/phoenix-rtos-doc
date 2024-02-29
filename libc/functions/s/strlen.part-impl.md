@@ -1,4 +1,6 @@
-# Synopsis
+# strlen
+
+## Synopsis
 
 `#include <string.h>`
 

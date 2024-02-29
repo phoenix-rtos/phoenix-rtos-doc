@@ -1,4 +1,6 @@
-# Synopsis
+# basename
+
+## Synopsis
 
 `#include <libgen.h>`
 

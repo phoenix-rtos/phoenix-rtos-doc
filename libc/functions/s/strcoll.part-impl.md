@@ -1,4 +1,6 @@
-# Synopsis
+# strcoll
+
+## Synopsis
 
 `#include <string.h>`
 

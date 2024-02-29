@@ -1,4 +1,6 @@
-# Synopsis
+# isatty
+
+## Synopsis
 
 `#include <unistd.h>`</br>
 

@@ -1,4 +1,6 @@
-# Synopsis
+# getc_unlocked
+
+## Synopsis
 
 `#include <stdio.h>`
 

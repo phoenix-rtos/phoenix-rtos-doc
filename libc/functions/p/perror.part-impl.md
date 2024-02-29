@@ -1,4 +1,6 @@
-# Synopsis
+# perror
+
+## Synopsis
 
 `#include <stdio.h>`
 

@@ -1,4 +1,6 @@
-# Synopsis
+# msgrespond
+
+## Synopsis
 
 `#include <sys/msg.h>`
 

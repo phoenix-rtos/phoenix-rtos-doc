@@ -1,4 +1,6 @@
-# Synopsis
+# _Exit
+
+## Synopsis
 
 `#include <stdlib.h>`
 

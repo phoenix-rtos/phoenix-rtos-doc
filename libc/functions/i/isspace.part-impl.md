@@ -1,4 +1,6 @@
-# Synopsis
+# isspace
+
+## Synopsis
 
 `# include <ctype.h>`
 

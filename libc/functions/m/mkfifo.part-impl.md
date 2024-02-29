@@ -1,4 +1,6 @@
-# Synopsis
+# mkfifo
+
+## Synopsis
 
 `#include <sys/stat.h>`
 

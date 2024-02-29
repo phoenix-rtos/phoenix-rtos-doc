@@ -1,4 +1,6 @@
-# Synopsis
+# strsignal
+
+## Synopsis
 
 `#include <string.h>`
 

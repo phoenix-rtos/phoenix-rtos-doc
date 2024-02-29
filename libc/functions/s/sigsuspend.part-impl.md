@@ -1,4 +1,6 @@
-# Synopsis
+# sigsuspend
+
+## Synopsis
 
 `#include <signal.h>`
 

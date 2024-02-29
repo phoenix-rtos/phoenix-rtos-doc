@@ -1,4 +1,6 @@
-# Synopsis
+# fmod
+
+## Synopsis
 
 `#include <math.h>`
 

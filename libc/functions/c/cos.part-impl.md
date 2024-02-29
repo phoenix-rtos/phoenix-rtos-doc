@@ -1,4 +1,6 @@
-# Synopsis
+# cos
+
+## Synopsis
 
 `#include <math.h>`</br>
 

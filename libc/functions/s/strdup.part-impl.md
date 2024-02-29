@@ -1,4 +1,6 @@
-# Synopsis
+# strdup
+
+## Synopsis
 
 `#include <string.h>`
 

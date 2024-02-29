@@ -1,4 +1,6 @@
-# Synopsis
+# msgsend
+
+## Synopsis
 
 `#include <sys/msg.h>`
 

@@ -1,4 +1,6 @@
-# Synopsis
+# mbtowc
+
+## Synopsis
 
 `#include <stdlib.h>`
 

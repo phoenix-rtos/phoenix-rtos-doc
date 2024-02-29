@@ -1,4 +1,6 @@
-# Synopsis
+# fscanf
+
+## Synopsis
 
 `#include <stdio.h>`
 

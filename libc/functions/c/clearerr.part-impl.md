@@ -1,4 +1,6 @@
-# Synopsis
+# clearerr
+
+## Synopsis
 
 `#include <stdio.h>`</br>
 

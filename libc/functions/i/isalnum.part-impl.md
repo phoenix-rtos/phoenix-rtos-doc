@@ -1,4 +1,6 @@
-# Synopsis
+# isalnum
+
+## Synopsis
 
 `#include <ctype.h>`
 

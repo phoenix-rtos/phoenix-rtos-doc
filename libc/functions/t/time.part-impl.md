@@ -1,4 +1,6 @@
-# Synopsis
+# time
+
+## Synopsis
 
 `#include <time.h>`
 

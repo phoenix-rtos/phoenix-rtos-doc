@@ -1,4 +1,6 @@
-# Synopsis
+# fabs
+
+## Synopsis
 
 `#include <math.h>`
 

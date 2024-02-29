@@ -1,4 +1,6 @@
-# Synopsis
+# fegetround
+
+## Synopsis
 
 `#include <fenv.h>`
 

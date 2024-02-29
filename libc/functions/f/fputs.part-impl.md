@@ -1,4 +1,6 @@
-# Synopsis
+# fputs
+
+## Synopsis
 
 `#include <stdio.h>`
 

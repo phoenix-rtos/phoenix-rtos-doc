@@ -1,4 +1,6 @@
-# Synopsis
+# fopen
+
+## Synopsis
 
 `#include <stdio.h>`
 

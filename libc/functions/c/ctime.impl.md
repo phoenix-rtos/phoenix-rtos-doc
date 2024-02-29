@@ -1,4 +1,6 @@
-# Synopsis
+# ctime
+
+## Synopsis
 
 `#include <time.h>`
 

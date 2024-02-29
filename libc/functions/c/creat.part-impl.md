@@ -1,4 +1,6 @@
-# Synopsis
+# creat
+
+## Synopsis
 
 `#include <sys/stat.h>`</br>
 

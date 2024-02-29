@@ -1,4 +1,6 @@
-# Synopsis
+# fgetc
+
+## Synopsis
 
 `#include <stdio.h>`
 

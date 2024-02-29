@@ -1,4 +1,6 @@
-# Synopsis
+# getcwd
+
+## Synopsis
 
 `#include <unistd.h>`
 

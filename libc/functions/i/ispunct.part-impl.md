@@ -1,4 +1,6 @@
-# Synopsis
+# ispunct
+
+## Synopsis
 
 `#include <ctype.h>`
 

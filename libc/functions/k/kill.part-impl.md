@@ -1,4 +1,6 @@
-# Synopsis
+# kill
+
+## Synopsis
 
 `#include <signal.h>`
 

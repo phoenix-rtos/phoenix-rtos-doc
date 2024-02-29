@@ -1,4 +1,6 @@
-# Synopsis
+# ftell
+
+## Synopsis
 
 `#include <stdio.h>`
 

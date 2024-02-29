@@ -1,4 +1,6 @@
-# Synopsis
+# dirname
+
+## Synopsis
 
 `#include <libgen.h>`</br>
 

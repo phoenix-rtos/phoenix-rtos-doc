@@ -1,4 +1,6 @@
-# Synopsis
+# isblank
+
+## Synopsis
 
 `#include <ctype.h>`
 

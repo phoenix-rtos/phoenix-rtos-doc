@@ -1,4 +1,6 @@
-# Synopsis
+# ceil
+
+## Synopsis
 
 `#include <math.h>`</br>
 

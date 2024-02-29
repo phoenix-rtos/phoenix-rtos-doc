@@ -1,4 +1,6 @@
-# Synopsis
+# strcat
+
+## Synopsis
 
 `#include <string.h>`
 

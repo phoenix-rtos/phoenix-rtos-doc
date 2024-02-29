@@ -1,4 +1,6 @@
-# Synopsis
+# fread
+
+## Synopsis
 
 `#include <stdio.h>`
 

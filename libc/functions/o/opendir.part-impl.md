@@ -1,4 +1,6 @@
-# Synopsis
+# opendir
+
+## Synopsis
 
 `#include <dirent.h>`
 

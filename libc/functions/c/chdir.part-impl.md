@@ -1,4 +1,6 @@
-# Synopsis
+# chdir
+
+## Synopsis
 
 `#include <unistd.h>`</br>
 

@@ -1,4 +1,6 @@
-# Synopsis
+# memmove
+
+## Synopsis
 
 `#include <string.h>`
 

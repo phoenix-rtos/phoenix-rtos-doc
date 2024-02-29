@@ -1,4 +1,6 @@
-# Synopsis
+# abort
+
+## Synopsis
 
 `#include <stdlib.h>`</br>
 

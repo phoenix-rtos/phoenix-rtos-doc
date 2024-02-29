@@ -1,4 +1,6 @@
-# Synopsis
+# readdir
+
+## Synopsis
 
 `#include <dirent.h>`
 

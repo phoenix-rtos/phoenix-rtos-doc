@@ -1,4 +1,6 @@
-# Synopsis
+# ferror
+
+## Synopsis
 
 `#include <stdio.h>`
 

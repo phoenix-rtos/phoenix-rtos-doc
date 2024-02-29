@@ -1,4 +1,6 @@
-# Synopsis
+# condWait
+
+## Synopsis
 
 `#include <threads.h>`</br>
 

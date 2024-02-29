@@ -1,4 +1,6 @@
-# Synopsis
+# isalpha
+
+## Synopsis
 
 `#include <ctype.h>`
 

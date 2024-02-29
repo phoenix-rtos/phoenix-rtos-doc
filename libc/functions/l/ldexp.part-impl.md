@@ -1,4 +1,6 @@
-# Synopsis
+# ldexp
+
+## Synopsis
 
 `#include <math.h>`
 

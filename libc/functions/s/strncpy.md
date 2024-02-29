@@ -1,4 +1,6 @@
-# Synopsis
+# strncpy
+
+## Synopsis
 
 `#include <string.h>`
 

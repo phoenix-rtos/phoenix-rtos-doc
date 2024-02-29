@@ -1,4 +1,6 @@
-# Synopsis
+# dprintf
+
+## Synopsis
 
 `#include <stdio.h>`
 

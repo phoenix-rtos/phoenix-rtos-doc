@@ -1,4 +1,6 @@
-# Synopsis
+# gettime
+
+## Synopsis
 
 `#include <stdlib.h>`
 

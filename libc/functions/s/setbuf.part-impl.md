@@ -1,4 +1,6 @@
-# Synopsis
+# setbuf
+
+## Synopsis
 
 `#include <stdio.h>`
 

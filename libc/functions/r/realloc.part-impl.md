@@ -1,4 +1,6 @@
-# Synopsis
+# realloc
+
+## Synopsis
 
 `#include <stdlib.h>`
 

@@ -1,4 +1,6 @@
-# Synopsis
+# modf
+
+## Synopsis
 
 `#include <math.h>`
 

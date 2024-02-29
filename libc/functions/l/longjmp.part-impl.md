@@ -1,4 +1,6 @@
-# Synopsis
+# longjmp
+
+## Synopsis
 
 `#include <setjmp.h>`
 

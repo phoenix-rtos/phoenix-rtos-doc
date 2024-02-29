@@ -1,4 +1,6 @@
-# Synopsis
+# msgrecv
+
+## Synopsis
 
 `#include <sys/msg.h>`
 
