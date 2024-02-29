@@ -1,4 +1,6 @@
-# Synopsis
+# isupper
+
+## Synopsis
 
 `#include <ctype.h>`
 

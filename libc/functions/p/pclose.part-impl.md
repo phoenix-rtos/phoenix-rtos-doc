@@ -1,4 +1,6 @@
-# Synopsis
+# pclose
+
+## Synopsis
 
 `#include <stdio.h>`
 

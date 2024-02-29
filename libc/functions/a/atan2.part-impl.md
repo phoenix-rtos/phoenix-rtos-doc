@@ -1,4 +1,6 @@
-# Synopsis
+# atan2
+
+## Synopsis
 
 `#include <math.h>`</br>
 

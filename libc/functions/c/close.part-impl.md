@@ -1,4 +1,6 @@
-# Synopsis
+# close
+
+## Synopsis
 
 `#include <unistd.h>`</br>
 

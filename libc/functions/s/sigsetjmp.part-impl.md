@@ -1,4 +1,6 @@
-# Synopsis
+# sigsetjmp
+
+## Synopsis
 
 `#include <setjmp.h>`
 

@@ -1,4 +1,6 @@
-# Synopsis
+# closedir
+
+## Synopsis
 
 `#include <dirent.h>`</br>
 

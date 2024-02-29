@@ -1,4 +1,6 @@
-# Synopsis
+# putchar_unlocked
+
+## Synopsis
 
 `#include <stdio.h>`
 

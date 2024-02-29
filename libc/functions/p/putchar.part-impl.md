@@ -1,4 +1,6 @@
-# Synopsis
+# putchar
+
+## Synopsis
 
 `#include <stdio.h>`
 

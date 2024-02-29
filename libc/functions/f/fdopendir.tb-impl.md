@@ -1,4 +1,6 @@
-# Synopsis
+# fdopendir
+
+## Synopsis
 
 `#include <dirent.h>`
 

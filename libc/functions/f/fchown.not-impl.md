@@ -1,4 +1,6 @@
-# Synopsis
+# fchown
+
+## Synopsis
 
 `#include <unistd.h>`
 

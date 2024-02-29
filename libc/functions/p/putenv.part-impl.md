@@ -1,4 +1,6 @@
-# Synopsis
+# putenv
+
+## Synopsis
 
 `#include <stdlib.h>`
 

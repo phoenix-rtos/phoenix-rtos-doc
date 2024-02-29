@@ -1,4 +1,6 @@
-# Synopsis
+# sqrt
+
+## Synopsis
 
 `#include <math.h>`
 

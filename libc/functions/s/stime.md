@@ -1,4 +1,6 @@
-# Synopsis
+# stime
+
+## Synopsis
 
 `#include <stdlib.h>`
 

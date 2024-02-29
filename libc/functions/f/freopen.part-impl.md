@@ -1,4 +1,6 @@
-# Synopsis
+# freopen
+
+## Synopsis
 
 `#include <stdio.h>`
 

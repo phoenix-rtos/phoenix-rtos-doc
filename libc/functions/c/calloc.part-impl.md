@@ -1,4 +1,6 @@
-# Synopsis
+# calloc
+
+## Synopsis
 
 `#include <stdlib.h>`
 

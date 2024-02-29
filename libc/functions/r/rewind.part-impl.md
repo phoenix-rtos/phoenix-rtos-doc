@@ -1,4 +1,6 @@
-# Synopsis
+# rewind
+
+## Synopsis
 
 `#include <stdio.h>`
 

@@ -1,4 +1,6 @@
-# Synopsis
+# free
+
+## Synopsis
 
 `#include <stdlib.h>`
 

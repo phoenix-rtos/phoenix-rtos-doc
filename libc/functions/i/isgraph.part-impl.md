@@ -1,4 +1,6 @@
-# Synopsis
+# isgraph
+
+## Synopsis
 
 `#include <ctype.h>`
 

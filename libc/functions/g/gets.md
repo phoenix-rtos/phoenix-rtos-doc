@@ -1,4 +1,6 @@
-# Synopsis
+# gets
+
+## Synopsis
 
 `#include <stdio.h>`
 

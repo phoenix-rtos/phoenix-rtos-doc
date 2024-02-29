@@ -1,4 +1,6 @@
-# Synopsis
+# getgroups
+
+## Synopsis
 
 `#include <unistd.h>`
 

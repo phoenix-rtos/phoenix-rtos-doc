@@ -1,4 +1,6 @@
-# Synopsis
+# strncmp
+
+## Synopsis
 
 `#include <string.h>`
 

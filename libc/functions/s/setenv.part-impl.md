@@ -1,4 +1,6 @@
-# Synopsis
+# setenv
+
+## Synopsis
 
 `#include <stdlib.h>`
 

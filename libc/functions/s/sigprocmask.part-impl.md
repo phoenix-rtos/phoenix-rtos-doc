@@ -1,4 +1,6 @@
-# Synopsis
+# sigprocmask
+
+## Synopsis
 
 `#include <signal.h>`
 

@@ -1,4 +1,6 @@
-# Synopsis
+# labs
+
+## Synopsis
 
 `#include <stdlib.h>`
 

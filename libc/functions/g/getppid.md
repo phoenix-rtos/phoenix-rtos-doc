@@ -1,4 +1,6 @@
-# Synopsis
+# getppid
+
+## Synopsis
 
 `#include <unistd.h>`
 

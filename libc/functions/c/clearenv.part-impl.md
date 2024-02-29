@@ -1,4 +1,6 @@
-# Synopsis
+# clearenv
+
+## Synopsis
 
 `#include <stdlib.h>`</br>
 

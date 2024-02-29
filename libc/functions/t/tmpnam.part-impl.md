@@ -1,4 +1,6 @@
-# Synopsis
+# tmpnam
+
+## Synopsis
 
 `#include <stdio.h>`
 

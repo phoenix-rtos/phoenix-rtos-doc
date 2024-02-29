@@ -1,4 +1,6 @@
-# Synopsis
+# strxfrm
+
+## Synopsis
 
 `#include <string.h>`
 

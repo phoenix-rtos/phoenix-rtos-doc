@@ -1,4 +1,6 @@
-# Synopsis
+# system
+
+## Synopsis
 
 `#include <stdlib.h>`
 

@@ -1,4 +1,6 @@
-# Synopsis
+# crypt
+
+## Synopsis
 
 `#include <unistd.h>`
 

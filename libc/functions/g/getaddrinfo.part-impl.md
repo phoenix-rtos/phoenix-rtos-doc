@@ -1,4 +1,6 @@
-# Synopsis
+# getaddrinfo
+
+## Synopsis
 
 `#include <sys/socket.h>`
 

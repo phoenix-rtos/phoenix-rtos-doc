@@ -1,4 +1,6 @@
-# Synopsis
+# getpwuid
+
+## Synopsis
 
 `#include <pwd.h>`
 

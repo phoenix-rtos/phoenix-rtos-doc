@@ -1,4 +1,6 @@
-# Synopsis
+# fileno
+
+## Synopsis
 
 `#include <stdio.h>`
 

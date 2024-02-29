@@ -1,4 +1,6 @@
-# Synopsis
+# fstat
+
+## Synopsis
 
 `#include <sys/stat.h>`
 

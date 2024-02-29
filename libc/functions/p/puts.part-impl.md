@@ -1,4 +1,6 @@
-# Synopsis
+# puts
+
+## Synopsis
 
 `#include <stdio.h>`
 

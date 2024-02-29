@@ -1,4 +1,6 @@
-# Synopsis
+# fwrite
+
+## Synopsis
 
 `#include <stdio.h>`
 

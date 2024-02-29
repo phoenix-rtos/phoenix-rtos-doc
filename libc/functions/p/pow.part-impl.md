@@ -1,4 +1,6 @@
-# Synopsis
+# pow
+
+## Synopsis
 
 `#include <math.h>`
 

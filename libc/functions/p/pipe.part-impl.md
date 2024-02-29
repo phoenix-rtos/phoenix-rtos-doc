@@ -1,4 +1,6 @@
-# Synopsis
+# pipe
+
+## Synopsis
 
 `#include <unistd.h>`
 

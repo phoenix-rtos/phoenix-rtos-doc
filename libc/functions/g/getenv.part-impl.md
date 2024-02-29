@@ -1,4 +1,6 @@
-# Synopsis
+# getenv
+
+## Synopsis
 
 `#include <stdlib.h>`
 

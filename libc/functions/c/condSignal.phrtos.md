@@ -1,4 +1,6 @@
-# Synopsis
+# condSignal
+
+## Synopsis
 
 `#include <sys/threads.h>`
 

@@ -1,4 +1,6 @@
-# Synopsis
+# setsid
+
+## Synopsis
 
 `#include <unistd.h>`
 

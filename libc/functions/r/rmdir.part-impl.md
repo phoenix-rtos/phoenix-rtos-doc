@@ -1,4 +1,6 @@
-# Synopsis
+# rmdir
+
+## Synopsis
 
 `#include <unistd.h>`
 

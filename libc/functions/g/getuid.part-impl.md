@@ -1,4 +1,6 @@
-# Synopsis
+# getuid
+
+## Synopsis
 
 `#include <unistd.h>`
 

@@ -1,4 +1,6 @@
-# Synopsis
+# sigpending
+
+## Synopsis
 
 `#include <signal.h>`
 

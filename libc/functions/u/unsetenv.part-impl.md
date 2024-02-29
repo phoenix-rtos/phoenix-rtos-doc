@@ -1,4 +1,6 @@
-# Synopsis
+# unsetenv
+
+## Synopsis
 
 `#include <stdlib.h>`
 

@@ -1,4 +1,6 @@
-# Synopsis
+# getegid
+
+## Synopsis
 
 `#include <unistd.h>`
 

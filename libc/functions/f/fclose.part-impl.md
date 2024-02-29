@@ -1,4 +1,6 @@
-# Synopsis
+# fclose
+
+## Synopsis
 
 `#include <stdio.h>`
 

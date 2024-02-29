@@ -1,4 +1,6 @@
-# Synopsis
+# fnmatch
+
+## Synopsis
 
 `#include <fnmatch.h>`
 

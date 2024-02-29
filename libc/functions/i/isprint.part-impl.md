@@ -1,4 +1,6 @@
-# Synopsis
+# isprint
+
+## Synopsis
 
 `#include <ctype.h>`
 

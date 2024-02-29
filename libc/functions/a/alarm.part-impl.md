@@ -1,4 +1,6 @@
-# Synopsis
+# alarm
+
+## Synopsis
 
 `#include <unistd.h>`</br>
 

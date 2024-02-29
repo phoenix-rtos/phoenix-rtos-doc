@@ -1,4 +1,6 @@
-# Synopsis
+# sleep
+
+## Synopsis
 
 `#include <unistd.h>`
 

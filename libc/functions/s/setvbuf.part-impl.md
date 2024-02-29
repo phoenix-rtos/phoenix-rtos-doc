@@ -1,4 +1,6 @@
-# Synopsis
+# setvbuf
+
+## Synopsis
 
 `#include <stdio.h>`
 

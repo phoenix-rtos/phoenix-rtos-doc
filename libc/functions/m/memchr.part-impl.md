@@ -1,4 +1,6 @@
-# Synopsis
+# memchr
+
+## Synopsis
 
 `#include <string.h>`
 

@@ -1,4 +1,6 @@
-# Synopsis
+# getpgrp
+
+## Synopsis
 
 `#include <unistd.h>`
 

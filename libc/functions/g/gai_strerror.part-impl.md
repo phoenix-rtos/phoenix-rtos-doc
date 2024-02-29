@@ -1,4 +1,6 @@
-# Synopsis
+# gai_strerror
+
+## Synopsis
 
 `#include <netdb.h>`
 

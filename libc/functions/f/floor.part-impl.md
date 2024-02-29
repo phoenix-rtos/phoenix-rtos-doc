@@ -1,4 +1,6 @@
-# Synopsis
+# floor
+
+## Synopsis
 
 `#include <math.h>`
 

@@ -1,4 +1,6 @@
-# Synopsis
+# times
+
+## Synopsis
 
 `#include <sys/times.h>`
 

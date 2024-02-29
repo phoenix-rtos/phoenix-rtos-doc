@@ -1,4 +1,6 @@
-# Synopsis
+# memcpy
+
+## Synopsis
 
 `#include <string.h>`
 

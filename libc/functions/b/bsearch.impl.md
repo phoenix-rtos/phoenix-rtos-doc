@@ -1,4 +1,6 @@
-# Synopsis
+# bsearch
+
+## Synopsis
 
 `#include <stdlib.h>`
 

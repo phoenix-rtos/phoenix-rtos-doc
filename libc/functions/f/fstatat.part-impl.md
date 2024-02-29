@@ -1,4 +1,6 @@
-# Synopsis
+# fstatat
+
+## Synopsis
 
 `#include <fcntl.h>`
 

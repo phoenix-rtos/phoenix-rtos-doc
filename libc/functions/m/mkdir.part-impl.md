@@ -1,4 +1,6 @@
-# Synopsis
+# mkdir
+
+## Synopsis
 
 `#include <sys/stat.h>`
 

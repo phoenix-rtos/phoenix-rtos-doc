@@ -1,4 +1,6 @@
-# Synopsis
+# lseek
+
+## Synopsis
 
 `#include <unistd.h>`
 

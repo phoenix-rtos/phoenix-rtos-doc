@@ -1,4 +1,6 @@
-# Synopsis
+# fsync
+
+## Synopsis
 
 `#include <unistd.h>`
 

@@ -1,4 +1,6 @@
-# Synopsis
+# isxdigit
+
+## Synopsis
 
 `#include <ctype.h>`
 

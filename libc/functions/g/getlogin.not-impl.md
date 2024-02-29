@@ -1,4 +1,6 @@
-# Synopsis
+# getlogin
+
+## Synopsis
 
 `#include <unistd.h>`
 

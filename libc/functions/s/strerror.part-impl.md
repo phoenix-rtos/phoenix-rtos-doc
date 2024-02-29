@@ -1,4 +1,6 @@
-# Synopsis
+# strerror
+
+## Synopsis
 
 `#include <string.h>`
 

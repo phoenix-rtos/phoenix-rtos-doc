@@ -1,4 +1,6 @@
-# Synopsis
+# iscntrl
+
+## Synopsis
 
 `#include <ctype.h>`
 

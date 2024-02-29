@@ -1,4 +1,6 @@
-# Synopsis
+# atoi
+
+## Synopsis
 
 `#include <stdlib.h>`</br>
 

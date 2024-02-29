@@ -1,4 +1,6 @@
-# Synopsis
+# difftime
+
+## Synopsis
 
 `#include <time.h>`</br>
 

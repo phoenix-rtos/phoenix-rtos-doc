@@ -1,4 +1,6 @@
-# Synopsis
+# assert
+
+## Synopsis
 
 `#include <assert.h>`</br>
 

@@ -1,4 +1,6 @@
-# Synopsis
+# sinh
+
+## Synopsis
 
 `#include <math.h>`
 

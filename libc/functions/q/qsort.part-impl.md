@@ -1,4 +1,6 @@
-# Synopsis
+# qsort
+
+## Synopsis
 
 `#include <stdlib.h>`
 

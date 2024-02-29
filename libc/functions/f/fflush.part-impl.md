@@ -1,4 +1,6 @@
-# Synopsis
+# fflush
+
+## Synopsis
 
 `#include <stdio.h>`
 

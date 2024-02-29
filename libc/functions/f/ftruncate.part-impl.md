@@ -1,4 +1,6 @@
-# Synopsis
+# ftruncate
+
+## Synopsis
 
 `#include <unistd.h>`
 

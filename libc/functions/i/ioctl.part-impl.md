@@ -1,4 +1,6 @@
-# Synopsis
+# ioctl
+
+## Synopsis
 
 `#include <ioctl.h>`
 

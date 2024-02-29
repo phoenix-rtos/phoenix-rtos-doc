@@ -1,4 +1,6 @@
-# Synopsis
+# accept
+
+## Synopsis
 
 `#include <sys/socket.h>`</br>
 

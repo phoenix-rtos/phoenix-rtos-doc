@@ -1,4 +1,6 @@
-# Synopsis
+# malloc
+
+## Synopsis
 
 `#include <stdlib.h>`
 

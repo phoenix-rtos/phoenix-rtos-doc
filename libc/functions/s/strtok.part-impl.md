@@ -1,4 +1,6 @@
-# Synopsis
+# strtok
+
+## Synopsis
 
 `#include <string.h>`
 

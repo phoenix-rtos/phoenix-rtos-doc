@@ -1,4 +1,6 @@
-# Synopsis
+# sprintf
+
+## Synopsis
 
 `#include <stdio.h>`
 

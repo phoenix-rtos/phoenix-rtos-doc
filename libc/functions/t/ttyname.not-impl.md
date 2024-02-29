@@ -1,4 +1,6 @@
-# Synopsis
+# ttyname
+
+## Synopsis
 
 `#include <unistd.h>`
 

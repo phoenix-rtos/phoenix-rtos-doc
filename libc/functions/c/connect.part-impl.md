@@ -1,4 +1,6 @@
-# Synopsis
+# connect
+
+## Synopsis
 
 `#include <sys/socket.h>`</br>
 

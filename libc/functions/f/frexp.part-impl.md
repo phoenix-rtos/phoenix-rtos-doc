@@ -1,4 +1,6 @@
-# Synopsis
+# frexp
+
+## Synopsis
 
 `#include <math.h>`
 

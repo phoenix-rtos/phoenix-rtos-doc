@@ -1,4 +1,6 @@
-# Synopsis
+# rand
+
+## Synopsis
 
 `#include <stdlib.h>`
 

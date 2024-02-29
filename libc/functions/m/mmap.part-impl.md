@@ -1,4 +1,6 @@
-# Synopsis
+# mmap
+
+## Synopsis
 
 `#include <sys/mman.h>`
 

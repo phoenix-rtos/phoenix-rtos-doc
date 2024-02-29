@@ -1,4 +1,6 @@
-# Synopsis
+# cosh
+
+## Synopsis
 
 `#include <math.h>`</br>
 

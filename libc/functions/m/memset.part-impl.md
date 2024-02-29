@@ -1,4 +1,6 @@
-# Synopsis
+# memset
+
+## Synopsis
 
 `#include <string.h>`
 
