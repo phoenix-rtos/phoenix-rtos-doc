@@ -1,4 +1,4 @@
-# _Exit
+# _exit
 
 ## Synopsis
 

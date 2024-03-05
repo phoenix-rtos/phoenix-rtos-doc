@@ -1,5 +1,6 @@
-<!-- Documentation template to fill -->
-# Synopsis
+# vprintf
+
+## Synopsis
 
 `#include <stdarg.h>`
 `#include <stdio.h>`

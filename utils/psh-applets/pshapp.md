@@ -1,4 +1,4 @@
-# (psh) Pshapp
+# (psh) pshapp
 
 The interactive session of Phoenix SHell is itself an applet called `pshapp` **and is accessible using `psh`** command.
 It delivers a commandline user interface together with a command interpreter.

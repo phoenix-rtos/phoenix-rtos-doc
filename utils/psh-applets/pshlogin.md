@@ -1,4 +1,4 @@
-# Pshogin
+# pshlogin
 
 `psh` can be run in login mode by launching it from the name `pshlogin`. User credentials are read from `/etc/passwd`
 file.
