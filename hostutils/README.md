@@ -12,8 +12,8 @@ are `phoenix-rtos` repositories you can check the [reference project repository]
 Following programs are possible to use:
 
 - [Phoenix-RTOS disk tool](psdisk.md), called `psdisk`,
-- Phoenix-RTOS serial uploader, called `psu`,
-- Phoenix-RTOS daemon, called `phoenixd`
+- [Phoenix-RTOS serial uploader](psu.md), called `psu`,
+- [Phoenix-RTOS daemon](phoenixd.md), called `phoenixd`
 
 <!-- #TODO: add chapters for all specific utilities -->
 
