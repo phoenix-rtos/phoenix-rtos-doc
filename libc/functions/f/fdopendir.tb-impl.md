@@ -1,4 +1,4 @@
-# fdopendir
+# opendir
 
 ## Synopsis
 

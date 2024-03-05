@@ -1,4 +1,4 @@
-# execl
+# exec
 
 ## Synopsis
 

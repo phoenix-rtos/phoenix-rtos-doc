@@ -1,4 +1,4 @@
-# closelog
+# syslog
 
 ## Synopsis
 

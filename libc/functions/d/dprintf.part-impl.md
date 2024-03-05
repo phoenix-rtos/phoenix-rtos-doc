@@ -1,4 +1,4 @@
-# dprintf
+# printf
 
 ## Synopsis
 
