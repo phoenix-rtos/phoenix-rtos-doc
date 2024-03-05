@@ -1,9 +1,37 @@
-# Phoenix Software Uploader (psu)
+# Phoenix Serial Uploader (psu)
 
-Documentation under development.
+`psu` is a tool designed to load scripts onto Phoenix-RTOS devices using the SDP (Script Download Protocol) protocol.
+This tool allows users to execute various commands on Phoenix-RTOS devices by sending scripts containing
+specific instructions. This tool is used in the flashing process for NXP boards,
+specifically targeting devices like `imxrt106x`, `imxrt117x`, and `imx6ull`.
+
+## Usage
+
+To use `psu`, follow the syntax:
+
+```bash
+psu [OPTIONS] script_path
+```
+
+Options:
+
+- -t: Set timeout for wait command (default is 10 seconds),
+- -h: Display help
+
+## Example Usage
+
+```bash
+psu -t 15 script.sdp
+```
+
+## SDP Script Syntax
+
+For information about supported command visit
+[host-utils/psu](https://github.com/phoenix-rtos/phoenix-rtos-hostutils/tree/master/psu)
 
 ## See also
 
 1. [Phoenix-RTOS disk tool](psdisk.md)
-2. [Phoenix-RTOS Host Utilities](README.md)
-3. [Table of Contents](../README.md)
+2. [Phoenix-RTOS daemon](phoenixd.md)
+3. [Phoenix-RTOS Host Utilities](README.md)
+4. [Table of Contents](../README.md)
