@@ -1,4 +1,4 @@
-# Software watchdog library
+# Software watchdog library (libswdg)
 
 ===================
 

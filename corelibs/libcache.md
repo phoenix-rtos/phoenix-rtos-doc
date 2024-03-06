@@ -1,4 +1,4 @@
-# Cache library
+# Cache library (libcache)
 
 `libcache` is a thread-safe library which implements a n-way set-associative cache.
 <!-- TODO: mention whether the library is static and precompiled -->
