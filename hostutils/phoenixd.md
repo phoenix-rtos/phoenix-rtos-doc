@@ -1,7 +1,7 @@
-# Phoenix Daemon (phoenixd)
+# Phoenix Server (phoenixd)
 
-`phoenixd` is a component responsible for managing communication channels and facilitating the boot process.
-It provides functionality for handling various types of requests, including kernel and program loading,
+`phoenixd` is a host daemon responsible for managing communication channels and facilitating the boot process.
+It provides functionality for handling various types of requests, including kernel and program loading
 over different communication interfaces such as serial ports, pipes, UDP, and TCP.
 Operates as a background service, listening for incoming requests and responding accordingly.
 

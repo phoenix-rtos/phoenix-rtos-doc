@@ -1,7 +1,5 @@
 # Universally Unique identifiers library (libuuid)
 
-===================
-
 Linux libuuid compliant library is used to generate unique identifiers for objects that may be accessible
 beyond the system.
 According to `RFC 4122` and `DCE 1.1` (Distributed Computing Environment) currently supported UUID format is variant 1,
