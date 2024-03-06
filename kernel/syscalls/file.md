@@ -1,6 +1,6 @@
 # File operations
 
-## DEPRECATED `syscalls_fileAdd` ⇾ `syscalls_fileOpen`
+## `syscalls_fileOpen`
 
 ````C
 GETFROMSTACK(ustack, unsigned int *, h, 0);
@@ -18,45 +18,13 @@ GETFROMSTACK(ustack, const char *, filename, 0);
 GETFROMSTACK(ustack, int, oflag, 1);
 ````
 
-## DEPRECATED `syscalls_fileSet` ⇾ `syscalls_fileRead`, `syscalls_fileWrite`
-
-````C
-GETFROMSTACK(ustack, unsigned int, h, 0);
-GETFROMSTACK(ustack, char, flags, 1);
-GETFROMSTACK(ustack, oid_t *, oid, 2);
-GETFROMSTACK(ustack, offs_t, offs, 3);
-GETFROMSTACK(ustack, unsigned, mode, 4);
-````
-
-Updates file parameters for file given by resource handle `h`.
-
-## DEPRECATED `syscalls_fileGet` ⇾ `syscalls_fileRead`, `syscalls_fileWrite`
-
-````C
-GETFROMSTACK(ustack, unsigned int, h, 0);
-GETFROMSTACK(ustack, int, flags, 1);
-GETFROMSTACK(ustack, oid_t *, oid, 2);
-GETFROMSTACK(ustack, offs_t *, offs, 3);
-GETFROMSTACK(ustack, unsigned *, mode, 4);
-````
-
-Retrieves file parameters for file given by resource handle `h`.
-
-## DEPRECATED `syscalls_fileRemove` ⇾ `syscalls_fileClose`
+## `syscalls_fileClose`
 
 ````C
 GETFROMSTACK(ustack, unsigned int, h, 0);
 ````
 
 Removes file given by `h` from resources of calling process.
-
-## DEPRECATED `syscalls_resourceDestroy` ⇾ `syscalls_fileClose`, `syscalls_mutexDestroy`, `syscalls_condDestroy`
-
-````C
-GETFROMSTACK(ustack, unsigned int, h, 0);
-````
-
-Destroys resource given by `h`.
 
 ## `syscalls_fileRead` (`syscalls_sys_read`)
 

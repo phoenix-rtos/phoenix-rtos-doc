@@ -63,11 +63,7 @@ GETFROMSTACK(ustack, pid_t, pid, 0);
 GETFROMSTACK(ustack, pid_t, pgid, 1);
 ````
 
-## DEPRECATED `syscalls_sys_setpgrp` → `syscalls_procSetGroupID`
-
 ## `syscalls_procGetGroupID` (`syscalls_sys_getpgid`)
-
-## DEPRECATED `syscalls_sys_getpgrp` → `syscalls_procGetGroupID`
 
 ## `syscalls_procSetSession` (`syscalls_sys_setsid`)
 
