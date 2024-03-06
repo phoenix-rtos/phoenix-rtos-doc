@@ -6,7 +6,7 @@ The `df` utility prints mounted filesystem statistics (disk space/inodes usage).
 
 If used with `-h` parameter it prints the help message with possible arguments and parameters as follows:
 
-```bash
+```text
 Usage: df [options] [files]
   -T: print filesystem type
   -i: print inode information instead of block usage
@@ -33,5 +33,5 @@ The example of checking root directory on ia32-generic-qemu target architecture:
 ## See also
 
 1. [Phoenix-RTOS shell](psh.md)
-2. [Phoenix-RTOS Utilities](README.md)
-3. [Table of Contents](../README.md)
+2. [Phoenix-RTOS Utilities](../README.md)
+3. [Table of Contents](../../README.md)

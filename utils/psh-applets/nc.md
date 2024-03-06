@@ -7,7 +7,7 @@ them.
 
 Running `nc` with `-h` argument prints help message as follows:
 
-```bash
+```text
 Usage: nc [options] [destination] [port]
 Options
   -4:  IPv4 only
@@ -22,5 +22,5 @@ Options
 ## See also
 
 1. [Phoenix-RTOS shell](psh.md)
-2. [Phoenix-RTOS Utilities](README.md)
-3. [Table of Contents](../README.md)
+2. [Phoenix-RTOS Utilities](../README.md)
+3. [Table of Contents](../../README.md)

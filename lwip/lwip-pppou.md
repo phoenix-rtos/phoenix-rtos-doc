@@ -1,3 +1,6 @@
+---
+orphan: True
+---
 # PPPoU driver
 
 In the era of IoT, when the goal is to address every device on the Internet
@@ -12,25 +15,25 @@ the most legitimate and proven protocol to deliver IP world is PPP.
 
 ## Build and set up the device
 
-Before you start [building Phoenix RTOS](/building/) with
+Before you start [building Phoenix RTOS](../building/README.md) with
 [network stack — LwIP](/lwip/README.md), you need to adjust the custom
 build.project script, in function `b_build_project()` add the following lines:
 
-```bash
+```text
 b_log "Builing phoenix-rtos-lwip"
 (cd phoenix-rtos-lwip && make $MAKEFLAGS $CLEAN all)
 ```
 
 some targets may require adding also
 
-```bash
+```text
 b_install "$PREFIX_PROG_STRIPPED/lwip" /sbin
 ```
 
 next it is required to add `lwip` to syspage programs with `PROGS` variable,
 e.g.:
 
-```bash
+```text
 PROGS=("dummyfs" "imxrt-multi" "lwip" "psh")
 ```
 
@@ -39,7 +42,7 @@ null-modem point-to-point connection in the Phoenix RTOS system.  To enable the
 driver and up the interface just after Phoenix RTOS kernel starts, add e.g. the
 following line to the `plo` script:
 
-```plaintext
+```text
 app flash0 -x @lwip;/dev/uart3:115200:up xip1 ocram2
 ```
 
@@ -61,7 +64,7 @@ By default, `pppou` driver will add the `default route` via itself. If the
 `default route` is not to be added, use the optional `nodefault` parameter,
 as in the example below.
 
-```plaintext
+```text
 app flash0 -x @lwip;pppou:/dev/uart3:115200:nodefault:up xip1
 ```
 
@@ -70,7 +73,7 @@ app flash0 -x @lwip;pppou:/dev/uart3:115200:nodefault:up xip1
 For example, on the `imxrt` platforms _(memory map used in example is for i.MX
 RT1064)_ the plo script might look like this:
 
-```plaintext
+```text
 map itcm 0 58000 R+E
 map dtcm 20000000 20028000 R+W
 map ocram2 20200000 20280000 R+W+E
@@ -86,7 +89,7 @@ go!
 Alternatively, `phoenix-rtos-lwip` can also be started with the command `psh`
 sysexec (NON-MMU targets) at any time:
 
-```plaintext
+```text
 sysexec ocram2 lwip pppou:/dev/uart3:115200:up
 ```
 
@@ -108,7 +111,7 @@ side you must also configure the connection, if it is Linux or BSD, you can
 use, for example this command (prepend `pppd` with `sudo`, `doas` or `su`
 command if `root` user rights are required):
 
-```bash
+```text
 pppd /dev/ttyUSB0 460800 10.0.0.1:10.0.0.2 lock local noauth nocrtscts nodefaultroute maxfail 0 persist
 ```
 
@@ -143,7 +146,7 @@ link-local address like `fe80::55a0:6c87:7de3:611b`
 Compile `phoenix-rtos-lwip` pppou driver with logging enabled, and then on host
 use the following command that enable full `pppd` debugging
 
-```bash
+```text
 pppd /dev/ttyUSB0 <speed> 10.0.0.1:10.0.0.2 lock local nodetach noauth debug dump nocrtscts nodefaultroute maxfail 0 holdoff 1
 ```
 

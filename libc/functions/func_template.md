@@ -1,3 +1,7 @@
+---
+orphan: True
+---
+
 <!-- Documentation template to fill -->
 <!-- #MUST_BE: make good synopsis -->
 # Synopsis
@@ -45,4 +49,4 @@ None
 ## See Also
 
 1. [Standard library functions](../README.md)
-2. [Table of Contents](../../../README.md)
+2. [Table of Contents](../../README.md)

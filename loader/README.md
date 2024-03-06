@@ -1,4 +1,4 @@
-# Phoenix-RTOS loader (plo)
+# Loader
 
 The plo is an inherent part of Phoenix-RTOS used to prepare the system setup structure and load kernel and applications
  to selected memory areas defined as maps.
@@ -40,7 +40,7 @@ requires an explicit list of available devices and available physical memory map
 files. Such an approach makes plo more flexible than other bootloaders and allows it to create solutions for demanding
 projects. However, providing access to low-level setup requires additional knowledge about hardware configuration.
 Using CLI, users can define their own booting sequences, save a script and run plo automatically during the booting
-phase. All available commands are described in the [CLI chapter](cmds.md).
+phase. All available commands are described in the [CLI chapter](cli.md).
 
 Examples of booting scripts are located in the building files of the supported targets in
 [phoenix-rtos-project/_targets](https://github.com/phoenix-rtos/phoenix-rtos-project/tree/master/_targets).

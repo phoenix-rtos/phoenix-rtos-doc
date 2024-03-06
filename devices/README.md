@@ -31,7 +31,7 @@ by the internal thread.
 
 The source code of Phoenix-RTOS device drivers could be obtained using the following command
 
-```bash
+```text
 git clone http://git.phoenix-rtos.com/phoenix-rtos-devices
 ```
 

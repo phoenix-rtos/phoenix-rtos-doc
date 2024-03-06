@@ -6,7 +6,7 @@
 
 Using `ls` command with `-h` parameter prints help message as follows:
 
-```bash
+```text
 usage: ls [options] [files]
   -1:  one entry per line
   -a:  do not ignore entries starting with .
@@ -21,7 +21,7 @@ usage: ls [options] [files]
 
 By default, `.` (current directory) is used as `[files]`. Executing sole:
 
-```bash
+```text
 ls
 ```
 
@@ -29,7 +29,7 @@ Will print all normal files and directories in current directory.
 
 Options (excluding `-h`) may be used together, so the following command:
 
-```bash
+```text
 ls -laf bin/
 ```
 
@@ -39,5 +39,5 @@ per line.
 ## See also
 
 1. [Phoenix-RTOS shell](psh.md)
-2. [Phoenix-RTOS Utilities](README.md)
-3. [Table of Contents](../README.md)
+2. [Phoenix-RTOS Utilities](../README.md)
+3. [Table of Contents](../../README.md)

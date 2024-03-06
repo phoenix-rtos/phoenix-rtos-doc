@@ -2,7 +2,7 @@
 
 Memory management is the most important part of any operating system kernel, as it has a great impact on the overall
 system performance and scalability. The main goal of the memory management is to provide physical memory for the purpose
- of kernel and running programs represented by processes.
+of kernel and running programs represented by processes.
 
 In most modern general-purpose operating systems, memory management is based on paging technique and the Memory
 Management Unit (MMU) is used. The MMU is available across many popular hardware architectures (e.g. IA32, x86-64, ARMv7
@@ -92,7 +92,7 @@ Protection Unit takes part in memory addressing and typically allows partitionin
 segments that can be used during the program execution. The number of these segments is usually limited (4, 8, 16). The
 access to defined memory segments can be even associated with processor execution mode, so program executed in
 supervisor mode can operate on more segments than when it is executed in user mode. Processor execution modes and
-methods of transitioning between them have been Discussed in chapter [Processes and threads](proc/README.md).
+methods of transitioning between them have been Discussed in chapter [Processes and threads](../proc/README.md).
 
 There are two strategies for using MPU and memory segmentation. First and more flexible is strategy of switching whole
 MPU context when process context is switched. This demands to reload of all segments defined by MPU for the executed
@@ -151,8 +151,7 @@ memory architecture. When paging technique is used the memory is allocated using
 On architecture with direct physical memory access the physical memory is allocated using address space allocation in
 the particular memory map. It is planned to generalize these techniques in the next version of Phoenix-RTOS memory
 management subsystem. To understand the physical memory allocation algorithm on architectures using paging technique
-please refer to [Physical memory allocation using memory pages](page.md).  To understand the physical memory allocation
-algorithm on architectures with direct memory access please refer to [Physical memory allocation](phys.md).
+please refer to [Physical memory allocation using memory pages](page.md).
 
 ### Memory mapper
 

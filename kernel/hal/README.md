@@ -1,4 +1,4 @@
-# HAL subsystem
+# HAL
 
 HAL (Hardware Abstraction Layer) is the kernel hardware-dependent subsystem used for adapting it to the particular
 hardware platform. It provides a unified interface for other kernel subsystems. It is the only subsystem required to be

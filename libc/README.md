@@ -8,7 +8,7 @@ interface.
 
 The source code of the `libphoenix` could be obtained using the following command
 
-```bash
+```text
 git clone http://git.phoenix-rtos.com/libphoenix
 ```
 
