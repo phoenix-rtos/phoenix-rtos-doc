@@ -1,8 +1,8 @@
 # Phoenix Serial Uploader (psu)
 
-`psu` is a tool designed to load scripts onto Phoenix-RTOS devices using the SDP (Script Download Protocol) protocol.
-This tool allows users to execute various commands on Phoenix-RTOS devices by sending scripts containing
-specific instructions. This tool is used in the flashing process for NXP boards,
+`psu` is a tool designed to load firmware onto Phoenix-RTOS devices using the SDP (Script Download Protocol) protocol.
+This tool allows users to execute various commands on Phoenix-RTOS devices by executing scripts containing
+specific instructions. This tool can be used to upload firmware to NXP devices,
 specifically targeting devices like `imxrt106x`, `imxrt117x`, and `imx6ull`.
 
 ## Usage
