@@ -16,32 +16,32 @@ Firstly, you need to install a spike simulator.
 
   1. Clone the `riscv-isa-sim` GitHub repository. System was tested on commit `5fa1cd54` on `master` branch.
 
-      ```bash
+      ```text
       git clone https://github.com/riscv-software-src/riscv-isa-sim.git --single-branch
       ```
 
   2. Enter the downloaded repository
 
-      ```bash
+      ```text
       cd riscv-isa-sim
       ```
 
   3. Check out the commit `5fa1cd54`
 
-      ```bash
+      ```text
       git checkout 5fa1cd54
       ```
 
   4. Install the device-tree-compiler
 
-      ```bash
+      ```text
       sudo apt-get update && \
       sudo apt-get install device-tree-compiler
       ```
 
   5. Install the Spike RISC-V ISA Simulator
 
-      ```bash
+      ```text
       mkdir build && \
       cd build && \
       ../configure --prefix=$RISCV && \
@@ -54,7 +54,7 @@ Firstly, you need to install a spike simulator.
 
 Then, to run the image under spike you should change the directory to `phoenix-rtos-project` and type:
 
-```bash
+```text
 ./scripts/riscv64-generic-spike.sh
 ```
 
@@ -67,7 +67,7 @@ Then, to run the image under spike you should change the directory to `phoenix-r
 Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal. To get the available
 command list please type:
 
-```bash
+```text
 help
 ```
 
@@ -75,7 +75,7 @@ help
 
 To get the list of working processes please type:
 
-```bash
+```text
 ps
 ```
 

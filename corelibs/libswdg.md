@@ -1,3 +1,7 @@
+---
+orphan: True
+---
+
 # Software watchdog library (libswdg)
 
 ===================

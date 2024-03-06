@@ -25,7 +25,7 @@ Each of the commands has to implement interface defined in `cmds/cmd.h` and be r
 There is a flexibility of defining command setups for each platform. The targets define their own set of commands in
 `PLO_COMMANDS` variable in a `Makefile` file.
 
-All available commands are described in the [CLI chapter](cmds.md).
+All available commands are described in the [CLI chapter](cli.md).
 
 ## Devices
 

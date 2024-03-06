@@ -9,7 +9,7 @@ controlled with command-line arguments and further with interactive commands whe
 
 When `top` is run with `-h` argument the help message is displayed as follows:
 
-```bash
+```text
 Command-line arguments
   -h:  prints help
   -H:  starts with threads mode
@@ -29,7 +29,7 @@ Interactive commands:
 
 If sole:
 
-```bash
+```text
 top
 ```
 
@@ -51,5 +51,5 @@ Column headers are:
 ## See also
 
 1. [Phoenix-RTOS shell](psh.md)
-2. [Phoenix-RTOS Utilities](README.md)
-3. [Table of Contents](../README.md)
+2. [Phoenix-RTOS Utilities](../README.md)
+3. [Table of Contents](../../README.md)

@@ -1,3 +1,7 @@
+---
+orphan: true
+---
+
 # Windows
 
 For now, it is possible to build Phoenix-RTOS images for all targets and run `ia32-generic-qemu` on Windows using
@@ -83,7 +87,7 @@ directory.
 
 To simply change a directory to home, the `cd` command may be used:
 
-```bash
+```text
 cd
 ```
 
@@ -91,7 +95,7 @@ This will move you to the default home directory placed in `cygwin64/home/admin/
 Cygwin installation path).
 Then the terminal is pointed as `~`, and it determines you are in home directory. It will look like:
 
-```bash
+```text
 pc@user ~
 $
 ```
@@ -101,7 +105,7 @@ $
 
 Now the packages required for launching Phoenix-RTOS may be installed. It can be done using the following command:
 
-``` bash
+```text
 lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg && \
 install apt-cyg /bin && \
 apt-cyg install libhidapi-devel libgccpp1 libtool \
@@ -132,7 +136,7 @@ To do this, paste the following into the `Cygwin` terminal:
 
 &nbsp;
 
-``` bash
+```text
 git clone --recursive https://github.com/bestouff/genext2fs &&\
 cd genext2fs &&\
 ./autogen.sh &&\
@@ -152,7 +156,7 @@ Now what was left is to copy repository with all submodules.
 
 To do that call this command in home directory:
 
-``` bash
+```text
 git clone --recursive https://github.com/phoenix-rtos/phoenix-rtos-project/
 ```
 
@@ -161,11 +165,11 @@ Now, we can follow instructions about building toolchains. Remember to use comma
 
 (Quick tip: It is not mandatory but turning off Real-Time Protection in Windows Defender speeds up this process)
 
-``` bash
+```text
  cd phoenix-rtos-project
 ```
 
-``` bash
+```text
 (cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh i386-pc-phoenix ~/toolchains/i386-pc-phoenix)
 (cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh arm-phoenix ~/toolchains/arm-phoenix)
 (cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh riscv64-phoenix ~/toolchains/riscv64-phoenix)
@@ -176,7 +180,7 @@ Now, we can follow instructions about building toolchains. Remember to use comma
 Adding toolchain binaries to the PATH variable can also be tricky. On Windows, we move over folders with names
 containing white spaces, after using:
 
-``` bash
+```text
 echo "export PATH=$PATH:$HOME/toolchains/i386-pc-phoenix/i386-pc-phoenix/bin/:$HOME/toolchains/arm-phoenix/arm-phoenix/bin/:$HOME/toolchains/riscv64-phoenix/riscv64-phoenix/bin/:$HOME/toolchains/sparc-phoenix/sparc-phoenix/bin/" >> $HOME/.bashrc
 ```
 
@@ -187,7 +191,7 @@ the start of the `Cygwin` terminal, and it will allow us to use the toolchain wi
 
 Now it should be possible to build the Phoenix-RTOS system image with the full configuration excluding tests:
 
-```bash
+```text
 TARGET=ia32-generic-qemu CONSOLE=serial phoenix-rtos-build/build.sh all
 ```
 

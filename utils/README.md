@@ -12,7 +12,7 @@ GitHub repository. If you don't know what are `phoenix-rtos` repositories you ca
 
 There are following utilities:
 
-- [Phoenix-RTOS shell](psh.md), called `psh`,
+- [Phoenix-RTOS shell](psh-applets/psh.md), called `psh`,
 - Phoenix-RTOS serial downloader, called `psd`,
 - The programming/erasing tool for `NAND` flash memory, called `nandtool`,
 - The tool for communication with `imxrt117x-cm4` server, called `cm4-tool`

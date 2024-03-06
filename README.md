@@ -1,7 +1,15 @@
-# Table of Contents
+# Phoenix-RTOS Documentation
 
-1. [Introduction](introduction.md)
-2. [Architecture](architecture.md)
+Phoenix-RTOS is a scalable real-time operating system for IoT. It is based on its own microkernel and can be used either on small devices based on microcontrollers and on advanced computer systems based on multiple processors and equipped with gigabytes of RAM.
+
+The system supports multiple architectures, including ARM Cortex-M, ARM Cortex-A, Intel x86, RISC-V, LEON3 (SPARC) and some popular microcontrollers and reference boards. Phoenix-RTOS is constantly under development but it was implemented in numerous Smart Utility appliances e.g. in smart gas meters, smart energy meters, data concentrators (DCU).
+
+The POSIX application environment can be emulated to enable the execution of regular UN*X applications. The ARINC653 execution environment (APEX) is under development.
+
+## Table of Contents
+
+1. [Introduction](introduction/introduction.md)
+2. [Architecture](architecture/architecture.md)
 3. [Building](building/README.md)
     1. [Toolchain](building/toolchain.md)
     2. [Building script](building/script.md)
@@ -68,7 +76,7 @@
     1. [USB Host stack](usb/usbhost.md)
     2. [libusb](usb/libusb.md)
 12. [Utilities](utils/README.md)
-    1. [psh](utils/psh.md)
+    1. [psh](utils/psh-applets/psh.md)
     2. [psd](utils/psd.md)
 13. [Host utilities](hostutils/README.md)
     1. [psdisk](hostutils/psdisk.md)
@@ -83,4 +91,4 @@
     6. [libcache](corelibs/libcache.md)
 15. [Ports](ports/README.md)
 16. [Tests and testing process](tests/README.md)
-17. [Coding convention](coding.md)
+17. [Coding convention](coding/coding.md)

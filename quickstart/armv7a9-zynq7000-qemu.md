@@ -1,4 +1,4 @@
-# Running system on `armv7a9-zynq7000-qemu` (Xilinx Zynq-7000, QEMU emulator)
+# Running system on `armv7a9-zynq7000-qemu`
 
 These instructions describe how to run a Phoenix-RTOS system image for the `armv7a9-zynq7000-qemu` target architecture
 using docker.
@@ -18,7 +18,7 @@ Firstly, you need to have the docker installed.
 
 - Install required packages
 
-  ```bash
+  ```text
   sudo apt-get update && \
   sudo apt-get install curl \
   ca-certificates \
@@ -28,7 +28,7 @@ Firstly, you need to have the docker installed.
 
 - Make docker packages available
 
-  ```bash
+  ```text
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg && \
   echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
@@ -37,14 +37,14 @@ Firstly, you need to have the docker installed.
 
 - Install docker packages
 
-  ```bash
+  ```text
   sudo apt-get update && \
   sudo apt-get install docker-ce docker-ce-cli containerd.io
   ```
 
 - Check if Docker is properly installed (version can be different):
 
-  ```bash
+  ```text
   sudo docker --version
   ```
 
@@ -52,20 +52,20 @@ Firstly, you need to have the docker installed.
 
 - To make calling docker command without `sudo` possible type:
 
-  ```bash
+  ```text
   sudo groupadd docker
   ```
 
   Even if group `docker` already exists type then:
 
-  ```bash
+  ```text
   sudo usermod -aG docker $USER && \
   newgrp docker
   ```
 
 - Check if running docker images without sudo works properly:
 
-  ```bash
+  ```text
   docker run hello-world
   ```
 
@@ -86,13 +86,13 @@ Firstly, you need to have the docker installed.
 
   Download the installer:
 
-  ```bash
+  ```text
   curl -o Docker.dmg "https://desktop.docker.com/mac/main/amd64/Docker.dmg?utm_source=docker&amp;utm_medium=webreferral&amp;utm_campaign=docs-driven-download-mac-amd64"
   ```
 
   Run the following commands to install Docker:
 
-  ```bash
+  ```text
   sudo hdiutil attach Docker.dmg && \
   sudo /Volumes/Docker/Docker.app/Contents/MacOS/install && \
   sudo hdiutil detach /Volumes/Docker
@@ -100,32 +100,32 @@ Firstly, you need to have the docker installed.
 
   Then add the path to `docker` binaries to the `PATH` environment variable:
 
-  ```bash
+  ```text
   export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
   ```
 
   It's recommended to place it in `.zshrc` startup script to export it every time during startup:
 
-  ```bash
+  ```text
   echo 'export PATH=/Applications/Docker.app/Contents/Resources/bin:$PATH' >> $HOME/.zshrc
   ```
 
 - Check if Docker is properly installed by checking its version:
 
-  ``` bash
+  ```text
   docker --version
   ```
 
 - Check if running docker images without sudo works properly:
 
-  ``` bash
+  ```text
   docker run hello-world
   ```
 
   *If you see the following error: `ERROR: Cannot connect to the Docker daemon at unix:///var/run/docker.sock.`
   you can try to install `colima` and check once again:
 
-  ```bash
+  ```text
   brew install colima && \
   colima start
   ```
@@ -134,7 +134,7 @@ Firstly, you need to have the docker installed.
 
 Now, with docker installed you can run Phoenix-RTOS using the following command:
 
-```bash
+```text
 ./docker-devel.sh scripts/armv7a9-zynq7000-qemu.sh
 ```
 
@@ -157,7 +157,7 @@ As a result, you should see `psh` (Phoenix-RTOS shell).
 
 To get the available command list please type:
 
-```plaintext
+```text
 help
 ```
 
@@ -165,7 +165,7 @@ help
 
 If you want to get the list of working processes please type:
 
-```plaintext
+```text
 ps
 ```
 
@@ -173,7 +173,7 @@ ps
 
 To get the table of processes please type:
 
-```plaintext
+```text
 top
 ```
 

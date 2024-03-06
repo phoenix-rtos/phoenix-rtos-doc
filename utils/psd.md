@@ -6,5 +6,5 @@ Phoenix Serial Downloader implements SDP protocol used by NXP microcontrollers f
 ## See also
 
 1. [Utilities](README.md)
-2. [Phoenix-RTOS shell](psh.md)
+2. [Phoenix-RTOS shell](psh-applets/psh.md)
 3. [Table of Contents](../README.md)

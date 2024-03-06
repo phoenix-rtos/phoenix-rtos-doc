@@ -6,7 +6,7 @@
 
 Usage:
 
-```bash
+```text
 sysexec [-m mapname] progname [args]...
 ```
 
@@ -15,19 +15,19 @@ The default memory map is the one assigned with the `app` command in the plo scr
 
 As an example, if in the script plo it is set:
 
-```bash
+```text
 app flash1 -x progname xip1 ocram2
 ```
 
 then `ocram2` is the default map for an app, so
 
-```bash
+```text
 sysexec progname arg1 arg2
 ```
 
 to use a different map with read & write attributes set, provide an optional map with `-m` argument:
 
-```bash
+```text
 sysexec -m dtcm progname arg1 arg2
 ```
 
@@ -42,7 +42,7 @@ These commands can be defined in two ways:
 If storing commands in the `/etc/whitelist` file each complete `sysexec` command should be stored in a separate line
 with a line length not exceeding 79 characters:
 
-```bash
+```text
     sysexec argA1 argA2 argA3
     sysexec argB1 argB2
     sysexec argC1 argC2 argC3
@@ -51,7 +51,7 @@ with a line length not exceeding 79 characters:
 If the commands are stored in the `PSH_SYSEXECWL` environment variable, each command should end with a semicolon
 (`;`), as in the example below:
 
-```bash
+```text
 export PSH_SYSEXECWL="sysexec argD1 argD2 argD3;sysexec argE1 argE2 argE3;sysexec argF1 argF2"
 ```
 
@@ -64,7 +64,7 @@ specified using `*` wildcard. Checking will be performed only on arguments prior
 
 Command template `sysexec arg1 arg2 *` has the following impact:
 
-```bash
+```text
 sysexec arg1 arg2   #executed
 sysexec arg1 arg2 arg3 .. argN  #executed
 sysexec arg3 arg4   #NOT executed
@@ -76,5 +76,5 @@ Important note: `*` works only as a standalone argument. It does not perform any
 ## See also
 
 1. [Phoenix-RTOS shell](psh.md)
-2. [Phoenix-RTOS Utilities](README.md)
-3. [Table of Contents](../README.md)
+2. [Phoenix-RTOS Utilities](../README.md)
+3. [Table of Contents](../../README.md)

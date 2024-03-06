@@ -7,7 +7,7 @@ communication protocols. During the start, each file server registers its port i
 
 The source code of Phoenix-RTOS file servers can be obtained using the following command
 
-```bash
+```text
 git clone http://git.phoenix-rtos.com/phoenix-rtos-filesystems
 ```
 

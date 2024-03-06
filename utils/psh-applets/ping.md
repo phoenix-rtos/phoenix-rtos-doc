@@ -7,7 +7,7 @@
 
 When running `ping` with `-h` parameter the help message is displayed as follows:
 
-```bash
+```text
 Usage: ping [options] address
 Options
   -h:  prints help
@@ -21,5 +21,5 @@ Options
 ## See also
 
 1. [Phoenix-RTOS shell](psh.md)
-2. [Phoenix-RTOS Utilities](README.md)
-3. [Table of Contents](../README.md)
+2. [Phoenix-RTOS Utilities](../README.md)
+3. [Table of Contents](../../README.md)
