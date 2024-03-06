@@ -40,6 +40,6 @@ It is possible to switch back to the previous working directory by using `-` (a 
 
 ## See also
 
-1. [Phoenix-RTOS shell](psh.md)
-2. [Phoenix-RTOS Utilities](README.md)
-3. [Table of Contents](../README.md)
+1. [Phoenix-RTOS shell](../psh.md)
+2. [Phoenix-RTOS Utilities](../README.md)
+3. [Table of Contents](../../README.md)
