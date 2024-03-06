@@ -75,8 +75,6 @@ returned in `file` variable. If file is associated with other object the other o
 
 ## `syscalls_signalSuspend`
 
-## DEPRECATED `syscalls_sys_tkill` ⇾ `syscalls_signalPost`
-
 ## See also
 
 1. [System calls](README.md)
