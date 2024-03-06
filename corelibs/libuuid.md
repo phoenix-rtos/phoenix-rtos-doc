@@ -1,4 +1,4 @@
-# Universally Unique identifiers library
+# Universally Unique identifiers library (libuuid)
 
 ===================
 
