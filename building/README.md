@@ -1,4 +1,4 @@
-# Building Phoenix-RTOS image
+# Building
 
 To create a Phoenix-RTOS image for the selected target the `phoenix-rtos-project` repository should be used. This
 repository aggregates all operating system modules - kernel, standard library, device
@@ -37,7 +37,7 @@ be, install git:
   <details>
   <summary>Installing git on Ubuntu (click to expand)</summary>
 
-  ```bash
+  ```text
   sudo apt-get update && \
   sudo apt-get upgrade && \
   sudo apt-get install git
@@ -52,19 +52,19 @@ be, install git:
   You will need the command line tools for `Xcode` and `Homebrew` package, if you don't have it you can install it by
   typing:
 
-  ```bash
+  ```text
   xcode-select --install
   ```
 
   and then:
 
-  ```bash
+  ```text
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   ```
 
   Assure that brew is properly installed, by checking its version:
 
-  ```bash
+  ```text
   brew --version
   ```
 
@@ -72,7 +72,7 @@ be, install git:
 
   Then you will be ready for installing git and other required tools:
 
-  ```bash
+  ```text
   brew update && \
   brew upgrade && \
   brew install git
@@ -83,7 +83,7 @@ be, install git:
 
 Then, the repository should be cloned **recursively** (to get the submodules):
 
-```bash
+```text
 git clone --recursive https://github.com/phoenix-rtos/phoenix-rtos-project.git
 ```
 
@@ -108,7 +108,7 @@ The Phoenix-RTOS reference project supports the following target platforms:
 
 To get the list of valid targets the `build.sh` script should be launched with an empty `TARGET` variable, eg:
 
-```bash
+```text
 ./phoenix-rtos-build/build.sh
 ```
 
@@ -125,7 +125,7 @@ Firstly, you need to have the docker installed.
 
 - Install required packages
 
-  ``` bash
+  ```text
   sudo apt-get update && \
   sudo apt-get install curl \
   ca-certificates \
@@ -135,7 +135,7 @@ Firstly, you need to have the docker installed.
 
 - Make docker packages available
 
-  ``` bash
+  ```text
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg && \
   echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
@@ -144,14 +144,14 @@ Firstly, you need to have the docker installed.
 
 - Install docker packages
 
-  ``` bash
+  ```text
   sudo apt-get update && \
   sudo apt-get install docker-ce docker-ce-cli containerd.io
   ```
 
 - Check if Docker is properly installed (version can be different):
 
-  ``` bash
+  ```text
   sudo docker --version
   ```
 
@@ -159,20 +159,20 @@ Firstly, you need to have the docker installed.
 
 - To make calling docker command without `sudo` possible type:
 
-  ``` bash
+  ```text
   sudo groupadd docker
   ```
 
   Even if group `docker` already exists type then:
 
-  ``` bash
+  ```text
   sudo usermod -aG docker $USER && \
   newgrp docker
   ```
 
 - Check if running docker images without sudo works properly:
 
-  ``` bash
+  ```text
   docker run hello-world
   ```
 
@@ -194,13 +194,13 @@ Firstly, you need to have the docker installed.
 
   Download the installer:
 
-  ```bash
+  ```text
   curl -o Docker.dmg "https://desktop.docker.com/mac/main/amd64/Docker.dmg?utm_source=docker&amp;utm_medium=webreferral&amp;utm_campaign=docs-driven-download-mac-amd64"
   ```
 
   Run the following commands to install Docker:
 
-  ```bash
+  ```text
   sudo hdiutil attach Docker.dmg && \
   sudo /Volumes/Docker/Docker.app/Contents/MacOS/install && \
   sudo hdiutil detach /Volumes/Docker
@@ -208,32 +208,32 @@ Firstly, you need to have the docker installed.
 
   Then add the path to `docker` binaries to the `PATH` environment variable:
 
-  ```bash
+  ```text
   export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
   ```
 
   It's recommended to place it in `.zshrc` startup script to export it every time during startup:
 
-  ```bash
+  ```text
   echo 'export PATH=/Applications/Docker.app/Contents/Resources/bin:$PATH' >> $HOME/.zshrc
   ```
 
 - Check if Docker is properly installed by checking its version:
 
-  ``` bash
+  ```text
   docker --version
   ```
 
 - Check if running docker images without sudo works properly:
 
-  ``` bash
+  ```text
   docker run hello-world
   ```
 
 - If you see the following error: `ERROR: Cannot connect to the Docker daemon at unix:///var/run/docker.sock.`
   you can try to install `colima` and check once again:
 
-  ```bash
+  ```text
   brew install colima && \
   colima start
   ```
@@ -243,7 +243,7 @@ Firstly, you need to have the docker installed.
 
 Then, to build - provide a `TARGET` via ENV variable and run the build script:
 
-```bash
+```text
 cd phoenix-rtos-project/
 TARGET=ia32-generic-qemu ./docker-build.sh all
 ```
@@ -263,7 +263,7 @@ There is a list of commands you can use to get them: on both Ubuntu and macOS ho
   <details>
   <summary>Intalling required tools for native build on Ubuntu (click to expand)</summary>
 
-  ```bash
+  ```text
   sudo apt-get update && \
   sudo apt-get upgrade && \
   sudo apt-get install build-essential \
@@ -281,7 +281,7 @@ There is a list of commands you can use to get them: on both Ubuntu and macOS ho
   <details>
   <summary>Intalling required tools for native build on macOS (click to expand)</summary>
 
-  ```bash
+  ```text
   brew update && \
   brew upgrade && \
   brew install bash \
@@ -302,13 +302,13 @@ There is a list of commands you can use to get them: on both Ubuntu and macOS ho
 
   It's also required to add appropriate paths to the `PATH` environment variable:
 
-  ```bash
+  ```text
   export PATH=$(brew --prefix make)/libexec/gnubin:$(brew --prefix gnu-sed)/libexec/gnubin:$PATH
   ```
 
   and keep it updated, for example by placing the export in the startup script:
 
-  ```bash
+  ```text
   echo 'export PATH=$(brew --prefix make)/libexec/gnubin:$(brew --prefix gnu-sed)/libexec/gnubin:$PATH' >> $HOME/.zshrc
   ```
 
@@ -320,7 +320,7 @@ There is a list of commands you can use to get them: on both Ubuntu and macOS ho
   `fatal error: 'endian.h' file not found`
   please create the symlink to this header by the given command:
 
-  ```bash
+  ```text
   sudo ln -s /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/machine/endian.h /usr/local/include/endian.h
   ```
 
@@ -329,11 +329,11 @@ There is a list of commands you can use to get them: on both Ubuntu and macOS ho
 
 Next, you need to compile the toolchains for all required target architectures:
 
-```bash
+```text
 cd phoenix-rtos-project
 ```
 
-```bash
+```text
 (cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh i386-pc-phoenix ~/toolchains/i386-pc-phoenix)
 (cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh arm-phoenix ~/toolchains/arm-phoenix)
 (cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh riscv64-phoenix ~/toolchains/riscv64-phoenix)
@@ -355,20 +355,20 @@ the `toolchains` directory are broken for some reason. Removing a directory for 
 
 Toolchain binaries should be added to the PATH variable:
 
-```bash
+```text
 export PATH=$PATH:$HOME/toolchains/i386-pc-phoenix/i386-pc-phoenix/bin/:$HOME/toolchains/arm-phoenix/arm-phoenix/bin/:$HOME/toolchains/riscv64-phoenix/riscv64-phoenix/bin/:$HOME/toolchains/sparc-phoenix/sparc-phoenix/bin/
 ```
 
 You should keep the `PATH` variable updated. There are various methods to do that, for example you can place the export
 in `.bashrc` file on `Ubuntu`:
 
-  ```bash
+  ```text
   echo "export PATH=$PATH:$HOME/toolchains/i386-pc-phoenix/i386-pc-phoenix/bin/:$HOME/toolchains/arm-phoenix/arm-phoenix/bin/:$HOME/toolchains/riscv64-phoenix/riscv64-phoenix/bin/:$HOME/toolchains/sparc-phoenix/sparc-phoenix/bin/" >> $HOME/.bashrc
   ```
 
 or in `.zshrc` on macOS:
 
-  ```bash
+  ```text
   echo 'export PATH=$PATH:$HOME/toolchains/i386-pc-phoenix/i386-pc-phoenix/bin/:$HOME/toolchains/arm-phoenix/arm-phoenix/bin/:$HOME/toolchains/riscv64-phoenix/riscv64-phoenix/bin/:$HOME/toolchains/sparc-phoenix/sparc-phoenix/bin/' >> $HOME/.zshrc
   ```
 
@@ -376,7 +376,7 @@ Read more about the Phoenix-RTOS toolchain [here](toolchain.md).
 
 To build a project - provide a `TARGET` via ENV variable:
 
-```bash
+```text
 TARGET=ia32-generic-qemu ./phoenix-rtos-build/build.sh all
 ```
 

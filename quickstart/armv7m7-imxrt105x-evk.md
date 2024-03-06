@@ -1,4 +1,4 @@
-# Running system on `armv7m7-imxrt105x-evk` (NXP i.MX RT105x)
+# Running system on armv7m7-imxrt105x-evk
 
 The version for `armv7m7-imxrt105x-evk` target architecture is temporarily unavailable, because of difficulties in
 clock implementation.

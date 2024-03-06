@@ -1,4 +1,4 @@
-# Running system on `armv7a7-imx6ull-evk` (NXP i.MX 6ULL)
+# Running system on armv7a7-imx6ull-evk
 
 This version is designed for NXP i.MX 6ULL processors with ARM Cortex-A7 core. To launch this version the final disk
 image and loader image should be provided. Images are created as the final artifacts of the `phoenix-rtos-project`
@@ -31,7 +31,7 @@ in `i. MX 6ULL - EVK` will be connected to your host-pc.
 
 - Now you should verify what USB device on your host-pc is connected with the `DEBUG USB` (console). To check that run:
 
-  ```bash
+  ```text
   ls -l /dev/serial/by-id
   ```
 
@@ -43,14 +43,14 @@ in `i. MX 6ULL - EVK` will be connected to your host-pc.
 - When the board is connected to your host-pc, open serial port in terminal using picocom and type the console port
 (in this case USB0)
 
-  ```bash
+  ```text
   picocom -b 115200 --imap lfcrlf /dev/ttyUSB0
   ```
 
   <details>
   <summary>How to get picocom (Ubuntu 20.04)</summary>
 
-  ```bash
+  ```text
   sudo apt-get update && \
   sudo apt-get install picocom
   ```
@@ -79,11 +79,11 @@ the RAM using `psu` (Phoenix Serial Uploader) via `SDP` (Serial Download Protoco
 
 - Change directory to `_boot` and run `psu` as follows:
 
-  ```bash
+  ```text
   cd _boot/armv7a7-imx6ull-evk
   ```
 
-  ```bash
+  ```text
   sudo ./psu plo-ram.sdp
   ```
 
@@ -102,7 +102,7 @@ the RAM using `psu` (Phoenix Serial Uploader) via `SDP` (Serial Download Protoco
 To flash the disk image, first, you need to verify on which port plo USB device has appeared. You can check that using
 `ls` as follows:
 
-```bash
+```text
 ls -l /dev/serial/by-id
 ```
 
@@ -111,7 +111,7 @@ ls -l /dev/serial/by-id
 To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments
 (choose suitable ttyACMx device, in this case, ttyACM0):
 
-```bash
+```text
 sudo ./phoenixd -p /dev/ttyACM0 -b 115200 -s .
 ```
 
@@ -119,7 +119,7 @@ sudo ./phoenixd -p /dev/ttyACM0 -b 115200 -s .
 
 To start copying a file, write the following command in the console with plo interface:
 
-```bash
+```text
 copy usb0 phoenix.disk nor0 0x0 0x0
 ```
 
@@ -152,7 +152,7 @@ interrupted by pressing any key. Then you can exit plo by passing `go!` command.
 
 To get the available command list please type:
 
-```bash
+```text
 help
 ```
 
@@ -160,7 +160,7 @@ help
 
 If you want to get the list of working processes please type:
 
-```bash
+```text
 ps
 ```
 
@@ -168,7 +168,7 @@ ps
 
 To get the table of processes please type:
 
-```bash
+```text
 top
 ```
 

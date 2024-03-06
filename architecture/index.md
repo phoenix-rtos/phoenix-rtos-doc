@@ -1,0 +1,5 @@
+<!-- architecture -->
+
+```{include} architecture.md
+```
+

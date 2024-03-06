@@ -1,4 +1,4 @@
-# Running system on `sparcv8leon3-gr716-mini`
+# Running system on sparcv8leon3-gr716-mini
 
 These instructions describe how to run Phoenix-RTOS on the `sparcv8leon3-gr716-mini` target. Note that the build
 artifacts, including the system image should be provided in the `_boot` directory. If you have not built the system
@@ -21,7 +21,7 @@ The process comes down to a few steps, described below.
 
 First, check on which port the board is connected to the computer. To do this, run the following command:
 
-```bash
+```text
 ls -l /dev/serial/by-id
 ```
 
@@ -30,7 +30,7 @@ ls -l /dev/serial/by-id
 In this case, the debug UART is connected to the `ttyUSB0` port.
 Launch the `GRMON` monitor using the following command:
 
-```bash
+```text
 grmon -uart /dev/ttyUSB0 -baud 115200
 ```
 
@@ -49,32 +49,32 @@ Default CPU clock frequency is 50 MHz.
 
 To load the bootloader (`plo`) to the RAM, run the following commands in the `GRMON` monitor:
 
-```bash
+```text
 load phoenix-rtos-project/_boot/sparcv8leon3-gr716-mini/plo-ram.img 0x31000000
 ```
 
 To verify that the file has been loaded correctly, run the following command:
 
-```bash
+```text
 verify phoenix-rtos-project/_boot/sparcv8leon3-gr716-mini/plo-ram.img 0x31000000
 ```
 
 Set the entry point of the bootloader:
 
-```bash
+```text
 ep 0x31000000
 ```
 
 Open a new terminal window and run the following command:
 
-```bash
+```text
 picocom -b 115200 --imap lfcrlf /dev/ttyUSB2
 ```
 
 This will connect to the `UART2` interface, which is used for the console.
 To start the bootloader, execute the following command in the `GRMON` monitor:
 
-```bash
+```text
 go
 ```
 
@@ -87,14 +87,14 @@ The bootloader interface should appear in the console.
 To flash the disk image, first, you need to verify to which port the `plo` serial interface is connected using the
 following command:
 
-```bash
+```text
 ls -l /dev/serial/by-id
 ```
 
 To provide the disk image to the bootloader, `phoenixd` has to be launched with the following arguments
 (choose suitable ttyUSBx device, in this case, `ttyUSB3`):
 
-```bash
+```text
 sudo ./phoenixd -p /dev/ttyUSB3 -b 115200 -s .
 ```
 
@@ -102,7 +102,7 @@ sudo ./phoenixd -p /dev/ttyUSB3 -b 115200 -s .
 
 To start copying a file, write the following command in the console with the `plo` interface:
 
-```bash
+```text
 copy uart3 phoenix.disk flash0 0x0 0x0
 ```
 
@@ -120,7 +120,7 @@ console, as shown below:
 In this case, the file should be written to the address `0xffcb20`. To do this, write the following command in the
 console with the `plo` interface:
 
-```bash
+```text
 copy uart3 plo.bch flash0 0xffcb20 0x0
 ```
 
@@ -137,7 +137,7 @@ After reboot, Phoenix-RTOS will be launched and the `psh` shell command prompt w
 
 To get the available command list type:
 
-```bash
+```text
 help
 ```
 
@@ -145,7 +145,7 @@ help
 
 To get the list of working processes type:
 
-```bash
+```text
 ps
 ```
 

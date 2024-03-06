@@ -6,7 +6,7 @@ HAL for RISCV64 architecture is located in `src/hal/riscv64`.
 
 Kernel execution starts from `_start` symbol located in `_init.S` file.
 
-```assembler
+```asm
     _start:
         /* Mask all interrupts */
         csrw sie, zero
@@ -18,18 +18,20 @@ Kernel execution starts from `_start` symbol located in `_init.S` file.
 
 First instructions mask interrupts and disable FPU.
 
-```assembler
+```asm
         /* Initialize syspage */
         la a0, syspage
         la t0, pmap_common
-        li t1,  3 * SIZE_PAGE + SIZE_PAGE + SIZE_PAGE /* pdirs + stack + heap */
+        li t1,  3 * SIZE_PAGE /* pdirs */
+	addi t1, t1, SIZE_PAGE /* stack */
+	addi t1, t1, SIZE_PAGE /* heap */
         add t0, t0, t1
         sd t0, (a0)
 ```
 
 The next step is setting the `syspage` pointer.
 
-```assembler
+```asm
         call dtb_parse
 ```
 
@@ -37,13 +39,13 @@ The hardware configuration is passed to kernel using Device Tree Blob (DTB). Poi
 DTB parser extracts information necessary to kernel from tree and stores it in kernel structure. It could be used
 later by other components using `dtb_` functions.
 
-```assembler
+```asm
         call _pmap_preinit
 ```
 
 After evaluating hardware configuration initial kernel page tables are initialized.
 
-```assembler
+```asm
         li a1, VADDR_KERNEL
         la a0, _start
         li t0, 0xffffffffc0000000
@@ -53,10 +55,11 @@ After evaluating hardware configuration initial kernel page tables are initializ
 
 The relocation offset is calculated.
 
-```assembler
+```asm
         /* Relocate stack */
         la sp, pmap_common
-        li t0, 3 * SIZE_PAGE + SIZE_PAGE              /* pdirs + stack */
+        li t0, 3 * SIZE_PAGE /* pdirs */
+	addli t0, t0, SIZE_PAGE /* stack */
         add sp, sp, t0
         add sp, sp, a1
 
@@ -69,7 +72,7 @@ The relocation offset is calculated.
 
 And relocation of stack and syspage is performed.
 
-```assembler
+```asm
         /* Point stvec to virtual address of intruction after satp write */
         la a0, 1f
         add a0, a0, a1
@@ -82,12 +85,11 @@ And relocation of stack and syspage is performed.
 
         sfence.vma
         csrw sptbr, a0
-    1:
 ```
 
 The above sequence enables paging and pass execution to proper virtual address by setting the trap vector.
 
-```assembler
+```asm
         /* Add dummy page fault trap handler */
         la a0, .Lsecondary_park
         csrw stvec, a0
