@@ -98,5 +98,3 @@ ends with one or more trailing / characters and the last path name component nam
 directory nor a symbolic link to a directory.
 
 [`EROFS`] - the name would reside on a read-only file system.
-
-## Tests

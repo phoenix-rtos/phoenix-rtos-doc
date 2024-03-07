@@ -121,8 +121,6 @@ endthread,
 [`getaddrinfo`](./g/getaddrinfo.part-impl.md), <!-- updated -->
 [`getc`](./g/getc.part-impl.md), <!-- updated -->
 [`getc_unlocked`](./p/putchar_unlocked.part-impl.md), <!-- updated -->
-[`getchar`](./g/getchar.part-impl.md), <!-- updated -->
-[`getchar_unlocked`](./p/putchar_unlocked.part-impl.md), <!-- updated -->
 [`getcwd`](./g/getcwd.part-impl.md), <!-- updated -->
 [`getdelim`](./g/getline.part-impl.md), <!-- updated -->
 [`getegid`](./g/getegid.part-impl.md), <!-- updated -->
@@ -236,7 +234,6 @@ portRegister,
 [`pow`](./p/pow.part-impl.md), <!-- updated -->
 [`printf`](./p/printf.part-impl.md), <!-- updated -->
 [`putc`](./p/putc.part-impl.md), <!-- updated -->
-[`putc_unlocked`](./p/putchar_unlocked.part-impl.md), <!-- updated -->
 [`putchar`](./p/putchar.part-impl.md), <!-- updated -->
 [`putchar_unlocked`](./p/putchar_unlocked.part-impl.md), <!-- updated -->
 [`putenv`](./p/putenv.part-impl.md), <!-- updated -->
@@ -292,7 +289,6 @@ resourceDestroy,
 [`scanf`](./f/fscanf.part-impl.md), <!-- updated -->
 [`stat`](./s/stat.part-impl.md), <!-- updated -->
 [`sterror`](./s/sterror.md),
-[`stime`](./s/stime.md),
 [`strcat`](./s/strcat.part-impl.md), <!-- updated -->
 [`strchr`](./s/strchr.part-impl.md), <!-- updated -->
 [`strcmp`](./s/strcmp.part-impl.md), <!-- updated -->
