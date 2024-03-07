@@ -1,5 +1,7 @@
 <!-- Documentation template to fill -->
-# Synopsis
+# usleep
+
+## Synopsis
 
 `#include <unistd.h>`
 

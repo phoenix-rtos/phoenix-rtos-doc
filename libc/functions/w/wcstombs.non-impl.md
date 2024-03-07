@@ -1,5 +1,7 @@
 <!-- Documentation template to fill -->
-# Synopsis
+# wcstombs
+
+## Synopsis
 
 `#include <stdlib.h>`
 

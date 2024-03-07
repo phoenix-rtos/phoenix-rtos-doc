@@ -1,5 +1,7 @@
 <!-- Documentation template to fill -->
-# Synopsis
+# wcslen
+
+## Synopsis
 
 `#include <wchar.h>`
 

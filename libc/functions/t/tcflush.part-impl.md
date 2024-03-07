@@ -1,5 +1,7 @@
 <!-- Documentation template to fill -->
-# Synopsis
+# tcflush
+
+## Synopsis
 
 `#include <termios.h>`</br>
 

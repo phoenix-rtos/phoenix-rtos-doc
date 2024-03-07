@@ -1,5 +1,7 @@
 <!-- Documentation template to fill -->
-# Synopsis
+# utimes
+
+## Synopsis
 
 `#include <sys/stat.h>`
 

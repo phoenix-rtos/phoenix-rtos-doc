@@ -1,5 +1,7 @@
 <!-- Documentation template to fill -->
-# Synopsis
+# tcdrain
+
+## Synopsis
 
 `#include <termios.h>`
 

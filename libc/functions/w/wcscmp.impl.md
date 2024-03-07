@@ -1,5 +1,7 @@
 <!-- Documentation template to fill -->
-# Synopsis
+# wcscmp
+
+## Synopsis
 
 `#include <wchar.h>`
 

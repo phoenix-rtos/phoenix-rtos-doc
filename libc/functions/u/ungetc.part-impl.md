@@ -1,6 +1,8 @@
 <!-- Documentation template to fill -->
 <!-- #MUST_BE: make good synopsis -->
-# Synopsis
+# ungetc
+
+## Synopsis
 
 `#include <stdio.h>`
 
