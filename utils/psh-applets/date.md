@@ -1,4 +1,4 @@
-# Date
+# date
 
 The `date` utility provided as a `psh` applet can be used to print or set system date and time.
 

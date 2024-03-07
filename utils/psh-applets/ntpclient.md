@@ -1,4 +1,4 @@
-# Ntpclient
+# ntpclient
 
 The `ntpclient` is a `psh` applet related to networking, which allows to
 set the system's date in UTC from a remote host.

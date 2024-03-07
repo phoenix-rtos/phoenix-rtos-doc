@@ -1,4 +1,4 @@
-# Ls
+# ls
 
 `ls` list files and directories stored in filesystem.
 

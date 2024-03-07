@@ -1,4 +1,4 @@
-# Nc
+# nc
 
 `nc` is a `psh` applet related to networking. It allows for managing TCP and UDP connections and sending data through
 them.

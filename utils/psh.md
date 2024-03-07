@@ -29,42 +29,61 @@ With `-i` option `psh` can execute a script - fixed set of `psh` commands saved 
 
 ## Applets
 
-In `psh`, each command or set of commands is a separate applet, here's a list of the available ones:
+In `psh`, each command or set of commands is a separate applet. The basic usage of the majority of these applets is
+compatible with POSIX standards. For example, `ls` works like the `ls` user command on Ubuntu
+(or other Linux distribution), except for particular arguments that are not supported.
+The Phoenix Shell is in ongoing development, which means its behavior can slightly vary,
+particularly as new features are introduced.
+Here's a list of the available applets:
 
-- `bind` - binds device to directory
+- [`bind`](psh-applets/bind.md) - binds device to directory
 - [`cat`](psh-applets/cat.md) - concatenate file(s) to standard output
 - [`cd`](psh-applets/cd.md)- change working directory
+- [`clear`](psh-applets/clear.md) - clear the terminal screen
 - [`cp`](psh-applets/cp.md)- copy file
 - [`date`](psh-applets/date.md) - print/set the system date
+- [`dd`](psh-applets/dd.md) - copy a file according to the operands
 - [`df`](psh-applets/df.md) - prints filesystem statistics
+- [`dmesg`](psh-applets/dmesg.md) - read kernel ring buffer
 - [`echo`](psh-applets/echo.md) - display a line of text
 - [`edit`](psh-applets/edit.md) - text editor
 - [`exec`](psh-applets/exec.md) - replace shell with the given command
 - [`exit`](psh-applets/exit.md) - exits shell
+- [`export`](psh-applets/export.md) - set and export variables list to environment
 - [`help`](psh-applets/help.md) - prints this help message
 - [`history`](psh-applets/history.md) - prints commands history
-- `kill` - terminates process
+- [`hm`](psh-applets/hm.md) - health monitor, spawns apps and keeps them alive
+- [`ifconfig`](psh-applets/ifconfig.md) - configures network interfaces
+- [`kill`](psh-applets/kill.md) - terminates process
+- [`ln`](psh-applets/ln.md) - make links between files
 - [`ls`](psh-applets/ls.md)- lists files in the namespace
 - [`mem`](psh-applets/mem.md) - prints memory map
 - [`mkdir`](psh-applets/mkdir.md)- creates directory
-- `mount`- mounts a filesystem
+- [`mount`](psh-applets/mount.md) - mounts a filesystem
 - [`nc`](psh-applets/nc.md)- TCP and UDP connections and listens
 - [`nslookup`](psh-applets/nslookup.md)- queries domain name servers
 - [`ntpclient`](psh-applets/ntpclient.md)- set the system's date from a remote host
-- `perf` - track kernel performance events
+- [`perf`](psh-applets/perf.md) - track kernel performance events
 - [`ping`](psh-applets/ping.md) - ICMP ECHO requests
 - [`pm`](psh-applets/pm.md)- monitors processes
+- [`printenv`](psh-applets/printenv.md) - print all or part of environment
 - [`ps`](psh-applets/ps.md)- prints processes and threads
 - [`pshapp`](psh-applets/pshapp.md) - delivers `psh` interpreter, `exit`, `pshlogin` and `history` commands
 - [`pshlogin`](psh-applets/pshlogin.md) - launches `psh` with user authentication
 - [`pwd`](psh-applets/pwd.md)- prints the name of current working directory
-- `reboot` - restarts the machine
-- `sync` - synchronizes device
+- [`reboot`](psh-applets/reboot.md) - restarts the machine
+- [`reset`](psh-applets/reset.md) - restore terminal from abnormal state
+- [`rm`](psh-applets/rm.md) - unlink files or remove empty directorie
+- [`rmdir`](psh-applets/rmdir.md) - remove empty directories
+- [`sync`](psh-applets/sync.md) - synchronizes device
 - [`sysexec`](psh-applets/sysexec.md) - launch program from syspage using given map
 - [`top`](psh-applets/top.md) - top utility
 - [`touch`](psh-applets/touch.md)- changes file timestamp
+- [`tty`](psh-applets/tty.md) - print or replace interactive shell tty device
 - [`umount`](psh-applets/umount.md) - unmount a filesystem
+- [`unset`](psh-applets/unset.md) - unset list of environment variables
 - [`uptime`](psh-applets/uptime.md) - prints how long the system has been running
+- [`wget`](psh-applets/wget.md) - downloads a file using http
 - [`/`](psh-applets/runfile.md)- executes a file
 
 ## Executing

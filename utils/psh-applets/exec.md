@@ -1,4 +1,4 @@
-# Exec
+# exec
 
 `exec` applet provides a way to execute a command/executable file. The shell from which it is run is replaced with that
 file.

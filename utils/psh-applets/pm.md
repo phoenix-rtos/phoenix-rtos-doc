@@ -1,4 +1,4 @@
-# Pm
+# pm
 
 `pm` monitors all processes that has been started before `pm`.
 

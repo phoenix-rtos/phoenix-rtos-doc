@@ -1,4 +1,4 @@
-# Echo
+# echo
 
 The `echo` utility provided as a `psh` applet can be used to print a line of text to standard output.
 

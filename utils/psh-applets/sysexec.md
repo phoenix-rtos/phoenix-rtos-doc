@@ -1,4 +1,4 @@
-# Sysexec
+# sysexec
 
 `sysexec` is a `psh` utility to run programs on systems without MMU.
 

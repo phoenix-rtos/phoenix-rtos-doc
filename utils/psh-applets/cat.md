@@ -1,4 +1,4 @@
-# Cat
+# cat
 
 The `cat` utility provided as a `psh` applet can be used to concatenate files and print their content to standard
 output.
