@@ -1,4 +1,4 @@
-# Df
+# df
 
 The `df` utility prints mounted filesystem statistics (disk space/inodes usage).
 

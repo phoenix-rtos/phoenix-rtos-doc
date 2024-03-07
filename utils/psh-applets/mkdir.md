@@ -1,4 +1,4 @@
-# Mkdir
+# mkdir
 
 `mkdir` is a utility that creates a directory.
 

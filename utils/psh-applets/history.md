@@ -1,4 +1,4 @@
-# History
+# history
 
 `history` prints the history of entered commands.
 

@@ -1,4 +1,4 @@
-# Mem
+# mem
 
 `mem` is a utility tool that provides detailed information about the current status of memory maps and paging.
 In general, a memory map is a structure of data that indicates how memory is arranged. In different contexts, the term

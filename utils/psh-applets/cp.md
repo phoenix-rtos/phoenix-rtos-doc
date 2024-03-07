@@ -1,4 +1,4 @@
-# Cp
+# cp
 
 The `cp` utility provided as a `psh` applet can be used to copy files.
 

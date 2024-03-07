@@ -1,4 +1,4 @@
-# Top
+# top
 
 `top` is a real time processes and threads monitor which lists basic information about currently active processes.
 

@@ -1,4 +1,4 @@
-# Cd
+# cd
 
 The `cd` command provided as a `psh` applet can be used to change the current working directory.
 
