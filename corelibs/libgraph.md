@@ -72,15 +72,20 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
 `libgraph` functions take _`graph`_ argument which is a pointer to `graph_t` structure initialized by
 `graph_open()`. `graph_adapter_t` is an enum used to distinguish between different graphics adapters.
 
-- `int graph_init(void)`
+- `graph_init` - Initializes the graphics library and all required drivers.
 
-  Initializes the graphics library and all required drivers.
+  ```C
+  int graph_init(void)
+  ```
 
-- `int graph_open(graph_t *graph, graph_adapter_t adapter, unsigned int mem)`
+- `graph_open` - Initializes the `graph_t` structure and opens a context for the specified graphics adapter.
 
-  Initializes the `graph_t` structure and opens a context for the specified graphics adapter. The uninitialized
-  `graph_t` structure should be passed in the _`graph`_ argument and the graphics _`adapter`_ should be chosen from the
-  following list:
+  ```C
+  int graph_open(graph_t *graph, graph_adapter_t adapter, unsigned int mem)
+  ```
+
+  The uninitialized `graph_t` structure should be passed in the _`graph`_ argument and the graphics _`adapter`_
+  should be chosen from the following list:
   - `GRAPH_NONE` - the graphics adapter isn't specified, in this case, the function returns `-ENODEV`
   - `GRAPH_VIRTIOGPU` - generic VirtIO GPU graphics adapter
   - `GRAPH_VGA` - generic VGA graphics adapter
@@ -95,11 +100,16 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
   - `-ENOMEM` - memory allocation for graphics context failed
   - `-ENODEV` - incorrect graphics adapter passed in _`adapter`_
 
-- `int graph_mode(graph_t *graph, graph_mode_t mode, graph_freq_t freq)`
+- `graph_mode` - Sets graphics mode with specified screen refresh rate frequency.
 
-  Sets graphics mode with specified screen refresh rate frequency. The initialized _`graph`_ structure should be passed,
-  and _`mode`_ should be chosen from the `graph_mode_t` enum, and placed in the `graph.h` header. The common graphics
-  modes are presented below:
+  ```C
+  int graph_mode(graph_t *graph, graph_mode_t mode, graph_freq_t freq)
+  ```
+
+  The initialized _`graph`_ structure
+  should be passed, and _`mode`_ should be chosen from the `graph_mode_t` enum, and placed in the `graph.h` header.
+
+  The common graphics modes are presented below:
   - `GRAPH_DEFMODE` - default graphics mode
   - `GRAPH_ON` - display enabled mode
   - `GRAPH_OFF` - display disabled mode
@@ -117,10 +127,14 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
   - `GRAPH_120Hz` - 120Hz refresh rate
   - `GRAPH_360Hz` - 360Hz refresh rate
 
-- `int graph_line(graph_t *graph, unsigned int x, unsigned int y, int dx, int dy, unsigned int stroke, unsigned int
-color, graph_queue_t queue)`
+- `graph_line` - Draws a line for the specified graphics adapter context.
 
-  Draws a line for the specified graphics adapter context. The following arguments should be passed:
+  ```C
+  int graph_line(graph_t *graph, unsigned int x, unsigned int y, int dx, int dy, unsigned int stroke, unsigned int
+  color, graph_queue_t queue)
+  ```
+
+  The following arguments should be passed:
   - _`graph`_ - initialized `graph_t` structure
   - _`x`_ - start point x position, where 0 is the left edge of the screen
   - _`y`_ - start point y position, where 0 is the upper edge of the screen
@@ -148,108 +162,150 @@ color, graph_queue_t queue)`
     - `GRAPH_QUEUE_BOTH` - any queue
     - `GRAPH_QUEUE_DEFAULT` - default queue
 
-- `int graph_rect(graph_t *graph, unsigned int x, unsigned int y, unsigned int dx, unsigned int dy, unsigned int
-color, graph_queue_t queue)`
+- `graph_rect` - Draws a rectangle. Arguments are similar to those in `graph_line()` function. A drawn rectangle will be
+  filled with a specified color.
 
-  Draws a rectangle. Arguments are similar to those in `graph_line()` function. A drawn rectangle will be filled with a
-  specified color.
+  ```C
+  int graph_rect(graph_t *graph, unsigned int x, unsigned int y, unsigned int dx, unsigned int dy, unsigned int
+  color, graph_queue_t queue)
+  ```
 
-- `int graph_fill(graph_t *graph, unsigned int x, unsigned int y, unsigned int color, graph_fill_t type, graph_queue_t
-queue)`
+- `graph_fill` - Fills a closed figure with the color specified in the _`color`_ argument ((_`x`_, _`y`_) should be any
+  point inside the figure to fill).
 
-  Fills a closed figure with the color specified in the _`color`_ argument ((_`x`_, _`y`_) should be any point inside
-  the figure to fill). The following `graph_fill_t` color fill methods are supported:
+  ```C
+  int graph_fill(graph_t *graph, unsigned int x, unsigned int y, unsigned int color, graph_fill_t type, graph_queue_t
+  queue)
+  ```
+
+  The following `graph_fill_t` color fill methods are supported:
   - `GRAPH_FILL_FLOOD` - works like Windows paint bucket tool (floods homogeneous area, all pixels inside the polygon
   with color values same as the one at (_`x`_, _`y`_) flood origin point)
 
   - `GRAPH_FILL_BOUND` - fills the polygon until an edge of the same color as the fill color is found. It can't fill the
   figure with a color different from the figure boundary
 
-- `int graph_print(graph_t *graph, const graph_font_t *font, const char *text, unsigned int x, unsigned int y, unsigned
-char dx, unsigned char dy, unsigned int color, graph_queue_t queue)`
+- `graph_print` - Prints text pointed by the _`text`_ argument. Font data should be passed to `graph_font_t` structure.
+  The example is stored in `gfx` directory in
+  [phoenix-rtos-tests](https://github.com/phoenix-rtos/phoenix-rtos-tests.git) repository (`font.h` file).
+  The remaining arguments are similar to those from the functions above.
 
-  Prints text pointed by the _`text`_ argument. Font data should be passed to `graph_font_t` structure. The example is
-  stored in `gfx` directory in [phoenix-rtos-tests](https://github.com/phoenix-rtos/phoenix-rtos-tests.git)
-  repository (`font.h` file). The remaining arguments are similar to those from the functions above.
+  ```C
+  int graph_print(graph_t *graph, const graph_font_t *font, const char *text, unsigned int x, unsigned int y, unsigned
+  char dx, unsigned char dy, unsigned int color, graph_queue_t queue)
+  ```
 
-- `int graph_move(graph_t *graph, unsigned int x, unsigned int y, unsigned int dx, unsigned int dy, int mx, int my,
-graph_queue_t queue)`
+- `graph_move` - Moves data in the range specified by _`x`_, _`y`_, _`dx`_, _`dy`_ arguments to the following point:
+  (_`x`_ + _`mx`_, _`y`_ + _`my`_).
 
-  Moves data in the range specified by _`x`_, _`y`_, _`dx`_, _`dy`_ arguments to the following point: (_`x`_ + _`mx`_,
-  _`y`_ + _`my`_).
+  ```C
+  int graph_move(graph_t *graph, unsigned int x, unsigned int y, unsigned int dx, unsigned int dy, int mx, int my,
+  graph_queue_t queue)
+  ```
 
-- `graph_copy(graph_t *graph, const void *src, void *dst, unsigned int dx, unsigned int dy, unsigned int srcspan,
-unsigned int dstspan, graph_queue_t queue)`
+- `graph_copy` - Copies a bitmap pointed by the _`src`_ argument into bitmap pointed by the _`dst`_ argument.
+  The area which is copied is limited by a rectangle with _`dx`_ and _`dy`_ dimensions. There should also be
+  specified span arguments, which represent the total width of a source/destination bitmap multiplied by its
+  color depth. When copying some part of a bitmap, _`src`_ should point to the proper element, and the same
+  applies to the destination buffer.
 
-  Copies a bitmap pointed by the _`src`_ argument into bitmap pointed by the _`dst`_ argument. The area which is copied
-  is limited by a rectangle with _`dx`_ and _`dy`_ dimensions. There should also be specified span arguments, which
-  represent the total width of a source/destination bitmap multiplied by its color depth. When copying some part
-  of a bitmap, _`src`_ should point to the proper element, and the same applies to the destination buffer.
+  ```C
+  int graph_copy(graph_t *graph, const void *src, void *dst, unsigned int dx, unsigned int dy, unsigned int srcspan,
+  unsigned int dstspan, graph_queue_t queue)
+  ```
 
-- `int graph_colorset(graph_t *graph, const unsigned char *colors, unsigned char first, unsigned char last)`
+- `graph_colorset` - Sets a color palette used for 8-bit indexed color mode. A color map should be passed in _`cmap`_
+  argument. The range of changing colors is set by passing _`first`_ and _`last`_ arguments. If a set color palette's
+  size is lower than a default one, the remaining colors are the same.
 
-  Sets a color palette used for 8-bit indexed color mode. A color map should be passed in _`cmap`_ argument. The range
-  of changing colors is set by passing _`first`_ and _`last`_ arguments. If a set color palette's size is lower than a
-  default one, the remaining colors are the same.
+  ```C
+  int graph_colorset(graph_t *graph, const unsigned char *colors, unsigned char first, unsigned char last)
+  ```
 
-- `graph_colorget(graph_t *graph, unsigned char *colors, unsigned char first, unsigned char last)`
+- `graph_colorget` - Retrieves a color palette used in 8-bit indexed color mode. The retrieved color map from
+  _`first`_ to _`last`_ element is passed to a buffer pointed by the _`colors`_ argument.
 
-  Retrieves a color palette used in 8-bit indexed color mode. The retrieved color map from _`first`_ to _`last`_
-  element is passed to a buffer pointed by the _`colors`_ argument.
+  ```C
+  int graph_colorget(graph_t *graph, unsigned char *colors, unsigned char first, unsigned char last)
+  ```
 
-- `int graph_cursorset(graph_t *graph, const unsigned char *amask, const unsigned char *xmask, unsigned int bg, unsigned
-int fg)`
-
-  Sets cursor icon, _`amask`_ (`AND` mask) and _`xmask`_ (`XOR` mask) arguments determine the shape of the cursor.
-  Default cursor shape is defined in `cursor.h` header file placed in `gfx` directory in `phoenix-rtos-tests`
-  repository. There is a possibility to pass cursor colors - outline color (`bg` argument) and main color
-  (`fg` argument). The following color format should be applied: `0xAARRGGBB`, where `A` represents alpha, so when it's
-  set to `0xff` 100% opacity is provided. Opacity isn't supported for cirrus graphics adapter
+- `graph_cursorset` - Sets cursor icon, _`amask`_ (`AND` mask) and _`xmask`_ (`XOR` mask) arguments determine the shape
+  of the cursor. Default cursor shape is defined in `cursor.h` header file placed in `gfx` directory in
+  `phoenix-rtos-tests` repository. There is a possibility to pass cursor colors - outline color (`bg` argument) and main
+  color (`fg` argument). The following color format should be applied: `0xAARRGGBB`, where `A` represents alpha, so when
+  it's set to `0xff` 100% opacity is provided. Opacity isn't supported for cirrus graphics adapter
   (default for `ia32-generic-qemu` target)
 
-- `int graph_cursorpos(graph_t *graph, unsigned int x, unsigned int y)`
+  ```C
+  int graph_cursorset(graph_t *graph, const unsigned char *amask, const unsigned char *xmask, unsigned int bg, unsigned
+  int fg)
+  ```
 
-  Sets cursor position.
+- `graph_cursorpos` - Sets cursor position.
 
-- `int graph_cursorshow(graph_t *graph)`
+  ```C
+  int graph_cursorpos(graph_t *graph, unsigned int x, unsigned int y)
+  ```
 
-  Displays cursor.
+- `graph_cursorshow` - Displays cursor.
 
-- `int graph_cursorhide(graph_t *graph)`
+  ```C
+  int graph_cursorshow(graph_t *graph)
+  ```
 
-  Hides cursor.
+- `graph_cursorhide` -  Hides cursor.
 
-- `int graph_commit(graph_t *graph);`
+  ```C
+  int graph_cursorhide(graph_t *graph)
+  ```
 
-  Commits frame buffer changes (flushes frame buffer) in the specified graphics adapter context.
+- `graph_commit` - Commits frame buffer changes (flushes frame buffer) in the specified graphics adapter context.
 
-- `int graph_trigger(graph_t *graph)`
+  ```C
+  int graph_commit(graph_t *graph)
+  ```
 
-  Triggers next task from queue execution.
+- `graph_trigger` - Triggers next task from queue execution.
 
-- `int graph_stop(graph_t *graph, graph_queue_t queue)`
+  ```C
+  int graph_trigger(graph_t *graph)
+  ```
 
-  Disable adding new tasks to specified queue, for a _`graph`_ context.
+- `graph_stop` - Disable adding new tasks to specified queue, for a _`graph`_ context.
 
-- `int graph_tasks(graph_t *graph, graph_queue_t queue)`
+  ```C
+  int graph_stop(graph_t *graph, graph_queue_t queue)
+  ```
 
-  Returns number of tasks in queue.
+- `graph_tasks` - Returns number of tasks in queue.
 
-- `int graph_reset(graph_t *graph, graph_queue_t queue)`
+  ```C
+  int graph_tasks(graph_t *graph, graph_queue_t queue)
+  ```
 
-  Resets task queue.
+- `graph_reset` - Resets task queue.
 
-- `int graph_vsync(graph_t *graph)
+  ```C
+  int graph_reset(graph_t *graph, graph_queue_t queue)
+  ```
 
-  Returns number of vertical synchronizations since the last call
+- `graph_vsync` - Returns number of vertical synchronizations since the last call
 
-- `void graph_close(graph_t *graph)`
+  ```C
+  int graph_vsync(graph_t *graph)
+  ```
 
-  Closes a graph context, pointed by _`graph`_.
+- `graph_close` - Closes a graph context, pointed by _`graph`_.
 
-- `void graph_done(void)`
+  ```C
+  void graph_close(graph_t *graph)
+  ```
 
-  Closes the graphics library.
+- `graph_done` - Closes the graphics library.
+
+  ```C
+  void graph_done(void
+  ```
 
 ## How to use the graphics library
 
