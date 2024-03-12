@@ -357,6 +357,7 @@ timeSet,
 [`unsetenv`](./u/unsetenv.part-impl.md) <!-- #updated# -->
 [`usleep`](./u/usleep.part-impl.md), <!-- #updated# -->
 [`utime`](./u/utime.part-impl.md) <!-- #updated# -->
+[`utimes`](./u/utimes.part-impl.md) <!-- #updated# -->
 
 ## v
 
