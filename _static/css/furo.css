@@ -1148,7 +1148,10 @@ summary {
 		img {
 			box-sizing: border-box;
 			height: auto;
-			max-width: 100%
+			max-width: 100%;
+			display: block;    /* Centers the images */
+			margin-left: auto;
+			margin-right: auto
 		}
 		article .figure, article figure {
 			border-radius: .2rem;
