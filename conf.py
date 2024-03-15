@@ -45,7 +45,7 @@ html_theme_options = {
 	"sidebar-caption-font-size": "100%",
 	"sidebar-item-font-size": "90%",
 	"sidebar-item-spacing-vertical": "0.4rem",
-	"sidebar-item-line-height": "0.85rem",
+	"sidebar-item-line-height": "1.1rem",
 	"sidebar-search-space-above": "0.1rem",
 	"sidebar-caption-space-above": "0.1rem",
 	"sidebar-tree-space-above": "0.5rem",

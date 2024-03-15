@@ -196,14 +196,14 @@ summary {
 		--admonition-title-font-size: 0.8125rem;
 		--code-font-size: var(--font-size--small--2);
 		--api-font-size: var(--font-size--small);
-		--header-height: calc(var(--sidebar-item-line-height) + var(--sidebar-item-spacing-vertical)*4);
+		--header-height: calc(var(--sidebar-item-line-height) + var(--sidebar-item-spacing-vertical) * 4);
 		--header-padding: 0.5rem;
 		--sidebar-tree-space-above: 1.5rem;
 		--sidebar-caption-space-above: 1rem;
 		--sidebar-item-line-height: 1rem;
 		--sidebar-item-spacing-vertical: 0.5rem;
 		--sidebar-item-spacing-horizontal: 1rem;
-		--sidebar-item-height: calc(var(--sidebar-item-line-height) + var(--sidebar-item-spacing-vertical)*2);
+		--sidebar-item-height: calc(var(--sidebar-item-line-height) + var(--sidebar-item-spacing-vertical) * 2);
 		--sidebar-expander-width: var(--sidebar-item-height);
 		--sidebar-search-space-above: 0.5rem;
 		--sidebar-search-input-spacing-vertical: 0.5rem;
@@ -223,32 +223,32 @@ summary {
 		--icon-question: url('data: image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m15.07 11.25-.9.92C13.45 12.89 13 13.5 13 15h-2v-.5c0-1.11.45-2.11 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41a2 2 0 0 0-2-2 2 2 0 0 0-2 2H8a4 4 0 0 1 4-4 4 4 0 0 1 4 4 3.2 3.2 0 0 1-.93 2.25M13 19h-2v-2h2M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10c0-5.53-4.5-10-10-10z"/></svg>');
 		--icon-warning: url('data: image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 14h-2v-4h2m0 8h-2v-2h2M1 21h22L12 2 1 21z"/></svg>');--icon-failure: url('data: image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2c5.53 0 10 4.47 10 10s-4.47 10-10 10S2 17.53 2 12 6.47 2 12 2m3.59 5L12 10.59 8.41 7 7 8.41 10.59 12 7 15.59 8.41 17 12 13.41 15.59 17 17 15.59 13.41 12 17 8.41 15.59 7z"/></svg>');
 		--icon-spark: url('data: image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m11.5 20 4.86-9.73H13V4l-5 9.73h3.5V20M12 2c2.75 0 5.1 1 7.05 2.95C21 6.9 22 9.25 22 12s-1 5.1-2.95 7.05C17.1 21 14.75 22 12 22s-5.1-1-7.05-2.95C3 17.1 2 14.75 2 12s1-5.1 2.95-7.05C6.9 3 9.25 2 12 2z"/></svg>');--color-admonition-title--caution:#ff9100;
-		--color-admonition-title-background--caution:rgba(255,145,0,.2);
+		--color-admonition-title-background--caution:rgba(255, 145, 0, .2);
 		--color-admonition-title--warning:#ff9100;
-		--color-admonition-title-background--warning:rgba(255,145,0,.2);
+		--color-admonition-title-background--warning:rgba(255, 145, 0, .2);
 		--color-admonition-title--danger:#ff5252;
-		--color-admonition-title-background--danger:rgba(255,82,82,.2);
+		--color-admonition-title-background--danger:rgba(255, 82, 82, .2);
 		--color-admonition-title--attention:#ff5252;
-		--color-admonition-title-background--attention:rgba(255,82,82,.2);
+		--color-admonition-title-background--attention:rgba(255, 82, 82, .2);
 		--color-admonition-title--error:#ff5252;
-		--color-admonition-title-background--error:rgba(255,82,82,.2);
+		--color-admonition-title-background--error:rgba(255, 82, 82, .2);
 		--color-admonition-title--hint:#00c852;
-		--color-admonition-title-background--hint:rgba(0,200,82,.2);
+		--color-admonition-title-background--hint:rgba(0, 200, 82, .2);
 		--color-admonition-title--tip:#00c852;
-		--color-admonition-title-background--tip:rgba(0,200,82,.2);
+		--color-admonition-title-background--tip:rgba(0, 200, 82, .2);
 		--color-admonition-title--important:#00bfa5;
-		--color-admonition-title-background--important:rgba(0,191,165,.2);
+		--color-admonition-title-background--important:rgba(0, 191, 165, .2);
 		--color-admonition-title--note:#00b0ff;
-		--color-admonition-title-background--note:rgba(0,176,255,.2);
+		--color-admonition-title-background--note:rgba(0, 176, 255, .2);
 		--color-admonition-title--seealso:#448aff;
-		--color-admonition-title-background--seealso:rgba(68,138,255,.2);
+		--color-admonition-title-background--seealso:rgba(68, 138, 255, .2);
 		--color-admonition-title--admonition-todo:grey;
-		--color-admonition-title-background--admonition-todo:hsla(0,0%,50%,.2);
+		--color-admonition-title-background--admonition-todo:hsla(0, 0%, 50%, .2);
 		--color-admonition-title:#651fff;
-		--color-admonition-title-background:rgba(101,31,255,.2);
+		--color-admonition-title-background:rgba(101, 31, 255, .2);
 		--icon-admonition-default:var(--icon-abstract);
 		--color-topic-title:#14b8a6;
-		--color-topic-title-background:rgba(20,184,166,.2);
+		--color-topic-title-background:rgba(20, 184, 166, .2);
 		--icon-topic-default:var(--icon-pencil);
 		--color-problematic:#b30000;
 		--color-foreground-primary:#000;
@@ -551,7 +551,7 @@ summary {
 		width: 16em
 	}.sidebar-container, .toc-drawer {
 		box-sizing: border-box;
-		width: 15em
+		width: 17em
 	}.toc-drawer {
 		background: var(--color-toc-background);
 		padding-right: 1rem;
@@ -634,7 +634,7 @@ summary {
 		height: 1.5rem;
 		width: 1.5rem
 	}.content-icon-container {
-		display: flex;
+		display: none;
 		float: right;
 		gap: .5rem;
 		margin-bottom: 1rem;
@@ -1005,7 +1005,7 @@ summary {
 		}.toctree-wrapper.compound>ul {
 			margin-bottom: 0;
 			margin-top: 0
-		}.sig-inline,code.literal {
+		}.sig-inline, code.literal {
 			background: var(--color-inline-code-background);
 			border-radius: .2em;
 			font-size: var(--font-size--small--2);
@@ -1015,7 +1015,7 @@ summary {
 			font-size: inherit;
 			padding: 0
 		}
-		p .sig-inline,p code.literal {
+		p .sig-inline, p code.literal {
 			border: 1px solid var(--color-background-border)
 		}.sig-inline {
 			font-family: var(--font-stack--monospace)
@@ -1187,6 +1187,41 @@ summary {
 			margin-bottom: 0;
 			margin-top: 0
 		}
+		article ol li ul li {
+			list-style: disc
+		}.wy-breadcrumbs {
+			*zoom: 1
+		}.wy-breadcrumbs:after, .wy-breadcrumbs:before {
+			display: table;
+			content: ""
+		}.wy-breadcrumbs:after {
+			clear: both
+		}.wy-breadcrumbs>li {
+			display: inline-block;
+			padding-top: 5px
+		}.wy-breadcrumbs>li.wy-breadcrumbs-aside {
+			float: right
+		}.rst-content .wy-breadcrumbs>li code, .rst-content .wy-breadcrumbs>li tt, .wy-breadcrumbs>li .rst-content tt, .wy-breadcrumbs>li code {
+			all: inherit;
+			color: inherit
+		}.breadcrumb-item:before {
+			content: "/";
+			color:#bbb;
+			font-size: 13px;
+			padding: 0 6px 0 3px
+		}.wy-breadcrumbs-extra {
+			margin-bottom: 0;
+			color:#b3b3b3;
+			font-size: 80%;
+			display: inline-block
+		}@media screen and (max-width: 480px) {
+			.wy-breadcrumbs-extra, .wy-breadcrumbs li.wy-breadcrumbs-aside {
+				display: none}
+		}@media print {
+			.wy-breadcrumbs li.wy-breadcrumbs-aside {
+				display: none
+			}
+		}
 		ol, ul {
 			margin-bottom: 1rem;
 			margin-top: 1rem;
@@ -1217,7 +1252,7 @@ summary {
 		}
 		ol.upperroman {
 			list-style: upper-roman
-		}.simple li>ol,.simple li>ul, .toctree-wrapper li>ol,.toctree-wrapper li>ul {
+		}.simple li>ol, .simple li>ul, .toctree-wrapper li>ol, .toctree-wrapper li>ul {
 			margin-bottom: 0;
 			margin-top: 0
 		}.field-list dt, .option-list dt, dl.footnote dt, dl.glossary dt, dl.simple dt, dl:not([class]) dt {
@@ -1233,7 +1268,7 @@ summary {
 		}.field-list dd ul, .field-list dd>p:first-child, .option-list dd ul, .option-list dd>p:first-child, dl.footnote dd ul, dl.footnote dd>p:first-child, dl.glossary dd ul,
 		dl.glossary dd>p:first-child, dl.simple dd ul, dl.simple dd>p:first-child, dl:not([class]) dd ul, dl:not([class]) dd>p:first-child {
 			margin-top: .125rem
-		}.field-list dd ul,.option-list dd ul,dl.footnote dd ul,dl.glossary dd ul,dl.simple dd ul,dl:not([class]) dd ul {
+		}.field-list dd ul,.option-list dd ul, dl.footnote dd ul, dl.glossary dd ul, dl.simple dd ul, dl:not([class]) dd ul {
 			margin-bottom: .125rem
 		}.math-wrapper {
 			overflow-x: auto;
@@ -1525,6 +1560,8 @@ summary {
 				background: var(--color-sidebar-search-background);
 				display: flex;
 				margin-top: var(--sidebar-search-space-above);
+				margin-left: 1rem;
+				margin-right: 1rem;
 				position: relative
 			}.sidebar-search-container:focus-within, .sidebar-search-container:hover {
 				background: var(--color-sidebar-search-background--focus)
@@ -1574,6 +1611,7 @@ summary {
 				padding: 0
 			}.sidebar-tree li {
 				margin: 0;
+				line-height: 1px;
 				position: relative
 			}.sidebar-tree li>ul {
 				margin-left: var(--sidebar-item-spacing-horizontal)
@@ -1581,7 +1619,6 @@ summary {
 				color: var(--color-sidebar-link-text)
 			}.sidebar-tree .reference {
 				box-sizing: border-box;
-				display: inline-block;
 				height: 100%;
 				line-height: var(--sidebar-item-line-height);
 				overflow-wrap: anywhere;
@@ -1611,7 +1648,7 @@ summary {
 				-moz-user-select: none;
 				user-select: none;
 				width: var(--sidebar-expander-width)
-			}.sidebar-tree .caption,.sidebar-tree :not(.caption)>.caption-text {
+			}.sidebar-tree .caption, .sidebar-tree :not(.caption)>.caption-text {
 				color: var(--color-sidebar-caption-text);
 				font-size: var(--sidebar-caption-font-size);
 				font-weight: 700;
@@ -1619,8 +1656,10 @@ summary {
 				padding: var(--sidebar-item-spacing-vertical) var(--sidebar-item-spacing-horizontal);
 				text-transform: uppercase
 			}.sidebar-tree li.has-children>.reference {
-				padding-right: var(--sidebar-expander-width)
-			}.sidebar-tree .toctree-l1>.reference,.sidebar-tree .toctree-l1>label .icon {
+				padding-right: var(--sidebar-expander-width);
+			}.sidebar-tree li.has-children>.reference {
+				padding-right: var(--sidebar-expander-width);
+			}.sidebar-tree .toctree-l1>.reference, .sidebar-tree .toctree-l1>label .icon {
 				color: var(--color-sidebar-link-text--top-level)
 			}.sidebar-tree label {
 				background: var(--color-sidebar-item-expander-background)
