@@ -30,7 +30,7 @@ myst_heading_anchors = 3
 
 html_title = ''
 html_theme = 'furo'
-html_css_files = ['css/furo-phoenix.css', 'css/furo-extensions-phoenix.css']
+html_css_files = ['css/furo.css', 'css/furo-extensions.css']
 html_static_path = ['_static']
 html_theme_options = {
     "light_logo": "light_logo.png",
