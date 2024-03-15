@@ -334,30 +334,31 @@ html body .only-dark {
 	display: none !important
 }@media not print {
 	body[data-theme=dark] {
-		--color-problematic:#ee5151;
-		--color-foreground-primary:#ffffffcc;
-		--color-foreground-secondary:#9ca0a5;
-		--color-foreground-muted:#81868d;
-		--color-foreground-border:#666;
-		--color-background-primary:#131416;
-		--color-background-secondary:#1a1c1e;
-		--color-background-hover:#1e2124;
-		--color-background-hover--transparent:#1e212400;
-		--color-background-border:#303335;
-		--color-background-item:#444;
+		/* dark mode disabled */
+		--color-problematic:#b30000;
+		--color-foreground-primary:#000;
+		--color-foreground-secondary:#5a5c63;
+		--color-foreground-muted:#646776;
+		--color-foreground-border:#878787;
+		--color-background-primary:#fff;
+		--color-background-secondary:#f8f9fb;
+		--color-background-hover:#efeff4;
+		--color-background-hover--transparent:#efeff400;
+		--color-background-border:#eeebee;
+		--color-background-item:#ccc;
 		--color-announcement-background:#000000dd;
 		--color-announcement-text:#eeebee;
-		--color-brand-primary:#2b8cee;
-		--color-brand-content:#368ce2;
-		--color-highlighted-background:#083563;
-		--color-guilabel-background:#08356380;
-		--color-guilabel-border:#13395f80;
-		--color-api-keyword: var(--color-foreground-secondary);
-		--color-highlight-on-target:#330;
-		--color-admonition-background:#18181a;
+		--color-brand-primary:#2962ff;
+		--color-brand-content:#2a5adf;
+		--color-highlighted-background:#def;
+		--color-guilabel-background:#ddeeff80;
+		--color-guilabel-border:#bedaf580;
+		--color-api-keyword: var(--color-foreground-primary);
+		--color-highlight-on-target:#ffc;
+		--color-admonition-background: transparent;
 		--color-card-border: var(--color-background-secondary);
-		--color-card-background:#18181a;
-		--color-card-marginals-background: var(--color-background-hover)
+		--color-card-background: transparent;
+		--color-card-marginals-background: var(--color-background-secondary)
 	}
 	
 	html body[data-theme=dark] .only-light {
@@ -368,30 +369,31 @@ html body .only-dark {
 		display: block !important
 	}@media(prefers-color-scheme: dark) {
 		body:not([data-theme=light]) {
-			/* --color-problematic:#ee5151;
-			--color-foreground-primary:#ffffffcc;
-			--color-foreground-secondary:#9ca0a5;
-			--color-foreground-muted:#81868d;
-			--color-foreground-border:#666;
-			--color-background-primary:#131416;
-			--color-background-secondary:#1a1c1e;
-			--color-background-hover:#1e2124;
-			--color-background-hover--transparent:#1e212400;
-			--color-background-border:#303335;
-			--color-background-item:#444;
+			/* dark mode disabled */
+			--color-problematic:#b30000;
+			--color-foreground-primary:#000;
+			--color-foreground-secondary:#5a5c63;
+			--color-foreground-muted:#646776;
+			--color-foreground-border:#878787;
+			--color-background-primary:#fff;
+			--color-background-secondary:#f8f9fb;
+			--color-background-hover:#efeff4;
+			--color-background-hover--transparent:#efeff400;
+			--color-background-border:#eeebee;
+			--color-background-item:#ccc;
 			--color-announcement-background:#000000dd;
 			--color-announcement-text:#eeebee;
-			--color-brand-primary:#2b8cee;
-			--color-brand-content:#368ce2;
-			--color-highlighted-background:#083563;
-			--color-guilabel-background:#08356380;
-			--color-guilabel-border:#13395f80;
-			--color-api-keyword: var(--color-foreground-secondary);
-			--color-highlight-on-target:#330;
-			--color-admonition-background:#18181a;
+			--color-brand-primary:#2962ff;
+			--color-brand-content:#2a5adf;
+			--color-highlighted-background:#def;
+			--color-guilabel-background:#ddeeff80;
+			--color-guilabel-border:#bedaf580;
+			--color-api-keyword: var(--color-foreground-primary);
+			--color-highlight-on-target:#ffc;
+			--color-admonition-background: transparent;
 			--color-card-border: var(--color-background-secondary);
-			--color-card-background:#18181a;
-			--color-card-marginals-background: var(--color-background-hover) */
+			--color-card-background: transparent;
+			--color-card-marginals-background: var(--color-background-secondary)
 		}
 
 		html body:not([data-theme=light]) .only-light {
