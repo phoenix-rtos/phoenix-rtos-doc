@@ -1,11 +1,14 @@
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 html {
-	-webkit-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 60%;
 	line-height: 1.15
 }
 
 body {
+	font-size: 0.94em;
+	line-height: 1.4;
+	font-weight: 400;
 	margin:0
 }
 
@@ -430,7 +433,7 @@ summary {
 	}
 	
 	h1 {
-		font-size: 2.5em;
+		font-size: 1.75em;
 		margin-bottom: 1rem
 	}
 	
@@ -439,25 +442,21 @@ summary {
 	}
 	
 	h2 {
-		font-size: 2em
-	}
-	
-	h3 {
 		font-size: 1.5em
 	}
 	
-	h4 {
+	h3 {
 		font-size: 1.25em
 	}
 	
-	h5 {
+	h4 {
 		font-size: 1.125em
 	}
 	
-	h6 {
+	h5, h6 {
 		font-size: 1em
 	}
-	
+
 	small {
 		font-size: 80%;
 		opacity: 75%
