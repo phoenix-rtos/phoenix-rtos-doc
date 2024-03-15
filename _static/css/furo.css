@@ -22,6 +22,7 @@ h1 {
 }
 
 hr {
+	border-color:#c5ccd3;
 	box-sizing: content-box;
 	height: 0;
 	overflow: visible
