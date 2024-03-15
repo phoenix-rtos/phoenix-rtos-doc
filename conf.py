@@ -35,8 +35,10 @@ html_static_path = ['_static']
 html_theme_options = {
     "light_logo": "light_logo.png",
     "light_css_variables": {
-	"color-sidebar-background": "#F1F3F3",
-	"color-toc-item-text--active": "#EA5B22",
+	"color-sidebar-background": "#0F1724",
+    "color-toc-background": "#F1F3F3",
+	"color-sidebar-search-icon": "#EA5B22",
+	"color-toc-item-text--active": "#F1F3F3", 
 	"color-foreground-primary": "#273149",
 	"color-brand-primary": "#273149",
 	"color-brand-content": "#1890d7",
@@ -51,21 +53,23 @@ html_theme_options = {
 	"sidebar-tree-space-above": "0.5rem",
     },
 
-    "dark_logo": "dark_logo.png",
-    "dark_css_variables": {
-	"color-sidebar-background": "#202020",
-	"color-toc-item-text--active": "#EA5B22",
-	"color-foreground-primary": "#cfd0d0",
-	"color-brand-primary": "#81868d",
+    "dark_logo": "light_logo.png",
+    "light_css_variables": {
+	"color-sidebar-background": "#0F1724",
+    "color-toc-background": "#F1F3F3",
+	"color-sidebar-search-icon": "#EA5B22",
+	"color-toc-item-text--active": "#F1F3F3", 
+	"color-foreground-primary": "#273149",
+	"color-brand-primary": "#273149",
 	"color-brand-content": "#1890d7",
 	"font-stack": "sans-serif",
 	"font-stack--headings": "inherit",
 	"sidebar-caption-font-size": "100%",
-        "sidebar-item-font-size": "90%",
+	"sidebar-item-font-size": "90%",
 	"sidebar-item-spacing-vertical": "0.4rem",
-	"sidebar-item-line-height": "0.85rem",
+	"sidebar-item-line-height": "1.1rem",
 	"sidebar-search-space-above": "0.1rem",
 	"sidebar-caption-space-above": "0.1rem",
 	"sidebar-tree-space-above": "0.5rem",
-    }
+    },
 }

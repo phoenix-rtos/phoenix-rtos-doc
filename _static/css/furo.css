@@ -295,7 +295,7 @@ summary {
 		--color-sidebar-caption-text: var(--color-foreground-muted);
 		--color-sidebar-link-text: var(--color-foreground-secondary);
 		--color-sidebar-link-text--top-level: var(--color-brand-primary);
-		--color-sidebar-item-background: var(--color-sidebar-background);
+		--color-sidebar-item-background: var(--color-toc-background);
 		--color-sidebar-item-background--current: var( --color-sidebar-item-background );
 		--color-sidebar-item-background--hover: linear-gradient (
 			90deg,
@@ -509,7 +509,7 @@ summary {
 		height: .25rem;
 		width: .25rem
 	}.sidebar-scroll::-webkit-scrollbar-thumb, .toc-scroll::-webkit-scrollbar-thumb, article[role=main] ::-webkit-scrollbar-thumb {
-		background-color: var(--color-foreground-border);
+		background-color: #f1f3f3;
 		border-radius: .125rem
 	}
 	
@@ -565,6 +565,7 @@ summary {
 		position: sticky;
 		top: 0
 	}.sidebar-scroll, .toc-scroll {
+		background: #f1f3f3;
 		flex-grow: 1;
 		flex-shrink: 1;
 		overflow: auto;
@@ -1560,10 +1561,12 @@ summary {
 				margin: 0 auto;
 				max-width: 100%
 			}.sidebar-search-container {
+				border-radius: 10px;
 				align-items: center;
 				background: var(--color-sidebar-search-background);
 				display: flex;
 				margin-top: var(--sidebar-search-space-above);
+				margin-bottom: 0.75rem;
 				margin-left: 1rem;
 				margin-right: 1rem;
 				position: relative
@@ -1581,8 +1584,6 @@ summary {
 			}.sidebar-search {
 				background: transparent;
 				border: none;
-				border-bottom: 1px solid var(--color-sidebar-search-border);
-				border-top: 1px solid var(--color-sidebar-search-border);
 				box-sizing: border-box;
 				color: var(--color-sidebar-search-foreground);
 				padding: var(--sidebar-search-input-spacing-vertical) var(--sidebar-search-input-spacing-horizontal) var(--sidebar-search-input-spacing-vertical)
@@ -1630,7 +1631,7 @@ summary {
 				text-decoration: none;
 				width: 100%
 			}.sidebar-tree .reference:hover {
-				background: var(--color-sidebar-item-background--hover)
+				background: #F1F3F3
 			}.sidebar-tree .reference.external:after {
 				color: var(--color-sidebar-link-text);
 				content: url("data:image/svg+xml;charset=utf-8,%3Csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke-width='1.5' stroke='%23607D8B' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M0 0h24v24H0z' stroke='none'/%3E%3Cpath d='M11 7H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-5M10 14 20 4M15 4h5v5'/%3E%3C/svg%3E");
@@ -1666,9 +1667,9 @@ summary {
 			}.sidebar-tree .toctree-l1>.reference, .sidebar-tree .toctree-l1>label .icon {
 				color: var(--color-sidebar-link-text--top-level)
 			}.sidebar-tree label {
-				background: var(--color-sidebar-item-expander-background)
+				background: #F1F3F3
 			}.sidebar-tree label:hover {
-				background: var(--color-sidebar-item-expander-background--hover)
+				background: #F1F3F3
 			}.sidebar-tree .current>.reference {
 				background: var(--color-sidebar-item-background--current);
 				color:#ea5b22;
