@@ -22,10 +22,16 @@ h1 {
 }
 
 hr {
-	border-color:#c5ccd3;
-	box-sizing: content-box;
-	height: 0;
-	overflow: visible
+	display: block;
+	height: 1px;
+	border-right-width: 0px;
+	border-right-style: none;
+	border-left-width: 0px;
+	border-left-style: none;
+	border-bottom-width: 0px;
+	border-bottom-style: none;
+	border-top-width: 1px;
+	border-color: #f1f3f3
 }
 
 pre {
@@ -556,7 +562,7 @@ article {
 	box-sizing: border-box;
 	display: flex;
 	justify-content: flex-start;
-	width: 16em
+	width: 17em
 }.sidebar-container, .toc-drawer {
 	box-sizing: border-box;
 	width: 17em
@@ -733,7 +739,7 @@ article {
 		border-left: none;
 		font-size: var(--toc-font-size--mobile)
 	}.sidebar-drawer {
-		width: calc(50% - 18.5em)
+		width: 17em
 	}
 }@media(max-width: 67em) {
 	.nav-overlay-icon {
@@ -1251,7 +1257,8 @@ article ol li ul li {
 	display: inline-block
 }@media screen and (max-width: 480px) {
 	.wy-breadcrumbs-extra, .wy-breadcrumbs li.wy-breadcrumbs-aside {
-		display: none}
+		display: none
+	}
 }@media print {
 	.wy-breadcrumbs li.wy-breadcrumbs-aside {
 		display: none
@@ -1261,7 +1268,8 @@ article ol li ul li {
 ol, ul {
 	margin-bottom: 1rem;
 	margin-top: 1rem;
-	padding-left: 1.2rem
+	margin-left: 0rem;
+	padding-left: 0rem;
 }
 
 ol li>p:first-child, ul li>p:first-child {

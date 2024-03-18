@@ -19,11 +19,11 @@ extensions = [
     'sphinx_copybutton'
 ]
 
-suppress_warnings = ["myst.header"]
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 myst_heading_anchors = 3
 
+pygments_style = 'css/pygments-phoenix.css'
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
@@ -36,7 +36,7 @@ html_theme_options = {
     "light_logo": "light_logo.png",
     "light_css_variables": {
 	"color-sidebar-background": "#0F1724",
-    "color-toc-background": "#F1F3F3",
+	"color-toc-background": "#F1F3F3",
 	"color-sidebar-search-icon": "#EA5B22",
 	"color-toc-item-text--active": "#F1F3F3", 
 	"color-foreground-primary": "#273149",
@@ -51,6 +51,7 @@ html_theme_options = {
 	"sidebar-search-space-above": "0.1rem",
 	"sidebar-caption-space-above": "0.1rem",
 	"sidebar-tree-space-above": "0.5rem",
+	"sidebar-item-spacing-horizontal": "0.4rem",
     },
 
     "dark_logo": "light_logo.png",
@@ -71,5 +72,6 @@ html_theme_options = {
         "sidebar-search-space-above": "0.1rem",
         "sidebar-caption-space-above": "0.1rem",
         "sidebar-tree-space-above": "0.5rem",
+	"sidebar-item-spacing-horizontal": "0.4rem",
     },
 }
