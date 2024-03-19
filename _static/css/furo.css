@@ -334,6 +334,8 @@ body {
 	--color-link-underline--hover: var(--color-foreground-border);
 	/* custom phoenix variable */
 	--search-bar-padding-horizontal: 0.7rem;
+	--logo-padding-top: 1.5rem;
+	--logo-padding-bottom: 0.5rem;
 	--logo-padding-horizontal: var(--search-bar-padding-horizontal);
 }.only-light {
 	display: block !important
@@ -1633,7 +1635,10 @@ ul.search li {
 	display: flex;
 	flex-direction: column;
 	flex-shrink: 0;
-	padding: var(--sidebar-item-spacing-vertical) var(--logo-padding-horizontal);
+	padding-left: var(--logo-padding-horizontal);
+	padding-right: var(--logo-padding-horizontal);
+	padding-top: var(--logo-padding-top);
+	padding-bottom: var(--logo-padding-bottom); 
 	text-decoration: none
 }.sidebar-brand-text {
 	color: var(--color-sidebar-brand-text);
