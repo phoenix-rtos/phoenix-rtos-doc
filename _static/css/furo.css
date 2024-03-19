@@ -1206,7 +1206,7 @@ article .align-right {
 	margin: 0 1rem 1rem
 }
 
-article .align-center,article .align-default {
+article .align-center, article .align-default {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -1231,7 +1231,10 @@ article table.align-default {
 article ol li ul li {
 	list-style: disc
 }.wy-breadcrumbs {
-	*zoom: 1
+	*zoom: 1;
+	margin-bottom: 0rem;
+	margin-top: 1rem;
+	padding-left: 0rem
 }.wy-breadcrumbs:after, .wy-breadcrumbs:before {
 	display: table;
 	content: ""
@@ -1268,8 +1271,7 @@ article ol li ul li {
 ol, ul {
 	margin-bottom: 1rem;
 	margin-top: 1rem;
-	margin-left: 0rem;
-	padding-left: 0rem;
+	padding-left: 1.2rem
 }
 
 ol li>p:first-child, ul li>p:first-child {
@@ -1499,7 +1501,7 @@ table.docutils td.text-center, table.docutils th.text-center {
 	-moz-user-select: none;
 	user-select: none
 }.code-block-caption>.headerlink, dl dt>.headerlink, figcaption p>.headerlink, h1>.headerlink, h2>.headerlink, h3>.headerlink, h4>.headerlink, h5>.headerlink, h6>.headerlink,
-p.caption>.headerlink,table>caption>.headerlink {
+p.caption>.headerlink, table>caption>.headerlink {
 	margin-left: .5rem;
 	visibility: hidden
 }.code-block-caption:hover>.headerlink, dl dt:hover>.headerlink, figcaption p:hover>.headerlink, h1:hover>.headerlink, h2:hover>.headerlink, h3:hover>.headerlink, h4:hover>.headerlink, h5:hover>.headerlink, h6:hover>.headerlink,p.caption:hover>.headerlink, table>caption:hover>.headerlink {
@@ -1699,7 +1701,13 @@ ul.search li {
 	line-height: 1px;
 	position: relative
 }.sidebar-tree li>ul {
-	margin-left: var(--sidebar-item-spacing-horizontal)
+	margin-left: 0rem;
+}.sidebar-tree .toctree-l1>ul>.toctree-l2>ul>.toctree-l3>ul>.toctree-l4>.reference {
+	padding-left: calc(var(--sidebar-item-spacing-horizontal) * 4)
+}.sidebar-tree .toctree-l1>ul>.toctree-l2>ul>.toctree-l3>.reference {
+	padding-left: calc(var(--sidebar-item-spacing-horizontal) * 3)
+}.sidebar-tree .toctree-l1>ul>.toctree-l2>.reference {
+	padding-left: calc(var(--sidebar-item-spacing-horizontal) * 2)
 }.sidebar-tree .icon, .sidebar-tree .reference {
 	color: var(--color-sidebar-link-text)
 }.sidebar-tree .reference {
@@ -1710,8 +1718,6 @@ ul.search li {
 	padding: var(--sidebar-item-spacing-vertical) var(--sidebar-item-spacing-horizontal);
 	text-decoration: none;
 	width: 100%
-}.sidebar-tree .reference:hover {
-	background: #F1F3F3
 }.sidebar-tree .reference.external:after {
 	color: var(--color-sidebar-link-text);
 	content: url("data:image/svg+xml;charset=utf-8,%3Csvg width='12' height='12' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' stroke-width='1.5' stroke='%23607D8B' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M0 0h24v24H0z' stroke='none'/%3E%3Cpath d='M11 7H6a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2-2v-5M10 14 20 4M15 4h5v5'/%3E%3C/svg%3E");
@@ -1746,9 +1752,39 @@ ul.search li {
 	padding-right: var(--sidebar-expander-width);
 }.sidebar-tree .toctree-l1>.reference, .sidebar-tree .toctree-l1>label .icon {
 	color: var(--color-sidebar-link-text--top-level)
-}.sidebar-tree label {
-	background: #F1F3F3
-}.sidebar-tree label:hover {
+}
+
+.sidebar-tree .toctree-l1>a:hover {
+    background: #ea5b22;
+}.sidebar-tree .toctree-l1>a:hover + input + label {
+    background: #ea5b22;
+}.sidebar-tree .toctree-l1>label:hover {
+    background: #ea5b22;
+}
+
+.sidebar-tree .toctree-l2>a:hover {
+    background: #ea5b22;
+}.sidebar-tree .toctree-l2>a:hover + input + label {
+    background: #ea5b22;
+}.sidebar-tree .toctree-l2>label:hover {
+    background: #ea5b22;
+}
+
+.sidebar-tree .toctree-l3>a:hover {
+    background: #ea5b22;
+}.sidebar-tree .toctree-l3>a:hover + input + label {
+    background: #ea5b22;
+}.sidebar-tree .toctree-l3>label:hover {
+    background: #ea5b22;
+}
+
+.sidebar-tree .toctree-l4>a:hover {
+    background: #ea5b22;
+}.sidebar-tree .toctree-l4>a:hover + input + label {
+    background: #ea5b22;
+}
+
+.sidebar-tree label {
 	background: #F1F3F3
 }.sidebar-tree .current>.reference {
 	background: var(--color-sidebar-item-background--current);
