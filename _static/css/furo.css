@@ -337,6 +337,7 @@ body {
 	--logo-padding-top: 1.5rem;
 	--logo-padding-bottom: 0.5rem;
 	--logo-padding-horizontal: var(--search-bar-padding-horizontal);
+	--search-input-padding-left: 1.85rem
 }.only-light {
 	display: block !important
 }
@@ -1676,8 +1677,8 @@ ul.search li {
 	border: none;
 	box-sizing: border-box;
 	color: var(--color-sidebar-search-foreground);
-	padding: var(--sidebar-search-input-spacing-vertical) var(--sidebar-search-input-spacing-horizontal) var(--sidebar-search-input-spacing-vertical)
-	calc(var(--sidebar-item-spacing-horizontal) + var(--sidebar-search-input-spacing-horizontal) + var(--sidebar-search-icon-size));
+	padding: var(--sidebar-search-input-spacing-vertical) var(--sidebar-search-input-spacing-horizontal)
+			 var(--sidebar-search-input-spacing-vertical) var(--search-input-padding-left);
 	width: 100%;
 	z-index: 10
 }.sidebar-search:focus {
