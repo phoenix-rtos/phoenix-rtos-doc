@@ -86,6 +86,7 @@ the RAM using `psu` (Phoenix Serial Uploader) via `SDP` (Serial Download Protoco
   ```bash
   sudo ./psu plo-ram.sdp
   ```
+![Image](_images/imx6ull-plo-ram.png)
 
 - The plo user interface should appear in the console.
 
