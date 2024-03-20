@@ -30,8 +30,7 @@ hr {
 	border-left-style: none;
 	border-bottom-width: 0px;
 	border-bottom-style: none;
-	border-top-width: 1px;
-	border-color: #f1f3f3
+	border-top: 1px solid #c5ccd3
 }
 
 pre {
