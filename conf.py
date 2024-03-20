@@ -31,6 +31,7 @@ pygments_dark_style = 'phoenix_dark_style.TangoStyle'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_title = ''
+html_favicon = '_images/RTOS_sign.png'
 html_theme = 'furo'
 html_css_files = ['css/furo.css', 'css/furo-extensions.css']
 html_static_path = ['_static']
