@@ -23,7 +23,9 @@ templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 myst_heading_anchors = 3
 
-# pygments_style = 'css/pygments-phoenix.css'
+import sys, os
+sys.path.append(os.path.abspath("./_static"))
+pygments_dark_style = 'phoenix_dark_style.TangoStyle'
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
