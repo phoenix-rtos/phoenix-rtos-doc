@@ -332,9 +332,9 @@ body {
 	--color-link-underline: var(--color-background-border);
 	--color-link-underline--hover: var(--color-foreground-border);
 	/* custom phoenix variable */
-	--search-bar-padding-horizontal: 0.7rem;
-	--logo-padding-top: 1.5rem;
-	--logo-padding-bottom: 0.5rem;
+	--search-bar-padding-horizontal: 1rem;
+	--logo-padding-top: 1.8rem;
+	--logo-padding-bottom: 0.8rem;
 	--logo-padding-horizontal: var(--search-bar-padding-horizontal);
 	--search-input-padding-left: 1.85rem
 }.only-light {
