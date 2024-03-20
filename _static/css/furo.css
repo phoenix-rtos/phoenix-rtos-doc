@@ -644,7 +644,7 @@ article {
 	cursor: pointer;
 	display: none
 }.nav-overlay-icon .icon, .toc-overlay-icon .icon {
-	color: var(--color-foreground-secondary);
+	color: #ea5b22;
 	height: 1rem;
 	width: 1rem
 }.nav-overlay-icon, .toc-header-icon {
@@ -762,12 +762,18 @@ article {
 	}.theme-toggle-header {
 		display: block
 	}.mobile-header {
+		background: #f1f3f3;
 		align-items: center;
 		display: flex;
 		justify-content: space-between;
 		position: sticky;
 		top: 0
-	}.mobile-header .header-left, .mobile-header .header-right {
+	}.mobile-header .header-left {
+		display: flex;
+		height: var(--header-height);
+		padding: 0 var(--header-padding)
+	}
+	.mobile-header .header-right {
 		display: none;
 		height: var(--header-height);
 		padding: 0 var(--header-padding)
