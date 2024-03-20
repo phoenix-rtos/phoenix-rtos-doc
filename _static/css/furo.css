@@ -1732,7 +1732,7 @@ ul.search li {
 	margin: 0 .25rem;
 	vertical-align: middle
 }.sidebar-tree .current-page>.reference {
-	font-weight: 700;
+	font-weight: 500;
 	color:#ea5b22;
 }.sidebar-tree label {
 	align-items: center;
@@ -1764,41 +1764,45 @@ ul.search li {
 
 .sidebar-tree .toctree-l1>a:hover {
     background: #ea5b22;
+	color: white
 }.sidebar-tree .toctree-l1>a:hover + input + label {
-    background: #ea5b22;
+    background: #ea5b22
 }.sidebar-tree .toctree-l1>label:hover {
-    background: #ea5b22;
+    background: #ea5b22
 }
 
 .sidebar-tree .toctree-l2>a:hover {
     background: #ea5b22;
+	color: white
 }.sidebar-tree .toctree-l2>a:hover + input + label {
-    background: #ea5b22;
+    background: #ea5b22
 }.sidebar-tree .toctree-l2>label:hover {
-    background: #ea5b22;
+    background: #ea5b22
 }
 
 .sidebar-tree .toctree-l3>a:hover {
     background: #ea5b22;
+	color: white
 }.sidebar-tree .toctree-l3>a:hover + input + label {
-    background: #ea5b22;
+    background: #ea5b22
 }.sidebar-tree .toctree-l3>label:hover {
-    background: #ea5b22;
+    background: #ea5b22
 }
 
 .sidebar-tree .toctree-l4>a:hover {
     background: #ea5b22;
+	color: white
 }.sidebar-tree .toctree-l4>a:hover + input + label {
-    background: #ea5b22;
+    background: #ea5b22
 }
 
 .sidebar-tree label {
 	background: #F1F3F3
 }.sidebar-tree .current>.reference {
 	background: var(--color-sidebar-item-background--current);
-	color:#ea5b22;
+	color: #ea5b22;
 }.sidebar-tree .current>.reference:hover {
-	background: var(--color-sidebar-item-background--hover)
+	background: #ea5b22
 }.toctree-checkbox {
 	display: none;
 	position: absolute
