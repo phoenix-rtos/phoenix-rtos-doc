@@ -1465,7 +1465,8 @@ table.docutils {
 }
 
 table.docutils th {
-	background: var(--color-table-header-background)
+	background: var(--color-table-header-background);
+	text-align: left
 }
 
 table.docutils td, table.docutils th {
