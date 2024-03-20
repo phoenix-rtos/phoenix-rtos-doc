@@ -1,6 +1,6 @@
-# The Text Editor
+# edit
 
-The plain text editor provided as an applet for `psh` can be used to quickly
+`edit` is the text editor provided as an applet for `psh`, it can be used to quickly
 edit device configuration, remotely edit scripts (like Lua, Python, etc.)
 directly on the device with Phoenix-RTOS or simply to take notes.
 
