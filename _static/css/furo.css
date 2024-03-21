@@ -1739,7 +1739,7 @@ ul.search li {
 	margin: 0 .25rem;
 	vertical-align: middle
 }.sidebar-tree .current-page>.reference {
-	font-weight: 700;
+	font-weight: 500;
 	color:#ea5b22;
 }.sidebar-tree label {
 	align-items: center;
