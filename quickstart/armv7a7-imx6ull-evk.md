@@ -86,6 +86,7 @@ the RAM using `psu` (Phoenix Serial Uploader) via `SDP` (Serial Download Protoco
   ```bash
   sudo ./psu plo-ram.sdp
   ```
+
 ![Image](_images/imx6ull-plo-ram.png)
 
 - The plo user interface should appear in the console.
@@ -146,33 +147,6 @@ appear in the terminal after 2 seconds. If there is a need to enter the bootload
 interrupted by pressing any key. Then you can exit plo by passing `go!` command.
 
 ![Image](_images/imx6ull-start.png)
-
-## Uploading the Phoenix-RTOS system image to RAM
-
-Alternatively Phoenix-RTOS can be run from RAM. In order to place the disk image on the board, `psu` (Phoenix Serial
-Uploader) and the `imx6ull-ram.sdp` (Serial Download Protocol) script should be used.
-
-- Make sure, that the SW602 switch is in the following configuration (serial downloader mode):
-
-  | D1/MODE1 | D2/MODE0 |
-  |-|-|
-  | OFF| ON|
-
-  If it was in a different position you have to restart the board after the change and connect to the serial port a
-  second time.
-
-- Change directory to `_boot/armv7a7-imx6ull-evk` and run `psu` as follows:
-
-  ```bash
-  sudo ./psu ../../phoenix-rtos-hostutils/psu/imx6ull-ram.sdp
-  ```
-
-  ![Image](_images/imx6ull-psu.png)
-
-- If everything has gone correctly, Phoenix-RTOS with the default configuration and the `psh` shell command prompt will
-appear in the terminal.
-
-  ![Image](_images/imx6ull-psh.png)
 
 ## Using Phoenix-RTOS
 
