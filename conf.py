@@ -30,7 +30,7 @@ pygments_dark_style = 'phoenix_dark_style.TangoStyle'
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
-html_title = ''
+html_title = 'Phoenix-RTOS Documentation'
 html_favicon = '_images/RTOS_sign.png'
 html_theme = 'furo'
 html_css_files = ['css/furo.css', 'css/furo-extensions.css']
@@ -54,7 +54,9 @@ html_theme_options = {
 	"sidebar-search-space-above": "0.1rem",
 	"sidebar-caption-space-above": "0.1rem",
 	"sidebar-tree-space-above": "0.5rem",
-	"sidebar-search-input-font-size": "95%"
+	"sidebar-search-input-font-size": "95%",
+	"color-header-text": "white",
+	"color-header-background": "#0F1724"
     },
 
     "dark_logo": "light_logo.png",
@@ -75,6 +77,7 @@ html_theme_options = {
         "sidebar-search-space-above": "0.1rem",
         "sidebar-caption-space-above": "0.1rem",
         "sidebar-tree-space-above": "0.5rem",
-	"sidebar-search-input-font-size": "95%"
+	"sidebar-search-input-font-size": "95%",
+	"color-header-background": "#0F1724"
     },
 }
