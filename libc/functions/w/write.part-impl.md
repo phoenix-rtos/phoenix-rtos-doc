@@ -1,5 +1,7 @@
 <!-- Documentation template to fill -->
-# Synopsis
+# write
+
+## Synopsis
 
 `#include <unistd.h>`
 

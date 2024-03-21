@@ -1,5 +1,7 @@
 <!-- Documentation template to fill -->
-# Synopsis
+# utime
+
+## Synopsis
 
 `#include <utime.h>`
 
