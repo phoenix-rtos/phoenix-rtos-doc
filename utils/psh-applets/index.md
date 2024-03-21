@@ -39,7 +39,6 @@ ping.md
 pm.md
 printenv.md
 ps.md
-psh.md
 pshapp.md
 pshlogin.md
 pwd.md
