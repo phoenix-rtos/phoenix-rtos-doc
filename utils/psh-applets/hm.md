@@ -17,6 +17,6 @@ hm progname1[@argv[0]@argv[1]@...argv[n]] [progname2...]
 
 ## See also
 
-1. [Phoenix-RTOS shell](../psh.md)
+1. [Phoenix-RTOS shell](psh.md)
 2. [Phoenix-RTOS Utilities](../README.md)
 3. [Table of Contents](../../README.md)

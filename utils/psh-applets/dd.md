@@ -53,6 +53,6 @@ dd if=input.dat of=output.dat conv=notrunc
 
 ## See also
 
-1. [Phoenix-RTOS shell](../psh.md)
+1. [Phoenix-RTOS shell](psh.md)
 2. [Phoenix-RTOS Utilities](../README.md)
 3. [Table of Contents](../../README.md)
