@@ -33,7 +33,7 @@ pygments_dark_style = 'phoenix_dark_style.TangoStyle'
 html_title = 'Phoenix-RTOS Documentation'
 html_favicon = '_images/RTOS_sign.png'
 html_theme = 'furo'
-html_css_files = ['css/furo.css', 'css/furo-extensions.css']
+html_css_files = ['css/furo.css', 'css/furo-extensions.css', 'https://fonts.googleapis.com/css?family=Open+Sans%3A400%2C500&display=swap&subset=latin-ext&ver=3.8.2']
 html_static_path = ['_static']
 html_theme_options = {
     "light_logo": "light_logo.png",
@@ -45,8 +45,7 @@ html_theme_options = {
 	"color-foreground-primary": "#273149",
 	"color-brand-primary": "#273149",
 	"color-brand-content": "#1890d7",
-	"font-stack": "sans-serif",
-	"font-stack--headings": "inherit",
+	"font-stack": "'Open Sans', sans-serif",
 	"sidebar-caption-font-size": "100%",
 	"sidebar-item-font-size": "90%",
 	"sidebar-item-spacing-vertical": "0.4rem",
@@ -68,8 +67,7 @@ html_theme_options = {
         "color-foreground-primary": "#273149",
         "color-brand-primary": "#273149",
         "color-brand-content": "#1890d7",
-        "font-stack": "sans-serif",
-        "font-stack--headings": "inherit",
+        "font-stack": "'Open Sans', sans-serif",
         "sidebar-caption-font-size": "100%",
         "sidebar-item-font-size": "90%",
         "sidebar-item-spacing-vertical": "0.4rem",
