@@ -8,6 +8,7 @@
 :maxdepth: 1
 
 hal/index.md
+msg/index.md
 proc/index.md
 vm/index.md
 syscalls/index.md
