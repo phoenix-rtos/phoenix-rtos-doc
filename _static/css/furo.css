@@ -734,7 +734,7 @@ article {
 	display: flex
 }@media(min-width: 97em) {
 	html {
-		font-size: 110%
+		font-size: 100%
 	}
 }@media(max-width: 82em) {
 	.toc-content-icon {
@@ -751,15 +751,70 @@ article {
 	}.sidebar-drawer {
 		width: 17em
 	}
-}@media(max-width: 67em) {
+}
+
+@media(max-width: 67em) and (min-width: 58em) {
 	.nav-overlay-icon {
 		display: flex
 	}.sidebar-drawer {
 		height: 100vh;
-		left: -15em;
+		left: 0;
 		position: fixed;
 		top: 0;
-		width: 15em
+		width: 17em
+	}.toc-header-icon {
+		display: flex
+	}.theme-toggle-content, .toc-content-icon {
+		display: none
+	}.theme-toggle-header {
+		display: block
+	}.mobile-header {
+		background: #273149;
+		align-items: center;
+		display: none;
+		position: sticky;
+		top: 0
+	}.mobile-header .header-center {
+		margin-right: auto;
+		margin-left: auto;
+		height: var(--header-height);
+		padding: 0 var(--header-padding)
+	}.mobile-header .header-left {
+		height: var(--header-height);
+		padding: 0 var(--header-padding)
+	}
+	.mobile-header .header-right {
+		height: var(--header-height);
+		padding: 0 var(--header-padding)
+	}.mobile-header .header-left label, .mobile-header .header-right label {
+		height: 100%;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		user-select: none;
+		width: 100%
+	}.nav-overlay-icon .icon, .theme-toggle svg {
+		height: 1.25rem;
+		width: 1.25rem
+	}:target {
+		scroll-margin-top: var(--header-height)
+	}.back-to-top {
+		top: calc(var(--header-height) + .5rem)
+	}.page {
+		flex-direction: none;
+		justify-content: none
+	}.content {
+		margin-left: 17em;
+		margin-right: 0
+	}
+}@media(max-width: 58em) {
+	.nav-overlay-icon {
+		display: flex
+	}.sidebar-drawer {
+		height: 100vh;
+		left: -17em;
+		position: fixed;
+		top: 0;
+		width: 17em
 	}.toc-header-icon {
 		display: flex
 	}.theme-toggle-content, .toc-content-icon {
@@ -805,7 +860,8 @@ article {
 		margin-left: auto;
 		margin-right: auto
 	}
-}@media(max-width: 52em) {
+}
+@media(max-width: 52em) {
 	.content {
 		overflow-x: auto;
 		width: 100%
