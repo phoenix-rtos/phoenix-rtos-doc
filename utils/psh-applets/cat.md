@@ -7,14 +7,14 @@ output.
 
 If used with `-h` parameter it prints the help message with possible arguments and parameters as follows:
 
-```bash
+```text
 Usage: cat [options] [files]
   -h:  shows this help message
 ```
 
 To print a file using `cat` the filename must be specified as an argument. Following command:
 
-```bash
+```text
 cat file1 file2
 ```
 
@@ -23,5 +23,5 @@ The command above will concatenate and print files `file1` and `file2` (in that 
 ## See also
 
 1. [Phoenix-RTOS shell](psh.md)
-2. [Phoenix-RTOS Utilities](README.md)
-3. [Table of Contents](../README.md)
+2. [Phoenix-RTOS Utilities](../README.md)
+3. [Table of Contents](../../README.md)

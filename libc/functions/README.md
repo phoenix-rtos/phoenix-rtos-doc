@@ -1,386 +1,345 @@
 # Functions
 
-## \_
+## assert
 
-[`_exit`](./_/_Exit.part-impl.md) <!-- #updated# -->
-[`_Exit`](./_/_Exit.part-impl.md) <!-- #updated# -->
+[`assert`](assert/assert.part-impl.md) <!-- updated -->
 
-## a
+## ctype
 
-[`abort`](./a/abort.part-impl.md), <!-- updated -->
-[`accept`](./a/accept.part-impl.md), <!-- updated -->
-[`acos`](./a/acos.part-impl.md), <!-- updated -->
-[`acosf`](./a/acos.part-impl.md), <!-- updated -->
-[`alarm`](./a/alarm.part-impl.md), <!-- updated -->
-[`asctime_r`](./a/asctime.part-impl.md), <!-- updated -->
-[`asctime`](./a/asctime.part-impl.md), <!-- updated -->
-[`assert`](./a/assert.part-impl.md), <!-- updated -->
-[`atan`](./a/atan.part-impl.md), <!-- updated -->
-[`atanf`](./a/atan.part-impl.md), <!-- updated -->
-[`atan2`](./a/atan2.part-impl.md), <!-- updated -->
-[`atan2f`](./a/atan2.part-impl.md), <!-- updated -->
-[`atexit`](./a/atexit.part-impl.md), <!-- updated -->
-[`atof`](./a/atof.part-impl.md), <!-- updated -->
-[`atoi`](./a/atoi.part-impl.md), <!-- updated -->
-[`atol`](./a/atol.part-impl.md), <!-- updated -->
+[`isalnum`](ctype/isalnum.part-impl.md), <!-- updated -->
+[`isalpha`](ctype/isalpha.part-impl.md), <!-- updated -->
+[`isblank`](ctype/isblank.part-impl.md), <!-- updated -->
+[`iscntrl`](ctype/iscntrl.part-impl.md), <!-- updated -->
+[`isdigit`](ctype/isdigit.part-impl.md), <!-- updated -->
+[`isgraph`](ctype/isgraph.part-impl.md), <!-- updated -->
+[`islower`](ctype/islower.part-impl.md), <!-- updated -->
+[`isprint`](ctype/isprint.part-impl.md), <!-- updated -->
+[`ispunct`](ctype/ispunct.part-impl.md), <!-- updated -->
+[`isspace`](ctype/isspace.part-impl.md), <!-- updated -->
+[`isupper`](ctype/isupper.part-impl.md), <!-- updated -->
+[`isxdigit`](ctype/isxdigit.part-impl.md), <!-- updated -->
+[`tolower`](ctype/tolower.part-impl.md), <!-- updated -->
+[`toupper`](ctype/toupper.part-impl.md) <!-- updated -->
 
-## b
+## dirent
 
-beginthreadex,
-[`bind`](./b/bind.part-impl.md) <!-- #updated# -->
+[`closedir`](dirent/closedir.part-impl.md), <!-- updated -->
+[`opendir`](dirent/opendir.part-impl.md), <!-- updated -->
+[`readdir`](dirent/readdir.part-impl.md) <!-- updated -->
 
-## c
+## fcntl
 
-[`calloc`](./c/calloc.part-impl.md), <!-- updated -->
-[`ceil`](./c/ceil.part-impl.md), <!-- updated -->
-[`ceilf`](./c/ceil.part-impl.md), <!-- updated -->
-[`chdir`](./c/chdir.part-impl.md), <!-- updated -->
-[`clearenv`](./c/clearenv.part-impl.md), <!-- updated -->
-[`clearerr`](./c/clearerr.part-impl.md), <!-- updated -->
-[`close`](./c/close.part-impl.md), <!-- updated -->
-[`closedir`](./c/closedir.part-impl.md), <!-- updated -->
-[`closelog`](./o/openlog.part-impl.md), <!-- updated -->
-[`condCreate`](./c/condCreate.phrtos.md),
-[`condBroadcast`](./c/condSignal.phrtos.md),
-[`condWait`](./c/condWait.phrtos.md),
-[`connect`](./c/connect.part-impl.md), <!-- updated -->
-[`cos`](./c/cos.part-impl.md), <!-- updated -->
-[`cosf`](./c/cos.part-impl.md), <!-- updated -->
-[`cosh`](./c/cosh.part-impl.md), <!-- updated -->
-[`coshf`](./c/cosh.part-impl.md), <!-- updated -->
-[`creat`](./c/creat.part-impl.md), <!-- updated -->
-[`crypt`](./c/crypt.part-impl.md), <!-- updated -->
+[`creat`](fcntl/creat.part-impl.md), <!-- updated -->
+[`fcntl`](fcntl/fcntl.part-impl.md), <!-- updated -->
+[`open`](fcntl/open.part-impl.md) <!-- updated -->
 
-## d
+## fnmatch
 
-debug,
-[`difftime`](./d/difftime.part-impl.md), <!-- updated -->
-[`dirname`](./d/dirname.part-impl.md), <!-- updated -->
-[`dprintf`](./p/printf.part-impl.md), <!-- updated -->
-[`dup`](./d/dup.part-impl.md), <!-- updated -->
-[`dup2`](./d/dup.part-impl.md), <!-- updated -->
+[`fnmatch`](fnmatch/fnmatch.part-impl.md) <!-- updated -->
 
-## e
+## ioctl
 
-endthread,
-[`execl`](./e/execl.part-impl.md), <!-- updated -->
-[`execle`](./e/execl.part-impl.md), <!-- updated -->
-[`execlp`](./e/execl.part-impl.md), <!-- updated -->
-[`execv`](./e/execl.part-impl.md), <!-- updated -->
-[`execve`](./e/execl.part-impl.md), <!-- updated -->
-[`execvp`](./e/execl.part-impl.md), <!-- updated -->
-[`exit`](./e/exit.part-impl.md), <!-- updated -->
-[`exp`](./e/exp.part-impl.md), <!-- updated -->
-[`expf`](./e/exp.part-impl.md), <!-- updated -->
+[`ioctl`](ioctl/ioctl.part-impl.md) <!-- updated -->
 
-## f
+## libgen
 
-[`fabs`](./f/fabs.part-impl.md), <!-- updated -->
-[`fabsf`](./f/fabs.part-impl.md), <!-- updated -->
-[`fchdir`](./f/fchdir.not-impl.md), <!-- updated -->
-[`fchown`](./f/fchown.not-impl.md), <!-- updated -->
-[`fclose`](./f/fclose.part-impl.md), <!-- updated -->
-[`fcntl`](./f/fcntl.part-impl.md), <!-- updated -->
-[`fdopen`](./f/fdopen.part-impl.md), <!-- updated -->
-[`feof`](./f/feof.impl.md), <!-- updated -->
-[`ferror`](./f/ferror.impl.md), <!-- updated -->
-[`fflush`](./f/fflush.part-impl.md), <!-- updated -->
-[`fgetc`](./f/fgetc.part-impl.md), <!-- updated -->
-[`fgets`](./f/fgets.part-impl.md), <!-- updated -->
-[`fileno`](./f/fileno.part-impl.md), <!-- updated -->
-[`floor`](./f/floor.part-impl.md), <!-- updated -->
-[`floorf`](./f/floor.part-impl.md), <!-- updated -->
-[`fmod`](./f/fmod.part-impl.md), <!-- updated -->
-[`fmodf`](./f/fmod.part-impl.md), <!-- updated -->
-[`fnmatch`](./f/fnmatch.part-impl.md), <!-- updated -->
-[`fopen`](./f/fopen.part-impl.md), <!-- updated -->
-[`fork`](./f/fork.part-impl.md), <!-- updated -->
-[`fprintf`](./p/printf.part-impl.md), <!-- updated -->
-[`fputc`](./f/fputc.part-impl.md), <!-- updated -->
-[`fputs`](./f/fputs.part-impl.md), <!-- updated -->
-[`fread`](./f/fread.part-impl.md), <!-- updated -->
-[`free`](./f/free.part-impl.md), <!-- updated -->
-[`freeaddrinfo`](./g/getaddrinfo.part-impl.md), <!-- updated -->
-[`freopen`](./f/freopen.part-impl.md), <!-- updated -->
-[`frexp`](./f/frexp.part-impl.md), <!-- updated -->
-[`frexpf`](./f/frexp.part-impl.md), <!-- updated -->
-[`fscanf`](./f/fscanf.part-impl.md), <!-- updated -->
-[`fseek`](./f/fseek.part-impl.md), <!-- updated -->
-[`fseeko`](./f/fseek.part-impl.md), <!-- updated -->
-[`fstat`](./f/fstat.part-impl.md), <!-- updated -->
-[`fstatat`](./s/stat.part-impl.md), <!-- updated -->
-[`fsync`](./f/fsync.not-impl.md), <!-- updated -->
-[`ftell`](./f/ftell.part-impl.md), <!-- updated -->
-[`ftello`](./f/ftell.part-impl.md), <!-- updated -->
-[`ftruncate`](./f/ftruncate.part-impl.md), <!-- updated -->
-[`fwrite`](./f/fwrite.part-impl.md) <!-- updated -->
+[`basename`](libgen/basename.md), <!-- updated -->
+[`dirname`](libgen/dirname.part-impl.md) <!-- updated -->
 
-## g
+## math
 
-[`gai_strerror`](./g/gai_strerror.part-impl.md), <!-- updated -->
-[`getaddrinfo`](./g/getaddrinfo.part-impl.md), <!-- updated -->
-[`getc`](./g/getc.part-impl.md), <!-- updated -->
-[`getc_unlocked`](./p/putchar_unlocked.part-impl.md), <!-- updated -->
-[`getchar`](./g/getchar.part-impl.md), <!-- updated -->
-[`getchar_unlocked`](./p/putchar_unlocked.part-impl.md), <!-- updated -->
-[`getcwd`](./g/getcwd.part-impl.md), <!-- updated -->
-[`getdelim`](./g/getline.part-impl.md), <!-- updated -->
-[`getegid`](./g/getegid.part-impl.md), <!-- updated -->
-[`getenv`](./g/getenv.part-impl.md), <!-- updated -->
-[`geteuid`](./g/geteuid.not-impl.md), <!-- updated -->
-[`getgid`](./g/getgid.not-impl.md), <!-- updated -->
-[`getgroups`](./g/getgroups.not-impl.md), <!-- updated -->
-[`getline`](./g/getline.part-impl.md), <!-- updated -->
-[`getlogin`](./g/getlogin.not-impl.md), <!-- updated -->
-[`getlogin_r`](./g/getlogin.not-impl.md), <!-- updated -->
-[`getopt`](./g/getopt.part-impl.md), <!-- updated -->
-[`getpgid`](./g/getpgid.part-impl.md), <!-- updated -->
-[`getpgrp`](./g/getpgrp.part-impl.md), <!-- updated -->
-[`getpid`](./g/getpid.part-impl.md), <!-- updated -->
-[`getppid`](./g/getppid.part-impl.md), <!-- updated -->
-[`getpwnam`](./g/getpwnam.part-impl.md), <!-- updated -->
-[`getpwuid`](./g/getpwuid.part-impl.md), <!-- updated -->
-[`gets`](./g/gets.part-impl.md), <!-- updated -->
-[`getsid`](./g/getsid.part-impl.md), <!-- updated -->
-gettime,
-[`getuid`](./g/getuid.part-impl.md), <!-- updated -->
+[`acos`](math/acos.part-impl.md), <!-- updated -->
+[`atan`](math/atan.part-impl.md), <!-- updated -->
+[`atan2`](math/atan2.part-impl.md), <!-- updated -->
+[`ceil`](math/ceil.part-impl.md), <!-- updated -->
+[`copysignl`](math/copysignl.part-impl.md), <!-- updated -->
+[`cos`](math/cos.part-impl.md), <!-- updated -->
+[`cosh`](math/cosh.part-impl.md), <!-- updated -->
+[`exp`](math/exp.part-impl.md), <!-- updated -->
+[`fabs`](math/fabs.part-impl.md), <!-- updated -->
+[`floor`](math/floor.part-impl.md), <!-- updated -->
+[`fmod`](math/fmod.part-impl.md), <!-- updated -->
+[`frexp`](math/frexp.part-impl.md), <!-- updated -->
+[`ldexp`](math/ldexp.part-impl.md), <!-- updated -->
+[`log`](math/log.part-impl.md), <!-- updated -->
+[`log10`](math/log10.part-impl.md), <!-- updated -->
+[`modf`](math/modf.part-impl.md), <!-- updated -->
+[`pow`](math/pow.part-impl.md), <!-- updated -->
+[`sin`](math/sin.md), <!-- updated -->
+[`sinh`](math/sinh.part-impl.md), <!-- updated -->
+[`sqrt`](math/sqrt.part-impl.md), <!-- updated -->
+[`tanh`](math/tanh.part-impl.md) <!-- updated -->
 
-## i
+## netdb
 
-interrupt,
-[`isalnum`](./i/isalnum.part-impl.md), <!-- updated -->
-[`isalpha`](./i/isalpha.part-impl.md), <!-- updated -->
-[`isatty`](./i/isatty.part-impl.md), <!-- updated -->
-[`ioctl`](./i/ioctl.part-impl.md), <!-- updated -->
-[`isblank`](./i/isblank.part-impl.md), <!-- updated -->
-[`iscntrl`](./i/iscntrl.part-impl.md), <!-- updated -->
-[`isdigit`](./i/isdigit.part-impl.md), <!-- updated -->
-[`isgraph`](./i/isgraph.part-impl.md), <!-- updated -->
-[`islower`](./i/islower.part-impl.md), <!-- updated -->
-[`isprint`](./i/isprint.part-impl.md), <!-- updated -->
-[`ispunct`](./i/ispunct.part-impl.md), <!-- updated -->
-[`isspace`](./i/isspace.part-impl.md), <!-- updated -->
-[`isupper`](./i/isupper.part-impl.md), <!-- updated -->
-[`isxdigit`](./i/isxdigit.part-impl.md), <!-- updated -->
+[`freeaddrinfo`](netdb/freeaddrinfo.part-impl.md), <!-- updated -->
+[`gai_strerror`](netdb/gai_strerror.part-impl.md), <!-- updated -->
+[`getaddrinfo`](netdb/getaddrinfo.part-impl.md) <!-- updated -->
 
-## k
+## pwd
 
-keepidle,
-[`kill`](./k/kill.part-impl.md), <!-- updated -->
+[`getpwnam`](pwd/getpwnam.part-impl.md), <!-- updated -->
+[`getpwuid`](pwd/getpwuid.part-impl.md) <!-- updated -->
 
-## l
+## setjmp
 
-LIST,
-[`labs`](./l/labs.part-impl.md), <!-- updated -->
-[`ldexp`](./l/ldexp.part-impl.md), <!-- updated -->
-[`ldiv`](./l/ldiv.part-impl.md), <!-- updated -->
-[`link`](./l/link.part-impl.md), <!-- updated -->
-[`log`](./l/log.part-impl.md), <!-- updated -->
-[`log10`](./l/log10.part-impl.md), <!-- updated -->
-[`longjmp`](./l/longjmp.part-impl.md), <!-- updated -->
-lookup,
-[`lseek`](./l/lseek.part-impl.md), <!-- updated -->
-[`lstat`](./s/stat.part-impl.md), <!-- updated -->
+[`longjmp`](setjmp/longjmp.part-impl.md), <!-- updated -->
+[`setjmp`](setjmp/setjmp.part-impl.md), <!-- updated -->
+[`siglongjmp`](setjmp/siglongjmp.part-impl.md), <!-- updated -->
+[`sigsetjmp`](setjmp/sigsetjmp.part-impl.md) <!-- updated -->
 
-## m
+## signal
 
-[`malloc`](./m/malloc.part-impl.md), <!-- updated -->
-[`mblen`](./m/mblen.part-impl.md), <!-- updated -->
-[`mbtowc`](./m/mbtowc.part-impl.md), <!-- updated -->
-[`memccpy`](./m/memccpy.not-impl.md), <!-- updated -->
-[`memchr`](./m/memchr.part-impl.md), <!-- updated -->
-[`memcmp`](./m/memcmp.part-impl.md), <!-- updated -->
-[`memcpy`](./m/memcpy.part-impl.md), <!-- updated -->
-[`meminfo`](./m/meminfo.impl.md), <!-- updated -->
-[`memmove`](./m/memmove.part-impl.md), <!-- updated -->
-[`memset`](./m/memset.part-impl.md), <!-- updated -->
-[`mkdir`](./m/mkdir.part-impl.md), <!-- updated -->
-[`mkfifo`](./m/mkfifo.part-impl.md), <!-- updated -->
-[`mmap`](./m/mmap.part-impl.md), <!-- updated -->
-mmdump,
-[`modf`](./m/modf.part-impl.md), <!-- updated -->
-[`modff`](./m/modf.part-impl.md), <!-- updated -->
-[`mount`](./m/mount.md),
-msgRecv,
-msgRespond,
-msgSend,
-[`munmap`](./m/munmap.part-impl.md), <!-- updated -->
-mutexCreate,
-mutexLock,
-mutexTry,
-mutexUnlock
+[`kill`](signal/kill.part-impl.md), <!-- updated -->
+[`sigaddset`](signal/sigaddset.part-impl.md), <!-- updated -->
+[`sigemptyset`](signal/sigemptyset.part-impl.md), <!-- updated -->
+[`sigfillset`](signal/sigfillset.part-impl.md), <!-- updated -->
+[`signal`](signal/signal.part-impl.md), <!-- updated -->
+[`sigpending`](signal/sigpending.part-impl.md), <!-- updated -->
+[`sigprocmask`](signal/sigprocmask.part-impl.md), <!-- updated -->
+[`sigsuspend`](signal/sigsuspend.part-impl.md) <!-- updated -->
 
-## o
+## stdio
 
-[`open`](./o/open.part-impl.md), <!-- updated -->
-[`opendir`](./o/opendir.part-impl.md), <!-- updated -->
-[`openlog`](./o/openlog.part-impl.md), <!-- updated -->
+[`clearerr`](stdio/clearerr.part-impl.md), <!-- updated -->
+[`dprintf`](stdio/printf.part-impl.md), <!-- updated -->
+[`fclose`](stdio/fclose.part-impl.md), <!-- updated -->
+[`fdopen`](stdio/fdopen.part-impl.md), <!-- updated -->
+[`feof`](stdio/feof.md), <!-- updated -->
+[`ferror`](stdio/ferror.md), <!-- updated -->
+[`fflush`](stdio/fflush.part-impl.md), <!-- updated -->
+[`fgetc`](stdio/fgetc.part-impl.md), <!-- updated -->
+[`fgets`](stdio/fgets.part-impl.md), <!-- updated -->
+[`fileno`](stdio/fileno.part-impl.md), <!-- updated -->
+[`fopen`](stdio/fopen.part-impl.md), <!-- updated -->
+[`fprintf`](stdio/fprintf.part-impl.md), <!-- updated -->
+[`fputc`](stdio/fputc.part-impl.md), <!-- updated -->
+[`fputs`](stdio/fputs.part-impl.md), <!-- updated -->
+[`fread`](stdio/fread.part-impl.md), <!-- updated -->
+[`freopen`](stdio/freopen.part-impl.md), <!-- updated -->
+[`fscanf`](stdio/fscanf.part-impl.md), <!-- updated -->
+[`fseek`](stdio/fseek.part-impl.md), <!-- updated -->
+[`fseeko`](stdio/fseek.part-impl.md), <!-- updated -->
+[`ftell`](stdio/ftell.part-impl.md), <!-- updated -->
+[`ftello`](stdio/ftell.part-impl.md), <!-- updated -->
+[`fwrite`](stdio/fwrite.part-impl.md), <!-- updated -->
+[`getchar`](stdio/getchar.md), <!-- updated -->
+[`getc`](stdio/getc.part-impl.md), <!-- updated -->
+[`getc_unlocked`](stdio/getc_unlocked.part-impl.md), <!-- updated -->
+[`getline`](stdio/getline.part-impl.md), <!-- updated -->
+[`gets`](stdio/gets.part-impl.md), <!-- updated -->
+[`pclose`](stdio/pclose.part-impl.md), <!-- updated -->
+[`perror`](stdio/perror.part-impl.md), <!-- updated -->
+[`popen`](stdio/popen.part-impl.md), <!-- updated -->
+[`printf`](stdio/printf.part-impl.md), <!-- updated -->
+[`putchar`](stdio/putchar.part-impl.md), <!-- updated -->
+[`putchar_unlocked`](stdio/putchar_unlocked.part-impl.md), <!-- updated -->
+[`putc`](stdio/putc.part-impl.md), <!-- updated -->
+[`putc_unlocked`](stdio/getc_unlocked.part-impl.md), <!-- updated -->
+[`puts`](stdio/puts.part-impl.md), <!-- updated -->
+[`remove`](stdio/remove.part-impl.md), <!-- updated -->
+[`rename`](stdio/rename.part-impl.md), <!-- updated -->
+[`rewind`](stdio/rewind.part-impl.md), <!-- updated -->
+[`scanf`](stdio/scanf.part-impl.md), <!-- updated -->
+[`setbuf`](stdio/setbuf.part-impl.md), <!-- updated -->
+[`setvbuf`](stdio/setvbuf.part-impl.md), <!-- updated -->
+[`snprintf`](stdio/printf.part-impl.md), <!-- updated -->
+[`sprintf`](stdio/printf.part-impl.md), <!-- updated -->
+[`sscanf`](stdio/sscanf.part-impl.md), <!-- updated -->
+[`tmpfile`](stdio/tmpfile.part-impl.md), <!-- updated -->
+[`tmpnam`](stdio/tmpnam.part-impl.md), <!-- updated -->
+[`ungetc`](stdio/ungetc.part-impl.md), <!-- updated -->
+[`vdprintf`](stdio/vprintf.part-impl.md), <!-- updated -->
+[`vfprintf`](stdio/vprintf.part-impl.md), <!-- updated -->
+[`vfprintf`](stdio/vprintf.part-impl.md), <!-- updated -->
+[`vfscanf`](stdio/vscanf.part-impl.md), <!-- updated -->
+[`vprintf`](stdio/vprintf.part-impl.md), <!-- updated -->
+[`vscanf`](stdio/vscanf.part-impl.md), <!-- updated -->
+[`vsprintf`](stdio/vprintf.part-impl.md), <!-- updated -->
+[`vsscanf`](stdio/vscanf.part-impl.md) <!-- updated -->
 
-## p
+## stdlib
 
-[`pclose`](./p/pclose.part-impl.md), <!-- updated -->
-[`perror`](./p/perror.part-impl.md), <!-- updated -->
-phProcForkVirt,
-phProcID,
-phProcParentID,
-phResFileAdd,
-phResFileGet,
-phResFileSet,
-phThreadSleep,
-[`pipe`](./p/pipe.part-impl.md), <!-- updated -->
-platformctl,
-portCreate,
-portDestroy,
-portRegister,
-[`popen`](./p/popen.part-impl.md), <!-- updated -->
-[`pow`](./p/pow.part-impl.md), <!-- updated -->
-[`printf`](./p/printf.part-impl.md), <!-- updated -->
-[`putc`](./p/putc.part-impl.md), <!-- updated -->
-[`putc_unlocked`](./p/putchar_unlocked.part-impl.md), <!-- updated -->
-[`putchar`](./p/putchar.part-impl.md), <!-- updated -->
-[`putchar_unlocked`](./p/putchar_unlocked.part-impl.md), <!-- updated -->
-[`putenv`](./p/putenv.part-impl.md), <!-- updated -->
-[`puts`](./p/puts.part-impl.md), <!-- updated -->
+[`abort`](stdlib/abort.part-impl.md), <!-- updated -->
+[`atexit`](stdlib/atexit.part-impl.md), <!-- updated -->
+[`atof`](stdlib/atof.part-impl.md), <!-- updated -->
+[`atoi`](stdlib/atoi.part-impl.md), <!-- updated -->
+[`atol`](stdlib/atol.part-impl.md), <!-- updated -->
+[`bsearch`](stdlib/bsearch.md), <!-- updated -->
+[`calloc`](stdlib/calloc.part-impl.md), <!-- updated -->
+[`clearenv`](stdlib/clearenv.part-impl.md), <!-- updated -->
+[`exit`](stdlib/exit.part-impl.md), <!-- updated -->
+[`free`](stdlib/free.part-impl.md), <!-- updated -->
+[`getenv`](stdlib/getenv.part-impl.md), <!-- updated -->
+[`labs`](stdlib/labs.part-impl.md), <!-- updated -->
+[`ldiv`](stdlib/ldiv.part-impl.md), <!-- updated -->
+[`malloc`](stdlib/malloc.part-impl.md), <!-- updated -->
+[`mblen`](stdlib/mblen.part-impl.md), <!-- updated -->
+[`mbtowc`](stdlib/mbtowc.part-impl.md), <!-- updated -->
+[`putenv`](stdlib/putenv.part-impl.md), <!-- updated -->
+[`qsort`](stdlib/qsort.part-impl.md), <!-- updated -->
+[`rand`](stdlib/rand.part-impl.md), <!-- updated -->
+[`realloc`](stdlib/realloc.part-impl.md), <!-- updated -->
+[`setenv`](stdlib/setenv.part-impl.md), <!-- updated -->
+[`srand`](stdlib/rand.part-impl.md), <!-- updated -->
+[`strtod`](stdlib/strtod.part-impl.md), <!-- updated -->
+[`strtol`](stdlib/strtol.part-impl.md), <!-- updated -->
+[`strtoul`](stdlib/strtoul.part-impl.md), <!-- updated -->
+[`system`](stdlib/system.part-impl.md), <!-- updated -->
+[`unsetenv`](stdlib/unsetenv.part-impl.md), <!-- updated -->
+[`wcstombs`](stdlib/wcstombs.non-impl.md), <!-- updated -->
+[`wctomb`](stdlib/wctomb.non-impl.md) <!-- updated -->
 
-## q
+## string
 
-[`qsort`](./q/qsort.part-impl.md) <!-- updated -->
+[`memccpy`](string/memccpy.not-impl.md), <!-- updated -->
+[`memchr`](string/memchr.part-impl.md), <!-- updated -->
+[`memcmp`](string/memcmp.part-impl.md), <!-- updated -->
+[`memcpy`](string/memcpy.part-impl.md), <!-- updated -->
+[`memmove`](string/memmove.part-impl.md), <!-- updated -->
+[`memset`](string/memset.part-impl.md), <!-- updated -->
+[`strcat`](string/strcat.part-impl.md), <!-- updated -->
+[`strchr`](string/strchr.part-impl.md), <!-- updated -->
+[`strcmp`](string/strcmp.part-impl.md), <!-- updated -->
+[`strcoll`](string/strcoll.part-impl.md), <!-- updated -->
+[`strcpy`](string/strcpy.part-impl.md), <!-- updated -->
+[`strcspn`](string/strcspn.part-impl.md), <!-- updated -->
+[`strdup`](string/strdup.part-impl.md), <!-- updated -->
+[`strerror`](string/strerror.part-impl.md), <!-- updated -->
+[`strlen`](string/strlen.part-impl.md), <!-- updated -->
+[`strncat`](string/strncat.part-impl.md), <!-- updated -->
+[`strncmp`](string/strncmp.part-impl.md), <!-- updated -->
+[`strncpy`](string/strncpy.part-impl.md), <!-- updated -->
+[`strpbrk`](string/strpbrk.part-impl.md), <!-- updated -->
+[`strrchr`](string/strrchr.part-impl.md), <!-- updated -->
+[`strsignal`](string/strsignal.part-impl.md), <!-- updated -->
+[`strspn`](string/strspn.part-impl.md), <!-- updated -->
+[`strstr`](string/strstr.part-impl.md), <!-- updated -->
+[`strtok`](string/strtok.part-impl.md), <!-- updated -->
+[`strxfrm`](string/strxfrm.part-impl.md) <!-- updated -->
 
-## r
+## sys/mman
 
-[`rand`](./r/rand.part-impl.md), <!-- updated -->
-[`rand_r`](./r/rand.part-impl.md), <!-- updated -->
-rbtree,
-[`read`](./r/read.part-impl.md), <!-- updated -->
-[`readdir`](./r/readdir.part-impl.md), <!-- updated -->
-[`realloc`](./r/realloc.part-impl.md), <!-- updated -->
-reboot,
-[`remove`](./r/remove.part-impl.md), <!-- updated -->
-[`rename`](./r/rename.part-impl.md), <!-- updated -->
-[`rewind`](./r/rewind.part-impl.md), <!-- updated -->
-resourceDestroy,
-[`rmdir`](./r/rmdir.part-impl.md) <!-- updated -->
+[`meminfo`](sys/mman/meminfo.md), <!-- updated -->
+[`mmap`](sys/mman/mmap.part-impl.md), <!-- updated -->
+[`munmap`](sys/mman/munmap.part-impl.md) <!-- updated -->
 
-## s
+## sys/mount
 
-[`sscanf`](./f/fscanf.part-impl.md), <!-- updated -->
-[`setbuf`](./s/setbuf.part-impl.md), <!-- updated -->
-[`setegid`](./s/setegid.not-impl.md), <!-- updated -->
-[`setenv`](./s/setenv.part-impl.md), <!-- updated -->
-[`seteuid`](./s/seteuid.not-impl.md), <!-- updated -->
-[`setgid`](./s/setgid.not-impl.md), <!-- updated -->
-[`setjmp`](./s/setjmp.part-impl.md), <!-- updated -->
-[`setpgid`](./s/setpgid.part-impl.md), <!-- updated -->
-[`setsid`](./s/setsid.part-impl.md), <!-- updated -->
-[`setuid`](./s/setuid.not-impl.md), <!-- updated -->
-[`setvbuf`](./s/setvbuf.part-impl.md), <!-- updated -->
-[`sigaddset`](./s/sigaddset.part-impl.md), <!-- updated -->
-[`sigemptyset`](./s/sigemptyset.part-impl.md), <!-- updated -->
-[`sigfillset`](./s/sigfillset.part-impl.md), <!-- updated -->
-[`siglongjmp`](./s/siglongjmp.part-impl.md), <!-- updated -->
-[`signal`](./s/signal.part-impl.md), <!-- updated -->
-[`sigpending`](./s/sigpending.part-impl.md), <!-- updated -->
-[`sigprocmask`](./s/sigprocmask.part-impl.md), <!-- updated -->
-[`sigsetjmp`](./s/sigsetjmp.part-impl.md), <!-- updated -->
-[`sigsuspend`](./s/sigsuspend.part-impl.md), <!-- updated -->
-[`sinh`](./s/sinh.part-impl.md), <!-- updated -->
-[`sleep`](./s/sleep.part-impl.md), <!-- updated -->
-[`snprintf`](./p/printf.part-impl.md), <!-- updated -->
-[`sprintf`](./p/printf.part-impl.md), <!-- updated -->
-[`sqrt`](./s/sqrt.part-impl.md), <!-- updated -->
-[`srand`](./r/rand.part-impl.md), <!-- updated -->
-[`scanf`](./f/fscanf.part-impl.md), <!-- updated -->
-[`stat`](./s/stat.part-impl.md), <!-- updated -->
-[`sterror`](./s/sterror.md),
-[`stime`](./s/stime.md),
-[`strcat`](./s/strcat.part-impl.md), <!-- updated -->
-[`strchr`](./s/strchr.part-impl.md), <!-- updated -->
-[`strcmp`](./s/strcmp.part-impl.md), <!-- updated -->
-[`strcoll`](./s/strcoll.part-impl.md), <!-- updated -->
-[`strcpy`](./s/strcpy.part-impl.md), <!-- updated -->
-[`strcspn`](./s/strcspn.part-impl.md), <!-- updated -->
-[`strdup`](./s/strdup.part-impl.md), <!-- updated -->
-[`strerror`](./s/strerror.part-impl.md), <!-- updated -->
-[`strlen`](./s/strlen.part-impl.md), <!-- updated -->
-[`strncat`](./s/strncat.part-impl.md), <!-- updated -->
-[`strncmp`](./s/strncmp.part-impl.md), <!-- updated -->
-[`strncmp`](./s/strncmp.part-impl.md), <!-- updated -->
-[`strncpy`](./s/strncpy.part-impl.md), <!-- updated -->
-[`strpbrk`](./s/strpbrk.part-impl.md), <!-- updated -->
-[`strrchr`](./s/strrchr.part-impl.md), <!-- updated -->
-[`strsignal`](./s/strsignal.part-impl.md), <!-- updated -->
-[`strspn`](./s/strspn.part-impl.md), <!-- updated -->
-[`strstr`](./s/strstr.part-impl.md), <!-- updated -->
-[`strtod`](./s/strtod.part-impl.md), <!-- updated -->
-[`strtok`](./s/strtok.part-impl.md), <!-- updated -->
-[`strtol`](./s/strtol.part-impl.md), <!-- updated -->
-[`strtoll`](./s/strtol.part-impl.md), <!-- updated -->
-[`strtoul`](./s/strtoul.part-impl.md), <!-- updated -->
-[`strtoull`](./s/strtoul.part-impl.md), <!-- updated -->
-[`strxfrm`](./s/strxfrm.part-impl.md), <!-- updated -->
-sysconf,
-syspageprog,
-[`sync`](./s/sync.not-impl.md), <!-- updated -->
-[`system`](./s/system.part-impl.md), <!-- updated -->
+[`umount`](sys/mount/umount.phrtos.md) <!-- updated -->
 
-## t
+## sys/msg
 
-[`tanh`](./t/tanh.part-impl.md), <!-- #updated# -->
-[`tanhf`](./t/tanh.part-impl.md), <!-- #updated# -->
-[`tcdrain`](./t/tcdrain.part-impl.md), <!-- #updated# -->
-[`tcflush`](./t/tcflush.part-impl.md), <!-- #updated# -->
-[`tcgetattr`](./t/tcgetattr.part-impl.md), <!-- #updated# -->
-[`tcgetpgrp`](./t/tcgetpgrp.part-impl.md), <!-- #updated# -->
-[`tcsendbreak`](./t/tcsendbreak.part-impl.md), <!-- #updated# -->
-[`tcsetpgrp`](./t/tcsetpgrp.part-impl.md), <!-- #updated# -->
-threadID,
-threadInfo,
-threadPriority,
-[`time`](./t/time.part-impl.md), <!-- #updated# -->
-timeGet,
-[`times`](./t/times.part-impl.md), <!-- #updated# -->
-timeSet,
-[`tmpfile`](./t/tmpfile.part-impl.md), <!-- #updated# -->
-[`tmpnam`](./t/tmpnam.part-impl.md), <!-- #updated# -->
-[`tolower`](./t/tolower.part-impl.md), <!-- #updated# -->
-[`toupper`](./t/toupper.part-impl.md), <!-- #updated# -->
-[`truncate`](./t/truncate.part-impl.md), <!-- updated -->
-[`ttyname`](./t/ttyname.not-impl.md), <!-- updated -->
-[`ttyname_r`](./t/ttyname.not-impl.md), <!-- updated -->
+[msgRecv](sys/msg/msgrecv.phrtos.md), <!-- updated -->
+[msgRespond](sys/msg/msgrespond.phrtos.md), <!-- updated -->
+[msgSend](sys/msg/msgsend.phrtos.md) <!-- updated -->
 
-## u
+## sys/socket
 
-[`umask`](./u/umask.part-impl.md), <!-- #updated# -->
-[`umount`](./u/umount.phrtos.md), <!-- #updated# -->
-[`ungetc`](./u/ungetc.part-impl.md), <!-- #updated# -->
-[`unlink`](./u/unlink.part-impl.md), <!-- #updated# -->
-[`unsetenv`](./u/unsetenv.part-impl.md) <!-- #updated# -->
-[`usleep`](./u/usleep.part-impl.md), <!-- #updated# -->
-[`utime`](./u/utime.part-impl.md) <!-- #updated# -->
+[`accept`](sys/socket/accept.part-impl.md), <!-- updated -->
+[`bind`](sys/socket/bind.part-impl.md), <!-- updated -->
+[`connect`](sys/socket/connect.part-impl.md) <!-- updated -->
 
-## v
+## sys/stat
 
-va2pa,
-[`vfork`](./v/vfork.part-impl.md), <!-- #updated# -->
-[`vfprintf`](./v/vprintf.part-impl.md), <!-- #updated# -->
-[`vdprintf`](./v/vprintf.part-impl.md), <!-- #updated# -->
-[`vfprintf`](./v/vprintf.part-impl.md), <!-- #updated# -->
-[`vfscanf`](./v/vscanf.part-impl.md), <!-- #updated# -->
-[`vprintf`](./v/vprintf.part-impl.md), <!-- #updated# -->
-[`vscanf`](./v/vscanf.part-impl.md), <!-- #updated# -->
-[`vsprintf`](./v/vprintf.part-impl.md) <!-- #updated# -->
-[`vsscanf`](./v/vscanf.part-impl.md), <!-- #updated# -->
+[`fstat`](sys/stat/fstat.part-impl.md), <!-- updated -->
+[`fstatat`](sys/stat/fstatat.part-impl.md), <!-- updated -->
+[`mkdir`](sys/stat/mkdir.part-impl.md), <!-- updated -->
+[`mkfifo`](sys/stat/mkfifo.part-impl.md), <!-- updated -->
+[`stat`](sys/stat/stat.part-impl.md), <!-- updated -->
+[`umask`](sys/stat/umask.part-impl.md) <!-- updated -->
 
-## w
+## sys/threads
 
-[`wait`](./w/waitpid.part-impl.md), <!-- #updated# -->
-[`waitpid`](./w/waitpid.part-impl.md), <!-- #updated# -->
-[`wcscmp`](./w/wcscmp.impl.md), <!-- #updated# -->
-[`wcslen`](./w/wcslen.non-impl.md), <!-- #updated# -->
-[`wcstombs`](./w/wcstombs.non-impl.md), <!-- #updated# -->
-[`wctomb`](./w/wctomb.non-impl.md), <!-- #updated# -->
-wdgreload,
-[`write`](./w/write.part-impl.md) <!-- #updated# -->
+[`condCreate`](sys/threads/condCreate.phrtos.md),
+[`condBroadcast`](sys/threads/condSignal.phrtos.md),
+[`condWait`](sys/threads/condWait.phrtos.md)
+
+## sys/times
+
+[`times`](sys/times/times.part-impl.md), <!-- updated -->
+[`utimes`](sys/times/utimes.part-impl.md) <!-- updated -->
+
+## sys/wait
+
+[`wait`](sys/wait/waitpid.part-impl.md), <!-- updated -->
+[`waitpid`](sys/wait/waitpid.part-impl.md) <!-- updated -->
+
+## syslog
+
+[`closelog`](syslog/closelog.md), <!-- updated -->
+[`openlog`](syslog/openlog.part-impl.md) <!-- updated -->
+
+## termios
+
+[`tcdrain`](termios/tcdrain.part-impl.md), <!-- updated -->
+[`tcflush`](termios/tcflush.part-impl.md), <!-- updated -->
+[`tcgetattr`](termios/tcgetattr.part-impl.md), <!-- updated -->
+[`tcsendbreak`](termios/tcsendbreak.part-impl.md) <!-- updated -->
+
+## time
+
+[`asctime`](time/asctime.part-impl.md), <!-- updated -->
+[`ctime`](time/ctime.md), <!-- updated -->
+[`difftime`](time/difftime.part-impl.md), <!-- updated -->
+[`time`](time/time.part-impl.md), <!-- updated -->
+[`utime`](time/utime.part-impl.md) <!-- updated -->
+
+## unistd
+
+[`alarm`](unistd/alarm.part-impl.md), <!-- updated -->
+[`chdir`](unistd/chdir.part-impl.md), <!-- updated -->
+[`close`](unistd/close.part-impl.md), <!-- updated -->
+[`crypt`](unistd/crypt.part-impl.md) <!-- updated -->
+[`dup`](unistd/dup.part-impl.md), <!-- updated -->
+[`execl`](unistd/execl.part-impl.md), <!-- updated -->
+[`execv`](unistd/execl.part-impl.md), <!-- updated -->
+[`_exit`](unistd/_exit.part-impl.md), <!-- updated -->
+[`fchdir`](unistd/fchdir.not-impl.md), <!-- updated -->
+[`fchown`](unistd/fchown.not-impl.md), <!-- updated -->
+[`fork`](unistd/fork.part-impl.md), <!-- updated -->
+[`fsync`](unistd/fsync.not-impl.md), <!-- updated -->
+[`ftruncate`](unistd/ftruncate.part-impl.md), <!-- updated -->
+[`getcwd`](unistd/getcwd.part-impl.md), <!-- updated -->
+[`getegid`](unistd/getegid.md), <!-- updated -->
+[`geteuid`](unistd/geteuid.not-impl.md), <!-- updated -->
+[`getgid`](unistd/getgid.not-impl.md), <!-- updated -->
+[`getgroups`](unistd/getgroups.not-impl.md), <!-- updated -->
+[`getlogin`](unistd/getlogin.not-impl.md), <!-- updated -->
+[`getopt`](unistd/getopt.part-impl.md), <!-- updated -->
+[`getpgid`](unistd/getpgid.part-impl.md), <!-- updated -->
+[`getpgrp`](unistd/getpgrp.not-impl.md), <!-- updated -->
+[`getpid`](unistd/getpid.part-impl.md), <!-- updated -->
+[`getppid`](unistd/getppid.part-impl.md), <!-- updated -->
+[`getsid`](unistd/getsid.part-impl.md), <!-- updated -->
+[`getuid`](unistd/getuid.part-impl.md), <!-- updated -->
+[`isatty`](unistd/isatty.part-impl.md), <!-- updated -->
+[`link`](unistd/link.part-impl.md), <!-- updated -->
+[`lseek`](unistd/lseek.part-impl.md), <!-- updated -->
+[`pipe`](unistd/pipe.part-impl.md), <!-- updated -->
+[`read`](unistd/read.part-impl.md), <!-- updated -->
+[`rmdir`](unistd/rmdir.part-impl.md), <!-- updated -->
+[`setegid`](unistd/setegid.not-impl.md), <!-- updated -->
+[`seteuid`](unistd/seteuid.not-impl.md), <!-- updated -->
+[`setgid`](unistd/setgid.not-impl.md), <!-- updated -->
+[`setpgid`](unistd/setpgid.part-impl.md), <!-- updated -->
+[`setsid`](unistd/setsid.part-impl.md), <!-- updated -->
+[`setuid`](unistd/setuid.not-impl.md), <!-- updated -->
+[`sleep`](unistd/sleep.part-impl.md), <!-- updated -->
+[`sync`](unistd/sync.not-impl.md), <!-- updated -->
+[`tcgetpgrp`](unistd/tcgetpgrp.part-impl.md), <!-- updated -->
+[`tcsetpgrp`](unistd/tcsetpgrp.part-impl.md), <!-- updated -->
+[`truncate`](unistd/truncate.part-impl.md), <!-- updated -->
+[`ttyname`](unistd/ttyname.not-impl.md), <!-- updated -->
+[`unlink`](unistd/unlink.part-impl.md), <!-- updated -->
+[`usleep`](unistd/usleep.part-impl.md), <!-- updated -->
+[`vfork`](unistd/vfork.part-impl.md), <!-- updated -->
+[`write`](unistd/write.part-impl.md) <!-- updated -->
+
+## wchar
+
+[`wcscmp`](wchar/wcscmp.md), <!-- updated -->
+[`wcslen`](wchar/wcslen.not-impl.md) <!-- updated -->
 
 ## See also
 

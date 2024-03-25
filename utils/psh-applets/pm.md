@@ -6,7 +6,7 @@
 
 If used with `-r` parameter it restarts the machine when any of monitored processes dies.
 
-```bash
+```text
 Usage: pm [options]
   -p:       disable monitoring of `pm` parent process
   -r:       restarts the machine when any of monitored processes dies
@@ -17,5 +17,5 @@ Usage: pm [options]
 ## See also
 
 1. [Phoenix-RTOS shell](psh.md)
-2. [Phoenix-RTOS Utilities](README.md)
-3. [Table of Contents](../README.md)
+2. [Phoenix-RTOS Utilities](../README.md)
+3. [Table of Contents](../../README.md)

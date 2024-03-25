@@ -12,7 +12,7 @@ mechanism and are placed in the `libphoenix` library.
 
 The source code of the emulation server could be obtained using the following command
 
-```bash
+```text
 git clone http://git.phoenix-rtos.com/phoenix-rtos-lwip
 ```
 

@@ -7,7 +7,7 @@ file.
 
 If used without any parameters specified it prints help message as follows:
 
-```bash
+```text
 usage: %s command [args]...
 ```
 
@@ -15,7 +15,7 @@ Where `[args]` are arguments passed to the file/command being executed.
 
 As an example a new `psh` can be run using the `exec` command:
 
-```bash
+```text
 exec /bin/psh
 ```
 
@@ -29,5 +29,5 @@ exec /bin/psh
 ## See also
 
 1. [Phoenix-RTOS shell](psh.md)
-2. [Phoenix-RTOS Utilities](README.md)
-3. [Table of Contents](../README.md)
+2. [Phoenix-RTOS Utilities](../README.md)
+3. [Table of Contents](../../README.md)
