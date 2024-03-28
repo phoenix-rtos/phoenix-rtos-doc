@@ -1814,7 +1814,7 @@ ul.search li {
 	margin: 0 .25rem;
 	vertical-align: middle
 }.sidebar-tree .current-page>.reference {
-	font-weight: 500;
+	font-weight: 600;
 	color:#ea5b22;
 }.sidebar-tree label {
 	align-items: center;
@@ -1883,6 +1883,7 @@ ul.search li {
 }.sidebar-tree .current>.reference {
 	background: var(--color-sidebar-item-background--current);
 	color: #ea5b22;
+	font-weight: 600;
 }.sidebar-tree .current>.reference:hover {
 	background: #ea5b22
 }.toctree-checkbox {
