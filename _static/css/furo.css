@@ -1733,7 +1733,7 @@ ul.search li {
 	margin: 0 auto;
 	max-width: 100%
 }.sidebar-search-container {
-	border-radius: 10px;
+	border-radius: 15px;
 	align-items: center;
 	background: var(--color-sidebar-search-background);
 	display: flex;
