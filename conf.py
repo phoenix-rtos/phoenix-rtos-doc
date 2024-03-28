@@ -34,6 +34,7 @@ html_title = 'Phoenix-RTOS Documentation'
 html_favicon = '_images/RTOS_sign.png'
 html_theme = 'furo'
 html_css_files = ['css/furo.css', 'css/furo-extensions.css']
+html_js_files = ['js/functions.js']
 html_static_path = ['_static']
 html_theme_options = {
     "light_logo": "light_logo.png",
