@@ -1,4 +1,4 @@
-# Running system on armv7m7-imxrt106x-evk
+# Running system on <nobr>armv7m7-imxrt106x-evk</nobr>
 
 This version is designed for NXP i.MX RT106x processors with ARM Cortex-M7 core. To launch this version the final disk
 image and loader image should be provided. The images are created as the final artifacts of the `phoenix-rtos-project`

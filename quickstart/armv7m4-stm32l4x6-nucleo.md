@@ -1,4 +1,4 @@
-# Running system on armv7m4-stm32l4x6-nucleo
+# Running system on <nobr>armv7m4-stm32l4x6-nucleo</nobr>
 
 This version is designated for STM32L4x6 processors with Cortex-M4 core. To launch this version the final flash image
 should be provided. The image is created as the final artifact of the `phoenix-rtos-project` building and is located in

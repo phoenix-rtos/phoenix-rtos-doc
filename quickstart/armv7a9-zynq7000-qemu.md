@@ -1,4 +1,4 @@
-# Running system on armv7a9-zynq7000-qemu
+# Running system on <nobr>armv7a9-zynq7000-qemu</nobr>
 
 These instructions describe how to run a Phoenix-RTOS system image for the `armv7a9-zynq7000-qemu` target architecture
 using docker.

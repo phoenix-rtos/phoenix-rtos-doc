@@ -1,4 +1,4 @@
-# Running system on armv7a7-imx6ull-evk
+# Running system on <nobr>armv7a7-imx6ull-evk</nobr>
 
 This version is designed for NXP i.MX 6ULL processors with ARM Cortex-A7 core. To launch this version the final disk
 image and loader image should be provided. Images are created as the final artifacts of the `phoenix-rtos-project`

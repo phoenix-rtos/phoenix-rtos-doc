@@ -1,4 +1,4 @@
-# Running system on armv7a9-zynq7000-zturn
+# Running system on <nobr>armv7a9-zynq7000-zturn</nobr>
 
 These instructions describe how to run a Phoenix-RTOS system image for `armv7a9-zynq7000-zturn` target architecture.
 Note that, the build artifacts, including the system image, should be first provided in the `_boot` directory.

@@ -1,4 +1,4 @@
-# Running system on riscv64-generic-qemu
+# Running system on <nobr>riscv64-generic-qemu</nobr>
 
 This version is designated for RISC-V 64 processors based virtual machine implemented by `qemu-system-riscv64`.
 To launch this version two files should be provided - `phoenix.disk` file integrated with SBI firmware with embedded

@@ -1,4 +1,4 @@
-# Running system on ia32-generic-qemu
+# Running system on <nobr>ia32-generic-qemu</nobr>
 
 This version is designated for generic PC based on the IA32 processor. To launch this version the final disk image
 should be provided. The image is created as the final artifact of the `phoenix-rtos-project` building and is located in

@@ -1,4 +1,4 @@
-# Running system on armv7a9-zynq7000
+# Running system on <nobr>armv7a9-zynq7000</nobr>
 
 This version is designed for Xilinx Zynq-7000 SoC (System on Chip) with ARM Cortex-A9 core. To launch this version the
 final disk image should be provided. The image is created as the final artifact of the `phoenix-rtos-project` building

@@ -1,4 +1,4 @@
-# Running system on armv7a9-zynq7000-zedboard
+# Running system on <nobr>armv7a9-zynq7000-zedboard</nobr>
 
 These instructions describe how to run a Phoenix-RTOS system image for `armv7a9-zynq7000-zedboard` target architecture.
 Note that, the build artifacts, including the system image, should be first provided in the `_boot` directory.

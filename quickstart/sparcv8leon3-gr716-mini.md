@@ -1,4 +1,4 @@
-# Running system on sparcv8leon3-gr716-mini
+# Running system on <nobr>sparcv8leon3-gr716-mini</nobr>
 
 These instructions describe how to run Phoenix-RTOS on the `sparcv8leon3-gr716-mini` target. Note that the build
 artifacts, including the system image should be provided in the `_boot` directory. If you have not built the system

@@ -1,4 +1,4 @@
-# Running system on riscv64-generic-spike
+# Running system on <nobr>riscv64-generic-spike</nobr>
 
 This version is designated for RISC-V 64 processors based spike machine implemented by the Spike (`riscv-isa-sim`)
 emulator. To launch this version `phoenix.osbi` file should be provided - system image with integrated OpenSBI
