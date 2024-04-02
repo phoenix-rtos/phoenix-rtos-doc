@@ -1,3 +1,7 @@
+---
+nosearch: True
+---
+
 # USB stack
 
 Devices running Phoenix-RTOS can act as both sides of USB communication - host and device (client). When acting as a

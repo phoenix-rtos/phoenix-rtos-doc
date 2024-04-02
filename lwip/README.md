@@ -1,3 +1,7 @@
+---
+nosearch: True
+---
+
 # Network stack
 
 Phoenix-RTOS network stack is based on LwIP. According to microkernel architecture philosophy, it works as a server on

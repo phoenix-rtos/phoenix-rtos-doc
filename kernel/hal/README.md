@@ -1,3 +1,7 @@
+---
+nosearch: True
+---
+
 # HAL
 
 HAL (Hardware Abstraction Layer) is the kernel hardware-dependent subsystem used for adapting it to the particular

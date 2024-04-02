@@ -1,3 +1,7 @@
+---
+nosearch: True
+---
+
 # Coding convention
 
 The chapter presents coding convention used in the implementation files of Phoenix-RTOS.

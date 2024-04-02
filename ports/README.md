@@ -1,3 +1,7 @@
+---
+nosearch: True
+---
+
 # Ports
 
 Open-source tools adapted to Phoenix-RTOS are called ports. A source code of each port is downloaded from its official

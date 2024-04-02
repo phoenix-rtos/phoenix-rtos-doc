@@ -1,3 +1,7 @@
+---
+nosearch: True
+---
+
 # Building
 
 To create a Phoenix-RTOS image for the selected target the `phoenix-rtos-project` repository should be used. This

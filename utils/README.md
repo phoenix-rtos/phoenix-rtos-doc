@@ -1,3 +1,7 @@
+---
+nosearch: True
+---
+
 # Utilities
 
 Phoenix-RTOS utilities are functional tools used by the system, similar to the

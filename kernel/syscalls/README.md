@@ -1,3 +1,7 @@
+---
+nosearch: True
+---
+
 # System calls
 
 System call (commonly abbreviated to syscall) is an entry point to execute a specific user program's request to a

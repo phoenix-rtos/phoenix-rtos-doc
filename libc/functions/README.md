@@ -1,3 +1,7 @@
+---
+nosearch: True
+---
+
 # Functions
 
 ## assert

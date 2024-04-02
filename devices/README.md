@@ -1,3 +1,7 @@
+---
+nosearch: True
+---
+
 # Device drivers
 
 Phoenix-RTOS implements device drivers as device servers running on the user level. The communication with drivers is

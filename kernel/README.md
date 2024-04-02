@@ -1,3 +1,7 @@
+---
+nosearch: True
+---
+
 # Kernel
 
 Phoenix-RTOS is based on the written from scratch dedicated microkernel and consists of about 20K lines of code (LoC).

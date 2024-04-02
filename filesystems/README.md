@@ -1,3 +1,7 @@
+---
+nosearch: True
+---
+
 # Filesystems
 
 Filesystems in Phoenix-RTOS are supported using file servers. File servers are specialized servers implementing specific

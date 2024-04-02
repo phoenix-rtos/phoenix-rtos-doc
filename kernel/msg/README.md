@@ -1,3 +1,7 @@
+---
+nosearch: True
+---
+
 # Interprocess communication - message queues
 
 Phoenix-RTOS Kernel provides a mechanism for interprocess communication (IPC) using message queues. The endpoint of the

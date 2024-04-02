@@ -1,3 +1,7 @@
+---
+nosearch: True
+---
+
 # Phoenix-RTOS Documentation
 
 Phoenix-RTOS is a scalable real-time operating system for IoT. It is based on its own microkernel and can be used either on small devices based on microcontrollers and on advanced computer systems based on multiple processors and equipped with gigabytes of RAM.

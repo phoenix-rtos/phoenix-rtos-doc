@@ -1,3 +1,7 @@
+---
+nosearch: True
+---
+
 # Memory management
 
 Memory management is the most important part of any operating system kernel, as it has a great impact on the overall

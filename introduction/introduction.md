@@ -1,3 +1,7 @@
+---
+nosearch: True
+---
+
 # Introduction
 
 The idea for writing a new real-time operating system was born in 1998 at the Warsaw University of Technology. It was

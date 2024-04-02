@@ -1,3 +1,7 @@
+---
+nosearch: True
+---
+
 # Libraries
 
 Phoenix-RTOS provides libraries, which enable the development of applications.

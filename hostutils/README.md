@@ -1,3 +1,7 @@
+---
+nosearch: True
+---
+
 # Host utilities
 
 Phoenix-RTOS host utilities are functional tools used by the host computer in which, for example, we flash a system

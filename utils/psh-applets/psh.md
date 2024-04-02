@@ -1,3 +1,7 @@
+---
+nosearch: True
+---
+
 # Phoenix Shell (psh)
 
 The Phoenix Shell is a compact program that enables you to control Phoenix-RTOS from the command line.

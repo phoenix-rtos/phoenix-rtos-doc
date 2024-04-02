@@ -1,3 +1,7 @@
+---
+nosearch: True
+---
+
 # Loader
 
 The plo is an inherent part of Phoenix-RTOS used to prepare the system setup structure and load kernel and applications

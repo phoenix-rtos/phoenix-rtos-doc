@@ -1,3 +1,7 @@
+---
+nosearch: True
+---
+
 # Testing process
 
 The testing process uses a Phoenix-RTOS testing framework written in Python. The framework provides an environment for

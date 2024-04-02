@@ -1,3 +1,7 @@
+---
+nosearch: True
+---
+
 # Running system on targets
 
 This chapter presents how to run Phoenix-RTOS on supported targets. It is assumed that `phoenix-rtos-project` is built,

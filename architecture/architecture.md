@@ -1,3 +1,7 @@
+---
+nosearch: True
+---
+
 # Architecture
 
 The Phoenix-RTOS operating system starting from version 3 is based on microkernel architecture.

@@ -1,3 +1,7 @@
+---
+nosearch: True
+---
+
 # Standard library
 
 Phoenix-RTOS uses its own standard C library - libphoenix. The library provides a system interface for user
