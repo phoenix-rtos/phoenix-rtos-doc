@@ -53,7 +53,7 @@ int main(void)
 
 - Sample result:
 
-  ```bash
+  ```console
   (psh)% /usr/bin/uuidgen
   Generated identifier: 81fb691c-fb2d-4546-54ef-231edff56a7f
   (psh)% 
@@ -66,6 +66,6 @@ int main(void)
   [phoenix-rtos-tests](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master).
   It can be run for different platforms, here is the example for the `ia32-generic-qemu` target:
 
-  ```bash
+  ```console
   python3 phoenix-rtos-tests/runner.py -T ia32-generic-qemu -t phoenix-rtos-tests/libuuid/
   ```

@@ -1,10 +1,10 @@
-# Running system on `armv7m4-stm32l4x6-nucleo` (ST STM32L4x)
+# Running system on <nobr>armv7m4-stm32l4x6-nucleo</nobr>
 
 This version is designated for STM32L4x6 processors with Cortex-M4 core. To launch this version the final flash image
 should be provided. The image is created as the final artifact of the `phoenix-rtos-project` building and is located in
 the `_boot` directory. The image consists of a kernel, TTY UART driver, RAM disk filesystem, and psh (shell).
 
-See [how to build the Phoenix-RTOS system image](../building/README.md).
+See [how to build the Phoenix-RTOS system image](../building/building.md).
 
 ## Development board
 
@@ -42,7 +42,7 @@ To communicate with the board you will need to use a UART-USB converter, like `P
 
   - On Ubuntu:
 
-  ```bash
+  ```console
     ls -l /dev/serial/by-id
   ```
 
@@ -50,7 +50,7 @@ To communicate with the board you will need to use a UART-USB converter, like `P
 
   - On macOS:
 
-  ```bash
+  ```console
   ls -l /dev/tty.*
   ```
 
@@ -58,21 +58,21 @@ To communicate with the board you will need to use a UART-USB converter, like `P
 
 - Open serial port in terminal using picocom
 
-  ```bash
+  ```console
   picocom -b 115200 --imap lfcrlf /dev/tty[port]
   ```
 
   <details>
   <summary>How to get picocom and run it without privileges (Ubuntu 22.04)</summary>
 
-  ```bash
+  ```console
   sudo apt-get update && \
   sudo apt-get install picocom
   ```
 
   To use picocom without sudo privileges run this command and then restart:
 
-  ```bash
+  ```console
   sudo usermod -a -G tty <yourname>
   ```
 
@@ -81,7 +81,7 @@ To communicate with the board you will need to use a UART-USB converter, like `P
   <details>
   <summary>How to get picocom (macOS)</summary>
 
-  ```bash
+  ```console
   brew update &&\
   brew install picocom
   ```
@@ -94,7 +94,7 @@ You can leave the terminal with the serial port open, and follow the next steps.
 
 To flash the image to the board you will need `openocd` in version 0.11 or 0.12. You can check it using
 
-```bash
+```console
 openocd -v
 ```
 
@@ -105,13 +105,13 @@ To install from the default repositoriy:
 
 - use `apt-get`
 
-  ```bash
+  ```console
   sudo apt-get install openocd
   ```
 
 - check if the version is correct
 
-  ```bash
+  ```console
   openocd -v
   ```
 
@@ -120,19 +120,19 @@ To install manually:
 - download `openocd-0.11.0-rc2` from [here](https://launchpad.net/ubuntu/+source/openocd)
 - enter the downloaded directory
 
-  ```bash
+  ```console
   cd openocd-0.11.0-rc2
   ```
 
 - install openocd
 
-  ```bash
+  ```console
   sudo apt-get install libusb-1.0 && ./configure --enable-stlink && make && sudo make install
   ```
 
 - check if the version is correct
 
-  ```bash
+  ```console
   openocd -v
   ```
 
@@ -145,14 +145,14 @@ To install manually:
 
   - install openocd
 
-    ```bash
+    ```console
     brew update &&\
     brew install open-ocd
     ```
 
   - check if the version is correct
 
-    ```bash
+    ```console
     openocd -v
     ```
 
@@ -161,13 +161,13 @@ To install manually:
 
 If you have openocd, next you can use the following script:
 
-```bash
+```console
 sudo phoenix-rtos-build/scripts/program-stm32l4x6.sh _boot/armv7m4-stm32l4x6-nucleo/phoenix.disk
 ```
 
 or use openocd directly:
 
-```bash
+```console
 openocd -f interface/stlink.cfg \
 -f target/stm32l4x.cfg -c "reset_config srst_only srst_nogate connect_assert_srst" \
 -c "program _boot/armv7m4-stm32l4x6-nucleo/phoenix.disk 0x08000000 verify reset exit"
@@ -189,7 +189,7 @@ reset (using `RESET B2`).
 
 To get the available command list please type:
 
-```plaintext
+```console
 help
 ```
 
@@ -197,7 +197,7 @@ help
 
 To get the list of working processes please type:
 
-```plaintext
+```console
 ps
 ```
 
@@ -205,5 +205,5 @@ ps
 
 ## See also
 
-1. [Running system on targets](README.md)
+1. [Running system on targets](quickstart.md)
 2. [Table of Contents](../README.md)

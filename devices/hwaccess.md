@@ -66,7 +66,7 @@ accessed by directly setting a volatile pointer to the desired physical base add
 
 ## See also
 
-1. [Device drivers](README.md)
+1. [Device drivers](devices.md)
 2. [Handling interrupts](interrupts.md)
 3. [Message interface](interface.md)
 4. [Table of Contents](../README.md)

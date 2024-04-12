@@ -1,10 +1,10 @@
-# Running system on `armv7a9-zynq7000-zedboard` (Xilinx Zynq-7000, Zedboard development board)
+# Running system on <nobr>armv7a9-zynq7000-zedboard</nobr>
 
 These instructions describe how to run a Phoenix-RTOS system image for `armv7a9-zynq7000-zedboard` target architecture.
 Note that, the build artifacts, including the system image, should be first provided in the `_boot` directory.
 If you haven't run the `build.sh` script yet, run it for `armv7a9-zynq7000-zedboard` target.
 
-See [how to build the Phoenix-RTOS system image](../building/README.md).
+See [how to build the Phoenix-RTOS system image](../building/building.md).
 
 ## Preparing the board
 
@@ -54,7 +54,7 @@ The onboard UART-USB converter is used here.
 
   - On Ubuntu:
 
-  ```bash
+  ```console
   ls -l /dev/serial/by-id
   ```
 
@@ -62,7 +62,7 @@ The onboard UART-USB converter is used here.
 
   - On macOS:
 
-  ```bash
+  ```console
   ls -l /dev/tty.*
   ```
 
@@ -73,7 +73,7 @@ The onboard UART-USB converter is used here.
 - When the board is connected to your host-pc,
  open serial port in terminal using picocom and type the console port (in this case ACM0)
 
-  ```bash
+  ```console
   picocom -b 115200 --imap lfcrlf /dev/tty[port]
   ```
 
@@ -81,14 +81,14 @@ The onboard UART-USB converter is used here.
 
 <summary>How to get picocom and run it without privileges (Ubuntu 22.04)</summary>
 
-```bash
+```console
 sudo apt-get update && \
 sudo apt-get install picocom
 ```
 
 To use picocom without sudo privileges run this command and then restart:
 
-```bash
+```console
 sudo usermod -a -G tty <yourname>
 ```
 
@@ -98,7 +98,7 @@ sudo usermod -a -G tty <yourname>
  <details>
   <summary>How to get picocom (macOS)</summary>
 
-  ```bash
+  ```console
   brew update &&\
   brew install picocom
   ```
@@ -137,7 +137,7 @@ Without erasure `jffs2` may encounter data from the previous flash operation and
  during the system startup may occur.
 That's why we have to run erase using plo command specific to `jffs2` file system:
 
-```plaintext
+```console
 jffs2 -d 2.0 -e -c 0x80:0x100:0x10000:16
 ```
 
@@ -164,7 +164,7 @@ You can check that using `ls` as follow:
 
 - On Ubuntu:
 
-```bash
+```console
 ls -l /dev/serial/by-id
 ```
 
@@ -172,7 +172,7 @@ ls -l /dev/serial/by-id
 
 - On macOS:
 
-```bash
+```console
 ls -l /dev/tty.*
 ```
 
@@ -181,11 +181,11 @@ ls -l /dev/tty.*
 To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments
  (choose suitable ttyACMx device, in this case, ttyACM1):
 
-```bash
+```console
 cd _boot/armv7a9-zynq7000-zedboard
 ```
 
-```bash
+```console
 sudo ./phoenixd -p /dev/tty[port] -b 115200 -s .
 ```
 
@@ -193,7 +193,7 @@ sudo ./phoenixd -p /dev/tty[port] -b 115200 -s .
 
 To start copying the file, write the following command in the console with plo interface:
 
-```bash
+```console
 copy usb0 phoenix.disk flash0 0x0 0x0
 ```
 
@@ -220,7 +220,7 @@ To run it you should follow the steps below:
 
   - On Ubuntu:
 
-  ```bash
+  ```console
   ls -l /dev/serial/by-id/
   ```
 
@@ -228,7 +228,7 @@ To run it you should follow the steps below:
 
   - On macOS:
 
-  ```bash
+  ```console
   ls -l /dev/tty.*
   ```
 
@@ -236,7 +236,7 @@ To run it you should follow the steps below:
 
 - connect to that port:
 
-  ```bash
+  ```console
   picocom -b 115200 --imap lfcrlf /dev/tty[port]
   ```
 
@@ -248,7 +248,7 @@ To run it you should follow the steps below:
 
 To get the available command list please type:
 
-```plaintext
+```console
 help
 ```
 
@@ -256,7 +256,7 @@ help
 
 If you want to get the list of working processes please type:
 
-```plaintext
+```console
 ps
 ```
 
@@ -264,7 +264,7 @@ ps
 
 To get the table of processes please type:
 
-```plaintext
+```console
 top
 ```
 
@@ -275,5 +275,5 @@ top
 1. [Running system on armv7a9-zynq7000](armv7a9-zynq7000.md)
 2. [Running system on armv7a9-zynq7000 on emulator](armv7a9-zynq7000-qemu.md)
 3. [Running system on armv7a9-zynq7000-zturn](armv7a9-zynq7000-zturn.md)
-4. [Running system on targets](README.md)
+4. [Running system on targets](quickstart.md)
 5. [Table of Contents](../README.md)

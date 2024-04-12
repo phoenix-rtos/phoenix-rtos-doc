@@ -1,11 +1,11 @@
-# Running system on `riscv64-generic-spike`
+# Running system on <nobr>riscv64-generic-spike</nobr>
 
 This version is designated for RISC-V 64 processors based spike machine implemented by the Spike (`riscv-isa-sim`)
 emulator. To launch this version `phoenix.osbi` file should be provided - system image with integrated OpenSBI
 bootloader, containing PLO, kernel, console driver, dummyfs filesystem and the `psh` shell.
 
 The file is created as the final artifact of the `phoenix-rtos-project` build and is located in the `_boot` directory.
-See [how to build the Phoenix-RTOS system image](../building/README.md)
+See [how to build the Phoenix-RTOS system image](../building/building.md)
 
 ## Running image under the spike
 
@@ -16,32 +16,32 @@ Firstly, you need to install a spike simulator.
 
   1. Clone the `riscv-isa-sim` GitHub repository. System was tested on commit `5fa1cd54` on `master` branch.
 
-      ```bash
+      ```console
       git clone https://github.com/riscv-software-src/riscv-isa-sim.git --single-branch
       ```
 
   2. Enter the downloaded repository
 
-      ```bash
+      ```console
       cd riscv-isa-sim
       ```
 
   3. Check out the commit `5fa1cd54`
 
-      ```bash
+      ```console
       git checkout 5fa1cd54
       ```
 
   4. Install the device-tree-compiler
 
-      ```bash
+      ```console
       sudo apt-get update && \
       sudo apt-get install device-tree-compiler
       ```
 
   5. Install the Spike RISC-V ISA Simulator
 
-      ```bash
+      ```console
       mkdir build && \
       cd build && \
       ../configure --prefix=$RISCV && \
@@ -54,7 +54,7 @@ Firstly, you need to install a spike simulator.
 
 Then, to run the image under spike you should change the directory to `phoenix-rtos-project` and type:
 
-```bash
+```console
 ./scripts/riscv64-generic-spike.sh
 ```
 
@@ -67,7 +67,7 @@ Then, to run the image under spike you should change the directory to `phoenix-r
 Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal. To get the available
 command list please type:
 
-```bash
+```console
 help
 ```
 
@@ -75,7 +75,7 @@ help
 
 To get the list of working processes please type:
 
-```bash
+```console
 ps
 ```
 
@@ -83,5 +83,5 @@ ps
 
 ## See also
 
-1. [Running system on targets](README.md)
+1. [Running system on targets](quickstart.md)
 2. [Table of Contents](../README.md)

@@ -1,11 +1,11 @@
-# Running system on `ia32-generic-qemu` (PC based on IA32 processor)
+# Running system on <nobr>ia32-generic-qemu</nobr>
 
 This version is designated for generic PC based on the IA32 processor. To launch this version the final disk image
 should be provided. The image is created as the final artifact of the `phoenix-rtos-project` building and is located in
 the `_boot` directory. The image consists of the bootloader (plo), kernel, TTY VGA driver, ATA driver with ext2
 filesystem.
 
-See [how to build the Phoenix-RTOS system image](../building/README.md).
+See [how to build the Phoenix-RTOS system image](../building/building.md).
 
 ## Running image under QEMU
 
@@ -15,7 +15,7 @@ Firstly, you need to install QEMU emulator.
 
 - Install the required packages
 
-  ```bash
+  ```console
   sudo apt-get update && \
   sudo apt-get install qemu-kvm \
   qemu virt-manager \
@@ -28,11 +28,11 @@ Firstly, you need to install QEMU emulator.
 
 - Check if QEMU is properly installed:
 
-  ```bash
+  ```console
   qemu-system-i386 --version
   ```
 
-  ```bash
+  ```console
   ~$ qemu-system-i386 --version
   QEMU emulator version 4.2.1 (Debian 1:4.2-3ubuntu6.24)
   Copyright (c) 2003-2019 Fabrice Bellard and the QEMU Project developers
@@ -69,7 +69,7 @@ Firstly, you need to install QEMU emulator.
 To run the system image under QEMU you should type the following command
 (launched from `phoenix-rtos-project` directory).
 
-```bash
+```console
 ./scripts/ia32-generic-qemu.sh
 ```
 
@@ -79,7 +79,7 @@ Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in 
 
 To get the available command list please type:
 
-```bash
+```console
 help
 ```
 
@@ -87,7 +87,7 @@ help
 
 In order to run one of the user applications you should type `/usr/bin/appname`, for example:
 
-```bash
+```console
 /usr/bin/voxeldemo
 ```
 
@@ -99,7 +99,7 @@ You can press `ctrl + c` to quit the voxeldemo app.
 
 To get the list of working processes please type:
 
-```bash
+```console
 ps
 ```
 
@@ -107,7 +107,7 @@ ps
 
 There is a possibility to run the ash shell, it can be launched using the following command.
 
-```bash
+```console
 /bin/ash
 ```
 
@@ -116,7 +116,7 @@ There is a possibility to run the ash shell, it can be launched using the follow
 Phoenix-RTOS image can be also launched on multiple processor cores. To do this please define the number of cores
 (e.g. 4) using the following command (launched from the `phoenix-rtos-project` directory).
 
-```bash
+```console
 qemu-system-i386 -hda _boot/phoenix-ia32-generic.disk -smp 4
 ```
 
@@ -130,11 +130,11 @@ To run the image on regular hardware please be sure that a target system is equi
 PATA interface. The image should be copied to the boot disk using the `dd` command (it is assumed that the target
 disk is represented by /dev/sda block device).
 
-```bash
+```console
   dd if=_boot/ia32-generic-pc/phoenix.disk of=/dev/sda
 ```
 
 ## See also
 
-1. [Running system on targets](README.md)
+1. [Running system on targets](quickstart.md)
 2. [Table of Contents](../README.md)

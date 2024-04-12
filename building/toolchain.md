@@ -12,7 +12,7 @@ There are a few reasons why that is helpful
 
 - You can easily compile source code for a given Phoenix-RTOS platform, for example, ia32-generic-qemu:
 
-  ```bash
+  ```console
   i386-pc-phoenix-gcc helloworld.c
   ```
 
@@ -28,7 +28,7 @@ There are a few reasons why that is helpful
 
 ## See also
 
-1. [Building Phoenix-RTOS image](README.md)
+1. [Building Phoenix-RTOS image](building.md)
 2. [Building script](script.md)
 3. [Reference project](project.md)
 4. [Table of Contents](../README.md)

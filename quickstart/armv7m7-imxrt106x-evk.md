@@ -1,4 +1,4 @@
-# Running system on `armv7m7-imxrt106x-evk` (NXP i.MX RT106x)
+# Running system on <nobr>armv7m7-imxrt106x-evk</nobr>
 
 This version is designed for NXP i.MX RT106x processors with ARM Cortex-M7 core. To launch this version the final disk
 image and loader image should be provided. The images are created as the final artifacts of the `phoenix-rtos-project`
@@ -6,7 +6,7 @@ building and are located in the `_boot` directory. The disk image consists of th
 (tty), dummyfs filesystem server (RAM disk), and psh (shell). Necessary tools to carry out the flashing process are
 located in the `_boot` directory as well.
 
-See [how to build the Phoenix-RTOS system image](../building/README.md).
+See [how to build the Phoenix-RTOS system image](../building/building.md).
 
 ## Development board
 
@@ -40,7 +40,7 @@ UART-USB converter is used here.
 
   - On Ubuntu:
 
-  ```bash
+  ```console
   ls -l /dev/serial/by-id
   ```
 
@@ -48,7 +48,7 @@ UART-USB converter is used here.
 
   - On macOS:
 
-  ```bash
+  ```console
   ls -l /dev/tty.*
   ```
 
@@ -60,21 +60,21 @@ UART-USB converter is used here.
 - When the board is connected to your host-pc, open serial port in terminal using picocom and type the console port
 (in this case ACM0)
 
-  ```bash
+  ```console
   picocom -b 115200 --imap lfcrlf /dev/tty[port]
   ```
 
   <details>
   <summary>How to get picocom and run it without privileges (Ubuntu 22.04)</summary>
 
-  ```bash
+  ```console
   sudo apt-get update && \
   sudo apt-get install picocom
   ```
 
   To use picocom without sudo privileges run this command and then restart:
 
-  ```bash
+  ```console
   sudo usermod -a -G tty <yourname>
   ```
 
@@ -84,7 +84,7 @@ UART-USB converter is used here.
   <details>
   <summary>How to get picocom (macOS)</summary>
 
-  ```bash
+  ```console
   brew update &&\
   brew install picocom
   ```
@@ -111,11 +111,11 @@ the board after the change and open the serial port using picocom once again.
 
 Change directory to `_boot/armv7m7-imxrt106x-evk` and run `psu` as follows:
 
-```bash
+```console
 cd _boot/armv7m7-imxrt106x-evk
 ```
 
-```bash
+```console
 sudo ./psu plo-ram.sdp
 ```
 
@@ -134,7 +134,7 @@ using `ls` as follows:
 
 - On Ubuntu:
 
-```bash
+```console
 ls -l /dev/serial/by-id
 ```
 
@@ -142,7 +142,7 @@ ls -l /dev/serial/by-id
 
 - On macOS:
 
-```bash
+```console
 ls -l /dev/tty.*
 ```
 
@@ -151,7 +151,7 @@ ls -l /dev/tty.*
 To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments
 (choose suitable ttyACMx device, in this case, ttyACM1):
 
-```bash
+```console
 sudo ./phoenixd -p /dev/tty[port] -b 115200 -s .
 ```
 
@@ -159,7 +159,7 @@ sudo ./phoenixd -p /dev/tty[port] -b 115200 -s .
 
 To start copying a file, write the following command in the console with plo interface:
 
-```bash
+```console
 copy usb0 phoenix.disk flash1 0x0 0x0
 ```
 
@@ -183,7 +183,7 @@ interrupted by pressing any key. Then you can exit plo by passing `go!` command.
 
 If you want to get the available command list please type:
 
-```plaintext
+```console
 help
 ```
 
@@ -191,7 +191,7 @@ help
 
 To get the list of working processes please type:
 
-```plaintext
+```console
 ps
 ```
 
@@ -199,7 +199,7 @@ ps
 
 To get the table of processes please type:
 
-```plaintext
+```console
 top
 ```
 
@@ -207,5 +207,5 @@ top
 
 ## See also
 
-1. [Running system on targets](README.md)
+1. [Running system on targets](quickstart.md)
 2. [Table of Contents](../README.md)
