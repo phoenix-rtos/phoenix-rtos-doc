@@ -1,4 +1,4 @@
-# Running system on `riscv64-generic-qemu`
+# Running system on <nobr>riscv64-generic-qemu</nobr>
 
 This version is designated for RISC-V 64 processors based virtual machine implemented by `qemu-system-riscv64`.
 To launch this version two files should be provided - `phoenix.disk` file integrated with SBI firmware with embedded
@@ -6,7 +6,7 @@ PLO, kernel, UART16550 interface and virtio-blk drivers, dummyfs filesystem and 
 with the ext2 filesystem.
 
 The files are created as the final artifact of the `phoenix-rtos-project` building and are located in the `_boot`
-directory. See [how to build the Phoenix-RTOS system image](../building/README.md).
+directory. See [how to build the Phoenix-RTOS system image](../building/building.md).
 
 ## Running image under QEMU
 
@@ -16,7 +16,7 @@ Firstly, you need to install QEMU emulator.
 
 - Install the required packages
 
-  ```bash
+  ```console
   sudo apt-get update && \
   sudo apt-get install qemu-kvm \
   qemu virt-manager \
@@ -29,11 +29,11 @@ Firstly, you need to install QEMU emulator.
 
 - Check if QEMU is properly installed:
 
-  ```bash
+  ```console
   qemu-system-riscv64 --version
   ```
 
-  ```bash
+  ```console
   ~$ qemu-system-riscv64 --version
   QEMU emulator version 4.2.1 (Debian 1:4.2-3ubuntu6.24)
   Copyright (c) 2003-2019 Fabrice Bellard and the QEMU Project developers
@@ -69,7 +69,7 @@ Firstly, you need to install QEMU emulator.
 
 To run the image under QEMU you should type:
 
-```bash
+```console
 ./scripts/riscv64-generic-qemu.sh
 ```
 
@@ -82,7 +82,7 @@ To run the image under QEMU you should type:
 Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal. To get the available
 command list please type:
 
-```plaintext
+```console
 help
 ```
 
@@ -90,7 +90,7 @@ help
 
 To get the list of working processes please type:
 
-```bash
+```console
 ps
 ```
 
@@ -98,5 +98,5 @@ ps
 
 ## See also
 
-1. [Running system on targets](README.md)
+1. [Running system on targets](quickstart.md)
 2. [Table of Contents](../README.md)

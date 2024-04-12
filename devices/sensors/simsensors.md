@@ -8,7 +8,7 @@ The concrete implementation of the Simsensor publishes prepared measurement read
 
 ## Supported sensors
 
-Currently, all types of sensors supported by [Sensorhub](sensorhub.md) have their simulated type. The naming convention
+Currently, all types of sensors supported by sensorhub have their simulated type. The naming convention
 assumes the use
 of the `_sim` suffix, for example, `baro_sim` for the barometer.
 
@@ -18,7 +18,7 @@ The concrete simulated sensor needs a special `CSV` file, which contains measure
 
 ### Columns
 
-- The first column contains the ID of a sensor type, which corresponds to IDs from [Sensorhub](sensorhub.md). The first
+- The first column contains the ID of a sensor type, which corresponds to IDs from sensorhub. The first
 column contains the ID of a sensor type, which corresponds to the IDs from Sensorhub. Furthermore, as described in the
 [Timestamps logic](#timestamps-logic) section, the end scenario indicator can be used as a value of this field.
 All currently available values are listed below.
@@ -97,7 +97,7 @@ column can be different. Below all the possibilities are described.
 The first row **can** be a header, which describes the meaning of particular columns. Structure of a header is shown
 below.
 
-```csv
+```console
 SensorID,Timestamp,Fld1,Fld2, ...
 ```
 
@@ -127,7 +127,7 @@ first column (as described in [this section](#columns)). Simsensor doesn't publi
 
 ### File example
 
-```csv
+```console
 SensorID,Timestamp,Field1,Field2,Field3
 1,2282607175,748,-419,-9780,0
 8,2282607175,-2,-64,0,0
@@ -146,7 +146,7 @@ Running selected Simsensor is analogical to start collecting data from a physica
 argument: the path to a file containing the measurement scenario to be used. Command to start sensor should look file
 this:
 
-```bash
+```console
 ./sbin/sensors -s <sensor_type>_sim:<scenario_file_path>
 ```
 
@@ -157,6 +157,6 @@ From perspective of data consumer, nothing changes.
 Assume that mocking barometer data is needed and path to file with data to be published is
 `./etc/mock_measurements.csv`. Then the command to start looks like this:
 
-```bash
+```console
 ./sbin/sensors -s baro_sim:./etc/mock_measurements.csv
 ```

@@ -74,7 +74,7 @@ releases allocated kernel stacks.
 
 ## See also
 
-1. [Kernel - Processes and threads](README.md)
+1. [Kernel - Processes and threads](proc.md)
 2. [Kernel - Processes and threads - Scheduler](scheduler.md)
 3. [Kernel - Processes and threads - Synchronization primitives](sync.md)
 4. [Kernel - Processes and threads - Message passing](msg.md)

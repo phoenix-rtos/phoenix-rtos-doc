@@ -19,11 +19,11 @@ of system calls. Future implementations will instead delegate requests directly 
 
 The source code of `posixsrv` is available on GitHub and can be obtained using the following command:
 
-```bash
+```console
 git clone https://github.com/phoenix-rtos/phoenix-rtos-posixsrv
 ```
 
 ## See also
 
-1. [Standard library functions](functions/README.md)
+1. [Standard library functions](functions/functions.md)
 2. [Table of Contents](../README.md)

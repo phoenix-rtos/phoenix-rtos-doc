@@ -7,6 +7,6 @@ and device configuration. The psd supports operations on various NXP platforms, 
 <!-- #TODO: add more information -->
 ## See also
 
-1. [Utilities](README.md)
-2. [Phoenix-RTOS shell](psh.md)
+1. [Utilities](utils.md)
+2. [Phoenix-RTOS shell](psh/psh.md)
 3. [Table of Contents](../README.md)

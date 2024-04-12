@@ -198,7 +198,7 @@ the physical memory.
 
 ## See also
 
-1. [Kernel - Memory management](README.md)
+1. [Kernel - Memory management](vm.md)
 2. [Kernel - Memory management - Memory mapper](mapper.md)
 3. [Kernel - Memory management - Zone allocator](zalloc.md)
 4. [Kernel - Memory management - Fine grained allocator](kmalloc.md)

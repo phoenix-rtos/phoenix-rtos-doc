@@ -32,7 +32,7 @@ mode, it is added to the ghosts list and the reaper thread woke up.
 
 ## See also
 
-1. [Kernel - Processes and threads](README.md)
+1. [Kernel - Processes and threads](proc.md)
 2. [Kernel - Processes and threads - Management](forking.md)
 3. [Kernel - Processes and threads - Synchronization primitives](scheduler.md)
 4. [Kernel - Processes and threads - Message passing](msg.md)

@@ -60,7 +60,7 @@ Each lock consists of spinlock, state variable and waiting queue.
 
 ## See also
 
-1. [Kernel - Processes and threads](README.md)
+1. [Kernel - Processes and threads](proc.md)
 2. [Kernel - Processes and threads - Scheduler](scheduler.md)
 3. [Kernel - Processes and threads - Management](forking.md)
 4. [Kernel - Processes and threads - Message passing](msg.md)

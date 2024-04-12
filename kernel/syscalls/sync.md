@@ -52,7 +52,8 @@ Waits on conditional given by 'h' for number of microseconds given by `timeout`.
 execution mutex identified by `m` handle is unlocked to enable other thread modifying variables used to
 check conditionals after conditional signalization. When conditional variable is signaled mutex `m` is locked.
 
-Libc wrapper: [int condWait(handle_t h, handle_t m, time_t timeout)](../../libc/functions/c/condWait.phrtos.md)
+Libc wrapper:
+[int condWait(handle_t h, handle_t m, time_t timeout)](../../libc/functions/sys/threads/condWait.phrtos.md)
 
 ## `syscalls_condSignal`
 
@@ -72,5 +73,5 @@ Signals conditional to all waiting threads.
 
 ## See also
 
-1. [System calls](README.md)
+1. [System calls](syscalls.md)
 2. [Table of Contents](../../README.md)

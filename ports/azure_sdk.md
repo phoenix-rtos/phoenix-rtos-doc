@@ -1,3 +1,6 @@
+---
+orphan: True
+---
 # Azure IoT C SDK Port
 
 ## Contents
@@ -55,7 +58,7 @@ There are few steps to follow:
 
     - Install the required package and ensure that `libvirtd` is running:
 
-      ```bash
+      ```console
       sudo apt-get update
       sudo apt-get install qemu-system-common
       systemctl enable libvirtd.service
@@ -64,20 +67,20 @@ There are few steps to follow:
 
     - Start the default network bridge, and configure it to run on startup.
 
-      ```bash
+      ```console
       sudo virsh net-autostart --network default
       sudo virsh net-start --network default
       ```
 
     - After that verify that the IP range `192.168.122.1/24` is reported by the `vibr0` bridge:
 
-      ```bash
+      ```console
       ip addr show virbr0
       ```
 
     - The expected output:
 
-      ```bash
+      ```console
        virbr0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default qlen 1000
           link/ether xx:xx:xx:xx:xx:xx brd ff:ff:ff:ff:ff:ff
           inet 192.168.122.1/24 brd 192.168.122.255 scope global virbr0
@@ -86,14 +89,14 @@ There are few steps to follow:
 
     - Set up `qemu-bridge-helper` (`chmod` is used here to allow running QEMU without root privileges)
 
-      ```bash
+      ```console
       echo "allow virbr0" > /etc/qemu/bridge.conf
       sudo chmod a+rw /etc/qemu/bridge.conf
       ```
 
     - If `/etc/qemu` directory does not exist, create it and provide required privileges:
 
-      ```bash
+      ```console
       sudo mkdir /etc/qemu
       sudo chmod a+rw /etc/qemu
       echo "allow virbr0" > /etc/qemu/bridge.conf
@@ -107,7 +110,7 @@ There are few steps to follow:
 
  2. Launch `qemu` using a starting script with `net` suffix:
 
-      ```bash
+      ```console
       ./scripts/ia32-generic-qemu-net.sh
       ```
 
@@ -119,7 +122,7 @@ There are few steps to follow:
       - Note: There are other programs executed by the script. For more information please check the content of the `rc`
        file for `ia32-generic-qemu` in `_projects/ia32-generic-qemu/rootfs-overlay/etc/rc`
 
-        ```bash
+        ```console
         /linuxrc
         ```
 
@@ -140,7 +143,7 @@ There are few steps to follow:
 
 Providing that internet connection is working, and the current date is set, you can run `iothub_ll_telemetry_sample`:
 
-```bash
+```console
 /bin/iothub_ll_telemetry_sample
 ```
 
@@ -152,7 +155,7 @@ Providing that internet connection is working, and the current date is set, you 
 You can read messages received from Azure, for example using `AzureIotHub VS Code Extension` by clicking
 `Start Monitoring Built-in Event Endpoint`:
 
-```bash
+```console
 [IoTHubMonitor] [6:07:21 PM] Message received from [ia32-generic-qemu]:
 "test_message"
 [IoTHubMonitor] [6:07:21 PM] Message received from [ia32-generic-qemu]:
@@ -355,7 +358,7 @@ In the result, unit tests for the `c-utility` component should be placed in the 
 
 The tests have `ut_exe` suffix, for example: `connectionstringparser_ut_exe`. You run it as follows:
 
-```bash
+```console
 /bin/connectionstringparser_ut_exe
 ```
 

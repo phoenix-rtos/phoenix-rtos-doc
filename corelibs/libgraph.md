@@ -37,7 +37,7 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
 
   The app can be run using the following command:
 
-  ```bash
+  ```console
   /usr/bin/voxeldemo
   ```
 
@@ -50,7 +50,7 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
 
   The app can be run using the following command:
 
-  ```bash
+  ```console
   /usr/bin/rotrectangle
   ```
 
@@ -63,7 +63,7 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
 
   The test can be run using the following command:
 
-  ```bash
+  ```console
   /bin/test_graph
   ```
 
@@ -511,5 +511,5 @@ in [How to use libgraph](#how-to-use-the-graphics-library) chapter.
 
 ## See also
 
-1. [Phoenix-RTOS core libraries](README.md)
+1. [Phoenix-RTOS core libraries](corelibs.md)
 2. [Table of Contents](../README.md)
