@@ -1,3 +1,83 @@
 /* In this file place changes you want to overwrite in furo.css */
 
 @import 'furo.css';
+
+/* Disable dark mode (values copied from light mode) */
+@media not print {
+    body[data-theme=dark] {
+		--color-problematic:#b30000;
+		--color-foreground-primary:#000;
+		--color-foreground-secondary:#5a5c63;
+		--color-foreground-muted:#646776;
+		--color-foreground-border:#878787;
+		--color-background-primary:#fff;
+		--color-background-secondary:#f8f9fb;
+		--color-background-hover:#efeff4;
+		--color-background-hover--transparent:#efeff400;
+		--color-background-border:#eeebee;
+		--color-background-item:#ccc;
+		--color-announcement-background:#000000dd;
+		--color-announcement-text:#eeebee;
+		--color-brand-primary:#2962ff;
+		--color-brand-content:#2a5adf;
+		--color-highlighted-background:#def;
+		--color-guilabel-background:#ddeeff80;
+		--color-guilabel-border:#bedaf580;
+		--color-api-keyword: var(--color-foreground-primary);
+		--color-highlight-on-target:#ffc;
+		--color-admonition-background: transparent;
+		--color-card-border: var(--color-background-secondary);
+		--color-card-background: transparent;
+		--color-card-marginals-background: var(--color-background-secondary)
+    }
+
+    html body[data-theme=dark] .only-light {
+        display: none !important
+    }
+
+    body[data-theme=dark] .only-dark {
+        display: block !important
+    }
+
+    @media(prefers-color-scheme:dark) {
+        body:not([data-theme=light]) {
+		--color-problematic:#b30000;
+		--color-foreground-primary:#000;
+		--color-foreground-secondary:#5a5c63;
+		--color-foreground-muted:#646776;
+		--color-foreground-border:#878787;
+		--color-background-primary:#fff;
+		--color-background-secondary:#f8f9fb;
+		--color-background-hover:#efeff4;
+		--color-background-hover--transparent:#efeff400;
+		--color-background-border:#eeebee;
+		--color-background-item:#ccc;
+		--color-announcement-background:#000000dd;
+		--color-announcement-text:#eeebee;
+		--color-brand-primary:#2962ff;
+		--color-brand-content:#2a5adf;
+		--color-highlighted-background:#def;
+		--color-guilabel-background:#ddeeff80;
+		--color-guilabel-border:#bedaf580;
+		--color-api-keyword: var(--color-foreground-primary);
+		--color-highlight-on-target:#ffc;
+		--color-admonition-background: transparent;
+		--color-card-border: var(--color-background-secondary);
+		--color-card-background: transparent;
+		--color-card-marginals-background: var(--color-background-secondary)
+        }
+
+        html body:not([data-theme=light]) .only-light {
+            display: none !important
+        }
+
+        body:not([data-theme=light]) .only-dark {
+            display: block !important
+        }
+    }
+}
+
+/* Hide toggle dark mode icon */
+.content-icon-container {
+    display: none !important;
+}
