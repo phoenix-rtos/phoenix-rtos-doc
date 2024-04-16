@@ -133,3 +133,11 @@ h6 {
             font-size: 100% !important
     }
 }
+
+/* Center images */
+img {
+    max-width: 100% !important;
+    display: block !important;
+    margin-left: auto !important;
+    margin-right: auto !important
+}
