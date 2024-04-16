@@ -2,6 +2,15 @@
 
 @import 'furo.css';
 
+/* Add open-sans-regular - latin font */
+@font-face {
+    font-display: swap;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/open-sans-v40-latin-regular.woff2') format('woff2');
+}
+
 /* Disable dark mode (values copied from light mode) */
 @media not print {
     body[data-theme=dark] {
