@@ -42,6 +42,7 @@ html_theme_options = {
 		"sidebar-caption-space-above": "0.1rem",
 		"sidebar-tree-space-above": "0.5rem",
 		"sidebar-search-input-font-size": "95%",
+		"font-stack": "'Open Sans', sans-serif"
 	},
 
 	"dark_css_variables": {
@@ -53,5 +54,6 @@ html_theme_options = {
 		"sidebar-caption-space-above": "0.1rem",
 		"sidebar-tree-space-above": "0.5rem",
 		"sidebar-search-input-font-size": "95%",
+		"font-stack": "'Open Sans', sans-serif"
 	}
 }
