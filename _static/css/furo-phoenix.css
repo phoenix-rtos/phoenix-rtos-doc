@@ -141,3 +141,18 @@ img {
     margin-left: auto !important;
     margin-right: auto !important
 }
+
+/* Change sidebar width, hide border and move to the left */
+.sidebar-drawer {
+    background: var(--color-sidebar-background);
+    border-right: none !important;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start !important;
+    width: 17em !important
+}
+
+.sidebar-container {
+    box-sizing: border-box;
+    width: 17em !important
+}

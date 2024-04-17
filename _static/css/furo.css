@@ -651,7 +651,6 @@ article {
     box-sizing: border-box;
     display: flex;
     justify-content: flex-end;
-    min-width: 15em;
     width: calc(50% - 26em)
 }
 
