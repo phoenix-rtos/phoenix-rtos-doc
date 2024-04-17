@@ -148,6 +148,57 @@ There are few steps to follow:
       sudo virsh net-start --network default
       ```
 
+    - If IPv6 is needed change the configuration of `virbr0`
+
+      ```bash
+      sudo virsh net-destroy default
+      sudo virsh net-edit default
+      ```
+
+      The commands above open the editor of the configuration file of `virbr0`. The are two necessary changes:
+
+      - Add IPv6 address to the bridge interface:
+
+        ```xml
+        <ip family='ipv6' address='2001:db8:dead:beef:fe::2' prefix='64'>
+        </ip>
+        ```
+
+      - Enable NAT for IPv6:
+
+        ```xml
+        <forward mode='nat'>
+          <nat ipv6='yes'/>
+        </forward>
+        ```
+
+      The overall config should look something like this:
+
+      ```xml
+      <network ipv6='yes'>
+        <name>default</name>
+        <uuid>a9e032b7-e32f-4f91-a273-e6c6f15b8904</uuid>
+        <forward mode='nat'>
+          <nat ipv6='yes'/>
+        </forward>
+        <bridge name='virbr0' stp='on' delay='0'>
+        <mac address='52:54:00:99:4d:c3'/>
+        <ip address='192.168.122.1' netmask='255.255.255.0'>
+          <dhcp>
+            <range start='192.168.122.2' end='192.168.122.254'/>
+          </dhcp>
+        </ip>
+        <ip family='ipv6' address='2001:db8:dead:beef:fe::2' prefix='64'>
+        </ip>
+      </network>
+      ```
+
+      Save the config file and start the bridge by running:
+
+      ```bash
+      sudo virsh net-start default
+      ```
+
     - After that verify that the IP range `192.168.122.1/24` is reported by the `vibr0` bridge:
 
       ```bash
