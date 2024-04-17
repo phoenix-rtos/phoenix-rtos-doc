@@ -173,3 +173,49 @@ img {
     scrollbar-color: var(--color-foreground-border) transparent;
     scrollbar-width: thin
 }
+
+/* Add border-radius and alginment to searchbox */
+.sidebar-search-container {
+    border-radius: 15px !important;
+    align-items: center;
+    background: var(--color-sidebar-search-background);
+    display: flex;
+    margin-top: 0.1rem !important;
+    margin-bottom: 0.75rem !important;
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+    position: relative
+}
+
+/* Adjust padding of logo */
+.sidebar-brand {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    padding: 1.8rem 1rem 0.8rem 1rem !important;
+    text-decoration: none
+}
+
+/* Change padding of searchbox */
+.sidebar-search {
+    background: transparent;
+    border: none;
+    box-sizing: border-box;
+    color: var(--color-sidebar-search-foreground);
+    padding: var(--sidebar-search-input-spacing-vertical) var(--sidebar-search-input-spacing-horizontal)
+             var(--sidebar-search-input-spacing-vertical) 1.85rem !important;
+    width: 100%;
+    z-index: 10
+}
+
+/* Change icon position for the left side of container */
+.sidebar-search-container:before {
+    background-color: var(--color-sidebar-search-icon);
+    content: "";
+    height: var(--sidebar-search-icon-size);
+    left: 0.5rem !important;
+    -webkit-mask-image: var(--icon-search);
+    mask-image: var(--icon-search);
+    position: absolute;
+    width: var(--sidebar-search-icon-size)
+}

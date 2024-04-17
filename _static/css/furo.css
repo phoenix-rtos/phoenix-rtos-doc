@@ -2234,8 +2234,6 @@ ul.search li {
 .sidebar-search {
     background: transparent;
     border: none;
-    border-bottom: 1px solid var(--color-sidebar-search-border);
-    border-top: 1px solid var(--color-sidebar-search-border);
     box-sizing: border-box;
     color: var(--color-sidebar-search-foreground);
     padding: var(--sidebar-search-input-spacing-vertical) var(--sidebar-search-input-spacing-horizontal) var(--sidebar-search-input-spacing-vertical) calc(var(--sidebar-item-spacing-horizontal) + var(--sidebar-search-input-spacing-horizontal) + var(--sidebar-search-icon-size));
