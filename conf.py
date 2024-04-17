@@ -33,6 +33,7 @@ html_style = ['css/furo-phoenix.css', 'css/furo-extensions-phoenix.css']
 html_static_path = ['_static', '_images']
 # TODO: add dark mode support
 html_theme_options = {
+	"light_logo": "light_logo.png",
 	"light_css_variables": {
 		"sidebar-caption-font-size": "100%",
 		"sidebar-item-font-size": "90%",
@@ -42,9 +43,11 @@ html_theme_options = {
 		"sidebar-caption-space-above": "0.1rem",
 		"sidebar-tree-space-above": "0.5rem",
 		"sidebar-search-input-font-size": "95%",
-		"font-stack": "'Open Sans', sans-serif"
+		"font-stack": "'Open Sans', sans-serif",
+		"color-sidebar-background": "#0F1724"
 	},
 
+	"dark_logo": "light_logo.png",
 	"dark_css_variables": {
 		"sidebar-caption-font-size": "100%",
 		"sidebar-item-font-size": "90%",
@@ -54,6 +57,7 @@ html_theme_options = {
 		"sidebar-caption-space-above": "0.1rem",
 		"sidebar-tree-space-above": "0.5rem",
 		"sidebar-search-input-font-size": "95%",
-		"font-stack": "'Open Sans', sans-serif"
+		"font-stack": "'Open Sans', sans-serif",
+		"color-sidebar-background": "#0F1724"
 	}
 }

@@ -156,3 +156,20 @@ img {
     box-sizing: border-box;
     width: 17em !important
 }
+
+/* Hide sidebar brand text */
+.sidebar-brand-text {
+    display: none !important
+}
+
+/* Change background color of scrollable part of sidebar */
+.sidebar-scroll::-webkit-scrollbar {
+    background-color: #f1f3f3 !important;
+    border-radius: .125rem
+}
+
+.sidebar-scroll {
+    background-color: #f1f3f3 !important;
+    scrollbar-color: var(--color-foreground-border) transparent;
+    scrollbar-width: thin
+}
