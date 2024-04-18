@@ -255,3 +255,41 @@ img {
 .toc-drawer {
 	display: none !important
 }
+
+/* Breadcrumbs styling */
+.wy-breadcrumbs {
+    margin-bottom: 0rem !important;
+	margin-top: 1rem !important;
+	padding-left: 0rem !important
+}
+
+.wy-breadcrumbs>li {
+    display: inline-block !important;
+    padding-top: 5px !important
+}
+
+.breadcrumb-item:before {
+    content: "/" !important;
+    color:#bbb !important;
+    font-size: 15px !important;
+    padding: 0 6px 0 3px !important
+}
+
+@media screen and (max-width: 480px) {
+    .wy-breadcrumbs {
+        display: none !important
+    }
+}
+
+/* Change style of horizontal line under breadcrumbs */
+hr {
+    display: block !important;
+    height: 1px !important;
+    border-right-width: 0px !important;
+    border-right-style: none !important;
+    border-left-width: 0px !important;
+    border-left-style: none !important;
+    border-bottom-width: 0px !important;
+    border-bottom-style: none !important;
+    border-top: 1px solid #c5ccd3 !important
+}
