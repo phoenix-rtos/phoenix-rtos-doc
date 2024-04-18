@@ -390,3 +390,28 @@ table.docutils th {
         margin-right: auto
     }
 }
+
+/* Adjust mobile-header */
+.mobile-header .header-center a {
+    color: var(--color-header-text);
+    text-decoration: none;
+    font-weight: bold !important
+}
+
+.mobile-header .header-center {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important
+}
+
+/* Change color of nav icon */
+.nav-overlay-icon .icon {
+    color: white !important;
+    height: 1rem;
+    width: 1rem
+}
+
+/* Hide toc nav item */
+.toc-overlay-icon .icon {
+    display: none !important;
+}

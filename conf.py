@@ -50,7 +50,9 @@ html_theme_options = {
 		"color-sidebar-link-text--top-level": "#273149",
 		"color-sidebar-item-background--current": "F1F3F3",
 		"color-foreground-primary": "#273149",
-		"color-brand-content": "#1890d7"
+		"color-brand-content": "#1890d7",
+		"color-header-background": "#0F1724",
+		"color-header-text": "white"
 	},
 
 	"dark_logo": "light_logo.png",
@@ -69,6 +71,8 @@ html_theme_options = {
 		"color-sidebar-link-text--top-level": "#273149",
 		"color-sidebar-item-background--current": "#0F1F3F3",
 		"color-foreground-primary": "#273149",
-		"color-brand-content": "#1890d7"
+		"color-brand-content": "#1890d7",
+		"color-header-background": "#0F1724",
+		"color-header-text": "white"
 	}
 }
