@@ -293,3 +293,18 @@ hr {
     border-bottom-style: none !important;
     border-top: 1px solid #c5ccd3 !important
 }
+
+/* Hide headerlinks */
+.code-block-caption:hover>.headerlink,
+dl dt:hover>.headerlink,
+figcaption p:hover>.headerlink,
+h1:hover>.headerlink,
+h2:hover>.headerlink,
+h3:hover>.headerlink,
+h4:hover>.headerlink,
+h5:hover>.headerlink,
+h6:hover>.headerlink,
+p.caption:hover>.headerlink,
+table>caption:hover>.headerlink {
+    visibility: hidden !important
+}
