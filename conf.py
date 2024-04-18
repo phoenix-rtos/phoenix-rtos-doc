@@ -45,7 +45,9 @@ html_theme_options = {
 		"sidebar-tree-space-above": "0.5rem",
 		"sidebar-search-input-font-size": "95%",
 		"font-stack": "'Open Sans', sans-serif",
-		"color-sidebar-background": "#0F1724"
+		"color-sidebar-background": "#0F1724",
+		"color-sidebar-link-text--top-level": "#273149",
+		"color-sidebar-item-background--current": "F1F3F3"
 	},
 
 	"dark_logo": "light_logo.png",
@@ -60,6 +62,8 @@ html_theme_options = {
 		"sidebar-tree-space-above": "0.5rem",
 		"sidebar-search-input-font-size": "95%",
 		"font-stack": "'Open Sans', sans-serif",
-		"color-sidebar-background": "#0F1724"
+		"color-sidebar-background": "#0F1724",
+		"color-sidebar-link-text--top-level": "#273149",
+		"color-sidebar-item-background--current": "#0F1F3F3"
 	}
 }

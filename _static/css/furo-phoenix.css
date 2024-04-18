@@ -219,3 +219,34 @@ img {
     position: absolute;
     width: var(--sidebar-search-icon-size)
 }
+
+/* Change color and font-weight of current page reference */
+.sidebar-tree .current-page>.reference {
+    font-weight: 600 !important;
+    color:#ea5b22 !important
+}
+
+/* Change color and font-weight of current reference */
+.sidebar-tree .current>.reference {
+    background: var(--color-sidebar-item-background--current);
+    color: #ea5b22 !important;
+    font-weight: 600 !important
+}
+
+/* Change color on hover of current reference */
+.sidebar-tree .current>.reference:hover {
+    background: #ea5b22 !important;
+    color:white !important
+}
+
+/* Change color on hover for 4 levels of list */
+.sidebar-tree .current > .reference:hover,
+.sidebar-tree [class^='toctree-l'] > a:hover {
+    background: #ea5b22 !important;
+    color: white !important;
+}
+
+.sidebar-tree [class^='toctree-l'] > a:hover + input + label,
+.sidebar-tree [class^='toctree-l'] > label:hover {
+    background: #ea5b22 !important;
+}
