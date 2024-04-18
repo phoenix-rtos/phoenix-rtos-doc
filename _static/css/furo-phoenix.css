@@ -250,3 +250,8 @@ img {
 .sidebar-tree [class^='toctree-l'] > label:hover {
     background: #ea5b22 !important;
 }
+
+/* Hide right-hand side toc */
+.toc-drawer {
+	display: none !important
+}
