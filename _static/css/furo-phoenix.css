@@ -308,3 +308,9 @@ p.caption:hover>.headerlink,
 table>caption:hover>.headerlink {
     visibility: hidden !important
 }
+
+/* Align table headers to the left */
+table.docutils th {
+    background: var(--color-table-header-background);
+    text-align: left !important
+}
