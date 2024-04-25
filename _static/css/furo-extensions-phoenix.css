@@ -1,3 +1,8 @@
 /* In this file place changes you want to overwrite in furo-extensions.css */
 
 @import 'furo-extensions.css';
+
+/* Change color of copy button on hover*/
+.highlight:hover button.copybtn {
+    color: #ea5b22 !important
+}
