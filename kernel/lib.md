@@ -16,5 +16,5 @@ Common routines are located in `src/lib` subdirectory.
 
 ## See also
 
-1. [Kernel](../README.md)
-2. [Table of Contents](../README.md)
+1. [Kernel](../index.md)
+2. [Table of Contents](../index.md)

@@ -292,5 +292,5 @@ python3 phoenix-rtos-tests/runner.py -T ia32-generic-qemu -t phoenix-rtos-tests/
 
 ## See also
 
-1. [Phoenix-RTOS core libraries](corelibs.md)
-2. [Table of contents](../README.md)
+1. [Phoenix-RTOS core libraries](index.md)
+2. [Table of contents](../index.md)

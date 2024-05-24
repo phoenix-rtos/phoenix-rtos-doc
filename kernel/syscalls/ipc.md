@@ -77,5 +77,5 @@ returned in `file` variable. If file is associated with other object the other o
 
 ## See also
 
-1. [System calls](syscalls.md)
-2. [Table of Contents](../../README.md)
+1. [System calls](index.md)
+2. [Table of Contents](../../index.md)

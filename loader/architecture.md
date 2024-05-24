@@ -141,6 +141,6 @@ for specific architecture. It should be treated as the main structure used for o
 
 ## See also
 
-1. [Loader](loader.md)
+1. [Loader](index.md)
 2. [Command-line interface](cli.md)
-3. [Table of Contents](../README.md)
+3. [Table of Contents](../index.md)

@@ -7,5 +7,5 @@ Please check [how to run Phoenix-RTOS on NXP i.MX RT106x](armv7m7-imxrt106x-evk.
 
 ## See also
 
-1. [Running system on targets](quickstart.md)
-2. [Table of Contents](../README.md)
+1. [Running system on targets](index.md)
+2. [Table of Contents](../index.md)

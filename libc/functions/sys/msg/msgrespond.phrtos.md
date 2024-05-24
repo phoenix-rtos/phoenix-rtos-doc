@@ -43,6 +43,6 @@ Untested
 
 ## See Also
 
-1. [IPC mechanisms in Phoenix-RTOS](../../../../architecture/architecture.md#interprocess-communication)
-2. [Standard library functions](../../functions.md)
-3. [Table of Contents](../../../../README.md)
+1. [IPC mechanisms in Phoenix-RTOS](../../../../architecture/index.md#interprocess-communication)
+2. [Standard library functions](../../index.md)
+3. [Table of Contents](../../../../index.md)

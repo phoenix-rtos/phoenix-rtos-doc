@@ -15,8 +15,8 @@ the most legitimate and proven protocol to deliver IP world is PPP.
 
 ## Build and set up the device
 
-Before you start [building Phoenix RTOS](../building/building.md) with
-[network stack — LwIP](/lwip/lwip.md), you need to adjust the custom
+Before you start [building Phoenix RTOS](../building/index.md) with
+[network stack — LwIP](/lwip/index.md), you need to adjust the custom
 build.project script, in function `b_build_project()` add the following lines:
 
 ```console

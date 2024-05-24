@@ -239,7 +239,7 @@ On the first start, you will be prompted to create an account in the subsystem (
 
 ![Sudo Credentials](_images/wsl-sudo-credentials.png)
 
-After that simply follow the instructions for Ubuntu written in the [Building Phoenix-RTOS](building.md) and
+After that simply follow the instructions for Ubuntu written in the [Building Phoenix-RTOS](index.md) and
 [ia32-generic-qemu quick-start](../quickstart/ia32-generic-qemu.md).
 
 (Quick tip: It is not mandatory, but turning off Real-Time Protection in Windows Defender speeds up the toolchain
@@ -247,9 +247,9 @@ building process)
 
 ### See also
 
-1. [Building Phoenix-RTOS image](building.md)
+1. [Building Phoenix-RTOS image](index.md)
 2. [Toolchain](toolchain.md)
 3. [Building script](script.md)
 4. [ia32-generic quick start](../quickstart/ia32-generic-qemu.md)
 5. [Reference project](project.md)
-6. [Table of Contents](../README.md)
+6. [Table of Contents](../index.md)

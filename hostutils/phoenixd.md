@@ -40,5 +40,5 @@ In this mode arguments are passed only to kernel e.g. <kernel_path>="app1;arg1;a
 
 1. [Phoenix-RTOS disk tool](psdisk.md)
 2. [Phoenix-RTOS serial uploader](psu.md)
-3. [Phoenix-RTOS Host Utilities](hostutils.md)
-4. [Table of Contents](../README.md)
+3. [Phoenix-RTOS Host Utilities](index.md)
+4. [Table of Contents](../index.md)

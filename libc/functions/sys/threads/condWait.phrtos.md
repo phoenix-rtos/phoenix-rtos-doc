@@ -86,5 +86,5 @@ None
 ## See Also
 
 1. [condWait syscall](../../../../kernel/syscalls/sync.md#syscalls_condwait-syscalls_phcondwait)
-2. [Standard library functions](../../functions.md)
-3. [Table of Contents](../../../../README.md)
+2. [Standard library functions](../../index.md)
+3. [Table of Contents](../../../../index.md)

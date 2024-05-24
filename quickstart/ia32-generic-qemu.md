@@ -5,7 +5,7 @@ should be provided. The image is created as the final artifact of the `phoenix-r
 the `_boot` directory. The image consists of the bootloader (plo), kernel, TTY VGA driver, ATA driver with ext2
 filesystem.
 
-See [how to build the Phoenix-RTOS system image](../building/building.md).
+See [how to build the Phoenix-RTOS system image](../building/index.md).
 
 ## Running image under QEMU
 
@@ -136,5 +136,5 @@ disk is represented by /dev/sda block device).
 
 ## See also
 
-1. [Running system on targets](quickstart.md)
-2. [Table of Contents](../README.md)
+1. [Running system on targets](index.md)
+2. [Table of Contents](../index.md)

@@ -122,6 +122,6 @@ required header file.
 
 ## See also
 
-1. [Phoenix-RTOS core libraries](corelibs.md)
+1. [Phoenix-RTOS core libraries](index.md)
 2. [Phoenix-RTOS Graphics Library](libgraph.md)
-3. [Table of Contents](../README.md)
+3. [Table of Contents](../index.md)
