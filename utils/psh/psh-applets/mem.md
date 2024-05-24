@@ -3,7 +3,7 @@
 `mem` is a utility tool that provides detailed information about the current status of memory maps and paging.
 In general, a memory map is a structure of data that indicates how memory is arranged. In different contexts, the term
 "memory map" can have different meanings, for more detailed information, refer to the
-[Memory management](../../../kernel/vm/vm.md) section.
+[Memory management](../../../kernel/vm/index.md) section.
 
 ---
 Usage:
@@ -84,6 +84,6 @@ information about `anonsize` in kilobytes too.
 
 ## See also
 
-1. [Phoenix-RTOS shell](../psh.md)
-2. [Phoenix-RTOS Utilities](../../utils.md)
-3. [Table of Contents](../../../README.md)
+1. [Phoenix-RTOS shell](../index.md)
+2. [Phoenix-RTOS Utilities](../../index.md)
+3. [Table of Contents](../../../index.md)

@@ -66,11 +66,11 @@ Then we can create a new special file and register:
 ````
 
 Message passing mechanism is described in detail in the
-[Interprocess communication - message queues](../kernel/msg/msg.md) document.
+[Interprocess communication - message queues](../kernel/msg/index.md) document.
 
 ## See also
 
-1. [Device drivers](devices.md)
+1. [Device drivers](index.md)
 2. [Access to device hardware registers](hwaccess.md)
 3. [Handling interrupts](interrupts.md)
-4. [Table of Contents](../README.md)
+4. [Table of Contents](../index.md)

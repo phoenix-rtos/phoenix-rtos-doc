@@ -6,7 +6,7 @@ building and are located in the `_boot` directory. The disk image consists of th
 (tty), dummyfs filesystem server (RAM disk), and `psh` (shell). Necessary tools to carry out the flashing process are
 located in the `_boot` directory as well.
 
-See [how to build the Phoenix-RTOS system image](../building/building.md).
+See [how to build the Phoenix-RTOS system image](../building/index.md).
 
 ## Development board
 
@@ -203,5 +203,5 @@ top
 
 ## See also
 
-1. [Running system on targets](quickstart.md)
-2. [Table of Contents](../README.md)
+1. [Running system on targets](index.md)
+2. [Table of Contents](../index.md)

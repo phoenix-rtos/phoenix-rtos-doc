@@ -103,9 +103,9 @@ The above sequence enables paging and pass execution to proper virtual address b
         j .Lsecondary_park
 ```
 
-1. [Kernel - HAL Subsystem](hal.md)
+1. [Kernel - HAL Subsystem](index.md)
 2. [Kernel - HAL for ARMv7 Cortex-M based targets](armv7m.md)
 3. [Kernel - HAL for ARMv7 Cortex-A based targets](armv7a.md)
 4. [Kernel - HAL for IA32 targets](ia32.md)
 5. [Kernel - HAL for SPARCv8 LEON3 based targets](sparcv8leon3.md)
-6. [Table of Contents](../../README.md)
+6. [Table of Contents](../../index.md)

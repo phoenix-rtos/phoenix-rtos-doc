@@ -43,5 +43,5 @@ data from <https://pl.mouser.com/datasheet/2/671/MT25Q_QLKT_L_01G_BBB_0-1283539.
 
 1. [Phoenix-RTOS serial uploader](psu.md)
 2. [Phoenix-RTOS daemon](phoenixd.md)
-3. [Phoenix-RTOS Host Utilities](hostutils.md)
-4. [Table of Contents](../README.md)
+3. [Phoenix-RTOS Host Utilities](index.md)
+4. [Table of Contents](../index.md)

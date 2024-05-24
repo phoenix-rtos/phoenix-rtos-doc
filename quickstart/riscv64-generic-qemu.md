@@ -6,7 +6,7 @@ PLO, kernel, UART16550 interface and virtio-blk drivers, dummyfs filesystem and 
 with the ext2 filesystem.
 
 The files are created as the final artifact of the `phoenix-rtos-project` building and are located in the `_boot`
-directory. See [how to build the Phoenix-RTOS system image](../building/building.md).
+directory. See [how to build the Phoenix-RTOS system image](../building/index.md).
 
 ## Running image under QEMU
 
@@ -98,5 +98,5 @@ ps
 
 ## See also
 
-1. [Running system on targets](quickstart.md)
-2. [Table of Contents](../README.md)
+1. [Running system on targets](index.md)
+2. [Table of Contents](../index.md)

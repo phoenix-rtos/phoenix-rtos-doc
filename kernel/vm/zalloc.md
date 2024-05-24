@@ -61,9 +61,9 @@ extern void _vm_zfree(vm_zone_t *zone, void *vaddr);
 
 ## See also
 
-1. [Kernel - Memory management](vm.md)
+1. [Kernel - Memory management](index.md)
 2. [Kernel - Memory management - Page allocator](page.md)
 3. [Kernel - Memory management - Memory mapper](mapper.md)
 4. [Kernel - Memory management - Fine grained allocator](kmalloc.md)
 5. [Kernel - Memory management - Memory objects](objects.md)
-6. [Table of Contents](../../README.md)
+6. [Table of Contents](../../index.md)

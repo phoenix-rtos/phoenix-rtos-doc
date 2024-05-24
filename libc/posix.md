@@ -25,5 +25,5 @@ git clone https://github.com/phoenix-rtos/phoenix-rtos-posixsrv
 
 ## See also
 
-1. [Standard library functions](functions/functions.md)
-2. [Table of Contents](../README.md)
+1. [Standard library functions](functions/index.md)
+2. [Table of Contents](../index.md)

@@ -511,5 +511,5 @@ in [How to use libgraph](#how-to-use-the-graphics-library) chapter.
 
 ## See also
 
-1. [Phoenix-RTOS core libraries](corelibs.md)
-2. [Table of Contents](../README.md)
+1. [Phoenix-RTOS core libraries](index.md)
+2. [Table of Contents](../index.md)

@@ -27,7 +27,7 @@ this feature is not needed, one can pass 0 as _`cond`_.
 
 ## See also
 
-1. [Device drivers](devices.md)
+1. [Device drivers](index.md)
 2. [Access to device hardware registers](hwaccess.md)
 3. [Message interface](interface.md)
-4. [Table of Contents](../README.md)
+4. [Table of Contents](../index.md)

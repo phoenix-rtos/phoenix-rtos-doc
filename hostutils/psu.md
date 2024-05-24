@@ -33,5 +33,5 @@ For information about supported command visit
 
 1. [Phoenix-RTOS disk tool](psdisk.md)
 2. [Phoenix-RTOS daemon](phoenixd.md)
-3. [Phoenix-RTOS Host Utilities](hostutils.md)
-4. [Table of Contents](../README.md)
+3. [Phoenix-RTOS Host Utilities](index.md)
+4. [Table of Contents](../index.md)

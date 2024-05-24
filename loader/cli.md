@@ -34,6 +34,6 @@ List all the available commands in plo (some of them are available only on the s
 
 ## See also
 
-1. [Loader](loader.md)
+1. [Loader](index.md)
 2. [Architecture](architecture.md)
-3. [Table of Contents](../README.md)
+3. [Table of Contents](../index.md)

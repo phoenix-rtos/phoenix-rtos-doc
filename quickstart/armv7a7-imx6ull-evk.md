@@ -176,5 +176,5 @@ top
 
 ## See also
 
-1. [Running system on targets](quickstart.md)
-2. [Table of Contents](../README.md)
+1. [Running system on targets](index.md)
+2. [Table of Contents](../index.md)

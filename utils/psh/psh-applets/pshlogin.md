@@ -18,6 +18,6 @@ It is important to know that it is impossible to completely exit the `psh` which
 
 ## See also
 
-1. [Phoenix-RTOS shell](../psh.md)
-2. [Phoenix-RTOS Utilities](../../utils.md)
-3. [Table of Contents](../../../README.md)
+1. [Phoenix-RTOS shell](../index.md)
+2. [Phoenix-RTOS Utilities](../../index.md)
+3. [Table of Contents](../../../index.md)
