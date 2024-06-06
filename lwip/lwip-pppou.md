@@ -1,6 +1,3 @@
----
-orphan: True
----
 # PPPoU driver
 
 In the era of IoT, when the goal is to address every device on the Internet

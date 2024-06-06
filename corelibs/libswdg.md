@@ -1,7 +1,3 @@
----
-orphan: True
----
-
 # Software watchdog library (libswdg)
 
 Software multichannel watchdog implementation.
