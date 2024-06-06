@@ -36,4 +36,5 @@ libvga.md
 libgraph.md
 libuuid.md
 libcache.md
+libswdg.md
 ```
