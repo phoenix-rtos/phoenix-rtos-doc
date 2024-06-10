@@ -35,3 +35,7 @@ MD033:
   # Allowed elements
   # nobr needed to avoid breaking target names in toctree
   allowed_elements: [img, details, summary, nobr]
+
+# MD046/code-block-style Code block style
+# Allow indented and fenced code blocks
+MD046: false
