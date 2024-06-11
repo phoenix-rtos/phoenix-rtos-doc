@@ -46,7 +46,7 @@ The onboard UART-USB converter is used here.
 
   The picture below presents how the board should be connected:
 
-  ![Image](_images/zynq7000-connections.png)
+  ![Image](_images/zynq7000-connections.jpg)
 
 - Now you can power up the board, changing the `SW8` position to `ON`. The `LD13` LED should turn green.
 
