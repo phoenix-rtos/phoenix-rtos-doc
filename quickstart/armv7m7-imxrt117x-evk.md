@@ -34,7 +34,7 @@ onboard UART-USB converter is used here.
 
   The picture below presents how the board should be connected:
 
-  ![Image](_images/imxrt117x-connections.png)
+  ![Image](_images/imxrt117x-connections.jpg)
 
 - Now you should verify what USB device on your host-pc is connected with the `DEBUG USB` (console). In order to check
 that run:

@@ -56,7 +56,7 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
 
 - `test_graph`
 
-  ![Image](_images/test_graph.png)
+  ![Image](_images/test_graph.jpg)
 
   Source code is available in the `gfx` directory in
   [phoenix-rtos-tests](https://github.com/phoenix-rtos/phoenix-rtos-tests.git) repository.
