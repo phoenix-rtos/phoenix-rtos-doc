@@ -1,5 +1,7 @@
 <!-- Documentation template to fill -->
-# Synopsis
+# tcsendbreak
+
+## Synopsis
 
 `#include <termios.h>`
 

@@ -1,5 +1,7 @@
 <!-- Documentation template to fill -->
-# Synopsis
+# tcgetpgrp
+
+## Synopsis
 
 `#include <unistd.h>`
 
