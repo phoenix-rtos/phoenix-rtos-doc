@@ -20,8 +20,9 @@ Kernel is divided into five subsystems.
 
 The source code of the kernel could be obtained using the following command
 
->
+```console
     git clone http://github.com/phoenix-rtos.com/phoenix-rtos-kernel
+```
 
 ## See also
 
