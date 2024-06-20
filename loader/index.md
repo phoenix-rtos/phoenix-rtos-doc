@@ -49,8 +49,9 @@ Examples of booting scripts are located in the building files of the supported t
 
 The source code of the loader can be obtained with the following command:
 
->
+```console
     git clone http://git.phoenix-rtos.com/plo
+```
 
 ## See also
 
