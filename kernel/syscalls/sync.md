@@ -1,12 +1,13 @@
 # Thread synchronization
 
-## `syscalls_mutexCreate`
+## `syscalls_phMutexCreate`
 
 ````C
 GETFROMSTACK(ustack, unsigned int *, h, 0);
+GETFROMSTACK(ustack, const struct lockAttr *, attr, 1);
 ````
 
-Creates mutex and returns resource handle `h`.
+Creates mutex and returns resource handle `h`. Mutex attributes are specified in `attr` structure.
 
 ## `syscalls_mutexLock` (`syscalls_phMutexLock`)
 
@@ -32,13 +33,15 @@ GETFROMSTACK(ustack, unsigned int, h, 0);
 
 Unlocks mutex given by `h`.
 
-## `syscalls_condCreate`
+## `syscalls_phCondCreate`
 
 ````C
 GETFROMSTACK(ustack, unsigned int *, h, 0);
+GETFROMSTACK(ustack, const struct condAttr *, attr, 1);
 ````
 
-Creates conditional variable and returns its handle in variable `h`.
+Creates conditional variable and returns its handle in variable `h`. Conditional variable attributes are specified in
+`attr` structure.
 
 ## `syscalls_condWait` (`syscalls_phCondWait`)
 

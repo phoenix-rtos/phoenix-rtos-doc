@@ -61,7 +61,7 @@ These functions shall not return an error code of `-EINTR`.
 
 ## Tests
 
-Untested
+Tested in [test-sys](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/sys)
 
 ## Known bugs
 

@@ -252,8 +252,11 @@
 ## sys/threads
 
 [`condCreate`](sys/threads/condCreate.phrtos.md),
+[`condCreateWithAttr`](sys/threads/condCreateWithAttr.phrtos.md),
 [`condBroadcast`](sys/threads/condSignal.phrtos.md),
-[`condWait`](sys/threads/condWait.phrtos.md)
+[`condWait`](sys/threads/condWait.phrtos.md),
+[`mutexCreate`](sys/threads/mutexCreate.phrtos.md),
+[`mutexCreateWithAttr`](sys/threads/mutexCreateWithAttr.phrtos.md)
 
 ## sys/times
 

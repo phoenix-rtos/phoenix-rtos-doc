@@ -1,10 +1,10 @@
-# condCreate
+# mutexCreate
 
 ## Synopsis
 
 `#include <sys/threads.h>`
 
-`int condCreate(handle_t *h);`
+`int mutexCreate(handle_t *h);`
 
 ## Status
 
@@ -16,21 +16,21 @@ Phoenix-RTOS specific
 
 ## Description
 
-The `condCreate()` function shall initialize the condition variable referenced by _h_ using default attributes. Upon
-successful initialization, the state of the condition variable shall become initialized.
+The `mutexCreate()` function shall initialize the mutex referenced by `h` using default attributes. Upon
+successful initialization, the state of the mutex shall become initialized.
 
-Attempting to initialize an already initialized condition variable results in undefined behavior.
+Attempting to initialize an already initialized mutex results in undefined behavior.
 
 ## Return value
 
-If successful, the `condCreate()` function shall return zero; otherwise,
+If successful, the `mutexCreate()` function shall return zero; otherwise,
 an error number shall be returned to indicate the error.
 
 ## Errors
 
-The `condCreate()` function shall fail if:
+The `mutexCreate()` function shall fail if:
 
-* `-ENOMEM` - Insufficient memory exists to initialize the condition variable.
+* `-ENOMEM` - Insufficient memory exists to initialize the mutex.
 * `-EFAULT` - The address specified by `h` is invalid.
 
 These functions shall not return an error code of `EINTR`.
