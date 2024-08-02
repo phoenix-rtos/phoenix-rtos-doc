@@ -1,6 +1,6 @@
-# Running system on <nobr>sparcv8leon3-gr716-mini</nobr>
+# Running system on <nobr>sparcv8leon-gr716-mini</nobr>
 
-These instructions describe how to run Phoenix-RTOS on the `sparcv8leon3-gr716-mini` target. Note that the build
+These instructions describe how to run Phoenix-RTOS on the `sparcv8leon-gr716-mini` target. Note that the build
 artifacts, including the system image should be provided in the `_boot` directory. If you have not built the system
 image yet, please refer to the [Building Phoenix-RTOS image](../building/index.md) section.
 
@@ -50,13 +50,13 @@ Default CPU clock frequency is 50 MHz.
 To load the bootloader (`plo`) to the RAM, run the following commands in the `GRMON` monitor:
 
 ```console
-load phoenix-rtos-project/_boot/sparcv8leon3-gr716-mini/plo-ram.img 0x31000000
+load phoenix-rtos-project/_boot/sparcv8leon-gr716-mini/plo-ram.img 0x31000000
 ```
 
 To verify that the file has been loaded correctly, run the following command:
 
 ```console
-verify phoenix-rtos-project/_boot/sparcv8leon3-gr716-mini/plo-ram.img 0x31000000
+verify phoenix-rtos-project/_boot/sparcv8leon-gr716-mini/plo-ram.img 0x31000000
 ```
 
 Set the entry point of the bootloader:

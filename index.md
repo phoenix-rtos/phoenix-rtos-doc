@@ -6,7 +6,7 @@ Phoenix-RTOS is a scalable real-time operating system for IoT. It is based on it
 either on small devices based on microcontrollers and on advanced computer systems based on multiple processors and
 equipped with gigabytes of RAM.
 
-The system supports multiple architectures, including ARM Cortex-M, ARM Cortex-A, Intel x86, RISC-V, LEON3 (SPARC)
+The system supports multiple architectures, including ARM Cortex-M, ARM Cortex-A, Intel x86, RISC-V, LEON3/4 (SPARC)
 and some popular microcontrollers and reference boards. Phoenix-RTOS is constantly under development, but it was
 implemented in numerous Smart Utility appliances e.g. in smart gas meters, smart energy meters, data concentrators
 (DCU).
@@ -33,9 +33,9 @@ The ARINC653 execution environment (APEX) is under development.
     8. [Running system on `ia32-generic-qemu`](quickstart/ia32-generic-qemu.md)
     9. [Running system on `riscv64-generic-qemu`](quickstart/riscv64-generic-qemu.md)
     10. [Running system on `riscv64-generic-spike`](quickstart/riscv64-generic-spike.md)
-    11. [Running system on `sparcv8leon3-gr716-mini`](quickstart/sparcv8leon3-gr716-mini.md)
-    12. [Running system on `sparcv8leon3-gr712rc-board`](quickstart/sparcv8leon3-gr712rc-board)
-    13. [Running system on `sparcv8leon3-gr716-mimas`](quickstart/sparcv8leon3-gr716-mimas)
+    11. [Running system on `sparcv8leon-gr716-mini`](quickstart/sparcv8leon-gr716-mini.md)
+    12. [Running system on `sparcv8leon-gr712rc-board`](quickstart/sparcv8leon-gr712rc-board)
+    13. [Running system on `sparcv8leon-gr716-mimas`](quickstart/sparcv8leon-gr716-mimas)
 5. [Loader](loader/index.md)
     1. [Architecture](loader/architecture.md)
     2. [Command-line interface](loader/cli.md)
@@ -45,7 +45,7 @@ The ARINC653 execution environment (APEX) is under development.
         2. [HAL layer for ARMv7 Cortex-A based based targets](kernel/hal/armv7a.md)
         3. [HAL layer for IA32 based targets](kernel/hal/ia32.md)
         4. [HAL layer for RISC-V 64 based targets](kernel/hal/riscv64.md)
-        5. [HAL layer for SPARCv8 LEON3 based targets](kernel/hal/sparcv8leon3.md)
+        5. [HAL layer for SPARCv8 LEON based targets](kernel/hal/sparcv8leon.md)
     2. [Processes and threads](kernel/proc/index.md)
         1. [Processes creation](kernel/proc/forking.md)
         2. [Synchronization primitives](kernel/proc/sync.md)
