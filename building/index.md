@@ -104,7 +104,7 @@ The Phoenix-RTOS reference project supports the following target platforms:
 - ia32-generic-qemu
 - riscv64-generic-qemu
 - riscv64-generic-spike
-- sparcv8leon3-gr716-mini
+- sparcv8leon-gr716-mini
 
 To get the list of valid targets the `build.sh` script should be launched with an empty `TARGET` variable, eg:
 

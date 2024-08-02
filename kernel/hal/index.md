@@ -109,7 +109,7 @@ Context is described using `cpu_contex_t` structure.
 3. [Kernel - HAL for ARMv7 Cortex-A based targets](armv7a.md)
 4. [Kernel - HAL for IA32 targets](ia32.md)
 5. [Kernel - HAL for RISC-V 64 based targets](riscv64.md)
-6. [Kernel - HAL for SPARCv8 LEON3 based targets](sparcv8leon3.md)
+6. [Kernel - HAL for SPARCv8 LEON based targets](sparcv8leon.md)
 7. [Table of Contents](../../index.md)
 
 ```{toctree}
@@ -120,5 +120,5 @@ armv7m.md
 armv7a.md
 ia32.md
 riscv64.md
-sparcv8leon3.md
+sparcv8leon.md
 ```

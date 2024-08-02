@@ -16,7 +16,7 @@ and building artifacts are available in the `_boot` directory. The building proc
 8. [Running system on ia32-generic-qemu](ia32-generic-qemu.md)
 9. [Running system on riscv64-generic-qemu](riscv64-generic-qemu.md)
 10. [Running system on riscv64-generic-spike](riscv64-generic-spike.md)
-11. [Running system on sparcv8leon3-gr716-mini](sparcv8leon3-gr716-mini.md)
+11. [Running system on sparcv8leon-gr716-mini](sparcv8leon-gr716-mini.md)
 12. [Table of Contents](../index.md)
 
 ```{toctree}
@@ -36,5 +36,5 @@ armv8r52-mps3an536-qemu.md
 ia32-generic-qemu.md
 riscv64-generic-qemu.md
 riscv64-generic-spike.md
-sparcv8leon3-gr716-mini.md
+sparcv8leon-gr716-mini.md
 ```
