@@ -2,7 +2,7 @@
 
 These instructions describe how to run Phoenix-RTOS on the `sparcv8leon3-gr712rc-board` target. Note that the build
 artifacts, including the system image should be provided in the `_boot` directory. If you have not built the system
-image yet, please refer to the [Building Phoenix-RTOS image](../building/README.md) section.
+image yet, please refer to the [Building Phoenix-RTOS image](../building/index.md) section.
 
 ## Connecting the board
 
@@ -72,5 +72,5 @@ ps
 
 ## See also
 
-1. [Running system on targets](README.md)
-2. [Table of Contents](../README.md)
+1. [Running system on targets](index.md)
+2. [Table of Contents](../index.md)
