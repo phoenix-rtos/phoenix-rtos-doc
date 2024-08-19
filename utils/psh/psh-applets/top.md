@@ -42,7 +42,7 @@ Column headers are:
 - PPID - parent process ID,
 - PR - priority,
 - STATE - state of process,
-- %CPU - CPU usage of process,
+- \%CPU - CPU usage of process,
 - WAIT - wait for processor time,
 - TIME - age of process,
 - VMEM - memory used,
