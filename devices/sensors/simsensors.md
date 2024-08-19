@@ -42,51 +42,51 @@ column can be different. Below all the possibilities are described.
 
 #### Accelerometer
 
- 1. Acceleration along $X$ axis [$mm/s^2$]
- 1. Acceleration along $Y$ axis [$mm/s^2$]
- 1. Acceleration along $Z$ axis [$mm/s^2$]
+ 1. Acceleration along `X` axis [mm/s²]
+ 1. Acceleration along `Y` axis [mm/s²]
+ 1. Acceleration along `Z` axis [mm/s²]
 
 #### Barometer
 
- 1. Pressure in Pascals [$Pa$]
- 1. Temperature in Kelvins [$K$]
+ 1. Pressure in Pascals [Pa]
+ 1. Temperature in Kelvins [K]
 
 #### GPS
 
- 1. Altitude above MSL [$mm$]
- 1. Latitude in nanodegrees [$ndeg$]
- 1. Longitude in nanodegrees [$ndeg$]
- 1. GPS UTC time in microseconds [$us$]
+ 1. Altitude above MSL [mm]
+ 1. Latitude in nanodegrees [ndeg]
+ 1. Longitude in nanodegrees [ndeg]
+ 1. GPS UTC time in microseconds [us]
  1. Horizontal dilution of precision
  1. Vertical dilution of precision
- 1. Altitude above Ellipsoid [$mm$]
- 1. GPS ground speed [$mm/s$]
- 1. GPS North velocity [$mm/s$]
- 1. GPS East velocity [$mm/s$]
- 1. GPS Down velocity [$mm/s$]
- 1. GPS horizontal position accuracy [$mm$]
- 1. GPS vertical position accuracy [$mm$]
- 1. GPS velocity accuracy [$mm$]
- 1. Heading [$mrad$]
- 1. Heading offset [$mrad$]
- 1. Heading accuracy [$mrad$]
+ 1. Altitude above Ellipsoid [mm]
+ 1. GPS ground speed [mm/s]
+ 1. GPS North velocity [mm/s]
+ 1. GPS East velocity [mm/s]
+ 1. GPS Down velocity [mm/s]
+ 1. GPS horizontal position accuracy [mm]
+ 1. GPS vertical position accuracy [mm]
+ 1. GPS velocity accuracy [mm]
+ 1. Heading [mrad]
+ 1. Heading offset [mrad]
+ 1. Heading accuracy [mrad]
  1. Number of used satellites
  1. Fix quality
 
 #### Gyroscope
 
- 1. Angular velocity value along $X$ axis [$mrad/s$]
- 1. Angular velocity value along $Y$ axis [$mrad/s$]
- 1. Angular velocity value along $Z$ axis [$mrad/s$]
- 1. Delta angle in [$urad$] since driver start along X axis
- 1. Delta angle in [$urad$] since driver start along Y axis
- 1. Delta angle in [$urad$] since driver start along Z axis
+ 1. Angular velocity value along `X` axis [mrad/s]
+ 1. Angular velocity value along `Y` axis [mrad/s]
+ 1. Angular velocity value along `Z` axis [mrad/s]
+ 1. Delta angle in [urad] since driver start along `X` axis
+ 1. Delta angle in [urad] since driver start along `Y` axis
+ 1. Delta angle in [urad] since driver start along `Z` axis
 
 #### Magnetometer
 
- 1. Value along X axis in 1E-7 [$T$]
- 1. Value along Y axis in 1E-7 [$T$]
- 1. Value along Z axis in 1E-7 [$T$]
+ 1. Value along X axis in 1E-7 [T]
+ 1. Value along Y axis in 1E-7 [T]
+ 1. Value along Z axis in 1E-7 [T]
 
 #### Thermometer
 
