@@ -35,6 +35,7 @@ The ARINC653 execution environment (APEX) is under development.
     10. [Running system on `riscv64-generic-spike`](quickstart/riscv64-generic-spike.md)
     11. [Running system on `sparcv8leon3-gr716-mini`](quickstart/sparcv8leon3-gr716-mini.md)
     12. [Running system on `sparcv8leon3-gr712rc-board`](quickstart/sparcv8leon3-gr712rc-board)
+    13. [Running system on `sparcv8leon3-gr712rc-board`](quickstart/sparcv8leon3-gr716-mimas)
 5. [Loader](loader/index.md)
     1. [Architecture](loader/architecture.md)
     2. [Command-line interface](loader/cli.md)
