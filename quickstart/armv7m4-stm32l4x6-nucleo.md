@@ -66,8 +66,8 @@ To communicate with the board you will need to use a UART-USB converter, like `P
   <summary>How to get picocom and run it without privileges (Ubuntu 22.04)</summary>
 
   ```console
-  sudo apt-get update && \
-  sudo apt-get install picocom
+  sudo apt update && \
+  sudo apt install -y picocom
   ```
 
   To use picocom without sudo privileges run this command and then restart:
@@ -99,14 +99,14 @@ openocd -v
 ```
 
   <details>
-  <summary>How to get openocd in version 0.11 (Ubuntu 22.04)</summary>
+  <summary>How to get openocd on Ubuntu</summary>
 
 To install from the default repositoriy:
 
-- use `apt-get`
+- use `apt`
 
   ```console
-  sudo apt-get install openocd
+  sudo apt install -y openocd
   ```
 
 - check if the version is correct
@@ -115,19 +115,19 @@ To install from the default repositoriy:
   openocd -v
   ```
 
-To install manually:
+If you encounter errors install manually from sources (v0.12.0):
 
-- download `openocd-0.11.0-rc2` from [here](https://launchpad.net/ubuntu/+source/openocd)
-- enter the downloaded directory
-
-  ```console
-  cd openocd-0.11.0-rc2
-  ```
-
-- install openocd
+- download, build and install `openocd-0.12.0-1` from sources
 
   ```console
-  sudo apt-get install libusb-1.0 && ./configure --enable-stlink && make && sudo make install
+  wget -O- https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/openocd/0.12.0-1build2/openocd_0.12.0.orig.tar.bz2 | \
+  sudo tar xjvf - -C /usr/local/src && \
+  cd /usr/local/src/openocd-0.12.0 && \
+  sudo apt install -y pkg-config \
+  libusb-1.0-0-dev && \
+  ./configure --enable-stlink && \
+  make && \
+  sudo make install
   ```
 
 - check if the version is correct
