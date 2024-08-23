@@ -17,14 +17,16 @@ Firstly, you need to install QEMU emulator.
 - Install the required packages
 
   ```console
-  sudo apt-get update && \
-  sudo apt-get install qemu-kvm \
-  qemu virt-manager \
-  virt-viewer libvirt-clients \
+  sudo apt update && \
+  sudo apt install -y \
+  qemu-system \
+  virt-manager \
+  virt-viewer \
+  libvirt-clients \
   libvirt-daemon-system \
-  bridge-utils virtinst \
-  libvirt-daemon \
-  qemu-system-misc
+  bridge-utils \
+  virtinst \
+  libvirt-daemon
   ```
 
 - Check if QEMU is properly installed:

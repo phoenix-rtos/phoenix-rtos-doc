@@ -38,9 +38,8 @@ be, install git:
   <summary>Installing git on Ubuntu (click to expand)</summary>
 
   ```console
-  sudo apt-get update && \
-  sudo apt-get upgrade && \
-  sudo apt-get install git
+  sudo apt update && \
+  sudo apt install -y git
   ```
 
   </details>
@@ -74,7 +73,6 @@ be, install git:
 
   ```console
   brew update && \
-  brew upgrade && \
   brew install git
   ```
 
@@ -127,8 +125,8 @@ Firstly, you need to have the docker installed.
 - Install required packages
 
   ```console
-  sudo apt-get update && \
-  sudo apt-get install curl \
+  sudo apt update && \
+  sudo apt install -y curl \
   ca-certificates \
   gnupg \
   lsb-release
@@ -265,11 +263,11 @@ There is a list of commands you can use to get them: on both Ubuntu and macOS ho
   <summary>Intalling required tools for native build on Ubuntu (click to expand)</summary>
 
   ```console
-  sudo apt-get update && \
-  sudo apt-get upgrade && \
-  sudo apt-get install build-essential \
+  sudo apt update && \
+  sudo apt install -y build-essential \
   mtd-utils \
   autoconf \
+  pkg-config \
   texinfo \
   genext2fs \
   libtool \
