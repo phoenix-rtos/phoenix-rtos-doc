@@ -333,13 +333,8 @@ table.docutils th {
         display: flex
     }
 
-    .theme-toggle-content,
-    .toc-content-icon {
-        display: none
-    }
-
-    .theme-toggle-header {
-        display: block
+    .theme-toggle-container {
+        display: none !important
     }
 
     .mobile-header {
