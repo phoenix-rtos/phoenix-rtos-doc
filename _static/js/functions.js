@@ -127,8 +127,10 @@ headersLi.forEach(function(list) {
 	});
 
 	let anchor = list.querySelector('a');
-	// Headers with slashes hrefs have '-' instead of '/'
-	let textContent = anchor.textContent.replace(/\//g, '-');
+	// Slashes and dots in headers are replaced with '-'
+	let textContent = anchor.textContent
+		.replace(/\//g, '-')
+		.replace(/\.h/g, '-h');
 
 	let relativePath = findRelativePath() + '#' + textContent;
 
