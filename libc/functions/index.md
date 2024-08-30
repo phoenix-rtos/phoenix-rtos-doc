@@ -1,10 +1,10 @@
 # Functions
 
-## assert
+## assert.h
 
 [`assert`](assert/assert.part-impl.md) <!-- updated -->
 
-## ctype
+## ctype.h
 
 [`isalnum`](ctype/isalnum.part-impl.md), <!-- updated -->
 [`isalpha`](ctype/isalpha.part-impl.md), <!-- updated -->
@@ -21,32 +21,32 @@
 [`tolower`](ctype/tolower.part-impl.md), <!-- updated -->
 [`toupper`](ctype/toupper.part-impl.md) <!-- updated -->
 
-## dirent
+## dirent.h
 
 [`closedir`](dirent/closedir.part-impl.md), <!-- updated -->
 [`opendir`](dirent/opendir.part-impl.md), <!-- updated -->
 [`readdir`](dirent/readdir.part-impl.md) <!-- updated -->
 
-## fcntl
+## fcntl.h
 
 [`creat`](fcntl/creat.part-impl.md), <!-- updated -->
 [`fcntl`](fcntl/fcntl.part-impl.md), <!-- updated -->
 [`open`](fcntl/open.part-impl.md) <!-- updated -->
 
-## fnmatch
+## fnmatch.h
 
 [`fnmatch`](fnmatch/fnmatch.part-impl.md) <!-- updated -->
 
-## ioctl
+## ioctl.h
 
 [`ioctl`](ioctl/ioctl.part-impl.md) <!-- updated -->
 
-## libgen
+## libgen.h
 
 [`basename`](libgen/basename.full-impl.md), <!-- updated -->
 [`dirname`](libgen/dirname.part-impl.md) <!-- updated -->
 
-## math
+## math.h
 
 [`acos`](math/acos.part-impl.md), <!-- updated -->
 [`atan`](math/atan.part-impl.md), <!-- updated -->
@@ -70,25 +70,25 @@
 [`sqrt`](math/sqrt.part-impl.md), <!-- updated -->
 [`tanh`](math/tanh.part-impl.md) <!-- updated -->
 
-## netdb
+## netdb.h
 
 [`freeaddrinfo`](netdb/freeaddrinfo.part-impl.md), <!-- updated -->
 [`gai_strerror`](netdb/gai_strerror.part-impl.md), <!-- updated -->
 [`getaddrinfo`](netdb/getaddrinfo.part-impl.md) <!-- updated -->
 
-## pwd
+## pwd.h
 
 [`getpwnam`](pwd/getpwnam.part-impl.md), <!-- updated -->
 [`getpwuid`](pwd/getpwuid.part-impl.md) <!-- updated -->
 
-## setjmp
+## setjmp.h
 
 [`longjmp`](setjmp/longjmp.part-impl.md), <!-- updated -->
 [`setjmp`](setjmp/setjmp.part-impl.md), <!-- updated -->
 [`siglongjmp`](setjmp/siglongjmp.part-impl.md), <!-- updated -->
 [`sigsetjmp`](setjmp/sigsetjmp.part-impl.md) <!-- updated -->
 
-## signal
+## signal.h
 
 [`kill`](signal/kill.part-impl.md), <!-- updated -->
 [`sigaddset`](signal/sigaddset.part-impl.md), <!-- updated -->
@@ -99,7 +99,7 @@
 [`sigprocmask`](signal/sigprocmask.part-impl.md), <!-- updated -->
 [`sigsuspend`](signal/sigsuspend.part-impl.md) <!-- updated -->
 
-## stdio
+## stdio.h
 
 [`clearerr`](stdio/clearerr.part-impl.md), <!-- updated -->
 [`dprintf`](stdio/printf.part-impl.md), <!-- updated -->
@@ -158,7 +158,7 @@
 [`vsprintf`](stdio/vprintf.part-impl.md), <!-- updated -->
 [`vsscanf`](stdio/vscanf.part-impl.md) <!-- updated -->
 
-## stdlib
+## stdlib.h
 
 [`abort`](stdlib/abort.part-impl.md), <!-- updated -->
 [`atexit`](stdlib/atexit.part-impl.md), <!-- updated -->
@@ -190,7 +190,7 @@
 [`wcstombs`](stdlib/wcstombs.non-impl.md), <!-- updated -->
 [`wctomb`](stdlib/wctomb.non-impl.md) <!-- updated -->
 
-## string
+## string.h
 
 [`memccpy`](string/memccpy.not-impl.md), <!-- updated -->
 [`memchr`](string/memchr.part-impl.md), <!-- updated -->
@@ -218,29 +218,29 @@
 [`strtok`](string/strtok.part-impl.md), <!-- updated -->
 [`strxfrm`](string/strxfrm.part-impl.md) <!-- updated -->
 
-## sys/mman
+## sys/mman.h
 
 [`meminfo`](sys/mman/meminfo.full-impl.md), <!-- updated -->
 [`mmap`](sys/mman/mmap.part-impl.md), <!-- updated -->
 [`munmap`](sys/mman/munmap.part-impl.md) <!-- updated -->
 
-## sys/mount
+## sys/mount.h
 
 [`umount`](sys/mount/umount.phrtos.md) <!-- updated -->
 
-## sys/msg
+## sys/msg.h
 
 [msgRecv](sys/msg/msgrecv.phrtos.md), <!-- updated -->
 [msgRespond](sys/msg/msgrespond.phrtos.md), <!-- updated -->
 [msgSend](sys/msg/msgsend.phrtos.md) <!-- updated -->
 
-## sys/socket
+## sys/socket.h
 
 [`accept`](sys/socket/accept.part-impl.md), <!-- updated -->
 [`bind`](sys/socket/bind.part-impl.md), <!-- updated -->
 [`connect`](sys/socket/connect.part-impl.md) <!-- updated -->
 
-## sys/stat
+## sys/stat.h
 
 [`fstat`](sys/stat/fstat.part-impl.md), <!-- updated -->
 [`fstatat`](sys/stat/fstatat.part-impl.md), <!-- updated -->
@@ -249,7 +249,7 @@
 [`stat`](sys/stat/stat.part-impl.md), <!-- updated -->
 [`umask`](sys/stat/umask.part-impl.md) <!-- updated -->
 
-## sys/threads
+## sys/threads.h
 
 [`condCreate`](sys/threads/condCreate.phrtos.md),
 [`condCreateWithAttr`](sys/threads/condCreateWithAttr.phrtos.md),
@@ -258,30 +258,30 @@
 [`mutexCreate`](sys/threads/mutexCreate.phrtos.md),
 [`mutexCreateWithAttr`](sys/threads/mutexCreateWithAttr.phrtos.md)
 
-## sys/times
+## sys/times.h
 
 [`times`](sys/times/times.part-impl.md), <!-- updated -->
 [`utimes`](sys/times/utimes.part-impl.md) <!-- updated -->
 
-## sys/wait
+## sys/wait.h
 
 [`wait`](sys/wait/waitpid.part-impl.md), <!-- updated -->
 [`waitpid`](sys/wait/waitpid.part-impl.md) <!-- updated -->
 
-## syslog
+## syslog.h
 
 [`closelog`](syslog/closelog.full-impl.md), <!-- updated -->
 [`openlog`](syslog/openlog.part-impl.md), <!-- updated -->
 [`syslog`](syslog/syslog.full-impl.md) <!-- updated -->
 
-## termios
+## termios.h
 
 [`tcdrain`](termios/tcdrain.part-impl.md), <!-- updated -->
 [`tcflush`](termios/tcflush.part-impl.md), <!-- updated -->
 [`tcgetattr`](termios/tcgetattr.part-impl.md), <!-- updated -->
 [`tcsendbreak`](termios/tcsendbreak.part-impl.md) <!-- updated -->
 
-## time
+## time.h
 
 [`asctime`](time/asctime.part-impl.md), <!-- updated -->
 [`ctime`](time/ctime.full-impl.md), <!-- updated -->
@@ -289,7 +289,7 @@
 [`time`](time/time.part-impl.md), <!-- updated -->
 [`utime`](time/utime.part-impl.md) <!-- updated -->
 
-## unistd
+## unistd.h
 
 [`alarm`](unistd/alarm.part-impl.md), <!-- updated -->
 [`chdir`](unistd/chdir.part-impl.md), <!-- updated -->
@@ -340,7 +340,7 @@
 [`vfork`](unistd/vfork.part-impl.md), <!-- updated -->
 [`write`](unistd/write.part-impl.md) <!-- updated -->
 
-## wchar
+## wchar.h
 
 [`wcscmp`](wchar/wcscmp.full-impl.md), <!-- updated -->
 [`wcslen`](wchar/wcslen.not-impl.md) <!-- updated -->
