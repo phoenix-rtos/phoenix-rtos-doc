@@ -263,7 +263,7 @@ Phoenix-RTOS system image.
 There is a list of commands you can use to get them: on both Ubuntu and macOS host operating systems.
 
   <details>
-  <summary>Intalling required tools for native build on Ubuntu (click to expand)</summary>
+  <summary>Installing required tools for native build on Ubuntu (click to expand)</summary>
 
   ```console
   sudo apt update && \
@@ -275,13 +275,15 @@ There is a list of commands you can use to get them: on both Ubuntu and macOS ho
   genext2fs \
   libtool \
   libhidapi-dev \
-  python3
+  python3 \
+  python3-jinja2 \
+  python3-yaml
   ```
 
   </details>
 
   <details>
-  <summary>Intalling required tools for native build on macOS (click to expand)</summary>
+  <summary>Installing required tools for native build on macOS (click to expand)</summary>
 
   ```console
   brew update && \
@@ -296,7 +298,9 @@ There is a list of commands you can use to get them: on both Ubuntu and macOS ho
   wget \
   gnu-sed \
   hidapi \
-  python3
+  python3 \
+  python3-jinja2 \
+  python3-yaml
   ```
 
   *`bash` in version >= `4.0` and `make` in version >= `3.82` are needed (associative arrays and `undefine` used).
