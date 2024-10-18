@@ -169,7 +169,7 @@ Now, we can follow instructions about building toolchains. Remember to use comma
  cd phoenix-rtos-project
 ```
 
-```console
+```text
 (cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh i386-pc-phoenix ~/toolchains/i386-pc-phoenix)
 (cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh arm-phoenix ~/toolchains/arm-phoenix)
 (cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh riscv64-phoenix ~/toolchains/riscv64-phoenix)
