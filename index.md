@@ -39,6 +39,7 @@ The ARINC653 execution environment (APEX) is under development.
     11. [Running system on `sparcv8leon-gr716-mini`](quickstart/sparcv8leon-gr716-mini.md)
     12. [Running system on `sparcv8leon-gr712rc-board`](quickstart/sparcv8leon-gr712rc-board)
     13. [Running system on `sparcv8leon-gr716-mimas`](quickstart/sparcv8leon-gr716-mimas)
+    14. [Running system on `sparcv8leon-generic-qemu`](quickstart/sparcv8leon-generic-qemu)
 5. [Loader](loader/index.md)
     1. [Architecture](loader/architecture.md)
     2. [Command-line interface](loader/cli.md)
