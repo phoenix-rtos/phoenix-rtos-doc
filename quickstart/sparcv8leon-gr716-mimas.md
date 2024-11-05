@@ -1,7 +1,7 @@
-# Running system on <nobr>sparcv8leon3-gr716-mimas</nobr>
+# Running system on <nobr>sparcv8leon-gr716-mimas</nobr>
 
 These instructions describe how to run Phoenix-RTOS on the LEON3/GR716 emulated
-on Mimas A7 Mini FPGA which is called `sparcv8leon3-gr716-mimas`target.
+on Mimas A7 Mini FPGA which is called `sparcv8leon-gr716-mimas`target.
 Note that the build artifacts, including the system image should be provided in the `_boot` directory. If you
 have not built the system image yet, please refer to the [Building Phoenix-RTOS image](../building/index.md) section.
 
@@ -53,7 +53,7 @@ we can just move to the desired folder and use `.` to point to the current direc
 To do that simply type:
 
 ```bash
-cd _boot/sparcv8leon3-gr716-mimas
+cd _boot/sparcv8leon-gr716-mimas
 ```
 
 then
@@ -70,7 +70,7 @@ picocom --imap lfcrlf -b 115200 -r -l /dev/ttyUSB[X] --send-cmd cat
 
 After resetting the board using the `BTN0` button, you should see `Bootloader` message in the terminal. To load the
 bootloader (`plo`) to the RAM, send the image using `picocom --send-cmd`. Type `Ctrl+a` followed by `Ctrl+s`,
-enter the path to the `plo.img` file and press `Enter`. The file is located in the `_boot/sparcv8leon3-gr716-mimas`
+enter the path to the `plo.img` file and press `Enter`. The file is located in the `_boot/sparcv8leon-gr716-mimas`
 directory. Refer to the image below:
 
 ![Image](_images/gr716-mimas-picocom-send.png)

@@ -1,6 +1,6 @@
-# Running system on <nobr>sparcv8leon3-gr712rc-board</nobr>
+# Running system on <nobr>sparcv8leon-gr712rc-board</nobr>
 
-These instructions describe how to run Phoenix-RTOS on the `sparcv8leon3-gr712rc-board` target. Note that the build
+These instructions describe how to run Phoenix-RTOS on the `sparcv8leon-gr712rc-board` target. Note that the build
 artifacts, including the system image should be provided in the `_boot` directory. If you have not built the system
 image yet, please refer to the [Building Phoenix-RTOS image](../building/index.md) section.
 
@@ -21,13 +21,13 @@ Erase the flash and upload the system image to the flash memory using the follow
 
 ```bash
 flash erase all
-flash load phoenix-rtos-project/_boot/sparcv8leon3-gr712rc-board/phoenix.disk 0x0
+flash load phoenix-rtos-project/_boot/sparcv8leon-gr712rc-board/phoenix.disk 0x0
 ```
 
 Then, load the partition table to the last sector of the flash memory using the following command:
 
 ```bash
-flash load phoenix-rtos-project/_boot/sparcv8leon3-gr712rc-board/ptable.img 0x7f0000
+flash load phoenix-rtos-project/_boot/sparcv8leon-gr712rc-board/ptable.img 0x7f0000
 ```
 
 To run the system, set entry point to address `0x0` and start the CPU using the following commands:
@@ -43,7 +43,7 @@ When the PLO interface appears, press any key to enter the `plo` console.
 
 <!-- markdownlint-disable -->
 Execute the `jffs2` command with appropriate parameters
-[as specified during the build process](https://github.com/phoenix-rtos/phoenix-rtos-project/blob/d797ccfa59c1e84bd0deed3b7b9fd382d862059c/_targets/build.project.sparcv8leon3-gr712rc#L112)
+[as specified during the build process](https://github.com/phoenix-rtos/phoenix-rtos-project/blob/3030c9bf06b0abd6c2b9b160bb305b636ac2ba1e/_targets/sparcv8leon/gr712rc/build.project#L84)
 to create cleanmarkers in the flash memory. Then enter the `go!` command to start the Phoenix-RTOS system.
 <!-- markdownlint-enable -->
 
