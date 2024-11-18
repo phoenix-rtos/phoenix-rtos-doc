@@ -37,10 +37,10 @@ The source code of the kernel could be obtained using the following command
 :hidden:
 :glob:
 
-*
 hal/index.md
-msg/index.md
 proc/index.md
-syscalls/index.md
 vm/index.md
+syscalls/index.md
+msg/index.md
+lib.md
 ```
