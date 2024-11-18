@@ -20,7 +20,7 @@ The purpose is to convert a string to an integer. The call `atoi(str)` shall be 
 
 `(int) strtol(str, (char **)NULL, 10)`
 
-Except that the handling of errors may differ. If the value cannot be represented, the behavior is undefined.
+except that the handling of errors may differ. If the value cannot be represented, the behavior is undefined.
 
 ## Return value
 

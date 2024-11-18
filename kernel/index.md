@@ -10,11 +10,11 @@ Microkernel is responsible for:
 
 Kernel is divided into five subsystems.
 
-* Hal - hardware abstraction layer
-* Lib - common routines
-* Vm - virtual memory management
-* Proc - process and thread management
-* Test - internal tests for kernel subsystems
+* hal - hardware abstraction layer
+* lib - common routines
+* vm - virtual memory management
+* proc - process and thread management
+* test - internal tests for kernel subsystems
 
 ## Kernel source code
 

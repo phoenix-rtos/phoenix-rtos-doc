@@ -1,8 +1,9 @@
-# Libsdio
+# libsdio
 
 ## General description
 
-Libsdio is a static, precompiled library containing a generic SDIO driver which directly controls the platform hardware.
+`libsdio` is a static, precompiled library containing a generic SDIO driver
+which directly controls the platform hardware.
 This driver defines an API providing basic interface control functionality.
 
 ## Platform support

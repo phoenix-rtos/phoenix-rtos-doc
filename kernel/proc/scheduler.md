@@ -20,12 +20,12 @@ the same priority. A scheduling algorithm is defined as follows:
 If a selected thread is a ghost (a thread whose process has ended execution) and has not been executed in a supervisor
 mode, it is added to the ghosts list and the reaper thread woke up.
 4. For the selected thread, the following actions are performed:
-    * A global pointer to the current thread is changed to the selected one,
-    * A pointer to the kernel stack is updated to the stack of a new thread,
-    * A memory map is changed to the map associated with the thread's process,
-    * Signal handlers are performed,
-    * Performance data is saved in a perf unit,
-    * In the `hal_cpuRestore` pointer to the stack in a context of current thread is updated with a pointer to the stack
+    * a global pointer to the current thread is changed to the selected one,
+    * a pointer to the kernel stack is updated to the stack of a new thread,
+    * a memory map is changed to the map associated with the thread's process,
+    * signal handlers are performed,
+    * performance data is saved in a perf unit,
+    * in the `hal_cpuRestore` pointer to the stack in a context of current thread is updated with a pointer to the stack
     of selected thread. When the scheduler finishes work, the context of selected thread restore is performed.
 5. The CPU usage is updated for the current and selected thread.
 6. At the end of the modification of the `threads_common.spinlock` is cleared.

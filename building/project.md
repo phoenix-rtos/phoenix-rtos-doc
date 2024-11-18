@@ -16,7 +16,7 @@ The project consists of the following GitHub submodule repositories.
 
     Libraries for use in user space.
 
-- [Phoenix-rtos-devices](https://github.com/phoenix-rtos/phoenix-rtos-devices.git)
+- [phoenix-rtos-devices](https://github.com/phoenix-rtos/phoenix-rtos-devices.git)
 
     Hardware drivers
 
@@ -28,7 +28,7 @@ The project consists of the following GitHub submodule repositories.
 
     Filesystem drivers.
 
-- [Phoenix-rtos-hostutils](https://github.com/phoenix-rtos/phoenix-rtos-hostutils.git)
+- [phoenix-rtos-hostutils](https://github.com/phoenix-rtos/phoenix-rtos-hostutils.git)
 
     Utilities for development PC (e.g. a tool for transferring system binary image to the
     target)
