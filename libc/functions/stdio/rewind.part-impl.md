@@ -26,7 +26,7 @@ shall be equivalent to:
 
 `(void) fseek(stream, 0L, SEEK_SET)`
 
-Except that `rewind()` shall also clear the error indicator.
+except that `rewind()` shall also clear the error indicator.
 
 Since `rewind()` does not return a value, an application wishing to detect errors should clear `errno`, then call
 `rewind()`, and if `errno` is non-zero, assume an error has occurred.

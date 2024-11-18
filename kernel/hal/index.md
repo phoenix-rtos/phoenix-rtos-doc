@@ -6,16 +6,16 @@ changed when the kernel is ported to the new hardware architecture.
 
 HAL implements the following functionalities:
 
-* Kernel initialization,
-* Basic type definitions,
-* Definition of syspage structure,
-* Basic synchronization (spinlocks),
-* Kernel console,
-* String functions (memcpy, memset),
-* Exception and interrupt handling,
+* kernel initialization,
+* basic type definitions,
+* definition of syspage structure,
+* basic synchronization (spinlocks),
+* kernel console,
+* string functions (memcpy, memset),
+* exception and interrupt handling,
 * MMU or MPU management,
-* Timer support,
-* Context switching.
+* timer support,
+* context switching.
 
 These functionalities are briefly discussed in this chapter.
 

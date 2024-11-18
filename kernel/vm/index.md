@@ -135,11 +135,11 @@ replaced with paging.
 
 Memory management subsystem provides following functionalities:
 
-* Physical memory allocation,
-* Address space allocation (inside memory regions),
-* Linear addresses to physical addresses mapping (when paging is available),
-* Dynamic, fine-grained kernel memory allocation,
-* Objects memory mapping and memory sharing.
+* physical memory allocation,
+* address space allocation (inside memory regions),
+* linear addresses to physical addresses mapping (when paging is available),
+* dynamic, fine-grained kernel memory allocation,
+* objects memory mapping and memory sharing.
 
 These functions will be briefly discussed and elaborated more in the particular chapters.
 
