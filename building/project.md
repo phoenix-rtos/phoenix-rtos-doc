@@ -6,23 +6,23 @@ The project consists of the following GitHub submodule repositories.
 
 - [libphoenix](https://github.com/phoenix-rtos/libphoenix.git)
 
-    Standard C library. Written from scratch for Phoenix-RTOS
+    Standard C library. Written from scratch for Phoenix-RTOS.
 
 - [phoenix-rtos-build](https://github.com/phoenix-rtos/phoenix-rtos-build.git)
 
     Building scripts, makefile templates, rules, flags definitions, target selection and
-    toolchain
+    toolchain.
 - [phoenix-rtos-corelibs](https://github.com/phoenix-rtos/phoenix-rtos-corelibs.git)
 
     Libraries for use in user space.
 
 - [phoenix-rtos-devices](https://github.com/phoenix-rtos/phoenix-rtos-devices.git)
 
-    Hardware drivers
+    Hardware drivers.
 
 - [phoenix-rtos-doc](https://github.com/phoenix-rtos/phoenix-rtos-doc.git)
 
-    Documentation
+    Documentation.
 
 - [phoenix-rtos-filesystems](https://github.com/phoenix-rtos/phoenix-rtos-filesystems.git)
 
@@ -31,39 +31,39 @@ The project consists of the following GitHub submodule repositories.
 - [phoenix-rtos-hostutils](https://github.com/phoenix-rtos/phoenix-rtos-hostutils.git)
 
     Utilities for development PC (e.g. a tool for transferring system binary image to the
-    target)
+    target).
 - [phoenix-rtos-kernel](https://github.com/phoenix-rtos/phoenix-rtos-kernel.git)
 
-    Microkernel repository
+    Microkernel repository.
 
 - [phoenix-rtos-lwip](https://github.com/phoenix-rtos/phoenix-rtos-lwip.git)
 
-    LwIP network stack
+    LwIP network stack.
 
 - [phoenix-rtos-ports](https://github.com/phoenix-rtos/phoenix-rtos-ports.git)
 
-    Linux (and potentially other OSes) applications ported to Phoenix-RTOS
+    Linux (and potentially other OSes) applications ported to Phoenix-RTOS.
 
 - [phoenix-rtos-posixsrv](https://github.com/phoenix-rtos/phoenix-rtos-posixsrv.git)
 
     POSIX server; user space server that is providing additional POSIX features not
     provided by the kernel itself (e.g.
-    pipes)
+    pipes).
 - [phoenix-rtos-tests](https://github.com/phoenix-rtos/phoenix-rtos-tests.git)
 
-    Tests based on our own framework
+    Tests based on our own framework.
 
 - [phoenix-rtos-usb](https://github.com/phoenix-rtos/phoenix-rtos-usb.git)
 
-    USB stack (both host and device)
+    USB stack (both host and device).
 
 - [phoenix-rtos-utils](https://github.com/phoenix-rtos/phoenix-rtos-utils.git)
 
-    System utilities (e.g. native shell psh)
+    System utilities (e.g. native shell psh).
 
 - [plo](https://github.com/phoenix-rtos/plo.git)
 
-    Phoenix-RTOS bootloader
+    Phoenix-RTOS bootloader.
 
 There are other directories and files directly in `phoenix-rtos-project`.
 
