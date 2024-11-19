@@ -1,4 +1,4 @@
-# Kernel - Processes and threads - Management
+# Management
 
 Processes are created in Phoenix-RTOS using forking technique. When new process is created the current process
 forks into two processes - parent (process which initializes fork) and child. There are two forking functions

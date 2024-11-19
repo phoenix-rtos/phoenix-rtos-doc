@@ -1,4 +1,4 @@
-# Thread management
+# Threads management
 
 ## `syscalls_threadCreate` (`syscalls_beginthread`)
 

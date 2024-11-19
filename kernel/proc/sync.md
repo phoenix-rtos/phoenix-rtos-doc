@@ -1,4 +1,4 @@
-# Kernel - Processes and threads - Synchronization primitives
+# Synchronization primitives
 
 Phoenix-RTOS kernel implements three widely used methods for synchronization of concurrently executed instruction
 streams.

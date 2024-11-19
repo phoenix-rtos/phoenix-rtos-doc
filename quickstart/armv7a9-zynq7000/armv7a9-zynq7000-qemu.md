@@ -7,7 +7,7 @@ Note that, the build artifacts, including the system image, should be first prov
 
 If you haven't run the `build.sh` script yet, run it for `armv7a9-zynq7000-qemu` target.
 
-See [how to build the Phoenix-RTOS system image](../building/index.md).
+See [how to build the Phoenix-RTOS system image](../../building/index.md).
 
 ## Running the system image
 
@@ -185,8 +185,8 @@ If you want to quit, you should click on the terminal window, press `ctrl + a`, 
 
 ## See also
 
-1. [Running system on armv7a9-zynq7000](armv7a9-zynq7000.md)
+1. [Running system on armv7a9-zynq7000](index.md)
 2. [Running system on armv7a9-zynq7000-zedboard](armv7a9-zynq7000-zedboard.md)
 3. [Running system on armv7a9-zynq7000-zturn](armv7a9-zynq7000-zturn.md)
-4. [Running system on targets](index.md)
-5. [Table of Contents](../index.md)
+4. [Running system on targets](../index.md)
+5. [Table of Contents](../../index.md)

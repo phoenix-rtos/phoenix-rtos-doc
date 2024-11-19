@@ -1,4 +1,4 @@
-# Communication sockets
+# Socket operations
 
 ## `syscalls_sockAccept` `(syscalls_sys_accept)`
 

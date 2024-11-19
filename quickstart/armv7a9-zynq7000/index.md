@@ -40,5 +40,14 @@ from the site below.
 
 ## See also
 
-1. [Running system on targets](index.md)
-2. [Table of Contents](../index.md)
+1. [Running system on targets](../index.md)
+2. [Table of Contents](../../index.md)
+
+```{toctree}
+:maxdepth: 1
+:hidden:
+
+armv7a9-zynq7000-zedboard.md
+armv7a9-zynq7000-zturn.md
+armv7a9-zynq7000-qemu.md
+```

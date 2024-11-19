@@ -1,4 +1,4 @@
-# psdisk
+# Phoenix disk tool (psdisk)
 
 `psdisk` is a tool responsible for creating a partition table where sources are placed under the following link:
 <https://github.com/phoenix-rtos/phoenix-rtos-filesystems/tree/master/ptable>

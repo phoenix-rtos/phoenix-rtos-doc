@@ -11,7 +11,7 @@ and building artifacts are available in the `_boot` directory. The building proc
 3. [Running system on armv7m7-imxrt106x-evk (NXP i.MX RT106x)](armv7m7-imxrt106x-evk.md)
 4. [Running system on armv7m7-imxrt117x-evk (NXP i.MX RT117x)](armv7m7-imxrt117x-evk.md)
 5. [Running system on armv7a7-imx6ull-evk (NXP i.MX 6ULL)](armv7a7-imx6ull-evk.md)
-6. [Running system on armv7a9-zynq7000 (Xilinx Zynq 7000)](armv7a9-zynq7000.md)
+6. [Running system on armv7a9-zynq7000 (Xilinx Zynq 7000)](armv7a9-zynq7000/index.md)
 7. [Running system on armv8r52-mps3an536-qemu](armv8r52-mps3an536-qemu.md)
 8. [Running system on ia32-generic-qemu](ia32-generic-qemu.md)
 9. [Running system on riscv64-generic-qemu](riscv64-generic-qemu.md)
@@ -30,10 +30,7 @@ armv7m7-imxrt105x-evk.md
 armv7m7-imxrt106x-evk.md
 armv7m7-imxrt117x-evk.md
 armv7a7-imx6ull-evk.md
-armv7a9-zynq7000.md
-armv7a9-zynq7000-qemu.md
-armv7a9-zynq7000-zedboard.md
-armv7a9-zynq7000-zturn.md
+armv7a9-zynq7000/index.md
 armv8r52-mps3an536-qemu.md
 ia32-generic-qemu.md
 riscv64-generic-qemu.md

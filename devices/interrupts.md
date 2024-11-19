@@ -1,4 +1,4 @@
-# Interrupts
+# Handling interrupts
 
 It is often necessary to handle hardware interrupts when creating a device driver. To enable the userspace server to do
 so, Phoenix-RTOS provides a special callback mechanism. Driver registers interrupt handler via syscall:
