@@ -1,4 +1,4 @@
-# Kernel - Processes and threads - Namespace
+# Namespace
 
 The namespace and port registering functionality are used by operating system servers
 (e.g. device drivers, file servers) as a basic method of integration with the other operating system components.

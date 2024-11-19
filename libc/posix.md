@@ -1,4 +1,4 @@
-# POSIX emulation
+# POSIX emulation server
 
 The `libphoenix` repository provides POSIX API enabling users to build and run portable POSIX applications. The
 emulation layer is built upon Phoenix-RTOS native messaging API and a dedicated server (`posixsrv`).

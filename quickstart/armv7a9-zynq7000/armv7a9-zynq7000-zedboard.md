@@ -4,7 +4,7 @@ These instructions describe how to run a Phoenix-RTOS system image for `armv7a9-
 Note that, the build artifacts, including the system image, should be first provided in the `_boot` directory.
 If you haven't run the `build.sh` script yet, run it for `armv7a9-zynq7000-zedboard` target.
 
-See [how to build the Phoenix-RTOS system image](../building/index.md).
+See [how to build the Phoenix-RTOS system image](../../building/index.md).
 
 ## Preparing the board
 
@@ -127,7 +127,7 @@ You want to press the `PS-RST` button (`BTN7`) again and interrupt `Waiting for 
 ![Image](_images/zynq7000-plo.png)
 
 If you encountered some problems during this step please see
- [common problems](armv7a9-zynq7000.md#common-problems-on-zynq7000-boards).
+ [common problems](index.md#common-problems-on-zynq7000-boards).
 
 ### Erasing the area intended for file system
 
@@ -272,8 +272,8 @@ top
 
 ## See also
 
-1. [Running system on armv7a9-zynq7000](armv7a9-zynq7000.md)
+1. [Running system on armv7a9-zynq7000](index.md)
 2. [Running system on armv7a9-zynq7000 on emulator](armv7a9-zynq7000-qemu.md)
 3. [Running system on armv7a9-zynq7000-zturn](armv7a9-zynq7000-zturn.md)
-4. [Running system on targets](index.md)
-5. [Table of Contents](../index.md)
+4. [Running system on targets](../index.md)
+5. [Table of Contents](../../index.md)

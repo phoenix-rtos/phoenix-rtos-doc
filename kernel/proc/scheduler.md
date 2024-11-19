@@ -1,4 +1,4 @@
-# Kernel - Processes and threads - Scheduler
+# Scheduler
 
 The operating system scheduler controls threads execution with a predetermined policy. It is a part of Phoenix-RTOS
 having the most significant influence on the performance and responsiveness of the whole system.

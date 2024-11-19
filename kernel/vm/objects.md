@@ -1,4 +1,4 @@
-# Objects
+# Memory objects
 
 Memory objects were introduced to share the physical memory between processes allowing to identify the sets of
 allocated memory pages or segments of physical memory on non-MMU architectures. When process maps object into its memory

@@ -1,4 +1,4 @@
-# Thread synchronization
+# Threads synchronization
 
 ## `syscalls_phMutexCreate`
 

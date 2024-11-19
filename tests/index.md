@@ -1,4 +1,4 @@
-# Testing process
+# Tests and testing process
 
 The testing process uses a Phoenix-RTOS testing framework written in Python. The framework provides an environment for
 running both unit and functional tests.

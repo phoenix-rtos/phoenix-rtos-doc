@@ -1,4 +1,4 @@
-# Reference project
+# Reference project repository
 
 The main repository of Phoenix-RTOS is the
 [phoenix-rtos-project](https://github.com/phoenix-rtos/phoenix-rtos-project.git).
