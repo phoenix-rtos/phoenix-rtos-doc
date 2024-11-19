@@ -5,25 +5,33 @@ function findRelativePath()
 
 	if (window.location.origin === 'null') {
 		// Local run
-		let fullPath = window.location.href;
-		let index = fullPath.indexOf('_build/html');
+		const fullPath = window.location.href;
+		const index = fullPath.indexOf('_build/html');
 		currentPath = fullPath.substring(index);
 		path = '_build/html/libc/functions/index.html';
 	}
 	else {
 		// Server run
-		currentPath = window.location.href;
-		path = window.location.origin + '/libc/functions/index.html';
+		currentPath = window.location.pathname;
+		const pathSegments = currentPath.split('/').filter(segment => segment !== '');
+		const firstItem = pathSegments[0] || null;
+
+		if (firstItem === 'latest' || /^[0-9]+\.[0-9]+\.[0-9]+$/.test(firstItem)) {
+			path = firstItem + '/libc/functions/index.html';
+		}
+		else {
+			path = '/libc/functions/index.html';
+		}
 	}
 
-	let fromSegments = currentPath.split('/');
-	let toSegments = path.split('/');
+	const fromSegments = currentPath.split('/');
+	const toSegments = path.split('/');
 
 	if (fromSegments.join() === toSegments.join()) {
 		if (window.location.origin === 'null') {
 			// Local run
-			let fullPath = window.location.href;
-			let index = fullPath.indexOf('_build/html');
+			const fullPath = window.location.href;
+			const index = fullPath.indexOf('_build/html');
 
 			return fullPath.substring(0, index) + path;
 		}
@@ -50,11 +58,11 @@ function findRelativePath()
 
 function getElementsByTagNameWithDepth(element, tagName, depthLimit, currentDepth = 0)
 {
-	var elements = [];
-	var children = element.children;
+	let elements = [];
+	const children = element.children;
 
 	for (let i = 0; i < children.length; i++) {
-		let child = children[i];
+		const child = children[i];
 		if (child.tagName.toLowerCase() === tagName.toLowerCase()) {
 			elements.push(child);
 		}
@@ -126,13 +134,13 @@ headersLi.forEach(function(list) {
 		}
 	});
 
-	let anchor = list.querySelector('a');
+	const anchor = list.querySelector('a');
 	// Slashes and dots in headers are replaced with '-'
-	let textContent = anchor.textContent
+	const textContent = anchor.textContent
 		.replace(/\//g, '-')
 		.replace(/\.h/g, '-h');
 
-	let relativePath = findRelativePath() + '#' + textContent;
+	const relativePath = findRelativePath() + '#' + textContent;
 
 	anchor.setAttribute('href', relativePath);
 

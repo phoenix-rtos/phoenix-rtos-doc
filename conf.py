@@ -29,9 +29,16 @@ pygments_dark_style = 'tango'
 html_title = 'Phoenix-RTOS Documentation'
 html_favicon = '_images/RTOS_sign.png'
 html_theme = 'furo'
-html_js_files = ['js/functions.js']
+html_js_files = ['js/functions.js', 'js/versions.js']
 html_style = ['css/furo-phoenix.css', 'css/furo-extensions-phoenix.css']
 html_static_path = ['_static', '_images']
+html_baseurl = "https://docs.phoenix-rtos.com/latest/"
+html_context = {
+"versions": (
+        ("latest", "/"),
+    )
+}
+
 # TODO: add dark mode support
 html_theme_options = {
 	"light_logo": "light_logo.png",

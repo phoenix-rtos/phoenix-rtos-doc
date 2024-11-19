@@ -148,13 +148,104 @@ img {
     border-right: none !important;
     box-sizing: border-box;
     display: flex;
-    justify-content: flex-start !important;
-    width: 17em !important
+    justify-content: flex-end;
+    flex-direction: column !important;
+    height: 100vh !important;
+    width: 17em !important;
+    position: fixed !important
 }
 
 .sidebar-container {
     box-sizing: border-box;
-    width: 17em !important
+    width: inherit !important;
+    overflow-y: auto !important;
+    flex-grow: 1 !important
+}
+
+.sidebar-sticky {
+    height: 100% !important;
+    overflow-y: hidden !important
+}
+
+.version-container {
+    width: inherit !important;
+    border-top: 1px solid #c2cbcb !important;
+    background-color: #f1f3f3 !important;
+    font-family: 'Open Sans', sans-serif !important;
+    font-weight: 600 !important;
+    color: var(--color-sidebar-link-text--top-level) !important
+}
+
+.default-version {
+    display: flex !important;
+    justify-content: space-between !important;
+    cursor: pointer !important
+}
+
+.default-version:hover {
+    background-color: #ea5b22 !important;
+    color: white !important
+}
+
+.default-version > label {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    width: var(--sidebar-expander-width) !important;
+    height: var(--sidebar-item-height) !important
+}
+
+.version-top {
+    flex: 1 !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding-left: 10px !important
+}
+
+.version-container.shift-up > .default-version label > .icon > svg {
+    transform: rotate(-90deg) !important
+}
+
+.default-version label > .icon > svg {
+    transform: rotate(90deg) !important
+}
+
+.version-container.shift-up .other-versions {
+    display: block !important
+}
+
+.other-versions {
+    margin-right: 10px !important;
+    margin-left: 10px !important;
+    box-sizing: border-box !important;
+    display: none !important
+}
+
+.other-versions > dl {
+    margin-top: 7px !important
+}
+
+.other-versions > dl > dd {
+    display: inline-block !important;
+    margin: 0 !important;
+    padding: 5px !important
+}
+
+.other-versions > dl > dd > a {
+    text-decoration: none !important;
+    font-weight: 500 !important;
+    color: var(--color-sidebar-link-text--top-level) !important
+}
+
+.other-versions > dl > dd > a:hover {
+    font-weight: 500 !important;
+    color: #ea5b22 !important
+}
+
+.main {
+    margin-left: 17em !important
 }
 
 /* Hide sidebar brand text */
