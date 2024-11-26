@@ -6,6 +6,9 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
+from version_management import get_version_context
+
+
 project = ''
 copyright = '2024, Phoenix Systems'
 author = 'Phoenix Systems'
@@ -34,9 +37,7 @@ html_style = ['css/furo-phoenix.css', 'css/furo-extensions-phoenix.css']
 html_static_path = ['_static', '_images']
 html_baseurl = "https://docs.phoenix-rtos.com/latest/"
 html_context = {
-"versions": (
-        ("latest", "/"),
-    )
+"versions": get_version_context()
 }
 
 # TODO: add dark mode support
