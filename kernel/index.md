@@ -41,6 +41,5 @@ hal/index.md
 proc/index.md
 vm/index.md
 syscalls/index.md
-msg/index.md
 lib.md
 ```

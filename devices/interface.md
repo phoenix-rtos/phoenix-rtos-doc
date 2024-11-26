@@ -65,8 +65,8 @@ Then we can create a new special file and register:
     msgSend(dir.port, &msg);
 ````
 
-Message passing mechanism is described in detail in the
-[Interprocess communication - message queues](../kernel/msg/index.md) document.
+Interprocess communication by message queues is described in detail in the
+[Message passing](../kernel/proc/msg.md) document.
 
 ## See also
 
