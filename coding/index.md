@@ -8,7 +8,24 @@ In general code should be compliant with C99 (without GNU extensions) standard.
 
 ## File label
 
-Each operating system source file is marked with label with the following structure.
+Each operating system source file is marked with label with the following structure:
+
+```c
+    /*
+     * <Project name>
+	 *
+	 * <Name of the software module, optional>
+     *
+     * <Brief file description>
+     *
+     * Copyright <Years of active development> Phoenix Systems
+     * Author: <List of authors>
+     *
+     * %LICENSE%
+     */
+```
+
+Example of a file that is a part of the Phoenix-RTOS kernel:
 
 ```c
     /*
@@ -21,8 +38,6 @@ Each operating system source file is marked with label with the following struct
      * Copyright 2014-2015 Phoenix Systems
      * Copyright 2005-2006 Pawel Pisarczyk
      * Author: Pawel Pisarczyk, Radoslaw F. Wawrzusiak, Jacek Popko
-     *
-     * This file is part of Phoenix-RTOS.
      *
      * %LICENSE%
      */
@@ -208,7 +223,7 @@ One space character should be used after and before the following binary and ter
 No space should be used after the following unary operators:
 
 ```c
-    &  *  +  -  ~  ! 
+    &  *  +  -  ~  !
 ```
 
 The `sizeof` and `typeof`are treated as functions and are to be used in accordance to the following notation:
