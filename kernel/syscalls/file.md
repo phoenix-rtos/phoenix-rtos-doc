@@ -123,6 +123,18 @@ GETFROMSTACK(ustack, int, fd, 0);
 GETFROMSTACK(ustack, struct stat *, buf, 1);
 ````
 
+## `syscalls_fileStatvfs` (`syscalls_sys_statvfs`)
+
+````C
+GETFROMSTACK(ustack, const char *, path, 0);
+GETFROMSTACK(ustack, int, fd, 1);
+GETFROMSTACK(ustack, struct statvfs *, buf, 2);
+````
+
+Perform statvfs on path or file descriptor.
+
+When path is NULL fd must be non-negative. When path is non-NULL fd must be set to -1.
+
 ## `syscalls_fileIoCtl` (`syscalls_sys_ioctl`)
 
 ````C
