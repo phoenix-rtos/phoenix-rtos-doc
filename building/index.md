@@ -107,6 +107,7 @@ The Phoenix-RTOS reference project supports the following target platforms:
 - sparcv8leon-gr712rc-board
 - sparcv8leon-gr716-mimas
 - sparcv8leon-gr716-mini
+- sparcv8leon-gr740-mini
 
 To get the list of valid targets the `build.sh` script should be launched with an empty `TARGET` variable, eg:
 
