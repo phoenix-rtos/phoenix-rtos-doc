@@ -20,7 +20,8 @@ and building artifacts are available in the `_boot` directory. The building proc
 12. [Running system on sparcv8leon-gr712rc-board](sparcv8leon-gr712rc-board.md)
 13. [Running system on sparcv8leon-gr716-mimas](sparcv8leon-gr716-mimas.md)
 14. [Running system on sparcv8leon-generic-qemu](sparcv8leon-generic-qemu.md)
-15. [Table of Contents](../index.md)
+15. [Running system on sparcv8leon-gr740-mini](sparcv8leon-gr740-mini.md)
+16. [Table of Contents](../index.md)
 
 ```{toctree}
 :maxdepth: 1
@@ -40,4 +41,5 @@ sparcv8leon-gr716-mini.md
 sparcv8leon-gr712rc-board.md
 sparcv8leon-gr716-mimas.md
 sparcv8leon-generic-qemu.md
+sparcv8leon-gr740-mini.md
 ```
