@@ -50,8 +50,3 @@ Returns identifier of calling thread.
 ````C
 GETFROMSTACK(ustack, int, priority, 0);
 ````
-
-## See also
-
-1. [System calls](index.md)
-2. [Table of Contents](../../index.md)

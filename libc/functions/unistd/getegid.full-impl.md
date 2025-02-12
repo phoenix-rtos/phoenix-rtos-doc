@@ -20,7 +20,3 @@ The effective group ID of the calling process.
 ## Errors
 
 No errors are defined.
-
-## Implementation tasks
-
-* Implement the `getegid()` function.

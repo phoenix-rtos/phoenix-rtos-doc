@@ -374,7 +374,3 @@ To better understand our position please read the famous Dijkstra article.
 
 In our opinion usage of `goto` increases the chaos in the source code and absolutely brings no value like
 minimalization of the number of lines of code. It also encourages programmers to poor code structurization.
-
-## See also
-
-1. [Table of Contents](../index.md)

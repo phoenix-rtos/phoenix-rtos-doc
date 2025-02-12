@@ -71,9 +71,3 @@ has changed (using serial connections we are not aware of signals like
 `SIGWINCH` to automatically handle redraw and get the current dimensions of the
 remote terminal, you need a special query procedure) in such cases press
 `Ctrl`+`L` (or `^L`) this will update the editor screen quickly.
-
-## See also
-
-1. [Phoenix-RTOS shell](../index.md)
-2. [Phoenix-RTOS Utilities](../../index.md)
-3. [Table of Contents](../../../index.md)

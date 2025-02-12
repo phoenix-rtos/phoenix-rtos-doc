@@ -95,7 +95,13 @@ In order to run one of the user applications you should type `/usr/bin/appname`,
 
 The result is presented below.
 
-![Image](_gifs/voxeldemo.gif)
+```{only} html
+  ![Output sample](../_static/gifs/voxeldemo.gif)
+```
+
+```{only} latex
+  ![Output sample](../_static/images/pdf-voxeldemo.png)
+```
 
 You can press `ctrl + c` to quit the voxeldemo app.
 
@@ -135,8 +141,3 @@ disk is represented by /dev/sda block device).
 ```console
   dd if=_boot/ia32-generic-pc/phoenix.disk of=/dev/sda
 ```
-
-## See also
-
-1. [Running system on targets](index.md)
-2. [Table of Contents](../index.md)

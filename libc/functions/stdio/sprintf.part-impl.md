@@ -9,7 +9,3 @@
 ## Description
 
 Sends formatted output to a string.
-
-### Return value
-
-### Errors

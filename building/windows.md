@@ -1,11 +1,7 @@
----
-orphan: True <!-- Additional page not intended to place in toctree -->
----
-
 # Windows
 
-For now, it is possible to build Phoenix-RTOS images for all targets and run `ia32-generic-qemu` on Windows using
-`Cygwin` or `WSL`. Running the rest of targets is under development.
+At this moment on Windows it is possible to build Phoenix-RTOS image for all targets. Running the system is only
+possible on `ia32-generic-qemu` using `Cygwin` or `WSL`. Running the rest of targets will be added soon.
 
 ## Cygwin
 
@@ -72,8 +68,8 @@ Always run it as administrator, the best way to do that is simply setup this as 
 <summary>How to run Cygwin as administrator by default (click to expand)</summary>
 &nbsp;
 
-Right-click on the `Cygwin64Terminal` icon, then go to `Properties` ⇾ `Compatibility` ⇾ `Settings` and choose `Run this
-program as an administrator`
+Right-click on the `Cygwin64Terminal` icon, then go to `Properties` -> `Compatibility` -> `Settings` and choose
+`Run this program as an administrator`
 
 </details>
 &nbsp;
@@ -195,9 +191,6 @@ Now it should be possible to build the Phoenix-RTOS system image with the full c
 TARGET=ia32-generic-qemu CONSOLE=serial phoenix-rtos-build/build.sh all
 ```
 
-Of course, you can build the system image for this target in different configuration.
-More information [here](../building/script.md).
-
 In case of performing all steps right, the statement about successful build will be printed. The kernel and disk images
 will be available in the `_boot` directory then.
 
@@ -244,12 +237,3 @@ After that simply follow the instructions for Ubuntu written in the [Building Ph
 
 (Quick tip: It is not mandatory, but turning off Real-Time Protection in Windows Defender speeds up the toolchain
 building process)
-
-### See also
-
-1. [Building Phoenix-RTOS image](index.md)
-2. [Toolchain](toolchain.md)
-3. [Building script](script.md)
-4. [ia32-generic quick start](../quickstart/ia32-generic-qemu.md)
-5. [Reference project](project.md)
-6. [Table of Contents](../index.md)

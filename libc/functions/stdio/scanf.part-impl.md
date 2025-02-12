@@ -9,7 +9,3 @@
 ## Description
 
 Reads formatted input from stdin.
-
-### Return value
-
-### Errors

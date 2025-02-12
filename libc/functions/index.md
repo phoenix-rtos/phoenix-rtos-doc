@@ -345,14 +345,9 @@
 [`wcscmp`](wchar/wcscmp.full-impl.md), <!-- updated -->
 [`wcslen`](wchar/wcslen.not-impl.md) <!-- updated -->
 
-## See also
-
-1. [Standard library](../../index.md)
-2. [Table of Contents](../../index.md)
-
 ```{toctree}
 :hidden:
-:maxdepth: 2
+:maxdepth: 1
 
 assert/index.md
 ctype/index.md

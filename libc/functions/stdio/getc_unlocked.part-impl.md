@@ -56,4 +56,3 @@ signal is also sent to the thread.
 * Implement error handling for the `getc_unlocked()` function.
 * Implement error handling for the `getchar_unlocked()` function.
 * Implement error handling for the `putc_unlocked()` function.
-* Implement error handling for the `putchar_unlocked()` function.

@@ -16,26 +16,14 @@ Kernel is divided into five subsystems.
 * proc - process and thread management
 * test - internal tests for kernel subsystems
 
-## Kernel source code
-
 The source code of the kernel could be obtained using the following command
 
 ```console
-    git clone http://github.com/phoenix-rtos.com/phoenix-rtos-kernel
+git clone https://github.com/phoenix-rtos/phoenix-rtos-kernel.git
 ```
 
-## See also
-
-1. [Kernel - HAL Subsystem](hal/index.md)
-2. [Kernel - Processes and threads](proc/index.md)
-3. [Kernel - Memory management](vm/index.md)
-4. [Kernel - System calls](syscalls/index.md)
-5. [Kernel - Common interface](lib.md)
-6. [Table of Contents](../index.md)
-
 ```{toctree}
-:hidden:
-:glob:
+:maxdepth: 1
 
 hal/index.md
 proc/index.md
