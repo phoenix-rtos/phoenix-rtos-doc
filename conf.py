@@ -8,7 +8,6 @@
 
 from version_management import get_version_context
 
-
 project = ""
 copyright = "2024, Phoenix Systems"
 author = "Phoenix Systems"
@@ -19,7 +18,7 @@ author = "Phoenix Systems"
 extensions = ["myst_parser", "sphinx_copybutton"]
 
 templates_path = ["_templates"]
-exclude_patterns = ["README.md", "_build", "Thumbs.db", ".DS_Store"]
+exclude_patterns = ["README.md", "_build", "Thumbs.db", ".DS_Store", "corelibs/libgraph.md", "quickstart/ia32-generic-qemu.md"]
 myst_heading_anchors = 3
 pygments_dark_style = "tango"
 
@@ -34,6 +33,26 @@ html_style = ["css/furo-phoenix.css", "css/furo-extensions-phoenix.css"]
 html_static_path = ["_static", "_images"]
 html_baseurl = "https://docs.phoenix-rtos.com/latest/"
 html_context = {"versions": get_version_context()}
+
+linkcheck_timeout = 30
+
+latex_additional_files = ["_images/zdj.jpg"]
+latex_elements = {
+    'makeindex': '',
+    'papersize': 'a4paper',
+    'preamble': r'''
+\usepackage{graphicx}
+    ''',
+    'maketitle': r'''
+\newgeometry{margin=0pt}
+\thispagestyle{empty}
+\begin{figure}
+    \includegraphics[width=\paperwidth,height=\paperheight]{zdj.jpg}
+\end{figure}
+\clearpage
+\restoregeometry
+    ''',
+}
 
 # TODO: add dark mode support
 html_theme_options = {
