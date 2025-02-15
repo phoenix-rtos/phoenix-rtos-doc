@@ -203,6 +203,14 @@ ps
 
 ![Image](_images/stm32l4x6-ps.png)
 
+or:
+
+```console
+top
+```
+
+![Image](_images/stm32l4x6-top.png)
+
 ## See also
 
 1. [Running system on targets](index.md)
