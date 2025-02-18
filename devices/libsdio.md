@@ -8,11 +8,11 @@ This driver defines an API providing basic interface control functionality.
 
 ## Platform support
 
-| Target            | Supported?         |
-|-------------------|--------------------|
-| armv7a7-imx6ull   | :heavy_check_mark: |
-| armv7m7-imxrt106x | :x:                |
-| ia32-generic-pc   | :x:                |
+|       Target      |     Supported      |
+| ----------------- | :----------------: |
+| armv7a7-imx6ull   | Yes                |
+| armv7m7-imxrt106x | No                 |
+| ia32-generic-pc   | No                 |
 
 ## Limitations
 
@@ -67,7 +67,7 @@ typedef void (*sdio_event_handler_t)(void *arg);
 **Definitions:**
 
 | define              | description                        |
-|---------------------|------------------------------------|
+| ------------------- | ---------------------------------- |
 | SDIO_EVENT_CARD_IN  | SDIO device is inserted            |
 | SDIO_EVENT_CARD_OUT | SDIO device is removed             |
 | SDIO_EVENT_CARD_IRQ | SDIO device requested an interrupt |
@@ -128,11 +128,11 @@ reinitialize the interface, `sdio_free` should be called between concurrent `sdi
 
 **Returns:**
 
-| code    | description                 |
-|---------|-----------------------------|
-|  EOK    | success                     |
-| -EIO    | I/O hardware fault occurred  |
-| -ENOMEM | not enough memory available |
+|  code  |         description         |
+| ------ | --------------------------- |
+| EOK    | success                     |
+| EIO    | I/O hardware fault occurred |
+| ENOMEM | not enough memory available |
 
 ---
 
@@ -169,19 +169,19 @@ after `sdio_init`.
 
 **Parameters:**
 
-| parameter               | description                   | possible values     |
-|-------------------------|-------------------------------|---------------------|
+|        parameter        |          description          |   possible values   |
+| ----------------------- | ----------------------------- | ------------------- |
 | [in] `uint32_t freq`    | SDIO clock frequency in Hz    | *any*               |
 | [in] `uint16_t blocksz` | block size for bulk transfers | 25000000 / 50000000 |
 
 **Returns:**
 
-| code       | description                        |
-|------------|------------------------------------|
-|  EOK       | success                            |
-| -EINVAL    | provided `blocksz` is invalid      |
-| -ETIMEDOUT | device configuration took too long |
-| -EIO       | I/O hardware fault occurred         |
+|   code    |           description              |
+| --------- | ---------------------------------- |
+| EOK       | success                            |
+| EINVAL    | provided `blocksz` is invalid      |
+| ETIMEDOUT | device configuration took too long |
+| EIO       | I/O hardware fault occurred        |
 
 ---
 
@@ -199,20 +199,20 @@ to the value read from the device.
 
 **Parameters:**
 
-| parameter                | description                       | possible values        |
-|--------------------------|-----------------------------------|------------------------|
+|        parameter         |           description             |    possible values     |
+| ------------------------ | --------------------------------- | ---------------------- |
 | [in] `sdio_dir_t dir`    | transfer direction                | sdio_read / sdio_write |
 | [in] `uint32_t address`  | card register address to access   | *any 17-bit value*     |
 | [in] `uint8_t area`      | card I/O area index to access     | *any 3-bit value*      |
-| [in/out] `uint8_t *data` | bidirectional single byte buffer | *any valid pointer*    |
+| [in/out] `uint8_t *data` | bidirectional single byte buffer | *any valid pointer*     |
 
 **Returns:**
 
-| code       | description                    |
-|------------|--------------------------------|
-|  EOK       | success                        |
-| -EBUSY     | device is currently busy       |
-| -ETIMEDOUT | device did not respond in time |
+|   code    |          description           |
+| --------- | ------------------------------ |
+| EOK       | success                        |
+| EBUSY     | device is currently busy       |
+| ETIMEDOUT | device did not respond in time |
 
 ---
 
@@ -230,8 +230,8 @@ This function initiates an indirect, multibyte transfer of up to 2048 bytes at o
 
 **Parameters:**
 
-| parameter                | description                      | possible values        |
-|--------------------------|----------------------------------|------------------------|
+|        parameter         |           description            |    possible values     |
+| ------------------------ | -------------------------------- | ---------------------- |
 | [in] `sdio_dir_t dir`    | transfer direction               | sdio_read / sdio_write |
 | [in] `int blockMode`     | divide transfer into blocks      | *boolean*              |
 | [in] `uint32_t address`  | card base address to access      | *any 17-bit value*     |
@@ -246,13 +246,13 @@ the address is automatically incremented by the device with every completed bloc
 
 **Returns:**
 
-| code       | description                               |
-|------------|-------------------------------------------|
-|  EOK       | success                                   |
-| -EIO       | I/O hardware fault occurred                |
-| -EBUSY     | interface is currently busy               |
-| -ETIMEDOUT | transfer request was not serviced in time |
-| -EINVAL    | *see parameters section*                  |
+|   code    |              description                  |
+| --------- | ----------------------------------------- |
+| EOK       | success                                   |
+| EIO       | I/O hardware fault occurred               |
+| EBUSY     | interface is currently busy               |
+| ETIMEDOUT | transfer request was not serviced in time |
+| EINVAL    | *see parameters section*                  |
 
 ---
 
@@ -267,8 +267,8 @@ overwritten. In order to deregister the handler one can pass `NULL` as the `hand
 
 **Parameters:**
 
-| parameter                           | description                       | possible values  |
-|-------------------------------------|-----------------------------------|------------------|
+|             parameter               |            description            | possible values  |
+| ----------------------------------- | --------------------------------- | ---------------- |
 | [in] `uint8_t event`                | event to be handled               | *see note below* |
 | [in] `sdio_event_handler_t handler` | pointer to event handler function | *any pointer*    |
 | [in/out] `void *arg`                | argument for the handler function | *any pointer*    |
@@ -277,10 +277,10 @@ overwritten. In order to deregister the handler one can pass `NULL` as the `hand
 
 **Returns:**
 
-| code    | description                   |
-|---------|-------------------------------|
-|  EOK    | success                       |
-| -EINVAL | provided `event` is not valid |
+|  code  |         description           |
+| ------ | ----------------------------- |
+| EOK    | success                       |
+| EINVAL | provided `event` is not valid |
 
 > **NOTE:** Codes returned are defined in `<errno.h>` header.
 
@@ -295,8 +295,8 @@ This function can enable or disable interrupt event signalling of the SD host co
 
 **Parameters:**
 
-| parameter            | description                                    | possible values  |
-|----------------------|------------------------------------------------|------------------|
+|      parameter       |                 description                    | possible values  |
+| -------------------- | ---------------------------------------------- | ---------------- |
 | [in] `uint8_t event` | event for which signalling enable is to be set | *see note below* |
 | [in] `int enabled`   | state of signalling enable (1/0)               | *boolean*        |
 
@@ -304,7 +304,7 @@ This function can enable or disable interrupt event signalling of the SD host co
 
 **Returns:**
 
-| code    | description                   |
-|---------|-------------------------------|
-|  EOK    | success                       |
-| -EINVAL | provided `event` is not valid |
+|  code  |         description           |
+| ------ | ----------------------------- |
+| EOK    | success                       |
+| EINVAL | provided `event` is not valid |
