@@ -77,11 +77,11 @@ This table presents a timeline of the most important events in the history of op
 | 1982 | {red-text}`pSOS`               | {red-text}`The popular real-time operating system for embedded systems based on M68000 family` |
 | 1982 | {red-text}`QNX`                | {red-text}`The first real-time operating system based on the UN*X philosophy (Intel 8088)` |
 | 1983 | GNU/HURD                       | The first open source operating system (based on a microkernel) |
-| 1984 | {violet-text}`Mac OS`          | {violet-text}`The first operating system for personal computers with GUI` |
+| 1984 | {violet-text}`macOS`           | {violet-text}`The first operating system for personal computers with GUI` |
 | 1984 | {blue-text}`SunOS`             | {blue-text}`UN*X developed by Sun Microsystems for SUN computers based on BSD` |
 | 1985 | AmigaOS                        | Operating system for Amiga personal computers |
 | 1985 | {violet-text}`MS Windows 1.01` | {violet-text}`Graphical environment for MS-DOS` |
-| 1986 | {green-text}`Mach`             | {green-text}`The first multi-server UN*X emulation based on message passing (for VAX-11)` |
+| 1986 | {green-text}`Mach`             | {green-text}`The first multiserver UN*X emulation based on message passing (for VAX-11)` |
 | 1987 | {blue-text}`Xenix`             | {blue-text}`The UN*X operating system developed by SCO (initially with Microsoft) for IBM PC – the first 32-bit operating system for IBM PC` |
 | 1987 | {red-text}`VxWorks`            | {red-text}`Real-time operating system for safety critical embedded applications` |
 | 1988 | {violet-text}`OS/2`            | {violet-text}`The first operating system with GUI for IBM PC` |

@@ -39,7 +39,7 @@ linkcheck_timeout = 30
 latex_documents = [
     ("index", "phoenix.tex", "Phoenix-RTOS Documentation", author, "howto", True),
 ]
-latex_additional_files = ["_images/zdj.jpg"]
+latex_additional_files = ["_static/images/pdf-titlepage.png"]
 latex_elements = {
     'makeindex': r'',
     'papersize': r'a4paper',
