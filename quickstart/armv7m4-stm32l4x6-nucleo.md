@@ -36,7 +36,11 @@ To communicate with the board you will need to use a UART-USB converter, like `P
 
   The picture below presents how the board should be connected:
 
-  ![Image](_images/stm32l4x6-connections.png)
+  <!-- use image directive due to poor render in pdf -->
+  ```{image} _images/stm32l4x6-connections.png
+  :align: center
+  :width: 50%
+  ```
 
 - Now you should verify, what USB device on your host-pc is connected with the `UART` (console). To check that run:
 
