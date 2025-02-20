@@ -19,6 +19,7 @@ extensions = ["myst_parser", "sphinx_copybutton"]
 
 templates_path = ["_templates"]
 exclude_patterns = ["README.md", "_build", "Thumbs.db", ".DS_Store"]
+# exclude_patterns = ["*.md", "_build", "Thumbs.db", ".DS_Store", "**/*.md"]
 myst_heading_anchors = 3
 pygments_dark_style = "tango"
 
@@ -36,19 +37,25 @@ html_context = {"versions": get_version_context()}
 
 linkcheck_timeout = 30
 
+latex_engine = 'xelatex'
 latex_documents = [
     ("index", "phoenix.tex", "Phoenix-RTOS Documentation", author, "howto", True),
 ]
-latex_additional_files = ["_static/images/pdf-titlepage.png"]
+latex_additional_files = ["_static/images/pdf-titlepage.png", "_static/images/companylogo.png", "_static/images/endpage.png"]
 latex_elements = {
     'makeindex': r'',
     'papersize': r'a4paper',
+    'babel': '\\usepackage[english]{babel}',
     'extrapackages': r'''
         \usepackage{graphicx}
         \usepackage{tocloft}
         \usepackage{xcolor}
+        \usepackage[absolute]{textpos}
+        \usepackage{fontspec}
+        \usepackage[english]{babel}
     ''',
     'preamble': r'''
+        \setmainfont{Liberation Sans}
         \addtolength{\cftsubsecnumwidth}{4pt}
         \setcounter{secnumdepth}{3}
         \definecolor{ps-orange}{HTML}{ea5b22}
@@ -63,6 +70,66 @@ latex_elements = {
         \clearpage
         \restoregeometry
     ''',
+    'atendofbody': r'''
+        \clearpage
+        \thispagestyle{empty}
+        
+        % Company logo in upper left corner
+        \begin{textblock*}{10cm}(2cm,2cm)    % Adjust position as needed
+            \includegraphics[width=8cm]{companylogo.png}
+        \end{textblock*}
+        
+        % Right side main image
+        \vspace*{1.5cm}    % Adjust space from top
+        \begin{flushright}
+            \makebox[0pt][r]{    % Creates box that won't affect other elements
+                \rlap{\hspace{-12.5cm}\includegraphics[width=1\textwidth]{endpage.png}}
+            }
+        \end{flushright}
+        
+        % Three text blocks stacked vertically
+        \vspace{2cm}    % Adjust space before text blocks
+        \begin{flushright}
+            \hspace{0.5cm}    % Left margin
+            {\fontsize{24}{28} \selectfont \textbf{Phoenix Systems Sp. z o. o.}}
+
+            \vspace{1cm}
+            {\fontsize{11}{15} TAX ID: PL113-285-28-93, National Official Business Registry Number: 145963772\\  
+KRS: 0000417999 (XIV Commercial Division of the National Court Register)\\
+Share capital 241 650,00 PLN (fully paid)}
+
+            \vspace{1cm}
+            {\fontsize{14}{18} \textcolor{orange}{phoenix-rtos.com}  |  github.com/phoenix-rtos}
+            
+            \vspace{0cm}
+            {\fontsize{14}{18} Contact: contact@phoenix-rtos.com}
+        \end{flushright}
+        
+        % Three bottom blocks horizontally aligned
+        \vspace{1.6cm}    % Space before bottom blocks
+        \begin{center}
+            \begin{minipage}{0.4\textwidth}
+                {\fontsize{11}{15} \textbf{POLAND (HQ)} \\ Ostrobramska 86 \\
+04-163 Warsaw, Poland}
+            \end{minipage}%
+            \hspace{-2cm}%    % Negative space between first and second block
+            \begin{minipage}{0.4\textwidth}
+                {\fontsize{11}{15} \textbf{POLAND} \\ Sienkiewicza 10/17 \\
+18-400 Łomża, Poland}
+            \end{minipage}%
+            \hspace{-2cm}%    % Negative space between first and second block
+            \begin{minipage}{0.4\textwidth}
+                {\fontsize{11}{15} \textbf{UNITED KINGDOM} \\ Engine Shed, Station Approach \\
+Temple Meads, Bristol, BS1 6QH, UK}
+            \end{minipage}
+        \end{center}
+        
+        % Orange line below bottom blocks
+        \vspace{1cm}
+        \begin{center}
+            \color{orange}\rule{\textwidth}{2pt}
+        \end{center}
+''',
 }
 
 # TODO: add dark mode support
