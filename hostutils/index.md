@@ -5,7 +5,7 @@ image to a device.
 
 The source code of host utilities is placed in the
 [phoenix-rtos-hostutils](https://github.com/phoenix-rtos/phoenix-rtos-utils) GitHub repository. If you don't know what
-are `phoenix-rtos` repositories you can check the [reference project repository](../project/index.md) chapter.
+are `phoenix-rtos` repositories you can check the [Reference project](../project/index.md) chapter.
 
 Following programs are possible to use:
 

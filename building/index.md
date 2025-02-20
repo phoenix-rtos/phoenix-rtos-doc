@@ -2,7 +2,8 @@
 
 To create Phoenix-RTOS image for a specific target, the `phoenix-rtos-project` repository should be used. This
 repository aggregates all operating system modules, including kernel, standard library, device drivers, filesystems,
-utilities and loader. Read more about `phoenix-rtos-project` submodule repositories [here](../project/index.md).
+utilities and loader. Read more about `phoenix-rtos-project` submodule repositories in
+[Reference project](../project/index.md) chapter.
 
 ## Host operating system
 
@@ -54,15 +55,15 @@ For example, in ia32-generic-qemu target `all` means `core fs image project port
 For the other targets, `all` can be different components configurations. </br>
 You can also choose what components you want to build, for example, the following command will build a system image
 without test and ports components.
-The `ports` component compiling process can take a while. If you need to build the system image quickly, you can use the
-command above.
+The `ports` component compiling process can take a while. If you need to build the system image quickly, you can use
+the command above.
 
 ```console
 TARGET=ia32-generic-qemu phoenix-rtos-build/build.sh core fs image project test
 ```
 
-For ia32-generic-qemu target, running the system in a separate window isn't the only option. There is the possibility to
-run it in a terminal, in that case, you have to set a few other variables.
+For ia32-generic-qemu target, running the system in a separate window isn't the only option. There is the possibility
+to run it in a terminal, in that case, you have to set a few other variables.
 
 ```console
 TARGET=ia32-generic-qemu CONSOLE=serial ./phoenix-rtos-build/build.sh all
@@ -75,5 +76,4 @@ After the build completes, kernel and disk images will be created and placed in 
 
 ## Launching Phoenix-RTOS
 
-To start the created image on target architecture please see [phoenix-rtos-doc/quickstart](../quickstart/index.md)
-guide.
+To start the created image on target architecture please see [Running system on targets](../quickstart/index.md).

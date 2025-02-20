@@ -8,7 +8,7 @@ building components in the [building](../building/index.md) chapter.
 The [phoenix-rtos-ports](https://github.com/phoenix-rtos/phoenix-rtos-ports) repository mostly consists of specific
 building scripts and patches for each tool.
 If you don't know what are `phoenix-rtos` repositories you can check the
-[reference project repository](../project/index.md) chapter.
+[Reference project](../project/index.md) chapter.
 
 ## Components
 

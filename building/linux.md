@@ -4,8 +4,8 @@
 
 The first step of the preparation of the final system image is repository cloning.
 
-To do this and make the following instructions possible, it’s recommended to update the currently installed packages and,
-if necessary, install `git`:
+To do this and make the following instructions possible, it’s recommended to update the currently installed packages
+and, if necessary, install `git`:
 
 ```console
 sudo apt update && \

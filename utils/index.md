@@ -6,7 +6,7 @@ Phoenix-RTOS utilities are functional tools used by the system, similar to the
 The source code of host utilities is placed in the
 [phoenix-rtos-utils](https://github.com/phoenix-rtos/phoenix-rtos-utils)
 GitHub repository. If you don't know what are `phoenix-rtos` repositories you can check the
-[reference project repository](../project/index.md) chapter.
+[Reference project](../project/index.md) chapter.
 
 There are following utilities:
 

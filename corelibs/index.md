@@ -7,7 +7,7 @@ GitHub repository.
 The example of usage can be found in the `_user` directory, placed in
 [phoenix-rtos-project](https://github.com/phoenix-rtos/phoenix-rtos-project).
 
-Read more about the reference project repository [here](../project/index.md).
+Read more about the reference project in [Reference project](../project/index.md) chapter.
 
 There are following Phoenix-RTOS libraries:
 
