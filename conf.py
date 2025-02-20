@@ -41,7 +41,7 @@ latex_engine = 'xelatex'
 latex_documents = [
     ("index", "phoenix.tex", "Phoenix-RTOS Documentation", author, "howto", True),
 ]
-latex_additional_files = ["_static/images/pdf-titlepage.png", "_static/images/companylogo.png", "_static/images/endpage.png"]
+latex_additional_files = ["_static/images/pdf-titlepage.png", "_static/images/small_logo.png", "_static/images/companylogo.png", "_static/images/endpage.png"]
 latex_elements = {
     'makeindex': r'',
     'papersize': r'a4paper',
@@ -53,6 +53,7 @@ latex_elements = {
         \usepackage[absolute]{textpos}
         \usepackage{fontspec}
         \usepackage[english]{babel}
+        \usepackage{fancyhdr}
     ''',
     'preamble': r'''
         \setmainfont{Liberation Sans}
@@ -60,6 +61,16 @@ latex_elements = {
         \setcounter{secnumdepth}{3}
         \definecolor{ps-orange}{HTML}{ea5b22}
         \addto\captionsenglish{\renewcommand{\contentsname}{\textcolor{ps-orange}{Table of contents}}}
+
+        % Define the fancy page style
+        \fancypagestyle{normal}{
+            \fancyhf{}    % Clear all header/footer fields
+            \fancyhead[R]{\includegraphics[width=2.5cm]{small_logo.png}}    % Logo in right header
+            \renewcommand{\headrulewidth}{0pt}    % Remove header line
+        }
+
+        % Apply the style to all pages
+        \pagestyle{normal}
     ''',
     'maketitle': r'''
         \newgeometry{margin=0pt}
