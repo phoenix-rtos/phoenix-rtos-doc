@@ -55,12 +55,15 @@ latex_elements = {
         \usepackage[english]{babel}
         \usepackage{fancyhdr}
         \usepackage{tikz}    % Add this for drawing the circle
+        \usepackage{fancyvrb}
+        \usepackage{framed}
     ''',
     'preamble': r'''
         \setmainfont{Liberation Sans}
         \addtolength{\cftsubsecnumwidth}{4pt}
         \setcounter{secnumdepth}{3}
         \definecolor{ps-orange}{HTML}{ea5b22}
+        \definecolor{lightgray}{RGB}{245, 245, 245}
         \addto\captionsenglish{\renewcommand{\contentsname}{\textcolor{ps-orange}{Table of contents}}}
 
         % Define the fancy page style
@@ -73,6 +76,35 @@ latex_elements = {
                 \end{tikzpicture}%
             }
             \renewcommand{\headrulewidth}{0pt}    % Remove header line
+        }
+
+        % Code block styling
+        \usepackage{listings}
+        \definecolor{lightgray}{RGB}{248,248,248}
+
+        % Override Sphinx verbatim settings
+        \fvset{
+            frame=none,
+            numbers=none,
+            fontfamily=ttfamily,
+            baselinestretch=1.2
+        }
+        % Sphinx-specific settings
+        \sphinxsetup{
+            VerbatimColor={rgb}{0.97,0.97,0.97},  % Background color for code blocks
+            VerbatimBorderColor={rgb}{0.97,0.97,0.97},  % Make border same as background
+            verbatimwithframe=false,
+            verbatimsep=8pt,
+            verbatimborder=0pt    % Set border width to 0
+        }
+
+        % Additional frame removal
+        \renewenvironment{Verbatim}{%
+            \setlength{\fboxsep}{0pt}%
+            \setlength{\fboxrule}{0pt}%
+            \begin{flushleft}%
+        }{%
+            \end{flushleft}%
         }
 
         % Apply the style to all pages

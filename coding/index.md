@@ -321,7 +321,7 @@ shown below.
     #include "spinlock.h"
     #include "string.h"
     #include "console.h"
-    #include "stm32.h
+    #include "stm32.h"
 ```
 
 It is advised not to use MACROS in the code.
