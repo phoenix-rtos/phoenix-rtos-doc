@@ -54,6 +54,7 @@ latex_elements = {
         \usepackage{fontspec}
         \usepackage[english]{babel}
         \usepackage{fancyhdr}
+        \usepackage{tikz}    % Add this for drawing the circle
     ''',
     'preamble': r'''
         \setmainfont{Liberation Sans}
@@ -66,6 +67,11 @@ latex_elements = {
         \fancypagestyle{normal}{
             \fancyhf{}    % Clear all header/footer fields
             \fancyhead[R]{\includegraphics[width=2.5cm]{small_logo.png}}    % Logo in right header
+            \fancyfoot[R]{%
+                \begin{tikzpicture}
+                    \node[circle, fill=ps-orange, text=white, minimum size=20pt, inner sep=0pt, font=\bfseries] {\thepage};
+                \end{tikzpicture}%
+            }
             \renewcommand{\headrulewidth}{0pt}    % Remove header line
         }
 
