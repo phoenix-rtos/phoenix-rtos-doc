@@ -9,7 +9,3 @@
 ## Description
 
 Reads formatted input from a string.
-
-### Return value
-
-### Errors

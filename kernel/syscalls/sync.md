@@ -73,8 +73,3 @@ GETFROMSTACK(ustack, unsigned int, h, 0);
 ````
 
 Signals conditional to all waiting threads.
-
-## See also
-
-1. [System calls](index.md)
-2. [Table of Contents](../../index.md)

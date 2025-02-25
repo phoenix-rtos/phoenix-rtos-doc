@@ -8,7 +8,6 @@
 
 from version_management import get_version_context
 
-
 project = ""
 copyright = "2024, Phoenix Systems"
 author = "Phoenix Systems"
@@ -27,17 +26,17 @@ pygments_dark_style = "tango"
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
 html_title = "Phoenix-RTOS Documentation"
-html_favicon = "_images/RTOS_sign.png"
+html_favicon = "_static/images/RTOS_sign.png"
 html_theme = "furo"
-html_js_files = ["js/functions.js", "js/versions.js"]
+html_js_files = ["js/versions.js"]
 html_style = ["css/furo-phoenix.css", "css/furo-extensions-phoenix.css"]
-html_static_path = ["_static", "_images"]
+html_static_path = ["_static"]
 html_baseurl = "https://docs.phoenix-rtos.com/latest/"
 html_context = {"versions": get_version_context()}
 
 # TODO: add dark mode support
 html_theme_options = {
-    "light_logo": "light_logo.png",
+    "light_logo": "images/light_logo.png",
     "light_css_variables": {
         "sidebar-caption-font-size": "100%",
         "sidebar-item-font-size": "90%",
@@ -57,7 +56,7 @@ html_theme_options = {
         "color-header-background": "#0F1724",
         "color-header-text": "white",
     },
-    "dark_logo": "light_logo.png",
+    "dark_logo": "images/light_logo.png",
     "dark_css_variables": {
         "sidebar-caption-font-size": "100%",
         "sidebar-item-font-size": "90%",

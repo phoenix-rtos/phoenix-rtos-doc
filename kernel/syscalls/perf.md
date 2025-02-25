@@ -20,8 +20,3 @@ Reads gathered performance monitoring events.
 ## `syscalls_perfFinish` (`syscalls_perf_finish`)
 
 Finishes performance monitoring.
-
-## See also
-
-1. [System calls](index.md)
-2. [Table of Contents](../../index.md)

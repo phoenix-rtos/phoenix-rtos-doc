@@ -72,9 +72,3 @@ sysexec arg2 arg1   #NOT executed
 ```
 
 Important note: `*` works only as a standalone argument. It does not perform any lexical matching (e.g. `arg*`)
-
-## See also
-
-1. [Phoenix-RTOS shell](../index.md)
-2. [Phoenix-RTOS Utilities](../../index.md)
-3. [Table of Contents](../../../index.md)

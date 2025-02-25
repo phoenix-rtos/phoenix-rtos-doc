@@ -3,19 +3,6 @@
 `libvirtio` provides an abstraction layer for working with `VirtIO` devices. `VirtIO` is a standard dedicated to provide
 a common device API (e.g. network and mass storage adapters) for virtualized execution environment.
 
-## Contents
-
-- [General information](#general-information)
-- [libvirtio interface](#libvirtio-interface)
-  - [Device and Queue Management](#device-and-queue-management)
-  - [Data Exchange](#data-exchange)
-  - [Configuration and Status](#configuration-and-status)
-  - [Utility](#utility)
-  - [Memory Barriers](#memory-barriers)
-  - [Data Structures](#data-structures)
-- [Using libvirtio](#using-libvirtio)
-- [Running tests](#running-tests)
-
 ## General information
 
 The library offers a set of functionalities for `VirtIO` device initialization, configuration, data exchange, and
@@ -305,9 +292,3 @@ required header file.
 
 `VirtIO` library provides the basic set of tests, which is available in
 [phoenix-rtos-tests](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master).
-
-## See also
-
-1. [Phoenix-RTOS core libraries](index.md)
-2. [Phoenix-RTOS Graphics Library](libgraph.md)
-3. [Table of Contents](../index.md)

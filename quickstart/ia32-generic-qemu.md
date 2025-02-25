@@ -5,7 +5,7 @@ should be provided. The image is created as the final artifact of the `phoenix-r
 the `_boot` directory. The image consists of the bootloader (plo), kernel, TTY VGA driver, ATA driver with ext2
 filesystem.
 
-See [how to build the Phoenix-RTOS system image](../building/index.md).
+See [Building](../building/index.md) chapter.
 
 ## Running image under QEMU
 
@@ -43,31 +43,6 @@ Firstly, you need to install QEMU emulator.
 
   </details>
 
-<details>
-  <summary>How to get QEMU (macOS)</summary>
-
-- Install the required packages
-
-  ```zsh
-  brew update && \
-  brew install qemu
-  ```
-
-- Check if QEMU is properly installed:
-
-  ```zsh
-  qemu-system-i386 --version
-  ```
-
-  ```zsh
-  ~$ qemu-system-i386 --version
-  QEMU emulator version 8.0.0
-  Copyright (c) 2003-2022 Fabrice Bellard and the QEMU Project developers
-  ~$
-  ```
-
-  </details>
-
 To run the system image under QEMU you should type the following command
 (launched from `phoenix-rtos-project` directory).
 
@@ -77,7 +52,7 @@ To run the system image under QEMU you should type the following command
 
 Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal.
 
-![Image](_images/qemu-ia32-generic.png)
+![Image](../_static/images/quickstart/qemu-ia32-generic.png)
 
 To get the available command list please type:
 
@@ -85,7 +60,7 @@ To get the available command list please type:
 help
 ```
 
-![Image](_images/qemu-ia32-generic-help.png)
+![Image](../_static/images/quickstart/qemu-ia32-generic-help.png)
 
 In order to run one of the user applications you should type `/usr/bin/appname`, for example:
 
@@ -105,7 +80,7 @@ To get the list of working processes please type:
 ps
 ```
 
-![Image](_images/qemu-ia32-generic-ps.png)
+![Image](../_static/images/quickstart/qemu-ia32-generic-ps.png)
 
 There is a possibility to run the ash shell, it can be launched using the following command.
 
@@ -113,7 +88,7 @@ There is a possibility to run the ash shell, it can be launched using the follow
 /bin/ash
 ```
 
-![Image](_images/qemu-ia32-generic-ash.png)
+![Image](../_static/images/quickstart/qemu-ia32-generic-ash.png)
 
 Phoenix-RTOS image can be also launched on multiple processor cores. To do this please define the number of cores
 (e.g. 4) using the following command (launched from the `phoenix-rtos-project` directory).
@@ -124,7 +99,7 @@ qemu-system-i386 -hda _boot/phoenix-ia32-generic.disk -smp 4
 
 The number of detected cores is presented during kernel initialization.
 
-![Image](_images/qemu-ia32-generic-smp.png)
+![Image](../_static/images/quickstart/qemu-ia32-generic-smp.png)
 
 ## Running image on regular hardware
 
@@ -135,8 +110,3 @@ disk is represented by /dev/sda block device).
 ```console
   dd if=_boot/ia32-generic-pc/phoenix.disk of=/dev/sda
 ```
-
-## See also
-
-1. [Running system on targets](index.md)
-2. [Table of Contents](../index.md)

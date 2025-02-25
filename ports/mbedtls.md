@@ -1,15 +1,4 @@
----
-orphan: True <!-- To be removed after adding separate pages for all ports to place them in toctree -->
----
 # MbedTLS Port
-
-## Contents
-
-- [General information](#general-information)
-- [Supported version](#supported-version)
-- [Using mbedtls](#using-mbedtls)
-- [Running tests](#running-tests)
-- [Known bugs](#known-bugs)
 
 ## General information
 

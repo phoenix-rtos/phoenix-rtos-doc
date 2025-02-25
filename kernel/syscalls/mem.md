@@ -40,8 +40,3 @@ GETFROMSTACK(ustack, meminfo_t *, info, 0);
 ````C
 GETFROMSTACK(ustack, void *, va, 0);
 ````
-
-## See also
-
-1. [System calls](index.md)
-2. [Table of Contents](../../index.md)

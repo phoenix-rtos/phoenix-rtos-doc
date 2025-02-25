@@ -1,4 +1,4 @@
-# Reference project repository
+# Project repository
 
 The main repository of Phoenix-RTOS is the
 [phoenix-rtos-project](https://github.com/phoenix-rtos/phoenix-rtos-project.git).
@@ -86,10 +86,3 @@ phoenix-rtos-build/build.sh,
 
 - `docker-build.sh` - script for building using docker (docker allows user to not have toolchain on his or
 her development PC).
-
-## See also
-
-1. [Building Phoenix-RTOS image](index.md)
-2. [Building script](script.md)
-3. [Toolchain](toolchain.md)
-4. [Table of Contents](../index.md)
