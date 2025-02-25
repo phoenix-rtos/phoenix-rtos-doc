@@ -75,13 +75,23 @@ latex_documents = [
 
 latex_additional_files = [
     "_static/images/pdf-titlepage.png",
-    "_static/images/pdf-lastpage.png"
+    "_static/images/pdf-lastpage.png",
+    "_static/images/small_logo.png"
 ]
 
 latex_elements = {
     'makeindex': r'',
     'papersize': r'a4paper',
     'babel': r'\usepackage[english]{babel}',
+    'tableofcontents': r'''
+        \makeatletter
+        \begingroup
+        \pagestyle{toc}
+        \@starttoc{toc}
+        \clearpage
+        \endgroup
+        \makeatother
+    ''',
     'extrapackages': r'''
         \usepackage{tocloft}
         \usepackage{graphicx}
@@ -91,6 +101,9 @@ latex_elements = {
         \usepackage{listings}
         \usepackage[absolute]{textpos}
         \usepackage{fontspec}
+        \usepackage{fancyhdr}
+        \usepackage{tikz}
+        \usepackage{fancyvrb}
     ''',
     'preamble': Path("_static/latex/preamble.tex").read_text(),
     'maketitle': r'''
