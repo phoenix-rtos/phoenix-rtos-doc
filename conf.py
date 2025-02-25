@@ -67,6 +67,7 @@ html_theme_options = {
     },
 }
 
+latex_engine = "xelatex"
 latex_documents = [
     ("index", "phoenix.tex", "Phoenix-RTOS Documentation", author, "howto", True),
 ]
@@ -79,6 +80,7 @@ latex_additional_files = [
 latex_elements = {
     'makeindex': r'',
     'papersize': r'a4paper',
+    'babel': r'\usepackage[english]{babel}',
     'extrapackages': r'''
         \usepackage{tocloft}
         \usepackage{graphicx}
@@ -86,6 +88,8 @@ latex_elements = {
         \usepackage{fancyvrb}
         \usepackage{framed}
         \usepackage{listings}
+        \usepackage[absolute]{textpos}
+        \usepackage{fontspec}
     ''',
     'preamble': Path("_static/latex/preamble.tex").read_text(),
     'maketitle': r'''
