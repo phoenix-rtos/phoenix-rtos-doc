@@ -67,11 +67,11 @@ following flags:
 | `fopen()` Mode         | `open()` Flags                        |
 |------------------------|---------------------------------------|
 | `r` or `rb`            | `O_RDONLY`                            |
-| `w` or `wb`            | `O_WRONLY ׀ O_CREAT ׀ O_TRUNC`        |
-| `a` or `ab`            | `O_WRONLY ׀ O_CREAT ׀ O_APPEND`       |
+| `w` or `wb`            | `O_WRONLY \| O_CREAT \| O_TRUNC`      |
+| `a` or `ab`            | `O_WRONLY \| O_CREAT \| O_APPEND`     |
 | `r+` or `rb+` or `r+b` | `O_RDWR`                              |
-| `w+` or `wb+` or `w+b` | `O_RDWR ׀ O_CREAT ׀ O_TRUNC`          |
-| `a+` or `ab+` or `a+b` | `O_RDWR ׀ O_CREAT ׀ O_APPEND`         |
+| `w+` or `wb+` or `w+b` | `O_RDWR \| O_CREAT \| O_TRUNC`        |
+| `a+` or `ab+` or `a+b` | `O_RDWR \| O_CREAT \| O_APPEND`       |
 
 ## Return value
 
