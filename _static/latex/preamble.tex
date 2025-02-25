@@ -1,0 +1,39 @@
+%
+% Phoenix-RTOS
+%
+% Copyright 2025 Phoenix Systems
+% Author: Adam Debek
+%
+% This file is part of Phoenix-RTOS.
+%
+% %LICENSE%
+
+\addtolength{\cftsubsecnumwidth}{5pt}
+\setcounter{secnumdepth}{3}
+\definecolor{ps-orange}{HTML}{ea5b22}
+\addto\captionsenglish{\renewcommand{\contentsname}{\textcolor{ps-orange}{Table of contents}}}
+
+% Override Sphinx verbatim settings
+\fvset{
+    frame=none,
+    numbers=none,
+    fontfamily=ttfamily,
+    baselinestretch=1.2
+}
+% Sphinx-specific settings
+\sphinxsetup{
+    VerbatimColor={rgb}{0.97,0.97,0.97},
+    VerbatimBorderColor={rgb}{0.97,0.97,0.97},
+    verbatimwithframe=false,
+    verbatimsep=8pt,
+    verbatimborder=0pt
+}
+
+% Additional frame removal
+\renewenvironment{Verbatim}{%
+    \setlength{\fboxsep}{0pt}%
+    \setlength{\fboxrule}{0pt}%
+    \begin{flushleft}%
+}{%
+    \end{flushleft}%
+}
