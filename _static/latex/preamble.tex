@@ -1,0 +1,88 @@
+%
+% Phoenix-RTOS
+%
+% Copyright 2025 Phoenix Systems
+% Author: Adam Debek
+%
+% This file is part of Phoenix-RTOS.
+%
+% %LICENSE%
+
+\setmainfont{Liberation Sans}
+\addtolength{\cftsubsecnumwidth}{5pt}
+\setcounter{secnumdepth}{3}
+\definecolor{ps-orange}{HTML}{ea5b22}
+\definecolor{darkblue}{HTML}{26384f}
+\addto\captionsenglish{\renewcommand{\contentsname}{\textcolor{ps-orange}{Table of contents}}}
+
+% Set headings color
+\titleformat{\section}{\bfseries\Large\color{darkblue}}{\thesection}{1em}{}
+\titleformat{\subsection}{\bfseries\large\color{darkblue}}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\bfseries\normalsize\color{darkblue}}{\thesubsubsection}{1em}{}
+\titleformat{\paragraph}{\bfseries\color{darkblue}}{\theparagraph}{1em}{}
+\titleformat{\subparagraph}{\bfseries\color{darkblue}}{\thesubparagraph}{1em}{}
+
+% Section title styling
+\makeatletter
+\def\@makesectionhead#1{%
+    {\parindent \z@
+    \interlinepenalty\@M
+    \noindent\textcolor{orange}{\rule{\textwidth}{2pt}}
+    \par\vspace{0.5em}
+    {\bfseries\Large\itshape#1}
+    \noindent\textcolor{orange}{\rule{\textwidth}{2pt}}
+    \par\vspace{0em}
+}}
+\renewcommand{\section}{\@startsection{section}{1}{\z@}%
+{-3.5ex \@plus -1ex \@minus -.2ex}%
+{2.3ex \@plus.2ex}%
+{\@makesectionhead}}
+\makeatother
+% Add dot to the section title only
+\renewcommand{\thesection}{\arabic{section}.\hspace{-0.5em}}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+
+% Make chapters start on new pages
+\newcommand{\sectionbreak}{\clearpage}
+
+\fancypagestyle{toc}{
+    \fancyhf{}
+    \fancyfoot[R]{%
+        \begin{tikzpicture}
+            \node[circle, fill=ps-orange, text=white, minimum size=20pt, inner sep=0pt, font=\bfseries] {\thepage};
+        \end{tikzpicture}%
+    }
+}
+
+\fancypagestyle{normal}[toc]{
+    \fancyhead[R]{\includegraphics[width=2.5cm]{small_logo.png}}
+}
+
+% Apply the style to all pages
+\pagestyle{normal}
+
+% Override Sphinx verbatim settings
+\fvset{
+    frame=none,
+    numbers=none,
+    fontfamily=ttfamily,
+    baselinestretch=1.2
+}
+% Sphinx-specific settings
+\sphinxsetup{
+    VerbatimColor={rgb}{0.97,0.97,0.97},
+    VerbatimBorderColor={rgb}{0.97,0.97,0.97},
+    verbatimwithframe=false,
+    verbatimsep=8pt,
+    verbatimborder=0pt
+}
+
+% Additional frame removal
+\renewenvironment{Verbatim}{%
+    \setlength{\fboxsep}{0pt}%
+    \setlength{\fboxrule}{0pt}%
+    \begin{flushleft}%
+}{%
+    \end{flushleft}%
+}

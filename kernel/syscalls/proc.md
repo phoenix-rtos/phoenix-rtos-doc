@@ -66,8 +66,3 @@ GETFROMSTACK(ustack, pid_t, pgid, 1);
 ## `syscalls_procGetGroupID` (`syscalls_sys_getpgid`)
 
 ## `syscalls_procSetSession` (`syscalls_sys_setsid`)
-
-## See also
-
-1. [System calls](index.md)
-2. [Table of Contents](../../index.md)

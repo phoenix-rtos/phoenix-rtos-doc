@@ -39,7 +39,7 @@ run
 
 When the PLO interface appears, press any key to enter the `plo` console.
 
-![Image](_images/gr712rc-plo.png)
+![Image](../_static/images/quickstart/gr712rc-plo.png)
 
 <!-- markdownlint-disable -->
 Execute the `jffs2` command with appropriate parameters
@@ -52,7 +52,7 @@ to create cleanmarkers in the flash memory. Then enter the `go!` command to star
 After executing the `go!` command, Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the
 terminal.
 
-![Image](_images/gr712rc-start.png)
+![Image](../_static/images/quickstart/gr712rc-start.png)
 
 To get the available command list type:
 
@@ -60,7 +60,7 @@ To get the available command list type:
 help
 ```
 
-![Image](_images/gr712rc-help.png)
+![Image](../_static/images/quickstart/gr712rc-help.png)
 
 To get the list of working processes type:
 
@@ -68,9 +68,4 @@ To get the list of working processes type:
 ps
 ```
 
-![Image](_images/gr712rc-ps.png)
-
-## See also
-
-1. [Running system on targets](index.md)
-2. [Table of Contents](../index.md)
+![Image](../_static/images/quickstart/gr712rc-ps.png)

@@ -10,9 +10,3 @@ bind <source> <target>
 
 - `source`: Specifies the device node to be bound. This is typically a path in the device hierarchy, such as /dev/sda.
 - `target`: Specifies the directory to which the source device will be bound. This must be an existing directory.
-
-## See also
-
-1. [Phoenix-RTOS shell](../index.md)
-2. [Phoenix-RTOS Utilities](../../index.md)
-3. [Table of Contents](../../../index.md)

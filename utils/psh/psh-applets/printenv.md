@@ -11,9 +11,3 @@ printenv [VARIABLE]...
 
 - `VARIABLE`: Specifies the name of the environment variable whose value is to be printed. If no `VARIABLE` is provided,
 `printenv` prints all environment variables and their values
-
-## See also
-
-1. [Phoenix-RTOS shell](../index.md)
-2. [Phoenix-RTOS Utilities](../../index.md)
-3. [Table of Contents](../../../index.md)

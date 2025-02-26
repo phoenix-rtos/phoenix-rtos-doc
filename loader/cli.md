@@ -31,9 +31,3 @@ List all the available commands in plo (some of them are available only on the s
 * `script` - shows script, usage: `script [<dev> <name> <magic>]`
 * `test-ddr` - perform test DDR, usage: `test-ddr`
 * `wait` - waits in milliseconds or in an infinite loop, usage: `wait [ms]`
-
-## See also
-
-1. [Loader](index.md)
-2. [Architecture](architecture.md)
-3. [Table of Contents](../index.md)

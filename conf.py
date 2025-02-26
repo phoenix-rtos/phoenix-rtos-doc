@@ -1,20 +1,11 @@
 # Configuration file for the Sphinx documentation builder.
-#
-# For the full list of built-in configuration values, see the documentation:
-# https://www.sphinx-doc.org/en/master/usage/configuration.html
-
-# -- Project information -----------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 from version_management import get_version_context
-
+from pathlib import Path
 
 project = ""
 copyright = "2024, Phoenix Systems"
 author = "Phoenix Systems"
-
-# -- General configuration ---------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = ["myst_parser", "sphinx_copybutton"]
 
@@ -23,21 +14,18 @@ exclude_patterns = ["README.md", "_build", "Thumbs.db", ".DS_Store"]
 myst_heading_anchors = 3
 pygments_dark_style = "tango"
 
-# -- Options for HTML output -------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
-
 html_title = "Phoenix-RTOS Documentation"
-html_favicon = "_images/RTOS_sign.png"
+html_favicon = "_static/images/RTOS_sign.png"
 html_theme = "furo"
-html_js_files = ["js/functions.js", "js/versions.js"]
+html_js_files = ["js/versions.js"]
 html_style = ["css/furo-phoenix.css", "css/furo-extensions-phoenix.css"]
-html_static_path = ["_static", "_images"]
+html_static_path = ["_static"]
 html_baseurl = "https://docs.phoenix-rtos.com/latest/"
 html_context = {"versions": get_version_context()}
 
 # TODO: add dark mode support
 html_theme_options = {
-    "light_logo": "light_logo.png",
+    "light_logo": "images/light_logo.png",
     "light_css_variables": {
         "sidebar-caption-font-size": "100%",
         "sidebar-item-font-size": "90%",
@@ -57,7 +45,7 @@ html_theme_options = {
         "color-header-background": "#0F1724",
         "color-header-text": "white",
     },
-    "dark_logo": "light_logo.png",
+    "dark_logo": "images/light_logo.png",
     "dark_css_variables": {
         "sidebar-caption-font-size": "100%",
         "sidebar-item-font-size": "90%",
@@ -77,4 +65,62 @@ html_theme_options = {
         "color-header-background": "#0F1724",
         "color-header-text": "white",
     },
+}
+
+latex_engine = "xelatex"
+latex_table_style = ["colorrows"]
+latex_documents = [
+    ("index", "phoenix.tex", "Phoenix-RTOS Documentation", author, "howto", True),
+]
+
+latex_additional_files = [
+    "_static/images/pdf-titlepage.png",
+    "_static/images/pdf-lastpage.png",
+    "_static/images/small_logo.png"
+]
+
+latex_elements = {
+    'makeindex': r'',
+    'papersize': r'a4paper',
+    'babel': r'\usepackage[english]{babel}',
+    'tableofcontents': r'''
+        \makeatletter
+        \begingroup
+        \pagestyle{toc}
+        \@starttoc{toc}
+        \clearpage
+        \endgroup
+        \makeatother
+    ''',
+    'extrapackages': r'''
+        \usepackage{tocloft}
+        \usepackage{graphicx}
+        \usepackage{xcolor}
+        \usepackage{fancyvrb}
+        \usepackage{framed}
+        \usepackage{listings}
+        \usepackage[absolute]{textpos}
+        \usepackage{fontspec}
+        \usepackage{fancyhdr}
+        \usepackage{tikz}
+        \usepackage{fancyvrb}
+    ''',
+    'preamble': Path("_static/latex/preamble.tex").read_text(),
+    'maketitle': r'''
+        \newgeometry{margin=0pt}
+        \thispagestyle{empty}
+        \begin{figure}
+            \includegraphics[width=\paperwidth,height=\paperheight]{pdf-titlepage.png}
+        \end{figure}
+        \clearpage
+        \restoregeometry
+    ''',
+    'atendofbody': r'''
+        \newgeometry{margin=0pt}
+        \thispagestyle{empty}
+        \begin{figure}
+            \includegraphics[width=\paperwidth,height=\paperheight]{pdf-lastpage.png}
+        \end{figure}
+        \restoregeometry
+    ''',
 }

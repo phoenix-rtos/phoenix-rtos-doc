@@ -21,9 +21,3 @@ including the HTTP request and response details.
 ### Arguments
 
 - `URL`: The URL of the file to download
-
-## See also
-
-1. [Phoenix-RTOS shell](../index.md)
-2. [Phoenix-RTOS Utilities](../../index.md)
-3. [Table of Contents](../../../index.md)
