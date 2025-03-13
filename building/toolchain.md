@@ -6,6 +6,7 @@ Phoenix-RTOS provides its toolchain, based on GNU CC. It's divided into the foll
 - i386-pc-phoenix
 - riscv64-phoenix
 - sparc-phoenix
+- aarch64-phoenix
 
 Each part delivers the tools required to compile the given architecture simply.
 There are a few reasons why that is helpful

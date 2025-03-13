@@ -89,6 +89,9 @@ git clone --recursive https://github.com/phoenix-rtos/phoenix-rtos-project.git
 
 The Phoenix-RTOS reference project supports the following target platforms:
 
+- aarch64a53-zynqmp-qemu
+- aarch64a53-zynqmp-zcu104
+- aarch64a53-zynqmp-som
 - armv7a7-imx6ull-evk
 - armv7a9-zynq7000-qemu
 - armv7a9-zynq7000-zedboard
@@ -346,6 +349,7 @@ cd phoenix-rtos-project
 (cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh arm-phoenix ~/toolchains/arm-phoenix)
 (cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh riscv64-phoenix ~/toolchains/riscv64-phoenix)
 (cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh sparc-phoenix ~/toolchains/sparc-phoenix)
+(cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh aarch64-phoenix ~/toolchains/aarch64-phoenix)
 ```
 
 <details>
