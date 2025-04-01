@@ -1,14 +1,14 @@
 # Filesystems
 
-Filesystems in Phoenix-RTOS are supported using file servers. File servers are specialized servers implementing specific
+Filesystems in Feniks-RTOS are supported using file servers. File servers are specialized servers implementing specific
 communication protocols. During the start, each file server registers its port in the filesystem space.
 
 ## Source code
 
-The source code of Phoenix-RTOS file servers can be obtained using the following command
+The source code of Feniks-RTOS file servers can be obtained using the following command
 
 ```console
-git clone http://git.phoenix-rtos.com/phoenix-rtos-filesystems
+git clone http://git.feniks-rtos.com/feniks-rtos-filesystems
 ```
 
 The documentation of a particular server is provided within its source code repository.

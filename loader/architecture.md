@@ -1,8 +1,8 @@
 # Architecture
 
-The Phoenix-RTOS loader is a self-sufficient application which does not use any of the external libraries.
+The Feniks-RTOS loader is a self-sufficient application which does not use any of the external libraries.
 
-It only includes common syspage's header files from phoenix-rtos-kernel.
+It only includes common syspage's header files from feniks-rtos-kernel.
 
 Plo is divided into five subsystems:
 
@@ -14,7 +14,7 @@ Plo is divided into five subsystems:
 
 * lib - common routines
 
-* phfs - phoenix filesystem
+* phfs - feniks filesystem
 
 * syspage - system configuration structure
 
@@ -120,16 +120,16 @@ Common routines contain the following units:
 
 ## PHFS
 
-PHFS (phoenix filesystem) is an abstraction for data access from different devices. This abstraction is used by CLI to
+PHFS (feniks filesystem) is an abstraction for data access from different devices. This abstraction is used by CLI to
 copy data/files from different sources to physical memory maps. Currently, phfs supports two protocols for data access:
 
 * `raw` - direct access to storage devices
 
-* `phoenixd` - protocol to exchange data between host and target platform via interfaces like serial or USB, using
- [Phoenix Daemon](https://github.com/phoenix-rtos/phoenix-rtos-hostutils/tree/master/phoenixd).
+* `feniksd` - protocol to exchange data between host and target platform via interfaces like serial or USB, using
+ [Feniks Daemon](https://github.com/feniks-rtos/feniks-rtos-hostutils/tree/master/feniksd).
 
-In order to use a device in the phoenix filesystem, the user should assign an alias to a dedicated `major.minor`
-identification of the device with an appropriate protocol type, for example: `phfs usb0 1.0 phoenixd`.
+In order to use a device in the feniks filesystem, the user should assign an alias to a dedicated `major.minor`
+identification of the device with an appropriate protocol type, for example: `phfs usb0 1.0 feniksd`.
 
 ## Syspage
 

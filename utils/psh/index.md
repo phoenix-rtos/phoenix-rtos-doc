@@ -1,8 +1,8 @@
-# Phoenix Shell (psh)
+# Feniks Shell (psh)
 
-The Phoenix Shell is a compact program that enables you to control Phoenix-RTOS from the command line.
+The Feniks Shell is a compact program that enables you to control Feniks-RTOS from the command line.
 
-`psh` presents itself with a command line where user can enter commands to control the Phoenix-RTOS system, manage files
+`psh` presents itself with a command line where user can enter commands to control the Feniks-RTOS system, manage files
 and processes.
 
 ## Overview
@@ -32,7 +32,7 @@ With `-i` option `psh` can execute a script - fixed set of `psh` commands saved 
 In `psh`, each command or set of commands is a separate applet. The basic usage of the majority of these applets is
 compatible with POSIX standards. For example, `ls` works like the `ls` user command on Ubuntu
 (or other Linux distribution), except for particular arguments that are not supported.
-The Phoenix Shell is in ongoing development, which means its behavior can slightly vary,
+The Feniks Shell is in ongoing development, which means its behavior can slightly vary,
 particularly as new features are introduced.
 Here's a list of the available applets:
 

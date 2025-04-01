@@ -12,7 +12,7 @@ Declared, not implemented
 
 ## Conformance
 
-Phoenix-RTOS specific
+Feniks-RTOS specific
 
 ## Description
 

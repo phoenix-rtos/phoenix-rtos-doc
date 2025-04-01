@@ -1,8 +1,8 @@
 # Building
 
-To create a Phoenix-RTOS image for the selected target the `phoenix-rtos-project` repository should be used. This
+To create a Feniks-RTOS image for the selected target the `feniks-rtos-project` repository should be used. This
 repository aggregates all operating system modules - kernel, standard library, device
-drivers, filesystems, utilities, and loader. Read more about `phoenix-rtos-project` submodule repositories
+drivers, filesystems, utilities, and loader. Read more about `feniks-rtos-project` submodule repositories
 [here](project.md).
 
 This chapter contains instructions on how to build a reference project and how to create the final system image.
@@ -10,18 +10,18 @@ This chapter contains instructions on how to build a reference project and how t
 ## Contents
 
 - [Supported host operating systems](#host-operating-system)
-- [Getting the phoenix-rtos-project repository](#obtaining-the-sources)
-- [Supported Phoenix-RTOS platforms](#supported-target-platforms)
+- [Getting the feniks-rtos-project repository](#obtaining-the-sources)
+- [Supported Feniks-RTOS platforms](#supported-target-platforms)
 - [Building the system image with docker](#building-using-docker)
 - [Building the system image natively](#building-using-the-native-toolchain)
-- [Launching Phoenix-RTOS](#launching-phoenix-rtos)
+- [Launching Feniks-RTOS](#launching-feniks-rtos)
 - [Navigation links](#see-also)
 
 ## Host operating system
 
 Instructions in the `Building` and `Running system on targets` chapters have been verified for the Ubuntu
 (20.04 and 22.04 versions) Linux distribution and macOS (tested on macOS Monterey 12.6.1), so this is the easiest way
-to start working with Phoenix-RTOS. Windows is also supported, by using `Cygwin` or `WSL`.
+to start working with Feniks-RTOS. Windows is also supported, by using `Cygwin` or `WSL`.
 
 For more information follow:
 
@@ -82,12 +82,12 @@ be, install git:
 Then, the repository should be cloned **recursively** (to get the submodules):
 
 ```console
-git clone --recursive https://github.com/phoenix-rtos/phoenix-rtos-project.git
+git clone --recursive https://github.com/feniks-rtos/feniks-rtos-project.git
 ```
 
 ## Supported target platforms
 
-The Phoenix-RTOS reference project supports the following target platforms:
+The Feniks-RTOS reference project supports the following target platforms:
 
 - aarch64a53-zynqmp-qemu
 - aarch64a53-zynqmp-zcu104
@@ -116,7 +116,7 @@ The Phoenix-RTOS reference project supports the following target platforms:
 To get the list of valid targets the `build.sh` script should be launched with an empty `TARGET` variable, eg:
 
 ```console
-./phoenix-rtos-build/build.sh
+./feniks-rtos-build/build.sh
 ```
 
 ![Image](_images/available-targets.png)
@@ -251,7 +251,7 @@ Firstly, you need to have the docker installed.
 Then, to build - provide a `TARGET` via ENV variable and run the build script:
 
 ```console
-cd phoenix-rtos-project/
+cd feniks-rtos-project/
 TARGET=ia32-generic-qemu ./docker-build.sh all
 ```
 
@@ -261,10 +261,10 @@ You can read more about the building script options [here](script.md).
 
 ## Building using the native toolchain
 
-This is the method preferred when you plan to develop Phoenix-RTOS.
+This is the method preferred when you plan to develop Feniks-RTOS.
 
 Firstly, you need to install some tools required for compiling the toolchain and finally create a
-Phoenix-RTOS system image.
+Feniks-RTOS system image.
 There is a list of commands you can use to get them: on both Ubuntu and macOS host operating systems.
 
   <details>
@@ -326,7 +326,7 @@ There is a list of commands you can use to get them: on both Ubuntu and macOS ho
   *Note that you have to place the `gnubin` path that provides `make` before the `/usr/bin` in the `PATH` environment
   variable to use the `gnu` version (as it is done above).
 
-  Phoenix-RTOS requires the `endian.h` header, which may exist, but not be visible. If during the building you discover
+  Feniks-RTOS requires the `endian.h` header, which may exist, but not be visible. If during the building you discover
   the following error:
   `fatal error: 'endian.h' file not found`
   please create the symlink to this header by the given command:
@@ -341,15 +341,15 @@ There is a list of commands you can use to get them: on both Ubuntu and macOS ho
 Next, you need to compile the toolchains for all required target architectures:
 
 ```console
-cd phoenix-rtos-project
+cd feniks-rtos-project
 ```
 
 ```text
-(cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh i386-pc-phoenix ~/toolchains/i386-pc-phoenix)
-(cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh arm-phoenix ~/toolchains/arm-phoenix)
-(cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh riscv64-phoenix ~/toolchains/riscv64-phoenix)
-(cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh sparc-phoenix ~/toolchains/sparc-phoenix)
-(cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh aarch64-phoenix ~/toolchains/aarch64-phoenix)
+(cd feniks-rtos-build/toolchain/ && ./build-toolchain.sh i386-pc-feniks ~/toolchains/i386-pc-feniks)
+(cd feniks-rtos-build/toolchain/ && ./build-toolchain.sh arm-feniks ~/toolchains/arm-feniks)
+(cd feniks-rtos-build/toolchain/ && ./build-toolchain.sh riscv64-feniks ~/toolchains/riscv64-feniks)
+(cd feniks-rtos-build/toolchain/ && ./build-toolchain.sh sparc-feniks ~/toolchains/sparc-feniks)
+(cd feniks-rtos-build/toolchain/ && ./build-toolchain.sh aarch64-feniks ~/toolchains/aarch64-feniks)
 ```
 
 <details>
@@ -358,7 +358,7 @@ cd phoenix-rtos-project
 
 If you have encountered some issue during the toolchain build - you probably interrupted a build before or the files in
 the `toolchains` directory are broken for some reason. Removing a directory for a specific architecture
-(arm-phoenix/i386-pc-phoenix/riscv64-phoenix/sparc-phoenix) and launching a build once again should help.
+(arm-feniks/i386-pc-feniks/riscv64-feniks/sparc-feniks) and launching a build once again should help.
 
 `NOTE:` Even during the correct compilation process there may be some unresolved warnings.
 
@@ -368,37 +368,37 @@ the `toolchains` directory are broken for some reason. Removing a directory for 
 Toolchain binaries should be added to the PATH variable:
 
 ```console
-export PATH=$PATH:$HOME/toolchains/i386-pc-phoenix/i386-pc-phoenix/bin/:$HOME/toolchains/arm-phoenix/arm-phoenix/bin/:$HOME/toolchains/riscv64-phoenix/riscv64-phoenix/bin/:$HOME/toolchains/sparc-phoenix/sparc-phoenix/bin/
+export PATH=$PATH:$HOME/toolchains/i386-pc-feniks/i386-pc-feniks/bin/:$HOME/toolchains/arm-feniks/arm-feniks/bin/:$HOME/toolchains/riscv64-feniks/riscv64-feniks/bin/:$HOME/toolchains/sparc-feniks/sparc-feniks/bin/
 ```
 
 You should keep the `PATH` variable updated. There are various methods to do that, for example you can place the export
 in `.bashrc` file on `Ubuntu`:
 
   ```console
-  echo "export PATH=$PATH:$HOME/toolchains/i386-pc-phoenix/i386-pc-phoenix/bin/:$HOME/toolchains/arm-phoenix/arm-phoenix/bin/:$HOME/toolchains/riscv64-phoenix/riscv64-phoenix/bin/:$HOME/toolchains/sparc-phoenix/sparc-phoenix/bin/" >> $HOME/.bashrc
+  echo "export PATH=$PATH:$HOME/toolchains/i386-pc-feniks/i386-pc-feniks/bin/:$HOME/toolchains/arm-feniks/arm-feniks/bin/:$HOME/toolchains/riscv64-feniks/riscv64-feniks/bin/:$HOME/toolchains/sparc-feniks/sparc-feniks/bin/" >> $HOME/.bashrc
   ```
 
 or in `.zshrc` on macOS:
 
   ```console
-  echo 'export PATH=$PATH:$HOME/toolchains/i386-pc-phoenix/i386-pc-phoenix/bin/:$HOME/toolchains/arm-phoenix/arm-phoenix/bin/:$HOME/toolchains/riscv64-phoenix/riscv64-phoenix/bin/:$HOME/toolchains/sparc-phoenix/sparc-phoenix/bin/' >> $HOME/.zshrc
+  echo 'export PATH=$PATH:$HOME/toolchains/i386-pc-feniks/i386-pc-feniks/bin/:$HOME/toolchains/arm-feniks/arm-feniks/bin/:$HOME/toolchains/riscv64-feniks/riscv64-feniks/bin/:$HOME/toolchains/sparc-feniks/sparc-feniks/bin/' >> $HOME/.zshrc
   ```
 
-Read more about the Phoenix-RTOS toolchain [here](toolchain.md).
+Read more about the Feniks-RTOS toolchain [here](toolchain.md).
 
 To build a project - provide a `TARGET` via ENV variable:
 
 ```console
-TARGET=ia32-generic-qemu ./phoenix-rtos-build/build.sh all
+TARGET=ia32-generic-qemu ./feniks-rtos-build/build.sh all
 ```
 
 After the build completes, kernel and disk images will be created and placed in the `_boot` directory.
 
 You can read more about the building script options [here](script.md).
 
-## Launching Phoenix-RTOS
+## Launching Feniks-RTOS
 
-To start the created image on target architecture please see [phoenix-rtos-doc/quickstart](../quickstart/index.md)
+To start the created image on target architecture please see [feniks-rtos-doc/quickstart](../quickstart/index.md)
 guide.
 
 ## See also

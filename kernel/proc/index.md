@@ -1,6 +1,6 @@
 # Processes and threads
 
-Process and thread abstractions are used to control the program execution in Phoenix-RTOS.
+Process and thread abstractions are used to control the program execution in Feniks-RTOS.
 
 ## Process
 
@@ -41,7 +41,7 @@ be used to perform input and output operations on the opened file and can be inh
 process. The handle inheritance is widely used in current applications because it is promoted by POSIX standard and
 popular UN*X operating systems.
 
-To understand properly Phoenix-RTOS process model it should be discussed either for MMU and non-MMU architectures.
+To understand properly Feniks-RTOS process model it should be discussed either for MMU and non-MMU architectures.
 
 ## Process model on architectures equipped with MMU
 
@@ -133,7 +133,7 @@ handling.
 
 ## Process separation
 
-Phoenix-RTOS process model based on address spaces complemented by execution modes constitutes a very powerful mechanism
+Feniks-RTOS process model based on address spaces complemented by execution modes constitutes a very powerful mechanism
 for program separation. Global address spaces can be selectively mapped into the linear address space of selected
 processes. Private address spaces can effectively prevent interference between processes, but they can be seamlessly
 used when MMU is available.

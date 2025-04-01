@@ -1,8 +1,8 @@
 # Network stack
 
-Phoenix-RTOS network stack is based on LwIP. According to microkernel architecture philosophy, it works as a server on
-the user level and provides a socket interface. Sockets are implemented using the native Phoenix-RTOS message passing
-mechanism and are placed in the `libphoenix` library.
+Feniks-RTOS network stack is based on LwIP. According to microkernel architecture philosophy, it works as a server on
+the user level and provides a socket interface. Sockets are implemented using the native Feniks-RTOS message passing
+mechanism and are placed in the `libfeniks` library.
 
 ## Drivers
 
@@ -13,7 +13,7 @@ mechanism and are placed in the `libphoenix` library.
 The source code of the emulation server could be obtained using the following command
 
 ```console
-git clone http://git.phoenix-rtos.com/phoenix-rtos-lwip
+git clone http://git.feniks-rtos.com/feniks-rtos-lwip
 ```
 
 ## See also

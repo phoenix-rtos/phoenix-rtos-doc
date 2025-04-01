@@ -1,5 +1,5 @@
 # vim:sw=2:ts=2
-# static linters which can be run in a single repo (do not need phoenix-rtos-project)
+# static linters which can be run in a single repo (do not need feniks-rtos-project)
 name: lint
 
 # on events

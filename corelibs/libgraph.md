@@ -3,7 +3,7 @@
 `libgraph` is a graphics library that allows for scheduling and (possibly hardware accelerated) execution of 2D
 graphics operations.
 
-Source code: <https://github.com/phoenix-rtos/phoenix-rtos-corelibs/tree/master/libgraph>
+Source code: <https://github.com/feniks-rtos/feniks-rtos-corelibs/tree/master/libgraph>
 
 ## Contents
 
@@ -11,7 +11,7 @@ Source code: <https://github.com/phoenix-rtos/phoenix-rtos-corelibs/tree/master/
 - [libgraph applications](#libgraph-apps)
 - [libgraph interface](#libgraph-interface)
 - [How to use the graphics library](#how-to-use-the-graphics-library)
-- [How to use your own image in Phoenix-RTOS](#generating-an-image-bitmap-and-displaying-it-using-libgraph)
+- [How to use your own image in Feniks-RTOS](#generating-an-image-bitmap-and-displaying-it-using-libgraph)
 - [Navigation links](#see-also)
 
 ## Graphics adapters
@@ -33,7 +33,7 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
   ![Output sample](_gifs/voxeldemo.gif)
 
   Source code can be found in the `_user` directory in
-  [phoenix-rtos-project](https://github.com/phoenix-rtos/phoenix-rtos-project.git) repository.
+  [feniks-rtos-project](https://github.com/feniks-rtos/feniks-rtos-project.git) repository.
 
   The app can be run using the following command:
 
@@ -46,7 +46,7 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
   ![Image](_images/rotrectangle.png)
 
   Source code can be also found in the `_user` directory in
-  [phoenix-rtos-project](https://github.com/phoenix-rtos/phoenix-rtos-project.git) repository.
+  [feniks-rtos-project](https://github.com/feniks-rtos/feniks-rtos-project.git) repository.
 
   The app can be run using the following command:
 
@@ -59,7 +59,7 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
   ![Image](_images/test_graph.jpg)
 
   Source code is available in the `gfx` directory in
-  [phoenix-rtos-tests](https://github.com/phoenix-rtos/phoenix-rtos-tests.git) repository.
+  [feniks-rtos-tests](https://github.com/feniks-rtos/feniks-rtos-tests.git) repository.
 
   The test can be run using the following command:
 
@@ -187,7 +187,7 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
 
 - `graph_print` - Prints text pointed by the _`text`_ argument. Font data should be passed to `graph_font_t` structure.
   The example is stored in `gfx` directory in
-  [phoenix-rtos-tests](https://github.com/phoenix-rtos/phoenix-rtos-tests.git) repository (`font.h` file).
+  [feniks-rtos-tests](https://github.com/feniks-rtos/feniks-rtos-tests.git) repository (`font.h` file).
   The remaining arguments are similar to those from the functions above.
 
   ```C
@@ -231,7 +231,7 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
 
 - `graph_cursorset` - Sets cursor icon, _`amask`_ (`AND` mask) and _`xmask`_ (`XOR` mask) arguments determine the shape
   of the cursor. Default cursor shape is defined in `cursor.h` header file placed in `gfx` directory in
-  `phoenix-rtos-tests` repository. There is a possibility to pass cursor colors - outline color (`bg` argument) and main
+  `feniks-rtos-tests` repository. There is a possibility to pass cursor colors - outline color (`bg` argument) and main
   color (`fg` argument). The following color format should be applied: `0xAARRGGBB`, where `A` represents alpha, so when
   it's set to `0xff` 100% opacity is provided. Opacity isn't supported for cirrus graphics adapter
   (default for `ia32-generic-qemu` target)
@@ -364,7 +364,7 @@ int main(void)
 - Printing text using libgraph
 
   Header file with font data in `graph_font_t` structure has to be included. The example of `font.h` is placed in
-  `gfx` directory in [phoenix-rtos-tests](https://github.com/phoenix-rtos/phoenix-rtos-tests) repository.
+  `gfx` directory in [feniks-rtos-tests](https://github.com/feniks-rtos/feniks-rtos-tests) repository.
 
   ```C
   graph_print(&graph, &font, "lorem ipsum", 300, 300, font.height, font.height, 0x00FF00, GRAPH_QUEUE_HIGH);
@@ -511,5 +511,5 @@ in [How to use libgraph](#how-to-use-the-graphics-library) chapter.
 
 ## See also
 
-1. [Phoenix-RTOS core libraries](index.md)
+1. [Feniks-RTOS core libraries](index.md)
 2. [Table of Contents](../index.md)

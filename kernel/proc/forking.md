@@ -1,8 +1,8 @@
 # Management
 
-Processes are created in Phoenix-RTOS using forking technique. When new process is created the current process
+Processes are created in Feniks-RTOS using forking technique. When new process is created the current process
 forks into two processes - parent (process which initializes fork) and child. There are two forking functions
-used for process creation in Phoenix-RTOS - each of them should be used depending on the platform and MMU presence.
+used for process creation in Feniks-RTOS - each of them should be used depending on the platform and MMU presence.
 The differences between these functions and circumstances of their usage are discussed in this chapter.
 
 ## Creating new process using `fork()`

@@ -1,17 +1,17 @@
 # Running system on <nobr>armv8r52-mps3an536-qemu</nobr>
 
-These instructions describe how to run a Phoenix-RTOS system image for the `armv8r52-mps3an536-qemu` target
+These instructions describe how to run a Feniks-RTOS system image for the `armv8r52-mps3an536-qemu` target
 architecture.
 
 Note that the build artifacts, including the system image, should be first provided in the `_boot` directory.
 
 If you haven't run the `build.sh` script yet, run it for `armv8r52-mps3an536-qemu` target.
 
-See [how to build the Phoenix-RTOS system image](../building/index.md).
+See [how to build the Feniks-RTOS system image](../building/index.md).
 
 ## Running the system image
 
-Support for the `mps3-an536` machine in QEMU has been added in QEMU 9.0.0. To run the Phoenix-RTOS system image for the
+Support for the `mps3-an536` machine in QEMU has been added in QEMU 9.0.0. To run the Feniks-RTOS system image for the
 `armv8r52-mps3an536-qemu` target architecture, you must have QEMU version 9.0.0 or later installed. On Ubuntu 22.04, you
 must build QEMU from source.
 
@@ -44,15 +44,15 @@ must build QEMU from source.
 
   </details>
 
-To run the image under QEMU, use the following script provided in the `phoenix-rtos-project` repository:
+To run the image under QEMU, use the following script provided in the `feniks-rtos-project` repository:
 
   ```console
   ./scripts/armv8r52-mps3an536-qemu.sh
   ```
 
-## Using Phoenix-RTOS
+## Using Feniks-RTOS
 
-Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal.
+Feniks-RTOS will be launched and the `psh` shell command prompt will appear in the terminal.
 
 ![Image](_images/mps3an536-qemu-psh.png)
 

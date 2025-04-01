@@ -12,7 +12,7 @@ Implemented
 
 ## Conformance
 
-Phoenix-RTOS specific
+Feniks-RTOS specific
 
 ## Description
 
@@ -31,7 +31,7 @@ Upon calling `msgRecv()` the receiving thread is suspended until one of the foll
  respond to the message and end communication between processes. If no `msgRespond()` is called the message sender
  will wait indefinitely for a response.
 
-This function is part of interprocess communication mechanisms in Phoenix-RTOS. For more information about messaging
+This function is part of interprocess communication mechanisms in Feniks-RTOS. For more information about messaging
 process and `msg_t` message structure please refer to [Message Passing](../../../../kernel/proc/msg.md).
 
 ## Return value
@@ -58,6 +58,6 @@ None
 
 ## See Also
 
-1. [IPC mechanisms in Phoenix-RTOS](../../../../architecture/index.md#interprocess-communication)
+1. [IPC mechanisms in Feniks-RTOS](../../../../architecture/index.md#interprocess-communication)
 2. [Standard library functions](../../index.md)
 3. [Table of Contents](../../../../index.md)

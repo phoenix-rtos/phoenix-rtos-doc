@@ -40,6 +40,6 @@ It is possible to switch back to the previous working directory by using `-` (a 
 
 ## See also
 
-1. [Phoenix-RTOS shell](../index.md)
-2. [Phoenix-RTOS Utilities](../../index.md)
+1. [Feniks-RTOS shell](../index.md)
+2. [Feniks-RTOS Utilities](../../index.md)
 3. [Table of Contents](../../../index.md)

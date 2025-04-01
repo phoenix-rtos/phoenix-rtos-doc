@@ -282,15 +282,15 @@ better efficiency than if the user were to perform cache flush followed by cache
 
 ## Running tests
 
-Phoenix-RTOS libcache library provides a set of functional tests that are available in
-[phoenix-rtos-tests](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master). The tests can be run for
+Feniks-RTOS libcache library provides a set of functional tests that are available in
+[feniks-rtos-tests](https://github.com/feniks-rtos/feniks-rtos-tests/tree/master). The tests can be run for
 different platforms, e.g. `ia32-generic-qemu` target:
 
 ```console
-python3 phoenix-rtos-tests/runner.py -T ia32-generic-qemu -t phoenix-rtos-tests/libcache
+python3 feniks-rtos-tests/runner.py -T ia32-generic-qemu -t feniks-rtos-tests/libcache
 ```
 
 ## See also
 
-1. [Phoenix-RTOS core libraries](index.md)
+1. [Feniks-RTOS core libraries](index.md)
 2. [Table of contents](../index.md)

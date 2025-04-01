@@ -1,15 +1,15 @@
 # Libraries
 
-Phoenix-RTOS provides libraries, which enable the development of applications.
+Feniks-RTOS provides libraries, which enable the development of applications.
 
-The source code is available in the [phoenix-rtos-corelibs](https://github.com/phoenix-rtos/phoenix-rtos-corelibs)
+The source code is available in the [feniks-rtos-corelibs](https://github.com/feniks-rtos/feniks-rtos-corelibs)
 GitHub repository.
 The example of usage can be found in the `_user` directory, placed in
-[phoenix-rtos-project](https://github.com/phoenix-rtos/phoenix-rtos-project).
+[feniks-rtos-project](https://github.com/feniks-rtos/feniks-rtos-project).
 
 Read more about the reference project repository [here](../building/project.md).
 
-There are following Phoenix-RTOS libraries:
+There are following Feniks-RTOS libraries:
 
 - [Graphics library](libgraph.md) called `libgraph`, which provides drivers for graphic adapters,
 - [Common Gateway Interface library](libcgi.md) called `libcgi`,

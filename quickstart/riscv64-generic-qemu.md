@@ -1,12 +1,12 @@
 # Running system on <nobr>riscv64-generic-qemu</nobr>
 
 This version is designated for RISC-V 64 processors based virtual machine implemented by `qemu-system-riscv64`.
-To launch this version two files should be provided - `phoenix.disk` file integrated with SBI firmware with embedded
+To launch this version two files should be provided - `feniks.disk` file integrated with SBI firmware with embedded
 PLO, kernel, UART16550 interface and virtio-blk drivers, dummyfs filesystem and the `psh` shell and `rootfs.disk` image
 with the ext2 filesystem.
 
-The files are created as the final artifact of the `phoenix-rtos-project` building and are located in the `_boot`
-directory. See [how to build the Phoenix-RTOS system image](../building/index.md).
+The files are created as the final artifact of the `feniks-rtos-project` building and are located in the `_boot`
+directory. See [how to build the Feniks-RTOS system image](../building/index.md).
 
 ## Running image under QEMU
 
@@ -79,9 +79,9 @@ To run the image under QEMU you should type:
 </br>
 ![Image](_images/riscv64-generic-qemu2.png)
 
-## Using Phoenix-RTOS
+## Using Feniks-RTOS
 
-Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal. To get the available
+Feniks-RTOS will be launched and the `psh` shell command prompt will appear in the terminal. To get the available
 command list please type:
 
 ```console

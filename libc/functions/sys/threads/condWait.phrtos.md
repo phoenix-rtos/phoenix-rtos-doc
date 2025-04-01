@@ -12,7 +12,7 @@ Implemented
 
 ## Conformance
 
-Phoenix-RTOS specific
+Feniks-RTOS specific
 
 ## Description
 
@@ -77,7 +77,7 @@ This function shall fall if:
 
 ## Tests
 
-Tested in [test-sys](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/sys)
+Tested in [test-sys](https://github.com/feniks-rtos/feniks-rtos-tests/tree/master/sys)
 
 ## Known bugs
 

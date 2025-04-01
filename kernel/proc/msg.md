@@ -1,7 +1,7 @@
 # Message passing
 
 Message passing is the fundamental functionality of the operating system kernel which acts as a basic method of
-interaction between operating system components. Message passing in Phoenix-RTOS is synchronous. Sending thread is
+interaction between operating system components. Message passing in Feniks-RTOS is synchronous. Sending thread is
 suspended until the receiving thread receives a message and responds to it.
 
 ## Ports

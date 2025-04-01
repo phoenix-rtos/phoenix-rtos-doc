@@ -1,16 +1,16 @@
 # Running system on <nobr>armv7m7-imxrt106x-evk</nobr>
 
 This version is designed for NXP i.MX RT106x processors with ARM Cortex-M7 core. To launch this version the final disk
-image and loader image should be provided. The images are created as the final artifacts of the `phoenix-rtos-project`
+image and loader image should be provided. The images are created as the final artifacts of the `feniks-rtos-project`
 building and are located in the `_boot` directory. The disk image consists of the bootloader (plo), kernel, UART driver
 (tty), dummyfs filesystem server (RAM disk), and psh (shell). Necessary tools to carry out the flashing process are
 located in the `_boot` directory as well.
 
-See [how to build the Phoenix-RTOS system image](../building/index.md).
+See [how to build the Feniks-RTOS system image](../building/index.md).
 
 ## Development board
 
-The easiest way to start programming hardware targets using Phoenix-RTOS is to get some evaluation boards with a
+The easiest way to start programming hardware targets using Feniks-RTOS is to get some evaluation boards with a
 specified target processor or microcontroller.
 
 <!-- markdownlint-disable -->
@@ -18,7 +18,7 @@ In this case [i. MX RT1064 - EVK](https://www.nxp.com/design/development-boards/
 <!-- markdownlint-restore -->
 
 Is the example of a board with the `imxrt106x` processor, where the default configuration of peripherals allows running
-Phoenix-RTOS.
+Feniks-RTOS.
 
 ## Connecting the board
 
@@ -94,14 +94,14 @@ UART-USB converter is used here.
 
 You can leave the terminal with the serial port open, and follow the next steps.
 
-## Flashing the Phoenix-RTOS system image
+## Flashing the Feniks-RTOS system image
 
 The process comes down to a few steps, described below.
 
-### Uploading Phoenix-RTOS loader (PLO) to the RAM
+### Uploading Feniks-RTOS loader (PLO) to the RAM
 
 In order to flash the disk image to the board, the bootloader (plo) image located in the `_boot` directory should be
-uploaded to the RAM using `psu` (Phoenix Serial Uploader) via `SDP` (Serial Download Protocol).
+uploaded to the RAM using `psu` (Feniks Serial Uploader) via `SDP` (Serial Download Protocol).
 
 NOTE: i. MX RT1064 should be set in Serial Download mode. Set the appropriate configuration of SW7 switch on
 i.MX RT1064 - EVK, which is `0001` as it is shown below. If the configuration was different you should restart
@@ -127,7 +127,7 @@ To get the available bootloader command list please type `help`.
 
 ![Image](_images/imxrt106x-plo-help.png)
 
-### Copying flash image using PHFS (phoenixd)
+### Copying flash image using PHFS (feniksd)
 
 To flash the disk image, first, you need to verify on which port plo USB device has been appeared. You can check that
 using `ls` as follows:
@@ -148,38 +148,38 @@ ls -l /dev/tty.*
 
 ![Image](_images/imxrt106x-ls-mac2.png)
 
-To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments
+To share disk image to the bootloader, `feniksd` has to be launched with the following arguments
 (choose suitable ttyACMx device, in this case, ttyACM1):
 
 ```console
-sudo ./phoenixd -p /dev/tty[port] -b 115200 -s .
+sudo ./feniksd -p /dev/tty[port] -b 115200 -s .
 ```
 
-![Image](_images/imxrt106x-phoenixd.png)
+![Image](_images/imxrt106x-feniksd.png)
 
 To start copying a file, write the following command in the console with plo interface:
 
 ```console
-copy usb0 phoenix.disk flash1 0x0 0x0
+copy usb0 feniks.disk flash1 0x0 0x0
 ```
 
 The `flash1` is the internal flash memory. The alternative option is to copy the system image to external
 flash memory - `flash0`.
 
-### Booting Phoenix-RTOS from internal Flash
+### Booting Feniks-RTOS from internal Flash
 
-To launch Phoenix-RTOS from flash memory, change SW7 switch to Internal Flash mode (`0010` configuration as presented
+To launch Feniks-RTOS from flash memory, change SW7 switch to Internal Flash mode (`0010` configuration as presented
 in the photo below) and restart the board (you can do it by pushing the `SW3` button).
 
   ![Image](_images/imxrt106x-internal-flash.jpg)
 
-If everything has gone correctly, Phoenix-RTOS with the default configuration and the `psh` shell command prompt will
+If everything has gone correctly, Feniks-RTOS with the default configuration and the `psh` shell command prompt will
 appear in the terminal after 2 seconds. If there is a need to enter the bootloader, the waiting for input should be
 interrupted by pressing any key. Then you can exit plo by passing `go!` command.
 
 ![Image](_images/imxrt106x-start.png)
 
-## Using Phoenix-RTOS
+## Using Feniks-RTOS
 
 If you want to get the available command list please type:
 

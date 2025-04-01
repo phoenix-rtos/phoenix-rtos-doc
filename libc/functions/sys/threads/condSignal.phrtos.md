@@ -14,7 +14,7 @@ Implemented
 
 ## Conformance
 
-Phoenix-RTOS specific
+Feniks-RTOS specific
 
 ## Description
 
@@ -61,7 +61,7 @@ These functions shall not return an error code of `-EINTR`.
 
 ## Tests
 
-Tested in [test-sys](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/sys)
+Tested in [test-sys](https://github.com/feniks-rtos/feniks-rtos-tests/tree/master/sys)
 
 ## Known bugs
 

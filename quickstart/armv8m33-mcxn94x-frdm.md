@@ -1,8 +1,8 @@
 # Running system on <nobr>armv8m33-mcxn94x-frdm</nobr>
 
-These instructions describe how to run Phoenix-RTOS on the `armv8m33-mcxn94x-frdm` target. Note that the build
+These instructions describe how to run Feniks-RTOS on the `armv8m33-mcxn94x-frdm` target. Note that the build
 artifacts, including the system image should be provided in the `_boot` directory. If you have not built the system
-image yet, please refer to the [Building Phoenix-RTOS image](../building/index.md) section.
+image yet, please refer to the [Building Feniks-RTOS image](../building/index.md) section.
 
 ## Connecting the board
 
@@ -11,9 +11,9 @@ This USB port provides debug interface along with a TTY channel for ISP and syst
 
 ![Image](_images/mcxn947-evk.png)
 
-## Flashing the Phoenix-RTOS system image
+## Flashing the Feniks-RTOS system image
 
-Phoenix-RTOS provides a limited, yet simple and effective utility for flashing the image to the board - MCXISP.
+Feniks-RTOS provides a limited, yet simple and effective utility for flashing the image to the board - MCXISP.
 It is built along with the `armv8m33-mcxn94x-frdm` and available in the `_boot` directory.
 
 Usage:
@@ -43,7 +43,7 @@ momentarily press the `Reset` button. MCX N947 will enter the ISP mode and `MCXI
 To upload the image:
 
 ```console
-./mcxisp -f phoenix.disk -t /dev/ttyACM0
+./mcxisp -f feniks.disk -t /dev/ttyACM0
 ```
 
 The image will be uploaded:
@@ -63,13 +63,13 @@ Done.
 If the tool fails to connect to the board (`target invalid response` message is seen), enter the ISP
 mode again using buttons on the board, while the tool is trying to reconnect.
 
-After the upload has been completed, the board is reset and Phoenix-RTOS is started.
+After the upload has been completed, the board is reset and Feniks-RTOS is started.
 
-## Using Phoenix-RTOS
+## Using Feniks-RTOS
 
 The system console is available on the same TTY that was used earlier to upload the system image.
 
-Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal.
+Feniks-RTOS will be launched and the `psh` shell command prompt will appear in the terminal.
 
 ![Image](_images/mcxn947-evk-start.png)
 

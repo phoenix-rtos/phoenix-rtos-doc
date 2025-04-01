@@ -8,7 +8,7 @@ processes through a port `/dev/usb`.
 
 The USB Host stack allows using different types and multiple instances of HCDs. It provides generic types `hcd_t` and
 `hcd_ops_t`. Specific drivers for different types of HCDs such as `ehci`, `ohci` etc. are a part of the
-`phoenix-rtos-devices` repository in the form of a static library named, e.g. `libusbehci`. When building the USB Host
+`feniks-rtos-devices` repository in the form of a static library named, e.g. `libusbehci`. When building the USB Host
 stack, one should set the environmental variable `USB_HCD_LIBS` to an appropriate value denoting host controllers
 available on the platform. Each Host Controller driver library should register its `hcd_ops_t` instance using a GCC
 constructor. It allows the USB Host stack to communicate with an HCD driver using callbacks within a `hcd_ops_t`

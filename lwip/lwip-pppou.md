@@ -12,13 +12,13 @@ the most legitimate and proven protocol to deliver IP world is PPP.
 
 ## Build and set up the device
 
-Before you start [building Phoenix RTOS](../building/index.md) with
+Before you start [building Feniks RTOS](../building/index.md) with
 [network stack — LwIP](/lwip/index.md), you need to adjust the custom
 build.project script, in function `b_build_project()` add the following lines:
 
 ```console
-b_log "Builing phoenix-rtos-lwip"
-(cd phoenix-rtos-lwip && make $MAKEFLAGS $CLEAN all)
+b_log "Builing feniks-rtos-lwip"
+(cd feniks-rtos-lwip && make $MAKEFLAGS $CLEAN all)
 ```
 
 some targets may require adding also
@@ -34,9 +34,9 @@ e.g.:
 PROGS=("dummyfs" "imxrt-multi" "lwip" "psh")
 ```
 
-If `phoenix-rtos-build` builds`phoenix-rtos-lwip` correctly, you can start the
-null-modem point-to-point connection in the Phoenix RTOS system.  To enable the
-driver and up the interface just after Phoenix RTOS kernel starts, add e.g. the
+If `feniks-rtos-build` builds`feniks-rtos-lwip` correctly, you can start the
+null-modem point-to-point connection in the Feniks RTOS system.  To enable the
+driver and up the interface just after Feniks RTOS kernel starts, add e.g. the
 following line to the `plo` script:
 
 ```console
@@ -83,7 +83,7 @@ app flash0 -x @psh xip1 ocram2
 go!
 ```
 
-Alternatively, `phoenix-rtos-lwip` can also be started with the command `psh`
+Alternatively, `feniks-rtos-lwip` can also be started with the command `psh`
 sysexec (NON-MMU targets) at any time:
 
 ```console
@@ -93,7 +93,7 @@ sysexec ocram2 lwip pppou:/dev/uart3:115200:up
 If provided the LwIP server has not already been running, and on MMU architectures
 either using the `exec` command or directly in `psh` command prompt.
 
-Once the `phoenix-rtos-lwip` server has started, you can make sure by issuing
+Once the `feniks-rtos-lwip` server has started, you can make sure by issuing
 the command `ps`, which should show that the `lwip` with the correct arguments
 is already running, in the example figure below you can see that the baud rate
 460800 was used.
@@ -114,7 +114,7 @@ pppd /dev/ttyUSB0 460800 10.0.0.1:10.0.0.2 lock local noauth nocrtscts nodefault
 
 The device entry `/dev/ttyUSB0` may differ between systems, the address pair
 `10.0.0.1:10.0.0.2` means `local:remote` that the host will get `10.0.0.1`
-address and the remote device with `phoenix-rtos-lwip` running will get
+address and the remote device with `feniks-rtos-lwip` running will get
 `10.0.0.2` address, the ppp daemon will run in the background and wait
 continuously (`maxfail 0 persist`) for connections.
 
@@ -127,7 +127,7 @@ Additional `/dev` entries will be created like `ifstatus`, `route` and `pf`.
 
 ## Enabling IPv6 (dual stack)
 
-Add the following line at the top of file `phoenix-rtos-lwip/include/default-opts/lwipopts.h` and rebuild.
+Add the following line at the top of file `feniks-rtos-lwip/include/default-opts/lwipopts.h` and rebuild.
 
 ```c
 #define LWIP_IPV6 1
@@ -140,7 +140,7 @@ link-local address like `fe80::55a0:6c87:7de3:611b`
 
 ## Debugging
 
-Compile `phoenix-rtos-lwip` pppou driver with logging enabled, and then on host
+Compile `feniks-rtos-lwip` pppou driver with logging enabled, and then on host
 use the following command that enable full `pppd` debugging
 
 ```console

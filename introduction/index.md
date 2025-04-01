@@ -16,9 +16,9 @@ experience in developing low level software to develop solutions.
 
 ## Version 2
 
-Developed until 2013, the Phoenix-RTOS version 2 has been widely implemented in data concentrators for the smart grid,
+Developed until 2013, the Feniks-RTOS version 2 has been widely implemented in data concentrators for the smart grid,
 smart energy meters, and smart gas meters, etc. The second version of the system is recognized on the market as a
-real-time system for the smart grid and software-defined solutions. One of the system modules, Phoenix-PRIME, is the
+real-time system for the smart grid and software-defined solutions. One of the system modules, Feniks-PRIME, is the
 world's first software-defined implementation of the PRIME 1.3.6 PLC standard. The system's biggest advantage is the
 UN*X application interface, which allows for a wide range of uses in open source applications.
 
@@ -84,13 +84,13 @@ This table presents a timeline of the most important events in the history of op
 | 2001 | <span style="color:red">QNX6</span> | <span style="color:red">Microkernel-based POSIX-compliant real-time operating system with a virtual memory and resource protection</span>|
 | 2001 | <span style="color:violet">MS Windows Xp</span> | <span style="color:violet">The next generation of MS Windows 2000 integrating MS Windows 9x and MS Windows NT lines</span> |
 | 2001 | MAFALDA | Microkernel Assessment by Fault-injection AnaLysis for Design Aid – a series of prototype tools for the assessment of real-time COTS microkernel based systems |
-| 2001 | <span style="color:red">Phoenix</span> | <span style="color:red">Operating system prototype developed at the Warsaw University of Technology</span> |
-| 2005 | <span style="color:red">Phoenix-RTOS 2</span> | <span style="color:red">Real-time operating system for embedded applications developed as the successor of the Phoenix prototype</span> |
+| 2001 | <span style="color:red">Feniks</span> | <span style="color:red">Operating system prototype developed at the Warsaw University of Technology</span> |
+| 2005 | <span style="color:red">Feniks-RTOS 2</span> | <span style="color:red">Real-time operating system for embedded applications developed as the successor of the Feniks prototype</span> |
 | 2006 | <span style="color:red">FreeRTOS</span> | <span style="color:red">Simple operating system for microcontrollers for embedded applications with a small code footprint</span> |
 | 2008 | <span style="color:violet">iOS</span> | <span style="color:violet">Mobile operating system for phones and tablets based on Mac OS X</span> |
 | 2009 | <span style="color:violet">Android</span> | <span style="color:violet">Mobile operating system for phones and tablets based on GNU/Linux</span> |
 | 2010 | <span style="color:violet">Windows Mobile</span> | <span style="color:violet">Mobile operating system for phones and tablets based on Windows Kernel</span> |
-| 2017 | <span style="color:red">Phoenix-RTOS 3</span> | <span style="color:red">Real-time operating system for the Internet of Things based on a microkernel with a small code footprint, a virtual memory support, resource protection and numerous application interfaces (native, POSIX, ARINC653)</span> |
+| 2017 | <span style="color:red">Feniks-RTOS 3</span> | <span style="color:red">Real-time operating system for the Internet of Things based on a microkernel with a small code footprint, a virtual memory support, resource protection and numerous application interfaces (native, POSIX, ARINC653)</span> |
 <!-- markdownlint-restore -->
 
 The different colors used in the table identify the various operating system types developed over the years.

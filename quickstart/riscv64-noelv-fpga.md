@@ -1,17 +1,17 @@
 # Running system on <nobr>riscv64-noelv-fpga</nobr>
 
-These instructions describe how to run Phoenix-RTOS on the NOEL-V processor configured on the Digilent Arty A7-100T
+These instructions describe how to run Feniks-RTOS on the NOEL-V processor configured on the Digilent Arty A7-100T
 FPGA - `riscv64-noelv-fpga` target. Note that the build artifacts, including the system image should be provided in the
 `_boot` directory. If you have not built the system image yet, please refer to the
-[Building Phoenix-RTOS image](../building/index.md) section.
+[Building Feniks-RTOS image](../building/index.md) section.
 
 ## Connecting the board
 
 Connect the board to the computer using 1 micro USB cable that provides power and UART communication.
 
-## Loading the Phoenix-RTOS system image
+## Loading the Feniks-RTOS system image
 
-To load the Phoenix-RTOS system image to the board, you will need to use the `GRMON` debug monitor.
+To load the Feniks-RTOS system image to the board, you will need to use the `GRMON` debug monitor.
 
 <details>
 <summary>How to get GRMON</summary>
@@ -32,14 +32,14 @@ grmon -digilent
 
 The `-digilent` parameter specifies the Digilent JTAG adapter.
 
-Load the Phoenix-RTOS system image to the RAM by running the following commands in the `GRMON`:
+Load the Feniks-RTOS system image to the RAM by running the following commands in the `GRMON`:
 
 ```console
 load _boot/riscv64-noelv-fpga/sbi-noelv.elf
 ```
 
 ```console
-load -binary _boot/riscv64-noelv-fpga/phoenix.disk 0x08000000
+load -binary _boot/riscv64-noelv-fpga/feniks.disk 0x08000000
 ```
 
 Set entry point of the program:
@@ -63,15 +63,15 @@ following command:
 picocom -b 115200 --imap lfcrlf /dev/ttyUSB1
 ```
 
-To start the Phoenix-RTOS system, execute the following command in the `GRMON` monitor:
+To start the Feniks-RTOS system, execute the following command in the `GRMON` monitor:
 
 ```console
 run
 ```
 
-## Using the Phoenix-RTOS
+## Using the Feniks-RTOS
 
-After executing the `run` command, Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the
+After executing the `run` command, Feniks-RTOS will be launched and the `psh` shell command prompt will appear in the
 terminal.
 
 ![Image](_images/noelv-start.png)

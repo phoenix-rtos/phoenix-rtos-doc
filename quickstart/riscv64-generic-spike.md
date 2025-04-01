@@ -1,11 +1,11 @@
 # Running system on <nobr>riscv64-generic-spike</nobr>
 
 This version is designated for RISC-V 64 processors based spike machine implemented by the Spike (`riscv-isa-sim`)
-emulator. To launch this version `phoenix.osbi` file should be provided - system image with integrated OpenSBI
+emulator. To launch this version `feniks.osbi` file should be provided - system image with integrated OpenSBI
 bootloader, containing PLO, kernel, console driver, dummyfs filesystem and the `psh` shell.
 
-The file is created as the final artifact of the `phoenix-rtos-project` build and is located in the `_boot` directory.
-See [how to build the Phoenix-RTOS system image](../building/index.md)
+The file is created as the final artifact of the `feniks-rtos-project` build and is located in the `_boot` directory.
+See [how to build the Feniks-RTOS system image](../building/index.md)
 
 ## Running image under the spike
 
@@ -52,7 +52,7 @@ Firstly, you need to install a spike simulator.
   </details>
   </br>
 
-Then, to run the image under spike you should change the directory to `phoenix-rtos-project` and type:
+Then, to run the image under spike you should change the directory to `feniks-rtos-project` and type:
 
 ```console
 ./scripts/riscv64-generic-spike.sh
@@ -62,9 +62,9 @@ Then, to run the image under spike you should change the directory to `phoenix-r
 </br>
 ![Image](_images/riscv64-generic-spike2.png)
 
-## Using Phoenix-RTOS
+## Using Feniks-RTOS
 
-Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal. To get the available
+Feniks-RTOS will be launched and the `psh` shell command prompt will appear in the terminal. To get the available
 command list please type:
 
 ```console

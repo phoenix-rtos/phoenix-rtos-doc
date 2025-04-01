@@ -12,7 +12,7 @@ Implemented
 
 ## Conformance
 
-Phoenix-RTOS specific
+Feniks-RTOS specific
 
 ## Description
 
@@ -20,7 +20,7 @@ Finishes the communication between processes by responding to sender of initial 
 buffer to _port_ from which the message was read. Response ID _rid_ specifies message context and should be passed from
 _rid_ acquired via `msgRecv()` call.
 
-This function is part of interprocess communication mechanisms in Phoenix-RTOS. For more information about messaging
+This function is part of interprocess communication mechanisms in Feniks-RTOS. For more information about messaging
 process and `msg_t` message structure please refer to [Message Passing](../../../../kernel/proc/msg.md).
 
 ## Return value
@@ -43,6 +43,6 @@ Untested
 
 ## See Also
 
-1. [IPC mechanisms in Phoenix-RTOS](../../../../architecture/index.md#interprocess-communication)
+1. [IPC mechanisms in Feniks-RTOS](../../../../architecture/index.md#interprocess-communication)
 2. [Standard library functions](../../index.md)
 3. [Table of Contents](../../../../index.md)

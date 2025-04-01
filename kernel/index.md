@@ -1,6 +1,6 @@
 # Kernel
 
-Phoenix-RTOS is based on the written from scratch dedicated microkernel and consists of about 20K lines of code (LoC).
+Feniks-RTOS is based on the written from scratch dedicated microkernel and consists of about 20K lines of code (LoC).
 Microkernel is responsible for:
 
 * memory management
@@ -21,7 +21,7 @@ Kernel is divided into five subsystems.
 The source code of the kernel could be obtained using the following command
 
 ```console
-    git clone http://github.com/phoenix-rtos.com/phoenix-rtos-kernel
+    git clone http://github.com/feniks-rtos.com/feniks-rtos-kernel
 ```
 
 ## See also

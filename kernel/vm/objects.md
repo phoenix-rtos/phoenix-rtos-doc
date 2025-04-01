@@ -18,7 +18,7 @@ and other operating systems. The Mach and BSD implementations were not optimal b
 copy-on-write strategy when processes are forked. This problem was solved by BSD UVM memory management subsystem by
 introducing the anonymous mapping abstraction.
 
-This chapter briefly presents memory objects idea and the memory objects architecture supported by Phoenix-RTOS
+This chapter briefly presents memory objects idea and the memory objects architecture supported by Feniks-RTOS
 microkernel.
 
 ## Understanding the process address space
@@ -49,17 +49,17 @@ the executed program is able to access this memory. The described mechanism of s
 is the basic mechanism constituting the operating system's security and reliability and preventing interference between
 the operating system and processes.
 
-The process address space in Phoenix-RTOS is presented on the following figure.
+The process address space in Feniks-RTOS is presented on the following figure.
 
 ![Image](_images/mem-objects2.png)
 
-In Phoenix-RTOS objects are supported by operating system servers and are referenced by `oid` identifiers. Each `oid`
+In Feniks-RTOS objects are supported by operating system servers and are referenced by `oid` identifiers. Each `oid`
 consists of server communication port number and in-server object identifier. If object is accessed within the process
 the memory management subsystem allocates the new page and asks the server identified by `oid` for the data. The data is
 retrieved from the server by sending the proper messages and are stored in the allocated page and mapped into the
 process at requested virtual address.
 
-The main difference between the monolithic kernel approach and Phoenix-RTOS is that memory segments correspond to
+The main difference between the monolithic kernel approach and Feniks-RTOS is that memory segments correspond to
 objects identified by oids (port and in-server ID) handled by external servers, so operating system kernel is free of
 file abstraction. This allows to maintain the small size of kernel and emulate many file sharing and inheritance
 strategies on the user level (POSIX, Windows etc.) or event to create the final operating system lacking of filesystem
@@ -160,14 +160,14 @@ and if number of references is equal to one it can be mapped as writable to the 
 The memory sharing technique based on shadowing of particular pages instead of whole objects eliminates the problem of
 long chains of shadow objects existing in BSD VM.
 
-## Memory objects in Phoenix-RTOS
+## Memory objects in Feniks-RTOS
 
-Phoenix-RTOS derives the memory object architecture from BSD UVM. The structure of its memory management subsystem in
+Feniks-RTOS derives the memory object architecture from BSD UVM. The structure of its memory management subsystem in
 the process context is presented on the following figure.
 
-![Image](_images/mem-objects-phoenix.png)
+![Image](_images/mem-objects-feniks.png)
 
-There are three main differences between UVM and Phoenix-RTOS memory objects. Objects are identified by oid_t and
+There are three main differences between UVM and Feniks-RTOS memory objects. Objects are identified by oid_t and
 handled by external servers and data is fetched and stored using message passing. Processes are not swappable, so there
 is no swap server for anonymous objects. Memory objects are supported as well on non-MMU architectures, but
 functionality is simplified.

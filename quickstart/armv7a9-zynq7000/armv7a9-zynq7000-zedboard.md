@@ -1,21 +1,21 @@
 # Running system on <nobr>armv7a9-zynq7000-zedboard</nobr>
 
-These instructions describe how to run a Phoenix-RTOS system image for `armv7a9-zynq7000-zedboard` target architecture.
+These instructions describe how to run a Feniks-RTOS system image for `armv7a9-zynq7000-zedboard` target architecture.
 Note that, the build artifacts, including the system image, should be first provided in the `_boot` directory.
 If you haven't run the `build.sh` script yet, run it for `armv7a9-zynq7000-zedboard` target.
 
-See [how to build the Phoenix-RTOS system image](../../building/index.md).
+See [how to build the Feniks-RTOS system image](../../building/index.md).
 
 ## Preparing the board
 
 Preparing the board depends on how the plo is loaded into RAM, this quickstart describes 2 approaches.
 Loading from SD card and from NOR flash, depending on your needs use one of them.
-For example if you are flashing Phoenix-RTOS for a first time, or you want to load a plo from the current system image.
+For example if you are flashing Feniks-RTOS for a first time, or you want to load a plo from the current system image.
 Otherwise, you can simply use plo from the already flashed image.
 
 ### Loading plo from SD card
 
-- Firstly, you should copy the disk image `phoenix.disk`
+- Firstly, you should copy the disk image `feniks.disk`
  from the `_boot/armv7a9-zynq7000-zedboard` directory to the SD card and rename it to `BOOT.bin`.
 
 - Then, insert the SD card into the board.
@@ -27,7 +27,7 @@ Otherwise, you can simply use plo from the already flashed image.
 
 ### Loading plo from NOR flash
 
-**This version is possible only if you have already flashed Phoenix-RTOS system image to this board before!**
+**This version is possible only if you have already flashed Feniks-RTOS system image to this board before!**
 
 - To allow loading from NOR flash,
 set the jumpers to the following configuration (`JP11`: `110`, `JP10`: `011`, `JP9`: `110`, `JP8`: `110`, `JP7`: `110`):
@@ -108,9 +108,9 @@ sudo usermod -a -G tty <yourname>
 
 You can leave the terminal with the serial port open, and follow the next steps.
 
-## Flashing the Phoenix-RTOS system image
+## Flashing the Feniks-RTOS system image
 
-At first before any flashing, you need to enter Phoenix-RTOS loader (plo), which should have been already loaded.
+At first before any flashing, you need to enter Feniks-RTOS loader (plo), which should have been already loaded.
 
 If there wasn't an older system image in the NOR flash the following output should appear:
 
@@ -118,7 +118,7 @@ If there wasn't an older system image in the NOR flash the following output shou
 
 If you don't see it, please press the `PS-RST` button (`BTN7`) to restart the chip.
 
-Providing that Phoenix-RTOS is present in the flash memory you will probably see the system startup:
+Providing that Feniks-RTOS is present in the flash memory you will probably see the system startup:
 
 ![Image](_images/zynq7000-ram-start-2.png)
 
@@ -131,7 +131,7 @@ If you encountered some problems during this step please see
 
 ### Erasing the area intended for file system
 
-It's needed to erase sectors that will be used by `jffs2` file system as we place in the `phoenix.disk`
+It's needed to erase sectors that will be used by `jffs2` file system as we place in the `feniks.disk`
  only the necessary file system content, not the whole area intended for it.
 Without erasure `jffs2` may encounter data from the previous flash operation and errors
  during the system startup may occur.
@@ -157,7 +157,7 @@ Quick description of used arguments:
 
 Please wait until erasing is finished.
 
-### Copying flash image using PHFS (phoenixd)
+### Copying flash image using PHFS (feniksd)
 
 To flash the disk image, first, you need to verify on which port plo USB device has appeared.
 You can check that using `ls` as follow:
@@ -178,7 +178,7 @@ ls -l /dev/tty.*
 
 ![Image](_images/zynq7000-ls2-mac.png)
 
-To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments
+To share disk image to the bootloader, `feniksd` has to be launched with the following arguments
  (choose suitable ttyACMx device, in this case, ttyACM1):
 
 ```console
@@ -186,20 +186,20 @@ cd _boot/armv7a9-zynq7000-zedboard
 ```
 
 ```console
-sudo ./phoenixd -p /dev/tty[port] -b 115200 -s .
+sudo ./feniksd -p /dev/tty[port] -b 115200 -s .
 ```
 
-![Image](_images/zynq7000-phoenixd.png)
+![Image](_images/zynq7000-feniksd.png)
 
 To start copying the file, write the following command in the console with plo interface:
 
 ```console
-copy usb0 phoenix.disk flash0 0x0 0x0
+copy usb0 feniks.disk flash0 0x0 0x0
 ```
 
 ![Image](_images/zynq7000-plo-copy.png)
 
-### Booting Phoenix-RTOS from NOR flash memory
+### Booting Feniks-RTOS from NOR flash memory
 
 Now, the image is located in the NOR Quad SPI Flash memory.
 To run it you should follow the steps below:
@@ -244,7 +244,7 @@ To run it you should follow the steps below:
 
   ![Image](_images/zynq7000-qspi-start.png)
 
-## Using Phoenix-RTOS
+## Using Feniks-RTOS
 
 To get the available command list please type:
 

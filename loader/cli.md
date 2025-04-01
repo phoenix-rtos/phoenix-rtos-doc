@@ -22,9 +22,9 @@ List all the available commands in plo (some of them are available only on the s
 * `copy` - copies data between devices, usage: `copy <src dev> <file/offs size> <dst dev> <file/offs size>`
 * `dump` - dumps memory, usage: `dump <addr>`
 * `echo` - command switch on/off information logs, usage: `echo [on/off]`
-* `go!` - starts Phoenix-RTOS loaded into memory
+* `go!` - starts Feniks-RTOS loaded into memory
 * `help` - prints the list of available commands
-* `kernel` - loads Phoenix-RTOS, usage: `kernel [<dev> [name]]`
+* `kernel` - loads Feniks-RTOS, usage: `kernel [<dev> [name]]`
 * `map` - defines multimap, usage: `map [<name> <start> <end> <attributes>]`
 * `mpu` - prints the use of MPU regions, usage: `mpu [all]`
 * `phfs` - registers device in phfs, usage: `phfs [<alias> <major.minor> [protocol]]`

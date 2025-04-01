@@ -1,14 +1,14 @@
 # Ports
 
-Open-source tools adapted to Phoenix-RTOS are called ports. A source code of each port is downloaded from its official
+Open-source tools adapted to Feniks-RTOS are called ports. A source code of each port is downloaded from its official
 website as an archive file.
-Next, the file is unpacked and compiled using the [Phoenix-RTOS toolchain](../building/toolchain.md).
+Next, the file is unpacked and compiled using the [Feniks-RTOS toolchain](../building/toolchain.md).
 All these steps are performed during a building process when the ports component is specified. Read more about
 building components in the [building script](../building/script.md) chapter.
 
-The [phoenix-rtos-ports](https://github.com/phoenix-rtos/phoenix-rtos-ports) repository mostly consists of specific
+The [feniks-rtos-ports](https://github.com/feniks-rtos/feniks-rtos-ports) repository mostly consists of specific
 building scripts and patches for each tool.
-If you don't know what are `phoenix-rtos` repositories you can check the
+If you don't know what are `feniks-rtos` repositories you can check the
 [reference project repository](../building/project.md) chapter.
 
 ## Components

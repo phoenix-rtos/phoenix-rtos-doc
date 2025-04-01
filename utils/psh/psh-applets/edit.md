@@ -2,7 +2,7 @@
 
 `edit` is the text editor provided as an applet for `psh`, it can be used to quickly
 edit device configuration, remotely edit scripts (like Lua, Python, etc.)
-directly on the device with Phoenix-RTOS or simply to take notes.
+directly on the device with Feniks-RTOS or simply to take notes.
 
 Once `edit` command is entered at the `psh` prompt, hint message will be
 printed:
@@ -74,6 +74,6 @@ remote terminal, you need a special query procedure) in such cases press
 
 ## See also
 
-1. [Phoenix-RTOS shell](../index.md)
-2. [Phoenix-RTOS Utilities](../../index.md)
+1. [Feniks-RTOS shell](../index.md)
+2. [Feniks-RTOS Utilities](../../index.md)
 3. [Table of Contents](../../../index.md)

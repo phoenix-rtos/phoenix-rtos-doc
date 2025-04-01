@@ -12,7 +12,7 @@ Implemented
 
 ## Conformance
 
-Phoenix-RTOS specific
+Feniks-RTOS specific
 
 ## Description
 
@@ -24,7 +24,7 @@ function, reads data from input buffer, writes the final answer to the output bu
 
 This function ensures that either message was processed by a recipient or that it was not sent at all.
 
-This function is part of interprocess communication mechanisms in Phoenix-RTOS. For more information about messaging
+This function is part of interprocess communication mechanisms in Feniks-RTOS. For more information about messaging
 process and `msg_t` message structure please refer to [Message Passing](../../../../kernel/proc/msg.md).
 
 ## Return value
@@ -52,6 +52,6 @@ None
 
 ## See Also
 
-1. [IPC mechanisms in Phoenix-RTOS](../../../../architecture/index.md#interprocess-communication)
+1. [IPC mechanisms in Feniks-RTOS](../../../../architecture/index.md#interprocess-communication)
 2. [Standard library functions](../../index.md)
 3. [Table of Contents](../../../../index.md)

@@ -8,22 +8,22 @@ application can obtain sensitive data from the kernel, e.g. information about al
 
 ## Prototypes and definition
 
-In Phoenix-RTOS prototypes and definitions of the system calls are located in the `libphoenix` library. A list of
-all system calls is placed in a `phoenix-rtos-kernel/include/syscalls.h` header files, grouped by categories.
+In Feniks-RTOS prototypes and definitions of the system calls are located in the `libfeniks` library. A list of
+all system calls is placed in a `feniks-rtos-kernel/include/syscalls.h` header files, grouped by categories.
 
-System call prototypes should be placed in the appropriate header file in the `libphoenix` standard library,
+System call prototypes should be placed in the appropriate header file in the `libfeniks` standard library,
 referring to the syscall's category.
 System call definitions are placed in the `arch/$(TARGET_SUFF)/syscalls.S` file and are created based on a syscall list
 via macro. Each definition triggers an exception (e.g. Supervisor Call - SVC instruction for ARM Cortex-M or Cortex-A)
 with an appropriate syscall identification number handled by the kernel in the privileged mode. Arguments are passed
 according to the target platform ABI (Application Binary Interface).
 
-Handler definitions for system calls are located in the `phoenix-rtos-kernel/syscalls.c` file. Each handler should
-contain an appropriate return type consistent with the prototype in `libphoenix` (in practice `int`) and take the user
+Handler definitions for system calls are located in the `feniks-rtos-kernel/syscalls.c` file. Each handler should
+contain an appropriate return type consistent with the prototype in `libfeniks` (in practice `int`) and take the user
 stack pointer as an argument. The syscall's parameters can be obtained from the user stack using the macro
 `GETFROMSTACK(stack_ptr, arg_type, var, id)`.
 
-Phoenix-RTOS in kernel mode has access to the calling process memory, so the pointer to the data in the user space can
+Feniks-RTOS in kernel mode has access to the calling process memory, so the pointer to the data in the user space can
 be passed as an argument to system call and used in the kernel space.
 
 ## Adding syscall
@@ -31,20 +31,20 @@ be passed as an argument to system call and used in the kernel space.
 An example of adding a system call is conducted based on the `threadsinfo` syscall. The procedure should be performed as
 follows:
 
-1. Add syscall's declaration in `libphoenix`, e.g. `libphoenix/inlude/sys/threads.h`:
+1. Add syscall's declaration in `libfeniks`, e.g. `libfeniks/inlude/sys/threads.h`:
 
     ```C
         extern int threadsinfo(int n, threadinfo_t *info);
     ```
 
-2. Update the syscall list in `phoenix-rtos-kernel/include/syscalls.h`. It is recommended to insert a new syscall at the
+2. Update the syscall list in `feniks-rtos-kernel/include/syscalls.h`. It is recommended to insert a new syscall at the
 end of the list:
 
     ```C
         ID(threadsinfo) \
     ```
 
-3. Create a syscall handler in `phoenix-rtos-kernel/syscalls.c`:
+3. Create a syscall handler in `feniks-rtos-kernel/syscalls.c`:
 
     ```C
         int syscalls_threadsinfo(void *ustack)
@@ -52,7 +52,7 @@ end of the list:
             int n, i;
             pid_t ppid;
             threadinfo_t *info;
-    
+
             /* Get input arguments from stack according to order in the syscall prototype.
                GETFROMSTACK macro modifies value of stack pointer. The order of its invocation has to be compliant with arguments put on stack.
                GETFROMSTACK arguments:
@@ -62,22 +62,22 @@ end of the list:
                 4th arg - id order on stack (start from 0) */
             GETFROMSTACK(ustack, int, n, 0);
             GETFROMSTACK(ustack, threadinfo_t *, info, 1);
-    
+
             /* Get thread's list from kernel's submodule */
             n = proc_threadsList(n, info);
-    
+
             /* Assign parent process id */
             for (i = 0; i < n; ++i) {
                 if ((ppid = posix_getppid(info[i].pid)) > 0)
                     info[i].ppid = ppid;
             }
-    
+
             return n;
         }
     ```
 
 4. The system call can be invoked in user application by including `sys/threads.h` header. This example syscall is used
-by the `ps` applet in the `psh` (Phoenix-Shell).
+by the `ps` applet in the `psh` (Feniks-Shell).
 
 ## See also
 

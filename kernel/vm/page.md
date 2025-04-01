@@ -81,7 +81,7 @@ During the kernel boot process, the `page[]` is presented on the screen using le
 interpretation will be presented using a sample map for a PC with 128 MB of RAM.
 
 ``` asm
-vm: HCYPPSSS[24H][22K][103H]..B[80x][16B][32509.]BBB[101574x][64B] 
+vm: HCYPPSSS[24H][22K][103H]..B[80x][16B][32509.]BBB[101574x][64B]
 ```
 
 In this map, the first physical page is allocated to the kernel heap. The second page is used for CPU purposes
@@ -111,7 +111,7 @@ pages allocated to BIOS and 32509 free pages. At the end of the address space, t
 
 ## Page allocation
 
-The page allocator in the Phoenix-RTOS kernel is based on a well-known buddy algorithm. The figure below shows a
+The page allocator in the Feniks-RTOS kernel is based on a well-known buddy algorithm. The figure below shows a
 graphical illustration of data structures used in this algorithm.
 
 ![Image](_images/mem-pagealloc2.png)

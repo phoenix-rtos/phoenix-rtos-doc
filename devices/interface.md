@@ -1,6 +1,6 @@
 # Interface
 
-The device driver server in a Phoenix-RTOS ecosystem communicates with other processes using a message interface. In
+The device driver server in a Feniks-RTOS ecosystem communicates with other processes using a message interface. In
 the typical case, the driver server has one port on which all requests are placed by clients. This port can be either
 registered within the native namespace or special file(s) can be created within the filesystem.
 
@@ -20,7 +20,7 @@ only one port by registering the same port as `/dev/spi0` with id = 1 and `/dev/
 receives contains information to which `oid` (object ID) it has been sent. This enables the driver to recognize to
 which special file message has been addressed.
 
-If the system does not have a root filesystem, a port can be registered within Phoenix native filesystem by using
+If the system does not have a root filesystem, a port can be registered within Feniks native filesystem by using
 syscall
 
 ```c

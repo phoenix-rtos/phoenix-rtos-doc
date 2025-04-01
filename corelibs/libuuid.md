@@ -56,16 +56,16 @@ int main(void)
   ```console
   (psh)% /usr/bin/uuidgen
   Generated identifier: 81fb691c-fb2d-4546-54ef-231edff56a7f
-  (psh)% 
+  (psh)%
 
   ```
 
 ## Running tests
 
-  Phoenix-RTOS UUID Library provides the basic set of unit tests, which is available in
-  [phoenix-rtos-tests](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master).
+  Feniks-RTOS UUID Library provides the basic set of unit tests, which is available in
+  [feniks-rtos-tests](https://github.com/feniks-rtos/feniks-rtos-tests/tree/master).
   It can be run for different platforms, here is the example for the `ia32-generic-qemu` target:
 
   ```console
-  python3 phoenix-rtos-tests/runner.py -T ia32-generic-qemu -t phoenix-rtos-tests/libuuid/
+  python3 feniks-rtos-tests/runner.py -T ia32-generic-qemu -t feniks-rtos-tests/libuuid/
   ```

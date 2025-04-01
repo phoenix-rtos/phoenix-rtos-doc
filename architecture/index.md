@@ -1,6 +1,6 @@
 # Architecture
 
-The Phoenix-RTOS operating system starting from version 3 is based on microkernel architecture.
+The Feniks-RTOS operating system starting from version 3 is based on microkernel architecture.
 It means that system consists of microkernel implementing basic primitives and set of servers based on these primitives
 and communicating over it.
 The main advantage of such architecture is high scalability.
@@ -14,7 +14,7 @@ The architecture is schematically presented on figure below.
 ## Microkernel
 
 Microkernel implements minimum set of primitives necessary to implement other operating system components.
-Phoenix-RTOS microkernel implements four fundamental subsystems - memory management, process and thread management,
+Feniks-RTOS microkernel implements four fundamental subsystems - memory management, process and thread management,
 interprocess communication and low-level I/O for redirecting the interrupts to user-level threads. Microkernel
 functionalities are accessible for applications through set of system calls. System call (syscall) is the operating
 system function implemented by the special processor instruction switching the execution privilege mode from user to
@@ -46,7 +46,7 @@ Interprocess communication has been described in
 
 Standard library is the set of functions constituting the basic programming environment (providing the basic API) and
 based on the system calls. API could be compatible with popular programming standards (ANSI C, POSIX etc.) or could be
-specific for the operating system. Phoenix-RTOS 3 provides its own standard library (`libphoenix`) compatible with ANSI
+specific for the operating system. Feniks-RTOS 3 provides its own standard library (`libfeniks`) compatible with ANSI
 C89 and extended with some specific functions for memory mapping and process and thread management. The library can be
 extended (in cooperation with servers) with additional functions to provide the POSIX compliant environment. Such
 environment requires much more memory than basic ANSI C native interface but allows for execution of the popular
@@ -94,7 +94,7 @@ File servers are described in [Filesystems](../filesystems/index.md) chapter.
 ## Emulation servers
 
 Microkernel architecture allows to easily emulate the application environment of existing operating systems
-(e.g. POSIX). To provide some OS specific mechanisms which are not supported by native Phoenix-RTOS environment
+(e.g. POSIX). To provide some OS specific mechanisms which are not supported by native Feniks-RTOS environment
 (e.g. POSIX pipes, user and groups etc.) emulation servers should be provided. They implement the additional
 functionality and together with emulation libraries provide the application environment. The communication protocol
 implemented by these servers is specific for emulated application environment.

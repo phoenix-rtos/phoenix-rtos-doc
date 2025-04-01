@@ -1,7 +1,7 @@
 # POSIX emulation server
 
-The `libphoenix` repository provides POSIX API enabling users to build and run portable POSIX applications. The
-emulation layer is built upon Phoenix-RTOS native messaging API and a dedicated server (`posixsrv`).
+The `libfeniks` repository provides POSIX API enabling users to build and run portable POSIX applications. The
+emulation layer is built upon Feniks-RTOS native messaging API and a dedicated server (`posixsrv`).
 
 The purpose of `posixsrv` is to store data that can be shared between processes, i.e.:
 
@@ -20,7 +20,7 @@ of system calls. Future implementations will instead delegate requests directly 
 The source code of `posixsrv` is available on GitHub and can be obtained using the following command:
 
 ```console
-git clone https://github.com/phoenix-rtos/phoenix-rtos-posixsrv
+git clone https://github.com/feniks-rtos/feniks-rtos-posixsrv
 ```
 
 ## See also

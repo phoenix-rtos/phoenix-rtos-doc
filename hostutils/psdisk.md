@@ -1,17 +1,17 @@
-# Phoenix disk tool (psdisk)
+# Feniks disk tool (psdisk)
 
 `psdisk` is a tool responsible for creating a partition table where sources are placed under the following link:
-<https://github.com/phoenix-rtos/phoenix-rtos-filesystems/tree/master/ptable>
+<https://github.com/feniks-rtos/feniks-rtos-filesystems/tree/master/ptable>
 
 ## Preliminary information
 
-In Phoenix-RTOS this memory scheme was introduced in a flash server
-(<https://github.com/phoenix-rtos/phoenix-rtos-devices/tree/master/storage/imxrt-flash>) for armv7m7-imxrt106x-evk
+In Feniks-RTOS this memory scheme was introduced in a flash server
+(<https://github.com/feniks-rtos/feniks-rtos-devices/tree/master/storage/imxrt-flash>) for armv7m7-imxrt106x-evk
 (NXP i.MX RT106x). It can be distinguished by the following partition types:
 
 - `raw` - partition provides direct access only to a selected part of memory,
 - `MeterFS` - partition contains access to a file system created for meter profile data storage
-(<https://github.com/phoenix-rtos/phoenix-rtos-filesystems/tree/master/meterfs>).
+(<https://github.com/feniks-rtos/feniks-rtos-filesystems/tree/master/meterfs>).
 
 In the mentioned flash server, a partition table has to be located in the last sector of the flash memory. Due to this
 fact, the user can generate an image that covers the whole memory with a partition table that is located in the last
@@ -41,7 +41,7 @@ data from <https://pl.mouser.com/datasheet/2/671/MT25Q_QLKT_L_01G_BBB_0-1283539.
 
 ## See also
 
-1. [Phoenix-RTOS serial uploader](psu.md)
-2. [Phoenix-RTOS daemon](phoenixd.md)
-3. [Phoenix-RTOS Host Utilities](index.md)
+1. [Feniks-RTOS serial uploader](psu.md)
+2. [Feniks-RTOS daemon](feniksd.md)
+3. [Feniks-RTOS Host Utilities](index.md)
 4. [Table of Contents](../index.md)

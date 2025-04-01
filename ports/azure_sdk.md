@@ -16,7 +16,7 @@ orphan: True <!-- To be removed after adding separate pages for all ports to pla
 
 ## General information
 
-There are stored adaptations needed to run `azure-iot-sdk-c` on Phoenix-RTOS.
+There are stored adaptations needed to run `azure-iot-sdk-c` on Feniks-RTOS.
 
 Azure IoT C Software Development Kit provides the interface to communicate easily with Azure IoT Hub, Azure IoT Central,
 and Azure IoT Device Provisioning. It's intended for apps written in C99 (or newer) or C++. For more information
@@ -28,21 +28,21 @@ The supported version is [LTS_01_2022](https://github.com/Azure/azure-iot-sdk-c/
 
 ## Quickstart for ia32-generic-qemu
 
-This simple guide is recommended for getting familiar with using `azure_sdk` on Phoenix-RTOS. You will need to have a
+This simple guide is recommended for getting familiar with using `azure_sdk` on Feniks-RTOS. You will need to have a
 `hub` created in [Azure IoT Hub](https://azure.microsoft.com/en-us/services/iot-hub/#overview) and a device within it.
 Each device has its connection string, which will be needed in the following instructions.
 
 First, please build the project with the `ports` component and set `AZURE_CONNECTION_STRING` (see below):
 
 ```Bash
-TARGET=ia32-generic-qemu AZURE_CONNECTION_STRING="HostName=test-hub.azure-devices.net;DeviceId=ia32-generic-qemu;SharedAccessKey=xxxxxxxxx=" ./phoenix-rtos-build/build.sh clean all
+TARGET=ia32-generic-qemu AZURE_CONNECTION_STRING="HostName=test-hub.azure-devices.net;DeviceId=ia32-generic-qemu;SharedAccessKey=xxxxxxxxx=" ./feniks-rtos-build/build.sh clean all
 ```
 
 - Note: The connection string above is only an example, please use your own.
 
 - Note: You do not need all the ports provided for the `ia32-generic-qemu` target architecture. The necessary ports
 are: `busybox`, `openssl`, `curl` and `azure_sdk`.
-[Here](https://github.com/phoenix-rtos/phoenix-rtos-doc/blob/master/building/script.md) you can find more about
+[Here](https://github.com/feniks-rtos/feniks-rtos-doc/blob/master/building/script.md) you can find more about
 building scripts.
 
 Next, you will need an internet connection. Here is an example of how to set up a network connection on
@@ -126,7 +126,7 @@ There are few steps to follow:
         /linuxrc
         ```
 
-      - As you can see, the advanced version of `Phoenix-RTOS` with `POSIX` shell has been started:
+      - As you can see, the advanced version of `Feniks-RTOS` with `POSIX` shell has been started:
 
         ![Image](_images/azure_linuxrc.png)
 

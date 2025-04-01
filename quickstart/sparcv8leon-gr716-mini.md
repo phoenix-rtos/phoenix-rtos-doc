@@ -1,8 +1,8 @@
 # Running system on <nobr>sparcv8leon-gr716-mini</nobr>
 
-These instructions describe how to run Phoenix-RTOS on the `sparcv8leon-gr716-mini` target. Note that the build
+These instructions describe how to run Feniks-RTOS on the `sparcv8leon-gr716-mini` target. Note that the build
 artifacts, including the system image should be provided in the `_boot` directory. If you have not built the system
-image yet, please refer to the [Building Phoenix-RTOS image](../building/index.md) section.
+image yet, please refer to the [Building Feniks-RTOS image](../building/index.md) section.
 
 ## Connecting the board
 
@@ -11,13 +11,13 @@ be used:
 
 - Channel 0 - `if00` - used for `GRMON` debug connection, interfaces to `AHBUART1` on the board,
 - Channel 2 - `if02` - used for console, interfaces to `UART2` on the board,
-- Channel 3 - `if03` - used for interfacing with the `phoenixd` server, interfaces to `UART3` on the board.
+- Channel 3 - `if03` - used for interfacing with the `feniksd` server, interfaces to `UART3` on the board.
 
-## Flashing the Phoenix-RTOS system image
+## Flashing the Feniks-RTOS system image
 
 The process comes down to a few steps, described below.
 
-### Using `GRMON` to upload Phoenix-RTOS loader (`PLO`) to RAM
+### Using `GRMON` to upload Feniks-RTOS loader (`PLO`) to RAM
 
 First, check on which port the board is connected to the computer. To do this, run the following command:
 
@@ -50,13 +50,13 @@ Default CPU clock frequency is 50 MHz.
 To load the bootloader (`plo`) to the RAM, run the following commands in the `GRMON` monitor:
 
 ```console
-load phoenix-rtos-project/_boot/sparcv8leon-gr716-mini/plo-ram.img 0x31000000
+load feniks-rtos-project/_boot/sparcv8leon-gr716-mini/plo-ram.img 0x31000000
 ```
 
 To verify that the file has been loaded correctly, run the following command:
 
 ```console
-verify phoenix-rtos-project/_boot/sparcv8leon-gr716-mini/plo-ram.img 0x31000000
+verify feniks-rtos-project/_boot/sparcv8leon-gr716-mini/plo-ram.img 0x31000000
 ```
 
 Set the entry point of the bootloader:
@@ -82,7 +82,7 @@ The bootloader interface should appear in the console.
 
 ![Image](_images/gr716-plo.png)
 
-### Copying flash image using PHFS (phoenixd)
+### Copying flash image using PHFS (feniksd)
 
 To flash the disk image, first, you need to verify to which port the `plo` serial interface is connected using the
 following command:
@@ -91,19 +91,19 @@ following command:
 ls -l /dev/serial/by-id
 ```
 
-To provide the disk image to the bootloader, `phoenixd` has to be launched with the following arguments
+To provide the disk image to the bootloader, `feniksd` has to be launched with the following arguments
 (choose suitable ttyUSBx device, in this case, `ttyUSB3`):
 
 ```console
-sudo ./phoenixd -p /dev/ttyUSB3 -b 115200 -s .
+sudo ./feniksd -p /dev/ttyUSB3 -b 115200 -s .
 ```
 
-![Image](_images/gr716-phoenixd.png)
+![Image](_images/gr716-feniksd.png)
 
 To start copying a file, write the following command in the console with the `plo` interface:
 
 ```console
-copy uart3 phoenix.disk flash0 0x0 0x0
+copy uart3 feniks.disk flash0 0x0 0x0
 ```
 
 ![Image](_images/gr716-copy.png)
@@ -127,9 +127,9 @@ copy uart3 plo.bch flash0 0xffcb20 0x0
 After copying is done, reset the board to start the operating system. To reboot, write `reboot` command in the `plo`
 console or press the reset button on the board.
 
-## Using Phoenix-RTOS
+## Using Feniks-RTOS
 
-After reboot, Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal.
+After reboot, Feniks-RTOS will be launched and the `psh` shell command prompt will appear in the terminal.
 
 ![Image](_images/gr716-start.png)
 

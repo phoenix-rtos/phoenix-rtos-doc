@@ -1,71 +1,71 @@
 # Reference project repository
 
-The main repository of Phoenix-RTOS is the
-[phoenix-rtos-project](https://github.com/phoenix-rtos/phoenix-rtos-project.git).
+The main repository of Feniks-RTOS is the
+[feniks-rtos-project](https://github.com/feniks-rtos/feniks-rtos-project.git).
 The project consists of the following GitHub submodule repositories.
 
-- [libphoenix](https://github.com/phoenix-rtos/libphoenix.git)
+- [libfeniks](https://github.com/feniks-rtos/libfeniks.git)
 
-    Standard C library. Written from scratch for Phoenix-RTOS.
+    Standard C library. Written from scratch for Feniks-RTOS.
 
-- [phoenix-rtos-build](https://github.com/phoenix-rtos/phoenix-rtos-build.git)
+- [feniks-rtos-build](https://github.com/feniks-rtos/feniks-rtos-build.git)
 
     Building scripts, makefile templates, rules, flags definitions, target selection and
     toolchain.
-- [phoenix-rtos-corelibs](https://github.com/phoenix-rtos/phoenix-rtos-corelibs.git)
+- [feniks-rtos-corelibs](https://github.com/feniks-rtos/feniks-rtos-corelibs.git)
 
     Libraries for use in user space.
 
-- [phoenix-rtos-devices](https://github.com/phoenix-rtos/phoenix-rtos-devices.git)
+- [feniks-rtos-devices](https://github.com/feniks-rtos/feniks-rtos-devices.git)
 
     Hardware drivers.
 
-- [phoenix-rtos-doc](https://github.com/phoenix-rtos/phoenix-rtos-doc.git)
+- [feniks-rtos-doc](https://github.com/feniks-rtos/feniks-rtos-doc.git)
 
     Documentation.
 
-- [phoenix-rtos-filesystems](https://github.com/phoenix-rtos/phoenix-rtos-filesystems.git)
+- [feniks-rtos-filesystems](https://github.com/feniks-rtos/feniks-rtos-filesystems.git)
 
     Filesystem drivers.
 
-- [phoenix-rtos-hostutils](https://github.com/phoenix-rtos/phoenix-rtos-hostutils.git)
+- [feniks-rtos-hostutils](https://github.com/feniks-rtos/feniks-rtos-hostutils.git)
 
     Utilities for development PC (e.g. a tool for transferring system binary image to the
     target).
-- [phoenix-rtos-kernel](https://github.com/phoenix-rtos/phoenix-rtos-kernel.git)
+- [feniks-rtos-kernel](https://github.com/feniks-rtos/feniks-rtos-kernel.git)
 
     Microkernel repository.
 
-- [phoenix-rtos-lwip](https://github.com/phoenix-rtos/phoenix-rtos-lwip.git)
+- [feniks-rtos-lwip](https://github.com/feniks-rtos/feniks-rtos-lwip.git)
 
     LwIP network stack.
 
-- [phoenix-rtos-ports](https://github.com/phoenix-rtos/phoenix-rtos-ports.git)
+- [feniks-rtos-ports](https://github.com/feniks-rtos/feniks-rtos-ports.git)
 
-    Linux (and potentially other OSes) applications ported to Phoenix-RTOS.
+    Linux (and potentially other OSes) applications ported to Feniks-RTOS.
 
-- [phoenix-rtos-posixsrv](https://github.com/phoenix-rtos/phoenix-rtos-posixsrv.git)
+- [feniks-rtos-posixsrv](https://github.com/feniks-rtos/feniks-rtos-posixsrv.git)
 
     POSIX server; user space server that is providing additional POSIX features not
     provided by the kernel itself (e.g.
     pipes).
-- [phoenix-rtos-tests](https://github.com/phoenix-rtos/phoenix-rtos-tests.git)
+- [feniks-rtos-tests](https://github.com/feniks-rtos/feniks-rtos-tests.git)
 
     Tests based on our own framework.
 
-- [phoenix-rtos-usb](https://github.com/phoenix-rtos/phoenix-rtos-usb.git)
+- [feniks-rtos-usb](https://github.com/feniks-rtos/feniks-rtos-usb.git)
 
     USB stack (both host and device).
 
-- [phoenix-rtos-utils](https://github.com/phoenix-rtos/phoenix-rtos-utils.git)
+- [feniks-rtos-utils](https://github.com/feniks-rtos/feniks-rtos-utils.git)
 
     System utilities (e.g. native shell psh).
 
-- [plo](https://github.com/phoenix-rtos/plo.git)
+- [plo](https://github.com/feniks-rtos/plo.git)
 
-    Phoenix-RTOS bootloader.
+    Feniks-RTOS bootloader.
 
-There are other directories and files directly in `phoenix-rtos-project`.
+There are other directories and files directly in `feniks-rtos-project`.
 
 - `_fs/` - rootfs template,
 
@@ -77,10 +77,10 @@ There are other directories and files directly in `phoenix-rtos-project`.
 
 - `riscv` - bootloader for RISC-V CPU,
 
-- `scripts` - bash scripts for running Phoenix-RTOS on simulators (e.g. QEMU),
+- `scripts` - bash scripts for running Feniks-RTOS on simulators (e.g. QEMU),
 
 - `build.project` - bash include file, defines how to build the whole system, it is included by
-phoenix-rtos-build/build.sh,
+feniks-rtos-build/build.sh,
 
 - `busybox-config` - configuration for busybox (baseline Linux based toolkit and shell),
 
@@ -89,7 +89,7 @@ her development PC).
 
 ## See also
 
-1. [Building Phoenix-RTOS image](index.md)
+1. [Building Feniks-RTOS image](index.md)
 2. [Building script](script.md)
 3. [Toolchain](toolchain.md)
 4. [Table of Contents](../index.md)

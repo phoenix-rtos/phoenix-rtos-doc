@@ -1,13 +1,13 @@
-<!-- Phoenix-RTOS documentation master file -->
+<!-- Feniks-RTOS documentation master file -->
 
-# Phoenix-RTOS Documentation
+# Feniks-RTOS Documentation
 
-Phoenix-RTOS is a scalable real-time operating system for IoT. It is based on its own microkernel and can be used
+Feniks-RTOS is a scalable real-time operating system for IoT. It is based on its own microkernel and can be used
 either on small devices based on microcontrollers and on advanced computer systems based on multiple processors and
 equipped with gigabytes of RAM.
 
 The system supports multiple architectures, including ARM Cortex-M, ARM Cortex-A, Intel x86, RISC-V, LEON3/4 (SPARC)
-and some popular microcontrollers and reference boards. Phoenix-RTOS is constantly under development, but it was
+and some popular microcontrollers and reference boards. Feniks-RTOS is constantly under development, but it was
 implemented in numerous Smart Utility appliances e.g. in smart gas meters, smart energy meters, data concentrators
 (DCU).
 
@@ -96,12 +96,12 @@ The ARINC653 execution environment (APEX) is under development.
     1. [USB Host stack](usb/usbhost.md)
     2. [libusb](usb/libusb.md)
 12. [Utilities](utils/index.md)
-    1. [Phoenix Shell (psh)](utils/psh/index.md)
-    2. [Phoenix Downloader (psd)](utils/psd.md)
+    1. [Feniks Shell (psh)](utils/psh/index.md)
+    2. [Feniks Downloader (psd)](utils/psd.md)
 13. [Host utilities](hostutils/index.md)
-    1. [Phoenix disk tool (psdisk)](hostutils/psdisk.md)
-    2. [Phoenix Serial Uploader (psu)](hostutils/psu.md)
-    3. [Phoenix Server (phoenixd)](hostutils/phoenixd.md)
+    1. [Feniks disk tool (psdisk)](hostutils/psdisk.md)
+    2. [Feniks Serial Uploader (psu)](hostutils/psu.md)
+    3. [Feniks Server (feniksd)](hostutils/feniksd.md)
 14. [Libraries](corelibs/index.md)
     1. [Common Gateway Interface library (libcgi)](corelibs/libcgi.md)
     2. [VirtIO library (libvirtio)](corelibs/libvirtio.md)

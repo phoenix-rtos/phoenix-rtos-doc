@@ -122,6 +122,6 @@ required header file.
 
 ## See also
 
-1. [Phoenix-RTOS core libraries](index.md)
-2. [Phoenix-RTOS Graphics Library](libgraph.md)
+1. [Feniks-RTOS core libraries](index.md)
+2. [Feniks-RTOS Graphics Library](libgraph.md)
 3. [Table of Contents](../index.md)

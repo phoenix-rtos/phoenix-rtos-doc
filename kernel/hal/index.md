@@ -28,7 +28,7 @@ control to `main()` function.
 
 ## Basic types
 
-Phoenix-RTOS 3 microkernel uses basic C types and a few kernel-specific types defined in HAL.
+Feniks-RTOS 3 microkernel uses basic C types and a few kernel-specific types defined in HAL.
 
 ## Syspage
 
@@ -89,7 +89,7 @@ scheduling and for timers used for time management.
 
 ## Context switching
 
-Context switching is the most exciting part of HAL. In Phoenix-RTOS is assumed the context switching is based on thread
+Context switching is the most exciting part of HAL. In Feniks-RTOS is assumed the context switching is based on thread
 kernel stack switching. When interrupt is raised interrupt stub function (implemented in HAL) is called and stores the
 current thread context (registers and other data) on the top of the kernel stack before it passes control to the
 interrupt dispatching function and finally to the registered interrupt service routine. After interrupt dispatching and

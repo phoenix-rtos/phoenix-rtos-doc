@@ -13,7 +13,7 @@ orphan: True <!-- To be removed after adding separate pages for all ports to pla
 
 ## General information
 
-There are stored adaptations needed to run `mbedtls` on Phoenix-RTOS.
+There are stored adaptations needed to run `mbedtls` on Feniks-RTOS.
 
 MbedTLS is a C library that implements cryptographic primitives, X.509 certificate manipulation, and the SSL/TLS and
 DTLS protocols. Its small code footprint makes it suitable for embedded systems. For more information please visit the
@@ -50,7 +50,7 @@ and include the required header file. Below is the example of using `mbedtls_aes
 
     mbedtls_aes_init( &ctx );
     printf("Hello World!!\n");
-  
+
     return 0;
   }
   ```
@@ -69,7 +69,7 @@ example:
 /bin/test_suite_ssl mbedtls_test_configs/test_suite_ssl.datax
 ```
 
-- Running all tests and parsing results isn't supported in Phoenix-RTOS Test Runner yet.
+- Running all tests and parsing results isn't supported in Feniks-RTOS Test Runner yet.
 
 - The following tests require setting current date before running(using `date` command in psh, for example:
 `date -s @1653990793`), because of certificates' creation date:
@@ -91,6 +91,6 @@ Currently, there are 3/2695 unresolved failing test cases in `test_suite_ssl`:
 
 There are also failing test cases not related strictly to problems with `mbedtls`:
 
-- `net_poll beyond FD_SETSIZE` in `test_suite_net` - <https://github.com/phoenix-rtos/phoenix-rtos-project/issues/408>
+- `net_poll beyond FD_SETSIZE` in `test_suite_net` - <https://github.com/feniks-rtos/feniks-rtos-project/issues/408>
 
-- `Overwrite 0 -> 3` in `test_suite_psa_its` - <https://github.com/phoenix-rtos/phoenix-rtos-project/issues/409>
+- `Overwrite 0 -> 3` in `test_suite_psa_its` - <https://github.com/feniks-rtos/feniks-rtos-project/issues/409>

@@ -1,6 +1,6 @@
 # Coding convention
 
-The chapter presents coding convention used in the implementation files of Phoenix-RTOS.
+The chapter presents coding convention used in the implementation files of Feniks-RTOS.
 
 ## C language standard
 
@@ -18,24 +18,24 @@ Each operating system source file is marked with label with the following struct
      *
      * <Brief file description>
      *
-     * Copyright <Years of active development> Phoenix Systems
+     * Copyright <Years of active development> Feniks Systems
      * Author: <List of authors>
      *
      * %LICENSE%
      */
 ```
 
-Example of a file that is a part of the Phoenix-RTOS kernel:
+Example of a file that is a part of the Feniks-RTOS kernel:
 
 ```c
     /*
-     * Phoenix-RTOS
+     * Feniks-RTOS
      *
      * Operating system kernel
      *
      * pmap - machine dependent part of VM subsystem (ARM)
      *
-     * Copyright 2014-2015 Phoenix Systems
+     * Copyright 2014-2015 Feniks Systems
      * Copyright 2005-2006 Pawel Pisarczyk
      * Author: Pawel Pisarczyk, Radoslaw F. Wawrzusiak, Jacek Popko
      *
@@ -43,7 +43,7 @@ Example of a file that is a part of the Phoenix-RTOS kernel:
      */
 ```
 
-Main label blocks are separated with empty line. The first label block informs that file is the part of Phoenix-RTOS
+Main label blocks are separated with empty line. The first label block informs that file is the part of Feniks-RTOS
 operating system. In next block the information about the operating system module is provided. In this example, the file
 belongs to operating system kernel. Third label block describes the file functionality. In presented example label, the
 file implements `pmap` interface - the hardware dependent part of memory management subsystem for managing the MMU or
@@ -67,7 +67,7 @@ in the final code.
     int main(void)
     {
         _hal_init();
-        hal_consolePrint(ATTR_BOLD, "Phoenix-RTOS microkernel v. " VERSION "\n");
+        hal_consolePrint(ATTR_BOLD, "Feniks-RTOS microkernel v. " VERSION "\n");
 
         _vm_init(&main_common.kmap, &main_common.kernel);
         _proc_init(&main_common.kmap, &main_common.kernel);
@@ -174,7 +174,7 @@ minimized. Static local variables are not allowed.
     }
 ```
 
-## Local variables - libphoenix, userspace
+## Local variables - libfeniks, userspace
 
 Scope of local variables should be minimalized, as the stack usage and number of local variables. It is advised to
 avoid reusing variables for different purposes across the function. Static local variables are allowed.

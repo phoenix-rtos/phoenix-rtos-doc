@@ -27,6 +27,6 @@ System time set to UTC Fri Aug 5 17:29:48 2022
 
 ## See also
 
-1. [Phoenix-RTOS shell](../index.md)
-2. [Phoenix-RTOS Utilities](../../index.md)
+1. [Feniks-RTOS shell](../index.md)
+2. [Feniks-RTOS Utilities](../../index.md)
 3. [Table of Contents](../../../index.md)

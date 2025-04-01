@@ -1,17 +1,17 @@
 # Running system on <nobr>aarch64a53-zynqmp-zcu104</nobr>
 
-These instructions describe how to run a Phoenix-RTOS system image for `aarch64a53-zynqmp-zcu104` target architecture.
+These instructions describe how to run a Feniks-RTOS system image for `aarch64a53-zynqmp-zcu104` target architecture.
 The guide assumes that you have already built the system image and build artifacts are in the `_boot` directory.
 If you haven't run the `build.sh` script yet, run it for `aarch64a53-zynqmp-zcu104` target.
 
-See [how to build the Phoenix-RTOS system image](../building/index.md).
+See [how to build the Feniks-RTOS system image](../building/index.md).
 
 ## Preparing the board
 
-The first step of running Phoenix-RTOS is loading plo (Phoenix loader) into RAM. This can be done in two ways -
-from the SD card or the on-board NOR flash. If you are flashing Phoenix-RTOS for the first time, or the image in
+The first step of running Feniks-RTOS is loading plo (Feniks loader) into RAM. This can be done in two ways -
+from the SD card or the on-board NOR flash. If you are flashing Feniks-RTOS for the first time, or the image in
 NOR flash is corrupt, you can load plo from the SD card. Using plo you can write the system image into NOR flash.
-After this is done, you can run plo and then Phoenix-RTOS from NOR flash.
+After this is done, you can run plo and then Feniks-RTOS from NOR flash.
 
 ### Loading plo from SD card
 
@@ -41,7 +41,7 @@ to the FAT partition on the SD card and rename it to `BOOT.BIN` (case-insensitiv
 
 ### Loading plo from NOR flash
 
-**NOTE:** If this is the first time you run Phoenix-RTOS on this board, use the SD card method to run plo first!
+**NOTE:** If this is the first time you run Feniks-RTOS on this board, use the SD card method to run plo first!
 
 1. Set boot mode to QSPI32 flash. Set switches in the switch block `SW6` as follows:
 
@@ -84,7 +84,7 @@ micro-USB cable from the host PC to connector `J164`.
       lrwxrwxrwx 1 root root 13 sty 31 11:48 usb-Xilinx_JTAG+3Serial_90805-if03-port0 -> ../../ttyUSB3
       ```
 
-      `ttyUSB1` is connected to `UART0` which is used for data transfer using `phoenixd`.
+      `ttyUSB1` is connected to `UART0` which is used for data transfer using `feniksd`.
 
       `ttyUSB2` is connected to `UART1` which is used for serial console.
 
@@ -144,9 +144,9 @@ brew install picocom
 
 You can leave the terminal with the serial port open, and follow the next steps.
 
-## Flashing the Phoenix-RTOS system image
+## Flashing the Feniks-RTOS system image
 
-At first before any flashing, you need to enter Phoenix-RTOS loader (plo), which should have been already loaded.
+At first before any flashing, you need to enter Feniks-RTOS loader (plo), which should have been already loaded.
 
 If there wasn't an older system image in the NOR flash the following output should appear:
 
@@ -154,7 +154,7 @@ If there wasn't an older system image in the NOR flash the following output shou
 
 If you don't see it, please press the `POR_B` button (`SW4`) to reset the chip.
 
-Providing that Phoenix-RTOS is present in the flash memory you will probably see the system startup:
+Providing that Feniks-RTOS is present in the flash memory you will probably see the system startup:
 
 ![Image](_images/zynqmp-ram-start-2.png)
 
@@ -164,7 +164,7 @@ You want to press the `POR_B` button (`SW4`) again and interrupt `Waiting for in
 
 ### Erasing the area intended for file system
 
-It's needed to erase sectors that will be used by `jffs2` file system as we place in the `phoenix.disk`
+It's needed to erase sectors that will be used by `jffs2` file system as we place in the `feniks.disk`
  only the necessary file system content, not the whole area intended for it.
 Without erasure `jffs2` may encounter data from the previous flash operation and errors
  during the system startup may occur.
@@ -190,17 +190,17 @@ Quick description of used arguments:
 
 Please wait until erasing is finished.
 
-### Copying flash image using PHFS (phoenixd)
+### Copying flash image using PHFS (feniksd)
 
-To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments
+To share disk image to the bootloader, `feniksd` has to be launched with the following arguments
  (choose suitable `ttyUSBx` device, in this case, `ttyUSB1`):
 
 ```sh
 cd _boot/aarch64a53-zynqmp-zcu104
-./phoenixd -p /dev/tty[port] -b 921600 -s .
+./feniksd -p /dev/tty[port] -b 921600 -s .
 ```
 
-![Image](_images/zynqmp-phoenixd.png)
+![Image](_images/zynqmp-feniksd.png)
 
 To start copying the file, write the following command in the console with plo interface:
 
@@ -237,7 +237,7 @@ Once the flash image is in RAM disk you can copy it to flash0 in PLO:
 copy ramdisk 0x0 0x4000000 flash0 0x0 0x4000000
 ```
 
-### Booting Phoenix-RTOS from NOR flash memory
+### Booting Feniks-RTOS from NOR flash memory
 
 Now, the image is located in the NOR Quad SPI Flash memory.
 To run it you should follow the steps below:
@@ -258,7 +258,7 @@ To run it you should follow the steps below:
 
   ![Image](_images/zynqmp-qspi-start.png)
 
-## Using Phoenix-RTOS
+## Using Feniks-RTOS
 
 To get the available command list please type:
 

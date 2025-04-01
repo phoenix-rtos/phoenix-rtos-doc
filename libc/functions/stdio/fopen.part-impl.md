@@ -64,7 +64,7 @@ shall be set to describe an initial conversion state.
 The file descriptor associated with the opened stream shall be allocated and opened as if by a call to `open()` with the
 following flags:
 
-<!-- Here we are using Hebrew Punctuation Paseq (U+05C0), because of wrong formatting on Phoenix-RTOS website -->
+<!-- Here we are using Hebrew Punctuation Paseq (U+05C0), because of wrong formatting on Feniks-RTOS website -->
 
 | `fopen()` Mode         | `open()` Flags                        |
 |------------------------|---------------------------------------|

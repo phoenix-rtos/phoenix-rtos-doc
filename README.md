@@ -1,9 +1,9 @@
-# phoenix-rtos-doc
+# feniks-rtos-doc
 
-The full documentation can be found on <https://docs.phoenix-rtos.com/>.
+The full documentation can be found on <https://docs.feniks-rtos.com/>.
 
 This repository contains all the necessary files needed to build
-Phoenix-RTOS Documentation using [sphinx](https://github.com/sphinx-doc/sphinx).
+Feniks-RTOS Documentation using [sphinx](https://github.com/sphinx-doc/sphinx).
 
 It can be done using the following command:
 

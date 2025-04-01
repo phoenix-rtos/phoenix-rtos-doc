@@ -1,8 +1,8 @@
 # Running system on <nobr>sparcv8leon-gr740-mini</nobr>
 
-These instructions describe how to run Phoenix-RTOS on the `sparcv8leon-gr740-mini` target. Note that the build
+These instructions describe how to run Feniks-RTOS on the `sparcv8leon-gr740-mini` target. Note that the build
 artifacts, including the system image should be provided in the `_boot` directory. If you have not built the system
-image yet, please refer to the [Building Phoenix-RTOS image](../building/index.md) section.
+image yet, please refer to the [Building Feniks-RTOS image](../building/index.md) section.
 
 ## Connecting the board
 
@@ -14,7 +14,7 @@ the following assignments:
 - Channel 2 - `if02` - used for console, interfaces to GR740 `UART0` on the board,
 - Channel 3 - `if03` - interfaces to CertusPro-NX FPGA UART.
 
-## Flashing the Phoenix-RTOS system image
+## Flashing the Feniks-RTOS system image
 
 The process comes down to a few steps, described below.
 
@@ -59,21 +59,21 @@ it is much slower than method 2, which skips the padded parts of the image.
 To load the system image to the onboard flash memory, run the following commands in the `GRMON` monitor:
 
 ```console
-flash load -erase phoenix-rtos-project/_boot/sparcv8leon-gr740-mini/flash0.disk 0xc0000000
+flash load -erase feniks-rtos-project/_boot/sparcv8leon-gr740-mini/flash0.disk 0xc0000000
 ```
 
 You can then verify the uploaded image by running the following command:
 
 ```console
-verify phoenix-rtos-project/_boot/sparcv8leon-gr740-mini/flash0.disk 0xc0000000
+verify feniks-rtos-project/_boot/sparcv8leon-gr740-mini/flash0.disk 0xc0000000
 ```
 
 #### Method 2: Uploading only the necessary files
 
 Method 2 skips the padded parts of the image, which makes it faster than method 1. To upload only the necessary files
 to the onboard flash memory, you need to upload the files to offsets on the flash specified by
-`phoenix-rtos-project/_targets/sparcv8leon/gr740/nvm.yaml` file. The offsets are specified in the `nvm.yaml` file in the
-`phoenix-rtos-project/_targets/sparcv8leon/gr740` directory. The `nvm.yaml` file contains the following information:
+`feniks-rtos-project/_targets/sparcv8leon/gr740/nvm.yaml` file. The offsets are specified in the `nvm.yaml` file in the
+`feniks-rtos-project/_targets/sparcv8leon/gr740` directory. The `nvm.yaml` file contains the following information:
 
 ```yaml
 flash0:
@@ -99,19 +99,19 @@ at offset `0x100000`, and `part_ptable.img` at offset `0x7fe0000`.
 To upload the files to the onboard flash memory, run the following commands in the `GRMON` monitor:
 
 ```console
-flash load -erase phoenix-rtos-project/_boot/sparcv8leon-gr740-mini/plo.img 0xc0000000
-flash load -erase phoenix-rtos-project/_boot/sparcv8leon-gr740-mini/part_kernel.img 0xc0020000
-flash load -erase phoenix-rtos-project/_boot/sparcv8leon-gr740-mini/rootfs.jffs2 0xc0100000
-flash load -erase phoenix-rtos-project/_boot/sparcv8leon-gr740-mini/part_ptable.img 0xc7fe0000
+flash load -erase feniks-rtos-project/_boot/sparcv8leon-gr740-mini/plo.img 0xc0000000
+flash load -erase feniks-rtos-project/_boot/sparcv8leon-gr740-mini/part_kernel.img 0xc0020000
+flash load -erase feniks-rtos-project/_boot/sparcv8leon-gr740-mini/rootfs.jffs2 0xc0100000
+flash load -erase feniks-rtos-project/_boot/sparcv8leon-gr740-mini/part_ptable.img 0xc7fe0000
 ```
 
 You can then verify the uploaded images by running the following commands:
 
 ```console
-verify phoenix-rtos-project/_boot/sparcv8leon-gr740-mini/plo.img 0xc0000000
-verify phoenix-rtos-project/_boot/sparcv8leon-gr740-mini/part_kernel.img 0xc0020000
-verify phoenix-rtos-project/_boot/sparcv8leon-gr740-mini/rootfs.jffs2 0xc0100000
-verify phoenix-rtos-project/_boot/sparcv8leon-gr740-mini/part_ptable.img 0xc7fe0000
+verify feniks-rtos-project/_boot/sparcv8leon-gr740-mini/plo.img 0xc0000000
+verify feniks-rtos-project/_boot/sparcv8leon-gr740-mini/part_kernel.img 0xc0020000
+verify feniks-rtos-project/_boot/sparcv8leon-gr740-mini/rootfs.jffs2 0xc0100000
+verify feniks-rtos-project/_boot/sparcv8leon-gr740-mini/part_ptable.img 0xc7fe0000
 ```
 
 ### Starting the execution
@@ -140,9 +140,9 @@ ep 0xc0000000
 run
 ```
 
-## Using Phoenix-RTOS
+## Using Feniks-RTOS
 
-Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal.
+Feniks-RTOS will be launched and the `psh` shell command prompt will appear in the terminal.
 
 ![Image](_images/gr740-start.png)
 

@@ -1,15 +1,15 @@
 # Device drivers
 
-Phoenix-RTOS implements device drivers as device servers running on the user level. The communication with drivers is
+Feniks-RTOS implements device drivers as device servers running on the user level. The communication with drivers is
 done via message passing using a well-defined interface for exchanging data between programs and drivers.
 
 To control the device, two mechanisms are necessary and should be provided by the operating system kernel: access to
-device hardware registers and method of handling interrupts triggered by it. The architecture of these Phoenix-RTOS
+device hardware registers and method of handling interrupts triggered by it. The architecture of these Feniks-RTOS
 mechanisms has been presented in the chapter’s subsections.
 
 ## Generic driver architecture
 
-Each typical driver in Phoenix-RTOS consists of the main function which typically parses command line parameters,
+Each typical driver in Feniks-RTOS consists of the main function which typically parses command line parameters,
 creates a driver communication port, registers it in the operating system, namespace, initializes a device, and starts
 processing the incoming messages.
 
@@ -29,10 +29,10 @@ by the internal thread.
 
 ## Source code
 
-The source code of Phoenix-RTOS device drivers could be obtained using the following command
+The source code of Feniks-RTOS device drivers could be obtained using the following command
 
 ```console
-git clone http://git.phoenix-rtos.com/phoenix-rtos-devices
+git clone http://git.feniks-rtos.com/feniks-rtos-devices
 ```
 
 The documentation of a particular driver is provided within its source code repository.

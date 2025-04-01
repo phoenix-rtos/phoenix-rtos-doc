@@ -20,11 +20,11 @@ computers are equipped with a non-uniform physical memory (NUMA) with different 
 in modern microcontrollers, some physical memory segments can be tightly coupled with processor enabling to run
 real-time application demanding minimal jitter (e.g. for signal processing). On multicore architectures, some physical
 memory segments can be tightly coupled with particular set of processing cores while others segments can be accessible
-over switched buses which results in delayed access and performance degradation. Having this in mind in Phoenix-RTOS it
+over switched buses which results in delayed access and performance degradation. Having this in mind in Feniks-RTOS it
 was decided to redefine the traditional approach to memory management and some new memory management abstractions and
 mechanisms were proposed. These abstractions and mechanisms allow unifying the approach for memory management on many
 types of memory architectures. To understand the details and purpose of these mechanisms memory hardware architecture
-issues are briefly discussed in this chapter before Phoenix-RTOS memory management functions are briefly presented.
+issues are briefly discussed in this chapter before Feniks-RTOS memory management functions are briefly presented.
 
 ## Paging technique and Memory Management Unit
 
@@ -103,7 +103,7 @@ redefining segments is slow because it requires the invalidation of cache memori
 MPU is limited because segment address and size definition depend on chosen granulation. For example, some segments can
 be defined only if all set of MPU registers is used.
 
-The second strategy, used in Phoenix-RTOS, is based on memory regions/segments defined for the whole operating system
+The second strategy, used in Feniks-RTOS, is based on memory regions/segments defined for the whole operating system
 and shared between processes. It means that processes can use during its execution few assigned predefined memory
 regions called further memory maps. These regions are defined during operating system bootstrap with respect of MPU
 register semantics and can be inline with physical memory characteristics. For example, separate regions can be defined
@@ -149,7 +149,7 @@ Physical memory allocation is the lowest level of the memory management subsyste
 purposes of kernel or mapped object. They are two ways of obtaining physical memory depending on the type of hardware
 memory architecture. When paging technique is used the memory is allocated using physical memory pages (page frames).
 On architecture with direct physical memory access the physical memory is allocated using address space allocation in
-the particular memory map. It is planned to generalize these techniques in the next version of Phoenix-RTOS memory
+the particular memory map. It is planned to generalize these techniques in the next version of Feniks-RTOS memory
 management subsystem. To understand the physical memory allocation algorithm on architectures using paging technique
 please refer to [Physical memory allocation using memory pages](page.md).
 
@@ -192,7 +192,7 @@ the HAL.
 
 ## Chapter information
 
-In this chapter main functions of Phoenix-RTOS memory management are discussed.
+In this chapter main functions of Feniks-RTOS memory management are discussed.
 
 ## See also
 

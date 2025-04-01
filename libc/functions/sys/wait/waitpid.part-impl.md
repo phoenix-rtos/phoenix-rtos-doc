@@ -175,9 +175,9 @@ Untested
 
 * Description
   * `WIFSTOPPED(stat_val)`, `WSTOPSIG(stat_val)`, `WIFCONTINUED(stat_val)` always return `0`
-  * `WNOHANG` option does not work ([Issue link](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/184))
+  * `WNOHANG` option does not work ([Issue link](https://github.com/feniks-rtos/feniks-rtos-project/issues/184))
   * `waitpid()` does not discard a pending `SIGCHLD`signal that is associated with a successfully waited-for child
-  process. ([Issue link](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/188))
+  process. ([Issue link](https://github.com/feniks-rtos/feniks-rtos-project/issues/188))
 
 ## See Also
 

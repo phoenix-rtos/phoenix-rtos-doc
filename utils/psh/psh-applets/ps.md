@@ -15,7 +15,7 @@ Options
       -t    Show threads
       -f    Show full command line
       -h    Show help instead
-  
+
   Sorting:
       -c    Sort by current CPU usage [default]
       -n    Sort by name
@@ -24,6 +24,6 @@ Options
 
 ## See also
 
-1. [Phoenix-RTOS shell](../index.md)
-2. [Phoenix-RTOS Utilities](../../index.md)
+1. [Feniks-RTOS shell](../index.md)
+2. [Feniks-RTOS Utilities](../../index.md)
 3. [Table of Contents](../../../index.md)

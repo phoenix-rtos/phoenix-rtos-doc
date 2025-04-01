@@ -1,6 +1,6 @@
-# Phoenix Server (phoenixd)
+# Feniks Server (feniksd)
 
-`phoenixd` is a host daemon responsible for managing communication channels and facilitating the boot process.
+`feniksd` is a host daemon responsible for managing communication channels and facilitating the boot process.
 It provides functionality for handling various types of requests, including kernel and program loading
 over different communication interfaces such as serial ports, pipes, UDP, and TCP.
 Operates as a background service, listening for incoming requests and responding accordingly.
@@ -8,7 +8,7 @@ Operates as a background service, listening for incoming requests and responding
 ## Usage
 
 ```bash
-phoenixd [-1] [-k kernel] [-s bindir] [-p serial_device] [-m pipe_file] [-i udp_ip_addr:port] [-t tcp_ip_addr:port] [-u load_addr[:jump_addr]] [-b baudrate] [-o output_file]
+feniksd [-1] [-k kernel] [-s bindir] [-p serial_device] [-m pipe_file] [-i udp_ip_addr:port] [-t tcp_ip_addr:port] [-u load_addr[:jump_addr]] [-b baudrate] [-o output_file]
 ```
 
 ### Arguments
@@ -38,7 +38,7 @@ In this mode arguments are passed only to kernel e.g. <kernel_path>="app1;arg1;a
 
 ## See also
 
-1. [Phoenix-RTOS disk tool](psdisk.md)
-2. [Phoenix-RTOS serial uploader](psu.md)
-3. [Phoenix-RTOS Host Utilities](index.md)
+1. [Feniks-RTOS disk tool](psdisk.md)
+2. [Feniks-RTOS serial uploader](psu.md)
+3. [Feniks-RTOS Host Utilities](index.md)
 4. [Table of Contents](../index.md)

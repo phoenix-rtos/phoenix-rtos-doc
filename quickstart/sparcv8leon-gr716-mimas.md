@@ -1,9 +1,9 @@
 # Running system on <nobr>sparcv8leon-gr716-mimas</nobr>
 
-These instructions describe how to run Phoenix-RTOS on the LEON3/GR716 emulated
+These instructions describe how to run Feniks-RTOS on the LEON3/GR716 emulated
 on Mimas A7 Mini FPGA which is called `sparcv8leon-gr716-mimas`target.
 Note that the build artifacts, including the system image should be provided in the `_boot` directory. If you
-have not built the system image yet, please refer to the [Building Phoenix-RTOS image](../building/index.md) section.
+have not built the system image yet, please refer to the [Building Feniks-RTOS image](../building/index.md) section.
 
 ## Connecting the board
 
@@ -12,10 +12,10 @@ determinate which power line will be in use).
 
 Communication with the board in this case is provided via USB-UART converters connected to connector `P4`
 
-- pins `3-tx (E13 - red)`&`5-rx (D16 - orange)` are used for interfacing with the `phoenixd` server.
+- pins `3-tx (E13 - red)`&`5-rx (D16 - orange)` are used for interfacing with the `feniksd` server.
 - pins `7-tx (E15 - yellow)`&`9-rx (F14 - orange)` are used for `psh/plo` console.
 - pins `37-M4` & `49-GND` must be connected via `10k` ohm resistor.
-  
+
 Mimas pinout diagram:
 ![Image](_images/MimasA7_Mini_WD.png)
 
@@ -28,12 +28,12 @@ This is how connected device should look like:
 ## Programming Artix FPGA
 
 All information about preparing and uploading a bit stream for the Mimas A7 Mini can be found in the
-[phoenix-rtos-hdl](https://github.com/phoenix-rtos/phoenix-rtos-hdl/blob/master/leon3-numato-mimas-a7-mini/README.md)
+[feniks-rtos-hdl](https://github.com/feniks-rtos/feniks-rtos-hdl/blob/master/leon3-numato-mimas-a7-mini/README.md)
 repository.
 
 `Note: Do not run further steps until FPGA isn't programed properly.`
 
-## Copying system image using PHFS (phoenixd)
+## Copying system image using PHFS (feniksd)
 
 To load the disk image on the board, first step is to verify which device the `plo` serial interface is connected to
 using the following command:
@@ -45,10 +45,10 @@ ls -l /dev/serial/by-id
 The output of this command depends on what interfaces are used. (Easiest way to determinate which one are correct is
 run this command, unplug one of them and again using same command check what device disappears).
 
-To provide the disk image to the bootloader, `phoenixd` has to be launched with the following arguments
+To provide the disk image to the bootloader, `feniksd` has to be launched with the following arguments
 (choose suitable ttys device, in this case, USB-UART converter is connected to pins `3 & 5`):
 
-`-s` option to `phoenixd` determines from where program will upload files to the device. To simplify this process,
+`-s` option to `feniksd` determines from where program will upload files to the device. To simplify this process,
 we can just move to the desired folder and use `.` to point to the current directory.
 To do that simply type:
 
@@ -59,7 +59,7 @@ cd _boot/sparcv8leon-gr716-mimas
 then
 
 ```bash
-sudo ./phoenixd -p /dev/ttyUSB[X] -b 115200 -s .
+sudo ./feniksd -p /dev/ttyUSB[X] -b 115200 -s .
 ```
 
 In a second terminal start `picocom` using the following command:
@@ -79,9 +79,9 @@ If the image has been loaded correctly, you should see system startup logs.
 
 ![Image](_images/gr716-mimas-loading.png)
 
-## Using the Phoenix-RTOS
+## Using the Feniks-RTOS
 
-After loading, Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal.
+After loading, Feniks-RTOS will be launched and the `psh` shell command prompt will appear in the terminal.
 
 ![Image](_images/gr716-mimas-start.png)
 

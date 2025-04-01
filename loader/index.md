@@ -1,11 +1,11 @@
 # Loader
 
-The plo is an inherent part of Phoenix-RTOS used to prepare the system setup structure and load kernel and applications
+The plo is an inherent part of Feniks-RTOS used to prepare the system setup structure and load kernel and applications
  to selected memory areas defined as maps.
 The loader configuration is flexible and allows the user to customize appropriate sets of functionality depending on
  hardware resources.
 
-The Phoenix-RTOS loader supports the following target platforms:
+The Feniks-RTOS loader supports the following target platforms:
 
 * armv7m4-stm32l4x6
 
@@ -43,14 +43,14 @@ Using CLI, users can define their own booting sequences, save a script and run p
 phase. All available commands are described in the [CLI chapter](cli.md).
 
 Examples of booting scripts are located in the building files of the supported targets in
-[phoenix-rtos-project/_targets](https://github.com/phoenix-rtos/phoenix-rtos-project/tree/master/_targets).
+[feniks-rtos-project/_targets](https://github.com/feniks-rtos/feniks-rtos-project/tree/master/_targets).
 
 ## Source code
 
 The source code of the loader can be obtained with the following command:
 
 ```console
-    git clone http://git.phoenix-rtos.com/plo
+    git clone http://git.feniks-rtos.com/plo
 ```
 
 ## See also

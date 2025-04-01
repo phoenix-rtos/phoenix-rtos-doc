@@ -1,13 +1,13 @@
 # Running system on <nobr>armv7a9-zynq7000-qemu</nobr>
 
-These instructions describe how to run a Phoenix-RTOS system image for the `armv7a9-zynq7000-qemu` target architecture
+These instructions describe how to run a Feniks-RTOS system image for the `armv7a9-zynq7000-qemu` target architecture
 using docker.
 
 Note that, the build artifacts, including the system image, should be first provided in the `_boot` directory.
 
 If you haven't run the `build.sh` script yet, run it for `armv7a9-zynq7000-qemu` target.
 
-See [how to build the Phoenix-RTOS system image](../../building/index.md).
+See [how to build the Feniks-RTOS system image](../../building/index.md).
 
 ## Running the system image
 
@@ -132,13 +132,13 @@ Firstly, you need to have the docker installed.
 
   </details>
 
-Now, with docker installed you can run Phoenix-RTOS using the following command:
+Now, with docker installed you can run Feniks-RTOS using the following command:
 
 ```console
 ./docker-devel.sh scripts/armv7a9-zynq7000-qemu.sh
 ```
 
-As a result, you should see `psh` (Phoenix-RTOS shell).
+As a result, you should see `psh` (Feniks-RTOS shell).
 
 - Note: It may take a while.
 
@@ -147,13 +147,13 @@ As a result, you should see `psh` (Phoenix-RTOS shell).
   <details>
   <summary>Why there is no need to install qemu?</summary>
 
-  All necessary tools including QEMU are provided in phoenix-rtos/devel docker image (run by `docker-devel.sh` script)
+  All necessary tools including QEMU are provided in feniks-rtos/devel docker image (run by `docker-devel.sh` script)
 
   If you want, you can read more about docker containerization on <https://www.docker.com/resources/what-container>
 
   </details>
 
-## Using Phoenix-RTOS
+## Using Feniks-RTOS
 
 To get the available command list please type:
 

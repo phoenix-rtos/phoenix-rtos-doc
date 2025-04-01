@@ -1,20 +1,20 @@
 # Running system on <nobr>armv7a7-imx6ull-evk</nobr>
 
 This version is designed for NXP i.MX 6ULL processors with ARM Cortex-A7 core. To launch this version the final disk
-image and loader image should be provided. Images are created as the final artifacts of the `phoenix-rtos-project`
+image and loader image should be provided. Images are created as the final artifacts of the `feniks-rtos-project`
 building and are located in the `_boot` directory. The disk image consists of bootloader (plo), kernel, UART driver
 (tty), dummyfs filesystem server (RAM disk), and psh (shell). Necessary tools to carry out the uploading process are
 located in the `_boot` directory as well.
 
 ## Development board
 
-The easiest way to start programming hardware targets using Phoenix-RTOS is to get some evaluation boards with a
+The easiest way to start programming hardware targets using Feniks-RTOS is to get some evaluation boards with a
 specified target processor or microcontroller. In this case
 <!-- markdownlint-disable -->
 [i. MX 6ULL - EVK](https://www.nxp.com/design/development-boards/i-mx-evaluation-and-development-boards/evaluation-kit-for-the-i-mx-6ull-and-6ulz-applications-processor:MCIMX6ULL-EVK)
 <!-- markdownlint-restore -->
 Is the example of a board with the `imx6ull` processor, where the default configuration of peripherals allows running
-Phoenix-RTOS.
+Feniks-RTOS.
 
 ## Connecting the board
 
@@ -59,14 +59,14 @@ in `i. MX 6ULL - EVK` will be connected to your host-pc.
 
 You can leave the terminal with the serial port open, and follow the next steps.
 
-## Flashing the Phoenix-RTOS system image
+## Flashing the Feniks-RTOS system image
 
 The process comes down to a few steps, described below.
 
-### Uploading Phoenix-RTOS loader (plo) to the RAM memory
+### Uploading Feniks-RTOS loader (plo) to the RAM memory
 
 To flash the disk image to the board, the bootloader (plo) image located in the `_boot` directory should be uploaded to
-the RAM using `psu` (Phoenix Serial Uploader) via `SDP` (Serial Download Protocol).
+the RAM using `psu` (Feniks Serial Uploader) via `SDP` (Serial Download Protocol).
 
 - Make sure, that the SW602 switch is in the following configuration (serial downloader mode):
 
@@ -97,7 +97,7 @@ the RAM using `psu` (Phoenix Serial Uploader) via `SDP` (Serial Download Protoco
 
 ![Image](_images/imx6ull-plo-help.png)
 
-### Copying flash image using PHFS (phoenixd)
+### Copying flash image using PHFS (feniksd)
 
 To flash the disk image, first, you need to verify on which port plo USB device has appeared. You can check that using
 `ls` as follows:
@@ -108,27 +108,27 @@ ls -l /dev/serial/by-id
 
 ![Image](_images/imx6ull-ls-2.png)
 
-To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments
+To share disk image to the bootloader, `feniksd` has to be launched with the following arguments
 (choose suitable ttyACMx device, in this case, ttyACM0):
 
 ```console
-sudo ./phoenixd -p /dev/ttyACM0 -b 115200 -s .
+sudo ./feniksd -p /dev/ttyACM0 -b 115200 -s .
 ```
 
-![Image](_images/imx6ull-phoenixd.png)
+![Image](_images/imx6ull-feniksd.png)
 
 To start copying a file, write the following command in the console with plo interface:
 
 ```console
-copy usb0 phoenix.disk nor0 0x0 0x0
+copy usb0 feniks.disk nor0 0x0 0x0
 ```
 
 The `nor0` is the flash memory.
 
-### Booting Phoenix-RTOS from Flash
+### Booting Feniks-RTOS from Flash
 
 - Turn off the board.
-  
+
 - Change configuration of SW602 to the following configuration (internal boot mode):
 
   | D1/MODE1 | D2/MODE0 |
@@ -142,13 +142,13 @@ The `nor0` is the flash memory.
 
 - Turn on the board.
 
-If everything has gone correctly, Phoenix-RTOS with the default configuration and the `psh` shell command prompt will
+If everything has gone correctly, Feniks-RTOS with the default configuration and the `psh` shell command prompt will
 appear in the terminal after 2 seconds. If there is a need to enter the bootloader, the waiting for input should be
 interrupted by pressing any key. Then you can exit plo by passing `go!` command.
 
 ![Image](_images/imx6ull-start.png)
 
-## Using Phoenix-RTOS
+## Using Feniks-RTOS
 
 To get the available command list please type:
 

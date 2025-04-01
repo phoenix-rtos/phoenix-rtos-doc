@@ -1,6 +1,6 @@
 # Synchronization primitives
 
-Phoenix-RTOS kernel implements three widely used methods for synchronization of concurrently executed instruction
+Feniks-RTOS kernel implements three widely used methods for synchronization of concurrently executed instruction
 streams.
 
 ## Spinlocks

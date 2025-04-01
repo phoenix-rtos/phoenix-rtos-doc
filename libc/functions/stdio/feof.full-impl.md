@@ -30,7 +30,7 @@ No errors are defined.
 
 ## Tests
 
-Tested in [test-libc](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/libc).
+Tested in [test-libc](https://github.com/feniks-rtos/feniks-rtos-tests/tree/master/libc).
 
 ## Known bugs
 

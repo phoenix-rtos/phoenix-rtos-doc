@@ -4,7 +4,7 @@ orphan: True <!-- Additional page not intended to place in toctree -->
 
 # Windows
 
-For now, it is possible to build Phoenix-RTOS images for all targets and run `ia32-generic-qemu` on Windows using
+For now, it is possible to build Feniks-RTOS images for all targets and run `ia32-generic-qemu` on Windows using
 `Cygwin` or `WSL`. Running the rest of targets is under development.
 
 ## Cygwin
@@ -103,7 +103,7 @@ $
 </details>
 &nbsp;
 
-Now the packages required for launching Phoenix-RTOS may be installed. It can be done using the following command:
+Now the packages required for launching Feniks-RTOS may be installed. It can be done using the following command:
 
 ```console
 lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg && \
@@ -132,7 +132,7 @@ library, because `Cygwin` doesn't support it, and it's mandatory in case of crea
 To do this, paste the following into the `Cygwin` terminal:
 
 <details>
-<summary>Make genext2fs package and download phoenix-rtos (click to expand)</summary>
+<summary>Make genext2fs package and download feniks-rtos (click to expand)</summary>
 
 &nbsp;
 
@@ -157,23 +157,23 @@ Now what was left is to copy repository with all submodules.
 To do that call this command in home directory:
 
 ```console
-git clone --recursive https://github.com/phoenix-rtos/phoenix-rtos-project/
+git clone --recursive https://github.com/feniks-rtos/feniks-rtos-project/
 ```
 
 Now, we can follow instructions about building toolchains. Remember to use commands inside
-`phoenix-rtos-project` folder.
+`feniks-rtos-project` folder.
 
 (Quick tip: It is not mandatory but turning off Real-Time Protection in Windows Defender speeds up this process)
 
 ```console
- cd phoenix-rtos-project
+ cd feniks-rtos-project
 ```
 
 ```text
-(cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh i386-pc-phoenix ~/toolchains/i386-pc-phoenix)
-(cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh arm-phoenix ~/toolchains/arm-phoenix)
-(cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh riscv64-phoenix ~/toolchains/riscv64-phoenix)
-(cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh sparc-phoenix ~/toolchains/sparc-phoenix)
+(cd feniks-rtos-build/toolchain/ && ./build-toolchain.sh i386-pc-feniks ~/toolchains/i386-pc-feniks)
+(cd feniks-rtos-build/toolchain/ && ./build-toolchain.sh arm-feniks ~/toolchains/arm-feniks)
+(cd feniks-rtos-build/toolchain/ && ./build-toolchain.sh riscv64-feniks ~/toolchains/riscv64-feniks)
+(cd feniks-rtos-build/toolchain/ && ./build-toolchain.sh sparc-feniks ~/toolchains/sparc-feniks)
 
 ```
 
@@ -181,7 +181,7 @@ Adding toolchain binaries to the PATH variable can also be tricky. On Windows, w
 containing white spaces, after using:
 
 ```console
-echo "export PATH=$PATH:$HOME/toolchains/i386-pc-phoenix/i386-pc-phoenix/bin/:$HOME/toolchains/arm-phoenix/arm-phoenix/bin/:$HOME/toolchains/riscv64-phoenix/riscv64-phoenix/bin/:$HOME/toolchains/sparc-phoenix/sparc-phoenix/bin/" >> $HOME/.bashrc
+echo "export PATH=$PATH:$HOME/toolchains/i386-pc-feniks/i386-pc-feniks/bin/:$HOME/toolchains/arm-feniks/arm-feniks/bin/:$HOME/toolchains/riscv64-feniks/riscv64-feniks/bin/:$HOME/toolchains/sparc-feniks/sparc-feniks/bin/" >> $HOME/.bashrc
 ```
 
 After calling this we need to fix paths in `.bashrc` file e.g. `C:\x\y z\d` we must change to `C:\x\'y z'\d`.
@@ -189,10 +189,10 @@ After calling this we need to fix paths in `.bashrc` file e.g. `C:\x\y z\d` we m
 This simple change will fix all unwanted messages at
 the start of the `Cygwin` terminal, and it will allow us to use the toolchain without setting the path every time.
 
-Now it should be possible to build the Phoenix-RTOS system image with the full configuration excluding tests:
+Now it should be possible to build the Feniks-RTOS system image with the full configuration excluding tests:
 
 ```console
-TARGET=ia32-generic-qemu CONSOLE=serial phoenix-rtos-build/build.sh all
+TARGET=ia32-generic-qemu CONSOLE=serial feniks-rtos-build/build.sh all
 ```
 
 Of course, you can build the system image for this target in different configuration.
@@ -239,7 +239,7 @@ On the first start, you will be prompted to create an account in the subsystem (
 
 ![Sudo Credentials](_images/wsl-sudo-credentials.png)
 
-After that simply follow the instructions for Ubuntu written in the [Building Phoenix-RTOS](index.md) and
+After that simply follow the instructions for Ubuntu written in the [Building Feniks-RTOS](index.md) and
 [ia32-generic-qemu quick-start](../quickstart/ia32-generic-qemu.md).
 
 (Quick tip: It is not mandatory, but turning off Real-Time Protection in Windows Defender speeds up the toolchain
@@ -247,7 +247,7 @@ building process)
 
 ### See also
 
-1. [Building Phoenix-RTOS image](index.md)
+1. [Building Feniks-RTOS image](index.md)
 2. [Toolchain](toolchain.md)
 3. [Building script](script.md)
 4. [ia32-generic quick start](../quickstart/ia32-generic-qemu.md)

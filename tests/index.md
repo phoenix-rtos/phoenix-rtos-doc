@@ -1,12 +1,12 @@
 # Tests and testing process
 
-The testing process uses a Phoenix-RTOS testing framework written in Python. The framework provides an environment for
+The testing process uses a Feniks-RTOS testing framework written in Python. The framework provides an environment for
 running both unit and functional tests.
 Unit tests are written using [Unity](http://www.throwtheswitch.org/getting-started-with-unity) and the process is
 adapted to it.
 
 Tests, in general, are launched using test runner, placed in
-[phoenix-rtos-tests](https://github.com/phoenix-rtos/phoenix-rtos-tests) repository.
+[feniks-rtos-tests](https://github.com/feniks-rtos/feniks-rtos-tests) repository.
 Read more about the reference project repository [here](../building/project.md).
 
 ## High level overview of the test runner
@@ -35,7 +35,7 @@ provided serial port.
 - Finally, the overall test result is printed.
 
 The test runner does not build the project for you. You need to add the test parameter to the build script to ensure
-that the tests will be built. If you want to test the `phoenix-rtos-ports`, make sure that the ports are built and
+that the tests will be built. If you want to test the `feniks-rtos-ports`, make sure that the ports are built and
 include the `LONG_TEST=y` environment variable during the building process.
 
 Some targets require extra steps to make them compatible with the test runner. For example, the `ia32-generic-qemu`
@@ -43,13 +43,13 @@ target must be built with a custom syspage that includes the UART driver. Here i
 with ports for the `ia32-generic-qemu` target:
 
 ```console
-TARGET=ia32-generic-qemu CONSOLE=serial LONG_TEST=y ./phoenix-rtos-build/build.sh all test
+TARGET=ia32-generic-qemu CONSOLE=serial LONG_TEST=y ./feniks-rtos-build/build.sh all test
 ```
 
 But most of the targets can be build using simple:
 
 ```console
-TARGET=target ./phoenix-rtos-build/build.sh core fs project image test.
+TARGET=target ./feniks-rtos-build/build.sh core fs project image test.
 ```
 
 Currently, only user space tests are supported.
@@ -59,7 +59,7 @@ Currently, only user space tests are supported.
 ## One time setup
 
 Python packages required by the testing script have to be installed. To do this, create the virtual environment, change
-the directory to `phoenix-rtos-tests` and run the following command:
+the directory to `feniks-rtos-tests` and run the following command:
 
 ```console
 pip3 install -r requirements.txt
@@ -75,7 +75,7 @@ repository in the `sample` directory). We will need four components: a program w
 executable, a Python harness to test the program execution, and a YAML configuration file to connect everything
 together.
 
-First, let's create the executable to test. Create a directory called `hello` in the `phoenix-rtos-tests/hello`
+First, let's create the executable to test. Create a directory called `hello` in the `feniks-rtos-tests/hello`
 directory and place the `hello.c` file inside it:
 
 ```c
@@ -97,13 +97,13 @@ LOCAL_SRCS := hello.c
 include $(binary.mk)
 ```
 
-On most targets, programs located in the `phoenix-rtos-tests` directory will be built and included in the filesystem.
+On most targets, programs located in the `feniks-rtos-tests` directory will be built and included in the filesystem.
 We have the first component - the binary that we are going to test.
 
 Next, let's focus on creating the harness that supervises the test. The harness is a program written in Python,
 and its main task is to communicate with the test binary and read its output. For this purpose, we will use the
 [pexpect library](https://pexpect.readthedocs.io/en/stable/) that is built-in inside the runner. Create a file named
-`hello_harness.py` in the `phoenix-rtos-tests/hello` directory and place the following code there:
+`hello_harness.py` in the `feniks-rtos-tests/hello` directory and place the following code there:
 
 ```python
 from trunner.dut import Dut
@@ -130,7 +130,7 @@ Now, let's move on to the last step. We have the binary that we want to test, an
 ensures everything executes correctly. The next step is to define the YAML configuration file that connects them
 together.
 
-Define a YAML configuration file called `phoenix-rtos-tests/hello/test_config.yaml`:
+Define a YAML configuration file called `feniks-rtos-tests/hello/test_config.yaml`:
 
 ```yaml
 test:
@@ -151,13 +151,13 @@ Important note: Every YAML configuration must start with the `test_` prefix.
 Finally, we can verify that everything works correctly. First, let's build the project:
 
 ```console
-TARGET=ia32-generic-qemu CONSOLE=serial ./phoenix-rtos-build/build.sh core fs project image test
+TARGET=ia32-generic-qemu CONSOLE=serial ./feniks-rtos-build/build.sh core fs project image test
 ```
 
 Once the project is built, we are ready to run our test:
 
 ```console
-./phoenix-rtos-tests/runner.py --target ia32-generic-qemu -t phoenix-rtos-tests/hello/test_config.yaml
+./feniks-rtos-tests/runner.py --target ia32-generic-qemu -t feniks-rtos-tests/hello/test_config.yaml
 ```
 
 We should expect the following output:
@@ -165,7 +165,7 @@ We should expect the following output:
 ```shell
 Flashing an image to device...
 Done!
-phoenix-rtos-tests/hello/hello-world: OK
+feniks-rtos-tests/hello/hello-world: OK
 TESTS: 1 PASSED: 1 FAILED: 0 SKIPPED: 0
 ```
 
@@ -184,9 +184,9 @@ Run tests one more time. Now the output should differ from the previous one:
 ```shell
 Flashing an image to device...
 Done!
-phoenix-rtos-tests/hello/hello-world: FAIL
+feniks-rtos-tests/hello/hello-world: FAIL
 ASSERTION TRACEBACK (most recent call last):
-  File "/home/user/phoenix-rtos-project/phoenix-rtos-tests/hello/hello_harness.py", line 7, in harness
+  File "/home/user/feniks-rtos-project/feniks-rtos-tests/hello/hello_harness.py", line 7, in harness
     assert line == expected, f"Line mismatch! Expected: {expected}, got: {line}" # Assure that the read line is `Hello, world!` message.
 
 ASSERTION MESSAGE:
@@ -202,7 +202,7 @@ possible.
 
 In this section, we will explore another type of test: unit testing. When we talk about testing, unit testing often
 comes to mind, which is why the test runner has native support for unit testing. Similar to the previous section,
-we start by creating a C file named `dummy.c` located in the `phoenix-rtos-tests/dummy` directory. To write unit tests,
+we start by creating a C file named `dummy.c` located in the `feniks-rtos-tests/dummy` directory. To write unit tests,
 we will use the modified [Unity Test](http://www.throwtheswitch.org/unity), a third party unit testing framework
 built for C.
 
@@ -294,20 +294,20 @@ instead defining the harness ourselves, we have ready-to-use harness that will b
 Now, you can run the tests and expect the success:
 
 ```shell
-./phoenix-rtos-tests/runner.py --target ia32-generic-qemu -t phoenix-rtos-tests/dummy/test_dummy.yaml
+./feniks-rtos-tests/runner.py --target ia32-generic-qemu -t feniks-rtos-tests/dummy/test_dummy.yaml
 Flashing an image to device...
 Done!
-phoenix-rtos-tests/dummy/test-dummy: OK
+feniks-rtos-tests/dummy/test-dummy: OK
 TESTS: 1 PASSED: 1 FAILED: 0 SKIPPED: 0
 ```
 
 To see more information, add the `--verbose` flag:
 
 ```shell
-./phoenix-rtos-tests/runner.py --target ia32-generic-qemu -t phoenix-rtos-tests/dummy/test_dummy.yaml --verbose
+./feniks-rtos-tests/runner.py --target ia32-generic-qemu -t feniks-rtos-tests/dummy/test_dummy.yaml --verbose
 Flashing an image to device...
 Done!
-phoenix-rtos-tests/dummy/test-dummy: OK
+feniks-rtos-tests/dummy/test-dummy: OK
 	TEST(dummy, memset) OK
 	TEST(dummy, strlen) OK
 	TEST(dummy, ok) OK
@@ -318,11 +318,11 @@ Finally, we can force runner to fail to see how the output will look like. Chang
 `TEST_FAIL_MESSAGE("dummy test that always pass");`. Rebuild the project and run tests one more time:
 
 ```shell
-/phoenix-rtos-tests/runner.py --target ia32-generic-qemu -t phoenix-rtos-tests/dummy/test_dummy.yaml
+/feniks-rtos-tests/runner.py --target ia32-generic-qemu -t feniks-rtos-tests/dummy/test_dummy.yaml
 Flashing an image to device...
 Done!
-phoenix-rtos-tests/dummy/test-dummy: FAIL
-	TEST(dummy, ok) FAIL at phoenix-rtos-tests/dummy/dummy.c:27: dummy test that always pass
+feniks-rtos-tests/dummy/test-dummy: FAIL
+	TEST(dummy, ok) FAIL at feniks-rtos-tests/dummy/dummy.c:27: dummy test that always pass
 TESTS: 1 PASSED: 0 FAILED: 1 SKIPPED: 0
 ```
 
@@ -332,7 +332,7 @@ As we can see, the runner caught failed test and provided information about the 
 
 In this example, we will demonstrate what we can achieve using additional features of the runner and its YAML
 configurations. Without surprise, we create a new C program in the same location, which is the
-`phoenix-rtos-tests/hello` directory. Let's name this file `hello_arg.c` and put the following content inside it:
+`feniks-rtos-tests/hello` directory. Let's name this file `hello_arg.c` and put the following content inside it:
 
 ```c
 #include <stdio.h>
@@ -499,7 +499,7 @@ Now, let's check how the runner will handle this test configuration based on the
 start with following command:
 
 ```shell
-./phoenix-rtos-tests/runner.py -T ia32-generic-qemu -t phoenix-rtos-tests/hello/test_hello_arg.yaml
+./feniks-rtos-tests/runner.py -T ia32-generic-qemu -t feniks-rtos-tests/hello/test_hello_arg.yaml
 ```
 
 The result should be as follows:
@@ -507,7 +507,7 @@ The result should be as follows:
 ```shell
 Flashing an image to device...
 Done!
-phoenix-rtos-tests/hello/arg_two: OK
+feniks-rtos-tests/hello/arg_two: OK
 TESTS: 1 PASSED: 1 FAILED: 0 SKIPPED: 0
 ```
 
@@ -517,13 +517,13 @@ The result is expected because there is only one test that does not run in night
 Add the `--nightly` flag to the previous command and compare the output:
 
 ```shell
-./phoenix-rtos-tests/runner.py -T ia32-generic-qemu -t phoenix-rtos-tests/hello/test_hello_arg.yaml --nightly
+./feniks-rtos-tests/runner.py -T ia32-generic-qemu -t feniks-rtos-tests/hello/test_hello_arg.yaml --nightly
 Flashing an image to device...
 Done!
-phoenix-rtos-tests/hello/arg_zero: OK
-phoenix-rtos-tests/hello/arg_two: OK
-phoenix-rtos-tests/hello/arg_hello: OK
-phoenix-rtos-tests/hello/arg_hello_too_long_input: OK
+feniks-rtos-tests/hello/arg_zero: OK
+feniks-rtos-tests/hello/arg_two: OK
+feniks-rtos-tests/hello/arg_hello: OK
+feniks-rtos-tests/hello/arg_hello_too_long_input: OK
 TESTS: 4 PASSED: 4 FAILED: 0 SKIPPED: 0
 ```
 
@@ -534,11 +534,11 @@ We can change the target to verify what `targets` keyword looks like. Change `ia
 `armv7a9-zynq7000-qemu` in the previous command:
 
 ```shell
-./phoenix-rtos-tests/runner.py -T armv7a9-zynq7000-qemu -t phoenix-rtos-tests/hello/test_hello_arg.yaml --nightly
+./feniks-rtos-tests/runner.py -T armv7a9-zynq7000-qemu -t feniks-rtos-tests/hello/test_hello_arg.yaml --nightly
 Flashing an image to device...
 Done!
-phoenix-rtos-tests/hello/arg_hello: OK
-phoenix-rtos-tests/hello/arg_hello_too_long_input: OK
+feniks-rtos-tests/hello/arg_hello: OK
+feniks-rtos-tests/hello/arg_hello_too_long_input: OK
 TESTS: 2 PASSED: 2 FAILED: 0 SKIPPED: 0
 ```
 
@@ -549,7 +549,7 @@ If you try to run this test case on a different target not listed in this YAML c
 will finish its execution without executing any test:
 
 ```shell
-./phoenix-rtos-tests/runner.py -T riscv64-generic-qemu -t phoenix-rtos-tests/hello/test_hello_arg.yaml --nightly
+./feniks-rtos-tests/runner.py -T riscv64-generic-qemu -t feniks-rtos-tests/hello/test_hello_arg.yaml --nightly
 Flashing an image to device...
 Done!
 TESTS: 0 PASSED: 0 FAILED: 0 SKIPPED: 0
