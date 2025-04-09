@@ -18,7 +18,7 @@ jobs:
         with:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-review
-          fail_on_error: true
+          fail_level: warning
 
   misspell:
     runs-on: ubuntu-latest
@@ -28,7 +28,7 @@ jobs:
         with:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-review
-          fail_on_error: true
+          fail_level: warning
 
 
   languagetool:
