@@ -11,4 +11,12 @@
 \addtolength{\cftsubsecnumwidth}{5pt}
 \setcounter{secnumdepth}{3}
 \definecolor{ps-orange}{HTML}{ea5b22}
+\definecolor{ps-darkblue}{HTML}{26384f}
 \addto\captionsenglish{\renewcommand{\contentsname}{\textcolor{ps-orange}{Table of contents}}}
+
+% Set headings color
+\titleformat{\section}{\bfseries\Large\color{ps-darkblue}}{\thesection}{1em}{}
+\titleformat{\subsection}{\bfseries\large\color{ps-darkblue}}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\bfseries\normalsize\color{ps-darkblue}}{\thesubsubsection}{1em}{}
+\titleformat{\paragraph}{\bfseries\color{ps-darkblue}}{\theparagraph}{1em}{}
+\titleformat{\subparagraph}{\bfseries\color{ps-darkblue}}{\thesubparagraph}{1em}{}
