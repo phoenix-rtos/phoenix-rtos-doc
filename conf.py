@@ -81,6 +81,7 @@ latex_additional_files = [
 ]
 
 latex_elements = {
+    'sphinxsetup': r'pre_padding-right=0pt, pre_padding-left=0pt',
     'makeindex': r'',
     'papersize': r'a4paper',
     'tableofcontents': r'''
