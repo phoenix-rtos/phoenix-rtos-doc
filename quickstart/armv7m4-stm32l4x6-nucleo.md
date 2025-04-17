@@ -4,7 +4,7 @@ This version is designated for STM32L4x6 processors with Cortex-M4 core. To laun
 should be provided. The image is created as the final artifact of the `phoenix-rtos-project` building and is located in
 the `_boot` directory. The image consists of a kernel, TTY UART driver, RAM disk filesystem, and psh (shell).
 
-See [how to build the Phoenix-RTOS system image](../building/index.md).
+See [Building](../building/index.md) chapter.
 
 ## Development board
 
@@ -27,7 +27,7 @@ To communicate with the board you will need to use a UART-USB converter, like `P
   - PL2303 RX (white) - Nucleo USART_B_TX
   - PL2303 GND (black) - Nucleo GND
 
-  ![Image](_images/nucleo-pinout.png)
+  ![Image](../_static/images/quickstart/nucleo-pinout.png)
 
   Source: The Nucleo board's schematic, available on
   <https://www.st.com/en/evaluation-tools/nucleo-l4a6zg.html#cad-resources>
@@ -36,7 +36,7 @@ To communicate with the board you will need to use a UART-USB converter, like `P
 
   The picture below presents how the board should be connected:
 
-  ![Image](_images/stm32l4x6-connections.png)
+  ![Image](../_static/images/quickstart/stm32l4x6-connections.png)
 
 - Now you should verify, what USB device on your host-pc is connected with the `UART` (console). To check that run:
 
@@ -46,15 +46,7 @@ To communicate with the board you will need to use a UART-USB converter, like `P
     ls -l /dev/serial/by-id
   ```
 
-  ![Image](_images/stm32l4x6-ls.png)
-
-  - On macOS:
-
-  ```console
-  ls -l /dev/tty.*
-  ```
-
-  ![Image](_images/stm32l4x6-ls-macos.png)
+  ![Image](../_static/images/quickstart/stm32l4x6-ls.png)
 
 - Open serial port in terminal using picocom
 
@@ -74,16 +66,6 @@ To communicate with the board you will need to use a UART-USB converter, like `P
 
   ```console
   sudo usermod -a -G tty <yourname>
-  ```
-
-  </details>
-
-  <details>
-  <summary>How to get picocom (macOS)</summary>
-
-  ```console
-  brew update &&\
-  brew install picocom
   ```
 
   </details>
@@ -136,28 +118,9 @@ If you encounter errors install manually from sources (v0.12.0):
   openocd -v
   ```
 
-  ![Image](_images/openocd-version.png)
+  ![Image](../_static/images/quickstart/openocd-version.png)
 
   </details>
-
-  <details>
-  <summary>How to get openocd (macOS) </summary>
-
-  - install openocd
-
-    ```console
-    brew update &&\
-    brew install open-ocd
-    ```
-
-  - check if the version is correct
-
-    ```console
-    openocd -v
-    ```
-
-  </details>
-  </br>
 
 If you have openocd, next you can use the following script:
 
@@ -173,7 +136,7 @@ openocd -f interface/stlink.cfg \
 -c "program _boot/armv7m4-stm32l4x6-nucleo/phoenix.disk 0x08000000 verify reset exit"
 ```
 
-![Image](_images/stm32l4x6-openocd.png)
+![Image](../_static/images/quickstart/stm32l4x6-openocd.png)
 
 The script can be modified to accommodate other SWD interfaces.
 
@@ -182,7 +145,7 @@ The script can be modified to accommodate other SWD interfaces.
 Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal with the serial port
 opened.
 
-![Image](_images/stm32l4x6-start.png)
+![Image](../_static/images/quickstart/stm32l4x6-start.png)
 
 - Note: You can also enter plo (Phoenix-RTOS loader) by pressing any button, for example, `enter` within some time after
 reset (using `RESET B2`).
@@ -193,7 +156,7 @@ To get the available command list please type:
 help
 ```
 
-![Image](_images/stm32l4x6-help.png)
+![Image](../_static/images/quickstart/stm32l4x6-help.png)
 
 To get the list of working processes please type:
 
@@ -201,9 +164,4 @@ To get the list of working processes please type:
 ps
 ```
 
-![Image](_images/stm32l4x6-ps.png)
-
-## See also
-
-1. [Running system on targets](index.md)
-2. [Table of Contents](../index.md)
+![Image](../_static/images/quickstart/stm32l4x6-ps.png)

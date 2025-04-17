@@ -2,16 +2,6 @@
 
 The `libcgi` library provides a set of functionalities for handling Common Gateway Interface (CGI) operations in C.
 
-## Contents
-
-- [General information](#general-information)
-- [Request Method](#request-method)
-- [Authentication Modes](#authentication-modes)
-- [libcgi interface](#libcgi-interface)
-  - [Data Structures](#data-structures)
-  - [Parameters Management](#parameters-management)
-- [Using libcgi](#using-libcgi)
-
 ## General information
 
 The `libcgi` library is a helper library designed to facilitate CGI. It provides functions for retrieving request
@@ -119,9 +109,3 @@ void libcgi_freeMultipartParams(libcgi_param_t *params_head)
 
 To use functions provided by `libcgi` please add the library to the `LIBS` variable in `Makefile` and include the
 required header file.
-
-## See also
-
-1. [Phoenix-RTOS core libraries](index.md)
-2. [Phoenix-RTOS Graphics Library](libgraph.md)
-3. [Table of Contents](../index.md)

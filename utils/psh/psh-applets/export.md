@@ -13,9 +13,3 @@ export [NAME[=value] ...]
 - `NAME`: The name of the environment variable to set.
 
 - `value`: The value to assign to the environment variable.
-
-## See also
-
-1. [Phoenix-RTOS shell](../index.md)
-2. [Phoenix-RTOS Utilities](../../index.md)
-3. [Table of Contents](../../../index.md)

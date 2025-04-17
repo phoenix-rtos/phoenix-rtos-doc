@@ -29,7 +29,7 @@ data from <https://pl.mouser.com/datasheet/2/671/MT25Q_QLKT_L_01G_BBB_0-1283539.
 ./psdisk partitionTable.img -m 0x8000000,0x1000 -p raw1,0,0x10000,0x51 -p raw2,0x20000,0x1000,0x51 -p meterfs,0x50000,0x50000,0x75
 ```
 
-![Image](_images/psdisk_ex1.png)
+![Image](../_static/images/hostutils/psdisk_ex1.png)
 
 ### Updating partition table
 
@@ -37,11 +37,4 @@ data from <https://pl.mouser.com/datasheet/2/671/MT25Q_QLKT_L_01G_BBB_0-1283539.
 ./psdisk partitionTable.img -m 0x8000000,0x1000 -p raw4,0x100000,0x10000,0x51
 ```
 
-![Image](_images/psdisk_ex2.png)
-
-## See also
-
-1. [Phoenix-RTOS serial uploader](psu.md)
-2. [Phoenix-RTOS daemon](phoenixd.md)
-3. [Phoenix-RTOS Host Utilities](index.md)
-4. [Table of Contents](../index.md)
+![Image](../_static/images/hostutils/psdisk_ex2.png)

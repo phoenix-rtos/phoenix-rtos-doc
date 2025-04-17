@@ -6,7 +6,7 @@ PLO, kernel, UART16550 interface and virtio-blk drivers, dummyfs filesystem and 
 with the ext2 filesystem.
 
 The files are created as the final artifact of the `phoenix-rtos-project` building and are located in the `_boot`
-directory. See [how to build the Phoenix-RTOS system image](../building/index.md).
+directory. See [Building](../building/index.md) chapter.
 
 ## Running image under QEMU
 
@@ -44,40 +44,15 @@ Firstly, you need to install QEMU emulator.
 
   </details>
 
-  <details>
-  <summary>How to get QEMU (macOS)</summary>
-
-- Install the required packages
-
-  ```zsh
-  brew update && \
-  brew install qemu
-  ```
-
-- Check if QEMU is properly installed:
-
-  ```zsh
-  qemu-system-riscv64 --version
-  ```
-
-  ```zsh
-  ~$ qemu-system-riscv64 --version
-  QEMU emulator version 8.0.0
-  Copyright (c) 2003-2022 Fabrice Bellard and the QEMU Project developers
-  ~$
-  ```
-
-  </details>
-
 To run the image under QEMU you should type:
 
 ```console
 ./scripts/riscv64-generic-qemu.sh
 ```
 
-![Image](_images/riscv64-generic-qemu1.png)
+![Image](../_static/images/quickstart/riscv64-generic-qemu1.png)
 </br>
-![Image](_images/riscv64-generic-qemu2.png)
+![Image](../_static/images/quickstart/riscv64-generic-qemu2.png)
 
 ## Using Phoenix-RTOS
 
@@ -88,7 +63,7 @@ command list please type:
 help
 ```
 
-![Image](_images/riscv64-generic-qemu-help.png)
+![Image](../_static/images/quickstart/riscv64-generic-qemu-help.png)
 
 To get the list of working processes please type:
 
@@ -96,9 +71,4 @@ To get the list of working processes please type:
 ps
 ```
 
-![Image](_images/riscv64-generic-qemu-ps.png)
-
-## See also
-
-1. [Running system on targets](index.md)
-2. [Table of Contents](../index.md)
+![Image](../_static/images/quickstart/riscv64-generic-qemu-ps.png)

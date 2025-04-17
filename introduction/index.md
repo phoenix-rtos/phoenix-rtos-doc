@@ -59,11 +59,11 @@ This table presents a timeline of the most important events in the history of op
 | 1982 | <span style="color:red">pSOS </span> | <span style="color:red">The popular real-time operating system for embedded systems based on M68000 family </span> |
 | 1982 | <span style="color:red">QNX</span> | <span style="color:red">The first real-time operating system based on the UN*X philosophy (Intel 8088)</span> |
 | 1983 | GNU/HURD | The first open source operating system (based on a microkernel) |
-| 1984 | <span style="color:violet">Mac OS</span> | <span style="color:violet">The first operating system for personal computers with GUI</span> |
+| 1984 | <span style="color:violet">macOS</span> | <span style="color:violet">The first operating system for personal computers with GUI</span> |
 | 1984 | <span style="color:blue">SunOS</span> | <span style="color:blue">UN*X developed by Sun Microsystems for SUN computers based on BSD</span> |
 | 1985 | AmigaOS | Operating system for Amiga personal computers |
 | 1985 | <span style="color:violet">MS Windows 1.01</span> | <span style="color:violet">Graphical environment for MS-DOS</span> |
-| 1986 | <span style="color:green">Mach</span> | <span style="color:green">The first multi-server UN*X emulation based on message passing (for VAX-11)</span> |
+| 1986 | <span style="color:green">Mach</span> | <span style="color:green">The first multiserver UN*X emulation based on message passing (for VAX-11)</span> |
 | 1987 | <span style="color:blue">Xenix</span> | <span style="color:blue">The UN*X operating system developed by SCO (initially with Microsoft) for IBM PC – the first 32-bit operating system for IBM PC</span> |
 | 1987 | <span style="color:red">VxWorks</span> | <span style="color:red">Real-time operating system for safety critical embedded applications</span> |
 | 1988 | <span style="color:violet">OS/2</span> | <span style="color:violet">The first operating system with GUI for IBM PC</span> |
@@ -120,7 +120,7 @@ numerous companies and universities. One of them, the University of Berkeley, st
 systems and created their own version of UNIX called BSD (Berkeley Software Distribution).
 
 <!-- markdownlint-disable -->
-### <span style="color:green">Microkernel architecture</green>
+### <span style="color:green">Microkernel architecture</span>
 <!-- markdownlint-restore -->
 
 In 1979, a team from Rochester University presented a framework for a distributed computing environment, which consisted
@@ -151,10 +151,6 @@ In 1974, while working for Intel Corporation Dr. Gary A. Kildall created CP/M as
  microprocessor. By 1977, CP/M had become the most popular operating system in the fledgling microcomputer (PC)
  industry. The largest Digital Research licensee of CP/M was a small company, which had started life as Traf-0-Data,
  and is now known as Microsoft.
-
-<!-- markdownlint-disable -->
-### <span style="color:red">Realtime operating systems</span>
-<!-- markdownlint-restore -->
 
 ## Evolution problem
 
@@ -206,7 +202,3 @@ researchers working in the field of operating systems, including the author of M
 An additional advantage of such an effectively implemented system is its reliability and potential for comprehensive
 tests and audit of the static source code. A well-developed operating system like this is of particular importance for
 critical applications thanks to a shorter certification process (e.g. acquiring the DO-178C certificate).
-
-## See also
-
-1. [Table of Contents](../index.md)

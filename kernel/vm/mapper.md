@@ -63,7 +63,7 @@ data which should be copied into the memory.
 
 The figure below briefly presents the idea behind describing the address space with a memory map based on a binary tree.
 
-![Image](_images/mem-map1.png)
+![Image](../../_static/images/kernel/vm/mem-map1.png)
 
 The sample tree presented in the figure above will help you better understand the map structure. The root node points to
 the segment located approximately in the middle of the address space described by the map (the address range is defined
@@ -220,12 +220,3 @@ will fail.
 ### Memory regions
 
 A NUMA machine has different memory controllers with different distances to specific CPUs.
-
-## See also
-
-1. [Kernel - Memory management](index.md)
-2. [Kernel - Memory management - Page allocator](page.md)
-3. [Kernel - Memory management - Zone allocator](zalloc.md)
-4. [Kernel - Memory management - Fine grained allocator](kmalloc.md)
-5. [Kernel - Memory management - Memory objects](objects.md)
-6. [Table of Contents](../../index.md)

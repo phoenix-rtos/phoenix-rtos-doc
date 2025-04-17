@@ -19,8 +19,3 @@ GETFROMSTACK(ustack, time_t, offs, 0);
 Set offset value returned from `syscalls_timeSet`. This is shared between all
 processes. It is not used for system time calculations so value interpretation
 is not specified here. Default offset on boot is `0`.
-
-## See also
-
-1. [System calls](index.md)
-2. [Table of Contents](../../index.md)

@@ -7,8 +7,3 @@ GETFROMSTACK(ustack, char, c, 0);
 ````
 
 ## `syscalls_sbiGetChar` (`syscalls_sbi_getchar`)
-
-## See also
-
-1. [System calls](index.md)
-2. [Table of Contents](../../index.md)

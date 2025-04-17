@@ -20,7 +20,7 @@ Options:
 
 Calling the `mem` command with no arguments prints a summary of the memory map as in the following example:
 
-![Image](../_images/mem-output.png)
+![Image](../../../_static/images/utils/psh/mem-output.png)
 
 This is described by the following formula:
 
@@ -41,7 +41,7 @@ Read more about memory map entries in the [Memory mapper](../../../kernel/vm/map
 
 Calling `mem -p` prints the page view:
 
-![Image](../_images/mem-p-output.png)
+![Image](../../../_static/images/utils/psh/mem-p-output.png)
 
 The following markings are used:
 
@@ -68,7 +68,7 @@ A page view is not available on targets without `MMU` (memory management unit).
 
 Calling `mem -m [pid]` or `mem -m kernel` prints information about entries of a process' memory map:
 
-![Image](../_images/mem-m-output.png)
+![Image](../../../_static/images/utils/psh/mem-m-output.png)
 
 By default, (when calling without arguments) memory map of current process is printed out. There is also a possibility
 to pass the ID of a process (`pid`) or pass the `kernel` argument, which displays information about the kernel process.
@@ -81,9 +81,3 @@ The column titles in the table displayed are as follows:
 - `OFFSET` - mapped memory offset within object
 - `OBJECT` - entry description, it can be `(anonymous)`, `mem` or `object_port.object_id`, there can be printed
 information about `anonsize` in kilobytes too.
-
-## See also
-
-1. [Phoenix-RTOS shell](../index.md)
-2. [Phoenix-RTOS Utilities](../../index.md)
-3. [Table of Contents](../../../index.md)

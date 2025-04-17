@@ -14,22 +14,13 @@ repository.
 
 The `phoenix-rtos-usb` repository contains two directories, that match two build targets: `libusb` and `usb`.
 
-## Source code
-
 The source code of the USB host stack and Libusb can be obtained with the following command:
 
 ```console
-    git clone http://git.phoenix-rtos.com/phoenix-rtos-usb
+git clone https://github.com/phoenix-rtos/phoenix-rtos-usb.git
 ```
 
-## See also
-
-1. [USB Host stack](usbhost.md)
-2. [Libusb](libusb.md)
-3. [Table of Contents](../index.md)
-
 ```{toctree}
-:hidden:
 :maxdepth: 1
 
 usbhost.md

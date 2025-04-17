@@ -51,7 +51,3 @@ encountered, a null pointer is returned.
 ## Errors
 
 No errors are defined.
-
-## Implementation tasks
-
-* Add environment parsing for setting timezone and daylight.

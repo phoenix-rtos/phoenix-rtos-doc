@@ -9,7 +9,7 @@ image yet, please refer to the [Building Phoenix-RTOS image](../building/index.m
 Connect the board to the computer using the USB-C port marked `MCU LINK` (see the attached picture).
 This USB port provides debug interface along with a TTY channel for ISP and system shell.
 
-![Image](_images/mcxn947-evk.png)
+![Image](../_static/images/quickstart/mcxn947-evk.png)
 
 ## Flashing the Phoenix-RTOS system image
 
@@ -71,7 +71,7 @@ The system console is available on the same TTY that was used earlier to upload 
 
 Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal.
 
-![Image](_images/mcxn947-evk-start.png)
+![Image](../_static/images/quickstart/mcxn947-evk-start.png)
 
 - Note: You can also enter `plo` by pressing any button within some time after reset.
 
@@ -81,7 +81,7 @@ To get the available command list type:
 help
 ```
 
-![Image](_images/mcxn947-evk-help.png)
+![Image](../_static/images/quickstart/mcxn947-evk-help.png)
 
 To get the list of working processes type:
 
@@ -89,7 +89,7 @@ To get the list of working processes type:
 ps
 ```
 
-![Image](_images/mcxn947-evk-ps.png)
+![Image](../_static/images/quickstart/mcxn947-evk-ps.png)
 
 ## See also
 

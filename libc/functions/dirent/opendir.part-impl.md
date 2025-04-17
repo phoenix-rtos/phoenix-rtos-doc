@@ -57,4 +57,3 @@ intermediate result with a length that exceeds {`PATH_MAX`}.
 ### Implementation tasks
 
 * Implement `fdopendir()` function
-* Implement error detection as described above.

@@ -24,8 +24,3 @@ GETFROMSTACK(ustack, int, i, 1);
 ````C
 GETFROMSTACK(ustack, int, t, 0);
 ````
-
-## See also
-
-1. [System calls](index.md)
-2. [Table of Contents](../../index.md)

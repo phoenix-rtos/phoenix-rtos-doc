@@ -1,18 +1,4 @@
----
-orphan: True <!-- To be removed after adding separate pages for all ports to place them in toctree -->
----
 # Azure IoT C SDK Port
-
-## Contents
-
-- [General information](#general-information)
-- [Supported version](#supported-version)
-- [Quickstart for ia32-generic-qemu](#quickstart-for-ia32-generic-qemu)
-  - [Network setup on ia32-generic-qemu](#network-setup-on-ia32-generic-qemu)
-  - [Running the IoThub Client sample](#running-the-iothub-client-sample)
-- [Using azure-iot-sdk-c](#using-azure-iot-sdk-c)
-- [Running tests](#running-tests)
-- [Known bugs](#known-bugs)
 
 ## General information
 
@@ -103,7 +89,7 @@ There are few steps to follow:
       sudo chmod a+rw /etc/qemu/bridge.conf
       ```
 
-      ![Image](_images/azure_sdk_vibr_setup.png)
+      ![Image](../_static/images/ports/azure_sdk_vibr_setup.png)
 
     - Sources: <https://apiraino.github.io/qemu-bridge-networking/>,
      <https://mike42.me/blog/2019-08-how-to-use-the-qemu-bridge-helper-on-debian-10>
@@ -128,13 +114,13 @@ There are few steps to follow:
 
       - As you can see, the advanced version of `Phoenix-RTOS` with `POSIX` shell has been started:
 
-        ![Image](_images/azure_linuxrc.png)
+        ![Image](../_static/images/ports/azure_linuxrc.png)
 
       - Now you can check the internet connection using the `ping` applet.
 
       - To complete the configuration please set the current date using `date` applet, like below:
 
-        ![Image](_images/azure_date.png)
+        ![Image](../_static/images/ports/azure_date.png)
 
       - Note: The required argument entered after `@` is EPOCH (POSIX time format) - you can gt it for example from
        [here](https://www.epochconverter.com/).
@@ -147,7 +133,7 @@ Providing that internet connection is working, and the current date is set, you 
 /bin/iothub_ll_telemetry_sample
 ```
 
-![Image](_images/azure_sample.png)
+![Image](../_static/images/ports/azure_sample.png)
 
 - Note: The entered connection string was added to the sample's source code. You can find it in
 `_build/ia32-generic-qemu/azure_sdk/azure-iot-sdk-c-lts_01_2022/iothub_client/samples/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c`.
