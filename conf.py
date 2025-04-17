@@ -69,6 +69,7 @@ html_theme_options = {
     },
 }
 
+latex_table_style = ["colorrows"]
 latex_documents = [
     ("index", "phoenix-rtos.tex", "Phoenix-RTOS Documentation", author, "howto", True),
 ]
