@@ -128,16 +128,16 @@ The `nor0` is the flash memory.
 ### Booting Phoenix-RTOS from Flash
 
 - Turn off the board.
-  
+
 - Change configuration of SW602 to the following configuration (internal boot mode):
 
   | D1/MODE1 | D2/MODE0 |
-  |-|-|
-  | ON| OFF|
+  | -------- | -------- |
+  | ON       | OFF      |
 
 - Change configuration of SW601 to the following configuration (boot from QSPI):
-  | D1 | D2 | D3 | D4 |
-  |-|-|-|-|
+  | D1  | D2  | D3  | D4  |
+  | --- | --- | --- | --- |
   | OFF | OFF | OFF | OFF |
 
 - Turn on the board.

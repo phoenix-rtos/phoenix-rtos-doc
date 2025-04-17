@@ -39,7 +39,7 @@ the file descriptor associated with the stream to be closed and reopened, the fi
 reopened stream shall be allocated and opened as if by a call to `open()` with the following flags:
 
 | `freopen()` Mode       | `open()` Flags                |
-|------------------------|-------------------------------|
+| ---------------------- | ----------------------------- |
 | `r` or `rb`            | `O_RDONLY`                    |
 | `w` or `wb`            | `O_WRONLY\|O_CREAT\|O_TRUNC`  |
 | `a` or `ab`            | `O_WRONLY\|O_CREAT\|O_APPEND` |

@@ -21,7 +21,13 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
 
 - `voxeldemo`
 
+  ```{only} html
   ![Output sample](../_static/gifs/voxeldemo.gif)
+  ```
+
+  ```{only} latex
+  ![Output sample](../_static/images/pdf/voxeldemo.png)
+  ```
 
   Source code can be found in the `_user` directory in
   [phoenix-rtos-project](https://github.com/phoenix-rtos/phoenix-rtos-project.git) repository.
@@ -350,7 +356,13 @@ int main(void)
   graph_fill(&graph, 402, 55, 0x00000FF, GRAPH_FILL_BOUND, GRAPH_QUEUE_HIGH);
   ```
 
+  ```{only} html
   ![Output sample](../_static/gifs/fill.gif)
+  ```
+
+  ```{only} latex
+  ![Output sample](../_static/images/pdf/fill.png)
+  ```
 
 - Printing text using libgraph
 
@@ -371,7 +383,13 @@ int main(void)
   graph_move(&graph, 100, 100, 100, 100, 300, 300, GRAPH_QUEUE_HIGH);
   ```
 
+  ```{only} html
   ![Output sample](../_static/gifs/move.gif)
+  ```
+
+  ```{only} latex
+  ![Output sample](../_static/images/pdf/move.png)
+  ```
 
 - Copying raw bitmap into a screen
 
@@ -457,7 +475,13 @@ int main(void)
   graph_colorset(&graph, buff[0], 0, 1);
   ```
 
+  ```{only} html
   ![Output sample](../_static/gifs/colorset.gif)
+  ```
+
+  ```{only} latex
+  ![Output sample](../_static/images/pdf/colorset.png)
+  ```
 
 - Moving a cursor
   The `cursor.h` header file with cursor shape data (`amask`, `xmask`) has to be included.
@@ -472,7 +496,13 @@ int main(void)
   graph_cursorhide(&graph);
   ```
 
+  ```{only} html
   ![Output sample](../_static/gifs/cursor.gif)
+  ```
+
+  ```{only} latex
+  ![Output sample](../_static/images/pdf/cursor.png)
+  ```
 
 ## Generating an image bitmap and displaying it using libgraph
 

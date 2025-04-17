@@ -1,19 +1,10 @@
 # Configuration file for the Sphinx documentation builder.
-#
-# For the full list of built-in configuration values, see the documentation:
-# https://www.sphinx-doc.org/en/master/usage/configuration.html
-
-# -- Project information -----------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 from version_management import get_version_context
 
 project = ""
 copyright = "2024-2025, Phoenix Systems"
 author = "Phoenix Systems"
-
-# -- General configuration ---------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = ["myst_parser", "sphinx_copybutton"]
 
@@ -22,9 +13,8 @@ exclude_patterns = ["README.md", "_build", "Thumbs.db", ".DS_Store"]
 myst_heading_anchors = 3
 pygments_dark_style = "tango"
 
-# -- Options for HTML output -------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
-
+html_title = "Phoenix-RTOS Documentation"
+html_favicon = "_static/images/RTOS_sign.png"
 html_theme = "furo"
 html_title = "Phoenix-RTOS Documentation"
 html_favicon = "_static/images/favicon.png"
@@ -76,4 +66,22 @@ html_theme_options = {
         "color-header-background": "#0F1724",
         "color-header-text": "white",
     },
+}
+
+latex_documents = [
+    ("index", "phoenix-rtos.tex", "Phoenix-RTOS Documentation", author, "howto", True),
+]
+
+latex_elements = {
+    'makeindex': r'',
+    'papersize': r'a4paper',
+    'extrapackages': r'''
+        \usepackage{tocloft}
+    ''',
+    'preamble': r'''
+        \addtolength{\cftsubsecnumwidth}{5pt}
+        \setcounter{secnumdepth}{3}
+        \definecolor{ps-orange}{HTML}{ea5b22}
+        \addto\captionsenglish{\renewcommand{\contentsname}{\textcolor{ps-orange}{Table of contents}}}
+    ''',
 }
