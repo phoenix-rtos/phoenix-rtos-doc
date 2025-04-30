@@ -345,11 +345,11 @@ cd phoenix-rtos-project
 ```
 
 ```text
-(cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh i386-pc-phoenix ~/toolchains/i386-pc-phoenix)
-(cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh arm-phoenix ~/toolchains/arm-phoenix)
-(cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh riscv64-phoenix ~/toolchains/riscv64-phoenix)
-(cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh sparc-phoenix ~/toolchains/sparc-phoenix)
-(cd phoenix-rtos-build/toolchain/ && ./build-toolchain.sh aarch64-phoenix ~/toolchains/aarch64-phoenix)
+./phoenix-rtos-build/toolchain/build-toolchain.sh i386-pc-phoenix ~/toolchains/i386-pc-phoenix
+./phoenix-rtos-build/toolchain/build-toolchain.sh arm-phoenix ~/toolchains/arm-phoenix
+./phoenix-rtos-build/toolchain/build-toolchain.sh riscv64-phoenix ~/toolchains/riscv64-phoenix
+./phoenix-rtos-build/toolchain/build-toolchain.sh sparc-phoenix ~/toolchains/sparc-phoenix
+./phoenix-rtos-build/toolchain/build-toolchain.sh aarch64-phoenix ~/toolchains/aarch64-phoenix
 ```
 
 <details>
