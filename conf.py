@@ -69,6 +69,7 @@ html_theme_options = {
     },
 }
 
+latex_engine = "xelatex"
 latex_table_style = ["colorrows"]
 latex_documents = [
     ("index", "phoenix-rtos.tex", "Phoenix-RTOS Documentation", author, "howto", True),
@@ -93,12 +94,18 @@ latex_elements = {
         \endgroup
         \makeatother
     ''',
+    'fontpkg': r'''
+        \setmainfont{DejaVu Serif}
+        \setsansfont{DejaVu Sans}
+        \setmonofont{DejaVu Sans Mono}
+    ''',
     'extrapackages': r'''
         \usepackage{tocloft}
         \usepackage{graphicx}
         \usepackage{xcolor}
         \usepackage{fancyhdr}
         \usepackage{tikz}
+        \usepackage{fontspec}
     ''',
     'preamble': Path("_static/latex/preamble.tex").read_text(),
     'maketitle': r'''
