@@ -82,9 +82,3 @@ Tested in [test-sys](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/mas
 ## Known bugs
 
 None
-
-## See Also
-
-1. [condWait syscall](../../../../kernel/syscalls/sync.md#syscalls_condwait-syscalls_phcondwait)
-2. [Standard library functions](../../index.md)
-3. [Table of Contents](../../../../index.md)

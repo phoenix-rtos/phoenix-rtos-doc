@@ -17,13 +17,13 @@ Communication with the board in this case is provided via USB-UART converters co
 - pins `37-M4` & `49-GND` must be connected via `10k` ohm resistor.
   
 Mimas pinout diagram:
-![Image](_images/MimasA7_Mini_WD.png)
+![Image](../_static/images/quickstart/MimasA7_Mini_WD.png)
 
 Source: The MimasA7 Mini board's schematic, available on
   <https://numato.com/product/mimas-a7-mini-fpga-development-board/>
 
 This is how connected device should look like:
-![Image](_images/MimasA7_Mini_Connected.jpg)
+![Image](../_static/images/quickstart/MimasA7_Mini_Connected.jpg)
 
 ## Programming Artix FPGA
 
@@ -73,17 +73,17 @@ bootloader (`plo`) to the RAM, send the image using `picocom --send-cmd`. Type `
 enter the path to the `plo.img` file and press `Enter`. The file is located in the `_boot/sparcv8leon-gr716-mimas`
 directory. Refer to the image below:
 
-![Image](_images/gr716-mimas-picocom-send.png)
+![Image](../_static/images/quickstart/gr716-mimas-picocom-send.png)
 
 If the image has been loaded correctly, you should see system startup logs.
 
-![Image](_images/gr716-mimas-loading.png)
+![Image](../_static/images/quickstart/gr716-mimas-loading.png)
 
 ## Using the Phoenix-RTOS
 
 After loading, Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal.
 
-![Image](_images/gr716-mimas-start.png)
+![Image](../_static/images/quickstart/gr716-mimas-start.png)
 
 To get the available command list type:
 
@@ -91,7 +91,7 @@ To get the available command list type:
 help
 ```
 
-![Image](_images/gr716-mimas-help.png)
+![Image](../_static/images/quickstart/gr716-mimas-help.png)
 
 To get the list of working processes type:
 
@@ -99,9 +99,4 @@ To get the list of working processes type:
 ps
 ```
 
-![Image](_images/gr716-mimas-ps.png)
-
-## See also
-
-1. [Running system on targets](index.md)
-2. [Table of Contents](../index.md)
+![Image](../_static/images/quickstart/gr716-mimas-ps.png)

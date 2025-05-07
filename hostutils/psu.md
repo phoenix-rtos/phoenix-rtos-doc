@@ -28,10 +28,3 @@ psu -t 15 script.sdp
 
 For information about supported command visit
 [host-utils/psu](https://github.com/phoenix-rtos/phoenix-rtos-hostutils/tree/master/psu)
-
-## See also
-
-1. [Phoenix-RTOS disk tool](psdisk.md)
-2. [Phoenix-RTOS daemon](phoenixd.md)
-3. [Phoenix-RTOS Host Utilities](index.md)
-4. [Table of Contents](../index.md)
