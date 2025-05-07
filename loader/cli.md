@@ -4,11 +4,13 @@ Command-line interface allows user to control the booting process.
 
 ## Usage
 
-After successful booting by Boot ROM, loader switch to the interactive mode and the prompt `(plo)%` should be printed on
- the console.
+After successful booting by Boot ROM, loader switch to the interactive mode and the prompt `(plo)%`
+should be printed on the console.
 
-**NOTE:** If the user defines own script which ends up with `go!` command, the plo jumps immediately to the kernel and
- interactive mode will be skipped.
+```{note}
+If the user defines own script which ends up with `go!` command, the plo jumps immediately
+to the kernel and interactive mode will be skipped.
+```
 
 ## Commands
 
