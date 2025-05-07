@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <sys/msg.h>`
+```c
+#include <sys/msg.h>
 
-`int msgRecv(uint32_t port, msg_t *m, unsigned long int *rid);`
+int msgRecv(uint32_t port, msg_t *m, unsigned long int *rid);
+```
 
 ## Status
 
@@ -55,9 +57,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [IPC mechanisms in Phoenix-RTOS](../../../../architecture/index.md#interprocess-communication)
-2. [Standard library functions](../../index.md)
-3. [Table of Contents](../../../../index.md)

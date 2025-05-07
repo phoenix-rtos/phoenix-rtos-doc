@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <string.h>`
+```c
+#include <string.h>
 
-`int strcmp(const char *s1, const char *s2);`
+int strcmp(const char *s1, const char *s2);
+```
 
 ## Status
 
@@ -36,8 +38,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

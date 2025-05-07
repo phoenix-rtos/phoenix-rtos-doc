@@ -32,10 +32,10 @@ Overall spinlock lock implementation has been presented below in C using preproc
 processor-specific assembly code.
 
 ```c
-    SAVE_INTERRUPTS_STATE(CURRENT_CPU, state);
-    DISABLE_INTERRUPTS;
+SAVE_INTERRUPTS_STATE(CURRENT_CPU, state);
+DISABLE_INTERRUPTS;
 
-    while (!TEST_AND_SET(0, spinlock));
+while (!TEST_AND_SET(0, spinlock));
 ```
 
 Spinlock unlocking operation is quite simple. Processor atomically changes spinlock value in memory to non-zero and
@@ -43,8 +43,8 @@ restores its interrupt state based on state saved in spinlock. It is worth addin
 save and restore processor state from the variable assigned specifically for this particular processor.
 
 ```c
-    TEST_AND_SET(1, spinlock);
-    RESTORE_INTERRUPTS_STATE(CURRENT_CPU, state);
+TEST_AND_SET(1, spinlock);
+RESTORE_INTERRUPTS_STATE(CURRENT_CPU, state);
 ```
 
 ## Locks and mutexes
@@ -55,14 +55,3 @@ between locks and spinlocks is that they use passive waiting (removal from sched
 scheduler is working.
 
 Each lock consists of spinlock, state variable and waiting queue.
-
-## Conditional variables
-
-## See also
-
-1. [Kernel - Processes and threads](index.md)
-2. [Kernel - Processes and threads - Scheduler](scheduler.md)
-3. [Kernel - Processes and threads - Management](forking.md)
-4. [Kernel - Processes and threads - Message passing](msg.md)
-5. [Kernel - Processes and threads - Namespace](namespace.md)
-6. [Table of Contents](../../index.md)

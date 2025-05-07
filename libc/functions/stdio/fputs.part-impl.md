@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`int fputs(const char *restrict s, FILE *restrict stream);`
+int fputs(const char *restrict s, FILE *restrict stream);
+```
 
 ## Status
 
@@ -39,8 +41,3 @@ Tested in [test-libc](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/ma
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

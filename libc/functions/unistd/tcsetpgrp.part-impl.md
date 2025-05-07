@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`int tcsetpgrp(int fildes, pid_t pgid_id);`
+int tcsetpgrp(int fildes, pid_t pgid_id);
+```
 
 ## Status
 
@@ -58,8 +60,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

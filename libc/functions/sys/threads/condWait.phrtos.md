@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <sys/threads.h>`
+```c
+#include <sys/threads.h>
 
-`int condWait(handle_t h, handle_t m, time_t timeout);`
+int condWait(handle_t h, handle_t m, time_t timeout);
+```
 
 ## Status
 
@@ -82,9 +84,3 @@ Tested in [test-sys](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/mas
 ## Known bugs
 
 None
-
-## See Also
-
-1. [condWait syscall](../../../../kernel/syscalls/sync.md#syscalls_condwait-syscalls_phcondwait)
-2. [Standard library functions](../../index.md)
-3. [Table of Contents](../../../../index.md)

@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <sys/mount.h>`
+```c
+#include <sys/mount.h>
 
-`int umount(const char *path);`
+int umount(const char *path);
+```
 
 ## Status
 
@@ -33,8 +35,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../../index.md)
-2. [Table of Contents](../../../../index.md)

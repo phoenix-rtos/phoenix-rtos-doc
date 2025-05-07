@@ -2,13 +2,15 @@
 
 ## Synopsis
 
-`#include <math.h>`
+```c
+#include <math.h>
 
-`double log(double x);`
+double log(double x);
 
-`float logf(float x);`
+float logf(float x);
 
-`long double logl(long double x);`
+long double logl(long double x);
+```
 
 ## Status
 
@@ -62,8 +64,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

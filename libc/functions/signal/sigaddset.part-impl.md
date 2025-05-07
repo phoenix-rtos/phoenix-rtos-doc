@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <signal.h>`
+```c
+#include <signal.h>
 
-`int sigaddset(sigset_t *set, int signo);`
+int sigaddset(sigset_t *set, int signo);
+```
 
 ## Status
 
@@ -42,8 +44,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

@@ -60,9 +60,3 @@ standard POSIX time.
 Thu, 26 Aug 21 17:46:41
 (psh)%
 ```
-
-## See also
-
-1. [Phoenix-RTOS shell](../index.md)
-2. [Phoenix-RTOS Utilities](../../index.md)
-3. [Table of Contents](../../../index.md)

@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <sys/msg.h>`
+```c
+#include <sys/msg.h>
 
-`int msgSend(uint32_t port, msg_t *m);`
+int msgSend(uint32_t port, msg_t *m);
+```
 
 ## Status
 
@@ -49,9 +51,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [IPC mechanisms in Phoenix-RTOS](../../../../architecture/index.md#interprocess-communication)
-2. [Standard library functions](../../index.md)
-3. [Table of Contents](../../../../index.md)

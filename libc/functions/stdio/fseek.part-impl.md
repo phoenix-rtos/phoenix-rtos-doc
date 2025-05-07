@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`int fseek(FILE *stream, long offset, int whence);`
+int fseek(FILE *stream, long offset, int whence);
 
-`int fseeko(FILE *stream, off_t offset, int whence);`
+int fseeko(FILE *stream, off_t offset, int whence);
+```
 
 ## Status
 
@@ -110,8 +112,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

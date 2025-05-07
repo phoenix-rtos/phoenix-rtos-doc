@@ -2,11 +2,17 @@
 
 ## Synopsis
 
-`#include <signal.h>`
+```c
+#include <signal.h>
 
-`int pthread_sigmask(int how, const sigset_t *restrict set, sigset_t *restrict oset);`
+int pthread_sigmask(int how,
+                    const sigset_t *restrict set,
+                    sigset_t *restrict oset);
 
-`int sigprocmask(int how, const sigset_t *restrict set, sigset_t *restrict oset);`
+int sigprocmask(int how,
+                const sigset_t *restrict set,
+                sigset_t *restrict oset);
+```
 
 ## Status
 
@@ -73,8 +79,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`char *getcwd(char *buf, size_t size);`
+char *getcwd(char *buf, size_t size);
+```
 
 ## Status
 
@@ -53,8 +55,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

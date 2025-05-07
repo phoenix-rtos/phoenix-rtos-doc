@@ -2,13 +2,15 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`void _Exit(int status);`
+void _Exit(int status);
 
-`#include <unistd.h>`
+#include <unistd.h>
 
-`void _exit(int status);`
+void _exit(int status);
+```
 
 ## Status
 
@@ -91,8 +93,3 @@ The functions can never return.
 No errors are defined.
 
 ## Tests
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

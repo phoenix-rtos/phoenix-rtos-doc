@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <time.h>`
+```c
+#include <time.h>
 
-`char *ctime(const time_t *clock);`
+char *ctime(const time_t *clock);
 
-`char *ctime_r(const time_t *clock, char *buf);`
+char *ctime_r(const time_t *clock, char *buf);
+```
 
 ## Description
 
@@ -51,7 +53,3 @@ encountered, a null pointer is returned.
 ## Errors
 
 No errors are defined.
-
-## Implementation tasks
-
-* Add environment parsing for setting timezone and daylight.

@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <dirent.h>`
+```c
+#include <dirent.h>
 
-`DIR *fdopendir(int fd);`
+DIR *fdopendir(int fd);
 
-`DIR *opendir(const char *dirname);`
+DIR *opendir(const char *dirname);
+```
 
 ## Description
 
@@ -57,4 +59,3 @@ intermediate result with a length that exceeds {`PATH_MAX`}.
 ### Implementation tasks
 
 * Implement `fdopendir()` function
-* Implement error detection as described above.

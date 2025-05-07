@@ -5,15 +5,6 @@ graphics operations.
 
 Source code: <https://github.com/phoenix-rtos/phoenix-rtos-corelibs/tree/master/libgraph>
 
-## Contents
-
-- [Supported graphics adapters](#graphics-adapters)
-- [libgraph applications](#libgraph-apps)
-- [libgraph interface](#libgraph-interface)
-- [How to use the graphics library](#how-to-use-the-graphics-library)
-- [How to use your own image in Phoenix-RTOS](#generating-an-image-bitmap-and-displaying-it-using-libgraph)
-- [Navigation links](#see-also)
-
 ## Graphics adapters
 
 The library supports the following graphics adapters:
@@ -30,7 +21,13 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
 
 - `voxeldemo`
 
-  ![Output sample](_gifs/voxeldemo.gif)
+  ```{only} html
+  ![Output sample](../_static/gifs/voxeldemo.gif)
+  ```
+
+  ```{only} latex
+  ![Output sample](../_static/images/pdf/voxeldemo.png)
+  ```
 
   Source code can be found in the `_user` directory in
   [phoenix-rtos-project](https://github.com/phoenix-rtos/phoenix-rtos-project.git) repository.
@@ -43,7 +40,7 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
 
 - `rotrectangle`
 
-  ![Image](_images/rotrectangle.png)
+  ![Image](../_static/images/corelibs/rotrectangle.png)
 
   Source code can be also found in the `_user` directory in
   [phoenix-rtos-project](https://github.com/phoenix-rtos/phoenix-rtos-project.git) repository.
@@ -56,7 +53,7 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
 
 - `test_graph`
 
-  ![Image](_images/test_graph.jpg)
+  ![Image](../_static/images/corelibs/test_graph.jpg)
 
   Source code is available in the `gfx` directory in
   [phoenix-rtos-tests](https://github.com/phoenix-rtos/phoenix-rtos-tests.git) repository.
@@ -74,14 +71,16 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
 
 - `graph_init` - Initializes the graphics library and all required drivers.
 
-  ```C
+  ```c
   int graph_init(void)
   ```
 
 - `graph_open` - Initializes the `graph_t` structure and opens a context for the specified graphics adapter.
 
-  ```C
-  int graph_open(graph_t *graph, graph_adapter_t adapter, unsigned int mem)
+  ```c
+  int graph_open(graph_t *graph,
+                 graph_adapter_t adapter,
+                 unsigned int mem)
   ```
 
   The uninitialized `graph_t` structure should be passed in the _`graph`_ argument and the graphics _`adapter`_
@@ -102,7 +101,7 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
 
 - `graph_mode` - Sets graphics mode with specified screen refresh rate frequency.
 
-  ```C
+  ```c
   int graph_mode(graph_t *graph, graph_mode_t mode, graph_freq_t freq)
   ```
 
@@ -129,9 +128,10 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
 
 - `graph_line` - Draws a line for the specified graphics adapter context.
 
-  ```C
-  int graph_line(graph_t *graph, unsigned int x, unsigned int y, int dx, int dy, unsigned int stroke, unsigned int
-  color, graph_queue_t queue)
+  ```c
+  int graph_line(graph_t *graph, unsigned int x, unsigned int y,
+                 int dx, int dy, unsigned int stroke,
+                 unsigned int color, graph_queue_t queue)
   ```
 
   The following arguments should be passed:
@@ -145,7 +145,7 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
 
     - For `8-bit` indexed color default VGA color palette is presented below (e.g. `0x0B` represents cyan).
 
-      ![Image](_images/def_color_palette.png)
+      ![Image](../_static/images/corelibs/def_color_palette.png)
 
       Source: <https://www.fountainware.com/EXPL/vga_color_palettes.htm>
 
@@ -165,17 +165,19 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
 - `graph_rect` - Draws a rectangle. Arguments are similar to those in `graph_line()` function. A drawn rectangle will be
   filled with a specified color.
 
-  ```C
-  int graph_rect(graph_t *graph, unsigned int x, unsigned int y, unsigned int dx, unsigned int dy, unsigned int
-  color, graph_queue_t queue)
+  ```c
+  int graph_rect(graph_t *graph, unsigned int x, unsigned int y,
+                 unsigned int dx, unsigned int dy,
+                 unsigned int color, graph_queue_t queue)
   ```
 
 - `graph_fill` - Fills a closed figure with the color specified in the _`color`_ argument ((_`x`_, _`y`_) should be any
   point inside the figure to fill).
 
-  ```C
-  int graph_fill(graph_t *graph, unsigned int x, unsigned int y, unsigned int color, graph_fill_t type, graph_queue_t
-  queue)
+  ```c
+  int graph_fill(graph_t *graph, unsigned int x, unsigned int y,
+                 unsigned int color, graph_fill_t type,
+                 graph_queue_t queue)
   ```
 
   The following `graph_fill_t` color fill methods are supported:
@@ -190,17 +192,20 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
   [phoenix-rtos-tests](https://github.com/phoenix-rtos/phoenix-rtos-tests.git) repository (`font.h` file).
   The remaining arguments are similar to those from the functions above.
 
-  ```C
-  int graph_print(graph_t *graph, const graph_font_t *font, const char *text, unsigned int x, unsigned int y, unsigned
-  char dx, unsigned char dy, unsigned int color, graph_queue_t queue)
+  ```c
+  int graph_print(graph_t *graph, const graph_font_t *font,
+                  const char *text, unsigned int x, unsigned int y,
+                  unsigned char dx, unsigned char dy,
+                  unsigned int color, graph_queue_t queue)
   ```
 
 - `graph_move` - Moves data in the range specified by _`x`_, _`y`_, _`dx`_, _`dy`_ arguments to the following point:
   (_`x`_ + _`mx`_, _`y`_ + _`my`_).
 
-  ```C
-  int graph_move(graph_t *graph, unsigned int x, unsigned int y, unsigned int dx, unsigned int dy, int mx, int my,
-  graph_queue_t queue)
+  ```c
+  int graph_move(graph_t *graph, unsigned int x, unsigned int y,
+                 unsigned int dx, unsigned int dy, int mx,
+                 int my, graph_queue_t queue)
   ```
 
 - `graph_copy` - Copies a bitmap pointed by the _`src`_ argument into bitmap pointed by the _`dst`_ argument.
@@ -209,24 +214,28 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
   color depth. When copying some part of a bitmap, _`src`_ should point to the proper element, and the same
   applies to the destination buffer.
 
-  ```C
-  int graph_copy(graph_t *graph, const void *src, void *dst, unsigned int dx, unsigned int dy, unsigned int srcspan,
-  unsigned int dstspan, graph_queue_t queue)
+  ```c
+  int graph_copy(graph_t *graph, const void *src, void *dst,
+                 unsigned int dx, unsigned int dy,
+                 unsigned int srcspan, unsigned int dstspan,
+                 graph_queue_t queue)
   ```
 
 - `graph_colorset` - Sets a color palette used for 8-bit indexed color mode. A color map should be passed in _`cmap`_
   argument. The range of changing colors is set by passing _`first`_ and _`last`_ arguments. If a set color palette's
   size is lower than a default one, the remaining colors are the same.
 
-  ```C
-  int graph_colorset(graph_t *graph, const unsigned char *colors, unsigned char first, unsigned char last)
+  ```c
+  int graph_colorset(graph_t *graph, const unsigned char *colors,
+                     unsigned char first, unsigned char last)
   ```
 
 - `graph_colorget` - Retrieves a color palette used in 8-bit indexed color mode. The retrieved color map from
   _`first`_ to _`last`_ element is passed to a buffer pointed by the _`colors`_ argument.
 
-  ```C
-  int graph_colorget(graph_t *graph, unsigned char *colors, unsigned char first, unsigned char last)
+  ```c
+  int graph_colorget(graph_t *graph, unsigned char *colors,
+                     unsigned char first, unsigned char last)
   ```
 
 - `graph_cursorset` - Sets cursor icon, _`amask`_ (`AND` mask) and _`xmask`_ (`XOR` mask) arguments determine the shape
@@ -236,75 +245,76 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
   it's set to `0xff` 100% opacity is provided. Opacity isn't supported for cirrus graphics adapter
   (default for `ia32-generic-qemu` target)
 
-  ```C
-  int graph_cursorset(graph_t *graph, const unsigned char *amask, const unsigned char *xmask, unsigned int bg, unsigned
-  int fg)
+  ```c
+  int graph_cursorset(graph_t *graph, const unsigned char *amask,
+                      const unsigned char *xmask, unsigned int bg,
+                      unsigned int fg)
   ```
 
 - `graph_cursorpos` - Sets cursor position.
 
-  ```C
+  ```c
   int graph_cursorpos(graph_t *graph, unsigned int x, unsigned int y)
   ```
 
 - `graph_cursorshow` - Displays cursor.
 
-  ```C
+  ```c
   int graph_cursorshow(graph_t *graph)
   ```
 
 - `graph_cursorhide` -  Hides cursor.
 
-  ```C
+  ```c
   int graph_cursorhide(graph_t *graph)
   ```
 
 - `graph_commit` - Commits frame buffer changes (flushes frame buffer) in the specified graphics adapter context.
 
-  ```C
+  ```c
   int graph_commit(graph_t *graph)
   ```
 
 - `graph_trigger` - Triggers next task from queue execution.
 
-  ```C
+  ```c
   int graph_trigger(graph_t *graph)
   ```
 
 - `graph_stop` - Disable adding new tasks to specified queue, for a _`graph`_ context.
 
-  ```C
+  ```c
   int graph_stop(graph_t *graph, graph_queue_t queue)
   ```
 
 - `graph_tasks` - Returns number of tasks in queue.
 
-  ```C
+  ```c
   int graph_tasks(graph_t *graph, graph_queue_t queue)
   ```
 
 - `graph_reset` - Resets task queue.
 
-  ```C
+  ```c
   int graph_reset(graph_t *graph, graph_queue_t queue)
   ```
 
 - `graph_vsync` - Returns number of vertical synchronizations since the last call
 
-  ```C
+  ```c
   int graph_vsync(graph_t *graph)
   ```
 
 - `graph_close` - Closes a graph context, pointed by _`graph`_.
 
-  ```C
+  ```c
   void graph_close(graph_t *graph)
   ```
 
 - `graph_done` - Closes the graphics library.
 
-  ```C
-  void graph_done(void
+  ```c
+  void graph_done(void)
   ```
 
 ## How to use the graphics library
@@ -331,63 +341,78 @@ int main(void)
 
 - Purple line
 
-  ```C
-  graph_line(&graph, 0, 0, graph.width-50, graph.height/2-50, 2, 0x8282FF, GRAPH_QUEUE_HIGH);
+  ```c
+  graph_line(&graph, 0, 0, graph.width-50, graph.height/2-50, 2,
+             0x8282FF, GRAPH_QUEUE_HIGH);
   ```
 
-  ![Image](_images/simple_line.png)
+  ![Image](../_static/images/corelibs/simple_line.png)
 
 - Cyan filled rectangle
 
-  ```C
-  graph_rect(&graph, 200, graph.height/4, graph.width/2, graph.height/2, 0x00FFFF, GRAPH_QUEUE_HIGH);
+  ```c
+  graph_rect(&graph, 200, graph.height/4, graph.width/2, graph.height/2,
+             0x00FFFF, GRAPH_QUEUE_HIGH);
   ```
 
-  ![Image](_images/simple_rectangle.png)
+  ![Image](../_static/images/corelibs/simple_rectangle.png)
 
 - Examples of `graph_fill()` usage, both for `GRAPH_FILL_FLOOD` and `GRAPH_FILL_BOUND` option
 
-  ```C
+  ```c
   for (int i = 0; i < 2; i++) {
-    graph_line(&graph, 50+i*350, 50, 0, 300, 2, 0x00000FF, GRAPH_QUEUE_HIGH);
-    graph_line(&graph, 50+i*350, 50, 300, 0, 2, 0x00000FF, GRAPH_QUEUE_HIGH);
-    graph_line(&graph, 350+i*350, 50, -300, 300, 2, 0x00000FF, GRAPH_QUEUE_HIGH);
-    graph_line(&graph, 52+i*350, 52, 146, 146, 3, 0xFFFFFF, GRAPH_QUEUE_HIGH);
+      graph_line(&graph, 50+i*350, 50, 0, 300, 2, 0x00000FF, GRAPH_QUEUE_HIGH);
+      graph_line(&graph, 50+i*350, 50, 300, 0, 2, 0x00000FF, GRAPH_QUEUE_HIGH);
+      graph_line(&graph, 350+i*350, 50, -300, 300, 2, 0x00000FF, GRAPH_QUEUE_HIGH);
+      graph_line(&graph, 52+i*350, 52, 146, 146, 3, 0xFFFFFF, GRAPH_QUEUE_HIGH);
   }
   sleep(2);
   graph_fill(&graph, 52, 55, 0x00000FF, GRAPH_FILL_FLOOD, GRAPH_QUEUE_HIGH);
   graph_fill(&graph, 402, 55, 0x00000FF, GRAPH_FILL_BOUND, GRAPH_QUEUE_HIGH);
   ```
 
-  ![Output sample](_gifs/fill.gif)
+  ```{only} html
+  ![Output sample](../_static/gifs/fill.gif)
+  ```
+
+  ```{only} latex
+  ![Output sample](../_static/images/pdf/fill.png)
+  ```
 
 - Printing text using libgraph
 
   Header file with font data in `graph_font_t` structure has to be included. The example of `font.h` is placed in
   `gfx` directory in [phoenix-rtos-tests](https://github.com/phoenix-rtos/phoenix-rtos-tests) repository.
 
-  ```C
-  graph_print(&graph, &font, "lorem ipsum", 300, 300, font.height, font.height, 0x00FF00, GRAPH_QUEUE_HIGH);
+  ```c
+  graph_print(&graph, &font, "lorem ipsum", 300, 300, font.height,
+              font.height, 0x00FF00, GRAPH_QUEUE_HIGH);
   ```
 
-  ![Image](_images/lorem_ipsum.png)
+  ![Image](../_static/images/corelibs/lorem_ipsum.png)
 
 - `graph_move` example
 
-  ```C
+  ```c
   graph_rect(&graph, 100, 100, 200, 200, 0xFFFF00, GRAPH_QUEUE_HIGH);
   sleep(3);
   graph_move(&graph, 100, 100, 100, 100, 300, 300, GRAPH_QUEUE_HIGH);
   ```
 
-  ![Output sample](_gifs/move.gif)
+  ```{only} html
+  ![Output sample](../_static/gifs/move.gif)
+  ```
+
+  ```{only} latex
+  ![Output sample](../_static/images/pdf/move.png)
+  ```
 
 - Copying raw bitmap into a screen
 
   Note that bitmaps are stored in memory in little endian format. So for 32-bit color depth first byte represents the
   blue color, next green, red, alpha, and so on.
 
-  ```C
+  ```c
   static const unsigned char greenSquareBitMap32[50][8] = {
   { 0x00, 0xff, 0x00, 0xff, 0x00, 0xff, 0x00, 0xff },
   { 0x00, 0xff, 0x00, 0xff, 0x00, 0xff, 0x00, 0xff },
@@ -441,10 +466,11 @@ int main(void)
   { 0x00, 0xff, 0x00, 0xff, 0x00, 0xff, 0x00, 0xff },
   };
 
-  graph_copy(&graph, greenSquareBitMap32, (void *)(uintptr_t)graph.data, 10, 10, graph.depth * 10, graph.depth * graph.width, GRAPH_QUEUE_HIGH);
+  graph_copy(&graph, greenSquareBitMap32, (void *)(uintptr_t)graph.data,
+             10, 10, graph.depth * 10, graph.depth * graph.width, GRAPH_QUEUE_HIGH);
   ```
 
-  ![Image](_images/copy_rect.png)
+  ![Image](../_static/images/corelibs/copy_rect.png)
 
 - Setting and getting a color palette
 
@@ -452,7 +478,7 @@ int main(void)
   `GRAPH_DEFMODE`. Note that in a default color palette when using the 8-bit mode, `0x01` refers to blue and for passed
   color map (`cmap`) it's `{ 0xff, 0x00, 0x00}` - red.
 
-  ```C
+  ```c
   unsigned char buff[2][3];
   static const unsigned char cmap[2][3] = {
   { 0xff, 0xff, 0xff},
@@ -466,22 +492,34 @@ int main(void)
   graph_colorset(&graph, buff[0], 0, 1);
   ```
 
-  ![Output sample](_gifs/colorset.gif)
+  ```{only} html
+  ![Output sample](../_static/gifs/colorset.gif)
+  ```
+
+  ```{only} latex
+  ![Output sample](../_static/images/pdf/colorset.png)
+  ```
 
 - Moving a cursor
   The `cursor.h` header file with cursor shape data (`amask`, `xmask`) has to be included.
 
-  ```C
+  ```c
   graph_cursorset(&graph, amask[0], xmask[0], 0xff0000ff, 0xffffffff);
   graph_cursorshow(&graph);
   for (int i = 0; i < 300; i++) {
-    graph_cursorpos(&graph, i, i);
-    usleep(10000);
+      graph_cursorpos(&graph, i, i);
+      usleep(10000);
   }
   graph_cursorhide(&graph);
   ```
 
-  ![Output sample](_gifs/cursor.gif)
+  ```{only} html
+  ![Output sample](../_static/gifs/cursor.gif)
+  ```
+
+  ```{only} latex
+  ![Output sample](../_static/images/pdf/cursor.png)
+  ```
 
 ## Generating an image bitmap and displaying it using libgraph
 
@@ -508,8 +546,3 @@ There are few steps to follow:
 
 If the image bitmap is ready, there is a possibility to display it using `graph_copy()`. Please see the proper example
 in [How to use libgraph](#how-to-use-the-graphics-library) chapter.
-
-## See also
-
-1. [Phoenix-RTOS core libraries](index.md)
-2. [Table of Contents](../index.md)

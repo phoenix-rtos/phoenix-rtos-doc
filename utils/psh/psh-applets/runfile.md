@@ -14,9 +14,3 @@ Will execute a file called filename, but in contrast to [`exec`](exec.md) the cu
 the file process.
 
 The value of an executed file will not be returned from `/`
-
-## See also
-
-1. [Phoenix-RTOS shell](../index.md)
-2. [Phoenix-RTOS Utilities](../../index.md)
-3. [Table of Contents](../../../index.md)

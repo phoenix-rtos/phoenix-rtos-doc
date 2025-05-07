@@ -138,9 +138,3 @@ process by the loader. It is stored on the physical memory at the address above 
 definition consists of the generic part which is common to all architectures and the hardware architecture dependent
 data. Syspage provides information like physical memory maps, interrupts tables, preloaded user applications and data
 for specific architecture. It should be treated as the main structure used for operating system configuration.
-
-## See also
-
-1. [Loader](index.md)
-2. [Command-line interface](cli.md)
-3. [Table of Contents](../index.md)
