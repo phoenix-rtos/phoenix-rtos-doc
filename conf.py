@@ -76,16 +76,28 @@ latex_documents = [
 
 latex_additional_files = [
     "_static/images/pdf-titlepage.png",
-    "_static/images/pdf-lastpage.png"
+    "_static/images/pdf-lastpage.png",
+    "_static/images/small_logo.png"
 ]
 
 latex_elements = {
     'makeindex': r'',
     'papersize': r'a4paper',
+    'tableofcontents': r'''
+        \makeatletter
+        \begingroup
+        \pagestyle{toc}
+        \@starttoc{toc}
+        \clearpage
+        \endgroup
+        \makeatother
+    ''',
     'extrapackages': r'''
         \usepackage{tocloft}
         \usepackage{graphicx}
         \usepackage{xcolor}
+        \usepackage{fancyhdr}
+        \usepackage{tikz}
     ''',
     'preamble': Path("_static/latex/preamble.tex").read_text(),
     'maketitle': r'''
