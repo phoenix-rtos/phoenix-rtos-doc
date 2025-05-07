@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`unsigned sleep(unsigned seconds);`
+unsigned sleep(unsigned seconds);
+```
 
 ## Status
 

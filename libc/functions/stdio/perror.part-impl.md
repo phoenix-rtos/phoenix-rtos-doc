@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`void perror(const char *s);`
+void perror(const char *s);
+```
 
 ## Status
 

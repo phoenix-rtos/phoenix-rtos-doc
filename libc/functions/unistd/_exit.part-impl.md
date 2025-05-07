@@ -2,13 +2,15 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`void _Exit(int status);`
+void _Exit(int status);
 
-`#include <unistd.h>`
+#include <unistd.h>
 
-`void _exit(int status);`
+void _exit(int status);
+```
 
 ## Status
 

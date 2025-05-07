@@ -2,13 +2,15 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`int fscanf(FILE *restrict stream, const char *restrict format, ...);`
+int fscanf(FILE *restrict stream, const char *restrict format, ...);
 
-`int scanf(const char *restrict format, ...);`
+int scanf(const char *restrict format, ...);
 
-`int sscanf(const char *restrict s, const char *restrict format, ...);`
+int sscanf(const char *restrict s, const char *restrict format, ...);
+```
 
 ## Status
 

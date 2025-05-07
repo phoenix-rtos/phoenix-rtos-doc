@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`int wctomb(char *str, wchar_t wchar);`
+int wctomb(char *str, wchar_t wchar);
+```
 
 ## Status
 

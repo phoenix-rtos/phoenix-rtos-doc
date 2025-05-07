@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`int setenv(const char *envname, const char *envval, int overwrite);`
+int setenv(const char *envname, const char *envval, int overwrite);
+```
 
 ## Status
 

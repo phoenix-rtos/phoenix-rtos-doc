@@ -2,11 +2,14 @@
 
 ## Synopsis
 
-`#include <string.h>`
+```c
+#include <string.h>
 
-`size_t strxfrm(char *restrict s1, const char *restrict s2, size_t n);`
+size_t strxfrm(char *restrict s1, const char *restrict s2, size_t n);
 
-`size_t strxfrm_l(char *restrict s1, const char *restrict s2, size_t n, locale_t locale);`
+size_t strxfrm_l(char *restrict s1, const char *restrict s2,
+                 size_t n, locale_t locale);
+```
 
 ## Status
 

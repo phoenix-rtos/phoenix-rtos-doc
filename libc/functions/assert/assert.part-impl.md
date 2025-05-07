@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <assert.h>`
+```c
+#include <assert.h>
 
-`void assert(scalar expression);`
+void assert(scalar expression);
+```
 
 ## Status
 

@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`int isatty(int fildes);`
+int isatty(int fildes);
 
-`int isatty(int fildes);`
+int isatty(int fildes);
+```
 
 ## Status
 

@@ -2,13 +2,15 @@
 
 ## Synopsis
 
-`#include <string.h>`
+```c
+#include <string.h>
 
-`char *strerror(int errnum);`
+char *strerror(int errnum);
 
-`char *strerror_l(int errnum, locale_t locale);`
+char *strerror_l(int errnum, locale_t locale);
 
-`int strerror_r(int errnum, char *strerrbuf, size_t buflen);`
+int strerror_r(int errnum, char *strerrbuf, size_t buflen);
+```
 
 ## Status
 

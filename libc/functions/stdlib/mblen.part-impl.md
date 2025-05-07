@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`int mblen(const char *s, size_t n);`
+int mblen(const char *s, size_t n);
+```
 
 ## Status
 

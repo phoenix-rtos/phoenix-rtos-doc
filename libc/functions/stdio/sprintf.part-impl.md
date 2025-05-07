@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`int sprintf(char *str, const char *format, ...);`
+int sprintf(char *str, const char *format, ...);
+```
 
 ## Description
 

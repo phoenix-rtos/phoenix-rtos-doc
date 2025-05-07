@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`double atof(const char *str);`
+double atof(const char *str);
+```
 
 ## Status
 

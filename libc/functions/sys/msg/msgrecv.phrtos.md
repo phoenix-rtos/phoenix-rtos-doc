@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <sys/msg.h>`
+```c
+#include <sys/msg.h>
 
-`int msgRecv(uint32_t port, msg_t *m, unsigned long int *rid);`
+int msgRecv(uint32_t port, msg_t *m, unsigned long int *rid);
+```
 
 ## Status
 

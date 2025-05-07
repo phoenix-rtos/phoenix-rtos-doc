@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`int feof(FILE *stream);`
+int feof(FILE *stream);
+```
 
 ## Status
 

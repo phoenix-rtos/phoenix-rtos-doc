@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`pid_t tcgetpgrp(int fildes);`
+pid_t tcgetpgrp(int fildes);
+```
 
 ## Status
 

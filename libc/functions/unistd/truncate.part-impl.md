@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`int truncate(const char *path, off_t length);`
+int truncate(const char *path, off_t length);
+```
 
 ## Status
 

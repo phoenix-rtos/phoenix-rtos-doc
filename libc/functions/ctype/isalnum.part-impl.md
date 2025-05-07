@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <ctype.h>`
+```c
+#include <ctype.h>
 
-`int isalnum(int c);`
+int isalnum(int c);
+```
 
 ## Status
 

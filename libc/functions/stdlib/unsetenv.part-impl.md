@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`int unsetenv(const char *name);`
+int unsetenv(const char *name);
+```
 
 ## Status
 

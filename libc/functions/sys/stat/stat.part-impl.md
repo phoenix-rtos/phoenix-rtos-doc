@@ -2,15 +2,17 @@
 
 ## Synopsis
 
-`#include <fcntl.h>`
+```c
+#include <fcntl.h>
+#include <sys/stat.h>
 
-`#include <sys/stat.h>`
+int fstatat(int fd, const char *restrict path,
+            struct stat *restrict buf, int flag);
 
-`int fstatat(int fd, const char *restrict path, struct stat *restrict buf, int flag);`
+int lstat(const char *restrict path, struct stat *restrict buf);
 
-`int lstat(const char *restrict path, struct stat *restrict buf);`
-
-`int stat(const char *restrict path, struct stat *restrict buf);`
+int stat(const char *restrict path, struct stat *restrict buf);
+```
 
 ## Status
 

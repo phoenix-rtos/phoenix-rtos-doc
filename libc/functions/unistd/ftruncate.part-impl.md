@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`int ftruncate(int fildes, off_t length);`
+int ftruncate(int fildes, off_t length);
+```
 
 ## Status
 

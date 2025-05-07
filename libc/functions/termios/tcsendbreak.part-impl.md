@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <termios.h>`
+```c
+#include <termios.h>
 
-`int tcsendbreak(int fildes, int duration);`
+int tcsendbreak(int fildes, int duration);
+```
 
 ## Status
 
