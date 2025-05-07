@@ -70,7 +70,13 @@ In order to run one of the user applications you should type `/usr/bin/appname`,
 
 The result is presented below.
 
-![Image](_gifs/voxeldemo.gif)
+```{only} html
+![Output sample](../_static/gifs/voxeldemo.gif)
+```
+
+```{only} latex
+![Output sample](../_static/images/pdf/voxeldemo.png)
+```
 
 You can press `ctrl + c` to quit the voxeldemo app.
 
