@@ -152,7 +152,8 @@ img {
     flex-direction: column !important;
     height: 100vh !important;
     width: 17em !important;
-    position: fixed !important
+    position: sticky;
+    top: 0;
 }
 
 .sidebar-container {
@@ -242,10 +243,6 @@ img {
 .other-versions > dl > dd > a:hover {
     font-weight: 500 !important;
     color: #ea5b22 !important
-}
-
-.main {
-    margin-left: 17em !important
 }
 
 /* Hide sidebar brand text */
