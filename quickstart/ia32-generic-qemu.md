@@ -77,7 +77,7 @@ To run the system image under QEMU you should type the following command
 
 Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal.
 
-![Image](_images/qemu-ia32-generic.png)
+![Image](../_static/images/quickstart/qemu-ia32-generic.png)
 
 To get the available command list please type:
 
@@ -85,7 +85,7 @@ To get the available command list please type:
 help
 ```
 
-![Image](_images/qemu-ia32-generic-help.png)
+![Image](../_static/images/quickstart/qemu-ia32-generic-help.png)
 
 In order to run one of the user applications you should type `/usr/bin/appname`, for example:
 
@@ -95,7 +95,7 @@ In order to run one of the user applications you should type `/usr/bin/appname`,
 
 The result is presented below.
 
-![Image](_gifs/voxeldemo.gif)
+![Image](../_static/gifs/voxeldemo.gif)
 
 You can press `ctrl + c` to quit the voxeldemo app.
 
@@ -105,7 +105,7 @@ To get the list of working processes please type:
 ps
 ```
 
-![Image](_images/qemu-ia32-generic-ps.png)
+![Image](../_static/images/quickstart/qemu-ia32-generic-ps.png)
 
 There is a possibility to run the ash shell, it can be launched using the following command.
 
@@ -113,7 +113,7 @@ There is a possibility to run the ash shell, it can be launched using the follow
 /bin/ash
 ```
 
-![Image](_images/qemu-ia32-generic-ash.png)
+![Image](../_static/images/quickstart/qemu-ia32-generic-ash.png)
 
 Phoenix-RTOS image can be also launched on multiple processor cores. To do this please define the number of cores
 (e.g. 4) using the following command (launched from the `phoenix-rtos-project` directory).
@@ -124,7 +124,7 @@ qemu-system-i386 -hda _boot/phoenix-ia32-generic.disk -smp 4
 
 The number of detected cores is presented during kernel initialization.
 
-![Image](_images/qemu-ia32-generic-smp.png)
+![Image](../_static/images/quickstart/qemu-ia32-generic-smp.png)
 
 ## Running image on regular hardware
 

@@ -35,7 +35,7 @@ in `i. MX 6ULL - EVK` will be connected to your host-pc.
   ls -l /dev/serial/by-id
   ```
 
-  ![Image](_images/imx6ull-ls.png)
+  ![Image](../_static/images/quickstart/imx6ull-ls.png)
 
   If your output is like in the screenshot above, the console (`DEBUG USB` in the evaluation board) is on the `USB0`
   port.
@@ -87,15 +87,15 @@ the RAM using `psu` (Phoenix Serial Uploader) via `SDP` (Serial Download Protoco
   sudo ./psu plo-ram.sdp
   ```
 
-![Image](_images/imx6ull-plo-ram.png)
+![Image](../_static/images/quickstart/imx6ull-plo-ram.png)
 
 - The plo user interface should appear in the console.
 
-![Image](_images/imx6ull-plo.png)
+![Image](../_static/images/quickstart/imx6ull-plo.png)
 
 - To get the available bootloader command list please type `help`.
 
-![Image](_images/imx6ull-plo-help.png)
+![Image](../_static/images/quickstart/imx6ull-plo-help.png)
 
 ### Copying flash image using PHFS (phoenixd)
 
@@ -106,7 +106,7 @@ To flash the disk image, first, you need to verify on which port plo USB device 
 ls -l /dev/serial/by-id
 ```
 
-![Image](_images/imx6ull-ls-2.png)
+![Image](../_static/images/quickstart/imx6ull-ls-2.png)
 
 To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments
 (choose suitable ttyACMx device, in this case, ttyACM0):
@@ -115,7 +115,7 @@ To share disk image to the bootloader, `phoenixd` has to be launched with the fo
 sudo ./phoenixd -p /dev/ttyACM0 -b 115200 -s .
 ```
 
-![Image](_images/imx6ull-phoenixd.png)
+![Image](../_static/images/quickstart/imx6ull-phoenixd.png)
 
 To start copying a file, write the following command in the console with plo interface:
 
@@ -146,7 +146,7 @@ If everything has gone correctly, Phoenix-RTOS with the default configuration an
 appear in the terminal after 2 seconds. If there is a need to enter the bootloader, the waiting for input should be
 interrupted by pressing any key. Then you can exit plo by passing `go!` command.
 
-![Image](_images/imx6ull-start.png)
+![Image](../_static/images/quickstart/imx6ull-start.png)
 
 ## Using Phoenix-RTOS
 
@@ -156,7 +156,7 @@ To get the available command list please type:
 help
 ```
 
-![Image](_images/imx6ull-help.png)
+![Image](../_static/images/quickstart/imx6ull-help.png)
 
 If you want to get the list of working processes please type:
 
@@ -164,7 +164,7 @@ If you want to get the list of working processes please type:
 ps
 ```
 
-![Image](_images/imx6ull-ps.png)
+![Image](../_static/images/quickstart/imx6ull-ps.png)
 
 To get the table of processes please type:
 
@@ -172,4 +172,4 @@ To get the table of processes please type:
 top
 ```
 
-![Image](_images/imx6ull-top.png)
+![Image](../_static/images/quickstart/imx6ull-top.png)
