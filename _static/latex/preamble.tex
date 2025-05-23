@@ -23,3 +23,26 @@
 
 % Make chapters start on new pages
 \newcommand{\sectionbreak}{\clearpage}
+
+\fancypagestyle{toc}{
+    \fancyhf{}
+    \fancyfoot[R]{%
+        \begin{tikzpicture}
+            \node[
+                circle,
+                fill=ps-orange,
+                text=white,
+                minimum size=20pt,
+                inner sep=0pt,
+                font=\sffamily\bfseries
+            ] {\thepage};
+        \end{tikzpicture}%
+    }
+}
+
+\fancypagestyle{normal}[toc]{
+    \fancyhead[R]{\includegraphics[width=2.5cm]{small_logo.png}}
+}
+
+% Apply the style to all pages
+\pagestyle{normal}
