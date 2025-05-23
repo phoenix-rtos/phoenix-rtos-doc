@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <string.h>`
+```c
+#include <string.h>
 
-`void *memset(void *s, int c, size_t n);`
+void *memset(void *s, int c, size_t n);
+```
 
 ## Status
 
@@ -34,8 +36,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

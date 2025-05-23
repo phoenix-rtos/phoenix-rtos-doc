@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`char *fgets(char *restrict s, int n, FILE *restrict stream);`
+char *fgets(char *restrict s, int n, FILE *restrict stream);
+```
 
 ## Status
 
@@ -43,8 +45,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

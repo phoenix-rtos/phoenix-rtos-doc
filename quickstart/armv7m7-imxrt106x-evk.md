@@ -6,7 +6,7 @@ building and are located in the `_boot` directory. The disk image consists of th
 (tty), dummyfs filesystem server (RAM disk), and psh (shell). Necessary tools to carry out the flashing process are
 located in the `_boot` directory as well.
 
-See [how to build the Phoenix-RTOS system image](../building/index.md).
+See [Building](../building/index.md) chapter.
 
 ## Development board
 
@@ -34,7 +34,7 @@ UART-USB converter is used here.
 
   The picture below presents how the board should be connected:
 
-  ![Image](_images/imxrt106x-connections.jpg)
+  ![Image](../_static/images/quickstart/imxrt106x-connections.jpg)
 
 - Now you should verify what USB device on your host-pc is connected with the `DEBUG USB` (console). To check that run:
 
@@ -44,15 +44,7 @@ UART-USB converter is used here.
   ls -l /dev/serial/by-id
   ```
 
-  ![Image](_images/imxrt106x-ls.png)
-
-  - On macOS:
-
-  ```console
-  ls -l /dev/tty.*
-  ```
-
-  ![Image](_images/imxrt106x-ls-mac.png)
+  ![Image](../_static/images/quickstart/imxrt106x-ls.png)
 
   If your output is like in the screenshot above, the console (`DEBUG USB` in the evaluation board) is on the `ACM0`
   port.
@@ -81,17 +73,6 @@ UART-USB converter is used here.
   </details>
   </br>
 
-  <details>
-  <summary>How to get picocom (macOS)</summary>
-
-  ```console
-  brew update &&\
-  brew install picocom
-  ```
-
-  </details>
-  </br>
-
 You can leave the terminal with the serial port open, and follow the next steps.
 
 ## Flashing the Phoenix-RTOS system image
@@ -107,7 +88,7 @@ NOTE: i. MX RT1064 should be set in Serial Download mode. Set the appropriate co
 i.MX RT1064 - EVK, which is `0001` as it is shown below. If the configuration was different you should restart
 the board after the change and open the serial port using picocom once again.
 
-  ![Image](_images/imxrt106x-serial-download.jpg)
+  ![Image](../_static/images/quickstart/imxrt106x-serial-download.jpg)
 
 Change directory to `_boot/armv7m7-imxrt106x-evk` and run `psu` as follows:
 
@@ -121,11 +102,11 @@ sudo ./psu plo-ram.sdp
 
 The plo user interface should appear in the console.
 
-![Image](_images/imxrt106x-plo.png)
+![Image](../_static/images/quickstart/imxrt106x-plo.png)
 
 To get the available bootloader command list please type `help`.
 
-![Image](_images/imxrt106x-plo-help.png)
+![Image](../_static/images/quickstart/imxrt106x-plo-help.png)
 
 ### Copying flash image using PHFS (phoenixd)
 
@@ -138,15 +119,7 @@ using `ls` as follows:
 ls -l /dev/serial/by-id
 ```
 
-![Image](_images/imxrt106x-ls-2.png)
-
-- On macOS:
-
-```console
-ls -l /dev/tty.*
-```
-
-![Image](_images/imxrt106x-ls-mac2.png)
+![Image](../_static/images/quickstart/imxrt106x-ls-2.png)
 
 To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments
 (choose suitable ttyACMx device, in this case, ttyACM1):
@@ -155,7 +128,7 @@ To share disk image to the bootloader, `phoenixd` has to be launched with the fo
 sudo ./phoenixd -p /dev/tty[port] -b 115200 -s .
 ```
 
-![Image](_images/imxrt106x-phoenixd.png)
+![Image](../_static/images/quickstart/imxrt106x-phoenixd.png)
 
 To start copying a file, write the following command in the console with plo interface:
 
@@ -171,13 +144,13 @@ flash memory - `flash0`.
 To launch Phoenix-RTOS from flash memory, change SW7 switch to Internal Flash mode (`0010` configuration as presented
 in the photo below) and restart the board (you can do it by pushing the `SW3` button).
 
-  ![Image](_images/imxrt106x-internal-flash.jpg)
+  ![Image](../_static/images/quickstart/imxrt106x-internal-flash.jpg)
 
 If everything has gone correctly, Phoenix-RTOS with the default configuration and the `psh` shell command prompt will
 appear in the terminal after 2 seconds. If there is a need to enter the bootloader, the waiting for input should be
 interrupted by pressing any key. Then you can exit plo by passing `go!` command.
 
-![Image](_images/imxrt106x-start.png)
+![Image](../_static/images/quickstart/imxrt106x-start.png)
 
 ## Using Phoenix-RTOS
 
@@ -187,7 +160,7 @@ If you want to get the available command list please type:
 help
 ```
 
-![Image](_images/imxrt106x-help.png)
+![Image](../_static/images/quickstart/imxrt106x-help.png)
 
 To get the list of working processes please type:
 
@@ -195,7 +168,7 @@ To get the list of working processes please type:
 ps
 ```
 
-![Image](_images/imxrt106x-ps.png)
+![Image](../_static/images/quickstart/imxrt106x-ps.png)
 
 To get the table of processes please type:
 
@@ -203,9 +176,4 @@ To get the table of processes please type:
 top
 ```
 
-![Image](_images/imxrt106x-top.png)
-
-## See also
-
-1. [Running system on targets](index.md)
-2. [Table of Contents](../index.md)
+![Image](../_static/images/quickstart/imxrt106x-top.png)

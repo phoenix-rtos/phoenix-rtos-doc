@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`FILE *fdopen(int fildes, const char *mode);`
+FILE *fdopen(int fildes, const char *mode);
+```
 
 ## Status
 
@@ -73,8 +75,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

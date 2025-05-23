@@ -2,13 +2,15 @@
 
 ## Synopsis
 
-`#include <sys/stat.h>`
+```c
+#include <sys/stat.h>
 
-`int mkdir(const char *path, mode_t mode);`
+int mkdir(const char *path, mode_t mode);
 
-`#include <fcntl.h>`
+#include <fcntl.h>
 
-`int mkdirat(int fd, const char *path, mode_t mode);`
+int mkdirat(int fd, const char *path, mode_t mode);
+```
 
 ## Status
 
@@ -106,8 +108,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../../index.md)
-2. [Table of Contents](../../../../index.md)

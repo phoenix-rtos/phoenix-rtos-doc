@@ -2,9 +2,13 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`int setvbuf(FILE *restrict stream, char *restrict buf, int type, size_t size);`
+int setvbuf(FILE *restrict stream,
+            char *restrict buf, int type,
+            size_t size);
+```
 
 ## Status
 
@@ -51,8 +55,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

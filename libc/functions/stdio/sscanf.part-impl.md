@@ -2,14 +2,12 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`int sscanf(const char *str, const char *format, ...);`
+int sscanf(const char *str, const char *format, ...);
+```
 
 ## Description
 
 Reads formatted input from a string.
-
-### Return value
-
-### Errors

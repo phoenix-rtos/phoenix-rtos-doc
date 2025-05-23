@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <libgen.h>`
+```c
+#include <libgen.h>
 
-`char *basename(char *path);`
+char *basename(char *path);
+```
 
 ## Description
 

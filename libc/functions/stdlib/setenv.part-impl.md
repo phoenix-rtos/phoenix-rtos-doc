@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`int setenv(const char *envname, const char *envval, int overwrite);`
+int setenv(const char *envname, const char *envval, int overwrite);
+```
 
 ## Status
 
@@ -50,8 +52,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <string.h>`
+```c
+#include <string.h>
 
-`int strcoll(const char *s1, const char *s2);`
+int strcoll(const char *s1, const char *s2);
 
-`int strcoll_l(const char *s1, const char *s2, locale_t locale);`
+int strcoll_l(const char *s1, const char *s2, locale_t locale);
+```
 
 ## Status
 
@@ -53,8 +55,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

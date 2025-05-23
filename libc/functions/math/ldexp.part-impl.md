@@ -2,13 +2,15 @@
 
 ## Synopsis
 
-`#include <math.h>`
+```c
+#include <math.h>
 
-`double ldexp(double x, int exp);`
+double ldexp(double x, int exp);
 
-`float ldexpf(float x, int exp);`
+float ldexpf(float x, int exp);
 
-`long double ldexpl(long double x, int exp);`
+long double ldexpl(long double x, int exp);
+```
 
 ## Status
 
@@ -66,8 +68,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

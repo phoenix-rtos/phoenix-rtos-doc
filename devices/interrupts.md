@@ -4,7 +4,8 @@ It is often necessary to handle hardware interrupts when creating a device drive
 so, Phoenix-RTOS provides a special callback mechanism. Driver registers interrupt handler via syscall:
 
 ````C
-    int interrupt(unsigned int n, int (*f)(unsigned int, void *), void *arg, unsigned int cond, unsigned int *handle);
+int interrupt(unsigned int n, int (*f)(unsigned int, void *), void *arg,
+              unsigned int cond, unsigned int *handle);
 ````
 
 where:
@@ -24,10 +25,3 @@ edge).
 
 If handler returns value >= 0 then kernel performs `condSignal()` on a conditional passed when registering interrupt. If
 this feature is not needed, one can pass 0 as _`cond`_.
-
-## See also
-
-1. [Device drivers](index.md)
-2. [Access to device hardware registers](hwaccess.md)
-3. [Message interface](interface.md)
-4. [Table of Contents](../index.md)

@@ -5,13 +5,6 @@ The Phoenix Shell is a compact program that enables you to control Phoenix-RTOS 
 `psh` presents itself with a command line where user can enter commands to control the Phoenix-RTOS system, manage files
 and processes.
 
-## Overview
-
-- [How to use `psh`](#usage)
-- [Available commands](#applets)
-- [Executing `psh`](#executing)
-- [Restrictions](#restrictions)
-
 ## Usage
 
 If the `psh` is in control of the command line each new line starts with `(psh)%` prompt. The user can then enter the
@@ -86,6 +79,14 @@ Here's a list of the available applets:
 - [`wget`](psh-applets/wget.md) - downloads a file using http
 - [`/`](psh-applets/runfile.md)- executes a file
 
+```{toctree}
+:glob:
+:hidden:
+:maxdepth: 1
+
+psh-applets/*
+```
+
 ## Executing
 
 When executing the `psh` from a name "psh" it is only possible to enter interactive mode or execute a script with `-i`.
@@ -98,16 +99,3 @@ that applet and then close. Executing `psh` with a different name can be achieve
 Only one interactive session of the `psh` can be run in a scope of a `psh` process. For now, running `psh` does not
 spawn a new process, so in order to invoke a second, independent shell user must execute a `psh` binary file.
 See [`exec`](psh-applets/exec.md) or [`/`](psh-applets/runfile.md) for examples.
-
-## See also
-
-1. [Utilities](../index.md)
-2. [Table of Contents](../../index.md)
-
-```{toctree}
-:glob:
-:hidden:
-:maxdepth: 2
-
-psh-applets/*
-```

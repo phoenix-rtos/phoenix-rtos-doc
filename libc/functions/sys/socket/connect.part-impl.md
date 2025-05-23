@@ -2,9 +2,12 @@
 
 ## Synopsis
 
-`#include <sys/socket.h>`
+```c
+#include <sys/socket.h>
 
-`int connect(int socket, const struct sockaddr *address, socklen_t address_len)`
+int connect(int socket, const struct sockaddr *address,
+            socklen_t address_len)
+```
 
 ## Status
 
@@ -134,8 +137,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../../index.md)
-2. [Table of Contents](../../../../index.md)

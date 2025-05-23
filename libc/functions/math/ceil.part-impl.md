@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <math.h>`
+```c
+#include <math.h>
 
-`double ceil(double x);`
+double ceil(double x);
 
-`float ceilf(float x);`
+float ceilf(float x);
+```
 
 ## Status
 
@@ -42,8 +44,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

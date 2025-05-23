@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <sys/threads.h>`
+```c
+#include <sys/threads.h>
 
-`int condCreateWithAttr(handle_t *h, struct condAttr *attr);`
+int condCreateWithAttr(handle_t *h, struct condAttr *attr);
+```
 
 ## Status
 
@@ -58,8 +60,3 @@ Tested in [test-sys](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/mas
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../../index.md)
-2. [Table of Contents](../../../../index.md)

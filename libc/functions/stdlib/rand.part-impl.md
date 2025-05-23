@@ -2,13 +2,15 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`int rand(void);`
+int rand(void);
 
-`int rand_r(unsigned *seed);`
+int rand_r(unsigned *seed);
 
-`void srand(unsigned seed);`
+void srand(unsigned seed);
+```
 
 ## Status
 
@@ -50,8 +52,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

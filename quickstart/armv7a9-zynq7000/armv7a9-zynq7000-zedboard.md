@@ -4,7 +4,7 @@ These instructions describe how to run a Phoenix-RTOS system image for `armv7a9-
 Note that, the build artifacts, including the system image, should be first provided in the `_boot` directory.
 If you haven't run the `build.sh` script yet, run it for `armv7a9-zynq7000-zedboard` target.
 
-See [how to build the Phoenix-RTOS system image](../../building/index.md).
+See [Building](../../building/index.md) chapter.
 
 ## Preparing the board
 
@@ -23,7 +23,7 @@ Otherwise, you can simply use plo from the already flashed image.
 - To allow booting from SD card, set the jumpers to
  the following configuration (`JP11`: `110`, `JP10`: `011`, `JP9`: `011`, `JP8`: `110`, `JP7`: `110`):
 
-  ![Image](_images/zynq7000-sd-boot-mode.jpg)
+  ![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-sd-boot-mode.jpg)
 
 ### Loading plo from NOR flash
 
@@ -32,7 +32,7 @@ Otherwise, you can simply use plo from the already flashed image.
 - To allow loading from NOR flash,
 set the jumpers to the following configuration (`JP11`: `110`, `JP10`: `011`, `JP9`: `110`, `JP8`: `110`, `JP7`: `110`):
 
-  ![Image](_images/zynq7000-qspi-boot-mode.jpg)
+  ![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-qspi-boot-mode.jpg)
 
 ### Loading plo - common steps
 
@@ -46,7 +46,7 @@ The onboard UART-USB converter is used here.
 
   The picture below presents how the board should be connected:
 
-  ![Image](_images/zynq7000-connections.jpg)
+  ![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-connections.jpg)
 
 - Now you can power up the board, changing the `SW8` position to `ON`. The `LD13` LED should turn green.
 
@@ -58,15 +58,7 @@ The onboard UART-USB converter is used here.
   ls -l /dev/serial/by-id
   ```
 
-  ![Image](_images/zynq7000-ls.png)
-
-  - On macOS:
-
-  ```console
-  ls -l /dev/tty.*
-  ```
-
-  ![Image](_images/zynq7000-ls-mac.png)
+  ![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-ls.png)
 
   If your output is like in the screenshot above, the console (`UART` in the evaluation board) is on the `ACM0` port.
 
@@ -95,17 +87,6 @@ sudo usermod -a -G tty <yourname>
 </details>
 </br>
 
- <details>
-  <summary>How to get picocom (macOS)</summary>
-
-  ```console
-  brew update &&\
-  brew install picocom
-  ```
-
-  </details>
-  </br>
-
 You can leave the terminal with the serial port open, and follow the next steps.
 
 ## Flashing the Phoenix-RTOS system image
@@ -114,17 +95,17 @@ At first before any flashing, you need to enter Phoenix-RTOS loader (plo), which
 
 If there wasn't an older system image in the NOR flash the following output should appear:
 
-![Image](_images/zynq7000-sd-plo.png)
+![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-sd-plo.png)
 
 If you don't see it, please press the `PS-RST` button (`BTN7`) to restart the chip.
 
 Providing that Phoenix-RTOS is present in the flash memory you will probably see the system startup:
 
-![Image](_images/zynq7000-ram-start-2.png)
+![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-ram-start-2.png)
 
 You want to press the `PS-RST` button (`BTN7`) again and interrupt `Waiting for input` by pressing any key to enter plo:
 
-![Image](_images/zynq7000-plo.png)
+![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-plo.png)
 
 If you encountered some problems during this step please see
  [common problems](index.md#common-problems-on-zynq7000-boards).
@@ -153,7 +134,7 @@ Quick description of used arguments:
   - block size: `0x10000` (`erase_size`)
   - clean marker size: `16` (value specific for `jffs2` on `NOR` flash)
 
-![Image](_images/zynq7000-plo-erase.png)
+![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-plo-erase.png)
 
 Please wait until erasing is finished.
 
@@ -168,15 +149,7 @@ You can check that using `ls` as follow:
 ls -l /dev/serial/by-id
 ```
 
-![Image](_images/zynq7000-ls-2.png)
-
-- On macOS:
-
-```console
-ls -l /dev/tty.*
-```
-
-![Image](_images/zynq7000-ls2-mac.png)
+![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-ls-2.png)
 
 To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments
  (choose suitable ttyACMx device, in this case, ttyACM1):
@@ -189,7 +162,7 @@ cd _boot/armv7a9-zynq7000-zedboard
 sudo ./phoenixd -p /dev/tty[port] -b 115200 -s .
 ```
 
-![Image](_images/zynq7000-phoenixd.png)
+![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-phoenixd.png)
 
 To start copying the file, write the following command in the console with plo interface:
 
@@ -197,7 +170,7 @@ To start copying the file, write the following command in the console with plo i
 copy usb0 phoenix.disk flash0 0x0 0x0
 ```
 
-![Image](_images/zynq7000-plo-copy.png)
+![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-plo-copy.png)
 
 ### Booting Phoenix-RTOS from NOR flash memory
 
@@ -212,7 +185,7 @@ To run it you should follow the steps below:
 
 - Change jumpers position as follows (`JP11`: `110`, `JP10`: `011`, `JP9`: `110`, `JP8`: `110`, `JP7`: `110`):
 
-  ![Image](_images/zynq7000-qspi-boot-mode.jpg)
+  ![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-qspi-boot-mode.jpg)
 
 - Power on the board using `SW8`
 
@@ -224,15 +197,7 @@ To run it you should follow the steps below:
   ls -l /dev/serial/by-id/
   ```
 
-  ![Image](_images/zynq7000-ls-3.png)
-
-  - On macOS:
-
-  ```console
-  ls -l /dev/tty.*
-  ```
-
-  ![Image](_images/zynq7000-ls-mac.png)
+  ![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-ls-3.png)
 
 - connect to that port:
 
@@ -242,7 +207,7 @@ To run it you should follow the steps below:
 
 - restart the chip using the `PS-RST` button to print initialization logs:
 
-  ![Image](_images/zynq7000-qspi-start.png)
+  ![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-qspi-start.png)
 
 ## Using Phoenix-RTOS
 
@@ -252,7 +217,7 @@ To get the available command list please type:
 help
 ```
 
-![Image](_images/zynq7000-help.png)
+![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-help.png)
 
 If you want to get the list of working processes please type:
 
@@ -260,7 +225,7 @@ If you want to get the list of working processes please type:
 ps
 ```
 
-![Image](_images/zynq7000-ps.png)
+![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-ps.png)
 
 To get the table of processes please type:
 
@@ -268,12 +233,4 @@ To get the table of processes please type:
 top
 ```
 
-![Image](_images/zynq7000-top.png)
-
-## See also
-
-1. [Running system on armv7a9-zynq7000](index.md)
-2. [Running system on armv7a9-zynq7000 on emulator](armv7a9-zynq7000-qemu.md)
-3. [Running system on armv7a9-zynq7000-zturn](armv7a9-zynq7000-zturn.md)
-4. [Running system on targets](../index.md)
-5. [Table of Contents](../../index.md)
+![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-top.png)

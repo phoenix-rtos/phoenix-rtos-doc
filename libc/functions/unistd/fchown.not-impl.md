@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`int fchown(int fildes, uid_t owner, gid_t group);`
+int fchown(int fildes, uid_t owner, gid_t group);
+```
 
 ## Status
 
@@ -51,8 +53,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

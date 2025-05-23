@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <sys/wait.h>`
+```c
+#include <sys/wait.h>
 
-`pid_t waitpid(pid_t pid, int *status, int options);`
+pid_t waitpid(pid_t pid, int *status, int options);
 
-`pid_t wait(int *status);`
+pid_t wait(int *status);
+```
 
 ## Status
 
@@ -178,8 +180,3 @@ Untested
   * `WNOHANG` option does not work ([Issue link](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/184))
   * `waitpid()` does not discard a pending `SIGCHLD`signal that is associated with a successfully waited-for child
   process. ([Issue link](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/188))
-
-## See Also
-
-1. [Standard library functions](../../index.md)
-2. [Table of Contents](../../../../index.md)

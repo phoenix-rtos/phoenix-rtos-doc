@@ -102,18 +102,9 @@ other process) before switching to the new thread scheduler switches the address
 
 Context is described using `cpu_contex_t` structure.
 
-## See also
-
-1. [Kernel](../index.md)
-2. [Kernel - HAL for ARMv7 Cortex-M based targets](armv7m.md)
-3. [Kernel - HAL for ARMv7 Cortex-A based targets](armv7a.md)
-4. [Kernel - HAL for IA32 targets](ia32.md)
-5. [Kernel - HAL for RISC-V 64 based targets](riscv64.md)
-6. [Kernel - HAL for SPARCv8 LEON based targets](sparcv8leon.md)
-7. [Table of Contents](../../index.md)
+## HAL for targets
 
 ```{toctree}
-:hidden:
 :maxdepth: 1
 
 armv7m.md

@@ -4,11 +4,13 @@ Command-line interface allows user to control the booting process.
 
 ## Usage
 
-After successful booting by Boot ROM, loader switch to the interactive mode and the prompt `(plo)%` should be printed on
- the console.
+After successful booting by Boot ROM, loader switch to the interactive mode and the prompt `(plo)%`
+should be printed on the console.
 
-**NOTE:** If the user defines own script which ends up with `go!` command, the plo jumps immediately to the kernel and
- interactive mode will be skipped.
+```{note}
+If the user defines own script which ends up with `go!` command, the plo jumps immediately
+to the kernel and interactive mode will be skipped.
+```
 
 ## Commands
 
@@ -31,9 +33,3 @@ List all the available commands in plo (some of them are available only on the s
 * `script` - shows script, usage: `script [<dev> <name> <magic>]`
 * `test-ddr` - perform test DDR, usage: `test-ddr`
 * `wait` - waits in milliseconds or in an infinite loop, usage: `wait [ms]`
-
-## See also
-
-1. [Loader](index.md)
-2. [Architecture](architecture.md)
-3. [Table of Contents](../index.md)

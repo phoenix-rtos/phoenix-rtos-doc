@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <fcntl.h>`
+```c
+#include <fcntl.h>
 
-`int fcntl(int fildes, int cmd, ...);`
+int fcntl(int fildes, int cmd, ...);
+```
 
 ## Status
 
@@ -232,8 +234,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

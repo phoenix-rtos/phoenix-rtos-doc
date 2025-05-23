@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`ssize_t write(int fildes, const void *buf, size_t nbyte);`
+ssize_t write(int fildes, const void *buf, size_t nbyte);
 
-`ssize_t pwrite(int fildes, const void *buf, size_t nbyte, off_t offset);`
+ssize_t pwrite(int fildes, const void *buf, size_t nbyte, off_t offset);
+```
 
 ## Status
 
@@ -218,8 +220,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

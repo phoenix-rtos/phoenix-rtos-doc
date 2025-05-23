@@ -2,13 +2,15 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`int getopt(int argc, char * const argv[], const char *optstring);`
+int getopt(int argc, char * const argv[], const char *optstring);
 
-`extern char *optarg;`
+extern char *optarg;
 
-`extern int opterr, optind, optopt;`
+extern int opterr, optind, optopt;
+```
 
 ## Status
 
@@ -91,8 +93,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

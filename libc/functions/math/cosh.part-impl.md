@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <math.h>`
+```c
+#include <math.h>
 
-`double cosh(double x);`
+double cosh(double x);
 
-`float coshf(float x);`
+float coshf(float x);
+```
 
 ## Status
 
@@ -55,8 +57,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

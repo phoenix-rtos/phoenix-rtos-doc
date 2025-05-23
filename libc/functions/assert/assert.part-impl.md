@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <assert.h>`
+```c
+#include <assert.h>
 
-`void assert(scalar expression);`
+void assert(scalar expression);
+```
 
 ## Status
 
@@ -44,8 +46,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

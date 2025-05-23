@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <string.h>`
+```c
+#include <string.h>
 
-`void *memccpy(void *restrict s1, const void *restrict s2, int c, size_t n);`
+void *memccpy(void *restrict s1, const void *restrict s2, int c, size_t n);
+```
 
 ## Status
 
@@ -36,8 +38,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <setjmp.h>`
+```c
+#include <setjmp.h>
 
-`int sigsetjmp(sigjmp_buf env, int savemask);`
+int sigsetjmp(sigjmp_buf env, int savemask);
+```
 
 ## Status
 
@@ -45,8 +47,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

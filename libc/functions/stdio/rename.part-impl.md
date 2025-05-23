@@ -2,13 +2,15 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`int rename(const char *old, const char *new);`
+int rename(const char *old, const char *new);
 
-`#include <fcntl.h>`
+#include <fcntl.h>
 
-`int renameat(int oldfd, const char *old, int newfd, const char *new);`
+int renameat(int oldfd, const char *old, int newfd, const char *new);
+```
 
 ## Status
 
@@ -167,8 +169,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)
