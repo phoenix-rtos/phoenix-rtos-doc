@@ -42,7 +42,10 @@ armv7a9-zynq7000-qemu.md
   - When booting using SD card: Make sure that a proper `BOOT.bin` file
   is placed on the card, and that it's in a binary format (right click → properties):
 
-      ![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-problems-file-type.png)
+  ```{image} ../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-problems-file-type.png
+  :align: center
+  :width: 60%
+  ```
 
   - Try to open picocom for a second time (it could get stuck).
 

@@ -61,11 +61,11 @@ being mapped. The _prot_ shall be either `PROT_NONE` or the bitwise-inclusive OR
 the following table, defined in the `<sys/mman.h>` header.
 
 | __Symbolic Constant__ | __Description__                |
-|-------------------|----------------------------|
-| `PROT_READ`         |   Data can be read.        |
-|   `PROT_WRITE`      |   Data can be written.     |
-|   `PROT_EXEC`       |   Data can be executed.    |
-|   `PROT_NONE`       |   Data cannot be accessed. |
+| --------------------- | ------------------------------ |
+| `PROT_READ`           | Data can be read.              |
+| `PROT_WRITE`          | Data can be written.           |
+| `PROT_EXEC`           | Data can be executed.          |
+| `PROT_NONE`           | Data cannot be accessed.       |
 
 If an implementation cannot support the combination of access types specified by _prot_, the call to `mmap()` shall
 fail.
@@ -82,7 +82,7 @@ The parameter _flags_ provide other information about the handling of the mapped
 bitwise-inclusive OR of these options, defined in `<sys/mman.h>`:
 
 | __Symbolic Constant__  |   __Description__                                             |
-|------------------------|---------------------------------------------------------------|
+| ---------------------- | ------------------------------------------------------------- |
 |   `MAP_SHARED`         |   Changes are shared.                                         |
 |   `MAP_PRIVATE`        |   Changes are private.                                        |
 |   `MAP_FIXED`          |   Interpret _addr_ exactly.                                   |
