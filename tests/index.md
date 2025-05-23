@@ -83,8 +83,8 @@ directory and place the `hello.c` file inside it:
 
 int main(void)
 {
-	puts("Hello, world!");
-	return 0;
+    puts("Hello, world!");
+    return 0;
 }
 ```
 
@@ -223,40 +223,40 @@ TEST_TEAR_DOWN(dummy)
 
 TEST(dummy, memset)
 {
-	unsigned char buffer[2] = {0, 0};
-	memset(buffer, 0xFF, 2);
-	for (int i = 0; i < 2; i++) {
-		TEST_ASSERT_EQUAL_CHAR(buffer[i], 0xFF);
-	}
+    unsigned char buffer[2] = {0, 0};
+    memset(buffer, 0xFF, 2);
+    for (int i = 0; i < 2; i++) {
+        TEST_ASSERT_EQUAL_CHAR(buffer[i], 0xFF);
+    }
 }
 
 TEST(dummy, strlen)
 {
-	const char *s = "Dummy string";
-	TEST_ASSERT_EQUAL(strlen(s), 12);
+    const char *s = "Dummy string";
+    TEST_ASSERT_EQUAL(strlen(s), 12);
 }
 
 TEST(dummy, ok)
 {
-	TEST_PASS_MESSAGE("dummy test that always pass");
+    TEST_PASS_MESSAGE("dummy test that always pass");
 }
 
 TEST_GROUP_RUNNER(dummy)
 {
-	RUN_TEST_CASE(dummy, memset);
-	RUN_TEST_CASE(dummy, strlen);
-	RUN_TEST_CASE(dummy, ok);
+    RUN_TEST_CASE(dummy, memset);
+    RUN_TEST_CASE(dummy, strlen);
+    RUN_TEST_CASE(dummy, ok);
 }
 
 void runner(void)
 {
-	RUN_TEST_GROUP(dummy);
+    RUN_TEST_GROUP(dummy);
 }
 
 int main(int argc, char *argv[])
 {
-	UnityMain(argc, (const char**)argv, runner);
-	return 0;
+    UnityMain(argc, (const char**)argv, runner);
+    return 0;
 }
 ```
 
@@ -339,24 +339,24 @@ configurations. Without surprise, we create a new C program in the same location
 
 int main(int argc, char *argv[])
 {
-	char word[10];
+    char word[10];
 
-	if (argc <= 1) {
-		puts("One argument is required! You passed zero.");
-		return 1;
-	}
+    if (argc <= 1) {
+        puts("One argument is required! You passed zero.");
+        return 1;
+    }
 
-	if (argc > 2) {
-		puts("One argument is required! You passed more than one.");
-		return 2;
-	}
+    if (argc > 2) {
+        puts("One argument is required! You passed more than one.");
+        return 2;
+    }
 
-	printf("Hello, %s!\n", argv[1]);
+    printf("Hello, %s!\n", argv[1]);
 
-	fgets(word, 10, stdin);
-	printf("%s", word);
+    fgets(word, 10, stdin);
+    printf("%s", word);
 
-	return 0;
+    return 0;
 }
 ```
 

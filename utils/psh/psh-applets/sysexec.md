@@ -43,9 +43,9 @@ If storing commands in the `/etc/whitelist` file each complete `sysexec` command
 with a line length not exceeding 79 characters:
 
 ```console
-    sysexec argA1 argA2 argA3
-    sysexec argB1 argB2
-    sysexec argC1 argC2 argC3
+sysexec argA1 argA2 argA3
+sysexec argB1 argB2
+sysexec argC1 argC2 argC3
 ```
 
 If the commands are stored in the `PSH_SYSEXECWL` environment variable, each command should end with a semicolon

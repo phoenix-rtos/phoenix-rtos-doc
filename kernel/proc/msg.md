@@ -71,80 +71,80 @@ The `msg_t` structure is defined as follows:
 
 ```c
 typedef struct _msg_t {
-	int type;
-	unsigned int pid;
-	unsigned int priority;
-	oid_t oid;
+    int type;
+    unsigned int pid;
+    unsigned int priority;
+    oid_t oid;
 
-	struct {
-		union {
-			/* OPEN/CLOSE */
-			struct {
-				int flags;
-			} openclose;
+    struct {
+        union {
+            /* OPEN/CLOSE */
+            struct {
+                int flags;
+            } openclose;
 
-			/* READ/WRITE/TRUNCATE */
-			struct {
-				off_t offs;
-				size_t len;
-				unsigned mode;
-			} io;
+            /* READ/WRITE/TRUNCATE */
+            struct {
+                off_t offs;
+                size_t len;
+                unsigned mode;
+            } io;
 
-			/* CREATE */
-			struct {
-				int type;
-				unsigned mode;
-				oid_t dev;
-			} create;
+            /* CREATE */
+            struct {
+                int type;
+                unsigned mode;
+                oid_t dev;
+            } create;
 
-			/* SETATTR/GETATTR */
-			struct {
-				long long val;
-				int type;
-			} attr;
+            /* SETATTR/GETATTR */
+            struct {
+                long long val;
+                int type;
+            } attr;
 
-			/* LINK/UNLINK */
-			struct {
-				oid_t oid;
-			} ln;
+            /* LINK/UNLINK */
+            struct {
+                oid_t oid;
+            } ln;
 
-			/* READDIR */
-			struct {
-				off_t offs;
-			} readdir;
+            /* READDIR */
+            struct {
+                off_t offs;
+            } readdir;
 
-			unsigned char raw[64];
-		};
+            unsigned char raw[64];
+        };
 
-		size_t size;
-		const void *data;
-	} i;
+        size_t size;
+        const void *data;
+    } i;
 
-	struct {
-		union {
-			/* ATTR */
-			struct {
-				long long val;
-			} attr;
+    struct {
+        union {
+            /* ATTR */
+            struct {
+                long long val;
+            } attr;
 
-			/* CREATE */
-			struct {
-				oid_t oid;
-			} create;
+            /* CREATE */
+            struct {
+                oid_t oid;
+            } create;
 
-			/* LOOKUP */
-			struct {
-				oid_t fil;
-				oid_t dev;
-			} lookup;
+            /* LOOKUP */
+            struct {
+                oid_t fil;
+                oid_t dev;
+            } lookup;
 
-			unsigned char raw[64];
-		};
+            unsigned char raw[64];
+        };
 
-		int err;
-		size_t size;
-		void *data;
-	} o;
+        int err;
+        size_t size;
+        void *data;
+    } o;
 } msg_t;
 ```
 

@@ -11,36 +11,36 @@ In general code should be compliant with C99 (without GNU extensions) standard.
 Each operating system source file is marked with label with the following structure:
 
 ```c
-    /*
-     * <Project name>
-	 *
-	 * <Name of the software module, optional>
-     *
-     * <Brief file description>
-     *
-     * Copyright <Years of active development> Phoenix Systems
-     * Author: <List of authors>
-     *
-     * %LICENSE%
-     */
+/*
+ * <Project name>
+ *
+ * <Name of the software module, optional>
+ *
+ * <Brief file description>
+ *
+ * Copyright <Years of active development> Phoenix Systems
+ * Author: <List of authors>
+ *
+ * %LICENSE%
+ */
 ```
 
 Example of a file that is a part of the Phoenix-RTOS kernel:
 
 ```c
-    /*
-     * Phoenix-RTOS
-     *
-     * Operating system kernel
-     *
-     * pmap - machine dependent part of VM subsystem (ARM)
-     *
-     * Copyright 2014-2015 Phoenix Systems
-     * Copyright 2005-2006 Pawel Pisarczyk
-     * Author: Pawel Pisarczyk, Radoslaw F. Wawrzusiak, Jacek Popko
-     *
-     * %LICENSE%
-     */
+/*
+ * Phoenix-RTOS
+ *
+ * Operating system kernel
+ *
+ * pmap - machine dependent part of VM subsystem (ARM)
+ *
+ * Copyright 2014-2015 Phoenix Systems
+ * Copyright 2005-2006 Pawel Pisarczyk
+ * Author: Pawel Pisarczyk, Radoslaw F. Wawrzusiak, Jacek Popko
+ *
+ * %LICENSE%
+ */
 ```
 
 Main label blocks are separated with empty line. The first label block informs that file is the part of Phoenix-RTOS
@@ -64,26 +64,26 @@ correctly formatted code with one line (`lib_printf`) entered for debug purposes
 in the final code.
 
 ```c
-    int main(void)
-    {
-        _hal_init();
-        hal_consolePrint(ATTR_BOLD, "Phoenix-RTOS microkernel v. " VERSION "\n");
+int main(void)
+{
+    _hal_init();
+    hal_consolePrint(ATTR_BOLD, "Phoenix-RTOS microkernel v. " VERSION "\n");
 
-        _vm_init(&main_common.kmap, &main_common.kernel);
-        _proc_init(&main_common.kmap, &main_common.kernel);
-        _syscalls_init();
+    _vm_init(&main_common.kmap, &main_common.kernel);
+    _proc_init(&main_common.kmap, &main_common.kernel);
+    _syscalls_init();
 
     lib_printf("DEBUG: starting first process...\n");
 
-        /* Start init process */
-        proc_start(main_initthr, NULL, (const char *)"init");
+    /* Start init process */
+    proc_start(main_initthr, NULL, (const char *)"init");
 
-        /* Start scheduling, leave current stack */
-        hal_cpuEnableInterrupts();
-        hal_cpuReschedule();
+    /* Start scheduling, leave current stack */
+    hal_cpuEnableInterrupts();
+    hal_cpuReschedule();
 
-        return 0;
-    }
+    return 0;
+}
 ```
 
 ## Source files
@@ -119,11 +119,11 @@ For example, lets say we have library `libfoo` and it's function called `init`. 
 either `foo` or `libfoo` - prefix has to be unique and be consistent within the library:
 
 ```c
-    int libfoo_init(void);
+int libfoo_init(void);
 
-    /* or */
+/* or */
 
-    int foo_init(void);
+int foo_init(void);
 ```
 
 If a library consists of submodules (i.e. well separated modules within one library) then second underscore can be used
@@ -131,7 +131,7 @@ to separate library from submodule and from functionality names. Please note tha
 a part of API, but need to adhere to namespace rules as can not be `static` also. Example of this naming scheme:
 
 ```c
-    int libfoo_bar_start();
+int libfoo_bar_start();
 ```
 
 ## Function length
@@ -153,25 +153,25 @@ Local variables should be defined before the function code. The stack usage and 
 minimized. Static local variables are not allowed.
 
 ```c
-    void *_kmalloc_alloc(u8 hdridx, u8 idx)
-    {
-        void *b;
-        vm_zone_t *z = kmalloc_common.sizes[idx];
+void *_kmalloc_alloc(u8 hdridx, u8 idx)
+{
+    void *b;
+    vm_zone_t *z = kmalloc_common.sizes[idx];
 
-        b = _vm_zalloc(z, NULL);
-        kmalloc_common.allocsz += (1 << idx);
+    b = _vm_zalloc(z, NULL);
+    kmalloc_common.allocsz += (1 << idx);
 
-        if (idx == hdridx) {
-                kmalloc_common.hdrblocks--;
-        }
-
-        if (z->used == z->blocks) {
-                _vm_zoneRemove(&kmalloc_common.sizes[idx], z);
-                _vm_zoneAdd(&kmalloc_common.used, z);
-        }
-
-        return b;
+    if (idx == hdridx) {
+        kmalloc_common.hdrblocks--;
     }
+
+    if (z->used == z->blocks) {
+        _vm_zoneRemove(&kmalloc_common.sizes[idx], z);
+        _vm_zoneAdd(&kmalloc_common.used, z);
+    }
+
+    return b;
+}
 ```
 
 ## Local variables - libphoenix, userspace
@@ -180,20 +180,20 @@ Scope of local variables should be minimalized, as the stack usage and number of
 avoid reusing variables for different purposes across the function. Static local variables are allowed.
 
 ```c
-    void countSheeps(herd_t *herd)
-    {
-        static int lastCount = 0;
-        int count = 0;
+void countSheeps(herd_t *herd)
+{
+    static int lastCount = 0;
+    int count = 0;
 
-        for (size_t i = 0; i < sizeof(herd->sheeps) / sizeof(herd->sheeps[0]); ++i) {
-            if (herd->sheeps[i] != NULL) {
-                ++count;
-            }
+    for (size_t i = 0; i < sizeof(herd->sheeps) / sizeof(herd->sheeps[0]); ++i) {
+        if (herd->sheeps[i] != NULL) {
+            ++count;
         }
-
-        printf("Counted %d sheeps (last time it was %d)\n", count, lastCount);
-        lastCount = count;
     }
+
+    printf("Counted %d sheeps (last time it was %d)\n", count, lastCount);
+    lastCount = count;
+}
 ```
 
 ## Global variables
@@ -204,9 +204,9 @@ variables can only be placed in common structures. The structure should be named
 it, followed by `_common`. Example notation is shown below.
 
 ```c
-    static struct {
-        spinlock_t spinlock;
-    } pmap_common;
+static struct {
+    spinlock_t spinlock;
+} pmap_common;
 ```
 
 It is acceptable to omit module name in user space applications (i.e. not in the kernel) and name the structure
@@ -217,20 +217,20 @@ It is acceptable to omit module name in user space applications (i.e. not in the
 One space character should be used after and before the following binary and ternary operators:
 
 ```c
-    =  +  -  <  >  *  /  %  |  &  ^  <=  >=  ==  !=  ?  :
+=  +  -  <  >  *  /  %  |  &  ^  <=  >=  ==  !=  ?  :
 ```
 
 No space should be used after the following unary operators:
 
 ```c
-    &  *  +  -  ~  !
+&  *  +  -  ~  !
 ```
 
 The `sizeof` and `typeof`are treated as functions and are to be used in accordance to the following notation:
 
 ```c
-    sizeof(x)
-    typeof(x)
+sizeof(x)
+typeof(x)
 ```
 
 In case of increment `++` and decrement `--` operators following rules should be applied. If they are postfixed, no
@@ -241,22 +241,22 @@ space should be used before the operator. If they are prefixed, no space should 
 Notation of conditional expression is presented below.
 
 ```c
-    if (expr) {
-      line 1
-    }
+if (expr) {
+    line 1
+}
 
-    if (expr0) {
-      line 1
-      ...
-    }
-    else if (expr1) {
-      line 1
-      ...
-    }
-    else {
-      line 1
-      ...
-    }
+if (expr0) {
+    line 1
+    ...
+}
+else if (expr1) {
+    line 1
+    ...
+}
+else {
+    line 1
+    ...
+}
 ```
 
 A space should be used after a keyword of the conditional instruction. Opening and closing braces should be always used.
@@ -269,10 +269,10 @@ New types can only be defined if it is absolutely necessary. if `typedef` is use
 should be left anonymous if possible:
 
 ```c
-    typedef struct {
-       int foo;
-       int bar;
-    } foobar_t;
+typedef struct {
+    int foo;
+    int bar;
+} foobar_t;
 ```
 
 ## Comments
@@ -281,16 +281,16 @@ When the C programming language is used only C language comments should be used.
 and `//` are not to be used at all. A two line comment is presented below.
 
 ```c
-    /*
-     * line 1
-     * line 2
-     */
+/*
+ * line 1
+ * line 2
+ */
 ```
 
 One line comment should look like the following example.
 
 ```c
-    /* comment */
+/* comment */
 ```
 
 All comments should be brief and placed only in essential parts of the code. Comments are not the place to copy parts of
@@ -304,11 +304,11 @@ Leaving disabled, dead code should be avoided, version control should be relied 
 should it be necessary, preprocessor should be used:
 
 ```c
-        releveantCode();
+releveantCode();
 
-    #if 0
-        obsoleteFunction();
-    #endif
+#if 0
+    obsoleteFunction();
+#endif
 ```
 
 ## Preprocessor
@@ -317,11 +317,11 @@ The header with the `#include` preprocessing directive should be placed after th
 shown below.
 
 ```c
-    #include "pmap.h"
-    #include "spinlock.h"
-    #include "string.h"
-    #include "console.h"
-    #include "stm32.h
+#include "pmap.h"
+#include "spinlock.h"
+#include "string.h"
+#include "console.h"
+#include "stm32.h"
 ```
 
 It is advised not to use MACROS in the code.
@@ -331,22 +331,22 @@ it harder to follow the code logic. If it is absolutely necessary to use preproc
 formatted as the following example.
 
 ```c
-    #ifndef NOMMU
-        process->mapp = &process->map;
-        process->amap = NULL;
+#ifndef NOMMU
+    process->mapp = &process->map;
+    process->amap = NULL;
 
-        vm_mapCreate(process->mapp, (void *)VADDR_MIN, process_common.kmap->start);
+    vm_mapCreate(process->mapp, (void *)VADDR_MIN, process_common.kmap->start);
 
-        /* Create pmap */
-        p = vm_pageAlloc(SIZE_PAGE, PAGE_OWNER_KERNEL | PAGE_KERNEL_PTABLE);
-        vaddr = vm_mmap(process_common.kmap, process_common.kmap->start, p, 1 << p->idx, NULL, 0, 0);
+    /* Create pmap */
+    p = vm_pageAlloc(SIZE_PAGE, PAGE_OWNER_KERNEL | PAGE_KERNEL_PTABLE);
+    vaddr = vm_mmap(process_common.kmap, process_common.kmap->start, p, 1 << p->idx, NULL, 0, 0);
 
-        pmap_create(&process->mapp->pmap, &process_common.kmap->pmap, p, vaddr);
-    #else
-        process->mapp = process_common.kmap;
-        process->amap = NULL;
-        process->lazy = 1;
-    #endif
+    pmap_create(&process->mapp->pmap, &process_common.kmap->pmap, p, vaddr);
+#else
+    process->mapp = process_common.kmap;
+    process->amap = NULL;
+    process->lazy = 1;
+#endif
 ```
 
 ## Operating system messages
@@ -355,7 +355,7 @@ Following notation for operating system messages should be applied. Message shou
 should be followed by colon and a message body. An example is shown below.
 
 ```c
-    lib_printf("main: Starting syspage programs (%d) and init\n", syspage->progssz);
+lib_printf("main: Starting syspage programs (%d) and init\n", syspage->progssz);
 ```
 
 ## Coding guidelines

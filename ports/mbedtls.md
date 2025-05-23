@@ -29,18 +29,18 @@ and include the required header file. Below is the example of using `mbedtls_aes
 
 - Source code:
 
-  ```C
+  ```c
   #include <stdio.h>
   #include <mbedtls/aes.h>
 
   int main(void)
   {
-    mbedtls_aes_context ctx;
+      mbedtls_aes_context ctx;
 
-    mbedtls_aes_init( &ctx );
-    printf("Hello World!!\n");
+      mbedtls_aes_init( &ctx );
+      printf("Hello World!!\n");
   
-    return 0;
+      return 0;
   }
   ```
 
