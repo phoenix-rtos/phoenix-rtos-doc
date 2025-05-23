@@ -204,8 +204,3 @@ top
 ```
 
 ![Image](_images/imxrt106x-top.png)
-
-## See also
-
-1. [Running system on targets](index.md)
-2. [Table of Contents](../index.md)

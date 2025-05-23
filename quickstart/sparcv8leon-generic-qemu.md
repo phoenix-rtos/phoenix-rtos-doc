@@ -74,8 +74,3 @@ ps
 ![Image](_images/sparcv8leon-qemu-ps.png)
 
 If you want to quit, you should click on the terminal window, press ctrl + a, release it, and next press the x key.  
-
-## See also
-
-1. [Running system on targets](index.md)
-2. [Table of Contents](../index.md)

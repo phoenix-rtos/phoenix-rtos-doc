@@ -12,7 +12,6 @@ Source code: <https://github.com/phoenix-rtos/phoenix-rtos-corelibs/tree/master/
 - [libgraph interface](#libgraph-interface)
 - [How to use the graphics library](#how-to-use-the-graphics-library)
 - [How to use your own image in Phoenix-RTOS](#generating-an-image-bitmap-and-displaying-it-using-libgraph)
-- [Navigation links](#see-also)
 
 ## Graphics adapters
 
@@ -508,8 +507,3 @@ There are few steps to follow:
 
 If the image bitmap is ready, there is a possibility to display it using `graph_copy()`. Please see the proper example
 in [How to use libgraph](#how-to-use-the-graphics-library) chapter.
-
-## See also
-
-1. [Phoenix-RTOS core libraries](index.md)
-2. [Table of Contents](../index.md)

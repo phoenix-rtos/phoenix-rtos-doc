@@ -71,8 +71,3 @@ ps
 ```
 
 ![Image](_images/mps3an536-qemu-ps.png)
-
-## See also
-
-1. [Running system on targets](index.md)
-2. [Table of Contents](../index.md)

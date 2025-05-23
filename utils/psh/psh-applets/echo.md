@@ -25,9 +25,3 @@ Exit code (of a program or an applet) can be displayed using a `echo` command:
 ```console
 echo $?
 ```
-
-## See also
-
-1. [Phoenix-RTOS shell](../index.md)
-2. [Phoenix-RTOS Utilities](../../index.md)
-3. [Table of Contents](../../../index.md)

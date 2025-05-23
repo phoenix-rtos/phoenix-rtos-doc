@@ -23,9 +23,3 @@ and cannot link to directories.
 
 - Symbolic links: Create a special type of file that serves as a reference or pointer to another file or directory,
 which can span file systems and can link to directories.
-
-## See also
-
-1. [Phoenix-RTOS shell](../index.md)
-2. [Phoenix-RTOS Utilities](../../index.md)
-3. [Table of Contents](../../../index.md)

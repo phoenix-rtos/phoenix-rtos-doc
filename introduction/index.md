@@ -206,7 +206,3 @@ researchers working in the field of operating systems, including the author of M
 An additional advantage of such an effectively implemented system is its reliability and potential for comprehensive
 tests and audit of the static source code. A well-developed operating system like this is of particular importance for
 critical applications thanks to a shorter certification process (e.g. acquiring the DO-178C certificate).
-
-## See also
-
-1. [Table of Contents](../index.md)

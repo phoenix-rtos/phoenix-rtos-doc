@@ -235,11 +235,3 @@ top
 ```
 
 ![Image](_images/zynq7000-top.png)
-
-## See also
-
-1. [Running system on armv7a9-zynq7000](index.md)
-2. [Running system on armv7a9-zynq7000 on emulator](armv7a9-zynq7000-qemu.md)
-3. [Running system on armv7a9-zynq7000 on Zedboard](armv7a9-zynq7000-zedboard.md)
-4. [Running system on targets](../index.md)
-5. [Table of Contents](../../index.md)

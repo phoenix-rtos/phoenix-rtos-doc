@@ -17,10 +17,6 @@ Following programs are possible to use:
 
 <!-- #TODO: add chapters for all specific utilities -->
 
-## See also
-
-1. [Table of Contents](../index.md)
-
 ```{toctree}
 :hidden:
 :maxdepth: 1

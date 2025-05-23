@@ -22,10 +22,6 @@ There are following Phoenix-RTOS libraries:
 
 <!-- #TODO: add chapters on how to use each of this library in separate chapters -->
 
-## See also
-
-1. [Table of Contents](../index.md)
-
 ```{toctree}
 :hidden:
 :maxdepth: 1

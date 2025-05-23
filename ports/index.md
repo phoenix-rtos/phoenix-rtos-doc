@@ -33,7 +33,3 @@ Following ports are possible to use:
 - [azure_sdk](azure_sdk.md) - Azure IoT C Software Development Kit
 
 <!-- #TODO: add chapters on how to use each of these tools -->
-
-## See also
-
-1. [Table of Contents](../index.md)
