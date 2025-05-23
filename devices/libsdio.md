@@ -241,7 +241,7 @@ This function initiates an indirect, multibyte transfer of up to 2048 bytes at o
 | [in] `uint32_t address`  | card base address to access      | *any 17-bit value*     |
 | [in] `uint8_t area`      | card I/O area index to access    | *any 3-bit value*      |
 | [in/out] `uint8_t *data` | bidirectional multibyte buffer   | *any valid pointer*    |
-| [in] `size_t len`        | total transfer size in bytes     | ≤2048                 |
+| [in] `size_t len`        | total transfer size in bytes     | <=2048                 |
 
 > **NOTE:** `len` parameter has to be a multiple of `blocksz` when performing a block transfer with `blockMode` set to
 *true*.
