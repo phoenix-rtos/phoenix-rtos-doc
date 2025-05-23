@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <string.h>`
+```c
+#include <string.h>
 
-`char *strpbrk(const char *s1, const char *s2);`
+char *strpbrk(const char *s1, const char *s2);
+```
 
 ## Status
 

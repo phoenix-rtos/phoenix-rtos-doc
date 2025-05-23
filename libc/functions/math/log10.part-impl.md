@@ -2,13 +2,15 @@
 
 ## Synopsis
 
-`#include <math.h>`
+```c
+#include <math.h>
 
-`double log10(double x);`
+double log10(double x);
 
-`float log10f(float x);`
+float log10f(float x);
 
-`long double log10l(long double x);`
+long double log10l(long double x);
+```
 
 ## Status
 

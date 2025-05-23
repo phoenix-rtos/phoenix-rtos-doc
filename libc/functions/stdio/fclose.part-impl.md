@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`int fclose(FILE *stream);`
+int fclose(FILE *stream);
+```
 
 ## Status
 

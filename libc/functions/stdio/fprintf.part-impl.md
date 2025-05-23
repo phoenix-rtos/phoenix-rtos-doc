@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`int fprintf(FILE *stream, const char *format, ...);`
+int fprintf(FILE *stream, const char *format, ...);
+```
 
 ## Description
 

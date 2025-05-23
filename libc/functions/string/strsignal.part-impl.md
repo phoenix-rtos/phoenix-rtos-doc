@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <string.h>`
+```c
+#include <string.h>
 
-`char *strsignal(int signum);`
+char *strsignal(int signum);
+```
 
 ## Status
 

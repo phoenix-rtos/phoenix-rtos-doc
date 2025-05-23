@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`int chdir(const char *path);`
+int chdir(const char *path);
+```
 
 ## Status
 

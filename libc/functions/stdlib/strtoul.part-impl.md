@@ -2,11 +2,15 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`unsigned long strtoul(const char *restrict str, char **restrict endptr, int base);`
+unsigned long strtoul(const char *restrict str,
+                      char **restrict endptr, int base);
 
-`unsigned long long strtoull(const char *restrict str, char **restrict endptr, int base);`
+unsigned long long strtoull(const char *restrict str,
+                            char **restrict endptr, int base);
+```
 
 ## Status
 

@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`char *tmpnam(char *s);`
+char *tmpnam(char *s);
+```
 
 ## Status
 

@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <string.h>`
+```c
+#include <string.h>
 
-`size_t strlen(const char *s);`
+size_t strlen(const char *s);
 
-`size_t strnlen(const char *s, size_t maxlen);`
+size_t strnlen(const char *s, size_t maxlen);
+```
 
 ## Status
 

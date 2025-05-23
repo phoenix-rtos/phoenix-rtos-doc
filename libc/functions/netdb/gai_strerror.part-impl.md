@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <netdb.h>`
+```c
+#include <netdb.h>
 
-`const char *gai_strerror(int ecode);`
+const char *gai_strerror(int ecode);
+```
 
 ## Status
 

@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <sys/socket.h>`
+```c
+#include <sys/socket.h>
 
-`#include <netdb.h>`
+#include <netdb.h>
 
-`void freeaddrinfo(struct addrinfo *ai);`
+void freeaddrinfo(struct addrinfo *ai);
+```
 
 `int getaddrinfo(const char *restrict nodename, const char *restrict _servname_, const struct addrinfo *restrict hints,
 struct addrinfo **restrict res);`

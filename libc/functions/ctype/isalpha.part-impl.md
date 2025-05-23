@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <ctype.h>`
+```c
+#include <ctype.h>
 
-`int isalpha(int c);`
+int isalpha(int c);
+```
 
 ## Status
 

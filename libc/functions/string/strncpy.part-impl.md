@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <string.h>`
+```c
+#include <string.h>
 
-`char *stpncpy(char *restrict s1, const char *restrict s2, size_t n);`
+char *stpncpy(char *restrict s1, const char *restrict s2, size_t n);
 
-`char *strncpy(char *restrict s1, const char *restrict s2, size_t n);`
+char *strncpy(char *restrict s1, const char *restrict s2, size_t n);
+```
 
 ## Status
 

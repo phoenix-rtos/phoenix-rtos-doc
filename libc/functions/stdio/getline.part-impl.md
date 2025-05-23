@@ -2,11 +2,15 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`ssize_t getdelim(char **restrict lineptr, size_t *restrict n, int delimiter, FILE *restrict stream);`
+ssize_t getdelim(char **restrict lineptr, size_t *restrict n,
+                 int delimiter, FILE *restrict stream);
 
-`ssize_t getline(char **restrict lineptr, size_t *restrict n, FILE *restrict stream);`
+ssize_t getline(char **restrict lineptr, size_t *restrict n,
+                FILE *restrict stream);
+```
 
 ## Status
 

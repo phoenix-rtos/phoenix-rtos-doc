@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`void exit(int status);`
+void exit(int status);
+```
 
 ## Status
 

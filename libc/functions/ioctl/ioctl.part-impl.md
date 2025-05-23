@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <ioctl.h>`
+```c
+#include <ioctl.h>
 
-`int ioctl(int fildes, int request, ... /* arg */);`
+int ioctl(int fildes, int request, ... /* arg */);
+```
 
 ## Status
 

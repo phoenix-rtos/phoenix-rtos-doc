@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`int getc(FILE *stream);`
+int getc(FILE *stream);
+```
 
 ## Status
 

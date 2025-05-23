@@ -2,13 +2,15 @@
 
 ## Synopsis
 
-`#include <sys/stat.h>`
+```c
+#include <sys/stat.h>
 
-`int mkfifo(const char *path, mode_t mode);`
+int mkfifo(const char *path, mode_t mode);
 
-`#include <fcntl.h>`
+#include <fcntl.h>
 
-`int mkfifoat(int fd, const char *path, mode_t mode);`
+int mkfifoat(int fd, const char *path, mode_t mode);
+```
 
 ## Status
 

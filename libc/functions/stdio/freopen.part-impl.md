@@ -2,9 +2,13 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`FILE *freopen(const char *restrict pathname, const char *restrict mode, FILE *restrict stream);`
+FILE *freopen(const char *restrict pathname,
+              const char *restrict mode,
+              FILE *restrict stream);
+```
 
 ## Status
 

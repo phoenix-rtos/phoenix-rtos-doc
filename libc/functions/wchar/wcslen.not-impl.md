@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <wchar.h>`
+```c
+#include <wchar.h>
 
-`size_t wcslen(const wchar_t *ws);`
+size_t wcslen(const wchar_t *ws);
+```
 
 ## Status
 

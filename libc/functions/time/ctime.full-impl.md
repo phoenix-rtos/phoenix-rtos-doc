@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <time.h>`
+```c
+#include <time.h>
 
-`char *ctime(const time_t *clock);`
+char *ctime(const time_t *clock);
 
-`char *ctime_r(const time_t *clock, char *buf);`
+char *ctime_r(const time_t *clock, char *buf);
+```
 
 ## Description
 

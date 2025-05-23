@@ -2,9 +2,13 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`int setvbuf(FILE *restrict stream, char *restrict buf, int type, size_t size);`
+int setvbuf(FILE *restrict stream,
+            char *restrict buf, int type,
+            size_t size);
+```
 
 ## Status
 

@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <math.h>`
+```c
+#include <math.h>
 
-`double ceil(double x);`
+double ceil(double x);
 
-`float ceilf(float x);`
+float ceilf(float x);
+```
 
 ## Status
 

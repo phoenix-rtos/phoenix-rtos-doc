@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`int dup(int fildes);`
+int dup(int fildes);
 
-`int dup2(int fildes, int fildes2);`
+int dup2(int fildes, int fildes2);
+```
 
 ## Status
 
