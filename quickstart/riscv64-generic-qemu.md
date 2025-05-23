@@ -6,7 +6,7 @@ PLO, kernel, UART16550 interface and virtio-blk drivers, dummyfs filesystem and 
 with the ext2 filesystem.
 
 The files are created as the final artifact of the `phoenix-rtos-project` building and are located in the `_boot`
-directory. See [how to build the Phoenix-RTOS system image](../building/index.md).
+directory. See [Building](../building/index.md) chapter.
 
 ## Running image under QEMU
 
@@ -39,31 +39,6 @@ Firstly, you need to install QEMU emulator.
   ~$ qemu-system-riscv64 --version
   QEMU emulator version 4.2.1 (Debian 1:4.2-3ubuntu6.24)
   Copyright (c) 2003-2019 Fabrice Bellard and the QEMU Project developers
-  ~$
-  ```
-
-  </details>
-
-  <details>
-  <summary>How to get QEMU (macOS)</summary>
-
-- Install the required packages
-
-  ```zsh
-  brew update && \
-  brew install qemu
-  ```
-
-- Check if QEMU is properly installed:
-
-  ```zsh
-  qemu-system-riscv64 --version
-  ```
-
-  ```zsh
-  ~$ qemu-system-riscv64 --version
-  QEMU emulator version 8.0.0
-  Copyright (c) 2003-2022 Fabrice Bellard and the QEMU Project developers
   ~$
   ```
 

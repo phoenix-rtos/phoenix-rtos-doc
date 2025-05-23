@@ -7,8 +7,6 @@ To control the device, two mechanisms are necessary and should be provided by th
 device hardware registers and method of handling interrupts triggered by it. The architecture of these Phoenix-RTOS
 mechanisms has been presented in the chapter’s subsections.
 
-## Generic driver architecture
-
 Each typical driver in Phoenix-RTOS consists of the main function which typically parses command line parameters,
 creates a driver communication port, registers it in the operating system, namespace, initializes a device, and starts
 processing the incoming messages.
@@ -18,16 +16,10 @@ available, so the device server should implement a thread pool to process the in
 until the server responds to the message using the `msgRespond` syscall. There are two approaches to message
 processing - concurrent processing and iterative processing.
 
-## Concurrent processing
-
 Messages which can be processed instantly may be serviced by one of the main loop threads.
-
-## Iterative processing
 
 If delays are expected (e.g. waiting for I/O) message should be inserted into the server's internal queue and processed
 by the internal thread.
-
-## Source code
 
 The source code of Phoenix-RTOS device drivers could be obtained using the following command
 
@@ -38,12 +30,11 @@ git clone https://github.com/phoenix-rtos/phoenix-rtos-devices.git
 The documentation of a particular driver is provided within its source code repository.
 
 ```{toctree}
-:hidden:
 :maxdepth: 1
 
 interface.md
 hwaccess.md
 interrupts.md
 libsdio.md
-sensors/simsensors.md
+simsensors.md
 ```

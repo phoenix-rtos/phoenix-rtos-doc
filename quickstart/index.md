@@ -1,12 +1,11 @@
 # Running system on targets
 
 This chapter presents how to run Phoenix-RTOS on supported targets. It is assumed that `phoenix-rtos-project` is built,
-and building artifacts are available in the `_boot` directory. The building process has been described in
-[phoenix-rtos-doc/building](../building/index.md).
+and system artifacts are available in the `_boot` directory. The building process has been described in
+[Building](../building/index.md) chapter.
 
 ```{toctree}
 :maxdepth: 1
-:hidden:
 
 aarch64a53-zynqmp-zcu104.md
 armv7m4-stm32l4x6-nucleo.md

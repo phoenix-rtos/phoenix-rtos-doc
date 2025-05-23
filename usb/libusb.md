@@ -1,4 +1,4 @@
-# libusb
+# Libusb
 
 The main purpose of the `libusb` is to generalize access to USB resources and to simplify communication with the USB
 Host Stack. It also provides definitions of generic types used by both USB device drivers, USB Host Stack and USB client

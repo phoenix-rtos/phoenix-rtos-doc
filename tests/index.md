@@ -7,7 +7,7 @@ adapted to it.
 
 Tests, in general, are launched using test runner, placed in
 [phoenix-rtos-tests](https://github.com/phoenix-rtos/phoenix-rtos-tests) repository.
-Read more about the reference project repository [here](../building/project.md).
+Read more about the reference project in [Reference project](../project/index.md) chapter.
 
 ## High level overview of the test runner
 

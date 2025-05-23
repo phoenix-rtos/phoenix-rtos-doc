@@ -5,7 +5,7 @@ should be provided. The image is created as the final artifact of the `phoenix-r
 the `_boot` directory. The image consists of the bootloader (plo), kernel, TTY VGA driver, ATA driver with ext2
 filesystem.
 
-See [how to build the Phoenix-RTOS system image](../building/index.md).
+See [Building](../building/index.md) chapter.
 
 ## Running image under QEMU
 
@@ -38,31 +38,6 @@ Firstly, you need to install QEMU emulator.
   ~$ qemu-system-i386 --version
   QEMU emulator version 4.2.1 (Debian 1:4.2-3ubuntu6.24)
   Copyright (c) 2003-2019 Fabrice Bellard and the QEMU Project developers
-  ~$
-  ```
-
-  </details>
-
-<details>
-  <summary>How to get QEMU (macOS)</summary>
-
-- Install the required packages
-
-  ```zsh
-  brew update && \
-  brew install qemu
-  ```
-
-- Check if QEMU is properly installed:
-
-  ```zsh
-  qemu-system-i386 --version
-  ```
-
-  ```zsh
-  ~$ qemu-system-i386 --version
-  QEMU emulator version 8.0.0
-  Copyright (c) 2003-2022 Fabrice Bellard and the QEMU Project developers
   ~$
   ```
 
@@ -133,5 +108,5 @@ PATA interface. The image should be copied to the boot disk using the `dd` comma
 disk is represented by /dev/sda block device).
 
 ```console
-  dd if=_boot/ia32-generic-pc/phoenix.disk of=/dev/sda
+dd if=_boot/ia32-generic-pc/phoenix.disk of=/dev/sda
 ```
