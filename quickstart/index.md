@@ -18,7 +18,7 @@ and building artifacts are available in the `_boot` directory. The building proc
 10. [Running system on ia32-generic-qemu](ia32-generic-qemu.md)
 11. [Running system on riscv64-generic-qemu](riscv64-generic-qemu.md)
 12. [Running system on riscv64-generic-spike](riscv64-generic-spike.md)
-13. [Running system on riscv64-noelv-fpga](riscv64-noelv-fpga.md)
+13. [Running system on riscv64-grfpga-artya7](riscv64-grfpga-artya7.md)
 14. [Running system on sparcv8leon-gr716-mini](sparcv8leon-gr716-mini.md)
 15. [Running system on sparcv8leon-gr712rc-board](sparcv8leon-gr712rc-board.md)
 16. [Running system on sparcv8leon-gr716-mimas](sparcv8leon-gr716-mimas.md)
@@ -42,7 +42,7 @@ armv8r52-mps3an536-qemu.md
 ia32-generic-qemu.md
 riscv64-generic-qemu.md
 riscv64-generic-spike.md
-riscv64-noelv-fpga.md
+riscv64-grfpga-artya7.md
 sparcv8leon-gr716-mini.md
 sparcv8leon-gr712rc-board.md
 sparcv8leon-gr716-mimas.md
