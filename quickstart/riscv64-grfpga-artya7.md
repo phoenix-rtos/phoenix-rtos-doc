@@ -1,8 +1,8 @@
-# Running system on <nobr>riscv64-noelv-fpga</nobr>
+# Running system on <nobr>riscv64-grfpga-artya7</nobr>
 
 These instructions describe how to run Phoenix-RTOS on the NOEL-V processor configured on the Digilent Arty A7-100T
-FPGA - `riscv64-noelv-fpga` target. Note that the build artifacts, including the system image should be provided in the
-`_boot` directory. If you have not built the system image yet, please refer to the
+FPGA - `riscv64-grfpga-artya7` target. Note that the build artifacts, including the system image should be provided in
+the `_boot` directory. If you have not built the system image yet, please refer to the
 [Building Phoenix-RTOS image](../building/index.md) section.
 
 ## Connecting the board
@@ -35,11 +35,11 @@ The `-digilent` parameter specifies the Digilent JTAG adapter.
 Load the Phoenix-RTOS system image to the RAM by running the following commands in the `GRMON`:
 
 ```console
-load _boot/riscv64-noelv-fpga/sbi-noelv.elf
+load _boot/riscv64-grfpga-artya7/sbi-grfpga.elf
 ```
 
 ```console
-load -binary _boot/riscv64-noelv-fpga/phoenix.disk 0x08000000
+load -binary _boot/riscv64-grfpga-artya7/phoenix.disk 0x08000000
 ```
 
 Set entry point of the program:
@@ -54,7 +54,7 @@ Check on which port the board is connected to the computer. To do this, run the 
 ls -l /dev/serial/by-id
 ```
 
-![Image](_images/noelv-ls.png)
+![Image](_images/grfpga-ls.png)
 
 In this case, the serial port to use is `/dev/ttyUSB1`. Open the terminal emulator and connect to the board using the
 following command:
@@ -74,7 +74,7 @@ run
 After executing the `run` command, Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the
 terminal.
 
-![Image](_images/noelv-start.png)
+![Image](_images/grfpga-start.png)
 
 ## See also
 

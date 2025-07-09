@@ -37,7 +37,7 @@ The ARINC653 execution environment (APEX) is under development.
     9. [Running system on `ia32-generic-qemu`](quickstart/ia32-generic-qemu.md)
     10. [Running system on `riscv64-generic-qemu`](quickstart/riscv64-generic-qemu.md)
     11. [Running system on `riscv64-generic-spike`](quickstart/riscv64-generic-spike.md)
-    12. [Running system on `riscv64-noelv-fpga`](quickstart/riscv64-noelv-fpga.md)
+    12. [Running system on `riscv64-grfpga-artya7`](quickstart/riscv64-grfpga-artya7.md)
     13. [Running system on `sparcv8leon-gr716-mini`](quickstart/sparcv8leon-gr716-mini.md)
     14. [Running system on `sparcv8leon-gr712rc-board`](quickstart/sparcv8leon-gr712rc-board)
     15. [Running system on `sparcv8leon-gr716-mimas`](quickstart/sparcv8leon-gr716-mimas)

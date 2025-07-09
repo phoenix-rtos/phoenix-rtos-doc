@@ -106,7 +106,7 @@ The Phoenix-RTOS reference project supports the following target platforms:
 - ia32-generic-qemu
 - riscv64-generic-qemu
 - riscv64-generic-spike
-- riscv64-noelv-fpga
+- riscv64-grfpga-artya7
 - sparcv8leon-generic-qemu
 - sparcv8leon-gr712rc-board
 - sparcv8leon-gr716-mimas
