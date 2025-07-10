@@ -9,13 +9,15 @@ This chapter contains instructions on how to build a reference project and how t
 
 ## Contents
 
-- [Supported host operating systems](#host-operating-system)
-- [Getting the phoenix-rtos-project repository](#obtaining-the-sources)
-- [Supported Phoenix-RTOS platforms](#supported-target-platforms)
-- [Building the system image with docker](#building-using-docker)
-- [Building the system image natively](#building-using-the-native-toolchain)
-- [Launching Phoenix-RTOS](#launching-phoenix-rtos)
-- [Navigation links](#see-also)
+- [Building](#building)
+  - [Contents](#contents)
+  - [Host operating system](#host-operating-system)
+  - [Obtaining the sources](#obtaining-the-sources)
+  - [Supported target platforms](#supported-target-platforms)
+  - [Building using docker](#building-using-docker)
+  - [Building using the native toolchain](#building-using-the-native-toolchain)
+  - [Launching Phoenix-RTOS](#launching-phoenix-rtos)
+  - [See also](#see-also)
 
 ## Host operating system
 
@@ -107,6 +109,7 @@ The Phoenix-RTOS reference project supports the following target platforms:
 - riscv64-generic-qemu
 - riscv64-generic-spike
 - riscv64-grfpga-artya7
+- riscv64-gr765-vcu118
 - sparcv8leon-generic-qemu
 - sparcv8leon-gr712rc-board
 - sparcv8leon-gr716-mimas

@@ -19,12 +19,13 @@ and building artifacts are available in the `_boot` directory. The building proc
 11. [Running system on riscv64-generic-qemu](riscv64-generic-qemu.md)
 12. [Running system on riscv64-generic-spike](riscv64-generic-spike.md)
 13. [Running system on riscv64-grfpga-artya7](riscv64-grfpga-artya7.md)
-14. [Running system on sparcv8leon-gr716-mini](sparcv8leon-gr716-mini.md)
-15. [Running system on sparcv8leon-gr712rc-board](sparcv8leon-gr712rc-board.md)
-16. [Running system on sparcv8leon-gr716-mimas](sparcv8leon-gr716-mimas.md)
-17. [Running system on sparcv8leon-generic-qemu](sparcv8leon-generic-qemu.md)
-18. [Running system on sparcv8leon-gr740-mini](sparcv8leon-gr740-mini.md)
-19. [Table of Contents](../index.md)
+14. [Running system on riscv64-gr765-vcu118](riscv64-gr765-vcu118.md)
+15. [Running system on sparcv8leon-gr716-mini](sparcv8leon-gr716-mini.md)
+16. [Running system on sparcv8leon-gr712rc-board](sparcv8leon-gr712rc-board.md)
+17. [Running system on sparcv8leon-gr716-mimas](sparcv8leon-gr716-mimas.md)
+18. [Running system on sparcv8leon-generic-qemu](sparcv8leon-generic-qemu.md)
+19. [Running system on sparcv8leon-gr740-mini](sparcv8leon-gr740-mini.md)
+20. [Table of Contents](../index.md)
 
 ```{toctree}
 :maxdepth: 1
@@ -43,6 +44,7 @@ ia32-generic-qemu.md
 riscv64-generic-qemu.md
 riscv64-generic-spike.md
 riscv64-grfpga-artya7.md
+riscv64-gr765-vcu118.md
 sparcv8leon-gr716-mini.md
 sparcv8leon-gr712rc-board.md
 sparcv8leon-gr716-mimas.md
