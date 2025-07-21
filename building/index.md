@@ -410,13 +410,16 @@ guide.
 2. [Toolchain](toolchain.md)
 3. [Building script](script.md)
 4. [Reference project](project.md)
-5. [Table of Contents](../index.md)
+5. [Shared libraries](shared-libs.md)
+6. [Table of Contents](../index.md)
 
 ```{toctree}
 :hidden:
 :maxdepth: 1
 
+windows.md
 toolchain.md
 script.md
 project.md
+shared-libs.md
 ```
