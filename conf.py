@@ -76,9 +76,11 @@ latex_documents = [
 ]
 
 latex_additional_files = [
-    "_static/images/pdf-titlepage.png",
-    "_static/images/pdf-lastpage.png",
-    "_static/images/small_logo.png"
+    "_static/images/pdf/companylogo.png",
+    "_static/images/pdf/last-page-image.png",
+    "_static/images/pdf/small-logo.png",
+    "_static/images/pdf/first-page-image1.png",
+    "_static/images/pdf/first-page-image2.png"
 ]
 
 latex_elements = {
@@ -108,21 +110,6 @@ latex_elements = {
         \usepackage{fontspec}
     ''',
     'preamble': Path("_static/latex/preamble.tex").read_text(),
-    'maketitle': r'''
-        \newgeometry{margin=0pt}
-        \thispagestyle{empty}
-        \begin{figure}
-            \includegraphics[width=\paperwidth,height=\paperheight]{pdf-titlepage.png}
-        \end{figure}
-        \clearpage
-        \restoregeometry
-    ''',
-    'atendofbody': r'''
-        \newgeometry{margin=0pt}
-        \thispagestyle{empty}
-        \begin{figure}
-            \includegraphics[width=\paperwidth,height=\paperheight]{pdf-lastpage.png}
-        \end{figure}
-        \restoregeometry
-    ''',
+    'maketitle': Path("_static/latex/maketitle.tex").read_text(),
+    'atendofbody': Path("_static/latex/atendofbody.tex").read_text()
 }
