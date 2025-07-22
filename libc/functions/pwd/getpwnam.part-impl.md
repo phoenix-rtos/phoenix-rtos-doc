@@ -2,11 +2,14 @@
 
 ## Synopsis
 
-`#include <pwd.h>`
+```c
+#include <pwd.h>
 
-`struct passwd *getpwnam(const char *name);`
+struct passwd *getpwnam(const char *name);
 
-`int getpwnam_r(const char *name, struct passwd *pwd, char *buffer, size_t bufsize, struct passwd **result);`
+int getpwnam_r(const char *name, struct passwd *pwd, char *buffer,
+               size_t bufsize, struct passwd **result);
+```
 
 ## Status
 

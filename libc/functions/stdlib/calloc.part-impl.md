@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`void *calloc(size_t nelem, size_t elsize);`
+void *calloc(size_t nelem, size_t elsize);
+```
 
 ## Status
 

@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`int putchar(int c);`
+int putchar(int c);
+```
 
 ## Status
 

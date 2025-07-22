@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`FILE *fopen(const char *restrict path name, const char *restrict mode);`
+FILE *fopen(const char *restrict path name, const char *restrict mode);
+```
 
 ## Status
 

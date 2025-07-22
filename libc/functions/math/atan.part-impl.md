@@ -2,13 +2,15 @@
 
 ## Synopsis
 
-`#include <math.h>`
+```c
+#include <math.h>
 
-`double atan(double x);`
+double atan(double x);
 
-`float atanf(float x);`
+float atanf(float x);
 
-`long double atanl(long double x);`
+long double atanl(long double x);
+```
 
 ## Status
 

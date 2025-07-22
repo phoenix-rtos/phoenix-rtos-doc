@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`FILE *fdopen(int fildes, const char *mode);`
+FILE *fdopen(int fildes, const char *mode);
+```
 
 ## Status
 

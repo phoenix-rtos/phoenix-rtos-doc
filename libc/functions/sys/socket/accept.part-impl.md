@@ -2,10 +2,12 @@
 
 ## Synopsis
 
-`#include <sys/socket.h>`
+```c
+#include <sys/socket.h>
 
-`int accept(int socket, struct sockaddr *restrict address,`
-`socklen_t *restrict address_len);`
+int accept(int socket, struct sockaddr *restrict address,
+           socklen_t *restrict address_len);
+```
 
 ## Status
 

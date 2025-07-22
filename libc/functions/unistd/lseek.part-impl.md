@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`off_t lseek(int fildes, off_t offset, int whence);`
+off_t lseek(int fildes, off_t offset, int whence);
+```
 
 ## Status
 

@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <sys/threads.h>`
+```c
+#include <sys/threads.h>
 
-`int condCreateWithAttr(handle_t *h, struct condAttr *attr);`
+int condCreateWithAttr(handle_t *h, struct condAttr *attr);
+```
 
 ## Status
 

@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <time.h>`
+```c
+#include <time.h>
 
-`time_t time(time_t *tloc);`
+time_t time(time_t *tloc);
+```
 
 ## Status
 

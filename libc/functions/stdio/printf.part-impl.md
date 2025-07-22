@@ -2,19 +2,21 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`int dprintf(int _fildes_, const char *restrict format, ...);`
+int dprintf(int _fildes_, const char *restrict format, ...);
 
-`int fprintf(FILE *restrict stream, const char *restrict format, ...);`
+int fprintf(FILE *restrict stream, const char *restrict format, ...);
 
-`int printf(const char *restrict format, ...);`
+int printf(const char *restrict format, ...);
 
-`int snprintf(char *restrict s, size_t n,`
+int snprintf(char *restrict s, size_t n,
 
-`const char *restrict format, ...);`
+const char *restrict format, ...);
 
-`int sprintf(char *restrict s, const char *restrict format, ...);`
+int sprintf(char *restrict s, const char *restrict format, ...);
+```
 
 ## Status
 
@@ -101,7 +103,7 @@ strings containing the `%n$` form of a conversion specification, a field width o
 sequence `*m$`, where `m` is a decimal integer in the range `[1,NL_ARGMA]` giving the position in the argument list
 (after the format argument) of an integer argument containing the field width or precision, for example:
 
-    `printf("%1$d:%2$.*3$d:%4$.*3$d\n", hour, min, precision, sec);`
+`printf("%1$d:%2$.*3$d:%4$.*3$d\n", hour, min, precision, sec);`
 
 The flag characters and their meanings are:
 

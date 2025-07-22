@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <math.h>`
+```c
+#include <math.h>
 
-`double cos(double x);`
+double cos(double x);
 
-`float cosf(float x);`
+float cosf(float x);
+```
 
 ## Status
 

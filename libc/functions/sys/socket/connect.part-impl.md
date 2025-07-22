@@ -2,9 +2,12 @@
 
 ## Synopsis
 
-`#include <sys/socket.h>`
+```c
+#include <sys/socket.h>
 
-`int connect(int socket, const struct sockaddr *address, socklen_t address_len)`
+int connect(int socket, const struct sockaddr *address,
+            socklen_t address_len)
+```
 
 ## Status
 

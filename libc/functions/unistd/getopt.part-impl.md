@@ -2,13 +2,15 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`int getopt(int argc, char * const argv[], const char *optstring);`
+int getopt(int argc, char * const argv[], const char *optstring);
 
-`extern char *optarg;`
+extern char *optarg;
 
-`extern int opterr, optind, optopt;`
+extern int opterr, optind, optopt;
+```
 
 ## Status
 

@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <sys/threads.h>`
+```c
+#include <sys/threads.h>
 
-`int condCreate(handle_t *h);`
+int condCreate(handle_t *h);
+```
 
 ## Status
 

@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <sys/threads.h>`
+```c
+#include <sys/threads.h>
 
-`int mutexCreate(handle_t *h);`
+int mutexCreate(handle_t *h);
+```
 
 ## Status
 

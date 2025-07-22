@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <time.h>`
+```c
+#include <time.h>
 
-`int utime(const char *path, const struct utimbuf *times);`
+int utime(const char *path, const struct utimbuf *times);
+```
 
 ## Status
 

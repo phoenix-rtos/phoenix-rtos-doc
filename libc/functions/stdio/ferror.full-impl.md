@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`int ferror(FILE *stream);`
+int ferror(FILE *stream);
+```
 
 ## Status
 

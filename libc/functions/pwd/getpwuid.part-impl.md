@@ -2,11 +2,14 @@
 
 ## Synopsis
 
-`#include <pwd.h>`
+```c
+#include <pwd.h>
 
-`struct passwd *getpwuid(uid_t uid);`
+struct passwd *getpwuid(uid_t uid);
 
-`int getpwuid_r(uid_t uid, struct passwd *pwd, char *buffer, size_t bufsize, struct passwd **result);`
+int getpwuid_r(uid_t uid, struct passwd *pwd, char *buffer,
+               size_t bufsize, struct passwd **result);
+```
 
 ## Status
 

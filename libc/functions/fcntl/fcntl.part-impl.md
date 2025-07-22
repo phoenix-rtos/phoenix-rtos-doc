@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <fcntl.h>`
+```c
+#include <fcntl.h>
 
-`int fcntl(int fildes, int cmd, ...);`
+int fcntl(int fildes, int cmd, ...);
+```
 
 ## Status
 

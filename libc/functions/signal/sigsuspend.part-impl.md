@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <signal.h>`
+```c
+#include <signal.h>
 
-`int sigsuspend(const sigset_t *sigmask);`
+int sigsuspend(const sigset_t *sigmask);
+```
 
 ## Status
 

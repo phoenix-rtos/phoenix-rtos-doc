@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`int clearenv(void);`
+int clearenv(void);
+```
 
 ## Status
 

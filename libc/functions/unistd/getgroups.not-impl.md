@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`int getgroups(int gidsetsize, gid_t grouplist[]);`
+int getgroups(int gidsetsize, gid_t grouplist[]);
+```
 
 ## Status
 

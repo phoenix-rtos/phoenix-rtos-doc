@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`char *crypt(const char *key, const char *salt);`
+char *crypt(const char *key, const char *salt);
+```
 
 ## Status
 

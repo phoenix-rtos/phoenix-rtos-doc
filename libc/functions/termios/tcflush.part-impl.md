@@ -2,9 +2,11 @@
 
 ## Synsopsis
 
-`#include <termios.h>`
+```c
+#include <termios.h>
 
-`int tcflush(int fildes, int queue_selector);`
+int tcflush(int fildes, int queue_selector);
+```
 
 ## Status
 

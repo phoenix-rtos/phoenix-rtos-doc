@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <sys/stat.h>`
+```c
+#include <sys/stat.h>
 
-`int fstat(int fildes, struct stat *buf);`
+int fstat(int fildes, struct stat *buf);
+```
 
 ## Status
 

@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`FILE *popen(const char *command, const char *mode);`
+FILE *popen(const char *command, const char *mode);
+```
 
 ## Status
 

@@ -2,13 +2,15 @@
 
 ## Synopsis
 
-`#include <math.h>`
+```c
+#include <math.h>
 
-`double sinh(double x);`
+double sinh(double x);
 
-`float sinhf(float x);`
+float sinhf(float x);
 
-`long double sinhl(long double x);`
+long double sinhl(long double x);
+```
 
 ## Status
 
