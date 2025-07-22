@@ -78,3 +78,26 @@ html_theme_options = {
         "color-header-text": "white",
     },
 }
+
+# -- Options for LaTeX output --------------------------------------------------
+
+latex_elements = {
+    'papersize': 'a4paper',
+    'pointsize': '10pt',
+    'preamble': r'''
+        \usepackage{amsmath}
+        \usepackage{amssymb}
+        \usepackage{graphicx}
+    ''',
+    'figure_align': 'htbp',
+}
+latex_documents = [
+    (
+        'coding/index',  # Master document (e.g., 'index' or 'contents')
+        'CodingStandard.tex',  # Target LaTeX file name
+        'Coding Standard',  # Document Title
+        'Bartlomiej Paczek (Phoenix Systems)',  # Author name
+        'manual',  # Documentclass (e.g., 'howto', 'manual', 'report', 'book')
+        False  # toctree_only (True if you only want the TOC, False for full content)
+    ),
+]
