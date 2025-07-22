@@ -1,31 +1,10 @@
 # Cache library (libcache)
 
 `libcache` is a thread-safe library which implements a n-way set-associative cache.
+
 <!-- TODO: mention whether the library is static and precompiled -->
 
 ![Image](../_static/images/corelibs/libcache.png)
-
-## Contents
-
-- [API](#api)
-  - [Data types](#data-types)
-  - [Functions](#functions)
-- [Configurable cache parameters](#configurable-cache-parameters)
-  - [Size](#size)
-  - [Associativity](#associativity)
-  - [Write policy](#write-policy)
-- [Implementation](#implementation)
-  - [Overview](#overview)
-  - [Organization](#organization)
-  - [Bitmasks](#bitmasks)
-  - [Data structures](#data-structures)
-- [Cache operations](#cache-operations)
-  - [Read](#reading-a-buffer-from-a-device-via-the-cache)
-  - [Write](#writing-a-buffer-to-a-device-via-the-cache)
-  - [Flush](#flushing-the-cache)
-  - [Invalidate](#invalidating-the-cache)
-  - [Clean](#cleaning-the-cache)
-- [Running tests](#running-tests)
 
 ## API
 

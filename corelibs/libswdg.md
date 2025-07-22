@@ -2,14 +2,6 @@
 
 Software multichannel watchdog implementation.
 
-## Contents
-
-- [Application interface](#application-interface)
-  - [Data types](#data-types)
-  - [Functions](#functions)
-  - [Notes](#notes)
-- [Using libswdg](#using-libswdg)
-
 ## Application interface
 
 ### Data types

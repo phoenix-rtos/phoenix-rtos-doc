@@ -6,7 +6,7 @@ building and are located in the `_boot` directory. The disk image consists of th
 (tty), dummyfs filesystem server (RAM disk), and `psh` (shell). Necessary tools to carry out the flashing process are
 located in the `_boot` directory as well.
 
-See [how to build the Phoenix-RTOS system image](../building/index.md).
+See [Building](../building/index.md) chapter.
 
 ## Development board
 
@@ -47,14 +47,6 @@ that run:
 
   ![Image](../_static/images/quickstart/imxrt117x-ls.png)
 
-  - On macOS:
-
-  ```console
-  ls -l /dev/tty.*
-  ```
-
-  ![Image](../_static/images/quickstart/imxrt117x-ls-mac.png)
-
   If your output is like in the screenshot above, the console (`DEBUG USB` in the evaluation board) is on the `ACM0`
   port.
 
@@ -77,17 +69,6 @@ that run:
 
   ```console
   sudo usermod -a -G tty <yourname>
-  ```
-
-  </details>
-  </br>
-
-  <details>
-  <summary>How to get picocom (macOS)</summary>
-
-  ```console
-  brew update &&\
-  brew install picocom
   ```
 
   </details>
@@ -138,14 +119,6 @@ ls -l /dev/serial/by-id
 ```
 
 ![Image](../_static/images/quickstart/imxrt117x-ls-2.png)
-
-- On macOS:
-
-```console
-ls -l /dev/tty.*
-```
-
-![Image](../_static/images/quickstart/imxrt117x-ls-mac2.png)
 
 To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments (choose suitable
 ttyACMx device, in this case, ttyACM1):
