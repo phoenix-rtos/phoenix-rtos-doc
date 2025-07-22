@@ -75,14 +75,18 @@ typedef void (*sdio_event_handler_t)(void *arg);
 | SDIO_EVENT_CARD_OUT | SDIO device is removed             |
 | SDIO_EVENT_CARD_IRQ | SDIO device requested an interrupt |
 
-> **NOTE:** These definitions are meant for use with `sdio_eventEnable` and `sdio_eventRegister` functions exclusively.
+```{note}
+These definitions are meant for use with `sdio_eventEnable` and `sdio_eventRegister` functions exclusively.
+```
 
 ## API description
 
 Following sections describe the API in detail, including the behavior of certain functions.
 
-> **NOTE:** Codes returned by API calls are defined in `<errno.h>` header, which provides more detailed information
+```{note}
+Codes returned by API calls are defined in `<errno.h>` header, which provides more detailed information
 about specific values.
+```
 
 ---
 
@@ -122,8 +126,10 @@ This function initializes the SDIO interface hardware and tries to detect and se
 called before any other API function. Should no device be present, or it does not respond to SDIO initialization
 sequence, this function shall return an error code and free resources it acquired.
 
-> **NOTE:** Calling this function more than once after successful completion will have no effect. In order to
+```{note}
+Calling this function more than once after successful completion will have no effect. In order to
 reinitialize the interface, `sdio_free` should be called between concurrent `sdio_init` calls instead.
+```
 
 **Parameters:**
 
@@ -148,8 +154,10 @@ void sdio_free(void);
 This function frees the SDIO bus, reset the host controller, deregister and disable all previously registered event
 handlers. Calling this function before `sdio_init` has no effect.
 
-> **NOTE:** Due to its current implementation, calling this function does not allow for creation of new library
+```{note}
+Due to its current implementation, calling this function does not allow for creation of new library
 instances in other running processes.
+```
 
 **Parameters:**
 
@@ -199,7 +207,9 @@ This function initiates a direct, single 8-bit register read/write operation. Wh
 the byte inside the `data` buffer is written to the device, otherwise if `dir` equals `sdio_read`, the buffer is set
 to the value read from the device.
 
-> **NOTE:** This function is a blocking call which only returns upon successful transfer completion or failure.
+```{note}
+This function is a blocking call which only returns upon successful transfer completion or failure.
+```
 
 **Parameters:**
 
@@ -230,7 +240,9 @@ int sdio_transferBulk(sdio_dir_t dir, int blockMode, uint32_t address,
 This function initiates an indirect, multibyte transfer of up to 2048 bytes at once. As is the case with
 `sdio_transferDirect`, this call can service bidirectional transfers.
 
-> **NOTE:** This function is a blocking call which only returns upon successful transfer completion or failure.
+```{note}
+This function is a blocking call which only returns upon successful transfer completion or failure.
+```
 
 **Parameters:**
 
@@ -243,10 +255,15 @@ This function initiates an indirect, multibyte transfer of up to 2048 bytes at o
 | [in/out] `uint8_t *data` | bidirectional multibyte buffer   | *any valid pointer*    |
 | [in] `size_t len`        | total transfer size in bytes     | <=2048                 |
 
-> **NOTE:** `len` parameter has to be a multiple of `blocksz` when performing a block transfer with `blockMode` set to
+```{note}
+`len` parameter has to be a multiple of `blocksz` when performing a block transfer with `blockMode` set to
 *true*.
-> **NOTE:** `address` parameter specifies only the base address of the transfer. If `blockMode` is set to *true*, then
+```
+
+```{note}
+`address` parameter specifies only the base address of the transfer. If `blockMode` is set to *true*, then
 the address is automatically incremented by the device with every completed block.
+```
 
 **Returns:**
 
@@ -279,7 +296,9 @@ overwritten. In order to deregister the handler one can pass `NULL` as the `hand
 | [in] `sdio_event_handler_t handler` | pointer to event handler function | *any pointer*    |
 | [in/out] `void *arg`                | argument for the handler function | *any pointer*    |
 
-> **NOTE:** `event` argument is passed using appropriate defines beginning with `SDIO_EVENT`.
+```{note}
+`event` argument is passed using appropriate defines beginning with `SDIO_EVENT`.
+```
 
 **Returns:**
 
@@ -288,7 +307,9 @@ overwritten. In order to deregister the handler one can pass `NULL` as the `hand
 | EOK    | success                       |
 | EINVAL | provided `event` is not valid |
 
-> **NOTE:** Codes returned are defined in `<errno.h>` header.
+```{note}
+Codes returned are defined in `<errno.h>` header.
+```
 
 ---
 
@@ -306,7 +327,9 @@ This function can enable or disable interrupt event signalling of the SD host co
 | [in] `uint8_t event` | event for which signalling enable is to be set | *see note below* |
 | [in] `int enabled`   | state of signalling enable (1/0)               | *boolean*        |
 
-> **NOTE:** `event` argument is passed using appropriate defines beginning with `SDIO_EVENT`.
+```{note}
+`event` argument is passed using appropriate defines beginning with `SDIO_EVENT`.
+```
 
 **Returns:**
 
