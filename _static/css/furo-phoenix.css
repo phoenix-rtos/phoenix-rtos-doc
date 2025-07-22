@@ -512,3 +512,19 @@ table.docutils {
 #searchbox .highlight-link {
     display: none;
 }
+
+.blue-text {
+    color: blue
+}
+
+.green-text {
+    color: green
+}
+
+.red-text {
+    color: red
+}
+
+.violet-text {
+    color: violet
+}

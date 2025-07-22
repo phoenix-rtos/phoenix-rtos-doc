@@ -15,14 +15,16 @@ Communication with the board in this case is provided via USB-UART converters co
 - pins `3-tx (E13 - red)`&`5-rx (D16 - orange)` are used for interfacing with the `phoenixd` server.
 - pins `7-tx (E15 - yellow)`&`9-rx (F14 - orange)` are used for `psh/plo` console.
 - pins `37-M4` & `49-GND` must be connected via `10k` ohm resistor.
-  
+
 Mimas pinout diagram:
+
 ![Image](../_static/images/quickstart/MimasA7_Mini_WD.png)
 
 Source: The MimasA7 Mini board's schematic, available on
   <https://numato.com/product/mimas-a7-mini-fpga-development-board/>
 
 This is how connected device should look like:
+
 ![Image](../_static/images/quickstart/MimasA7_Mini_Connected.jpg)
 
 ## Programming Artix FPGA
