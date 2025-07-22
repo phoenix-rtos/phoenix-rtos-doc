@@ -135,8 +135,3 @@ disk is represented by /dev/sda block device).
 ```console
   dd if=_boot/ia32-generic-pc/phoenix.disk of=/dev/sda
 ```
-
-## See also
-
-1. [Running system on targets](index.md)
-2. [Table of Contents](../index.md)

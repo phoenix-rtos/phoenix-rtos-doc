@@ -194,16 +194,6 @@ the HAL.
 
 In this chapter main functions of Phoenix-RTOS memory management are discussed.
 
-## See also
-
-1. [Kernel](../index.md)
-2. [Kernel - Memory management - Page allocator](page.md)
-3. [Kernel - Memory management - Memory mapper](mapper.md)
-4. [Kernel - Memory management - Zone allocator](zalloc.md)
-5. [Kernel - Memory management - Fine grained allocator](kmalloc.md)
-6. [Kernel - Memory management - Memory objects](objects.md)
-7. [Table of Contents](../../index.md)
-
 ```{toctree}
 :hidden:
 :maxdepth: 1

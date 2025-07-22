@@ -305,9 +305,3 @@ required header file.
 
 `VirtIO` library provides the basic set of tests, which is available in
 [phoenix-rtos-tests](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master).
-
-## See also
-
-1. [Phoenix-RTOS core libraries](index.md)
-2. [Phoenix-RTOS Graphics Library](libgraph.md)
-3. [Table of Contents](../index.md)

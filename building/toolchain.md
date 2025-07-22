@@ -26,10 +26,3 @@ There are a few reasons why that is helpful
     #warning OS is Phoenix-RTOS
 #endif
 ```
-
-## See also
-
-1. [Building Phoenix-RTOS image](index.md)
-2. [Building script](script.md)
-3. [Reference project](project.md)
-4. [Table of Contents](../index.md)

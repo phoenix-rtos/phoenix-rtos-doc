@@ -75,8 +75,3 @@ After executing the `run` command, Phoenix-RTOS will be launched and the `psh` s
 terminal.
 
 ![Image](_images/grfpga-start.png)
-
-## See also
-
-1. [Running system on targets](index.md)
-2. [Table of Contents](../index.md)

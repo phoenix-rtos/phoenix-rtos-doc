@@ -57,12 +57,3 @@ scheduler is working.
 Each lock consists of spinlock, state variable and waiting queue.
 
 ## Conditional variables
-
-## See also
-
-1. [Kernel - Processes and threads](index.md)
-2. [Kernel - Processes and threads - Scheduler](scheduler.md)
-3. [Kernel - Processes and threads - Management](forking.md)
-4. [Kernel - Processes and threads - Message passing](msg.md)
-5. [Kernel - Processes and threads - Namespace](namespace.md)
-6. [Table of Contents](../../index.md)

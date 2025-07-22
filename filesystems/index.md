@@ -12,7 +12,3 @@ git clone https://github.com/phoenix-rtos/phoenix-rtos-filesystems.git
 ```
 
 The documentation of a particular server is provided within its source code repository.
-
-## See also
-
-1. [Table of Contents](../index.md)

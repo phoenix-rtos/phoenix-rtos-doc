@@ -37,13 +37,6 @@ git clone https://github.com/phoenix-rtos/phoenix-rtos-devices.git
 
 The documentation of a particular driver is provided within its source code repository.
 
-## See also
-
-1. [Access to device hardware registers](hwaccess.md)
-2. [Handling interrupts](interrupts.md)
-3. [Message interface](interface.md)
-4. [Table of Contents](../index.md)
-
 ```{toctree}
 :hidden:
 :maxdepth: 1

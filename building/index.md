@@ -17,7 +17,6 @@ This chapter contains instructions on how to build a reference project and how t
   - [Building using docker](#building-using-docker)
   - [Building using the native toolchain](#building-using-the-native-toolchain)
   - [Launching Phoenix-RTOS](#launching-phoenix-rtos)
-  - [See also](#see-also)
 
 ## Host operating system
 
@@ -403,14 +402,6 @@ You can read more about the building script options [here](script.md).
 
 To start the created image on target architecture please see [phoenix-rtos-doc/quickstart](../quickstart/index.md)
 guide.
-
-## See also
-
-1. [Windows setup](windows.md)
-2. [Toolchain](toolchain.md)
-3. [Building script](script.md)
-4. [Reference project](project.md)
-5. [Table of Contents](../index.md)
 
 ```{toctree}
 :hidden:

@@ -99,11 +99,6 @@ Only one interactive session of the `psh` can be run in a scope of a `psh` proce
 spawn a new process, so in order to invoke a second, independent shell user must execute a `psh` binary file.
 See [`exec`](psh-applets/exec.md) or [`/`](psh-applets/runfile.md) for examples.
 
-## See also
-
-1. [Utilities](../index.md)
-2. [Table of Contents](../../index.md)
-
 ```{toctree}
 :glob:
 :hidden:

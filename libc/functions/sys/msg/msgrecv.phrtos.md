@@ -55,9 +55,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [IPC mechanisms in Phoenix-RTOS](../../../../architecture/index.md#interprocess-communication)
-2. [Standard library functions](../../index.md)
-3. [Table of Contents](../../../../index.md)

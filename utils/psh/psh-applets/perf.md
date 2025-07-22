@@ -10,9 +10,3 @@ perf [timeout]
 ```
 
 - `timeout`: Specifies the duration (in seconds) for which to collect performance data.
-
-## See also
-
-1. [Phoenix-RTOS shell](../index.md)
-2. [Phoenix-RTOS Utilities](../../index.md)
-3. [Table of Contents](../../../index.md)

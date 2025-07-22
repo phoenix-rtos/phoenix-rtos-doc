@@ -79,24 +79,6 @@ end of the list:
 4. The system call can be invoked in user application by including `sys/threads.h` header. This example syscall is used
 by the `ps` applet in the `psh` (Phoenix-Shell).
 
-## See also
-
-1. [Kernel](../index.md)
-2. [System calls - Debug](debug.md)
-3. [System calls - Memory management](mem.md)
-4. [System calls - Processes management](proc.md)
-5. [System calls - Threads management](threads.md)
-6. [System calls - Threads synchronization](sync.md)
-7. [System calls - Inter-process communication](ipc.md)
-8. [System calls - File operations](file.md)
-9. [System calls - Socket operations](socket.md)
-10. [System calls - Interrupts management](interrupts.md)
-11. [System calls - Performance monitoring](perf.md)
-12. [System calls - Time management](time.md)
-13. [System calls - Platform management](platform.md)
-14. [System calls - RISC-V specific](riscv.md)
-15. [Table of Contents](../../index.md)
-
 ```{toctree}
 :hidden:
 :maxdepth: 1

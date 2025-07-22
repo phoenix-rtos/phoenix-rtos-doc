@@ -22,8 +22,3 @@ The source code of `posixsrv` is available on GitHub and can be obtained using t
 ```console
 git clone https://github.com/phoenix-rtos/phoenix-rtos-posixsrv.git
 ```
-
-## See also
-
-1. [Standard library functions](functions/index.md)
-2. [Table of Contents](../index.md)

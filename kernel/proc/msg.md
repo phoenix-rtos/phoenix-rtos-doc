@@ -253,12 +253,3 @@ Remove a hard link.
 #### `mtReaddir`
 
 Read directory entries.
-
-## See also
-
-1. [Kernel - Processes and threads](index.md)
-2. [Kernel - Processes and threads - Scheduler](scheduler.md)
-3. [Kernel - Processes and threads - Management](forking.md)
-4. [Kernel - Processes and threads - Synchronization primitives](sync.md)
-5. [Kernel - Processes and threads - Namespace](namespace.md)
-6. [Table of Contents](../../index.md)
