@@ -8,7 +8,6 @@
 
 from version_management import get_version_context
 
-
 project = ""
 copyright = "2024-2025, Phoenix Systems"
 author = "Phoenix Systems"

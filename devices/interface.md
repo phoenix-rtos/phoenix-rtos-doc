@@ -38,32 +38,32 @@ Syscall returns 0 on success.
 On systems that contain filesystem special file can be created, which will point to the server's `oid`. In the first
 place we need `oid` of directory which will hold our special file:
 
-````C
-    #include <sys/msg.h>
+```c
+#include <sys/msg.h>
 
-    oid_t dir;
+oid_t dir;
 
-    lookup("/dev", &dir, NULL);
-````
+lookup("/dev", &dir, NULL);
+```
 
 Then we can create a new special file and register:
 
-````C
-    msg_t msg;
+```c
+msg_t msg;
 
-    msg.type = mtCreate;
-    msg.oid = dir;
-    msg.i.create.type = otDev;
-    msg.i.create.mode = 0;
-    msg.i.create.dev.port = port; /* Port number assigned by portCreate */
-    msg.i.create.dev.id = id; /* Id assigned by the driver itself */
-    msg.i.data = "drvfile"; /* Filename */
-    msg.i.size = strlen(msg.i.data);
-    msg.o.data = NULL;
-    msg.o.size = 0;
+msg.type = mtCreate;
+msg.oid = dir;
+msg.i.create.type = otDev;
+msg.i.create.mode = 0;
+msg.i.create.dev.port = port; /* Port number assigned by portCreate */
+msg.i.create.dev.id = id; /* Id assigned by the driver itself */
+msg.i.data = "drvfile"; /* Filename */
+msg.i.size = strlen(msg.i.data);
+msg.o.data = NULL;
+msg.o.size = 0;
 
-    msgSend(dir.port, &msg);
-````
+msgSend(dir.port, &msg);
+```
 
 Interprocess communication by message queues is described in detail in the
 [Message passing](../kernel/proc/msg.md) document.

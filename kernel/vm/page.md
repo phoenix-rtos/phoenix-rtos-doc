@@ -66,15 +66,15 @@ The available physical memory is treated as a set of physical pages (page frames
 described using the `page_t` structure. The structure is defined in the HAL, but upper layers assume that some
 attributes are defined. The minimum set of attributes is as follows.
 
-````C
-    typedef struct _page_t {
-        addr_t addr;
-        u8 idx;
-        u8 flags;
-        struct _page_t *next;
-        struct _page_t *prev;
-    } page_t;
-````
+```c
+typedef struct _page_t {
+    addr_t addr;
+	u8 idx;
+	u8 flags;
+	struct _page_t *next;
+	struct _page_t *prev;
+} page_t;
+```
 
 The `addr` attribute stores the physical page address, the `flags` describe page attributes (see further sections). The
 `next` and `prev` pointers and `idx` are used in the page allocation algorithm to construct lists of free pages.
@@ -93,33 +93,33 @@ algorithm, but data structures used for allocation are not fully initialized. Th
 below.
 
 ```c
-    for (page = (page_t *)*bss;;) {
-      if ((void *)page + sizeof(page_t) >= (*top))
+for (page = (page_t *)*bss;;) {
+    if ((void *)page + sizeof(page_t) >= (*top))
         _page_sbrk(pmap, bss, top);
 
-      if ((err = pmap_getPage(page, &addr)) == -ENOMEM)
+    if ((err = pmap_getPage(page, &addr)) == -ENOMEM)
         break;
 
-      if (err == EOK) {
+    if (err == EOK) {
 
         if (page->flags & PAGE_FREE) {
-          page->idx = hal_cpuGetFirstBit(SIZE_PAGE);
-          _page_add(&pages.sizes[page->idx], page);
-          pages.freesz += SIZE_PAGE;
+            page->idx = hal_cpuGetFirstBit(SIZE_PAGE);
+            _page_add(&pages.sizes[page->idx], page);
+            pages.freesz += SIZE_PAGE;
         }
 
         else {
-          pages.allocsz += SIZE_PAGE;
-          if (((page->flags >> 1) & 7) == PAGE_OWNER_BOOT)
+            pages.allocsz += SIZE_PAGE;
+            if (((page->flags >> 1) & 7) == PAGE_OWNER_BOOT)
             pages.bootsz += SIZE_PAGE;
         }
         page = page + 1;
-      }
-
-      /* Wrap over 0 */
-      if (addr < SIZE_PAGE)
-        break;
     }
+
+    /* Wrap over 0 */
+    if (addr < SIZE_PAGE)
+        break;
+}
 ```
 
 The initialization loop in each iteration discovers a new physical page using the `pmap_getPage()`. The function fills
@@ -227,20 +227,20 @@ It does not correspond to a real memory segment. During the kernel initializatio
 created, assuming a given page size. The number of `page_t` entries is proportional to the size of physical memory.
 
 ```c
-    void _page_init(pmap_t *pmap, void **bss, void **top)
-    {
-        page_t *p;
-        unsigned int i;
-        pages.freesz = VADDR_MAX - (unsigned int)(*bss);
-        ..
-        /* Prepare allocation queue */
-        for (p = pages.freeq, i = 0; i < pages.freeqsz; i++) {
-                p->next = p + 1;
-                p = p->next;
-        }
-        (pages.freeq + pages.freeqsz - 1)->next = NULL;
-        ..
+void _page_init(pmap_t *pmap, void **bss, void **top)
+{
+    page_t *p;
+    unsigned int i;
+    pages.freesz = VADDR_MAX - (unsigned int)(*bss);
+    ..
+    /* Prepare allocation queue */
+    for (p = pages.freeq, i = 0; i < pages.freeqsz; i++) {
+            p->next = p + 1;
+            p = p->next;
     }
+    (pages.freeq + pages.freeqsz - 1)->next = NULL;
+    ..
+}
 ```
 
 The assumed page size depends on the architecture and the available memory size. For microcontrollers with small memory

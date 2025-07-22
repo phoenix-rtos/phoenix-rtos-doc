@@ -46,11 +46,11 @@ character, and then followed by one or more decimal digits
 * One of `NaN` or `NaN(n-char-sequenceopt)`, ignoring case in the `NaN` part, where:
 
 ```c
-    n-char-sequence:
-        digit
-        nondigit
-        n-char-sequence digit
-        n-char-sequence nondigit
+n-char-sequence:
+    digit
+    nondigit
+    n-char-sequence digit
+    n-char-sequence nondigit
 ```
 
 The subject sequence is defined as the longest initial subsequence of the input string, starting with the first
