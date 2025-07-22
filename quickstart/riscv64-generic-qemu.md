@@ -75,9 +75,9 @@ To run the image under QEMU you should type:
 ./scripts/riscv64-generic-qemu.sh
 ```
 
-![Image](_images/riscv64-generic-qemu1.png)
+![Image](../_static/images/quickstart/riscv64-generic-qemu1.png)
 </br>
-![Image](_images/riscv64-generic-qemu2.png)
+![Image](../_static/images/quickstart/riscv64-generic-qemu2.png)
 
 ## Using Phoenix-RTOS
 
@@ -88,7 +88,7 @@ command list please type:
 help
 ```
 
-![Image](_images/riscv64-generic-qemu-help.png)
+![Image](../_static/images/quickstart/riscv64-generic-qemu-help.png)
 
 To get the list of working processes please type:
 
@@ -96,4 +96,4 @@ To get the list of working processes please type:
 ps
 ```
 
-![Image](_images/riscv64-generic-qemu-ps.png)
+![Image](../_static/images/quickstart/riscv64-generic-qemu-ps.png)

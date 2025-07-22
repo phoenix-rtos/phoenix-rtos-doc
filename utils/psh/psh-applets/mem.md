@@ -20,7 +20,7 @@ Options:
 
 Calling the `mem` command with no arguments prints a summary of the memory map as in the following example:
 
-![Image](../_images/mem-output.png)
+![Image](../../../_static/images/utils/psh/mem-output.png)
 
 This is described by the following formula:
 
@@ -41,7 +41,7 @@ Read more about memory map entries in the [Memory mapper](../../../kernel/vm/map
 
 Calling `mem -p` prints the page view:
 
-![Image](../_images/mem-p-output.png)
+![Image](../../../_static/images/utils/psh/mem-p-output.png)
 
 The following markings are used:
 
@@ -68,7 +68,7 @@ A page view is not available on targets without `MMU` (memory management unit).
 
 Calling `mem -m [pid]` or `mem -m kernel` prints information about entries of a process' memory map:
 
-![Image](../_images/mem-m-output.png)
+![Image](../../../_static/images/utils/psh/mem-m-output.png)
 
 By default, (when calling without arguments) memory map of current process is printed out. There is also a possibility
 to pass the ID of a process (`pid`) or pass the `kernel` argument, which displays information about the kernel process.

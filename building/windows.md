@@ -19,7 +19,7 @@ with the `qemu-integration` tool.
 To do this, go to the official [QEMU website](https://www.qemu.org/download/#windows) and select a mirror targeted
 for your system.
 
-![OS bit selection](_images/qemu-os-select.png)
+![OS bit selection](../_static/images/building/qemu-os-select.png)
 Then it should be installed with the default configuration.
 
 </details>
@@ -34,23 +34,23 @@ Open Source tools that provides functionality similar to a Linux distribution on
 * The installation process also serves as a package manager. `Cygwin` will ask about a type of installation in our case
 it will be first choice (Install from Internet).
 
-![cygwin-download-source](_images/cygwin-download-source.png)
+![cygwin-download-source](../_static/images/building/cygwin-download-source.png)
 
 * After that, it will ask about the destination of a root and local package directory
 
-![cygwin-root-dir](_images/cygwin-root-dir.png)
-![cygwin-local-directory](_images/cygwin-local-directory.png)
+![cygwin-root-dir](../_static/images/building/cygwin-root-dir.png)
+![cygwin-local-directory](../_static/images/building/cygwin-local-directory.png)
 
 * `Cygwin` has the capability of using host's internet connection, but it needs to be configured with our preferences
 (In most scenario it will be System Proxy Settings)
 
-![cygwin-internet-connection](_images/cygwin-internet-connection.png)
+![cygwin-internet-connection](../_static/images/building/cygwin-internet-connection.png)
 
 * Selection of a mirror for package downloads can be tricky, sometimes it needs to be changed for better results because
 not all mirrors have all available packets. That's why it's recommended to install only the necessary ones at first as
 it is done in the next instructions.
 
-![cygwin-mirror-selection](_images/cygwin-mirror-selection.png)
+![cygwin-mirror-selection](../_static/images/building/cygwin-mirror-selection.png)
 
 * After selecting the mirror, we can select the packages we want. For now only `lynx` and `wget` should be chosen (they
 will be installed with required dependencies). Those tools are mandatory to use package manager
@@ -58,7 +58,7 @@ will be installed with required dependencies). Those tools are mandatory to use 
 * Note that `Install` will be printed instead of `Reinstall` in case that you are executing the installation for a first
 time.
 
-![cygwin-selecting-packages](_images/cygwin-selecting-packages.png)
+![cygwin-selecting-packages](../_static/images/building/cygwin-selecting-packages.png)
 
 * Once these are chosen, proceed to run the installation process.
 
@@ -237,7 +237,7 @@ wsl
 In PowerShell and the entire subsystem will start up (This might take some time).
 On the first start, you will be prompted to create an account in the subsystem (sudo credentials).
 
-![Sudo Credentials](_images/wsl-sudo-credentials.png)
+![Sudo Credentials](../_static/images/building/wsl-sudo-credentials.png)
 
 After that simply follow the instructions for Ubuntu written in the [Building Phoenix-RTOS](index.md) and
 [ia32-generic-qemu quick-start](../quickstart/ia32-generic-qemu.md).

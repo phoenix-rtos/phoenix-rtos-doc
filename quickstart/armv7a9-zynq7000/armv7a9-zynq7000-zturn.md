@@ -22,7 +22,7 @@ load new plo use SD card, otherwise you can simply load plo from QSPI flash.
 
 - To allow loading from SD card, set the jumpers (`JP1:OFF`, `JP2:ON`) to the following configuration:
 
-  ![Image](_images/zynq7000-zturn-sd-boot.jpg)
+  ![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-zturn-sd-boot.jpg)
 
 ### Loading plo from QSPI flash
 
@@ -30,7 +30,7 @@ load new plo use SD card, otherwise you can simply load plo from QSPI flash.
 
 - To allow load from QSPI flash, set the jumpers to the following configuration (`JP1:ON`, `JP2:ON`):
 
-  ![Image](_images/zynq7000-zturn-flash-boot.jpg)
+  ![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-zturn-flash-boot.jpg)
 
 ### Loading plo - common steps
 
@@ -40,7 +40,7 @@ load new plo use SD card, otherwise you can simply load plo from QSPI flash.
 
   The picture below presents how the board should be connected:
 
-  ![Image](_images/zynq7000-zturn-connections.jpg)
+  ![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-zturn-connections.jpg)
 
 - If you connected everything like in the picture above, the board should be powered on and the `D25` POWER LED should
   shine blue.
@@ -51,7 +51,7 @@ load new plo use SD card, otherwise you can simply load plo from QSPI flash.
   ls -l /dev/serial/by-id
   ```
 
-  ![Image](_images/zynq7000-zturn-ls.png)
+  ![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-zturn-ls.png)
 
   If your output is like in the screenshot above, the console (`UART` in the evaluation board) is on the `USB0` port.
 
@@ -64,7 +64,7 @@ load new plo use SD card, otherwise you can simply load plo from QSPI flash.
 
 - You should see such output:
   
-  ![Image](_images/zynq7000-zturn-picocom.png)
+  ![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-zturn-picocom.png)
 
   <details>
   <summary>How to get picocom (Ubuntu 20.04)</summary>
@@ -95,18 +95,18 @@ Press RESET button (`K2`) to restart the chip.
 
 If flash memory doesn't contain Phoenix-RTOS system image, booting process will stop at plo level, you should see:
 
-![Image](_images/zynq7000-zturn-magic.png)
+![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-zturn-magic.png)
 
 Phoenix-RTOS loader tried to find an image in flash, which was unsuccessful. That's why there is an error message.
 
 Otherwise, in order to get into plo you need to press any key within 500ms. If you don't do that, plo will load system
 and start psh, but we cannot flash from there. Output when you enter psh:
 
-![Image](_images/zynq7000-zturn-psh.png)
+![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-zturn-psh.png)
 
 Restart the chip with RESTART button `K2` and try again. Output of successful entry to plo:
 
-![Image](_images/zynq7000-zturn-plo.png)
+![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-zturn-plo.png)
 
 If you want to flash the system image please follow the next steps.
 
@@ -119,7 +119,7 @@ To flash the disk image, first, you need to verify on which port plo USB device 
 ls -l /dev/serial/by-id
 ```
 
-![Image](_images/zynq7000-ls-2.png)
+![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-ls-2.png)
 
 To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments (choose suitable
 ttyACMx device, in this case, ttyACM0):
@@ -132,7 +132,7 @@ cd _boot/armv7a9-zynq7000-zturn
 sudo ./phoenixd -p /dev/ttyACM0 -b 115200 -s .
 ```
 
-![Image](_images/zynq7000-zturn-phoenixd.png)
+![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-zturn-phoenixd.png)
 
 If you encountered some problems during this step please see
 [common problems](index.md#common-problems-on-zynq7000-boards).
@@ -163,7 +163,7 @@ Quick description of used arguments:
   - block size: `0x10000` (`erase_size`)
   - clean marker size: `16`
 
-![Image](_images/zynq7000-zturn-plo-erase.png)
+![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-zturn-plo-erase.png)
 
 Please wait until erasing is finished.
 
@@ -173,7 +173,7 @@ To start copying the file, write the following command in the console with plo i
 copy usb0 phoenix.disk flash0 0x0 0x0
 ```
 
-![Image](_images/zynq7000-plo-copy.png)
+![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-plo-copy.png)
 
 ### Booting Phoenix-RTOS from QSPI flash memory
 
@@ -184,7 +184,7 @@ To run it you should follow the steps below:
 
 - Configure jumpers as depicted (`JP2:ON`, `JP1:ON`):
 
-  ![Image](_images/zynq7000-zturn-flash-boot.jpg)
+  ![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-zturn-flash-boot.jpg)
 
 - Power on the board by connecting USB_OTG and USB_UART connectors
 
@@ -194,7 +194,7 @@ To run it you should follow the steps below:
   ls -l /dev/serial/by-id/
   ```
 
-  ![Image](_images/zynq7000-ls-3.png)
+  ![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-ls-3.png)
 
 - connect to that port:
 
@@ -206,7 +206,7 @@ To run it you should follow the steps below:
 
 - after successful boot you should see:
 
-  ![Image](_images/zynq7000-qspi-start.png)
+  ![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-qspi-start.png)
 
 Psh prompt indicates that everything is up and running.
 
@@ -218,7 +218,7 @@ To get the available command list please type:
 help
 ```
 
-![Image](_images/zynq7000-help.png)
+![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-help.png)
 
 If you want to get the list of working processes please type:
 
@@ -226,7 +226,7 @@ If you want to get the list of working processes please type:
 ps
 ```
 
-![Image](_images/zynq7000-ps.png)
+![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-ps.png)
 
 To get the table of processes please type:
 
@@ -234,4 +234,4 @@ To get the table of processes please type:
 top
 ```
 
-![Image](_images/zynq7000-top.png)
+![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-top.png)

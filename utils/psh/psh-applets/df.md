@@ -28,4 +28,4 @@ The inodes statistics are available only for `ext2` filesystem. Neither `dummyfs
 
 The example of checking root directory on ia32-generic-qemu target architecture:
 
-![Image](../_images/df_example.png)
+![Image](../../../_static/images/utils/psh/df_example.png)

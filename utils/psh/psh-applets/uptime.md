@@ -19,4 +19,4 @@ where:
 
 Calling the `uptime` command with any argument (for example: `-s`) will print the number of seconds since system start.
 
-![Image](../_images/uptime-output.png)
+![Image](../../../_static/images/utils/psh/uptime-output.png)

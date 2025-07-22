@@ -26,7 +26,7 @@ First, check on which JTAG channel the `GRMON` detects the board. To do this, ru
 grmon -ftdi -jtaglist
 ```
 
-![Image](_images/gr740-jtaglist.png)
+![Image](../_static/images/quickstart/gr740-jtaglist.png)
 
 The JTAG connection to the GR740 processor is present on the GR740-MINI A connector. To connect to the board, run the
 following command:
@@ -123,7 +123,7 @@ following command:
 ls -l /dev/serial/by-id
 ```
 
-![Image](_images/gr740-ls.png)
+![Image](../_static/images/quickstart/gr740-ls.png)
 
 The serial console will be available on `if02` channel, which in this case is connected to `/dev/ttyUSB2`. To connect
 to the serial console, run the following command in a separate terminal:
@@ -144,7 +144,7 @@ run
 
 Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal.
 
-![Image](_images/gr740-start.png)
+![Image](../_static/images/quickstart/gr740-start.png)
 
 - Note: You can also enter `plo` by pressing any button within some time after reset.
 
@@ -154,7 +154,7 @@ To get the available command list type:
 help
 ```
 
-![Image](_images/gr740-help.png)
+![Image](../_static/images/quickstart/gr740-help.png)
 
 To get the list of working processes type:
 
@@ -162,4 +162,4 @@ To get the list of working processes type:
 ps
 ```
 
-![Image](_images/gr740-ps.png)
+![Image](../_static/images/quickstart/gr740-ps.png)

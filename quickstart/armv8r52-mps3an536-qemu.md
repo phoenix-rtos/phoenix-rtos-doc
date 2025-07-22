@@ -54,7 +54,7 @@ To run the image under QEMU, use the following script provided in the `phoenix-r
 
 Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal.
 
-![Image](_images/mps3an536-qemu-psh.png)
+![Image](../_static/images/quickstart/mps3an536-qemu-psh.png)
 
 To get the available command list use command:
 
@@ -62,7 +62,7 @@ To get the available command list use command:
 help
 ```
 
-![Image](_images/mps3an536-qemu-help.png)
+![Image](../_static/images/quickstart/mps3an536-qemu-help.png)
 
 To get the list of working processes use command:
 
@@ -70,4 +70,4 @@ To get the list of working processes use command:
 ps
 ```
 
-![Image](_images/mps3an536-qemu-ps.png)
+![Image](../_static/images/quickstart/mps3an536-qemu-ps.png)
