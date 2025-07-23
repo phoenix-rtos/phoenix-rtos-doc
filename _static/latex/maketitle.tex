@@ -8,24 +8,34 @@
 %
 % %LICENSE%
 
+% Define variables
+\newcommand{\doctitle}{Document title}
+\newcommand{\docauthor}{Author}
+\newcommand{\docversion}{Ver. 0.1}
+\newcommand{\docdate}{08-05-2025}
+
 \clearpage
 \thispagestyle{empty}
 
 % Image on the upper part of the page
 \includegraphics[width=\textwidth]{first-page-image1.png}
 
-\vspace{3.5cm}
+\vspace{2.0cm}
 
 {\setmainfont{Liberation Sans}
 \textcolor{ps-darkblue}{%
-    {\fontsize{28}{36}\selectfont \textbf{Phoenix-RTOS Documentation}}
+    {\fontsize{30}{36}\selectfont \textbf{\doctitle}\\}
 }}
-
+\vskip 0.2cm
+{\setmainfont{Liberation Sans}
+\textcolor{ps-darkblue}{%
+    {\fontsize{16}{19}\selectfont \textbf{\docauthor}}
+}}
 \vspace{2.25cm}
 
 % Right side main image
 \begin{flushright}
-    \includegraphics[width=0.95\textwidth]{first-page-image2.png}
+    \includegraphics[width=1.0\textwidth]{first-page-image2.png}
 \end{flushright}
 
 \vspace{\fill}
@@ -35,5 +45,12 @@
     \color{ps-orange}\rule{\textwidth}{2pt}
 \end{center}
 
+% % Version and date text
+\vspace{0.15cm}
+{\setmainfont{Liberation Sans}
+\fontsize{10}{12}\selectfont
+\textcolor{ps-lightblue}{%
+    \makebox[\textwidth][l]{\hspace{0.2cm}\docversion\hfill \docdate\hspace{0.2cm}}
+}}
 \clearpage
 \pagestyle{plain}
