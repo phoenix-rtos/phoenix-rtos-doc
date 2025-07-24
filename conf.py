@@ -69,20 +69,12 @@ html_theme_options = {
     },
 }
 
-<<<<<<< HEAD
-=======
+
 latex_engine = "xelatex"
 latex_table_style = ["colorrows"]
 latex_documents = [
     ("index", "phoenix-rtos.tex", "Phoenix-RTOS Documentation", author, "howto", False),
-    (
-        'coding/index',  # Master document (e.g., 'index' or 'contents')
-        'CodingStandard.tex',  # Target LaTeX file name
-        'Coding Standard',  # Document Title
-        'Bartlomiej Paczek (Phoenix Systems)',  # Author name
-        'manual',  # Documentclass (e.g., 'howto', 'manual', 'report', 'book')
-        False  # toctree_only (True if you only want the TOC, False for full content)
-    ),
+    ("coding/index", "coding-standard.tex", "Phoenix-RTOS Coding Standard", author, "manual", False)
 ]
 
 latex_additional_files = [
@@ -123,4 +115,3 @@ latex_elements = {
     'maketitle': Path("_static/latex/maketitle.tex").read_text(),
     'atendofbody': Path("_static/latex/atendofbody.tex").read_text()
 }
->>>>>>> adamdebek/CI-526
