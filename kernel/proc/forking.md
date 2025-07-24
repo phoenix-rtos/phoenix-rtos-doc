@@ -71,12 +71,3 @@ thread represents the program instruction stream executed concurrently to other 
 `beginthread()` function starts a new thread using function address and stack allocated by a calling thread. The kernel
 stacks for all of desired thread execution modes are allocated. `endthread()` function terminates calling thread and
 releases allocated kernel stacks.
-
-## See also
-
-1. [Kernel - Processes and threads](index.md)
-2. [Kernel - Processes and threads - Scheduler](scheduler.md)
-3. [Kernel - Processes and threads - Synchronization primitives](sync.md)
-4. [Kernel - Processes and threads - Message passing](msg.md)
-5. [Kernel - Processes and threads - Namespace](namespace.md)
-6. [Table of Contents](../../index.md)

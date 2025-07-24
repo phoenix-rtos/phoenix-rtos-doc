@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <sys/mman.h>`
+```c
+#include <sys/mman.h>
 
-`void meminfo(meminfo_t *info);`
+void meminfo(meminfo_t *info);
+```
 
 ## Description
 
@@ -82,8 +84,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../../index.md)
-2. [Table of Contents](../../../../index.md)

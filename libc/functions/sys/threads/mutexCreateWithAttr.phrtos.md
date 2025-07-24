@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <sys/threads.h>`
+```c
+#include <sys/threads.h>
 
-`int mutexCreateWithAttr(handle_t *h, struct lockAttr *attr);`
+int mutexCreateWithAttr(handle_t *h, struct lockAttr *attr);
+```
 
 ## Status
 
@@ -59,8 +61,3 @@ Tested in [test-sys](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/mas
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../../index.md)
-2. [Table of Contents](../../../../index.md)

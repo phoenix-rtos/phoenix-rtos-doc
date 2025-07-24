@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <sys/msg.h>`
+```c
+#include <sys/msg.h>
 
-`int msgRespond(uint32_t port, msg_t *m, unsigned long int rid);`
+int msgRespond(uint32_t port, msg_t *m, unsigned long int rid);
+```
 
 ## Status
 
@@ -40,9 +42,3 @@ Untested
 ## Known bugs
 
 * Does not check if message pointer _m_ is not `NULL`.
-
-## See Also
-
-1. [IPC mechanisms in Phoenix-RTOS](../../../../architecture/index.md#interprocess-communication)
-2. [Standard library functions](../../index.md)
-3. [Table of Contents](../../../../index.md)

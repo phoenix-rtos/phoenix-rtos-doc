@@ -2,13 +2,15 @@
 
 ## Synopsis
 
-`#include <math.h>`
+```c
+#include <math.h>
 
-`double modf(double x, double *iptr);`
+double modf(double x, double *iptr);
 
-`float modff(float value, float *iptr);`
+float modff(float value, float *iptr);
 
-`long double modfl(long double value, long double *iptr);`
+long double modfl(long double value, long double *iptr);
+```
 
 ## Status
 
@@ -42,8 +44,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

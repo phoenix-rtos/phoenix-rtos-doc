@@ -29,12 +29,3 @@ mode, it is added to the ghosts list and the reaper thread woke up.
     of selected thread. When the scheduler finishes work, the context of selected thread restore is performed.
 5. The CPU usage is updated for the current and selected thread.
 6. At the end of the modification of the `threads_common.spinlock` is cleared.
-
-## See also
-
-1. [Kernel - Processes and threads](index.md)
-2. [Kernel - Processes and threads - Management](forking.md)
-3. [Kernel - Processes and threads - Synchronization primitives](scheduler.md)
-4. [Kernel - Processes and threads - Message passing](msg.md)
-5. [Kernel - Processes and threads - Namespace](namespace.md)
-6. [Table of Contents](../../index.md)

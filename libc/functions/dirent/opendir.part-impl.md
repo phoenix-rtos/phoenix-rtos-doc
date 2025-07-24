@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <dirent.h>`
+```c
+#include <dirent.h>
 
-`DIR *fdopendir(int fd);`
+DIR *fdopendir(int fd);
 
-`DIR *opendir(const char *dirname);`
+DIR *opendir(const char *dirname);
+```
 
 ## Description
 

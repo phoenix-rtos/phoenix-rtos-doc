@@ -41,7 +41,9 @@ to the FAT partition on the SD card and rename it to `BOOT.BIN` (case-insensitiv
 
 ### Loading plo from NOR flash
 
-**NOTE:** If this is the first time you run Phoenix-RTOS on this board, use the SD card method to run plo first!
+```{note}
+If this is the first time you run Phoenix-RTOS on this board, use the SD card method to run plo first!
+```
 
 1. Set boot mode to QSPI32 flash. Set switches in the switch block `SW6` as follows:
 
@@ -150,17 +152,17 @@ At first before any flashing, you need to enter Phoenix-RTOS loader (plo), which
 
 If there wasn't an older system image in the NOR flash the following output should appear:
 
-![Image](_images/zynqmp-sd-plo.png)
+![Image](../_static/images/quickstart/zynqmp-sd-plo.png)
 
 If you don't see it, please press the `POR_B` button (`SW4`) to reset the chip.
 
 Providing that Phoenix-RTOS is present in the flash memory you will probably see the system startup:
 
-![Image](_images/zynqmp-ram-start-2.png)
+![Image](../_static/images/quickstart/zynqmp-ram-start-2.png)
 
 You want to press the `POR_B` button (`SW4`) again and interrupt `Waiting for input` by pressing any key to enter plo:
 
-![Image](_images/zynqmp-plo.png)
+![Image](../_static/images/quickstart/zynqmp-plo.png)
 
 ### Erasing the area intended for file system
 
@@ -186,7 +188,7 @@ Quick description of used arguments:
   - block size: `0x10000` (`erase_size`)
   - clean marker size: `16` (value specific for `jffs2` on `NOR` flash)
 
-![Image](_images/zynqmp-plo-erase.png)
+![Image](../_static/images/quickstart/zynqmp-plo-erase.png)
 
 Please wait until erasing is finished.
 
@@ -200,7 +202,7 @@ cd _boot/aarch64a53-zynqmp-zcu104
 ./phoenixd -p /dev/tty[port] -b 921600 -s .
 ```
 
-![Image](_images/zynqmp-phoenixd.png)
+![Image](../_static/images/quickstart/zynqmp-phoenixd.png)
 
 To start copying the file, write the following command in the console with plo interface:
 
@@ -208,7 +210,7 @@ To start copying the file, write the following command in the console with plo i
 copy uart0 flash0.disk flash0 0x0 0x0
 ```
 
-![Image](_images/zynqmp-plo-copy.png)
+![Image](../_static/images/quickstart/zynqmp-plo-copy.png)
 
 ### Copying flash image using RAM disk and OpenOCD
 
@@ -229,7 +231,7 @@ openocd -f "$(realpath ~/ftdi_zcu104.cfg)" -f "target/xilinx_zynqmp.cfg" \
   -c "exit"
 ```
 
-![Image](_images/zynqmp-openocd-ramdisk.png)
+![Image](../_static/images/quickstart/zynqmp-openocd-ramdisk.png)
 
 Once the flash image is in RAM disk you can copy it to flash0 in PLO:
 
@@ -256,7 +258,7 @@ To run it you should follow the steps below:
 
 5. Restart the chip using the `POR_B` button to print initialization logs:
 
-  ![Image](_images/zynqmp-qspi-start.png)
+  ![Image](../_static/images/quickstart/zynqmp-qspi-start.png)
 
 ## Using Phoenix-RTOS
 
@@ -266,7 +268,7 @@ To get the available command list please type:
 help
 ```
 
-![Image](_images/zynqmp-help.png)
+![Image](../_static/images/quickstart/zynqmp-help.png)
 
 If you want to get the list of working processes please type:
 
@@ -274,7 +276,7 @@ If you want to get the list of working processes please type:
 ps
 ```
 
-![Image](_images/zynqmp-ps.png)
+![Image](../_static/images/quickstart/zynqmp-ps.png)
 
 To get the table of processes please type:
 
@@ -282,7 +284,7 @@ To get the table of processes please type:
 top
 ```
 
-![Image](_images/zynqmp-top.png)
+![Image](../_static/images/quickstart/zynqmp-top.png)
 
 ## Debugging
 
@@ -314,7 +316,7 @@ for `openocd` and add your user account to group `plugdev`.
 
 If the connection was successful, this result should appear:
 
-![Image](_images/zynqmp-openocd.png)
+![Image](../_static/images/quickstart/zynqmp-openocd.png)
 
 Now GDB can be connected to port 3333 on local machine.
 
@@ -324,8 +326,3 @@ To do this you need to run OpenOCD with command:
 ```sh
 openocd -f "ftdi_zcu104.cfg" -f "target/xilinx_zynqmp.cfg" -c "reset_config srst_only" -c "init" -c "core_up 1 2 3"
 ```
-
-## See also
-
-1. [Running system on targets](index.md)
-2. [Table of Contents](../index.md)

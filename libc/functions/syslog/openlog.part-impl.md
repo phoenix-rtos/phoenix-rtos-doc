@@ -2,15 +2,17 @@
 
 ## Synopsis
 
-`#include <syslog.h>`
+```c
+#include <syslog.h>
 
-`void closelog(void);`
+void closelog(void);
 
-`void openlog(const char *ident, int logopt, int facility);`
+void openlog(const char *ident, int logopt, int facility);
 
-`int setlogmask(int maskpri);`
+int setlogmask(int maskpri);
 
-`void syslog(int priority, const char *message, ... /* arguments */);`
+void syslog(int priority, const char *message, ... /* arguments */);
+```
 
 ## Status
 
@@ -128,8 +130,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

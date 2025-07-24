@@ -2,14 +2,20 @@
 
 ## Synopsis
 
-`#include <stdarg.h>`
-`#include <stdio.h>`
+```c
+#include <stdarg.h>
+#include <stdio.h>
 
-`int vfscanf(FILE *restrict stream, const char *restrict format, va_list arg);`
+int vfscanf(FILE *restrict stream,
+            const char *restrict format,
+            va_list arg);
 
-`int vscanf(const char *restrict format, va_list arg);`
+int vscanf(const char *restrict format, va_list arg);
 
-`int vsscanf(const char *restrict s, const char *restrict format, va_list arg);`
+int vsscanf(const char *restrict s,
+            const char *restrict format,
+            va_list arg);
+```
 
 ## Status
 
@@ -41,8 +47,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

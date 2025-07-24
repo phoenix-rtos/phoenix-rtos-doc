@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <sys/mman.h>`
+```c
+#include <sys/mman.h>
 
-`int munmap(void *addr, size_t len);`
+int munmap(void *addr, size_t len);
+```
 
 ## Status
 
@@ -62,8 +64,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../../index.md)
-2. [Table of Contents](../../../../index.md)

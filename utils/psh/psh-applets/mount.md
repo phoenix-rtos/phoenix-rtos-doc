@@ -19,9 +19,3 @@ mount <source> <target> <fstype> <mode> [data]
 - `<mode>`: Mount flags specified as a numerical value, which control various mount options.
 
 - `[data]`: Optional. Filesystem-specific data that may be required for some types of mounts, such as mount options.
-
-## See also
-
-1. [Phoenix-RTOS shell](../index.md)
-2. [Phoenix-RTOS Utilities](../../index.md)
-3. [Table of Contents](../../../index.md)

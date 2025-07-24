@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <setjmp.h>`
+```c
+#include <setjmp.h>
 
-`void longjmp(jmp_buf env, int val);`
+void longjmp(jmp_buf env, int val);
+```
 
 ## Status
 
@@ -58,8 +60,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

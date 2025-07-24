@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`long labs(long i);`
+long labs(long i);
 
-`long long llabs(long long i);`
+long long llabs(long long i);
+```
 
 ## Status
 
@@ -38,8 +40,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

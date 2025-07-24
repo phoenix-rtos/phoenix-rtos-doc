@@ -11,8 +11,3 @@ GETFROMSTACK(ustack, unsigned int *, handle, 4);
 ````
 
 Installs interrupt handler `f` for interrupt given by `n`.
-
-## See also
-
-1. [System calls](index.md)
-2. [Table of Contents](../../index.md)

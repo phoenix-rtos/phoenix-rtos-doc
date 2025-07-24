@@ -2,9 +2,12 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`size_t fwrite(const void *restrict ptr, size_t size, size_t nitems, FILE *restrict stream);`
+size_t fwrite(const void *restrict ptr, size_t size,
+              size_t nitems, FILE *restrict stream);
+```
 
 ## Status
 
@@ -44,8 +47,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

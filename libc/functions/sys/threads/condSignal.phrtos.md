@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <sys/threads.h>`
+```c
+#include <sys/threads.h>
 
-`int condBroadcast(handle_t h);`
+int condBroadcast(handle_t h);
 
-`int condSignal(handle_t h);`
+int condSignal(handle_t h);
+```
 
 ## Status
 
@@ -66,8 +68,3 @@ Tested in [test-sys](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/mas
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../../index.md)
-2. [Table of Contents](../../../../index.md)

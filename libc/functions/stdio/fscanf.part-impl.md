@@ -2,13 +2,15 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`int fscanf(FILE *restrict stream, const char *restrict format, ...);`
+int fscanf(FILE *restrict stream, const char *restrict format, ...);
 
-`int scanf(const char *restrict format, ...);`
+int scanf(const char *restrict format, ...);
 
-`int sscanf(const char *restrict s, const char *restrict format, ...);`
+int sscanf(const char *restrict s, const char *restrict format, ...);
+```
 
 ## Status
 
@@ -279,8 +281,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

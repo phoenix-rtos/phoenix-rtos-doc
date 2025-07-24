@@ -1,0 +1,81 @@
+%
+% Phoenix-RTOS
+%
+% Copyright 2025 Phoenix Systems
+% Author: Adam Debek
+%
+% This file is part of Phoenix-RTOS.
+%
+% %LICENSE%
+
+\setcounter{secnumdepth}{3}
+\definecolor{ps-orange}{HTML}{ea5b22}
+\definecolor{ps-darkblue}{HTML}{26384f}
+
+% Table of contents spacing
+\setlength{\cftsecindent}{0pt}
+\setlength{\cftsecnumwidth}{2em}
+
+\setlength{\cftsubsecindent}{2em}
+\setlength{\cftsubsecnumwidth}{3em}
+
+\setlength{\cftsubsubsecindent}{5em}
+\setlength{\cftsubsubsecnumwidth}{4em}
+
+% Add padding to the right inside code block frame
+\renewcommand\sphinxVerbatimFormatLine[1]{\strut\hspace{4pt}#1}
+
+% Set headings color
+\titleformat{\section}{\sffamily\bfseries\Large\color{ps-darkblue}}{\thesection}{0.5em}{}
+\titleformat{\subsection}{\sffamily\bfseries\large\color{ps-darkblue}}{\thesubsection}{0.5em}{}
+\titleformat{\subsubsection}{\sffamily\bfseries\normalsize\color{ps-darkblue}}{\thesubsubsection}{0.5em}{}
+\titleformat{\paragraph}{\sffamily\bfseries\color{ps-darkblue}}{\theparagraph}{0.5em}{}
+\titleformat{\subparagraph}{\sffamily\bfseries\color{ps-darkblue}}{\thesubparagraph}{0.5em}{}
+
+% Section title styling
+\makeatletter
+\def\@makesectionhead#1{%
+    {\parindent \z@
+    \interlinepenalty\@M
+    \noindent\textcolor{orange}{\rule{\textwidth}{2pt}}
+    \par\vspace{0.5em}
+    {\sffamily\bfseries\Large\color{ps-darkblue}\itshape#1}
+    \noindent\textcolor{orange}{\rule{\textwidth}{2pt}}
+    \par\vspace{0em}
+}}
+\renewcommand{\section}{\@startsection{section}{1}{\z@}%
+{-3.5ex \@plus -1ex \@minus -.2ex}%
+{2.3ex \@plus.2ex}%
+{\@makesectionhead}}
+\makeatother
+
+% Add dot to the section title only
+\renewcommand{\thesection}{\arabic{section}.\hspace{-0.5em}}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+
+% Make chapters start on new pages
+\newcommand{\sectionbreak}{\clearpage}
+
+\fancypagestyle{toc}{
+    \fancyhf{}
+    \fancyfoot[R]{%
+        \begin{tikzpicture}
+            \node[
+                circle,
+                fill=ps-orange,
+                text=white,
+                minimum size=20pt,
+                inner sep=0pt,
+                font=\sffamily\bfseries
+            ] {\thepage};
+        \end{tikzpicture}%
+    }
+}
+
+\fancypagestyle{normal}[toc]{
+    \fancyhead[R]{\includegraphics[width=2.5cm]{small-logo.png}}
+}
+
+% Apply the style to all pages
+\pagestyle{normal}

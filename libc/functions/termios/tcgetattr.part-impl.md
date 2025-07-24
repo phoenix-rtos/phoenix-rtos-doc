@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <termios.h>`
+```c
+#include <termios.h>
 
-`int tcgetattr(int fildes, struct termios *termios_p);`
+int tcgetattr(int fildes, struct termios *termios_p);
+```
 
 ## Status
 
@@ -52,8 +54,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

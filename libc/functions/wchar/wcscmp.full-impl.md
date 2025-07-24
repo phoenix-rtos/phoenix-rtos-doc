@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <wchar.h>`
+```c
+#include <wchar.h>
 
-`int wcscmp(const wchar_t *ws1, const wchar_t *ws2);`
+int wcscmp(const wchar_t *ws1, const wchar_t *ws2);
+```
 
 ## Status
 
@@ -39,8 +41,3 @@ Tested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

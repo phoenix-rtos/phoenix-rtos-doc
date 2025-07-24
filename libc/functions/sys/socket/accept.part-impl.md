@@ -2,10 +2,12 @@
 
 ## Synopsis
 
-`#include <sys/socket.h>`
+```c
+#include <sys/socket.h>
 
-`int accept(int socket, struct sockaddr *restrict address,`
-`socklen_t *restrict address_len);`
+int accept(int socket, struct sockaddr *restrict address,
+           socklen_t *restrict address_len);
+```
 
 ## Status
 
@@ -98,8 +100,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../../index.md)
-2. [Table of Contents](../../../../index.md)

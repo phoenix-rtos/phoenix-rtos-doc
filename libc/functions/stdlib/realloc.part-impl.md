@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`void *realloc(void *ptr, size_t size);`
+void *realloc(void *ptr, size_t size);
+```
 
 ## Status
 
@@ -65,8 +67,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

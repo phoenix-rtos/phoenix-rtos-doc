@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <time.h>`
+```c
+#include <time.h>
 
-`double difftime(time_t time1, time_t time0);`
+double difftime(time_t time1, time_t time0);
+```
 
 ## Status
 
@@ -34,8 +36,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

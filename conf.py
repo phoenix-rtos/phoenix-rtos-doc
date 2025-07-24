@@ -101,3 +101,49 @@ latex_documents = [
         False  # toctree_only (True if you only want the TOC, False for full content)
     ),
 ]
+=======
+latex_engine = "xelatex"
+latex_table_style = ["colorrows"]
+latex_documents = [
+    ("index", "phoenix-rtos.tex", "Phoenix-RTOS Documentation", author, "howto", False),
+]
+
+latex_additional_files = [
+    "_static/images/pdf/companylogo.png",
+    "_static/images/pdf/last-page-image.png",
+    "_static/images/pdf/small-logo.png",
+    "_static/images/pdf/first-page-image1.png",
+    "_static/images/pdf/first-page-image2.png"
+]
+
+latex_elements = {
+    'sphinxsetup': r'pre_padding-right=6pt, pre_padding-left=0pt',
+    'makeindex': r'',
+    'papersize': r'a4paper',
+    'tableofcontents': r'''
+        \makeatletter
+        \begingroup
+        \pagestyle{toc}
+        \@starttoc{toc}
+        \clearpage
+        \endgroup
+        \makeatother
+    ''',
+    'fontpkg': r'''
+        \setmainfont{DejaVu Serif}
+        \setsansfont{DejaVu Sans}
+        \setmonofont{DejaVu Sans Mono}
+    ''',
+    'extrapackages': r'''
+        \usepackage{tocloft}
+        \usepackage{graphicx}
+        \usepackage{xcolor}
+        \usepackage{fancyhdr}
+        \usepackage{tikz}
+        \usepackage{fontspec}
+    ''',
+    'preamble': Path("_static/latex/preamble.tex").read_text(),
+    'maketitle': Path("_static/latex/maketitle.tex").read_text(),
+    'atendofbody': Path("_static/latex/atendofbody.tex").read_text()
+}
+>>>>>>> adamdebek/CI-526

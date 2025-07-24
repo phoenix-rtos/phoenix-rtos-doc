@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <string.h>`
+```c
+#include <string.h>
 
-`char *strstr(const char *s1, const char *s2);`
+char *strstr(const char *s1, const char *s2);
+```
 
 ## Status
 
@@ -37,8 +39,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

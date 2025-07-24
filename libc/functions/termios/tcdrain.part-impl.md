@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <termios.h>`
+```c
+#include <termios.h>
 
-`int tcdrain(int fildes);`
+int tcdrain(int fildes);
+```
 
 ## Status
 
@@ -49,8 +51,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`char *ttyname(int fildes);`
+char *ttyname(int fildes);
 
-`int ttyname_r(int fildes, char *name, size_t namesize);`
+int ttyname_r(int fildes, char *name, size_t namesize);
+```
 
 ## Status
 
@@ -61,8 +63,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

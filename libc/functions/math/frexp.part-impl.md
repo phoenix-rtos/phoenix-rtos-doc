@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <math.h>`
+```c
+#include <math.h>
 
-`double frexp(double num, int *exp);`
+double frexp(double num, int *exp);
 
-`float frexpf(float num, int *exp);`
+float frexpf(float num, int *exp);
+```
 
 ## Status
 
@@ -42,8 +44,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

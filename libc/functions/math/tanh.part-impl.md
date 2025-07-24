@@ -1,12 +1,16 @@
 # tanh
 
-`#include <math.h>`
+## Synopsis
 
-`double tanh(double x);`
+```c
+#include <math.h>
 
-`float tanhf(float x);`
+double tanh(double x);
 
-`long double tanhl(long double x);`
+float tanhf(float x);
+
+long double tanhl(long double x);
+```
 
 ## Status
 
@@ -56,8 +60,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

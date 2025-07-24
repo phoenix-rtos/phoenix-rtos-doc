@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <sys/stat.h>`
+```c
+#include <sys/stat.h>
 
-`#include <fcntl.h>`
+#include <fcntl.h>
 
-`int creat(const char *path, mode_t mode);`
+int creat(const char *path, mode_t mode);
+```
 
 ## Status
 
@@ -43,8 +45,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)
