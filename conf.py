@@ -1,37 +1,27 @@
 # Configuration file for the Sphinx documentation builder.
-#
-# For the full list of built-in configuration values, see the documentation:
-# https://www.sphinx-doc.org/en/master/usage/configuration.html
-
-# -- Project information -----------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 from version_management import get_version_context
-
+from pathlib import Path
 
 project = ""
-copyright = "2024, Phoenix Systems"
+copyright = "2024-2025, Phoenix Systems"
 author = "Phoenix Systems"
-
-# -- General configuration ---------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = ["myst_parser", "sphinx_copybutton"]
 
 templates_path = ["_templates"]
-exclude_patterns = ["README.md", "_build", "Thumbs.db", ".DS_Store"]
+exclude_patterns = ["README", "_build", "Thumbs.db", ".DS_Store", "venv"]
 myst_heading_anchors = 3
 pygments_dark_style = "tango"
 
-# -- Options for HTML output -------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
-
 html_title = "Phoenix-RTOS Documentation"
-html_favicon = "_images/RTOS_sign.png"
+html_favicon = "_static/images/RTOS_sign.png"
 html_theme = "furo"
-html_js_files = ["js/functions.js", "js/versions.js"]
+html_title = "Phoenix-RTOS Documentation"
+html_favicon = "_static/images/favicon.png"
+html_js_files = ["js/versions.js"]
 html_style = ["css/furo-phoenix.css", "css/furo-extensions-phoenix.css"]
-html_static_path = ["_static", "_images"]
+html_static_path = ["_static", "_static/images/light_logo.png"]
 html_baseurl = "https://docs.phoenix-rtos.com/latest/"
 html_context = {"versions": get_version_context()}
 
@@ -79,19 +69,12 @@ html_theme_options = {
     },
 }
 
-# -- Options for LaTeX output --------------------------------------------------
-
-latex_elements = {
-    'papersize': 'a4paper',
-    'pointsize': '10pt',
-    'preamble': r'''
-        \usepackage{amsmath}
-        \usepackage{amssymb}
-        \usepackage{graphicx}
-    ''',
-    'figure_align': 'htbp',
-}
+<<<<<<< HEAD
+=======
+latex_engine = "xelatex"
+latex_table_style = ["colorrows"]
 latex_documents = [
+    ("index", "phoenix-rtos.tex", "Phoenix-RTOS Documentation", author, "howto", False),
     (
         'coding/index',  # Master document (e.g., 'index' or 'contents')
         'CodingStandard.tex',  # Target LaTeX file name
@@ -100,12 +83,6 @@ latex_documents = [
         'manual',  # Documentclass (e.g., 'howto', 'manual', 'report', 'book')
         False  # toctree_only (True if you only want the TOC, False for full content)
     ),
-]
-=======
-latex_engine = "xelatex"
-latex_table_style = ["colorrows"]
-latex_documents = [
-    ("index", "phoenix-rtos.tex", "Phoenix-RTOS Documentation", author, "howto", False),
 ]
 
 latex_additional_files = [
