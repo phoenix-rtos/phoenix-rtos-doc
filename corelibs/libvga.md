@@ -305,9 +305,3 @@ void vga_initstate(vga_cfg_t *cfg, vga_state_t *state)
 
 To use functions provided by `libvga` please add the library to the `LIBS` variable in `Makefile` and include the
 required header file.
-
-## See also
-
-1. [Phoenix-RTOS core libraries](index.md)
-2. [Phoenix-RTOS Graphics Library](libgraph.md)
-3. [Table of Contents](../index.md)

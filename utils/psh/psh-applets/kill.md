@@ -28,9 +28,3 @@ Commonly used signals include:
 `SIGKILL`: Immediately terminate the process. Cannot be ignored.
 `SIGSTOP`: Stop the process's execution.
 `SIGCONT`: Continue the process if it is currently stopped.
-
-## See also
-
-1. [Phoenix-RTOS shell](../index.md)
-2. [Phoenix-RTOS Utilities](../../index.md)
-3. [Table of Contents](../../../index.md)

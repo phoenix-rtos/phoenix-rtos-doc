@@ -53,12 +53,6 @@ The source code of the loader can be obtained with the following command:
 git clone https://github.com/phoenix-rtos/plo.git
 ```
 
-## See also
-
-1. [Architecture](architecture.md)
-2. [Command-line interface](cli.md)
-3. [Table of Contents](../index.md)
-
 ```{toctree}
 :hidden:
 :glob:

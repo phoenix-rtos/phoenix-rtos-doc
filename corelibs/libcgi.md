@@ -119,9 +119,3 @@ void libcgi_freeMultipartParams(libcgi_param_t *params_head)
 
 To use functions provided by `libcgi` please add the library to the `LIBS` variable in `Makefile` and include the
 required header file.
-
-## See also
-
-1. [Phoenix-RTOS core libraries](index.md)
-2. [Phoenix-RTOS Graphics Library](libgraph.md)
-3. [Table of Contents](../index.md)

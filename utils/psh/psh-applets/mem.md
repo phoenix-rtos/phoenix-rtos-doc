@@ -81,9 +81,3 @@ The column titles in the table displayed are as follows:
 - `OFFSET` - mapped memory offset within object
 - `OBJECT` - entry description, it can be `(anonymous)`, `mem` or `object_port.object_id`, there can be printed
 information about `anonsize` in kilobytes too.
-
-## See also
-
-1. [Phoenix-RTOS shell](../index.md)
-2. [Phoenix-RTOS Utilities](../../index.md)
-3. [Table of Contents](../../../index.md)

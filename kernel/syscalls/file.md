@@ -156,8 +156,3 @@ GETFROMSTACK(ustack, struct pollfd *, fds, 0);
 GETFROMSTACK(ustack, nfds_t, nfds, 1);
 GETFROMSTACK(ustack, int, timeout_ms, 2);
 ````
-
-## See also
-
-1. [System calls](index.md)
-2. [Table of Contents](../../index.md)

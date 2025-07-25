@@ -17,9 +17,3 @@ Options
   -s:  payload size, default 56, maximum 2040
   -W:  socket timetout, default 2000
 ```
-
-## See also
-
-1. [Phoenix-RTOS shell](../index.md)
-2. [Phoenix-RTOS Utilities](../../index.md)
-3. [Table of Contents](../../../index.md)

@@ -26,7 +26,6 @@
   - [Invalidate](#invalidating-the-cache)
   - [Clean](#cleaning-the-cache)
 - [Running tests](#running-tests)
-- [Navigation links](#see-also)
 
 ## API
 
@@ -289,8 +288,3 @@ different platforms, e.g. `ia32-generic-qemu` target:
 ```console
 python3 phoenix-rtos-tests/runner.py -T ia32-generic-qemu -t phoenix-rtos-tests/libcache
 ```
-
-## See also
-
-1. [Phoenix-RTOS core libraries](index.md)
-2. [Table of contents](../index.md)

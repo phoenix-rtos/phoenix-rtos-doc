@@ -19,9 +19,3 @@ cat file1 file2
 ```
 
 The command above will concatenate and print files `file1` and `file2` (in that order) to standard output.
-
-## See also
-
-1. [Phoenix-RTOS shell](../index.md)
-2. [Phoenix-RTOS Utilities](../../index.md)
-3. [Table of Contents](../../../index.md)

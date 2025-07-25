@@ -67,10 +67,3 @@ Then we can create a new special file and register:
 
 Interprocess communication by message queues is described in detail in the
 [Message passing](../kernel/proc/msg.md) document.
-
-## See also
-
-1. [Device drivers](index.md)
-2. [Access to device hardware registers](hwaccess.md)
-3. [Handling interrupts](interrupts.md)
-4. [Table of Contents](../index.md)
