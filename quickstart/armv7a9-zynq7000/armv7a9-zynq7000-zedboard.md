@@ -60,14 +60,6 @@ The onboard UART-USB converter is used here.
 
   ![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-ls.png)
 
-  - On macOS:
-
-  ```console
-  ls -l /dev/tty.*
-  ```
-
-  ![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-ls-mac.png)
-
   If your output is like in the screenshot above, the console (`UART` in the evaluation board) is on the `ACM0` port.
 
 - When the board is connected to your host-pc,
@@ -94,17 +86,6 @@ sudo usermod -a -G tty <yourname>
 
 </details>
 </br>
-
- <details>
-  <summary>How to get picocom (macOS)</summary>
-
-  ```console
-  brew update &&\
-  brew install picocom
-  ```
-
-  </details>
-  </br>
 
 You can leave the terminal with the serial port open, and follow the next steps.
 
@@ -170,14 +151,6 @@ ls -l /dev/serial/by-id
 
 ![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-ls-2.png)
 
-- On macOS:
-
-```console
-ls -l /dev/tty.*
-```
-
-![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-ls2-mac.png)
-
 To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments
  (choose suitable ttyACMx device, in this case, ttyACM1):
 
@@ -225,14 +198,6 @@ To run it you should follow the steps below:
   ```
 
   ![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-ls-3.png)
-
-  - On macOS:
-
-  ```console
-  ls -l /dev/tty.*
-  ```
-
-  ![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-ls-mac.png)
 
 - connect to that port:
 

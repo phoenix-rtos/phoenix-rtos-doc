@@ -46,14 +46,6 @@ UART-USB converter is used here.
 
   ![Image](../_static/images/quickstart/imxrt106x-ls.png)
 
-  - On macOS:
-
-  ```console
-  ls -l /dev/tty.*
-  ```
-
-  ![Image](../_static/images/quickstart/imxrt106x-ls-mac.png)
-
   If your output is like in the screenshot above, the console (`DEBUG USB` in the evaluation board) is on the `ACM0`
   port.
 
@@ -76,17 +68,6 @@ UART-USB converter is used here.
 
   ```console
   sudo usermod -a -G tty <yourname>
-  ```
-
-  </details>
-  </br>
-
-  <details>
-  <summary>How to get picocom (macOS)</summary>
-
-  ```console
-  brew update &&\
-  brew install picocom
   ```
 
   </details>
@@ -139,14 +120,6 @@ ls -l /dev/serial/by-id
 ```
 
 ![Image](../_static/images/quickstart/imxrt106x-ls-2.png)
-
-- On macOS:
-
-```console
-ls -l /dev/tty.*
-```
-
-![Image](../_static/images/quickstart/imxrt106x-ls-mac2.png)
 
 To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments
 (choose suitable ttyACMx device, in this case, ttyACM1):

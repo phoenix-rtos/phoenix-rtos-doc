@@ -92,11 +92,6 @@ micro-USB cable from the host PC to connector `J164`.
 
       `ttyUSB0` is not connected to UART but the corresponding port on FT4232HL is connected to JTAG. The device may
       disappear after connecting OpenOCD (described at the end of the guide).
-    - On macOS:
-
-      ```console
-      ls -l /dev/tty.*
-      ```
 
 4. Power up the board, changing the `SW1` position to `ON`. Two rows of green LEDs should turn on indicating
 power rails - see "Power and Status LEDs" section of the ZCU104 Board User Guide (UG1267) for detailed descriptions.
@@ -126,17 +121,6 @@ To use picocom without sudo privileges run this command and then restart:
 
 ```sh
 sudo usermod -a -G tty <yourname>
-```
-
-</details>
-</br>
-
-<details>
-<summary>How to get picocom (macOS)</summary>
-
-```sh
-brew update &&\
-brew install picocom
 ```
 
 </details>

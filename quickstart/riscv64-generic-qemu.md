@@ -44,31 +44,6 @@ Firstly, you need to install QEMU emulator.
 
   </details>
 
-  <details>
-  <summary>How to get QEMU (macOS)</summary>
-
-- Install the required packages
-
-  ```zsh
-  brew update && \
-  brew install qemu
-  ```
-
-- Check if QEMU is properly installed:
-
-  ```zsh
-  qemu-system-riscv64 --version
-  ```
-
-  ```zsh
-  ~$ qemu-system-riscv64 --version
-  QEMU emulator version 8.0.0
-  Copyright (c) 2003-2022 Fabrice Bellard and the QEMU Project developers
-  ~$
-  ```
-
-  </details>
-
 To run the image under QEMU you should type:
 
 ```console
