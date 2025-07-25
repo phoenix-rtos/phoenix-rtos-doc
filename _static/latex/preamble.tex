@@ -14,6 +14,9 @@
 \definecolor{ps-darkblue}{HTML}{26384f}
 \addto\captionsenglish{\renewcommand{\contentsname}{\textcolor{ps-orange}{Table of contents}}}
 
+% Add padding to the right inside code block frame
+\renewcommand\sphinxVerbatimFormatLine[1]{\strut\hspace{4pt}#1}
+
 % Set headings color
 \titleformat{\section}{\bfseries\Large\color{ps-darkblue}}{\thesection}{0.5em}{}
 \titleformat{\subsection}{\bfseries\large\color{ps-darkblue}}{\thesubsection}{0.5em}{}
