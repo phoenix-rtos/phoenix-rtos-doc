@@ -1,11 +1,66 @@
-# Page allocator
+# Paging technique and Memory Management Unit
+
+Processors equipped with MMU are typically used in servers, personal computers and mobile devices such as tablets and
+smartphones. In this architecture, the linear addresses used by executed program are translated to physical memory
+addresses using MMU associated with the processor core. This translation is performed with a defined granulation and
+the piece of the linear address space used for translation to physical address is called a memory page. Typically, the
+page size used in modern systems varies from 4 KB to gigabytes, but in the past, e.g. on the PDP-10, VAX-11
+architectures, it was much smaller (512 or 1 KB).
+
+MMU holds set of associations between linear and physical addresses defined for the process currently executed on the
+core. When process context is switched associations specific for the process are flushed from MMU and changed with
+associations defined for the new process chosen for execution. The structure used for defining this association is
+commonly and incorrectly called page table and stored in physical memory. On many architectures associations used for
+defining the linear address space are automatically downloaded to MMU when linear address is reached for the first time
+and association is not present in MMU. This task is performed by a part of MMU called Hardware Page Walker. On some
+architectures with simple MMU (e.g. eSI-RISC) the operating system defines associations by controlling MMU directly
+using its registers. In this case page table structure depends on software. The role of the MMU in memory address
+translation is illustrated in the figure below.
+
+![Image](../../_static/images/kernel/vm/mem-mmu.png)
+
+In further consideration, the linear address space defined using paging technique will be named synonymously as the
+virtual address space.
+
+## Initial concept of paging technique
+
+The concept of paging was first introduced in the late 1960s in order to organize the program memory overlaying for
+hierarchical memory systems consisting of transistor-based memory, core memory, magnetic disks and tapes. Historically,
+the virtual address space size was comparable to the physical memory size. The page table was used to point to the data
+location in the hierarchical memory system and to associate the physical memory location, called a page frame, with the
+virtual page. When the program accessed the virtual page, processor checked whether the page was present in the physical
+memory via the presence bit in the page table. If the page was not present in the physical memory, the program execution
+was interrupted and the page was loaded by the operating system into the physical memory via additional bits defining
+the data location in the page table. Once the presence bit was successfully loaded and set, the program execution was
+resumed. The original paging technique is presented below.
+
+![Image](../../_static/images/kernel/vm/mem-paging1.png)
+
+## Current use of paging technique
+
+Over the years, paging has morphed into a technique used for defining the process memory space and for process
+separation. In general-purpose operating systems, paging is fundamental for memory management. Each process runs in its
+own virtual memory space and uses all address ranges for its needs. The address space is defined by a set of
+virtual-to-physical address associations for the MMU defined in the physical memory and stored in a structure that is
+much more complicated than a page table used in early computers. This is necessary in order to optimize memory
+consumption and speed up the virtual-to-physical memory translations. When a process is executed on a selected
+processor, the address space is switched to its virtual space, which prevents it from interfering with other processes.
+The address space is switched by providing the MMU with new sets of virtual-to-physical associations. In this scheme,
+some physical pages (for example parts of the program text) can be shared among processes by mapping them simultaneously
+into two or more processes to minimize the overall memory usage.
+
+![Image](../../_static/images/kernel/vm/mem-paging2.png)
+
+A memory management system that relies on paging describes the whole physical memory using physical pages.
+
+## Page allocator
 
 The page allocator constitutes the basic layer of the memory management subsystem in MMU architectures. It is
 responsible for allocating the physical memory pages (page frames). In non-MMU architectures, the page allocator
 allocates only fake `page_t` structures used by upper layers and plays a marginal role in memory management. This
 section focuses on the role of a page allocator in MMU architectures.
 
-## Page array
+### Page array
 
 The available physical memory is treated as a set of physical pages (page frames). Each physical page available is
 described using the `page_t` structure. The structure is defined in the HAL, but upper layers assume that some
@@ -78,7 +133,7 @@ page table etc.).
 ### Presentation of page array during the boot process
 
 During the kernel boot process, the `page[]` is presented on the screen using letters and periods. The letter
-interpretation will be presented using a sample map for a PC with 128 MB of RAM.
+interpretation will be presented using a sample map for a PC with 128 MB of RAM.
 
 ``` asm
 vm: HCYPPSSS[24H][22K][103H]..B[80x][16B][32509.]BBB[101574x][64B] 

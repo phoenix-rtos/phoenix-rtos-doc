@@ -7,7 +7,7 @@ Note that the build artifacts, including the system image, should be first provi
 
 If you haven't run the `build.sh` script yet, run it for `sparcv8leon-generic-qemu` target.
 
-See [how to build the Phoenix-RTOS system image](../building/index.md).
+See [Building](../building/index.md) chapter.
 
 ## Running the system image
 

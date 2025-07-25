@@ -5,7 +5,7 @@ should be provided. The image is created as the final artifact of the `phoenix-r
 the `_boot` directory. The image consists of the bootloader (plo), kernel, TTY VGA driver, ATA driver with ext2
 filesystem.
 
-See [how to build the Phoenix-RTOS system image](../building/index.md).
+See [Building](../building/index.md) chapter.
 
 ## Running image under QEMU
 
@@ -108,5 +108,5 @@ PATA interface. The image should be copied to the boot disk using the `dd` comma
 disk is represented by /dev/sda block device).
 
 ```console
-  dd if=_boot/ia32-generic-pc/phoenix.disk of=/dev/sda
+dd if=_boot/ia32-generic-pc/phoenix.disk of=/dev/sda
 ```

@@ -55,5 +55,3 @@ between locks and spinlocks is that they use passive waiting (removal from sched
 scheduler is working.
 
 Each lock consists of spinlock, state variable and waiting queue.
-
-## Conditional variables

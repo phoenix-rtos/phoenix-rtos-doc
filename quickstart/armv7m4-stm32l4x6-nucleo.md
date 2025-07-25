@@ -4,7 +4,7 @@ This version is designated for STM32L4x6 processors with Cortex-M4 core. To laun
 should be provided. The image is created as the final artifact of the `phoenix-rtos-project` building and is located in
 the `_boot` directory. The image consists of a kernel, TTY UART driver, RAM disk filesystem, and psh (shell).
 
-See [how to build the Phoenix-RTOS system image](../building/index.md).
+See [Building](../building/index.md) chapter.
 
 ## Development board
 
