@@ -32,10 +32,10 @@ Overall spinlock lock implementation has been presented below in C using preproc
 processor-specific assembly code.
 
 ```c
-    SAVE_INTERRUPTS_STATE(CURRENT_CPU, state);
-    DISABLE_INTERRUPTS;
+SAVE_INTERRUPTS_STATE(CURRENT_CPU, state);
+DISABLE_INTERRUPTS;
 
-    while (!TEST_AND_SET(0, spinlock));
+while (!TEST_AND_SET(0, spinlock));
 ```
 
 Spinlock unlocking operation is quite simple. Processor atomically changes spinlock value in memory to non-zero and
@@ -43,8 +43,8 @@ restores its interrupt state based on state saved in spinlock. It is worth addin
 save and restore processor state from the variable assigned specifically for this particular processor.
 
 ```c
-    TEST_AND_SET(1, spinlock);
-    RESTORE_INTERRUPTS_STATE(CURRENT_CPU, state);
+TEST_AND_SET(1, spinlock);
+RESTORE_INTERRUPTS_STATE(CURRENT_CPU, state);
 ```
 
 ## Locks and mutexes

@@ -4,21 +4,21 @@ This section describes advised methods of accessing hardware registers, in other
 (`ISA`). Leaving aside architecture-dependent methodology, one should access hardware registers by using base address
 (either from data or I/O address space) and particular register offset:
 
-````C
-    /* Device registers */
-    enum { reg0 = 0, reg1, reg2, reg3 };
+````c
+/* Device registers */
+enum { reg0 = 0, reg1, reg2, reg3 };
 
-    /* Example base address of device */
-    volatile u32 *base = (void *)0x20000000;
+/* Example base address of device */
+volatile u32 *base = (void *)0x20000000;
 
-    /* Set 19th bit in the register 0 (address 0x20000000 + 0 = 0x20000000) */
-    *(base + reg0) |= 1 << 19;
+/* Set 19th bit in the register 0 (address 0x20000000 + 0 = 0x20000000) */
+*(base + reg0) |= 1 << 19;
 
-    /* Clear 7th bit in the register 1 (address 0x20000000 + 4 = 0x20000004 */
-    *(base + reg1) &= ~(1 << 7);
+/* Clear 7th bit in the register 1 (address 0x20000000 + 4 = 0x20000004 */
+*(base + reg1) &= ~(1 << 7);
 
-    /* Read register 2 (address 0x20000000 + 8 = 0x20000008) */
-    u32 val = *(base + reg2);
+/* Read register 2 (address 0x20000000 + 8 = 0x20000008) */
+u32 val = *(base + reg2);
 ````
 
 ## ISA with in/out instructions
@@ -49,9 +49,10 @@ under a particular physical address by mapping this address to the virtual addre
 the `mmap` syscall:
 
 ```c
-    #include <sys/mman.h>
+#include <sys/mman.h>
 
-    void *vaddr = mmap(NULL, SIZE_PAGE, PROT_READ | PROT_WRITE, MAP_UNCACHED | MAP_PHYSMEM | MAP_ANONYMOUS, -1, paddr);
+void *vaddr = mmap(NULL, SIZE_PAGE, PROT_READ | PROT_WRITE,
+                   MAP_UNCACHED | MAP_PHYSMEM | MAP_ANONYMOUS, -1, paddr);
 ```
 
 The above example maps one page (typically 4 KiB) of physical memory (as indicated by `MAP_PHYSMEM`) starting from the
