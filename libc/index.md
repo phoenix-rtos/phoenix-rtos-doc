@@ -9,7 +9,7 @@ interface.
 The source code of the `libphoenix` could be obtained using the following command
 
 ```console
-git clone http://git.phoenix-rtos.com/libphoenix
+git clone https://github.com/phoenix-rtos/libphoenix.git
 ```
 
 The preferred way to deal with this project is to use a Phoenix-RTOS reference project repository.
