@@ -55,7 +55,7 @@ To run the image under QEMU, use the following script provided in the `phoenix-r
 
 Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal.
 
-![Image](_images/sparcv8leon-qemu-psh.png)
+![Image](../_static/images/quickstart/sparcv8leon-qemu-psh.png)
 
 To get the available command list use command:
 
@@ -63,7 +63,7 @@ To get the available command list use command:
 help
 ```
 
-![Image](_images/sparcv8leon-qemu-help.png)
+![Image](../_static/images/quickstart/sparcv8leon-qemu-help.png)
 
 To get the list of working processes use command:
 
@@ -71,6 +71,6 @@ To get the list of working processes use command:
 ps
 ```
 
-![Image](_images/sparcv8leon-qemu-ps.png)
+![Image](../_static/images/quickstart/sparcv8leon-qemu-ps.png)
 
 If you want to quit, you should click on the terminal window, press ctrl + a, release it, and next press the x key.  

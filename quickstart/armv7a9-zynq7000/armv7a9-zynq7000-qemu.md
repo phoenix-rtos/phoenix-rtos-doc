@@ -48,7 +48,7 @@ Firstly, you need to have the docker installed.
   sudo docker --version
   ```
 
-  ![Image](_images/docker-version.png)
+  ![Image](../../_static/images/quickstart/armv7a9-zynq7000/docker-version.png)
 
 - To make calling docker command without `sudo` possible type:
 
@@ -69,7 +69,7 @@ Firstly, you need to have the docker installed.
   docker run hello-world
   ```
 
-  ![Image](_images/docker-test.png)
+  ![Image](../../_static/images/quickstart/armv7a9-zynq7000/docker-test.png)
 
   For more details and other instructions see
 
@@ -142,7 +142,7 @@ As a result, you should see `psh` (Phoenix-RTOS shell).
 
 - Note: It may take a while.
 
-![Image](_images/zynq7000-emu-start.png)
+![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-emu-start.png)
 
   <details>
   <summary>Why there is no need to install qemu?</summary>
@@ -161,7 +161,7 @@ To get the available command list please type:
 help
 ```
 
-![Image](_images/zynq7000-emu-help.png)
+![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-emu-help.png)
 
 If you want to get the list of working processes please type:
 
@@ -169,7 +169,7 @@ If you want to get the list of working processes please type:
 ps
 ```
 
-![Image](_images/zynq7000-emu-ps.png)
+![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-emu-ps.png)
 
 To get the table of processes please type:
 
@@ -177,8 +177,8 @@ To get the table of processes please type:
 top
 ```
 
-![Image](_images/zynq7000-emu-top.png)
+![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-emu-top.png)
 
 If you want to quit, you should click on the terminal window, press `ctrl + a`, release it, and next press the `x` key.
 
-![Image](_images/zynq7000-emu-terminate.png)
+![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-emu-terminate.png)

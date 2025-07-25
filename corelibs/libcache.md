@@ -3,7 +3,7 @@
 `libcache` is a thread-safe library which implements a n-way set-associative cache.
 <!-- TODO: mention whether the library is static and precompiled -->
 
-![Image](_images/libcache.png)
+![Image](../_static/images/corelibs/libcache.png)
 
 ## Contents
 
@@ -174,7 +174,7 @@ Offset address width | log<sub>2</sub>(cache line size) | log<sub>2</sub>(64) = 
 <!-- markdownlint-enable -->
 The above example is illustrated in the image below.
 
-![Image](_images/libcache_mem_addr.png)
+![Image](../_static/images/corelibs/libcache_mem_addr.png)
 
 _DISCLAIMER: The numbers of bits corresponding to tag, set index and offset may differ depending on your own example._
 
@@ -200,7 +200,7 @@ these lines. The pointer to the _Most Recently Used_ cache line (MRU) is stored 
 
 The image below represents the logical organization of the implemented cache.
 
-![Image](_images/libcache_impl.png)
+![Image](../_static/images/corelibs/libcache_impl.png)
 
 ## Cache operations
 

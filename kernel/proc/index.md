@@ -47,7 +47,7 @@ To understand properly Phoenix-RTOS process model it should be discussed either 
 
 Process model for MMU architectures has been presented on the following picture.
 
-![Image](_images/proc-model.jpg)
+![Image](../../_static/images/kernel/proc/proc-model.jpg)
 
 The linear address space is defined individually per process using MMU (Memory Management Unit) and virtual addressing.
 It means that the linear address space is virtual, and each linear address is translated into the physical address. The
@@ -85,7 +85,7 @@ modifications made by process threads during their execution (see [Memory object
 
 The process model on non-MMU architecture has been presented below.
 
-![Image](_images/proc-model2.png)
+![Image](../../_static/images/kernel/proc/proc-model2.png)
 
 The main difference between process model on MMU and non-MMU architectures is the lack of virtual addressing. Each
 process uses the same linear address space. Some of linear addresses can be excluded from the process linear address
