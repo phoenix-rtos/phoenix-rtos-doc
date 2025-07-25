@@ -65,7 +65,7 @@ The file descriptor associated with the opened stream shall be allocated and ope
 following flags:
 
 | `fopen()` Mode         | `open()` Flags                        |
-|------------------------|---------------------------------------|
+| ---------------------- | ------------------------------------- |
 | `r` or `rb`            | `O_RDONLY`                            |
 | `w` or `wb`            | `O_WRONLY \| O_CREAT \| O_TRUNC`      |
 | `a` or `ab`            | `O_WRONLY \| O_CREAT \| O_APPEND`     |
