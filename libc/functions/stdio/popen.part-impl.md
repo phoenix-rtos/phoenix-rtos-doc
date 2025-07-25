@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`FILE *popen(const char *command, const char *mode);`
+FILE *popen(const char *command, const char *mode);
+```
 
 ## Status
 
@@ -72,8 +74,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

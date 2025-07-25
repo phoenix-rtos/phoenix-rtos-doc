@@ -2,13 +2,15 @@
 
 ## Synopsis
 
-`#include <math.h>`
+```c
+#include <math.h>
 
-`double exp(double x);`
+double exp(double x);
 
-`float expf(float x);`
+float expf(float x);
 
-`long double expl(long double x);`
+long double expl(long double x);
+```
 
 ## Status
 
@@ -69,8 +71,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

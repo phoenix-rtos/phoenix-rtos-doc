@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <libgen.h>`
+```c
+#include <libgen.h>
 
-`char *dirname(char *path);`
+char *dirname(char *path);
+```
 
 ## Status
 
@@ -49,8 +51,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

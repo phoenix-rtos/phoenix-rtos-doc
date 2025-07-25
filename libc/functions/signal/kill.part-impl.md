@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <signal.h>`
+```c
+#include <signal.h>
 
-`int kill(pid_t pid, int sig);`
+int kill(pid_t pid, int sig);
+```
 
 ## Status
 
@@ -73,8 +75,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

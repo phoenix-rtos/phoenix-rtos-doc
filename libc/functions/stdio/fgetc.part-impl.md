@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`int fgetc(FILE *stream);`
+int fgetc(FILE *stream);
+```
 
 ## Status
 
@@ -66,8 +68,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

@@ -2,11 +2,15 @@
 
 ## Synopsis
 
-`#include <dirent.h>`
+```c
+#include <dirent.h>
 
-`struct dirent *readdir(DIR *dirp);`
+struct dirent *readdir(DIR *dirp);
 
-`int readdir_r(DIR *restrict dirp, struct dirent *restrict entry, struct dirent **restrict result);`
+int readdir_r(DIR *restrict dirp,
+              struct dirent *restrict entry,
+              struct dirent **restrict result);
+```
 
 ## Status
 
@@ -100,8 +104,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

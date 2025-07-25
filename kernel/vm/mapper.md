@@ -21,12 +21,12 @@ separate memory map that describes the parts of the address space which belong t
 The map definition and its entry is presented below.
 
 ```c
-    typedef struct _vm_map_t {
-        pmap_t pmap;
-        void *start;
-        void *stop;
-        rbtree_t tree;
-    } vm_map_t;
+typedef struct _vm_map_t {
+    pmap_t pmap;
+    void *start;
+    void *stop;
+    rbtree_t tree;
+} vm_map_t;
 ```
 
 The `start`, `stop` attributes define the beginning and ending of the address space described by the map. The `pmap`
@@ -34,21 +34,21 @@ attribute defines the `pmap` structure encapsulating the hardware-dependent stru
 resolution. The tree attribute stores the red-black tree of map entries.
 
 ```c
-    typedef struct _map_entry_t {
-        rbnode_t linkage;
-        struct _map_entry_t *next;
-        struct _map_arena_t *arena;
+typedef struct _map_entry_t {
+    rbnode_t linkage;
+    struct _map_entry_t *next;
+    struct _map_arena_t *arena;
 
-        void *vaddr;
-        size_t size;
-        size_t lmaxgap;
-        size_t rmaxgap;
+    void *vaddr;
+    size_t size;
+    size_t lmaxgap;
+    size_t rmaxgap;
 
-        unsigned int flags;
-        vm_object_t *object;
-        vm_map_t *map;
-        offs_t offs;
-    } map_entry_t;
+    unsigned int flags;
+    vm_object_t *object;
+    vm_map_t *map;
+    offs_t offs;
+} map_entry_t;
 ```
 
 Each `map_entry_t` constitutes a tree node (the `linkage` field) and the tree is constructed on the basis of the virtual
@@ -63,7 +63,7 @@ data which should be copied into the memory.
 
 The figure below briefly presents the idea behind describing the address space with a memory map based on a binary tree.
 
-![Image](_images/mem-map1.png)
+![Image](../../_static/images/kernel/vm/mem-map1.png)
 
 The sample tree presented in the figure above will help you better understand the map structure. The root node points to
 the segment located approximately in the middle of the address space described by the map (the address range is defined
@@ -89,76 +89,77 @@ The mapping algorithm is presented below. Due to its complexity, it will be disc
 code is followed by an explanation of each step.
 
 ```c
-    void *_map_find(vm_map_t *map, void *vaddr, size_t size, map_entry_t **prev, map_entry_t **next)
-    {
-        map_entry_t *e = lib_treeof(map_entry_t, linkage, map->tree.root);
+void *_map_find(vm_map_t *map, void *vaddr, size_t size,
+                map_entry_t **prev, map_entry_t **next)
+{
+    map_entry_t *e = lib_treeof(map_entry_t, linkage, map->tree.root);
 
-        *prev = NULL;
-        *next = NULL;
+    *prev = NULL;
+    *next = NULL;
 ```
 
 The first entry is assigned to the root entry of the map. The pointers for neighbors are null'ed.
 
 ```c
-        if (map->stop - size < vaddr)
-            return NULL;
-        if (vaddr < map->start)
-            vaddr = map->start;
+if (map->stop - size < vaddr)
+    return NULL;
+if (vaddr < map->start)
+    vaddr = map->start;
 ```
 
 The address of the mapping is checked according to the map range.
 
 ```c
-        while (e != NULL) {
+while (e != NULL) {
 
-            if ((size <= e->lmaxgap) && ((vaddr + size) <= e->vaddr)) {
-                *next = e;
+    if ((size <= e->lmaxgap) && ((vaddr + size) <= e->vaddr)) {
+        *next = e;
 
-                if (e->linkage.left == &nil)
-                    return max(vaddr, e->vaddr - e->lmaxgap);
-                e = lib_treeof(map_entry_t, linkage, e->linkage.left);
-                continue;
-            }
+        if (e->linkage.left == &nil)
+            return max(vaddr, e->vaddr - e->lmaxgap);
+        e = lib_treeof(map_entry_t, linkage, e->linkage.left);
+        continue;
+    }
 ```
 
 The mapping address and sizes are compared with the left child of the node. If the address is less than the address of
 the current node and there is a space for the mapping, the left child is selected for the next iteration.
 
 ```c
-            if (size <= e->rmaxgap) {
-                *prev = e;
+if (size <= e->rmaxgap) {
+    *prev = e;
 
-                if (e->linkage.right == &nil)
-                    return max(vaddr, e->vaddr + e->size);
+    if (e->linkage.right == &nil)
+        return max(vaddr, e->vaddr + e->size);
 
-                e = lib_treeof(map_entry_t, linkage, e->linkage.right);
-                continue;
-            }
+    e = lib_treeof(map_entry_t, linkage, e->linkage.right);
+    continue;
+}
 ```
 
 If the mapping address is not less than the address of the current node, the tree is traversed using the right child.
 
 ```c
-            for (;; e = lib_treeof(map_entry_t, linkage, e->linkage.parent)) {
-                if (e->linkage.parent == &nil)
-                    return NULL;
-                if ((e == lib_treeof(map_entry_t, linkage, e->linkage.parent->left)) &&
-                    ((lib_treeof(map_entry_t, linkage, e->linkage.parent)->rmaxgap >= size)))
-                    break;
-            }
-            e = lib_treeof(map_entry_t, linkage, e->linkage.parent);
+for (;; e = lib_treeof(map_entry_t, linkage, e->linkage.parent)) {
+    if (e->linkage.parent == &nil)
+        return NULL;
+    if ((e == lib_treeof(map_entry_t, linkage, e->linkage.parent->left)) &&
+        ((lib_treeof(map_entry_t, linkage, e->linkage.parent)->rmaxgap >= size)))
+        break;
+}
+e = lib_treeof(map_entry_t, linkage, e->linkage.parent);
 ```
 
 If we get lost in the tree (the mapping address should be decreased to fulfill the size requirement), the tree is
 traversed up until the right child with a proper maximum gap is found.
 
 ```c
-            for (*next = e; (*next)->linkage.parent != &nil;
-                *next = lib_treeof(map_entry_t, linkage, (*next)->linkage.parent))
+for (*next = e; (*next)->linkage.parent != &nil;
+    *next = lib_treeof(map_entry_t, linkage, (*next)->linkage.parent))
 
-                if ((*next) == lib_treeof(map_entry_t, linkage, (*next)->linkage.parent->left))
-                    break;
-            *next = lib_treeof(map_entry_t, linkage, (*next)->linkage.parent);
+    if ((*next) == lib_treeof(map_entry_t, linkage, (*next)->linkage.parent->left))
+        break;
+*next = lib_treeof(map_entry_t, linkage, (*next)->linkage.parent);
 ```
 
 When we find a new node from which we should move to the right, the right neighbor is established. The tree is traversed
@@ -166,26 +167,26 @@ starting from the parent of the new node until the node representing the right b
 the right neighbor is the parent of this node.
 
 ```c
-            *prev = e;
+*prev = e;
 ```
 
 The left neighbor points to the new node.
 
 ```c
-            if (e->linkage.right == &nil)
-                return e->vaddr + e->size;
+if (e->linkage.right == &nil)
+    return e->vaddr + e->size;
 
-            e = lib_treeof(map_entry_t, linkage, e->linkage.right);
+e = lib_treeof(map_entry_t, linkage, e->linkage.right);
 ```
 
 The tree is traversed to the right, starting from the new node. If the new node does not have the right child, the
 mapping is performed after the new node.
 
 ```c
-        }
-
-        return vaddr;
     }
+
+    return vaddr;
+}
 ```
 
 ## Map entry allocator
@@ -193,16 +194,16 @@ mapping is performed after the new node.
 There is a dependency problem with memory mappings.
 
 ```c
-    typedef struct _map_arena_t {
-        struct _map_arena_t *next;
-        struct _map_arena_t *prev;
-        page_t *page;
+typedef struct _map_arena_t {
+    struct _map_arena_t *next;
+    struct _map_arena_t *prev;
+    page_t *page;
 
-        unsigned int nall;
-        unsigned int nfree;
-        map_entry_t *free;
-        map_entry_t entries[];
-    } map_arena_t;
+    unsigned int nall;
+    unsigned int nfree;
+    map_entry_t *free;
+    map_entry_t entries[];
+} map_arena_t;
 ```
 
 ## Object mapping function
@@ -220,12 +221,3 @@ will fail.
 ### Memory regions
 
 A NUMA machine has different memory controllers with different distances to specific CPUs.
-
-## See also
-
-1. [Kernel - Memory management](index.md)
-2. [Kernel - Memory management - Page allocator](page.md)
-3. [Kernel - Memory management - Zone allocator](zalloc.md)
-4. [Kernel - Memory management - Fine grained allocator](kmalloc.md)
-5. [Kernel - Memory management - Memory objects](objects.md)
-6. [Table of Contents](../../index.md)

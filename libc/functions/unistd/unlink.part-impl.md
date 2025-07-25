@@ -2,13 +2,15 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`int unlink(const char *path);`
+int unlink(const char *path);
 
-`#include <fcntl.h>`
+#include <fcntl.h>
 
-`int unlinkat(int fd, const char *path, int flag);`
+int unlinkat(int fd, const char *path, int flag);
+```
 
 ## Status
 
@@ -125,8 +127,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

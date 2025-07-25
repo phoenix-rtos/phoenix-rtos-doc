@@ -2,15 +2,17 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`int getc_unlocked(FILE *stream);`
+int getc_unlocked(FILE *stream);
 
-`int getchar_unlocked(void);`
+int getchar_unlocked(void);
 
-`int putc_unlocked(int c, FILE *stream);`
+int putc_unlocked(int c, FILE *stream);
 
-`int putchar_unlocked(int c);`
+int putchar_unlocked(int c);
+```
 
 ## Status
 
@@ -48,8 +50,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

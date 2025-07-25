@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <ioctl.h>`
+```c
+#include <ioctl.h>
 
-`int ioctl(int fildes, int request, ... /* arg */);`
+int ioctl(int fildes, int request, ... /* arg */);
+```
 
 ## Status
 
@@ -79,10 +81,13 @@ The `ioctl()` function may fail if:
 
 ## Example usage
 
+The following example sends a request to specific device.
+
 ```C
 #include <ioctl.h>
 #include <fcntl.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #define REQUEST _IOC(IOC_IN, 'A', 0x01, int)
 
@@ -92,6 +97,7 @@ int main() {
 
     if (fd = open(PATH, O_WRONLY) < 0) {
         fprintf(stderr, "Cannot open special device file\n");
+        exit(EXIT_FAILURE);
     }
     
     /*
@@ -111,8 +117,3 @@ Tested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

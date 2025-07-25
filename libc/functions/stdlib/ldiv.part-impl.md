@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`ldiv_t ldiv(long numer, long denom);`
+ldiv_t ldiv(long numer, long denom);
 
-`lldiv_t lldiv(long long numer, long long denom);`
+lldiv_t lldiv(long long numer, long long denom);
+```
 
 ## Status
 
@@ -52,8 +54,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

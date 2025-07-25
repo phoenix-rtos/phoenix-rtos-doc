@@ -2,13 +2,16 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`int link(const char *path1, const char *path2);`
+int link(const char *path1, const char *path2);
 
-`#include <fcntl.h>`
+#include <fcntl.h>
 
-`int linkat(int fd1, const char *path1, int fd2, const char *path2, int flag);`
+int linkat(int fd1, const char *path1, int fd2,
+           const char *path2, int flag);
+```
 
 ## Status
 
@@ -140,8 +143,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

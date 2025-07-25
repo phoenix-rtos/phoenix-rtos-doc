@@ -1,18 +1,4 @@
----
-orphan: True <!-- To be removed after adding separate pages for all ports to place them in toctree -->
----
 # Azure IoT C SDK Port
-
-## Contents
-
-- [General information](#general-information)
-- [Supported version](#supported-version)
-- [Quickstart for ia32-generic-qemu](#quickstart-for-ia32-generic-qemu)
-  - [Network setup on ia32-generic-qemu](#network-setup-on-ia32-generic-qemu)
-  - [Running the IoThub Client sample](#running-the-iothub-client-sample)
-- [Using azure-iot-sdk-c](#using-azure-iot-sdk-c)
-- [Running tests](#running-tests)
-- [Known bugs](#known-bugs)
 
 ## General information
 
@@ -81,10 +67,10 @@ There are few steps to follow:
     - The expected output:
 
       ```console
-       virbr0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default qlen 1000
-          link/ether xx:xx:xx:xx:xx:xx brd ff:ff:ff:ff:ff:ff
-          inet 192.168.122.1/24 brd 192.168.122.255 scope global virbr0
-             valid_lft forever preferred_lft forever
+      virbr0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default qlen 1000
+         link/ether xx:xx:xx:xx:xx:xx brd ff:ff:ff:ff:ff:ff
+         inet 192.168.122.1/24 brd 192.168.122.255 scope global virbr0
+            valid_lft forever preferred_lft forever
       ```
 
     - Set up `qemu-bridge-helper` (`chmod` is used here to allow running QEMU without root privileges)
@@ -103,7 +89,7 @@ There are few steps to follow:
       sudo chmod a+rw /etc/qemu/bridge.conf
       ```
 
-      ![Image](_images/azure_sdk_vibr_setup.png)
+      ![Image](../_static/images/ports/azure_sdk_vibr_setup.png)
 
     - Sources: <https://apiraino.github.io/qemu-bridge-networking/>,
      <https://mike42.me/blog/2019-08-how-to-use-the-qemu-bridge-helper-on-debian-10>
@@ -128,13 +114,13 @@ There are few steps to follow:
 
       - As you can see, the advanced version of `Phoenix-RTOS` with `POSIX` shell has been started:
 
-        ![Image](_images/azure_linuxrc.png)
+        ![Image](../_static/images/ports/azure_linuxrc.png)
 
       - Now you can check the internet connection using the `ping` applet.
 
       - To complete the configuration please set the current date using `date` applet, like below:
 
-        ![Image](_images/azure_date.png)
+        ![Image](../_static/images/ports/azure_date.png)
 
       - Note: The required argument entered after `@` is EPOCH (POSIX time format) - you can gt it for example from
        [here](https://www.epochconverter.com/).
@@ -147,7 +133,7 @@ Providing that internet connection is working, and the current date is set, you 
 /bin/iothub_ll_telemetry_sample
 ```
 
-![Image](_images/azure_sample.png)
+![Image](../_static/images/ports/azure_sample.png)
 
 - Note: The entered connection string was added to the sample's source code. You can find it in
 `_build/ia32-generic-qemu/azure_sdk/azure-iot-sdk-c-lts_01_2022/iothub_client/samples/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c`.
@@ -189,7 +175,8 @@ that internet connection and the current date also have to be provided.
   ```makefile
   NAME := sample
   LOCAL_SRCS := main.c
-  LIBS := libiothub_client libiothub_client_mqtt_transport libumqtt libaziotsharedutil libmbedtls libmbedx509 libmbedcrypto
+  LIBS := libiothub_client libiothub_client_mqtt_transport libumqtt \
+          libaziotsharedutil libmbedtls libmbedx509 libmbedcrypto
   LDFLAGS += -z stack-size=12288
 
   include $(binary.mk)
@@ -197,7 +184,7 @@ that internet connection and the current date also have to be provided.
 
 - Source code:
 
-  ```C
+  ```c
   #include "iothub.h"
   #include "iothub_device_client_ll.h"
   #include "iothub_client_options.h"
@@ -244,90 +231,96 @@ that internet connection and the current date also have to be provided.
 
   static void azure_sendConfirmCallback(IOTHUB_CLIENT_CONFIRMATION_RESULT result, void *userContextCallback)
   {
-    (void)userContextCallback;
-    /* When a message is sent this callback will get invoked */
-    msgConfirmations++;
-    printf("Confirmation callback received for message %lu with result %s\r\n", (unsigned long)msgConfirmations, MU_ENUM_TO_STRING(IOTHUB_CLIENT_CONFIRMATION_RESULT, result));
+      (void)userContextCallback;
+      /* When a message is sent this callback will get invoked */
+      msgConfirmations++;
+      printf("Confirmation callback received for message %lu with result %s\r\n",
+             (unsigned long)msgConfirmations,
+             MU_ENUM_TO_STRING(IOTHUB_CLIENT_CONFIRMATION_RESULT,
+             result));
   }
 
 
-  static void azure_connectionStatusCallback(IOTHUB_CLIENT_CONNECTION_STATUS result, IOTHUB_CLIENT_CONNECTION_STATUS_REASON reason, void *user_context)
+  static void azure_connectionStatusCallback(IOTHUB_CLIENT_CONNECTION_STATUS result,
+                                             IOTHUB_CLIENT_CONNECTION_STATUS_REASON reason,
+                                             void *user_context)
   {
-    (void)reason;
-    (void)user_context;
-    /* It doesn't take into consideration network outages */
-    if (result == IOTHUB_CLIENT_CONNECTION_AUTHENTICATED) {
-      printf("The device client is connected to iothub\r\n");
-    }
-    else {
-
-      printf("The device client has been disconnected\r\n");
-    }
+      (void)reason;
+      (void)user_context;
+      /* It doesn't take into consideration network outages */
+      if (result == IOTHUB_CLIENT_CONNECTION_AUTHENTICATED) {
+          printf("The device client is connected to iothub\r\n");
+      }
+      else {
+          printf("The device client has been disconnected\r\n");
+      }
   }
 
 
   int azure_sendMsg(IOTHUB_DEVICE_CLIENT_LL_HANDLE *devhandle, const char *msg)
   {
-    IOTHUB_MESSAGE_HANDLE msghandle;
-    unsigned long messagesSent = 0;
-    bool running = true;
-    msgConfirmations = 0;
-    do {
-      if (messagesSent < 1) {
-        msghandle = IoTHubMessage_CreateFromString(msg);
-        IoTHubMessage_SetProperty(msghandle, "property_key", "property_value");
-        printf("Sending the following message to IoTHub: %s\n", msg);
-        IoTHubDeviceClient_LL_SendEventAsync(*devhandle, msghandle, azure_sendConfirmCallback, NULL);
-        /* The message is copied to the sdk so the we can destroy it */
-        IoTHubMessage_Destroy(msghandle);
-        messagesSent++;
-      }
-      else if (msgConfirmations >= 1) {
-        /* After all messages are all received stop running */
-        running = false;
-      }
-      IoTHubDeviceClient_LL_DoWork(*devhandle);
-      ThreadAPI_Sleep(1);
-    } while (running);
-    printf("The message sent properly\n");
-    return 0;
+      IOTHUB_MESSAGE_HANDLE msghandle;
+      unsigned long messagesSent = 0;
+      bool running = true;
+      msgConfirmations = 0;
+      do {
+          if (messagesSent < 1) {
+              msghandle = IoTHubMessage_CreateFromString(msg);
+              IoTHubMessage_SetProperty(msghandle, "property_key", "property_value");
+              printf("Sending the following message to IoTHub: %s\n", msg);
+              IoTHubDeviceClient_LL_SendEventAsync(*devhandle, msghandle, azure_sendConfirmCallback, NULL);
+              /* The message is copied to the sdk so the we can destroy it */
+              IoTHubMessage_Destroy(msghandle);
+              messagesSent++;
+          }
+          else if (msgConfirmations >= 1) {
+              /* After all messages are all received stop running */
+              running = false;
+          }
+          IoTHubDeviceClient_LL_DoWork(*devhandle);
+          ThreadAPI_Sleep(1);
+      } while (running);
+      printf("The message sent properly\n");
+      return 0;
   }
 
 
-  int azure_open(const char *connectionString, const unsigned char *cert, IOTHUB_DEVICE_CLIENT_LL_HANDLE *devhandle)
+  int azure_open(const char *connectionString,
+                 const unsigned char *cert,
+                 IOTHUB_DEVICE_CLIENT_LL_HANDLE *devhandle)
   {
-    IOTHUB_CLIENT_TRANSPORT_PROVIDER protocol;
-    protocol = MQTT_Protocol;
-    printf("Creating IoTHub Device handle\r\n");
-    *devhandle = IoTHubDeviceClient_LL_CreateFromConnectionString(connectionString, protocol);
-    if (*devhandle == NULL) {
-      fprintf(stderr, "Failure creating IotHub device. Hint: Check your connection string.\n");
-      return 1;
-    }
-    IoTHubDeviceClient_LL_SetOption(*devhandle, OPTION_TRUSTED_CERT, cert);
-    bool urlEncodeOn = true;
-    IoTHubDeviceClient_LL_SetOption(*devhandle, OPTION_AUTO_URL_ENCODE_DECODE, &urlEncodeOn);
-    /* Setting connection status callback to get indication of connection to iothub */
-    IoTHubDeviceClient_LL_SetConnectionStatusCallback(*devhandle, azure_connectionStatusCallback, NULL);
-    return 0;
+      IOTHUB_CLIENT_TRANSPORT_PROVIDER protocol;
+      protocol = MQTT_Protocol;
+      printf("Creating IoTHub Device handle\r\n");
+      *devhandle = IoTHubDeviceClient_LL_CreateFromConnectionString(connectionString, protocol);
+      if (*devhandle == NULL) {
+          fprintf(stderr, "Failure creating IotHub device. Hint: Check your connection string.\n");
+          return 1;
+      }
+      IoTHubDeviceClient_LL_SetOption(*devhandle, OPTION_TRUSTED_CERT, cert);
+      bool urlEncodeOn = true;
+      IoTHubDeviceClient_LL_SetOption(*devhandle, OPTION_AUTO_URL_ENCODE_DECODE, &urlEncodeOn);
+      /* Setting connection status callback to get indication of connection to iothub */
+      IoTHubDeviceClient_LL_SetConnectionStatusCallback(*devhandle, azure_connectionStatusCallback, NULL);
+      return 0;
   }
 
 
   static void azure_close(IOTHUB_DEVICE_CLIENT_LL_HANDLE *devhandle)
   {
-    IoTHubDeviceClient_LL_Destroy(*devhandle);
+      IoTHubDeviceClient_LL_Destroy(*devhandle);
   }
 
 
   static void azure_deinit(void)
   {
-    IoTHub_Deinit();
+      IoTHub_Deinit();
   }
 
 
   static void azure_init(void)
   {
-    IoTHub_Init();
+      IoTHub_Init();
   }
 
 

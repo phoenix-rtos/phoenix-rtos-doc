@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`void *calloc(size_t nelem, size_t elsize);`
+void *calloc(size_t nelem, size_t elsize);
+```
 
 ## Status
 
@@ -55,8 +57,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

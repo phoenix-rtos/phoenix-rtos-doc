@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <dirent.h>`
+```c
+#include <dirent.h>
 
-`int closedir(DIR *dirp);`
+int closedir(DIR *dirp);
+```
 
 ## Status
 
@@ -40,8 +42,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

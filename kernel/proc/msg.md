@@ -41,7 +41,7 @@ mapped instead of the original page. When receiving thread responses to the mess
 or tailing parts are copied to the original page located in sender address space. This technique is briefly presented on
 following figure.
 
-![Image](_images/proc-msg1.png)
+![Image](../../_static/images/kernel/proc/proc-msg1.png)
 
 There is another type of optimization. If input or output data size is lower than page size and data fits into the
 buffer used for application header passing the data is copied instead of using virtual memory capabilities which provide
@@ -71,80 +71,80 @@ The `msg_t` structure is defined as follows:
 
 ```c
 typedef struct _msg_t {
-	int type;
-	unsigned int pid;
-	unsigned int priority;
-	oid_t oid;
+    int type;
+    unsigned int pid;
+    unsigned int priority;
+    oid_t oid;
 
-	struct {
-		union {
-			/* OPEN/CLOSE */
-			struct {
-				int flags;
-			} openclose;
+    struct {
+        union {
+            /* OPEN/CLOSE */
+            struct {
+                int flags;
+            } openclose;
 
-			/* READ/WRITE/TRUNCATE */
-			struct {
-				off_t offs;
-				size_t len;
-				unsigned mode;
-			} io;
+            /* READ/WRITE/TRUNCATE */
+            struct {
+                off_t offs;
+                size_t len;
+                unsigned mode;
+            } io;
 
-			/* CREATE */
-			struct {
-				int type;
-				unsigned mode;
-				oid_t dev;
-			} create;
+            /* CREATE */
+            struct {
+                int type;
+                unsigned mode;
+                oid_t dev;
+            } create;
 
-			/* SETATTR/GETATTR */
-			struct {
-				long long val;
-				int type;
-			} attr;
+            /* SETATTR/GETATTR */
+            struct {
+                long long val;
+                int type;
+            } attr;
 
-			/* LINK/UNLINK */
-			struct {
-				oid_t oid;
-			} ln;
+            /* LINK/UNLINK */
+            struct {
+                oid_t oid;
+            } ln;
 
-			/* READDIR */
-			struct {
-				off_t offs;
-			} readdir;
+            /* READDIR */
+            struct {
+                off_t offs;
+            } readdir;
 
-			unsigned char raw[64];
-		};
+            unsigned char raw[64];
+        };
 
-		size_t size;
-		const void *data;
-	} i;
+        size_t size;
+        const void *data;
+    } i;
 
-	struct {
-		union {
-			/* ATTR */
-			struct {
-				long long val;
-			} attr;
+    struct {
+        union {
+            /* ATTR */
+            struct {
+                long long val;
+            } attr;
 
-			/* CREATE */
-			struct {
-				oid_t oid;
-			} create;
+            /* CREATE */
+            struct {
+                oid_t oid;
+            } create;
 
-			/* LOOKUP */
-			struct {
-				oid_t fil;
-				oid_t dev;
-			} lookup;
+            /* LOOKUP */
+            struct {
+                oid_t fil;
+                oid_t dev;
+            } lookup;
 
-			unsigned char raw[64];
-		};
+            unsigned char raw[64];
+        };
 
-		int err;
-		size_t size;
-		void *data;
-	} o;
+        int err;
+        size_t size;
+        void *data;
+    } o;
 } msg_t;
 ```
 
@@ -253,12 +253,3 @@ Remove a hard link.
 #### `mtReaddir`
 
 Read directory entries.
-
-## See also
-
-1. [Kernel - Processes and threads](index.md)
-2. [Kernel - Processes and threads - Scheduler](scheduler.md)
-3. [Kernel - Processes and threads - Management](forking.md)
-4. [Kernel - Processes and threads - Synchronization primitives](sync.md)
-5. [Kernel - Processes and threads - Namespace](namespace.md)
-6. [Table of Contents](../../index.md)

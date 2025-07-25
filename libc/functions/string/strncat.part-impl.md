@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <string.h>`
+```c
+#include <string.h>
 
-`char *strncat(char *restrict s1, const char *restrict s2, size_t n);`
+char *strncat(char *restrict s1, const char *restrict s2, size_t n);
+```
 
 ## Status
 
@@ -36,8 +38,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

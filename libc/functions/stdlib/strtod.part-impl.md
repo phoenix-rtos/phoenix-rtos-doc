@@ -2,13 +2,15 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`double strtod(const char *restrict nptr, char **restrict endptr);`
+double strtod(const char *restrict nptr, char **restrict endptr);
 
-`float strtof(const char *restrict nptr, char **restrict endptr);`
+float strtof(const char *restrict nptr, char **restrict endptr);
 
-`long double strtold(const char *restrict nptr, char **restrict endptr);`
+long double strtold(const char *restrict nptr, char **restrict endptr);
+```
 
 ## Status
 
@@ -46,11 +48,11 @@ character, and then followed by one or more decimal digits
 * One of `NaN` or `NaN(n-char-sequenceopt)`, ignoring case in the `NaN` part, where:
 
 ```c
-    n-char-sequence:
-        digit
-        nondigit
-        n-char-sequence digit
-        n-char-sequence nondigit
+n-char-sequence:
+    digit
+    nondigit
+    n-char-sequence digit
+    n-char-sequence nondigit
 ```
 
 The subject sequence is defined as the longest initial subsequence of the input string, starting with the first
@@ -115,8 +117,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

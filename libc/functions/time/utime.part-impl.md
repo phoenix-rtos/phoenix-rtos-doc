@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <time.h>`
+```c
+#include <time.h>
 
-`int utime(const char *path, const struct utimbuf *times);`
+int utime(const char *path, const struct utimbuf *times);
+```
 
 ## Status
 
@@ -68,8 +70,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

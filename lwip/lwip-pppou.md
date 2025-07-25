@@ -98,7 +98,7 @@ the command `ps`, which should show that the `lwip` with the correct arguments
 is already running, in the example figure below you can see that the baud rate
 460800 was used.
 
-![ps showing LwIP server is running](_images/lwip-pppou-ps.png)
+![ps showing LwIP server is running](../_static/images/lwip/lwip-pppou-ps.png)
 
 ## Setup host side
 
@@ -121,7 +121,7 @@ continuously (`maxfail 0 persist`) for connections.
 To check if the connection has been successfully established, use `ping`
 command on the host side:
 
-![ping the phenix-rtos device](_images/lwip-pppou-ping.png)
+![ping the phenix-rtos device](../_static/images/lwip/lwip-pppou-ping.png)
 
 Additional `/dev` entries will be created like `ifstatus`, `route` and `pf`.
 
@@ -136,7 +136,7 @@ Add the following line at the top of file `phoenix-rtos-lwip/include/default-opt
 Re-run `pppd` with `+ipv6` flag, the remote side may be assigned with
 link-local address like `fe80::55a0:6c87:7de3:611b`
 
-![ping the phenix-rtos device](_images/lwip-pppou-ping6.png)
+![ping the phenix-rtos device](../_static/images/lwip/lwip-pppou-ping6.png)
 
 ## Debugging
 

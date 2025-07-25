@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <ctype.h>`
+```c
+#include <ctype.h>
 
-`int isalpha(int c);`
+int isalpha(int c);
+```
 
 ## Status
 
@@ -36,8 +38,3 @@ Tested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

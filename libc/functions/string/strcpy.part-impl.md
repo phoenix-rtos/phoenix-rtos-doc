@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <string.h>`
+```c
+#include <string.h>
 
-`char *stpcpy(char *restrict s1, const char *restrict s2);`
+char *stpcpy(char *restrict s1, const char *restrict s2);
 
-`char *strcpy(char *restrict s1, const char *restrict s2);`
+char *strcpy(char *restrict s1, const char *restrict s2);
+```
 
 ## Status
 
@@ -40,8 +42,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

@@ -2,15 +2,17 @@
 
 ## Synopsis
 
-`#include <syslog.h>`
+```c
+#include <syslog.h>
 
-`void closelog(void);`
+void closelog(void);
 
-`void openlog(const char *ident, int logopt, int facility);`
+void openlog(const char *ident, int logopt, int facility);
 
-`int setlogmask(int maskpri);`
+int setlogmask(int maskpri);
 
-`void syslog(int priority, const char *message, ... /* arguments */);`
+void syslog(int priority, const char *message, ... /* arguments */);
+```
 
 ## Description
 
@@ -102,5 +104,3 @@ The `setlogmask()` function returns the previous log priority mask.
 ### Errors
 
 No errors are defined.
-
-### Implementation tasks

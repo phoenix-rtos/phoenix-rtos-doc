@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <time.h>`
+```c
+#include <time.h>
 
-`time_t time(time_t *tloc);`
+time_t time(time_t *tloc);
+```
 
 ## Status
 
@@ -38,8 +40,3 @@ Untested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)

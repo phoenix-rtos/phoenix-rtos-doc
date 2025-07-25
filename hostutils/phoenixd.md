@@ -35,10 +35,3 @@ phoenixd [-1] [-k kernel] [-s bindir] [-p serial_device] [-m pipe_file] [-i udp_
 - `--plugin`: For creating images with all modules in syspage for kernels with plugins. Limited to 4MB image size.
 In this mode arguments are passed only to kernel e.g. <kernel_path>="app1;arg1;arg2 app2;arg1;arg2".
 - `--upload`: Similar to SDP mode but for kernels with plugins. Limited to 4MB image size.
-
-## See also
-
-1. [Phoenix-RTOS disk tool](psdisk.md)
-2. [Phoenix-RTOS serial uploader](psu.md)
-3. [Phoenix-RTOS Host Utilities](index.md)
-4. [Table of Contents](../index.md)

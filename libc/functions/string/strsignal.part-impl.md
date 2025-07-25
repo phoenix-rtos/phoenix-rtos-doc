@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <string.h>`
+```c
+#include <string.h>
 
-`char *strsignal(int signum);`
+char *strsignal(int signum);
+```
 
 ## Status
 
@@ -49,8 +51,3 @@ Tested
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../index.md)
-2. [Table of Contents](../../../index.md)
