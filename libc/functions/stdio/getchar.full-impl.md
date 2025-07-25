@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`int getchar(void);`
+int getchar(void);
+```
 
 ## Description
 

@@ -2,13 +2,15 @@
 
 ## Synopsis
 
-`#include <math.h>`
+```c
+#include <math.h>
 
-`double floor(double x);`
+double floor(double x);
 
-`float floorf(float x);`
+float floorf(float x);
 
-`long double floorl(long double x);`
+long double floorl(long double x);
+```
 
 ## Status
 

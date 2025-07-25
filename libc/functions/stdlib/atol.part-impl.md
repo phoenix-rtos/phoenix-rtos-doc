@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`long atol(const char *nptr);`
+long atol(const char *nptr);
+```
 
 ## Status
 

@@ -2,11 +2,15 @@
 
 ## Synopsis
 
-`#include <string.h>`
+```c
+#include <string.h>
 
-`char *strtok(char *restrict s, const char *restrict sep);`
+char *strtok(char *restrict s, const char *restrict sep);
 
-`char *strtok_r(char *restrict s, const char *restrict sep, char **restrict state);`
+char *strtok_r(char *restrict s,
+               const char *restrict sep,
+               char **restrict state);
+```
 
 ## Status
 

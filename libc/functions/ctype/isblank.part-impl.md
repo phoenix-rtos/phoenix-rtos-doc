@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <ctype.h>`
+```c
+#include <ctype.h>
 
-`int isblank(int c);`
+int isblank(int c);
+```
 
 ## Status
 

@@ -2,13 +2,15 @@
 
 ## Synopsis
 
-`#include <math.h>`
+```c
+#include <math.h>
 
-`double fmod(double x, double y);`
+double fmod(double x, double y);
 
-`float fmodf(float x, float y);`
+float fmodf(float x, float y);
 
-`long double fmodl(long double x, long double y);`
+long double fmodl(long double x, long double y);
+```
 
 ## Status
 

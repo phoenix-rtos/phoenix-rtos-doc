@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`void sync(void);`
+void sync(void);
+```
 
 ## Status
 

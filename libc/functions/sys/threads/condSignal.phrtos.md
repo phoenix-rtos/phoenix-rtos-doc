@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <sys/threads.h>`
+```c
+#include <sys/threads.h>
 
-`int condBroadcast(handle_t h);`
+int condBroadcast(handle_t h);
 
-`int condSignal(handle_t h);`
+int condSignal(handle_t h);
+```
 
 ## Status
 

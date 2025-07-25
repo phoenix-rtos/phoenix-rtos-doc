@@ -2,9 +2,12 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`size_t fread(void *restrict ptr, size_t size, size_t nitems, FILE *restrict stream);`
+size_t fread(void *restrict ptr, size_t size,
+             size_t nitems, FILE *restrict stream);
+```
 
 ## Status
 

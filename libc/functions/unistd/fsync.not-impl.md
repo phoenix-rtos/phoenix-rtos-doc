@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`int fsync(int fildes);`
+int fsync(int fildes);
+```
 
 ## Status
 

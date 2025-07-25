@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`int close(int fildes);`
+int close(int fildes);
+```
 
 ## Status
 

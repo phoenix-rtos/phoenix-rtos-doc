@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <time.h>`
+```c
+#include <time.h>
 
-`char *asctime(const struct tm *timeptr);`
+char *asctime(const struct tm *timeptr);
 
-`char *asctime_r(const struct tm *restrict tm, char *restrict buf);`
+char *asctime_r(const struct tm *restrict tm, char *restrict buf);
+```
 
 ## Status
 

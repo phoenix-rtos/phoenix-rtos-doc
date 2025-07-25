@@ -2,13 +2,15 @@
 
 ## Synopsis
 
-`#include <math.h>`
+```c
+#include <math.h>
 
-`double acos(double x);`
+double acos(double x);
 
-`float acosf(float x);`
+float acosf(float x);
 
-`long double acosl(long double x);`
+long double acosl(long double x);
+```
 
 ## Status
 

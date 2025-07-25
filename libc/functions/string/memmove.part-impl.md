@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <string.h>`
+```c
+#include <string.h>
 
-`void *memmove(void *s1, const void *s2, size_t n);`
+void *memmove(void *s1, const void *s2, size_t n);
+```
 
 ## Status
 

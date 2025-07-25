@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`int fgetc(FILE *stream);`
+int fgetc(FILE *stream);
+```
 
 ## Status
 

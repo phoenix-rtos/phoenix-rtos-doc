@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`int puts(const char *s);`
+int puts(const char *s);
+```
 
 ## Status
 

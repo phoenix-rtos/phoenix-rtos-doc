@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <termios.h>`
+```c
+#include <termios.h>
 
-`int tcgetattr(int fildes, struct termios *termios_p);`
+int tcgetattr(int fildes, struct termios *termios_p);
+```
 
 ## Status
 

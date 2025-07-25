@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`int setpgid(pid_t pid, pid_t pgid);`
+int setpgid(pid_t pid, pid_t pgid);
+```
 
 ## Status
 

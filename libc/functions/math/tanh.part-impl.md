@@ -1,12 +1,16 @@
 # tanh
 
-`#include <math.h>`
+## Synopsis
 
-`double tanh(double x);`
+```c
+#include <math.h>
 
-`float tanhf(float x);`
+double tanh(double x);
 
-`long double tanhl(long double x);`
+float tanhf(float x);
+
+long double tanhl(long double x);
+```
 
 ## Status
 

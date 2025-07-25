@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <ctype.h>`
+```c
+#include <ctype.h>
 
-`int isprint(int c);`
+int isprint(int c);
+```
 
 ## Status
 

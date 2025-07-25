@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`int fputs(const char *restrict s, FILE *restrict stream);`
+int fputs(const char *restrict s, FILE *restrict stream);
+```
 
 ## Status
 

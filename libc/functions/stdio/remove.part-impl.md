@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`int remove(const char *path);`
+int remove(const char *path);
+```
 
 ## Status
 

@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <math.h>`
+```c
+#include <math.h>
 
-`double frexp(double num, int *exp);`
+double frexp(double num, int *exp);
 
-`float frexpf(float num, int *exp);`
+float frexpf(float num, int *exp);
+```
 
 ## Status
 

@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`int putc(int c, FILE *stream);`
+int putc(int c, FILE *stream);
+```
 
 ## Status
 

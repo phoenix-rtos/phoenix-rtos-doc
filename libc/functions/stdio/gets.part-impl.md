@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`char *gets(char *s);`
+char *gets(char *s);
+```
 
 ## Status
 

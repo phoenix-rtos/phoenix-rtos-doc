@@ -2,11 +2,15 @@
 
 ## Synopsis
 
-`#include <dirent.h>`
+```c
+#include <dirent.h>
 
-`struct dirent *readdir(DIR *dirp);`
+struct dirent *readdir(DIR *dirp);
 
-`int readdir_r(DIR *restrict dirp, struct dirent *restrict entry, struct dirent **restrict result);`
+int readdir_r(DIR *restrict dirp,
+              struct dirent *restrict entry,
+              struct dirent **restrict result);
+```
 
 ## Status
 

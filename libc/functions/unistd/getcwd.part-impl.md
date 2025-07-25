@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`char *getcwd(char *buf, size_t size);`
+char *getcwd(char *buf, size_t size);
+```
 
 ## Status
 

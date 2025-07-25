@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`int fileno(FILE *stream);`
+int fileno(FILE *stream);
+```
 
 ## Status
 
