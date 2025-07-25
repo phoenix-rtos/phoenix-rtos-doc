@@ -39,5 +39,7 @@ On the first start, you will be prompted to create an account in the subsystem (
 After that simply follow the instructions for Ubuntu written in the [Building Phoenix-RTOS](index.md) and
 [ia32-generic-qemu quick-start](../quickstart/ia32-generic-qemu.md).
 
-(Quick tip: It is not mandatory, but turning off Real-Time Protection in Windows Defender speeds up the toolchain
-building process)
+```{tip}
+It is not mandatory, but turning off Real-Time Protection in Windows Defender speeds up the toolchain
+building process
+```
