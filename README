@@ -1,0 +1,22 @@
+The full documentation can be found at https://docs.phoenix-rtos.com.
+
+This repository contains all the necessary files needed to build
+Phoenix-RTOS Documentation using sphinx.
+
+Here are few steps to prepare environment:
+- sudo apt update
+- sudo apt install latexmk texlive-xetex fonts-liberation
+- sudo apt install python3-pip
+- sudo apt install python3-venv
+- python3 -m venv venv
+- source venv/bin/activate
+- pip install -r requirements.txt
+
+To build html or pdf versions:
+- make html
+- make latexpdf
+
+The output files will be available in _build directory.
+
+Optionally run make clean to clear _build directory.
+
