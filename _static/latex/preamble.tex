@@ -8,7 +8,6 @@
 %
 % %LICENSE%
 
-\addtolength{\cftsubsecnumwidth}{5pt}
 \setcounter{secnumdepth}{3}
 \definecolor{ps-orange}{HTML}{ea5b22}
 \definecolor{ps-darkblue}{HTML}{26384f}
@@ -16,6 +15,16 @@
 
 % Set the text color
 \AtBeginDocument{\color{ps-darkblue}}
+
+% Table of contents spacing
+\setlength{\cftsecindent}{0pt}
+\setlength{\cftsecnumwidth}{2em}
+
+\setlength{\cftsubsecindent}{2em}
+\setlength{\cftsubsecnumwidth}{3em}
+
+\setlength{\cftsubsubsecindent}{5em}
+\setlength{\cftsubsubsecnumwidth}{4em}
 
 % Add padding to the right inside code block frame
 \renewcommand\sphinxVerbatimFormatLine[1]{\strut\hspace{4pt}#1}
