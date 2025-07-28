@@ -5,14 +5,6 @@ graphics operations.
 
 Source code: <https://github.com/phoenix-rtos/phoenix-rtos-corelibs/tree/master/libgraph>
 
-## Contents
-
-- [Supported graphics adapters](#graphics-adapters)
-- [libgraph applications](#libgraph-apps)
-- [libgraph interface](#libgraph-interface)
-- [How to use the graphics library](#how-to-use-the-graphics-library)
-- [How to use your own image in Phoenix-RTOS](#generating-an-image-bitmap-and-displaying-it-using-libgraph)
-
 ## Graphics adapters
 
 The library supports the following graphics adapters:

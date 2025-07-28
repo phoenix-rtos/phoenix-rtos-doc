@@ -5,12 +5,6 @@ beyond the system.
 According to `RFC 4122` and `DCE 1.1` (Distributed Computing Environment) currently supported UUID format is variant 1,
 version 4 (randomly/pseudo-randomly generated).
 
-## Contents
-
-- [General information](#general-information)
-- [Using libuuid](#using-libuuid)
-- [Running tests](#running-tests)
-
 ## General information
 
 Linux libuuid compliant library is used to generate unique identifiers for objects that may be accessible beyond the

@@ -1,20 +1,5 @@
 # VGA library (libvga)
 
-## Contents
-
-- [General information](#general-information)
-- [Mode Adjustment Flags](#mode-adjustment-flags)
-- [Structures](#structures)
-- [Low-Level Interface (Hardware Abstraction Layer)](#low-level-interface-hardware-abstraction-layer)
-  - [Memory and Register Access](#memory-and-register-access)
-  - [Color Map Management](#color-map-management)
-  - [VGA Handle Management](#vga-handle-management)
-- [High-Level Interface](#high-level-interface)
-  - [VGA Register and Mode Management](#vga-register-and-mode-management)
-  - [VGA State Management](#vga-state-management)
-  - [VGA Configuration](#vga-configuration)
-- [Using libvga](#using-libvga)
-
 ## General information
 
 `libvga` is designed to interface with VGA-compatible display hardware. This library provides both low-level hardware

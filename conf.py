@@ -10,7 +10,7 @@ from version_management import get_version_context
 
 
 project = ""
-copyright = "2024, Phoenix Systems"
+copyright = "2024-2025, Phoenix Systems"
 author = "Phoenix Systems"
 
 # -- General configuration ---------------------------------------------------
@@ -26,10 +26,10 @@ pygments_dark_style = "tango"
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 
+html_theme = "furo"
 html_title = "Phoenix-RTOS Documentation"
 html_favicon = "_static/images/favicon.png"
-html_theme = "furo"
-html_js_files = ["js/functions.js", "js/versions.js"]
+html_js_files = ["js/versions.js"]
 html_style = ["css/furo-phoenix.css", "css/furo-extensions-phoenix.css"]
 html_static_path = ["_static", "_static/images/light_logo.png"]
 html_baseurl = "https://docs.phoenix-rtos.com/latest/"
