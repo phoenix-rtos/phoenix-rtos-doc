@@ -15,9 +15,3 @@ Additional user credentials can be passed using the `PSH_DEFUSRPWDHASH` environm
 
 It is important to know that it is impossible to completely exit the `psh` which is launched as `pshlogin`. Using the
 `exit` command or `EOT` character (`ctrl+D`) will only log out the user without ending the `psh` process.
-
-## See also
-
-1. [Phoenix-RTOS shell](../index.md)
-2. [Phoenix-RTOS Utilities](../../index.md)
-3. [Table of Contents](../../../index.md)

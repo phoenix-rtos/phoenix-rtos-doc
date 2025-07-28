@@ -195,12 +195,3 @@ Page allocation is quite simple. It just retrieves the first `page_t` entry from
 a `page_t` is returned to the pool. It must be noted that the real memory allocation is performed during the memory
 mapping process. All processes and the kernel use the same, common memory map which stores all segments existing in
 the physical memory.
-
-## See also
-
-1. [Kernel - Memory management](index.md)
-2. [Kernel - Memory management - Memory mapper](mapper.md)
-3. [Kernel - Memory management - Zone allocator](zalloc.md)
-4. [Kernel - Memory management - Fine grained allocator](kmalloc.md)
-5. [Kernel - Memory management - Memory objects](objects.md)
-6. [Table of Contents](../../index.md)

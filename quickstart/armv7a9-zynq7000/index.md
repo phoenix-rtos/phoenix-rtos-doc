@@ -38,11 +38,6 @@ from the site below.
 
   - When booting using SD card: Make sure that SD card is not broken, you can try to format it by yourself.
 
-## See also
-
-1. [Running system on targets](../index.md)
-2. [Table of Contents](../../index.md)
-
 ```{toctree}
 :maxdepth: 1
 :hidden:

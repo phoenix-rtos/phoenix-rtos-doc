@@ -22,12 +22,6 @@ The source code of the USB host stack and Libusb can be obtained with the follow
 git clone https://github.com/phoenix-rtos/phoenix-rtos-usb.git
 ```
 
-## See also
-
-1. [USB Host stack](usbhost.md)
-2. [Libusb](libusb.md)
-3. [Table of Contents](../index.md)
-
 ```{toctree}
 :hidden:
 :maxdepth: 1

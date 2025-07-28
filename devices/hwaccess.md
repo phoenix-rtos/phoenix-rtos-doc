@@ -63,10 +63,3 @@ does not contain the `MAP_FAILED` value, which would indicate that `mmap` failed
 
 On architectures without `MMU`, access to the hardware registers does not require prior memory mapping. Registers can be
 accessed by directly setting a volatile pointer to the desired physical base address.
-
-## See also
-
-1. [Device drivers](index.md)
-2. [Handling interrupts](interrupts.md)
-3. [Message interface](interface.md)
-4. [Table of Contents](../index.md)

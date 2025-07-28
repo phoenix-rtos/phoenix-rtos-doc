@@ -182,11 +182,3 @@ top
 If you want to quit, you should click on the terminal window, press `ctrl + a`, release it, and next press the `x` key.
 
 ![Image](_images/zynq7000-emu-terminate.png)
-
-## See also
-
-1. [Running system on armv7a9-zynq7000](index.md)
-2. [Running system on armv7a9-zynq7000-zedboard](armv7a9-zynq7000-zedboard.md)
-3. [Running system on armv7a9-zynq7000-zturn](armv7a9-zynq7000-zturn.md)
-4. [Running system on targets](../index.md)
-5. [Table of Contents](../../index.md)

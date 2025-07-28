@@ -554,7 +554,3 @@ Flashing an image to device...
 Done!
 TESTS: 0 PASSED: 0 FAILED: 0 SKIPPED: 0
 ```
-
-## See also
-
-1. [Table of Contents](../index.md)

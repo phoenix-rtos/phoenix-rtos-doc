@@ -52,10 +52,3 @@ TARGET=ia32-generic-qemu CONSOLE=serial ./phoenix-rtos-build/build.sh all
 
 After the build completes, the disk image and all files needed to run it will be created and placed in the _boot
 directory.
-
-## See also
-
-1. [Building Phoenix-RTOS image](index.md)
-2. [Toolchain](toolchain.md)
-3. [Reference project](project.md)
-4. [Table of Contents](../index.md)
