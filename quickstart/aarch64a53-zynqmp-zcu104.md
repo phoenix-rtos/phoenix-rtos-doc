@@ -41,7 +41,9 @@ to the FAT partition on the SD card and rename it to `BOOT.BIN` (case-insensitiv
 
 ### Loading plo from NOR flash
 
-**NOTE:** If this is the first time you run Phoenix-RTOS on this board, use the SD card method to run plo first!
+```{note}
+If this is the first time you run Phoenix-RTOS on this board, use the SD card method to run plo first!
+```
 
 1. Set boot mode to QSPI32 flash. Set switches in the switch block `SW6` as follows:
 
