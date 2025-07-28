@@ -2,6 +2,7 @@
 
 from version_management import get_version_context
 from pathlib import Path
+from datetime import datetime
 
 project = ""
 copyright = "2024-2025, Phoenix Systems"
@@ -13,6 +14,11 @@ templates_path = ["_templates"]
 exclude_patterns = ["README.md", "_build", "Thumbs.db", ".DS_Store"]
 myst_heading_anchors = 3
 pygments_dark_style = "tango"
+
+latexpdf_title = "Phoenix-RTOS Documentation"
+latexpdf_author = ""
+latexpdf_date = datetime.today().strftime('%d-%m-%Y')
+latexpdf_version = "Ver. latest"
 
 html_theme = "furo"
 html_title = "Phoenix-RTOS Documentation"
@@ -74,8 +80,10 @@ latex_documents = [
 ]
 
 latex_additional_files = [
-    "_static/images/pdf-titlepage.png",
-    "_static/images/pdf-lastpage.png"
+    "_static/images/pdf/companylogo.png",
+    "_static/images/pdf/last-page-image.png",
+    "_static/images/pdf/first-page-image1.png",
+    "_static/images/pdf/first-page-image2.png"
 ]
 
 latex_elements = {
@@ -106,21 +114,11 @@ latex_elements = {
         \usepackage{fontspec}
     ''',
     'preamble': Path("_static/latex/preamble.tex").read_text(),
-    'maketitle': r'''
-        \newgeometry{margin=0pt}
-        \thispagestyle{empty}
-        \begin{figure}
-            \includegraphics[width=\paperwidth,height=\paperheight]{pdf-titlepage.png}
-        \end{figure}
-        \clearpage
-        \restoregeometry
-    ''',
-    'atendofbody': r'''
-        \newgeometry{margin=0pt}
-        \thispagestyle{empty}
-        \begin{figure}
-            \includegraphics[width=\paperwidth,height=\paperheight]{pdf-lastpage.png}
-        \end{figure}
-        \restoregeometry
-    ''',
+    'atendofbody': Path("_static/latex/atendofbody.tex").read_text(),
+    'maketitle': fr'''
+        \newcommand{{\doctitle}}{{{latexpdf_title}}}
+        \newcommand{{\docauthor}}{{{latexpdf_author}}}
+        \newcommand{{\docversion}}{{{latexpdf_version}}}
+        \newcommand{{\docdate}}{{{latexpdf_date}}}
+    ''' + Path("_static/latex/maketitle.tex").read_text()
 }
