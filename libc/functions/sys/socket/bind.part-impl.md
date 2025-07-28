@@ -2,9 +2,12 @@
 
 ## Synopsis
 
-`#include <sys/socket.h>`
+```c
+#include <sys/socket.h>
 
-`int bind(int socket, const struct sockaddr *address, socklen_t address_len);`
+int bind(int socket, const struct sockaddr *address,
+         socklen_t address_len);
+```
 
 ## Status
 

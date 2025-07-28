@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`pid_t getpid(void);`
+pid_t getpid(void);
+```
 
 ## Status
 

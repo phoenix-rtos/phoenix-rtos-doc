@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <ctype.h>`
+```c
+#include <ctype.h>
 
-`int tolower(int c);`
+int tolower(int c);
+```
 
 ## Status
 

@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`void clearerr(FILE *stream);`
+void clearerr(FILE *stream);
+```
 
 ## Status
 

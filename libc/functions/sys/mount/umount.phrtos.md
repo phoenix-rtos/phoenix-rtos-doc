@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <sys/mount.h>`
+```c
+#include <sys/mount.h>
 
-`int umount(const char *path);`
+int umount(const char *path);
+```
 
 ## Status
 

@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <sys/mman.h>`
+```c
+#include <sys/mman.h>
 
-`int munmap(void *addr, size_t len);`
+int munmap(void *addr, size_t len);
+```
 
 ## Status
 

@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <ctype.h>`
+```c
+#include <ctype.h>
 
-`int toupper(int c);`
+int toupper(int c);
+```
 
 ## Status
 

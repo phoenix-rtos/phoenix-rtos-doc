@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <setjmp.h>`
+```c
+#include <setjmp.h>
 
-`void longjmp(jmp_buf env, int val);`
+void longjmp(jmp_buf env, int val);
+```
 
 ## Status
 

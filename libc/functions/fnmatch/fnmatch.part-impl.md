@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <fnmatch.h>`
+```c
+#include <fnmatch.h>
 
-`int fnmatch(const char *pattern, const char *string, int flags);`
+int fnmatch(const char *pattern, const char *string, int flags);
+```
 
 ## Status
 

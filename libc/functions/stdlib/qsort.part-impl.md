@@ -2,9 +2,12 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`void qsort(void *base, size_t _nel_, size_t width, int (*_compar_)(const void *, const void *));`
+void qsort(void *base, size_t _nel_, size_t width,
+           int (*_compar_)(const void *, const void *));
+```
 
 ## Status
 

@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <signal.h>`
+```c
+#include <signal.h>
 
-`int sigpending(sigset_t *set);`
+int sigpending(sigset_t *set);
+```
 
 ## Status
 

@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <setjmp.h>`
+```c
+#include <setjmp.h>
 
-`void siglongjmp(sigjmp_buf env, int val);`
+void siglongjmp(sigjmp_buf env, int val);
+```
 
 ## Status
 

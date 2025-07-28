@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <sys/msg.h>`
+```c
+#include <sys/msg.h>
 
-`int msgRespond(uint32_t port, msg_t *m, unsigned long int rid);`
+int msgRespond(uint32_t port, msg_t *m, unsigned long int rid);
+```
 
 ## Status
 

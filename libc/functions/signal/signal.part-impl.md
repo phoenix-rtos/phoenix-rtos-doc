@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <signal.h>`
+```c
+#include <signal.h>
 
-`void (*signal(int sig, void (*func)(int)))(int);`
+void (*signal(int sig, void (*func)(int)))(int);
+```
 
 ## Status
 

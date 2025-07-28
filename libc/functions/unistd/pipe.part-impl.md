@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`int pipe(int fildes[2]);`
+int pipe(int fildes[2]);
+```
 
 ## Status
 

@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`int atexit(void (*func)(void));`
+int atexit(void (*func)(void));
+```
 
 ## Status
 

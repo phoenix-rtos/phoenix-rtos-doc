@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`uid_t getuid(void);`
+uid_t getuid(void);
+```
 
 ## Status
 

@@ -2,17 +2,20 @@
 
 ## Synopsis
 
-`#include <sys/stat.h>`
+```c
+#include <sys/stat.h>
 
-`int futimens(int fd, const struct timespec times[2]);`
+int futimens(int fd, const struct timespec times[2]);
 
-`#include <fcntl.h>`
+#include <fcntl.h>
 
-`int utimensat(int fd, const char *path, const struct timespec times[2], int flag);`
+int utimensat(int fd, const char *path,
+              const struct timespec times[2], int flag);
 
-`#include <sys/time.h>`
+#include <sys/time.h>
 
-`int utimes(const char *path, const struct timeval times[2]);`
+int utimes(const char *path, const struct timeval times[2]);
+```
 
 ## Status
 

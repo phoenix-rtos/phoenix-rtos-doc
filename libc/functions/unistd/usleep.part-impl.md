@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`int usleep(useconds_t useconds);`
+int usleep(useconds_t useconds);
+```
 
 ## Status
 

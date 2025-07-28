@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <ctype.h>`
+```c
+#include <ctype.h>
 
-`int isxdigit(int c);`
+int isxdigit(int c);
+```
 
 ## Status
 

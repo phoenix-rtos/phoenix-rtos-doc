@@ -2,18 +2,27 @@
 
 ## Synopsis
 
-`#include <stdarg.h>`
-`#include <stdio.h>`
+```c
+#include <stdarg.h>
+#include <stdio.h>
 
-`int vdprintf(int fildes, const char *restrict format, va_list ap);`
+int vdprintf(int fildes,
+             const char *restrict format,
+             va_list ap);
 
-`int vfprintf(FILE *restrict stream, const char *restrict format, va_list ap);`
+int vfprintf(FILE *restrict stream,
+             const char *restrict format,
+             va_list ap);
 
-`int vprintf(const char *restrict format, va_list ap);`
+int vprintf(const char *restrict format, va_list ap);
 
-`int vsnprintf(char *restrict s, size_t n, const char *restrict format, va_list ap);`
+int vsnprintf(char *restrict s, size_t n,
+              const char *restrict format, va_list ap);
 
-`int vsprintf(char *restrict s, const char *restrict format, va_list ap);`
+int vsprintf(char *restrict s,
+             const char *restrict format,
+             va_list ap);
+```
 
 ## Status
 

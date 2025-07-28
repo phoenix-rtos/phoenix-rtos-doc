@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`void setbuf(FILE *restrict stream, char *restrict buf);`
+void setbuf(FILE *restrict stream, char *restrict buf);
+```
 
 ## Status
 

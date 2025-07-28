@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`int rmdir(const char *path);`
+int rmdir(const char *path);
+```
 
 ## Status
 

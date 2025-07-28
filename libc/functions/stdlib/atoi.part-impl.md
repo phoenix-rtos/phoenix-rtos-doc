@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`int atoi(const char *str);`
+int atoi(const char *str);
+```
 
 ## Status
 

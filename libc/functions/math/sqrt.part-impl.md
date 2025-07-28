@@ -2,13 +2,15 @@
 
 ## Synopsis
 
-`#include <math.h>`
+```c
+#include <math.h>
 
-`double sqrt(double x);`
+double sqrt(double x);
 
-`float sqrtf(float x);`
+float sqrtf(float x);
 
-`long double sqrtl(long double x);`
+long double sqrtl(long double x);
+```
 
 ## Status
 

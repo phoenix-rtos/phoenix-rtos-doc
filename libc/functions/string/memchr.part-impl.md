@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <string.h>`
+```c
+#include <string.h>
 
-`void *memchr(const void *s, int c, size_t n);`
+void *memchr(const void *s, int c, size_t n);
+```
 
 ## Status
 

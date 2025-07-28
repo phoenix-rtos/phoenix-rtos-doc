@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`int fflush(FILE *stream);`
+int fflush(FILE *stream);
+```
 
 ## Status
 

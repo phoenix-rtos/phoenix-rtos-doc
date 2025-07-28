@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`FILE *tmpfile(void);`
+FILE *tmpfile(void);
+```
 
 ## Status
 

@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <sys/msg.h>`
+```c
+#include <sys/msg.h>
 
-`int msgSend(uint32_t port, msg_t *m);`
+int msgSend(uint32_t port, msg_t *m);
+```
 
 ## Status
 

@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`unsigned alarm(unsigned seconds);`
+unsigned alarm(unsigned seconds);
+```
 
 ## Status
 
