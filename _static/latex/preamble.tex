@@ -12,7 +12,7 @@
 \setcounter{secnumdepth}{3}
 \definecolor{ps-orange}{HTML}{ea5b22}
 \definecolor{ps-darkblue}{HTML}{26384f}
-\addto\captionsenglish{\renewcommand{\contentsname}{\textcolor{ps-orange}{Table of contents}}}
+\definecolor{ps-lightblue}{HTML}{657c9f}
 
 % Set headings color
 \titleformat{\section}{\bfseries\Large\color{ps-darkblue}}{\thesection}{1em}{}
@@ -23,3 +23,12 @@
 
 % Make sections start on new pages
 \pretocmd{\section}{\clearpage}{}{}
+
+% Style page numbers
+\fancypagestyle{normal}{
+    \fancyhf{}
+    \fancyfoot[R]{\textcolor{ps-lightblue}{\thepage\,/\,\pageref*{LastPage}}}
+}
+
+% Apply the style to all pages
+\pagestyle{normal}
