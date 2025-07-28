@@ -29,6 +29,16 @@
 % Add padding to the right inside code block frame
 \renewcommand\sphinxVerbatimFormatLine[1]{\strut\hspace{4pt}#1}
 
+% Set the background color for code blocks and remove the frame
+\sphinxsetup{
+    VerbatimColor={rgb}{0.93,0.93,0.93},
+    VerbatimBorderColor={rgb}{0.93,0.93,0.93},
+    verbatimwithframe=false,
+}
+
+% Decrease font size for code blocks to make them more readable
+\fvset{fontsize=\small}
+
 % Section title styling
 \makeatletter
 \def\@makesectionhead#1{%
