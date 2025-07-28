@@ -1,6 +1,7 @@
 # Configuration file for the Sphinx documentation builder.
 
 from version_management import get_version_context
+from pathlib import Path
 
 project = ""
 copyright = "2024-2025, Phoenix Systems"
@@ -84,12 +85,7 @@ latex_elements = {
         \usepackage{graphicx}
         \usepackage{xcolor}
     ''',
-    'preamble': r'''
-        \addtolength{\cftsubsecnumwidth}{5pt}
-        \setcounter{secnumdepth}{3}
-        \definecolor{ps-orange}{HTML}{ea5b22}
-        \addto\captionsenglish{\renewcommand{\contentsname}{\textcolor{ps-orange}{Table of contents}}}
-    ''',
+    'preamble': Path("_static/latex/preamble.tex").read_text(),
     'maketitle': r'''
         \newgeometry{margin=0pt}
         \thispagestyle{empty}
