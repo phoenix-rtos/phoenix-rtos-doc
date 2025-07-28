@@ -13,7 +13,7 @@ mechanism and are placed in the `libphoenix` library.
 The source code of the emulation server could be obtained using the following command
 
 ```console
-git clone http://git.phoenix-rtos.com/phoenix-rtos-lwip
+git clone https://github.com/phoenix-rtos/phoenix-rtos-lwip.git
 ```
 
 ## See also
