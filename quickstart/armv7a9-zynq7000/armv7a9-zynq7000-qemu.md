@@ -77,61 +77,6 @@ Firstly, you need to have the docker installed.
 
   </details>
 
-  <details>
-  <summary>How to get docker (macOS)</summary>
-
- You can find the up-to-date instructions on <https://docs.docker.com/desktop/install/mac-install/>
-
-  To make this process simpler, below is an example of installation for Mac with the Intel chip:
-
-  Download the installer:
-
-  ```console
-  curl -o Docker.dmg "https://desktop.docker.com/mac/main/amd64/Docker.dmg?utm_source=docker&amp;utm_medium=webreferral&amp;utm_campaign=docs-driven-download-mac-amd64"
-  ```
-
-  Run the following commands to install Docker:
-
-  ```console
-  sudo hdiutil attach Docker.dmg && \
-  sudo /Volumes/Docker/Docker.app/Contents/MacOS/install && \
-  sudo hdiutil detach /Volumes/Docker
-  ```
-
-  Then add the path to `docker` binaries to the `PATH` environment variable:
-
-  ```console
-  export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
-  ```
-
-  It's recommended to place it in `.zshrc` startup script to export it every time during startup:
-
-  ```console
-  echo 'export PATH=/Applications/Docker.app/Contents/Resources/bin:$PATH' >> $HOME/.zshrc
-  ```
-
-- Check if Docker is properly installed by checking its version:
-
-  ```console
-  docker --version
-  ```
-
-- Check if running docker images without sudo works properly:
-
-  ```console
-  docker run hello-world
-  ```
-
-  *If you see the following error: `ERROR: Cannot connect to the Docker daemon at unix:///var/run/docker.sock.`
-  you can try to install `colima` and check once again:
-
-  ```console
-  brew install colima && \
-  colima start
-  ```
-
-  </details>
-
 Now, with docker installed you can run Phoenix-RTOS using the following command:
 
 ```console

@@ -48,14 +48,6 @@ To communicate with the board you will need to use a UART-USB converter, like `P
 
   ![Image](../_static/images/quickstart/stm32l4x6-ls.png)
 
-  - On macOS:
-
-  ```console
-  ls -l /dev/tty.*
-  ```
-
-  ![Image](../_static/images/quickstart/stm32l4x6-ls.png)
-
 - Open serial port in terminal using picocom
 
   ```console
@@ -74,16 +66,6 @@ To communicate with the board you will need to use a UART-USB converter, like `P
 
   ```console
   sudo usermod -a -G tty <yourname>
-  ```
-
-  </details>
-
-  <details>
-  <summary>How to get picocom (macOS)</summary>
-
-  ```console
-  brew update &&\
-  brew install picocom
   ```
 
   </details>
@@ -139,25 +121,6 @@ If you encounter errors install manually from sources (v0.12.0):
   ![Image](../_static/images/quickstart/openocd-version.png)
 
   </details>
-
-  <details>
-  <summary>How to get openocd (macOS) </summary>
-
-  - install openocd
-
-    ```console
-    brew update &&\
-    brew install open-ocd
-    ```
-
-  - check if the version is correct
-
-    ```console
-    openocd -v
-    ```
-
-  </details>
-  </br>
 
 If you have openocd, next you can use the following script:
 
