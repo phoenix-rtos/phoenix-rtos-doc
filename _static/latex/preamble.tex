@@ -17,6 +17,9 @@
 % Set the text color
 \AtBeginDocument{\color{ps-darkblue}}
 
+% Add padding to the right inside code block frame
+\renewcommand\sphinxVerbatimFormatLine[1]{\strut\hspace{4pt}#1}
+
 % Section title styling
 \makeatletter
 \def\@makesectionhead#1{%
