@@ -92,12 +92,18 @@ latex_elements = {
         \endgroup
         \makeatother
     ''',
+    'fontpkg': r'''
+        \setmainfont{Liberation Sans}
+        \setsansfont{Liberation Sans}
+        \setmonofont{DejaVu Sans Mono}
+    ''',
     'extrapackages': r'''
         \usepackage{tocloft}
         \usepackage{graphicx}
         \usepackage{xcolor}
         \usepackage{etoolbox}
         \usepackage{lastpage}
+        \usepackage{fontspec}
     ''',
     'preamble': Path("_static/latex/preamble.tex").read_text(),
     'maketitle': r'''
