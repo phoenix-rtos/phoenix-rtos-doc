@@ -84,6 +84,7 @@ latex_elements = {
         \usepackage{tocloft}
         \usepackage{graphicx}
         \usepackage{xcolor}
+        \usepackage{etoolbox}
     ''',
     'preamble': Path("_static/latex/preamble.tex").read_text(),
     'maketitle': r'''

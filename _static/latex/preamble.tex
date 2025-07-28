@@ -20,3 +20,6 @@
 \titleformat{\subsubsection}{\bfseries\normalsize\color{ps-darkblue}}{\thesubsubsection}{1em}{}
 \titleformat{\paragraph}{\bfseries\color{ps-darkblue}}{\theparagraph}{1em}{}
 \titleformat{\subparagraph}{\bfseries\color{ps-darkblue}}{\thesubparagraph}{1em}{}
+
+% Make sections start on new pages
+\pretocmd{\section}{\clearpage}{}{}
