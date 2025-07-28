@@ -4,7 +4,7 @@ These instructions describe how to run a Phoenix-RTOS system image for `armv7a9-
 Note that, the build artifacts, including the system image, should be first provided in the `_boot` directory.
 If you haven't run the `build.sh` script yet, run it for `armv7a9-zynq7000-zturn` target.
 
-See [how to build the Phoenix-RTOS system image](../../building/index.md).
+See [Building](../../building/index.md) chapter.
 
 ## Preparing the board
 

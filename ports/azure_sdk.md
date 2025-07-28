@@ -1,18 +1,4 @@
----
-orphan: True <!-- To be removed after adding separate pages for all ports to place them in toctree -->
----
 # Azure IoT C SDK Port
-
-## Contents
-
-- [General information](#general-information)
-- [Supported version](#supported-version)
-- [Quickstart for ia32-generic-qemu](#quickstart-for-ia32-generic-qemu)
-  - [Network setup on ia32-generic-qemu](#network-setup-on-ia32-generic-qemu)
-  - [Running the IoThub Client sample](#running-the-iothub-client-sample)
-- [Using azure-iot-sdk-c](#using-azure-iot-sdk-c)
-- [Running tests](#running-tests)
-- [Known bugs](#known-bugs)
 
 ## General information
 

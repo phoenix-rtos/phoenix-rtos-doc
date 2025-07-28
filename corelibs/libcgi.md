@@ -2,16 +2,6 @@
 
 The `libcgi` library provides a set of functionalities for handling Common Gateway Interface (CGI) operations in C.
 
-## Contents
-
-- [General information](#general-information)
-- [Request Method](#request-method)
-- [Authentication Modes](#authentication-modes)
-- [libcgi interface](#libcgi-interface)
-  - [Data Structures](#data-structures)
-  - [Parameters Management](#parameters-management)
-- [Using libcgi](#using-libcgi)
-
 ## General information
 
 The `libcgi` library is a helper library designed to facilitate CGI. It provides functions for retrieving request

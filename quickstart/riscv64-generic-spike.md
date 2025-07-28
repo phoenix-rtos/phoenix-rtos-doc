@@ -5,7 +5,7 @@ emulator. To launch this version `phoenix.osbi` file should be provided - system
 bootloader, containing PLO, kernel, console driver, dummyfs filesystem and the `psh` shell.
 
 The file is created as the final artifact of the `phoenix-rtos-project` build and is located in the `_boot` directory.
-See [how to build the Phoenix-RTOS system image](../building/index.md)
+See [Building](../building/index.md) chapter.
 
 ## Running image under the spike
 

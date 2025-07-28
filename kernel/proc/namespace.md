@@ -15,10 +15,3 @@ When program opens the file registered by a device driver it receives `oid` poin
 server, so all communication is redirected to this server. This idea has been briefly presented on following figure.
 
 ![Image](../../_static/images/kernel/proc/proc-namespace2.png)
-
-1. [Kernel - Processes and threads](index.md)
-2. [Kernel - Processes and threads - Scheduler](scheduler.md)
-3. [Kernel - Processes and threads - Management](forking.md)
-4. [Kernel - Processes and threads - Synchronization primitives](sync.md)
-5. [Kernel - Processes and threads - Message passing](msg.md)
-6. [Table of Contents](../../index.md)

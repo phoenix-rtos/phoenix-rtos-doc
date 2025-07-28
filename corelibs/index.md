@@ -7,23 +7,20 @@ GitHub repository.
 The example of usage can be found in the `_user` directory, placed in
 [phoenix-rtos-project](https://github.com/phoenix-rtos/phoenix-rtos-project).
 
-Read more about the reference project repository [here](../building/project.md).
+Read more about the reference project in [Reference project](../project/index.md) chapter.
 
 There are following Phoenix-RTOS libraries:
 
-- [Graphics library](libgraph.md) called `libgraph`, which provides drivers for graphic adapters,
-- [Common Gateway Interface library](libcgi.md) called `libcgi`,
-- [Video Graphics Array access library](libvga.md) called `libvga`, used in graphic adapters' implementation,
+- Graphics library called `libgraph`, which provides drivers for graphic adapters,
+- Common Gateway Interface library called `libcgi`,
+- Video Graphics Array access library called `libvga`, used in graphic adapters' implementation,
   for example Cirrus,
-- [Virtual I/O Device library](libvirtio.md) called `libvirtio`, used for device emulation,
-- [Universally Unique identifiers library](libuuid.md) called `libuuid`,
-- [Cache library](libcache.md) called `libcache` which provides the user with n-way set-associative cache,
-- [Software watchdog library](libswdg.md) called `libswdg` which provides the user with multichannel software watchdog.
-
-<!-- #TODO: add chapters on how to use each of this library in separate chapters -->
+- Virtual I/O Device library called `libvirtio`, used for device emulation,
+- Universally Unique identifiers library called `libuuid`,
+- Cache library called `libcache` which provides the user with n-way set-associative cache,
+- Software watchdog library called `libswdg` which provides the user with multichannel software watchdog.
 
 ```{toctree}
-:hidden:
 :maxdepth: 1
 
 libcgi.md
