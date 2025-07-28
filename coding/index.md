@@ -1,13 +1,14 @@
 # Coding Standard
 This is the Coding Standard, which shall be used during the implementation of files of Phoenix-RTOS.  
-It consists of sections that group coding rules by topic.
-Coding rules are identified with ID of such format: `PS-CODE-XXX`. 
-Rule numbering does not have to be sequential and should not be changed once assigned. If a new rule is added in any section, it should be assigned the next available number after the highest existing rule number.
+It consists of sections that group coding rules by topic.  
+Coding rules are identified with ID of such format: `PS-CODE-XXX`.  
+Rule numbering does not have to be sequential and should not be changed once assigned.
+If a new rule is added in any section, it should be assigned the next available number after the highest existing rule number.
 
 Rules are formulated using these special statements:
 - `shall` indicates mandatory rule or action  
 - `should` indicates recommended rule or action
-- `could` indicates possibility or an option that is not necessarily recommended 
+- `could` indicates possibility or an option that is not necessarily recommended.
 
 
 ## C language standard
@@ -366,7 +367,7 @@ typedef struct {
 
 ## Comments
 ### PS-CODE-050
-When the C programming language is used only C language comments shall be used - `/* */` 
+When the C programming language is used only C language comments shall be used: `/* */`.
 
 ### PS-CODE-051
 `//` comments shall not to be used.

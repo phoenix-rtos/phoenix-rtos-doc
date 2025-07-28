@@ -74,7 +74,7 @@ latex_engine = "xelatex"
 latex_table_style = ["colorrows"]
 latex_documents = [
     ("index", "phoenix-rtos.tex", "Phoenix-RTOS Documentation", author, "howto", False),
-    ("coding/index", "coding-standard.tex", "Phoenix-RTOS Coding Standard", author, "manual", False)
+    ("coding/index", "coding-standard.tex", "Phoenix-RTOS Coding Standard", author, "howto", False)
 ]
 
 latex_additional_files = [
