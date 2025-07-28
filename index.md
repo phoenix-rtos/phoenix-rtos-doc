@@ -14,8 +14,12 @@ implemented in numerous Smart Utility appliances e.g. in smart gas meters, smart
 The POSIX application environment can be emulated to enable the execution of regular UN*X applications.
 The ARINC653 execution environment (APEX) is under development.
 
-## Table of Contents
+```{only} html
+```{rubric} Table of Contents
+:heading-level: 2
+```
 
+```{only} html
 1. [Introduction](introduction/index.md)
 2. [Architecture](architecture/index.md)
 3. [Project repository](project/index.md)
@@ -119,6 +123,7 @@ The ARINC653 execution environment (APEX) is under development.
 16. [Ports](ports/index.md)
 17. [Tests and testing process](tests/index.md)
 18. [Coding convention](coding/index.md)
+```
 
 ```{toctree}
 :hidden:
