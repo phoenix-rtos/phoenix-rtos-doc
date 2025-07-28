@@ -27,7 +27,7 @@ To communicate with the board you will need to use a UART-USB converter, like `P
   - PL2303 RX (white) - Nucleo USART_B_TX
   - PL2303 GND (black) - Nucleo GND
 
-  ![Image](_images/nucleo-pinout.png)
+  ![Image](../_static/images/quickstart/nucleo-pinout.png)
 
   Source: The Nucleo board's schematic, available on
   <https://www.st.com/en/evaluation-tools/nucleo-l4a6zg.html#cad-resources>
@@ -36,7 +36,7 @@ To communicate with the board you will need to use a UART-USB converter, like `P
 
   The picture below presents how the board should be connected:
 
-  ![Image](_images/stm32l4x6-connections.png)
+  ![Image](../_static/images/quickstart/stm32l4x6-connections.png)
 
 - Now you should verify, what USB device on your host-pc is connected with the `UART` (console). To check that run:
 
@@ -46,7 +46,7 @@ To communicate with the board you will need to use a UART-USB converter, like `P
     ls -l /dev/serial/by-id
   ```
 
-  ![Image](_images/stm32l4x6-ls.png)
+  ![Image](../_static/images/quickstart/stm32l4x6-ls.png)
 
   - On macOS:
 
@@ -54,7 +54,7 @@ To communicate with the board you will need to use a UART-USB converter, like `P
   ls -l /dev/tty.*
   ```
 
-  ![Image](_images/stm32l4x6-ls-macos.png)
+  ![Image](../_static/images/quickstart/stm32l4x6-ls.png)
 
 - Open serial port in terminal using picocom
 
@@ -136,7 +136,7 @@ If you encounter errors install manually from sources (v0.12.0):
   openocd -v
   ```
 
-  ![Image](_images/openocd-version.png)
+  ![Image](../_static/images/quickstart/openocd-version.png)
 
   </details>
 
@@ -173,7 +173,7 @@ openocd -f interface/stlink.cfg \
 -c "program _boot/armv7m4-stm32l4x6-nucleo/phoenix.disk 0x08000000 verify reset exit"
 ```
 
-![Image](_images/stm32l4x6-openocd.png)
+![Image](../_static/images/quickstart/stm32l4x6-openocd.png)
 
 The script can be modified to accommodate other SWD interfaces.
 
@@ -182,7 +182,7 @@ The script can be modified to accommodate other SWD interfaces.
 Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal with the serial port
 opened.
 
-![Image](_images/stm32l4x6-start.png)
+![Image](../_static/images/quickstart/stm32l4x6-start.png)
 
 - Note: You can also enter plo (Phoenix-RTOS loader) by pressing any button, for example, `enter` within some time after
 reset (using `RESET B2`).
@@ -193,7 +193,7 @@ To get the available command list please type:
 help
 ```
 
-![Image](_images/stm32l4x6-help.png)
+![Image](../_static/images/quickstart/stm32l4x6-help.png)
 
 To get the list of working processes please type:
 
@@ -201,4 +201,4 @@ To get the list of working processes please type:
 ps
 ```
 
-![Image](_images/stm32l4x6-ps.png)
+![Image](../_static/images/quickstart/stm32l4x6-ps.png)

@@ -58,9 +58,9 @@ Then, to run the image under spike you should change the directory to `phoenix-r
 ./scripts/riscv64-generic-spike.sh
 ```
 
-![Image](_images/riscv64-generic-spike1.png)
+![Image](../_static/images/quickstart/riscv64-generic-spike1.png)
 </br>
-![Image](_images/riscv64-generic-spike2.png)
+![Image](../_static/images/quickstart/riscv64-generic-spike2.png)
 
 ## Using Phoenix-RTOS
 
@@ -71,7 +71,7 @@ command list please type:
 help
 ```
 
-![Image](_images/riscv64-generic-spike-help.png)
+![Image](../_static/images/quickstart/riscv64-generic-spike-help.png)
 
 To get the list of working processes please type:
 
@@ -79,4 +79,4 @@ To get the list of working processes please type:
 ps
 ```
 
-![Image](_images/riscv64-generic-spike-ps.png)
+![Image](../_static/images/quickstart/riscv64-generic-spike-ps.png)

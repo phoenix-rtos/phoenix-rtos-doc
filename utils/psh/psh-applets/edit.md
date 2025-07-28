@@ -30,7 +30,7 @@ serial connections.
 
 ## Cursor
 
-![psh text editor](../_images/edit_screen1.jpg)
+![psh text editor](../../../_static/images/utils/psh/edit_screen1.jpg)
 
 When editing move the cursor with the arrow keys: `Up`, `Down`, `Left` and
 `Right`. Use `Page Up` and `Page Down` to scroll one terminal screen height. To

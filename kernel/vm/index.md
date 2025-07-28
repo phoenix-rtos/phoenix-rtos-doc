@@ -45,7 +45,7 @@ architectures with simple MMU (e.g. eSI-RISC) the operating system defines assoc
 using its registers. In this case page table structure depends on software. The role of the MMU in memory address
 translation is illustrated in the figure below.
 
-![Image](_images/mem-mmu.png)
+![Image](../../_static/images/kernel/vm/mem-mmu.png)
 
 In further consideration, the linear address space defined using paging technique will be named synonymously as the
 virtual address space.
@@ -62,7 +62,7 @@ was interrupted and the page was loaded by the operating system into the physica
 the data location in the page table. Once the presence bit was successfully loaded and set, the program execution was
 resumed. The original paging technique is presented below.
 
-![Image](_images/mem-paging1.png)
+![Image](../../_static/images/kernel/vm/mem-paging1.png)
 
 ### Current use of paging technique
 
@@ -77,7 +77,7 @@ The address space is switched by providing the MMU with new sets of virtual-to-p
 some physical pages (for example parts of the program text) can be shared among processes by mapping them simultaneously
 into two or more processes to minimize the overall memory usage.
 
-![Image](_images/mem-paging2.png)
+![Image](../../_static/images/kernel/vm/mem-paging2.png)
 
 A memory management system that relies on paging describes the whole physical memory using physical pages.
 
