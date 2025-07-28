@@ -29,7 +29,7 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
 
 - `voxeldemo`
 
-  ![Output sample](_gifs/voxeldemo.gif)
+  ![Output sample](../_static/gifs/voxeldemo.gif)
 
   Source code can be found in the `_user` directory in
   [phoenix-rtos-project](https://github.com/phoenix-rtos/phoenix-rtos-project.git) repository.
@@ -42,7 +42,7 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
 
 - `rotrectangle`
 
-  ![Image](_images/rotrectangle.png)
+  ![Image](../_static/images/corelibs/rotrectangle.png)
 
   Source code can be also found in the `_user` directory in
   [phoenix-rtos-project](https://github.com/phoenix-rtos/phoenix-rtos-project.git) repository.
@@ -55,7 +55,7 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
 
 - `test_graph`
 
-  ![Image](_images/test_graph.jpg)
+  ![Image](../_static/images/corelibs/test_graph.jpg)
 
   Source code is available in the `gfx` directory in
   [phoenix-rtos-tests](https://github.com/phoenix-rtos/phoenix-rtos-tests.git) repository.
@@ -144,7 +144,7 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
 
     - For `8-bit` indexed color default VGA color palette is presented below (e.g. `0x0B` represents cyan).
 
-      ![Image](_images/def_color_palette.png)
+      ![Image](../_static/images/corelibs/def_color_palette.png)
 
       Source: <https://www.fountainware.com/EXPL/vga_color_palettes.htm>
 
@@ -334,7 +334,7 @@ int main(void)
   graph_line(&graph, 0, 0, graph.width-50, graph.height/2-50, 2, 0x8282FF, GRAPH_QUEUE_HIGH);
   ```
 
-  ![Image](_images/simple_line.png)
+  ![Image](../_static/images/corelibs/simple_line.png)
 
 - Cyan filled rectangle
 
@@ -342,7 +342,7 @@ int main(void)
   graph_rect(&graph, 200, graph.height/4, graph.width/2, graph.height/2, 0x00FFFF, GRAPH_QUEUE_HIGH);
   ```
 
-  ![Image](_images/simple_rectangle.png)
+  ![Image](../_static/images/corelibs/simple_rectangle.png)
 
 - Examples of `graph_fill()` usage, both for `GRAPH_FILL_FLOOD` and `GRAPH_FILL_BOUND` option
 
@@ -358,7 +358,7 @@ int main(void)
   graph_fill(&graph, 402, 55, 0x00000FF, GRAPH_FILL_BOUND, GRAPH_QUEUE_HIGH);
   ```
 
-  ![Output sample](_gifs/fill.gif)
+  ![Output sample](../_static/gifs/fill.gif)
 
 - Printing text using libgraph
 
@@ -369,7 +369,7 @@ int main(void)
   graph_print(&graph, &font, "lorem ipsum", 300, 300, font.height, font.height, 0x00FF00, GRAPH_QUEUE_HIGH);
   ```
 
-  ![Image](_images/lorem_ipsum.png)
+  ![Image](../_static/images/corelibs/lorem_ipsum.png)
 
 - `graph_move` example
 
@@ -379,7 +379,7 @@ int main(void)
   graph_move(&graph, 100, 100, 100, 100, 300, 300, GRAPH_QUEUE_HIGH);
   ```
 
-  ![Output sample](_gifs/move.gif)
+  ![Output sample](../_static/gifs/move.gif)
 
 - Copying raw bitmap into a screen
 
@@ -443,7 +443,7 @@ int main(void)
   graph_copy(&graph, greenSquareBitMap32, (void *)(uintptr_t)graph.data, 10, 10, graph.depth * 10, graph.depth * graph.width, GRAPH_QUEUE_HIGH);
   ```
 
-  ![Image](_images/copy_rect.png)
+  ![Image](../_static/images/corelibs/copy_rect.png)
 
 - Setting and getting a color palette
 
@@ -465,7 +465,7 @@ int main(void)
   graph_colorset(&graph, buff[0], 0, 1);
   ```
 
-  ![Output sample](_gifs/colorset.gif)
+  ![Output sample](../_static/gifs/colorset.gif)
 
 - Moving a cursor
   The `cursor.h` header file with cursor shape data (`amask`, `xmask`) has to be included.
@@ -480,7 +480,7 @@ int main(void)
   graph_cursorhide(&graph);
   ```
 
-  ![Output sample](_gifs/cursor.gif)
+  ![Output sample](../_static/gifs/cursor.gif)
 
 ## Generating an image bitmap and displaying it using libgraph
 

@@ -54,7 +54,7 @@ Check on which port the board is connected to the computer. To do this, run the 
 ls -l /dev/serial/by-id
 ```
 
-![Image](_images/grfpga-ls.png)
+![Image](../_static/images/quickstart/grfpga-ls.png)
 
 In this case, the serial port to use is `/dev/ttyUSB1`. Open the terminal emulator and connect to the board using the
 following command:
@@ -74,4 +74,4 @@ run
 After executing the `run` command, Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the
 terminal.
 
-![Image](_images/grfpga-start.png)
+![Image](../_static/images/quickstart/grfpga-start.png)

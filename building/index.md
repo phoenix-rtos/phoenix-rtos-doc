@@ -121,7 +121,7 @@ To get the list of valid targets the `build.sh` script should be launched with a
 ./phoenix-rtos-build/build.sh
 ```
 
-![Image](_images/available-targets.png)
+![Image](../_static/images/building/available-targets.png)
 
 ## Building using docker
 
@@ -164,7 +164,7 @@ Firstly, you need to have the docker installed.
   sudo docker --version
   ```
 
-  ![Image](_images/docker-version.png)
+  ![Image](../_static/images/quickstart/armv7a9-zynq7000/docker-version.png)
 
 - To make calling docker command without `sudo` possible type:
 
@@ -185,7 +185,7 @@ Firstly, you need to have the docker installed.
   docker run hello-world
   ```
 
-  ![Image](_images/docker-test.png)
+  ![Image](../_static/images/quickstart/armv7a9-zynq7000/docker-test.png)
 
   For more details and other instructions see
 
