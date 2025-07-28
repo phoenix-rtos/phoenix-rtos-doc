@@ -41,57 +41,75 @@ changed the world of personal computing.
 
 This table presents a timeline of the most important events in the history of operating systems.
 
-<!-- markdownlint-disable -->
-| Date| Operating system | Comment |
---------|---------------------|------------|
-| 1962 | CTSS | The first time-sharing operating system |
-| 1966 | MULTICS, IBM OS/360 | The first multi-user and multitasking operating systems |
-| 1974 | <span style="color:blue">UNIX</span> | <span style="color:blue">The first portable multitasking and multi-user operating system written in high-level language (B and finally C)</span> |
-| 1976 | <span style="color:green">RIG</span> | <span style="color:green">The first operating system based on message passing</span> |
-| 1977 | <span style="color:violet">CP/M</span> | <span style="color:violet">The first operating system for personal computers</span> |
-| 1978 | VMS | The first multitasking and multi-user operating system with a virtual memory (for VAX-11) |
-| 1979 | <span style="color:blue">UNIX3 BSD</span> | <span style="color:blue">UN*X operating system with a virtual memory (for VAX-11) </span> |
-| 1980 | <span style="color:red">OS-9</span> | <span style="color:red">The first operating system for embedded applications</red> |
-| 1981 | Xerox Star | The first operating system with GUI |
-| 1981 | <span style="color:violet">MS-DOS</span> | <span style="color:violet">The first operating system for IBM PC</span> |
-| 1981 | <span style="color:green">Accent</span> | <span style="color:green">Next-generation operating system based on message passing</span> |
-| 1981 | Amoeba | The first distributed operating system |
-| 1982 | <span style="color:red">pSOS </span> | <span style="color:red">The popular real-time operating system for embedded systems based on M68000 family </span> |
-| 1982 | <span style="color:red">QNX</span> | <span style="color:red">The first real-time operating system based on the UN*X philosophy (Intel 8088)</span> |
-| 1983 | GNU/HURD | The first open source operating system (based on a microkernel) |
-| 1984 | <span style="color:violet">macOS</span> | <span style="color:violet">The first operating system for personal computers with GUI</span> |
-| 1984 | <span style="color:blue">SunOS</span> | <span style="color:blue">UN*X developed by Sun Microsystems for SUN computers based on BSD</span> |
-| 1985 | AmigaOS | Operating system for Amiga personal computers |
-| 1985 | <span style="color:violet">MS Windows 1.01</span> | <span style="color:violet">Graphical environment for MS-DOS</span> |
-| 1986 | <span style="color:green">Mach</span> | <span style="color:green">The first multiserver UN*X emulation based on message passing (for VAX-11)</span> |
-| 1987 | <span style="color:blue">Xenix</span> | <span style="color:blue">The UN*X operating system developed by SCO (initially with Microsoft) for IBM PC – the first 32-bit operating system for IBM PC</span> |
-| 1987 | <span style="color:red">VxWorks</span> | <span style="color:red">Real-time operating system for safety critical embedded applications</span> |
-| 1988 | <span style="color:violet">OS/2</span> | <span style="color:violet">The first operating system with GUI for IBM PC</span> |
-| 1990 | <span style="color:violet">MS Windows 3.0</span> | <span style="color:violet">The next generation of graphical environment for MS-DOS with a virtual memory, multiprogramming and MS-DOS virtual machines</span> |
-| 1990 | <span style="color:red">QNX4</span> | <span style="color:red">POSIX-compliant real-time operating system with a virtual memory and resource protection</span>|
-| 1991 | <span style="color:blue">GNU/Linux</span> | <span style="color:blue">The first open source UN*X operating system based on GNU applications and a monolithic kernel written by Linus Torvalds and other enthusiasts cooperating via the Internet</span> |
-| 1991 | GNU/HURD on Mach | The next generation of GNU/HURD based on Mach microkernel |
-| 1992 | <span style="color:blue">Solaris</span> | <span style="color:blue">UN*X developed by Sun Microsystems based on SVR4 (a joint project of Bell Labs and Sun Microsystems integrating the best ideas from SVR3, BSD, Xenix and SunOS)</span> |
-| 1993 | Plan 9 | A distributed UN*X operating system from Bell Labs |
-| 1993 | <span style="color:violet">MS Windows NT</span> | <span style="color:violet">Multitasking and multi-user operating system with an embedded Windows graphical environment based on a new kernel (not on MS-DOS)</span> |
-| 1993 | <span style="color:blue">FreeBSD, NetBSD</span> | <span style="color:blue">Open source UN*X operating systems based on BSD |
-| 1995 | <span style="color:blue">OpenBSD</span> |  <span style="color:blue">UN*X operating system based on BSD with enhanced cryptography (OpenSSL) and security</span> |
-| 1995 | <span style="color:violet">Windows 95</span> | <span style="color:violet">Multitasking 32-bit operating system for IBM PC based on MS-DOS and parts of MS Windows NT</span>
-| 1996 | <span style="color:violet">Mac OS X</span> | <span style="color:violet">Multitasking and multi-user operating system from Apple based on Mach microkernel and parts of BSD (XNU)</span>|
-| 1996 | <span style="color:red">RTLinux</span> | <span style="color:red">Operating system with GNU/Linux API based on two (Linux and RT) kernels intended for real-time applications</span> |
-| 1996 | <span style="color:red">Windows CE</span> | <span style="color:red">Operating system with Windows API for handheld devices and embedded applications</span> |
-| 2000 | <span style="color:violet">MS Windows 2000</span> | <span style="color:violet">Next generation of Windows NT</span>|
-| 2001 | <span style="color:red">QNX6</span> | <span style="color:red">Microkernel-based POSIX-compliant real-time operating system with a virtual memory and resource protection</span>|
-| 2001 | <span style="color:violet">MS Windows Xp</span> | <span style="color:violet">The next generation of MS Windows 2000 integrating MS Windows 9x and MS Windows NT lines</span> |
-| 2001 | MAFALDA | Microkernel Assessment by Fault-injection AnaLysis for Design Aid – a series of prototype tools for the assessment of real-time COTS microkernel based systems |
-| 2001 | <span style="color:red">Phoenix</span> | <span style="color:red">Operating system prototype developed at the Warsaw University of Technology</span> |
-| 2005 | <span style="color:red">Phoenix-RTOS 2</span> | <span style="color:red">Real-time operating system for embedded applications developed as the successor of the Phoenix prototype</span> |
-| 2006 | <span style="color:red">FreeRTOS</span> | <span style="color:red">Simple operating system for microcontrollers for embedded applications with a small code footprint</span> |
-| 2008 | <span style="color:violet">iOS</span> | <span style="color:violet">Mobile operating system for phones and tablets based on Mac OS X</span> |
-| 2009 | <span style="color:violet">Android</span> | <span style="color:violet">Mobile operating system for phones and tablets based on GNU/Linux</span> |
-| 2010 | <span style="color:violet">Windows Mobile</span> | <span style="color:violet">Mobile operating system for phones and tablets based on Windows Kernel</span> |
-| 2017 | <span style="color:red">Phoenix-RTOS 3</span> | <span style="color:red">Real-time operating system for the Internet of Things based on a microkernel with a small code footprint, a virtual memory support, resource protection and numerous application interfaces (native, POSIX, ARINC653)</span> |
-<!-- markdownlint-restore -->
+```{role} blue-text
+:class: blue-text
+```
+
+```{role} green-text
+:class: green-text
+```
+
+```{role} red-text
+:class: red-text
+```
+
+```{role} violet-text
+:class: violet-text
+```
+
+```{table}
+:widths: 7 18 60
+
+| Date |               OS               |                 Comment                 |
+| ---- | ------------------------------ | --------------------------------------- |
+| 1962 | CTSS                           | The first time-sharing operating system |
+| 1966 | MULTICS, IBM 360               | The first multi-user and multitasking operating systems |
+| 1974 | {blue-text}`UNIX`              | {blue-text}`The first portable multitasking and multi-user operating system written in high-level language (B and finally C)` |
+| 1976 | {green-text}`RIG`              | {green-text}`The first operating system based on message passing` |
+| 1977 | {violet-text}`CP/M`            | {violet-text}`The first operating system for personal computers` |
+| 1978 | VMS                            | The first multitasking and multi-user operating system with a virtual memory (for VAX-11) |
+| 1979 | {blue-text}`UNIX3 BSD`         | {blue-text}`UN*X operating system with a virtual memory (for VAX-11)` |
+| 1980 | {red-text}`OS-9`               | {red-text}`The first operating system for embedded applications` |
+| 1981 | Xerox Star                     | The first operating system with GUI |
+| 1981 | {violet-text}`MS-DOS`          | {violet-text}`The first operating system for IBM PC` |
+| 1981 | {green-text}`Accent`           | {green-text}`Next-generation operating system based on message passing` |
+| 1981 | Amoeba                         | The first distributed operating system |
+| 1982 | {red-text}`pSOS`               | {red-text}`The popular real-time operating system for embedded systems based on M68000 family` |
+| 1982 | {red-text}`QNX`                | {red-text}`The first real-time operating system based on the UN*X philosophy (Intel 8088)` |
+| 1983 | GNU/HURD                       | The first open source operating system (based on a microkernel) |
+| 1984 | {violet-text}`macOS`          | {violet-text}`The first operating system for personal computers with GUI` |
+| 1984 | {blue-text}`SunOS`             | {blue-text}`UN*X developed by Sun Microsystems for SUN computers based on BSD` |
+| 1985 | AmigaOS                        | Operating system for Amiga personal computers |
+| 1985 | {violet-text}`MS Windows 1.01` | {violet-text}`Graphical environment for MS-DOS` |
+| 1986 | {green-text}`Mach`             | {green-text}`The first multiserver UN*X emulation based on message passing (for VAX-11)` |
+| 1987 | {blue-text}`Xenix`             | {blue-text}`The UN*X operating system developed by SCO (initially with Microsoft) for IBM PC – the first 32-bit operating system for IBM PC` |
+| 1987 | {red-text}`VxWorks`            | {red-text}`Real-time operating system for safety critical embedded applications` |
+| 1988 | {violet-text}`OS/2`            | {violet-text}`The first operating system with GUI for IBM PC` |
+| 1990 | {violet-text}`MS Windows 3.0`  | {violet-text}`The next generation of graphical environment for MS-DOS with a virtual memory, multiprogramming and MS-DOS virtual machines` |
+| 1990 | {red-text}`QNX4`               | {red-text}`POSIX-compliant real-time operating system with a virtual memory and resource protection` |
+| 1991 | {blue-text}`GNU/Linux`         | {blue-text}`The first open source UN*X operating system based on GNU applications and a monolithic kernel written by Linus Torvalds and other enthusiasts cooperating via the Internet`  |
+| 1991 | GNU/HURD                       | The next generation of GNU/HURD based on Mach microkernel |
+| 1992 | {blue-text}`Solaris`           | {blue-text}`UN*X developed by Sun Microsystems based on SVR4 (a joint project of Bell Labs and Sun Microsystems integrating the best ideas from SVR3, BSD, Xenix and SunOS)` |
+| 1993 | Plan 9                         | A distributed UN*X operating system from Bell Labs |
+| 1993 | {violet-text}`MS Windows NT`   | {violet-text}`Multitasking and multi-user operating system with an embedded Windows graphical environment based on a new kernel (not on MS-DOS)` |
+| 1993 | {blue-text}`FreeBSD, NetBSD`   | {blue-text}`Open source UN*X operating systems based on BSD` |
+| 1995 | {blue-text}`OpenBSD`           | {blue-text}`UN*X operating system based on BSD with enhanced cryptography (OpenSSL) and security` |
+| 1995 | {violet-text}`Windows 95`      | {violet-text}`Multitasking 32-bit operating system for IBM PC based on MS-DOS and parts of MS Windows NT` |
+| 1996 | {violet-text}`macOS X`        | {violet-text}`Multitasking and multi-user operating system from Apple based on Mach microkernel and parts of BSD (XNU)` |
+| 1996 | {red-text}`RTLinux`            | {red-text}`Operating system with GNU/Linux API based on two (Linux and RT) kernels intended for real-time applications` |
+| 1996 | {red-text}`Windows CE`         | {red-text}`Operating system with Windows API for handheld devices and embedded applications` |
+| 2000 | {violet-text}`MS Windows 2000` | {violet-text}`Next generation of Windows NT` |
+| 2001 | {red-text}`QNX6`               | {red-text}`Microkernel-based POSIX-compliant real-time operating system with a virtual memory and resource protection` |
+| 2001 | {violet-text}`MS Windows Xp`   | {violet-text}`The next generation of MS Windows 2000 integrating MS Windows 9x and MS Windows NT lines` |
+| 2001 | MAFALDA                        | Microkernel Assessment by Fault-injection AnaLysis for Design Aid – a series of prototype tools for the assessment of real-time COTS microkernel based systems |
+| 2001 | {red-text}`Phoenix`            | {red-text}`Operating system prototype developed at the Warsaw University of Technology` |
+| 2005 | {red-text}`Phoenix-RTOS 2`     | {red-text}`Real-time operating system for embedded applications developed as the successor of the Phoenix prototype` |
+| 2006 | {red-text}`FreeRTOS`           | {red-text}`Simple operating system for microcontrollers for embedded applications with a small code footprint` |
+| 2008 | {violet-text}`iOS`             | {violet-text}`Mobile operating system for phones and tablets based on macOS X` |
+| 2009 | {violet-text}`Android`         | {violet-text}`Mobile operating system for phones and tablets based on GNU/Linux` |
+| 2010 | {violet-text}`Windows Mobile`  | {violet-text}`Mobile operating system for phones and tablets based on Windows Kernel` |
+| 2017 | {red-text}`Phoenix-RTOS 3`     | {red-text}`Real-time operating system for the Internet of Things based on a microkernel with a small code footprint, a virtual memory support, resource protection and numerous application interfaces (native, POSIX, ARINC653)` |
+```
 
 The different colors used in the table identify the various operating system types developed over the years.
 

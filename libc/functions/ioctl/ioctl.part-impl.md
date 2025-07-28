@@ -79,10 +79,13 @@ The `ioctl()` function may fail if:
 
 ## Example usage
 
+The following example sends a request to specific device.
+
 ```C
 #include <ioctl.h>
 #include <fcntl.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #define REQUEST _IOC(IOC_IN, 'A', 0x01, int)
 
@@ -92,6 +95,7 @@ int main() {
 
     if (fd = open(PATH, O_WRONLY) < 0) {
         fprintf(stderr, "Cannot open special device file\n");
+        exit(EXIT_FAILURE);
     }
     
     /*

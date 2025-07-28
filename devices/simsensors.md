@@ -24,7 +24,7 @@ column contains the ID of a sensor type, which corresponds to the IDs from Senso
 All currently available values are listed below.
 
 | Sensor type   | ID |
-|---------------|----|
+| ------------- | -- |
 | End scenario  |  0 |
 | Accelerometer |  1 |
 | Barometer     |  2 |
