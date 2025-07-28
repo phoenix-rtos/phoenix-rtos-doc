@@ -16,10 +16,6 @@ The source code of the emulation server could be obtained using the following co
 git clone https://github.com/phoenix-rtos/phoenix-rtos-lwip.git
 ```
 
-## See also
-
-1. [Table of Contents](../index.md)
-
 ```{toctree}
 :hidden:
 :maxdepth: 1

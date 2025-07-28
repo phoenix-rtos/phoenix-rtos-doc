@@ -20,9 +20,3 @@ where:
 Calling the `uptime` command with any argument (for example: `-s`) will print the number of seconds since system start.
 
 ![Image](../_images/uptime-output.png)
-
-## See also
-
-1. [Phoenix-RTOS shell](../index.md)
-2. [Phoenix-RTOS Utilities](../../index.md)
-3. [Table of Contents](../../../index.md)

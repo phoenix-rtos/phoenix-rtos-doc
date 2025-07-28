@@ -28,9 +28,3 @@ cp foo directory/
 ```
 
 creates a file `foo` in the directory `directory`, which is a copy of an original file `foo`.
-
-## See also
-
-1. [Phoenix-RTOS shell](../index.md)
-2. [Phoenix-RTOS Utilities](../../index.md)
-3. [Table of Contents](../../../index.md)

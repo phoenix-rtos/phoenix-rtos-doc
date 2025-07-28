@@ -171,12 +171,3 @@ There are three main differences between UVM and Phoenix-RTOS memory objects. Ob
 handled by external servers and data is fetched and stored using message passing. Processes are not swappable, so there
 is no swap server for anonymous objects. Memory objects are supported as well on non-MMU architectures, but
 functionality is simplified.
-
-## See also
-
-1. [Kernel - Memory management](index.md)
-2. [Kernel - Memory management - Page allocator](page.md)
-3. [Kernel - Memory management - Memory mapper](mapper.md)
-4. [Kernel - Memory management - Zone allocator](zalloc.md)
-5. [Kernel - Memory management - Fine grained allocator](kmalloc.md)
-6. [Table of Contents](../../index.md)

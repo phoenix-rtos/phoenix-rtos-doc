@@ -98,7 +98,3 @@ Microkernel architecture allows to easily emulate the application environment of
 (e.g. POSIX pipes, user and groups etc.) emulation servers should be provided. They implement the additional
 functionality and together with emulation libraries provide the application environment. The communication protocol
 implemented by these servers is specific for emulated application environment.
-
-## See also
-
-1. [Table of Contents](../index.md)

@@ -8,9 +8,3 @@ returns the cursor to the top-left position of the screen, providing a clean wor
 ```console
 clear
 ```
-
-## See also
-
-1. [Phoenix-RTOS shell](../index.md)
-2. [Phoenix-RTOS Utilities](../../index.md)
-3. [Table of Contents](../../../index.md)

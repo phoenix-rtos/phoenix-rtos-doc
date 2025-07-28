@@ -149,16 +149,6 @@ used for example for emulation or to implement managed execution environments.
 The process and thread management subsystem is located in the `src/proc` subdirectory. The routines related to context
 switching are implemented in the HAL.
 
-## See also
-
-1. [Kernel](../index.md)
-2. [Kernel - Processes and threads - Scheduler](scheduler.md)
-3. [Kernel - Processes and threads - Management](forking.md)
-4. [Kernel - Processes and threads - Synchronization primitives](sync.md)
-5. [Kernel - Processes and threads - Message passing](msg.md)
-6. [Kernel - Processes and threads - Namespace](namespace.md)
-7. [Table of Contents](../../index.md)
-
 ```{toctree}
 :hidden:
 :maxdepth: 1

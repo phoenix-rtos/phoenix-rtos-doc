@@ -14,12 +14,6 @@ git clone https://github.com/phoenix-rtos/libphoenix.git
 
 The preferred way to deal with this project is to use a Phoenix-RTOS reference project repository.
 
-## See also
-
-1. [Standard library functions](functions/index.md)
-2. [POSIX emulation server](posix.md)
-3. [Table of Contents](../index.md)
-
 ```{toctree}
 :hidden:
 :maxdepth: 1

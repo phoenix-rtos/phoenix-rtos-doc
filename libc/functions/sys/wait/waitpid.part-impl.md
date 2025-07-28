@@ -178,8 +178,3 @@ Untested
   * `WNOHANG` option does not work ([Issue link](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/184))
   * `waitpid()` does not discard a pending `SIGCHLD`signal that is associated with a successfully waited-for child
   process. ([Issue link](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/188))
-
-## See Also
-
-1. [Standard library functions](../../index.md)
-2. [Table of Contents](../../../../index.md)

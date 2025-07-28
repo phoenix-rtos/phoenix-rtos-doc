@@ -324,8 +324,3 @@ To do this you need to run OpenOCD with command:
 ```sh
 openocd -f "ftdi_zcu104.cfg" -f "target/xilinx_zynqmp.cfg" -c "reset_config srst_only" -c "init" -c "core_up 1 2 3"
 ```
-
-## See also
-
-1. [Running system on targets](index.md)
-2. [Table of Contents](../index.md)

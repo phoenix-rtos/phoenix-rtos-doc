@@ -42,8 +42,3 @@ Tested in [test-sys](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/mas
 ## Known bugs
 
 None
-
-## See Also
-
-1. [Standard library functions](../../index.md)
-2. [Table of Contents](../../../../index.md)
