@@ -27,7 +27,11 @@ To communicate with the board you will need to use a UART-USB converter, like `P
   - PL2303 RX (white) - Nucleo USART_B_TX
   - PL2303 GND (black) - Nucleo GND
 
-  ![Image](../_static/images/quickstart/nucleo-pinout.png)
+  <!-- adjust size and position in pdf -->
+  ```{image} ../_static/images/quickstart/nucleo-pinout.png
+  :align: center
+  :width: 50%
+  ```
 
   Source: The Nucleo board's schematic, available on
   <https://www.st.com/en/evaluation-tools/nucleo-l4a6zg.html#cad-resources>
@@ -36,7 +40,11 @@ To communicate with the board you will need to use a UART-USB converter, like `P
 
   The picture below presents how the board should be connected:
 
-  ![Image](../_static/images/quickstart/stm32l4x6-connections.png)
+  <!-- use image directive due to poor render in pdf -->
+  ```{image} ../_static/images/quickstart/stm32l4x6-connections.png
+  :align: center
+  :width: 50%
+  ```
 
 - Now you should verify, what USB device on your host-pc is connected with the `UART` (console). To check that run:
 
