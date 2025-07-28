@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`gid_t getegid(void);`
+gid_t getegid(void);
+```
 
 ## Description
 

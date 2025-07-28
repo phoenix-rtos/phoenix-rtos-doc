@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`int fchdir(int fildes);`
+int fchdir(int fildes);
+```
 
 ## Status
 

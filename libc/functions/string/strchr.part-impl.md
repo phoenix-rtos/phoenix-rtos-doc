@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <string.h>`
+```c
+#include <string.h>
 
-`char *strchr(const char *s, int c);`
+char *strchr(const char *s, int c);
+```
 
 ## Status
 

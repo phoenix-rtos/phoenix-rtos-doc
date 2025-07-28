@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`int putenv(char *string);`
+int putenv(char *string);
+```
 
 ## Status
 

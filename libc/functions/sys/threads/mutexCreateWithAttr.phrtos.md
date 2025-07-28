@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <sys/threads.h>`
+```c
+#include <sys/threads.h>
 
-`int mutexCreateWithAttr(handle_t *h, struct lockAttr *attr);`
+int mutexCreateWithAttr(handle_t *h, struct lockAttr *attr);
+```
 
 ## Status
 

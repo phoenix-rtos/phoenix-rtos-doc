@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <sys/mman.h>`
+```c
+#include <sys/mman.h>
 
-`void meminfo(meminfo_t *info);`
+void meminfo(meminfo_t *info);
+```
 
 ## Description
 

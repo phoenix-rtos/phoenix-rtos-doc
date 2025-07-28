@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <sys/stat.h>`
+```c
+#include <sys/stat.h>
 
-`mode_t umask(mode_t cmask);`
+mode_t umask(mode_t cmask);
+```
 
 ## Status
 

@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`char *getlogin(void);`
+char *getlogin(void);
 
-`int getlogin_r(char *name, size_t namesize);`
+int getlogin_r(char *name, size_t namesize);
+```
 
 ## Status
 

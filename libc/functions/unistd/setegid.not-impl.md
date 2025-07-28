@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`int setegid(gid_t gid);`
+int setegid(gid_t gid);
+```
 
 ## Status
 

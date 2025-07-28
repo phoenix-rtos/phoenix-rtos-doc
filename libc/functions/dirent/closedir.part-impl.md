@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <dirent.h>`
+```c
+#include <dirent.h>
 
-`int closedir(DIR *dirp);`
+int closedir(DIR *dirp);
+```
 
 ## Status
 

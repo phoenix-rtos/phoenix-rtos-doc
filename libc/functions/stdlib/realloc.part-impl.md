@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`void *realloc(void *ptr, size_t size);`
+void *realloc(void *ptr, size_t size);
+```
 
 ## Status
 

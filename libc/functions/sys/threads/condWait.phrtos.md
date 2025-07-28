@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <sys/threads.h>`
+```c
+#include <sys/threads.h>
 
-`int condWait(handle_t h, handle_t m, time_t timeout);`
+int condWait(handle_t h, handle_t m, time_t timeout);
+```
 
 ## Status
 

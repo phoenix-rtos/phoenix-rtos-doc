@@ -2,13 +2,15 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`int rand(void);`
+int rand(void);
 
-`int rand_r(unsigned *seed);`
+int rand_r(unsigned *seed);
 
-`void srand(unsigned seed);`
+void srand(unsigned seed);
+```
 
 ## Status
 

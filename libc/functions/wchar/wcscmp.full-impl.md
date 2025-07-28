@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <wchar.h>`
+```c
+#include <wchar.h>
 
-`int wcscmp(const wchar_t *ws1, const wchar_t *ws2);`
+int wcscmp(const wchar_t *ws1, const wchar_t *ws2);
+```
 
 ## Status
 

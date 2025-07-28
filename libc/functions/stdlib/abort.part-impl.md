@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`void abort(void);`
+void abort(void);
+```
 
 ## Status
 

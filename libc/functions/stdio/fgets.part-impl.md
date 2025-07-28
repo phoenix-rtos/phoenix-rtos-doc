@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`char *fgets(char *restrict s, int n, FILE *restrict stream);`
+char *fgets(char *restrict s, int n, FILE *restrict stream);
+```
 
 ## Status
 

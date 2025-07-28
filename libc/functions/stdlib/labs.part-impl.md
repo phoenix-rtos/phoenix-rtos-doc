@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`long labs(long i);`
+long labs(long i);
 
-`long long llabs(long long i);`
+long long llabs(long long i);
+```
 
 ## Status
 

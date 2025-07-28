@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`char *ttyname(int fildes);`
+char *ttyname(int fildes);
 
-`int ttyname_r(int fildes, char *name, size_t namesize);`
+int ttyname_r(int fildes, char *name, size_t namesize);
+```
 
 ## Status
 

@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`pid_t getpgrp(void);`
+pid_t getpgrp(void);
+```
 
 ## Status
 

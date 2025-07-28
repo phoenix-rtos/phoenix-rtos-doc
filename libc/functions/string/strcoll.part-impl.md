@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <string.h>`
+```c
+#include <string.h>
 
-`int strcoll(const char *s1, const char *s2);`
+int strcoll(const char *s1, const char *s2);
 
-`int strcoll_l(const char *s1, const char *s2, locale_t locale);`
+int strcoll_l(const char *s1, const char *s2, locale_t locale);
+```
 
 ## Status
 

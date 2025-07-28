@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`pid_t fork(void);`
+pid_t fork(void);
+```
 
 ## Status
 

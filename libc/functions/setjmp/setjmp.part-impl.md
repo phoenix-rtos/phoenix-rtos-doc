@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <setjmp.h>`
+```c
+#include <setjmp.h>
 
-`int setjmp(jmp_buf env);`
+int setjmp(jmp_buf env);
+```
 
 ## Status
 

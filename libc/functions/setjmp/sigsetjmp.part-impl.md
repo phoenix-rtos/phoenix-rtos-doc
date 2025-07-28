@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <setjmp.h>`
+```c
+#include <setjmp.h>
 
-`int sigsetjmp(sigjmp_buf env, int savemask);`
+int sigsetjmp(sigjmp_buf env, int savemask);
+```
 
 ## Status
 

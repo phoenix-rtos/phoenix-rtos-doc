@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <sys/times.h>`
+```c
+#include <sys/times.h>
 
-`clock_t times(struct tms *buffer);`
+clock_t times(struct tms *buffer);
+```
 
 ## Status
 

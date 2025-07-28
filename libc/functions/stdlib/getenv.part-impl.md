@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`int getenv(const char *name);`
+int getenv(const char *name);
+```
 
 ## Status
 

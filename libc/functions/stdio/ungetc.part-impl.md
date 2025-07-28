@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`int ungetc(int c, FILE *stream);`
+int ungetc(int c, FILE *stream);
+```
 
 ## Status
 

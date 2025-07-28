@@ -2,11 +2,13 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`ldiv_t ldiv(long numer, long denom);`
+ldiv_t ldiv(long numer, long denom);
 
-`lldiv_t lldiv(long long numer, long long denom);`
+lldiv_t lldiv(long long numer, long long denom);
+```
 
 ## Status
 

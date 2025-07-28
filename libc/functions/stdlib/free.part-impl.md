@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`void free(void *ptr);`
+void free(void *ptr);
+```
 
 ## Status
 

@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`pid_t setsid(void);`
+pid_t setsid(void);
+```
 
 ## Status
 

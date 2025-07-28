@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <ctype.h>`
+```c
+#include <ctype.h>
 
-`int iscntrl(int c);`
+int iscntrl(int c);
+```
 
 ## Status
 

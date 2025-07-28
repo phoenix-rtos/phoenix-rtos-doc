@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <string.h>`
+```c
+#include <string.h>
 
-`size_t strcspn(const char *s1, const char *s2);`
+size_t strcspn(const char *s1, const char *s2);
+```
 
 ## Status
 

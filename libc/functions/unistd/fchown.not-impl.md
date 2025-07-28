@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <unistd.h>`
+```c
+#include <unistd.h>
 
-`int fchown(int fildes, uid_t owner, gid_t group);`
+int fchown(int fildes, uid_t owner, gid_t group);
+```
 
 ## Status
 

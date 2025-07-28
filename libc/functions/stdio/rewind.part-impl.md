@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <stdio.h>`
+```c
+#include <stdio.h>
 
-`void rewind(FILE *stream);`
+void rewind(FILE *stream);
+```
 
 ## Status
 

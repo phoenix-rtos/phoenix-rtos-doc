@@ -2,11 +2,14 @@
 
 ## Synopsis
 
-`#include <stdlib.h>`
+```c
+#include <stdlib.h>
 
-`long strtol(const char *restrict nptr, char **restrict endptr, int base);`
+long strtol(const char *restrict nptr, char **restrict endptr, int base);
 
-`long long strtoll(const char *restrict nptr, char **restrict endptr, int base);`
+long long strtoll(const char *restrict nptr,
+                  char **restrict endptr, int base);
+```
 
 ## Status
 

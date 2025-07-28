@@ -2,9 +2,11 @@
 
 ## Synopsis
 
-`#include <ctype.h>`
+```c
+#include <ctype.h>
 
-`int isgraph(int c);`
+int isgraph(int c);
+```
 
 ## Status
 
