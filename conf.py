@@ -71,16 +71,40 @@ latex_documents = [
     ("index", "phoenix-rtos.tex", "Phoenix-RTOS Documentation", author, "howto", True),
 ]
 
+latex_additional_files = [
+    "_static/images/pdf-titlepage.png",
+    "_static/images/pdf-lastpage.png"
+]
+
 latex_elements = {
     'makeindex': r'',
     'papersize': r'a4paper',
     'extrapackages': r'''
         \usepackage{tocloft}
+        \usepackage{graphicx}
+        \usepackage{xcolor}
     ''',
     'preamble': r'''
         \addtolength{\cftsubsecnumwidth}{5pt}
         \setcounter{secnumdepth}{3}
         \definecolor{ps-orange}{HTML}{ea5b22}
         \addto\captionsenglish{\renewcommand{\contentsname}{\textcolor{ps-orange}{Table of contents}}}
+    ''',
+    'maketitle': r'''
+        \newgeometry{margin=0pt}
+        \thispagestyle{empty}
+        \begin{figure}
+            \includegraphics[width=\paperwidth,height=\paperheight]{pdf-titlepage.png}
+        \end{figure}
+        \clearpage
+        \restoregeometry
+    ''',
+    'atendofbody': r'''
+        \newgeometry{margin=0pt}
+        \thispagestyle{empty}
+        \begin{figure}
+            \includegraphics[width=\paperwidth,height=\paperheight]{pdf-lastpage.png}
+        \end{figure}
+        \restoregeometry
     ''',
 }
