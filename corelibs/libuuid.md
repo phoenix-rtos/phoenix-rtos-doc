@@ -18,32 +18,32 @@ required header file. Below is a simple example, which could be placed in `_user
 
 - Makefile - linking with `libbuid` library.
 
-```c
-NAME := uuidgen
-LOCAL_SRCS := main.c
-LIBS := libuuid
-include $(binary.mk)
-```
+  ```c
+  NAME := uuidgen
+  LOCAL_SRCS := main.c
+  LIBS := libuuid
+  include $(binary.mk)
+  ```
 
 - Source code:
 
-```C
-#include <stdio.h>
-#include <uuid/uuid.h>
+  ```c
+  #include <stdio.h>
+  #include <uuid/uuid.h>
 
-int main(void)
-{
-  uuid_t uu;
-  char uuStr[37];
+  int main(void)
+  {
+      uuid_t uu;
+      char uuStr[37];
 
-  uuid_generate(uu);
-  uuid_unparse(uu, uuStr);
+      uuid_generate(uu);
+      uuid_unparse(uu, uuStr);
 
-  printf("Generated identifier: %s\n", uuStr);
+      printf("Generated identifier: %s\n", uuStr);
 
-  return 0;
-}
-```
+      return 0;
+  }
+  ```
 
 - Sample result:
 

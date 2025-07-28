@@ -23,13 +23,17 @@ called when that signal occurs. An invocation of such a function because of a si
 functions called by that invocation (other than functions in the standard library), is called a "signal handler". When
 a signal occurs, and _func_ points to a function, it is implementation-defined whether the equivalent of a:
 
-    `signal(sig, `SIG_DFL);`
+```c
+signal(sig, SIG_DFL);
+```
 
 Is executed, or the implementation prevents some implementation-defined set of signals (at least including _sig_) from
 occurring until the current signal handling has completed. (If the value of _sig_ is `SIGILL`, the implementation may
 alternatively define that no action is taken.) Next the equivalent of:
 
-    `(*func)(sig);`
+```c
+(*func)(sig);
+```
 
 Is executed. If and when the function returns, if the value of sig was `SIGFPE`, `SIGILL`, or `SIGSEGV` or any other
 implementation-defined value corresponding to a computational exception, the behavior is undefined. Otherwise, the
@@ -50,11 +54,15 @@ volatile `sig_atomic_t,` or if the signal handler calls any function defined in 
 functions listed in Signal Concepts.
 At program start-up, the equivalent of:
 
-    `signal(sig, SIG_IGN);`
+```c
+signal(sig, SIG_IGN);
+```
 
 Is executed for some signals, and the equivalent of:
 
-    `signal(sig, SIG_DFL);`
+```c
+signal(sig, SIG_DFL);
+```
 
 Is executed for all other signals (see `exec()`).
 The `signal()` function shall not change the setting of `errno` if successful.

@@ -8,17 +8,17 @@ case is allocation of network buffer headers.
 Each zone used for allocation is described using `vm_zone_t` header.
 
 ```c
-    typedef struct _vm_zone_t {
-        struct _vm_zone_t *next;
-        struct _vm_zone_t *prev;
-        rbnode_t linkage;
-        size_t blocksz;
-        volatile unsigned int blocks;
-        volatile unsigned int used;
-        void *vaddr;
-        void *first;
-        page_t *pages;
-    } vm_zone_t;
+typedef struct _vm_zone_t {
+    struct _vm_zone_t *next;
+    struct _vm_zone_t *prev;
+    rbnode_t linkage;
+    size_t blocksz;
+    volatile unsigned int blocks;
+    volatile unsigned int used;
+    void *vaddr;
+    void *first;
+    page_t *pages;
+} vm_zone_t;
 ```
 
 For purposes of fine-grained allocator (described in the next chapter) zones are linked using the `next` and `prev`
@@ -33,7 +33,8 @@ by `vaddr`. The first page descriptor of pages sets constituting the zone is poi
 Functions used for chunk allocations are presented below.
 
 ```c
-extern int _vm_zoneCreate(vm_zone_t *zone, size_t blocksz, unsigned int blocks);
+extern int _vm_zoneCreate(vm_zone_t *zone, size_t blocksz,
+                          unsigned int blocks);
 ```
 
 Function creates the new zone containing the `blocks` number of blocks. The size of single block is given by `blocksz`
