@@ -39,14 +39,17 @@ void sdio_free(void);
 int sdio_config(uint32_t freq, uint16_t blocksz);
 
 
-int sdio_transferDirect(sdio_dir_t dir, uint32_t address, uint8_t area, uint8_t *data);
+int sdio_transferDirect(sdio_dir_t dir, uint32_t address,
+                        uint8_t area, uint8_t *data);
 
 
-int sdio_transferBulk(sdio_dir_t dir, int blockMode, uint32_t address, uint8_t area,
-	uint8_t *data, size_t len);
+int sdio_transferBulk(sdio_dir_t dir, int blockMode, uint32_t address,
+                      uint8_t area, uint8_t *data, size_t len);
 
 
-int sdio_eventRegister(uint8_t event, sdio_event_handler_t handler, void *arg);
+int sdio_eventRegister(uint8_t event,
+                       sdio_event_handler_t handler,
+                       void *arg);
 
 
 int sdio_eventEnable(uint8_t event, int enabled);
@@ -56,8 +59,8 @@ int sdio_eventEnable(uint8_t event, int enabled);
 
 ```c
 typedef enum {
-	sdio_read,
-	sdio_write
+    sdio_read,
+    sdio_write
 } sdio_dir_t;
 
 
@@ -85,8 +88,8 @@ about specific values.
 
 ```c
 typedef enum {
-	sdio_read,
-	sdio_write
+    sdio_read,
+    sdio_write
 } sdio_dir_t;
 ```
 
@@ -186,7 +189,8 @@ after `sdio_init`.
 ---
 
 ```c
-int sdio_transferDirect(sdio_dir_t dir, uint32_t address, uint8_t area, uint8_t *data);
+int sdio_transferDirect(sdio_dir_t dir, uint32_t address,
+                        uint8_t area, uint8_t *data);
 ```
 
 **Description:**
@@ -217,8 +221,8 @@ to the value read from the device.
 ---
 
 ```c
-int sdio_transferBulk(sdio_dir_t dir, int blockMode, uint32_t address, uint8_t area,
-	uint8_t *data, size_t len);
+int sdio_transferBulk(sdio_dir_t dir, int blockMode, uint32_t address,
+                      uint8_t area, uint8_t *data, size_t len);
 ```
 
 **Description:**
@@ -257,7 +261,9 @@ the address is automatically incremented by the device with every completed bloc
 ---
 
 ```c
-int sdio_eventRegister(uint8_t event, sdio_event_handler_t handler, void *arg);
+int sdio_eventRegister(uint8_t event,
+                       sdio_event_handler_t handler,
+                       void *arg);
 ```
 
 This function registers an event handler to be called when a given interrupt event occurs. An interrupt event will not

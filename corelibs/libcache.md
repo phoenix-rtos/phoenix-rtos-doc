@@ -25,7 +25,8 @@ that execute write to and read from the cached source memory.
 #### Callbacks
 <!-- TODO: write whether errno is set on failure -->
 ```c
-typedef ssize_t (*cache_readCb_t)(uint64_t offset, void *buffer, size_t count, cache_devCtx_t *ctx);
+typedef ssize_t (*cache_readCb_t)(uint64_t offset, void *buffer,
+                                  size_t count, cache_devCtx_t *ctx);
 ```
 
 | Status | Description | Return value | Remarks |
@@ -33,7 +34,8 @@ typedef ssize_t (*cache_readCb_t)(uint64_t offset, void *buffer, size_t count, c
 | Declared | Read callback — a pointer to a function responsible for reading data from the source memory. The pointer is registered in the cache during a call to `cache_init` function. <br /><br />Reads up to `count` bytes starting from `offset` into a `buffer`. <br /><br /> Utilizes additional device driver context provided in `ctx`.| **On success:** a number of bytes read from the cached source memory <br /><br /> **On failure:** an error number | `count` is **always** equal to cache line size. <br /><br /> A cached source memory-specific implementation ought to be supplied by the user. <br /><br /> Constitutes a part of `cache_ops_t` interface. |
 
 ```c
-typedef ssize_t (*cache_writeCb_t)(uint64_t offset, const void *buffer, size_t count, cache_devCtx_t *ctx);
+typedef ssize_t (*cache_writeCb_t)(uint64_t offset, const void *buffer,
+                                   size_t count, cache_devCtx_t *ctx);
 ```
 
 | Status | Description | Return value | Remarks |
@@ -43,7 +45,8 @@ typedef ssize_t (*cache_writeCb_t)(uint64_t offset, const void *buffer, size_t c
 ### Functions
 
 ```c
-cachectx_t *cache_init(size_t srcMemSize, size_t lineSize, size_t linesCnt, const cache_ops_t *ops);
+cachectx_t *cache_init(size_t srcMemSize, size_t lineSize,
+                       size_t linesCnt, const cache_ops_t *ops);
 ```
 
 | Status | Description | Return value | Remarks |
@@ -59,7 +62,8 @@ int cache_deinit(cachectx_t *cache);
 | Implemented <br /><br />Tested | Performs cache flush and invalidation and then deinitializes the cache: frees all allocated resources (cache lines, sets as well as the cache table). | **On success:** 0 <br /><br /> **On failure:** an error number | <!-- TODO: write about additional error codes, e.g. EBUSY --> May fail due to problems with the cached source memory (``EIO``).
 
 ```c
-ssize_t cache_read(cachectx_t *cache, uint64_t addr, void *buffer, size_t count);
+ssize_t cache_read(cachectx_t *cache, uint64_t addr,
+                   void *buffer, size_t count);
 ```
 
 | Status | Description | Return value | Remarks |
@@ -67,7 +71,8 @@ ssize_t cache_read(cachectx_t *cache, uint64_t addr, void *buffer, size_t count)
 | Implemented <br /><br /> Tested| Reads from the device via the cache up to `count` bytes into a `buffer`. | **On success:** the number of read bytes <br /><br /> **On failure:** an error number | Fails if `buffer` is NULL or/and `addr` goes beyond the scope of the cached source memory. (`EINVAL`).  <br /><br /> May fail due to problems with the cached source memory (`EIO`). <br /><br /> The behavior is undefined if read occurs beyond the end of the `buffer`.
 
 ```c
-ssize_t cache_write(cachectx_t *cache, uint64_t addr, void *buffer, size_t count, int policy);
+ssize_t cache_write(cachectx_t *cache, uint64_t addr,
+                    void *buffer, size_t count, int policy);
 ```
 
 | Status | Description | Return value | Remarks |
@@ -75,7 +80,8 @@ ssize_t cache_write(cachectx_t *cache, uint64_t addr, void *buffer, size_t count
 | Implemented <br /><br />Tested | Writes to the device via the cache up to  `count` bytes from a `buffer` according to `policy` (see: [Write policy](#write-policy))  | **On success:** the number of written bytes <br /><br /> **On failure:** an error number | Fails if `buffer` is NULL or/and wrong `policy` value is supplied (`EINVAL`). Fails when `addr` goes beyond the scope of the cached source memory. <br /><br /> May fail due to problems with the cached source memory (`EIO`). <br /><br /> The behavior is undefined if write occurs beyond the end of the `buffer`.
 
 ```c
-int cache_flush(cachectx_t *cache, const uint64_t begAddr, const uint64_t endAddr);
+int cache_flush(cachectx_t *cache, const uint64_t begAddr,
+                const uint64_t endAddr);
 ```
 
 | Status | Description | Return value | Remarks |
@@ -83,7 +89,8 @@ int cache_flush(cachectx_t *cache, const uint64_t begAddr, const uint64_t endAdd
 | Implemented <br /><br />Tested | Flushes a range of cache lines starting from an address `begAddr` up to `endAddr`. <br /><br /> Writes dirty lines (see: [Write policy](#write-policy)) marked with dirty bit to the cached source memory. Clears the dirty bit. | **On success:** 0 (i.e. all bytes from all lines marked with the dirty bit in given range were successfully written to the cached source memory) <br /><br /> **On failure:** an error number | Fails if `begAddr` is greater than `endAddr` or/and `begAddr` is greater than `srcMemSize` (`EINVAL`). <br /><br /> May fail due to problems with the cached source memory (`EIO`).
 
 ```c
-int cache_invalidate(cachectx_t *cache, const uint64_t begAddr, const uint64_t endAddr);
+int cache_invalidate(cachectx_t *cache, const uint64_t begAddr,
+                     const uint64_t endAddr);
 ```
 
 | Status | Description | Return value | Remarks |
@@ -91,7 +98,8 @@ int cache_invalidate(cachectx_t *cache, const uint64_t begAddr, const uint64_t e
 | Implemented <br /><br />Tested | Invalidates a range of cache lines starting from an address `begAddr` up to `endAddr`. <br /><br /> Clears the validity bit for lines in that range. | **On success:** 0 (i.e. all lines marked with the validity bit in the given range were successfully invalidated) <br /><br /> **On failure:** an error number  | Fails if `begAddr` is greater than `endAddr` or/and `begAddr` is greater than `srcMemSize` (`EINVAL`). <br /><br /> This operation does **not** synchronize the dirty lines with the cached source memory and leads to **permanent** data loss. In order to save the important data it is advised to call `cache_clean` instead.
 
 ```c
-int cache_clean(cachectx_t *cache, const uint64_t begAddr, const uint64_t endAddr);
+int cache_clean(cachectx_t *cache, const uint64_t begAddr,
+                const uint64_t endAddr);
 ```
 
 | Status | Description | Return value | Remarks |
