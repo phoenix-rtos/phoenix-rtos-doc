@@ -81,11 +81,22 @@ latex_additional_files = [
 latex_elements = {
     'makeindex': r'',
     'papersize': r'a4paper',
+    'tableofcontents': r'''
+        \makeatletter
+        \begingroup
+        \pagestyle{normal}
+        \section*{Table of Contents}
+        \@starttoc{toc}
+        \clearpage
+        \endgroup
+        \makeatother
+    ''',
     'extrapackages': r'''
         \usepackage{tocloft}
         \usepackage{graphicx}
         \usepackage{xcolor}
         \usepackage{etoolbox}
+        \usepackage{lastpage}
     ''',
     'preamble': Path("_static/latex/preamble.tex").read_text(),
     'maketitle': r'''
