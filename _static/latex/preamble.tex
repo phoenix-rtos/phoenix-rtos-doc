@@ -14,12 +14,27 @@
 \definecolor{ps-darkblue}{HTML}{26384f}
 \definecolor{ps-lightblue}{HTML}{657c9f}
 
-% Set headings color
-\titleformat{\section}{\bfseries\Large\color{ps-darkblue}}{\thesection}{1em}{}
-\titleformat{\subsection}{\bfseries\large\color{ps-darkblue}}{\thesubsection}{1em}{}
-\titleformat{\subsubsection}{\bfseries\normalsize\color{ps-darkblue}}{\thesubsubsection}{1em}{}
-\titleformat{\paragraph}{\bfseries\color{ps-darkblue}}{\theparagraph}{1em}{}
-\titleformat{\subparagraph}{\bfseries\color{ps-darkblue}}{\thesubparagraph}{1em}{}
+% Section title styling
+\makeatletter
+\def\@makesectionhead#1{%
+    {\parindent \z@
+    \interlinepenalty\@M
+    \noindent\textcolor{ps-orange}{\rule{\textwidth}{2pt}}
+    \par\vspace{0.5em}
+    {\bfseries\Large\color{ps-darkblue}#1}
+    \noindent\textcolor{ps-orange}{\rule{\textwidth}{2pt}}
+    \par\vspace{0em}
+}}
+\renewcommand{\section}{\@startsection{section}{1}{\z@}%
+{-3.5ex \@plus -1ex \@minus -.2ex}%
+{2.3ex \@plus.2ex}%
+{\@makesectionhead}}
+\makeatother
+
+% Add dot to the section title only
+\renewcommand{\thesection}{\arabic{section}.\hspace{-0.5em}}
+\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
 
 % Make sections start on new pages
 \pretocmd{\section}{\clearpage}{}{}
