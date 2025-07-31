@@ -1,0 +1,14 @@
+pyproject.toml
+phoenixsystems/docsresources/__init__.py
+phoenixsystems/docsresources/atendofbody.tex
+phoenixsystems/docsresources/company_logo.png
+phoenixsystems/docsresources/lastpage_image.png
+phoenixsystems/docsresources/latex.py
+phoenixsystems/docsresources/maketitle.tex
+phoenixsystems/docsresources/page_header.png
+phoenixsystems/docsresources/preamble.tex
+phoenixsystems/docsresources/titlepage_image.png
+phoenixsystems_docsresources.egg-info/PKG-INFO
+phoenixsystems_docsresources.egg-info/SOURCES.txt
+phoenixsystems_docsresources.egg-info/dependency_links.txt
+phoenixsystems_docsresources.egg-info/top_level.txt
