@@ -126,6 +126,10 @@ for the specific architecture:
 ```
 
 ```console
+./build-toolchain.sh aarch64-phoenix ~/toolchains/aarch64-phoenix
+```
+
+```console
 ./build-toolchain.sh riscv64-phoenix ~/toolchains/riscv64-phoenix
 ```
 
@@ -151,6 +155,7 @@ shell configuration file (e.g. `~/.bashrc`):
 echo 'export PATH=$PATH \
       :$HOME/toolchains/i386-pc-phoenix/i386-pc-phoenix/bin \
       :$HOME/toolchains/arm-phoenix/arm-phoenix/bin \
+      :$HOME/toolchains/aarch64-phoenix/aarch64-phoenix/bin \
       :$HOME/toolchains/riscv64-phoenix/riscv64-phoenix/bin \
       :$HOME/toolchains/sparc-phoenix/sparc-phoenix/bin' >> $HOME/.bashrc
 ```
