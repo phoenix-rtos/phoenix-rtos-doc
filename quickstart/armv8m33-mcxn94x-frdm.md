@@ -11,7 +11,57 @@ This USB port provides debug interface along with a TTY channel for ISP and syst
 
 ![Image](../_static/images/quickstart/mcxn947-evk.png)
 
+
 ## Flashing the Phoenix-RTOS system image
+
+<details>
+<summary><b>Flashing the Phoenix-RTOS system image with Pyocd</b></summary>
+The process comes down to a few steps, described below.
+
+### Installing PYOCD
+Pyocd can be installed using:
+
+```console
+python3 -m pip install pyocd
+```
+<b>Installing PYOCD from source</b>
+
+To install the latest release version from Pycod github, you can do the following:
+```console
+python3 -m pip install --pre -U git+https://github.com/pyocd/pyOCD.git
+PATH=$PATH:$HOME/.local/bin
+```
+
+For complete support of the MCXN94x target, it is necessary to implement an additional target for PyOCD using (it may take a while):
+
+```console
+pyocd pack install mcxn947 -c -u
+```
+
+When the board is connected to the port, MCU-LINK and PyOCD are installed with MCXN94x support. Next up, upload the image:
+
+```console
+pyocd flash _boot/armv8m33-mcxn94x-frdm/phoenix.disk --target=mcxn947 --format=bin
+```
+
+The image will be uploaded:
+
+```
+pyocd flash _boot/armv8m33-mcxn94x-frdm/phoenix.disk --target=mcxn947 --format=bin  
+0001442 W DFP device definition conflict: specified default reset sequence ResetSystem for core #1 (cm33_core1) is disabled by the DFP [pack_target]
+0001452 I Loading phoenix-rtos-project/_boot/armv8m33-mcxn94x-frdm/phoenix.disk [load_cmd]
+[==================================================] 100%
+0018323 I Erased 303104 bytes (37 sectors), programmed 296960 bytes (580 pages), skipped 0 bytes (0 pages) at 17.19 kB/s [loader]
+```
+
+After the upload has been completed, the board will self-restart, and Phoenix-RTOS will boot up.
+
+
+
+</details>
+
+<details>
+<summary><b>Flashing the Phoenix-RTOS system image with ISP</b></summary>
 
 Phoenix-RTOS provides a limited, yet simple and effective utility for flashing the image to the board - MCXISP.
 It is built along with the `armv8m33-mcxn94x-frdm` and available in the `_boot` directory.
@@ -64,6 +114,7 @@ If the tool fails to connect to the board (`target invalid response` message is 
 mode again using buttons on the board, while the tool is trying to reconnect.
 
 After the upload has been completed, the board is reset and Phoenix-RTOS is started.
+</details>
 
 ## Using Phoenix-RTOS
 
