@@ -1,1 +1,7 @@
-_build/*
+**/_build/
+.DS_Store
+__pycache__
+*.swp
+_venv
+*.egg-info
+docsresources/**/build
