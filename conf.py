@@ -12,7 +12,7 @@ author = "Phoenix Systems"
 extensions = ["myst_parser", "sphinx_copybutton"]
 
 templates_path = ["_templates"]
-exclude_patterns = ["README", "_build", "Thumbs.db", ".DS_Store", "_venv", "docsresources"]
+exclude_patterns = ["README", "_build", "Thumbs.db", ".DS_Store", "_venv", "docsresources", "pdf-template"]
 myst_heading_anchors = 3
 pygments_dark_style = "tango"
 
