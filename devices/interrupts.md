@@ -23,5 +23,7 @@ The callback function is invoked directly from the kernel space with interrupts 
 to be able to prevent the same interrupt to be executed again (e.g. when an interrupt is caused by the signal level, not
 edge).
 
-If handler returns value >= 0 then kernel performs `condSignal()` on a conditional passed when registering interrupt. If
-this feature is not needed, one can pass 0 as _`cond`_.
+If handler returns value >= 0 then kernel performs `condBroadcast()` on a conditional passed when registering
+interrupt. If this feature is not needed, one can pass 0 as _`cond`_.
+
+To unregister the interrupt, `resourceDestroy()` should be called on the _`handle`_ variable.
