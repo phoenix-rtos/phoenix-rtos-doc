@@ -1,15 +1,30 @@
-# Coding convention
+# Coding Standard
+This is the Coding Standard, which shall be used during the implementation of files of Phoenix-RTOS.  
+It consists of sections that group coding rules by topic.  
+Coding rules are identified with ID of such format: `PS-CODE-XXX`.  
+Rule numbering does not have to be sequential and should not be changed once assigned.
+If a new rule is added in any section, it should be assigned the next available number after the highest existing rule number.
 
-The chapter presents coding convention used in the implementation files of Phoenix-RTOS.
+Rules are formulated using these special statements:
+- `shall` indicates mandatory rule or action  
+- `should` indicates recommended rule or action
+- `could` indicates possibility or an option that is not necessarily recommended.
+
 
 ## C language standard
+### PS-CODE-001
+The code shall be compliant with C99 (without GNU extensions) standard.
 
-In general code should be compliant with C99 (without GNU extensions) standard.
+## MISRA C 2023 (2012)
+### PS-CODE-002
+The code should be compliant with the set of MISRA C 2023 (2012) defined in [Phoenix RTOS MISRA C Profile](./misracprofile.md)  
+
+### PS-CODE-003
+Any deviations from the MISRA C 2023 (2012) mandatory and required rules shall be justified within TBD.
 
 ## File label
-
-Each operating system source file is marked with label with the following structure:
-
+### PS-CODE-004 
+Each operating system source file shall be marked with label with the following structure:  
 ```c
 /*
  * <Project name>
@@ -25,8 +40,23 @@ Each operating system source file is marked with label with the following struct
  */
 ```
 
-Example of a file that is a part of the Phoenix-RTOS kernel:
+### PS-CODE-005
+Main label blocks shall be separated by an empty line.
 
+### PS-CODE-006
+The consecutive label blocks, in that order, shall:
+- inform that file is the part of Phoenix-RTOS operating system
+- provide the information about the operating system 
+- describe the file functionality 
+- present copyright notices for the file, with the newest copyrights at the top and authors sorted according to the importance of their contribution
+- provide license information with %LICENSE% macro
+
+#### Example: 
+In this example, the file belongs to operating system kernel. The file implements `pmap` interface - the hardware dependent 
+part of memory management subsystem for managing the MMU or MPU (part of HAL). 
+The file was developed in years 2014-2015 and in the earlier period of 2005-2006. It has three
+authors sorted according to the importance of their contribution. All names are presented. 
+The %LICENSE% macro is used to inject the license conditions.  
 ```c
 /*
  * Phoenix-RTOS
@@ -43,26 +73,17 @@ Example of a file that is a part of the Phoenix-RTOS kernel:
  */
 ```
 
-Main label blocks are separated with empty line. The first label block informs that file is the part of Phoenix-RTOS
-operating system. In next block the information about the operating system module is provided. In this example, the file
-belongs to operating system kernel. Third label block describes the file functionality. In presented example label, the
-file implements `pmap` interface - the hardware dependent part of memory management subsystem for managing the MMU or
-MPU (part of HAL). Fourth label block presents copyright notices and authors of the file. Newest copyrights are located
-on the top. Copyrights are associated with dates informing about the development periods separated with commas. In the
-example label the file was developed in years 2014-2015 and in the earlier period of 2005-2006. Presented file has three
-authors sorted according to the importance of their contribution. All names are presented. Next block contains the
-information that file belongs to the operating system project. The %LICENSE% macro is used to inject the license
-conditions.
-
-Labels in each file should be constructed according to presented rules. Modification of these rules is not allowed.
-
 ## Indentation
+### PS-CODE-007
+The Tab character shall be used as code indentation.
 
-Code indentation is based on tabulator. It is not allowed to make an indentation with space character. The source code
+#### Note:
+It is not allowed to make an indentation with space character. The source code
 used for development tests (e.g. printf debug) should be entered without indentation. The following code presents
 correctly formatted code with one line (`lib_printf`) entered for debug purposes. The inserted line should be removed
 in the final code.
 
+#### Example:  
 ```c
 int main(void)
 {
@@ -87,35 +108,59 @@ int main(void)
 ```
 
 ## Source files
+### PS-CODE-008
+Separate source files shall be created for each operating system module. 
 
-Separate source files should be created for each operating system module. Source files are grouped in directories which
-names correspond to the names of subsystems.
+### PS-CODE-009
+Source files shall be grouped in directories which names correspond to the names of subsystems.
 
 ## Functions
+### PS-CODE-010
+Functions should be short and not too complex in terms of logic.
 
-Functions should be short and not too complex in terms of logic. The function should do one thing only. Functions should
-be separated with two newline characters.
+### PS-CODE-011
+The function should do one thing only.
 
-## Function names
+### PS-CODE-012
+Functions should be separated with two newline characters.
 
-Function names should be created according to the following schema `[_]<subsystem>_<functionality>` where `<subsystem>`
-is the name of subsystem or file to which function belongs and `<functionality>` is the brief sentence explaining the
-implemented functionality. The subsystem name should be a one word without the underline characters. The functionality
-could be expressed using many words but without the underlines. In such case camelCase should be used.
+## Function names  
+### PS-CODE-013  
+Function names shall be created according to the following schema `[_]<subsystem>_<functionality>` where:
+- `<subsystem>`is the name of subsystem or file to which function belongs
+- `<functionality>` is the brief sentence explaining the implemented functionality. 
 
-For example function for kernel space memory allocation could be named `vm_kmalloc()`. Function for creating a new
-thread could be named `proc_threadCreate()`.
+### PS-CODE-014  
+The subsystem name should be a one word.
 
-The underline character at the start of the function name means that function is not synchronized and its usage by two
-parallel threads demands the external synchronization. Good example of such function is the internal function for adding
+### PS-CODE-015  
+The subsystem name shall not contain the underscore characters
+
+### PS-CODE-016  
+The subsystem name shall be written in camelCase if more the one word is used.
+
+### Example: 
+The function for kernel space memory allocation could be named `vm_kmalloc()`. 
+The function for creating a newthread could be named `proc_threadCreate()`.
+
+### Note:
+The underscore character at the start of the function name means that function is not sAn underscore character at the start of the function name indicates that the function is not synchronized, and its usage by two parallel threads requires external synchronization. A good example of such function is the internal function for adding
 the node to the red-black tree or the internal function for adding the item to the list.
 
-Functions used internally in C file should be declared as static. Functions used only inside the selected subsystem
-could be named with the name of the module instead of the name of subsystem. Functions exported outside the subsystem
-must be named with subsystem name only.
+### PS-CODE-017
+Functions used internally in C file shall be declared as static. 
 
-All external (i.e. non-static) symbols (including functions) of a library must be prefixed with a library name.
-For example, lets say we have library `libfoo` and it's function called `init`. This function must be prefixed with
+### PS-CODE-018
+Functions used only inside the selected subsystem shall be named with the name of the module instead of the name of subsystem. 
+
+### PS-CODE-019
+Functions exported outside the subsystem shall be named with subsystem name only.
+
+### PS-CODE-020
+All external (i.e. non-static) symbols (including functions) of a library shall be prefixed with a library name.
+
+### Example
+Let's say we have library `libfoo` and it's function called `init`. This function must be prefixed with
 either `foo` or `libfoo` - prefix has to be unique and be consistent within the library:
 
 ```c
@@ -126,32 +171,50 @@ int libfoo_init(void);
 int foo_init(void);
 ```
 
+### PS-CODE-021
 If a library consists of submodules (i.e. well separated modules within one library) then second underscore can be used
-to separate library from submodule and from functionality names. Please note that in general such functions shouldn't be
-a part of API, but need to adhere to namespace rules as can not be `static` also. Example of this naming scheme:
+to separate library from submodule and from functionality names. 
 
+#### Note:
+Please note that in general such functions shouldn't be a part of API, but need to adhere to namespace rules as can not be `static` also. 
+
+#### Example
 ```c
 int libfoo_bar_start();
 ```
 
 ## Function length
-
-Function should be not longer than 200 lines of code and not shorter than 10 lines of code.
+### PS-CODE-022
+Function shall be not longer than 200 lines of code and not shorter than 10 lines of code.
 
 ## Variables
+### PS-CODE-023
+Variables should be named with one short word without the underscore characters. 
 
-Variables should be named with one short words without the underline characters. If one word is not enough for variable
-name then use camelCase. When defining a variable, assign it a value, do not assume that its value is zero. **In the
-kernel code always initialize global/static variables in runtime.** There's not `.bss` and `.data` initialization in
+### PS-CODE-024
+For variable names, longer than one word, the camelCase shall be used. 
+
+### PS-CODE-025
+When defining a variable, it shall be assigned with a value (do not assume that its value is zero).
+
+#### Note:
+**In the kernel code always initialize global/static variables in runtime.** There's not `.bss` and `.data` initialization in
 the kernel.
 
+### PS-CODE-026
 `const` should be used whenever it is not expected or prohibited for value to change.
 
 ## Local variables - kernel
+### PS-CODE-027
+Local variables shall be defined before the function code in the kernel.
 
-Local variables should be defined before the function code. The stack usage and number of local variables should be
-minimized. Static local variables are not allowed.
+### PS-CODE-028
+The stack usage and number of local variables should be minimized in the kernel.
 
+### PS-CODE-029
+Static local variables shall not be used in the kernel.
+
+### Example
 ```c
 void *_kmalloc_alloc(u8 hdridx, u8 idx)
 {
@@ -175,10 +238,16 @@ void *_kmalloc_alloc(u8 hdridx, u8 idx)
 ```
 
 ## Local variables - libphoenix, userspace
+### PS-CODE-030
+Scope of local variables should be minimalized in libphoenix and userspace (as the stack usage and number of local variables). 
 
-Scope of local variables should be minimalized, as the stack usage and number of local variables. It is advised to
-avoid reusing variables for different purposes across the function. Static local variables are allowed.
+### PS-CODE-031
+The variables should not be used for different purposes across the function. 
 
+### PS-CODE-032
+Static local variables could be used in libphoenix and userspace.
+
+### Example
 ```c
 void countSheeps(herd_t *herd)
 {
@@ -197,49 +266,71 @@ void countSheeps(herd_t *herd)
 ```
 
 ## Global variables
+### PS-CODE-033
+In the kernel code global variables shall be always initialized in runtime.
 
-In the kernel code global variables should be always initialized in runtime. Global variables should be used only if
-they're absolutely necessary. Scope should be limited whenever possible by using `static`. If they are used, global
-variables can only be placed in common structures. The structure should be named after the system module that implements
-it, followed by `_common`. Example notation is shown below.
+### PS-CODE-034
+Global variables should be used only if they're absolutely necessary.
 
+### PS-CODE-035
+The scope of global variables should be limited whenever possible by using `static`.
+
+### PS-CODE-036
+Global variables shall only be placed in common structures. 
+
+### PS-CODE-037
+The structure should be named after the system module that implements it, followed by `_common`. 
+
+#### Example:
 ```c
 static struct {
     spinlock_t spinlock;
 } pmap_common;
 ```
 
-It is acceptable to omit module name in user space applications (i.e. not in the kernel) and name the structure
-`common`, only if static is used.
+### PS-CODE-038
+The module name could be omitted in user space applications (i.e. not in the kernel) and name the structure `common`, only if static is used.
 
 ## Operators
-
-One space character should be used after and before the following binary and ternary operators:
-
+### PS-CODE-039
+One space character shall be used after and before the following binary and ternary operators:  
 ```c
 =  +  -  <  >  *  /  %  |  &  ^  <=  >=  ==  !=  ?  :
 ```
 
-No space should be used after the following unary operators:
-
+### PS-CODE-040
+No space shall be used after the following unary operators:  
 ```c
 &  *  +  -  ~  !
 ```
 
-The `sizeof` and `typeof`are treated as functions and are to be used in accordance to the following notation:
-
+### PS-CODE-041
+The `sizeof` and `typeof` operators shall be treated as functions and are to be used in accordance to the following notation:  
 ```c
 sizeof(x)
 typeof(x)
 ```
 
-In case of increment `++` and decrement `--` operators following rules should be applied. If they are postfixed, no
-space should be used before the operator. If they are prefixed, no space should be used after the operator.
+### PS-CODE-042
+If the increment `++` or decrement `--` operators are postfixed, no space shall be used before the operator. 
+
+### PS-CODE-043
+If the increment `++` or decrement `--` operators are prefixed, no space should be used after the operator.
 
 ## Conditional expressions
+### PS-CODE-044
+A space shall be used after a keyword of the conditional instruction. 
 
-Notation of conditional expression is presented below.
+### PS-CODE-045
+Opening and closing braces shall be always used.
 
+### PS-CODE-046
+The opening brace shall be put in the same line as the keyword of the conditional instruction. 
+
+### PS-CODE-047
+The closing brace shall be placed after the last line of the conditional instruction in a new line.
+
+### Example:
 ```c
 if (expr) {
     line 1
@@ -259,15 +350,14 @@ else {
 }
 ```
 
-A space should be used after a keyword of the conditional instruction. Opening and closing braces should be always used.
-The opening brace should be put in the same line as the keyword of the conditional instruction. The closing brace should
-be placed after the last line of the conditional instruction in a new line.
-
 ## Type definition
+### PS-CODE-048
+New types should only be defined if it is absolutely necessary. 
 
-New types can only be defined if it is absolutely necessary. if `typedef` is used for a structure/union, structure/union
-should be left anonymous if possible:
+### PS-CODE-049
+if `typedef` is used for a structure/union, structure/union should be left anonymous if possible:
 
+### Example
 ```c
 typedef struct {
     int foo;
@@ -276,10 +366,14 @@ typedef struct {
 ```
 
 ## Comments
+### PS-CODE-050
+When the C programming language is used only C language comments shall be used: `/* */`.
 
-When the C programming language is used only C language comments should be used. It means that only `/* */` are allowed
-and `//` are not to be used at all. A two line comment is presented below.
+### PS-CODE-051
+`//` comments shall not to be used.
 
+### Example
+Multi line comment:
 ```c
 /*
  * line 1
@@ -287,22 +381,31 @@ and `//` are not to be used at all. A two line comment is presented below.
  */
 ```
 
-One line comment should look like the following example.
+One line comment:
 
 ```c
 /* comment */
 ```
+### PS-CODE-052
+Comments should be brief and placed only in essential parts of the code. 
 
-All comments should be brief and placed only in essential parts of the code. Comments are not the place to copy parts of
-the specifications. Nor are they the place to express programmer's novel writing skills.
+### PS-CODE-053
+Comments should not contain copied parts of specification.
 
-The use of any kind of documentation generator (e.g. Doxygen) is strictly forbidden.
+### Note:
+Comments are not the place to express programmer's novel writing skills.
+
+### PS-CODE-054
+Documentation generators (e.g. Doxygen) shall not be used.
 
 ## Code disabling
+### PS-CODE-055
+Disabled or dead code should not be placed in the code.
+### Note:
+Version control should be relied upon to hold obsolete code.
 
-Leaving disabled, dead code should be avoided, version control should be relied upon to hold obsolete code. However,
-should it be necessary, preprocessor should be used:
-
+### PS-CODE-056
+If disabled or dead code is present (it was necessary), preprocessor shall be used accordingly:  
 ```c
 releveantCode();
 
@@ -312,10 +415,10 @@ releveantCode();
 ```
 
 ## Preprocessor
+### PS-CODE-057
+The header with the `#include` preprocessing directive shall be placed after the label. 
 
-The header with the `#include` preprocessing directive should be placed after the label. The example header notation is
-shown below.
-
+### Example
 ```c
 #include "pmap.h"
 #include "spinlock.h"
@@ -323,13 +426,16 @@ shown below.
 #include "console.h"
 #include "stm32.h"
 ```
+### PS-CODE-058
+MACROS should not be used in the code.
 
-It is advised not to use MACROS in the code.
+### PS-CODE-059
+The preprocessor conditionals like `#if` or `if def` should not be used in the code.
+#### Note: 
+The use of preprocessing conditionals makes it harder to follow the code logic and can be used only if it is absolutely necessary.
 
-It is not advised to use preprocessor conditionals like `#if` or `if def'. The use of preprocessing conditionals makes
-it harder to follow the code logic. If it is absolutely necessary to use preprocessing conditionals, they ought to be
-formatted as the following example.
-
+### PS-CODE-060
+Preprocessing conditionals shall be formatted as the following example:  
 ```c
 #ifndef NOMMU
     process->mapp = &process->map;
@@ -350,27 +456,28 @@ formatted as the following example.
 ```
 
 ## Operating system messages
+### PS-CODE-061
+Operating system messages shall consist of, in that order:
+- a subsystem name
+- a colon
+- a message body
+- a newline character
 
-Following notation for operating system messages should be applied. Message should start from a subsystem name, which
-should be followed by colon and a message body. An example is shown below.
-
+### Example
 ```c
 lib_printf("main: Starting syspage programs (%d) and init\n", syspage->progssz);
 ```
 
-## Coding guidelines
-
-MISRA C:2012 coding guideline standard should be adhered to in all matters not addressed in this guideline (advisory
-rules are optional).
-
 ## Miscellaneous
+### PS-CODE-062
+The `goto` statement shall not be used. 
 
-The `goto` statement shall not be used. The main goal of this prohibition is the minimalization of the spaghetti code
+#### Note
+The main goal of this prohibition is the minimization of the spaghetti code
 generation and the prevention of the linear programming usage.
 
 To better understand our position please read the famous Dijkstra article.
 
 <https://homepages.cwi.nl/~storm/teaching/reader/Dijkstra68.pdf>
 
-In our opinion usage of `goto` increases the chaos in the source code and absolutely brings no value like
-minimalization of the number of lines of code. It also encourages programmers to poor code structurization.
+In our opinion, the usage of goto increases chaos in the source code and offers no value, such as minimizing the number of lines of code. It also encourages programmers to poor code structurization.
