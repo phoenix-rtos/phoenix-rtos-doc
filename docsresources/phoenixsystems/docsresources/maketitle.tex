@@ -23,10 +23,12 @@
 
 \vspace{0.4cm}
 
-{\setmainfont{Liberation Sans}
-\textcolor{ps-darkblue}{%
-	{\fontsize{16}{19}\selectfont \textbf{\docauthor}}
-}}
+\ifdefined\docauthor
+	{\setmainfont{Liberation Sans}
+	\textcolor{ps-darkblue}{%
+		{\fontsize{16}{19}\selectfont \textbf{Author: \docauthor}\\}
+	}}
+\fi
 
 \vspace{2.25cm}
 
@@ -50,5 +52,15 @@
 \textcolor{ps-lightblue}{%
 	\makebox[\textwidth][l]{\hspace{0.2cm}\docversion\hfill \docdate\hspace{0.2cm}}
 }}
+
+\ifdefined\docsignatures
+	\newpage
+	\docsignatures
+\fi
+
+\ifdefined\dochistory
+	\newpage
+	\dochistory
+\fi
 \clearpage
 \pagestyle{plain}
