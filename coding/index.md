@@ -467,6 +467,22 @@ Operating system messages shall consist of, in that order:
 ```c
 lib_printf("main: Starting syspage programs (%d) and init\n", syspage->progssz);
 ```
+## Literals
+### PS-CODE-063
+The numeric literals suffixes shall be written with capital letters.
+
+### Example
+```c
+#define SIZE_PAGE 0x200U
+```
+
+### PS-CODE-063
+The numeric hexadecimal literals shall be written with small letters.
+
+### Example
+```c
+#define SIZE_PAGE 0xffU
+```
 
 ## Miscellaneous
 ### PS-CODE-062
