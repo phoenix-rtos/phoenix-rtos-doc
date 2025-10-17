@@ -107,6 +107,88 @@ The number of detected cores is presented during kernel initialization.
 
 ![Image](../_static/images/quickstart/qemu-ia32-generic-smp.png)
 
+## Network setup on ia32-generic-qemu
+
+- Note: This guide was tested on `Ubuntu 20.04 LTS` host OS.
+
+There are few steps to follow:
+
+ 1. Create and set up `vibr0` bridge on a host using `qemu-bridge-helper`:
+
+    - Install the required package and ensure that `libvirtd` is running:
+
+      ```console
+      sudo apt-get update
+      sudo apt-get install qemu-system-common
+      systemctl enable libvirtd.service
+      systemctl start libvirtd.service
+      ```
+
+    - Start the default network bridge, and configure it to run on startup.
+
+      ```console
+      sudo virsh net-autostart --network default
+      sudo virsh net-start --network default
+      ```
+
+    - After that verify that the IP range `192.168.122.1/24` is reported by the `vibr0` bridge:
+
+      ```console
+      ip addr show virbr0
+      ```
+
+    - The expected output:
+
+      ```console
+      virbr0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default qlen 1000
+         link/ether xx:xx:xx:xx:xx:xx brd ff:ff:ff:ff:ff:ff
+         inet 192.168.122.1/24 brd 192.168.122.255 scope global virbr0
+            valid_lft forever preferred_lft forever
+      ```
+
+    - Set up `qemu-bridge-helper` (`chmod` is used here to allow running QEMU without root privileges)
+
+      ```console
+      echo "allow virbr0" > /etc/qemu/bridge.conf
+      sudo chmod a+rw /etc/qemu/bridge.conf
+      ```
+
+    - If `/etc/qemu` directory does not exist, create it and provide required privileges:
+
+      ```console
+      sudo mkdir /etc/qemu
+      sudo chmod a+rw /etc/qemu
+      echo "allow virbr0" > /etc/qemu/bridge.conf
+      sudo chmod a+rw /etc/qemu/bridge.conf
+      ```
+
+      ![Image](../_static/images/quickstart/ia32_sdk_vibr_setup.png)
+
+    - Sources: <https://apiraino.github.io/qemu-bridge-networking/>,
+     <https://mike42.me/blog/2019-08-how-to-use-the-qemu-bridge-helper-on-debian-10>
+
+ 2. Launch `qemu` using a starting script with `net` suffix:
+
+      ```console
+      ./scripts/ia32-generic-qemu-net.sh
+      ```
+
+ 3. Configure network and run `ash` (Busybox applet) using `rc` script:
+
+      - Note: By default `IP` is assigned using `DHCP`. For other possibilities please check the configuration file
+       located in `_projects/ia32-generic-qemu/rootfs-overlay/etc/rc.conf.d/network`
+
+      - Note: There are other programs executed by the script. For more information please check the content of the `rc`
+       file for `ia32-generic-qemu` in `_projects/ia32-generic-qemu/rootfs-overlay/etc/rc`
+
+        ```console
+        /linuxrc
+        ```
+
+      - As you can see, the advanced version of `Phoenix-RTOS` with `POSIX` shell has been started:
+
+        ![Image](../_static/images/quickstart/ia32_linuxrc.png)
+
 ## Running image on regular hardware
 
 To run the image on regular hardware please be sure that a target system is equipped with an ATA disk supporting the
