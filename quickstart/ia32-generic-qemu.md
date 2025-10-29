@@ -231,7 +231,27 @@ sudo virsh net-start default
 ./scripts/ia32-generic-qemu-net.sh
 ```
 
-### 4. Configure network and run `ash` (Busybox applet) using `rc` script
+### 4. Configure network on the target
+
+This configuration can be done in two ways: using `psh` tools or `Busybox`.
+
+```{note}
+For now IPv6 configuration is possible only using `Busybox`.
+```
+
+#### Network configuration using `psh`
+
+Enable dynamic IP address assignment and set default gateway:
+
+```console
+ifconfig en1 dynamic
+route add default gw 192.168.122.1 en1
+```
+
+Here `192.168.122.1` is the address of the virtual bridge interface on the host pc.
+You should put a different address if applicable.
+
+#### Network configuration using `Busybox` and `rc` script
 
 ```{note}
 By default `IP` is assigned using `DHCP`. For other possibilities please check the configuration file
@@ -242,6 +262,8 @@ located in `_projects/ia32-generic-qemu/rootfs-overlay/etc/rc.conf.d/network`
 There are other programs executed by the script. For more information please check the content of the `rc`
 file for `ia32-generic-qemu` in `_projects/ia32-generic-qemu/rootfs-overlay/etc/rc`
 ```
+
+Run the script by calling:
 
 ```console
 /linuxrc
