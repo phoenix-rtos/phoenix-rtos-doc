@@ -6,10 +6,10 @@ The following table lists the directives and rules of the MISRA C:2023 standard 
 - **Category:** The rule's category as defined by the standard. By default, the Phoenix MISRA C Profile applies all `Required` and `Mandatory` rules.
 - **Applicability Change:** Shows any deviation from the standard's default applicability. `Advisory` rules may be `ENABLED`, while `Required` or `Mandatory` rules may be `DISABLED`. `NO` indicates no change.
 - **Applied:** A `**YES**`/`NO` indicator of whether the rule is active in the Phoenix MISRA C Profile.
-- **Change Comment:** Provides the justification for enabling or disabling a rule.
+- **Justification:** Provides the justification for enabling or disabling a rule.
 
 
-| ID ___________ | Category ____________ | Applicability Change _________________ | Applied __________ | Change Comment _______________________________ |
+| **ID** ___________ | **Category** ____________ | **Applicability Change** _________________ | **Applied** __________ | **Justification** _______________________________ |
 | --- | --- | --- | --- | --- |
 | Dir 1.1 | Required | NO | **YES** |  |
 | Dir 2.1 | Required | NO | **YES** |  |
@@ -101,10 +101,10 @@ The following table lists the directives and rules of the MISRA C:2023 standard 
 | Rule 10.8 | Required | NO | **YES** |  |
 | Rule 11.1 | Required | NO | **YES** |  |
 | Rule 11.2 | Required | NO | **YES** |  |
-| Rule 11.3 | Required | **DISABLED** | NO | This rule is not applicable for the Phoenix-RTOS kernel source code, because casting between different types of pointers can not be avoided in the operating system implementation. |
+| Rule 11.3 | Required | DISABLED | NO | This rule is not applicable for the Phoenix-RTOS kernel source code, because casting between different types of pointers can not be avoided in the operating system implementation. |
 | Rule 11.4 | Advisory | NO | NO |  |
-| Rule 11.5 | Advisory | **DISABLED** | NO | This rule is not applicable for the Phoenix-RTOS kernel source code, because casting between different types of pointers can not be avoided in the operating system implementation. |
-| Rule 11.6 | Required | **DISABLED** | NO | This rule is not applicable for the Phoenix-RTOS kernel source code, because casting between pointer to void and an arithmetic type can not be avoided inn the operating system implementation. |
+| Rule 11.5 | Advisory | DISABLED | NO | This rule is not applicable for the Phoenix-RTOS kernel source code, because casting between different types of pointers can not be avoided in the operating system implementation. |
+| Rule 11.6 | Required | DISABLED | NO | This rule is not applicable for the Phoenix-RTOS kernel source code, because casting between pointer to void and an arithmetic type can not be avoided inn the operating system implementation. |
 | Rule 11.7 | Required | NO | **YES** |  |
 | Rule 11.8 | Required | NO | **YES** |  |
 | Rule 11.9 | Required | NO | **YES** |  |
@@ -178,16 +178,16 @@ The following table lists the directives and rules of the MISRA C:2023 standard 
 | Rule 20.12 | Required | NO | **YES** |  |
 | Rule 20.13 | Required | NO | **YES** |  |
 | Rule 20.14 | Required | NO | **YES** |  |
-| Rule 21.1 | Required | **DISABLED** | NO | This rule is not applicable for Phoenix-RTOS kernel source code, because common identifiers are defined within its codebase. |
-| Rule 21.2 | Required | **DISABLED** | NO | This rule is not applicable for Phoenix-RTOS kernel source code, because common identifiers are defined within its codebase. |
+| Rule 21.1 | Required | DISABLED | NO | This rule is not applicable for Phoenix-RTOS kernel source code, because common identifiers are defined within its codebase. |
+| Rule 21.2 | Required | DISABLED | NO | This rule is not applicable for Phoenix-RTOS kernel source code, because common identifiers are defined within its codebase. |
 | Rule 21.3 | Required | NO | **YES** |  |
 | Rule 21.4 | Required | NO | **YES** |  |
-| Rule 21.5 | Required | **DISABLED** | NO | This rule is not applicable for the Phoenix-RTOS kernel source code, because <signal.h> is proprietary to its codebase and has defined behavior. |
+| Rule 21.5 | Required | DISABLED | NO | This rule is not applicable for the Phoenix-RTOS kernel source code, because <signal.h> is proprietary to its codebase and has defined behavior. |
 | Rule 21.6 | Required | NO | **YES** |  |
 | Rule 21.7 | Required | NO | **YES** |  |
 | Rule 21.8 | Required | NO | **YES** |  |
 | Rule 21.9 | Required | NO | **YES** |  |
-| Rule 21.10 | Required | **DISABLED** | NO | This rule is not applicable for the Phoenix-RTOS kernel source code, because date and time functions are proprietary to its codebase and has defined behavior.  |
+| Rule 21.10 | Required | DISABLED | NO | This rule is not applicable for the Phoenix-RTOS kernel source code, because date and time functions are proprietary to its codebase and has defined behavior.  |
 | Rule 21.11 | Advisory | NO | NO |  |
 | Rule 21.12 | Required | NO | **YES** |  |
 | Rule 21.13 | Mandatory | NO | **YES** |  |
