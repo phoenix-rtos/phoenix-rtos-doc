@@ -5,11 +5,11 @@ The following table lists the directives and rules of the MISRA C:2023 standard 
 - **ID:** The official directive or rule identifier from the MISRA C:2023 standard.
 - **Category:** The rule's category as defined by the standard. By default, the Phoenix MISRA C Profile applies all `Required` and `Mandatory` rules.
 - **Applicability Change:** Shows any deviation from the standard's default applicability. `Advisory` rules may be `ENABLED`, while `Required` or `Mandatory` rules may be `DISABLED`. `NO` indicates no change.
-- **Applied:** A `**YES**`/`NO` indicator of whether the rule is active in the Phoenix MISRA C Profile.
+- **Applied:** A `YES`/`NO` indicator of whether the rule is active in the Phoenix MISRA C Profile.
 - **Justification:** Provides the justification for enabling or disabling a rule.
 
 
-| **ID** ___________ | **Category** ____________ | **Applicability Change** _________________ | **Applied** __________ | **Justification** _______________________________ |
+| **ID** | **Category** | **Applicability Change** | **Applied** | **Justification** |
 | --- | --- | --- | --- | --- |
 | Dir 1.1 | Required | NO | **YES** |  |
 | Dir 2.1 | Required | NO | **YES** |  |
@@ -103,7 +103,7 @@ The following table lists the directives and rules of the MISRA C:2023 standard 
 | Rule 11.2 | Required | NO | **YES** |  |
 | Rule 11.3 | Required | DISABLED | NO | This rule is not applicable for the Phoenix-RTOS kernel source code, because casting between different types of pointers can not be avoided in the operating system implementation. |
 | Rule 11.4 | Advisory | NO | NO |  |
-| Rule 11.5 | Advisory | DISABLED | NO | This rule is not applicable for the Phoenix-RTOS kernel source code, because casting between different types of pointers can not be avoided in the operating system implementation. |
+| Rule 11.5 | Advisory | NO | NO |  |
 | Rule 11.6 | Required | DISABLED | NO | This rule is not applicable for the Phoenix-RTOS kernel source code, because casting between pointer to void and an arithmetic type can not be avoided inn the operating system implementation. |
 | Rule 11.7 | Required | NO | **YES** |  |
 | Rule 11.8 | Required | NO | **YES** |  |
