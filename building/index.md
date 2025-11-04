@@ -32,7 +32,10 @@ The Phoenix-RTOS reference project supports the following target platforms:
 - armv7m7-imxrt105x-evk
 - armv7m7-imxrt106x-evk
 - armv7m7-imxrt117x-evk
+- armv7r5f-zynqmp-qemu
 - armv8m33-mcxn94x-frdm
+- armv8m55-stm32n6-nucleo
+- armv8r52-mps3an536-qemu
 - host-generic-pc
 - ia32-generic-pc
 - ia32-generic-qemu
