@@ -107,8 +107,12 @@ Context is described using `cpu_contex_t` structure.
 ```{toctree}
 :maxdepth: 1
 
+aarch64.md
 armv7m.md
+armv7r.md
 armv7a.md
+armv8m.md
+armv8r.md
 ia32.md
 riscv64.md
 sparcv8leon.md
