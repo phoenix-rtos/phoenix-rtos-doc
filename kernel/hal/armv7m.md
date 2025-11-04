@@ -1,6 +1,6 @@
 # HAL for ARMv7 Cortex-M based targets
 
-ARMv7m HAL layer supports microcontrollers based on ARMv7 Cortex-Mx architecture. Source code is located in `hal/armv7m`
+ARMv7m HAL layer supports chips based on ARMv7 Cortex-Mx architecture. Source code is located in `hal/armv7m`
 directory.
 
 ## Initialization
