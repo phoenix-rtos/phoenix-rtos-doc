@@ -12,6 +12,18 @@ sudo apt update && \
 sudo apt install -y git
 ```
 
+Then, the repository should be cloned recursively (to get the submodules):
+
+```console
+git clone --recursive https://github.com/phoenix-rtos/phoenix-rtos-project.git
+```
+
+To execute the commands below, we should also enter the provided `phoenix-rtos-project` directory:
+
+```console
+cd phoenix-rtos-project
+```
+
 ## Supported target platforms
 
 To get a list of valid targets, the `build.sh` script should be launched with an empty `TARGET` variable, e.g.:
