@@ -35,3 +35,8 @@ MD033:
   # Allowed elements
   # nobr needed to avoid breaking target names in toctree
   allowed_elements: [img, details, summary, nobr]
+
+# MD024/no-duplicate-heading Multiple headings with the same content
+MD024:
+  # Ignore duplicates on different levels
+  siblings_only: true
