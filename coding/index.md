@@ -3,12 +3,17 @@
 ## Introduction
 
 This document defines the Software Code Standards to be followed when writing Phoenix-RTOS source code.
-It is organized into sections that group coding rules and recommendations by topic.
+It is organized into sections that group coding rules, recommendations by topic.
+Rules identify quality considerations that must always be followed unless an exception is approved by
+the Technical Coordinator and Quality Assurance Engineer, this has to be noted in the  Source code peer-review.
+
+Recommendations are practices which should be followed. Known exceptions have to be noted in the software coding
+peer review record.
+
 The identifiers referenced in this standard are:
 
 - `PS-CODE-RULE-XXX` for rules, which are formulated using `shall` what indicates mandatory action;
 - `PS-CODE-REC-XXX` for recommendations, which are formulated using `should`;
-- `PS-CODE-OPT-XXX` for possibilities and options, which are formulated using `could`.
 
 ### Note
 
@@ -95,7 +100,7 @@ The %LICENSE% macro is used to inject the license conditions.
 
 ### PS-CODE-REC-007
 
-Only characters from the standard ASCII range (0x20–0x7E) shell be used in source files.
+Only characters from the standard ASCII range (0x20–0x7E) should be used in source files.
 
 ## Indentation
 
@@ -167,7 +172,7 @@ Function names should be created according to the following schema `[_]<subsyste
 - `<subsystem>`is the name of subsystem or file in which function belongs
 - `<functionality>` is a brief sentence explaining the implemented functionality.
 
-### PS-CODE-REC-015
+#### Note
 
 Functions used only inside the selected subsystem could be named with the name of the module
 instead of the name of subsystem.
@@ -209,7 +214,7 @@ All external (i.e. non-static) symbols (including functions) of a library should
 
 #### Example
 
-Let's say we have library `libfoo` and it's function called `init`. This function must be prefixed with
+We have library `libfoo` and it's function called `init`. This function must be prefixed with
 either `foo` or `libfoo` - prefix has to be unique and be consistent within the library:
 
 ```c
@@ -236,11 +241,11 @@ as they can not also be `static`.
 int libfoo_bar_start();
 ```
 
-### PS_CODE-REC-023
+### PS-CODE-REC-023
 
 *Rule derived from MISRA C.*
 
-When function handler is an argument of a function it should be specified with explicit arguments:
+When function handler is an argument of a function it should be specified with explicit arguments.
 
 #### Example
 
@@ -359,7 +364,7 @@ The variables should not be used for different purposes across the function.
 
 ### PS-CODE-REC-037
 
-Static local variables could be used in libphoenix and userspace.
+Static local variables should be used in only libphoenix and userspace.
 
 #### Example
 
@@ -410,7 +415,7 @@ static struct {
 } pmap_common;
 ```
 
-### PS-CODE-REC-043
+#### Note
 
 The module name could be omitted in user space applications (i.e. not in the kernel) and name the structure `common`,
 only if static is used.
