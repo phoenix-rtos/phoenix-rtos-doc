@@ -17,9 +17,23 @@ exclude_patterns = ["README", "_build", "Thumbs.db", ".DS_Store", "_venv"]
 
 latexpdf_title = "Software Code Standards"
 latexpdf_author = "Bartłomiej Paczek"
+latexpdf_reviewer = 'Kamil Ber'
 latexpdf_date = datetime.today().strftime('%d-%m-%Y')
-latexpdf_version = "Rev. 0"
-latexpdf_filename = "PHOENIX-RTOS-DO178-STD-0003-Software_Code_Standards-0"
+latexpdf_version = "Rev. 1.0"
+latexpdf_filename = "PHOENIX-RTOS-DO178-STD-0003-Software_Code_Standards"
+latexpdf_dochistory = r'''
+        \begin{table}[h!]
+        \centering
+        \color{ps-darkblue}
+        \begin{tabular}{p{1cm}|p{8cm}|p{3cm}|p{2cm}}
+        \hline
+        \textbf{Rev.} & \textbf{Description} & \textbf{Elaborated by} & \textbf{Date} \\
+        \hline
+        0.1 & Initial draft & B. Paczek & 2025-12-01 \\
+        \hline
+        \end{tabular}
+        \end{table}
+        '''
 
 latex_documents = [
     ("index", f"{latexpdf_filename}.tex", latexpdf_title, author, "howto", False),
@@ -34,8 +48,10 @@ modified_elements = latex_default["elements"].copy()
 modified_elements["maketitle"] = fr'''
         \newcommand{{\doctitle}}{{{latexpdf_title}}}
         \newcommand{{\docauthor}}{{{latexpdf_author}}}
+        \newcommand{{\docreviewer}}{{{latexpdf_reviewer}}}
         \newcommand{{\docversion}}{{{latexpdf_version}}}
         \newcommand{{\docdate}}{{{latexpdf_date}}}
+        \newcommand{{\dochistory}}{{{latexpdf_dochistory}}}
 
     ''' + modified_elements["maketitle"]
 

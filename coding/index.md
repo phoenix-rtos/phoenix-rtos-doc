@@ -32,11 +32,11 @@ The code shall be compliant with C99 (without GNU extensions) standard.
 ### PS-CODE-RULE-002
 
 The code shall be compliant with the set of MISRA C 2023 (2012) defined in
-[Phoenix RTOS MISRA C Profile](./misracprofile.md) with justified local rule exemptions.
+[Phoenix RTOS MISRA C Profile](./misracprofile.rst) with justified local rule exemptions.
 
 ### PS-CODE-RULE-003
 
-Any local deviations from the [Phoenix RTOS MISRA C Profile](./misracprofile.md) rules
+Any local deviations from the [Phoenix RTOS MISRA C Profile](./misracprofile.rst) rules
 shall be justified within the code.
 
 ## File label
