@@ -127,7 +127,7 @@ int main(void)
     _proc_init(&main_common.kmap, &main_common.kernel);
     _syscalls_init();
 
-    lib_printf("DEBUG: starting first process...\n");
+lib_printf("DEBUG: starting first process...\n");
 
     /* Start init process */
     proc_start(main_initthr, NULL, (const char *)"init");
@@ -169,7 +169,7 @@ Functions should be separated with two `newline` characters.
 
 Function names should be created according to the following schema `[_]<subsystem>_<functionality>` where:
 
-- `<subsystem>`is the name of subsystem or file in which function belongs
+- `<subsystem>` is the name of subsystem or file in which function belongs
 - `<functionality>` is a brief sentence explaining the implemented functionality.
 
 #### Note
@@ -179,7 +179,7 @@ instead of the name of subsystem.
 
 ### PS-CODE-REC-016
 
-The subsystem name should be a one word.
+The subsystem name should consist of one word.
 
 ### PS-CODE-REC-017
 
@@ -187,7 +187,7 @@ The subsystem name should not contain the `underscore` characters.
 
 ### PS-CODE-REC-018
 
-The subsystem name should be written in camelCase format if more the one word is used.
+The subsystem name should be written in the camelCase format if more than one word is used.
 
 #### Example
 
@@ -202,15 +202,15 @@ for adding a node to a red-black tree or the internal function for adding an ite
 
 ### PS-CODE-REC-019
 
-Functions, which are used only internally in the file, where they are defined should be declared as `static`.
+Functions used only internally in the file, where they are defined, should be declared as `static`.
 
 ### PS-CODE-REC-020
 
-Functions exported outside the subsystem should be named with subsystem name only.
+Functions exported outside the subsystem should be named with the subsystem name only.
 
 ### PS-CODE-REC-021
 
-All external (i.e. non-static) symbols (including functions) of a library should be prefixed with a library name.
+All external (i.e. non-static) symbols (including functions) of a library should be prefixed with the library name.
 
 #### Example
 
@@ -261,10 +261,6 @@ Correct:
 int hal_cpuCreateContext(cpu_context_t **nctx, void (*start)(void *harg), void *kstack, size_t kstacksz, void *ustack, void *arg, hal_tls_t *tls)
 ```
 
-### PS-CODE-REC-024
-
-Function should be not longer than 200 lines of code and not shorter than 10 lines of code.
-
 ### PS-CODE-REC-025
 
 *Recommendation derived from MISRA C.*
@@ -311,6 +307,7 @@ When defining a variable, it should be assigned with a value (do not assume that
 
 ### PS-CODE-REC-031
 
+**In the kernel code always initialize global/static variables at runtime.** There's no `.bss` and
 `const` should be used whenever it is not expected or prohibited for value to change.
 
 ## Local variables - kernel
@@ -683,7 +680,7 @@ MACROS should not be used in the code.
 
 ### PS-CODE-REC-068
 
-The preprocessor conditionals like: `#if`, `ifdef` or `ifndef` should not be used in the code.
+The preprocessor conditionals like: `#if`, `#ifdef` or `#ifndef` should not be used in the code.
 
 #### Note
 
@@ -727,7 +724,7 @@ Operating system messages should consist of, in that order:
 #### Example
 
 ```c
-(void)hal_cpuReschedule(NULL, NULL);
+lib_printf("main: Starting syspage programs (%d) and init\n", syspage->progssz);
 ```
 
 ## Literals
