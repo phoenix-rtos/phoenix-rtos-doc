@@ -50,7 +50,7 @@ To communicate with the board you will need to use a UART-USB converter, like `P
 
   - On Ubuntu:
 
-  ```console
+  ```shell
     ls -l /dev/serial/by-id
   ```
 
@@ -58,21 +58,21 @@ To communicate with the board you will need to use a UART-USB converter, like `P
 
 - Open serial port in terminal using picocom
 
-  ```console
+  ```shell
   picocom -b 115200 --imap lfcrlf /dev/tty[port]
   ```
 
   <details>
   <summary>How to get picocom and run it without privileges (Ubuntu 22.04)</summary>
 
-  ```console
+  ```shell
   sudo apt update && \
   sudo apt install -y picocom
   ```
 
   To use picocom without sudo privileges run this command and then restart:
 
-  ```console
+  ```shell
   sudo usermod -a -G tty <yourname>
   ```
 
@@ -84,7 +84,7 @@ You can leave the terminal with the serial port open, and follow the next steps.
 
 To flash the image to the board you will need `openocd` in version 0.11 or 0.12. You can check it using
 
-```console
+```shell
 openocd -v
 ```
 
@@ -95,13 +95,13 @@ To install from the default repositoriy:
 
 - use `apt`
 
-  ```console
+  ```shell
   sudo apt install -y openocd
   ```
 
 - check if the version is correct
 
-  ```console
+  ```shell
   openocd -v
   ```
 
@@ -109,7 +109,7 @@ If you encounter errors install manually from sources (v0.12.0):
 
 - download, build and install `openocd-0.12.0-1` from sources
 
-  ```console
+  ```shell
   wget -O- https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/openocd/0.12.0-1build2/openocd_0.12.0.orig.tar.bz2 | \
   sudo tar xjvf - -C /usr/local/src && \
   cd /usr/local/src/openocd-0.12.0 && \
@@ -122,7 +122,7 @@ If you encounter errors install manually from sources (v0.12.0):
 
 - check if the version is correct
 
-  ```console
+  ```shell
   openocd -v
   ```
 
@@ -132,13 +132,13 @@ If you encounter errors install manually from sources (v0.12.0):
 
 If you have openocd, next you can use the following script:
 
-```console
+```shell
 sudo phoenix-rtos-build/scripts/program-stm32l4x6.sh _boot/armv7m4-stm32l4x6-nucleo/phoenix.disk
 ```
 
 or use openocd directly:
 
-```console
+```shell
 openocd -f interface/stlink.cfg \
 -f target/stm32l4x.cfg -c "reset_config srst_only srst_nogate connect_assert_srst" \
 -c "program _boot/armv7m4-stm32l4x6-nucleo/phoenix.disk 0x08000000 verify reset exit"
@@ -160,7 +160,7 @@ reset (using `RESET B2`).
 
 To get the available command list please type:
 
-```console
+```shell
 help
 ```
 
@@ -168,7 +168,7 @@ help
 
 To get the list of working processes please type:
 
-```console
+```shell
 ps
 ```
 

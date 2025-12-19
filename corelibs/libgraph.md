@@ -34,7 +34,7 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
 
   The app can be run using the following command:
 
-  ```console
+  ```shell
   /usr/bin/voxeldemo
   ```
 
@@ -47,7 +47,7 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
 
   The app can be run using the following command:
 
-  ```console
+  ```shell
   /usr/bin/rotrectangle
   ```
 
@@ -60,7 +60,7 @@ Examples of applications, which use graphics library (`ia32-generic-qemu` target
 
   The test can be run using the following command:
 
-  ```console
+  ```shell
   /bin/test_graph
   ```
 

@@ -15,7 +15,7 @@ Firstly, you need to install QEMU emulator.
 
 - Install the required packages
 
-  ```console
+  ```shell
   sudo apt update && \
   sudo apt install -y \
   qemu-system \
@@ -30,11 +30,11 @@ Firstly, you need to install QEMU emulator.
 
 - Check if QEMU is properly installed:
 
-  ```console
+  ```shell
   qemu-system-i386 --version
   ```
 
-  ```console
+  ```shell
   ~$ qemu-system-i386 --version
   QEMU emulator version 4.2.1 (Debian 1:4.2-3ubuntu6.24)
   Copyright (c) 2003-2019 Fabrice Bellard and the QEMU Project developers
@@ -46,7 +46,7 @@ Firstly, you need to install QEMU emulator.
 To run the system image under QEMU you should type the following command
 (launched from `phoenix-rtos-project` directory).
 
-```console
+```shell
 ./scripts/ia32-generic-qemu.sh
 ```
 
@@ -56,7 +56,7 @@ Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in 
 
 To get the available command list please type:
 
-```console
+```shell
 help
 ```
 
@@ -64,7 +64,7 @@ help
 
 In order to run one of the user applications you should type `/usr/bin/appname`, for example:
 
-```console
+```shell
 /usr/bin/voxeldemo
 ```
 
@@ -82,7 +82,7 @@ You can press `ctrl + c` to quit the voxeldemo app.
 
 To get the list of working processes please type:
 
-```console
+```shell
 ps
 ```
 
@@ -90,7 +90,7 @@ ps
 
 There is a possibility to run the ash shell, it can be launched using the following command.
 
-```console
+```shell
 /bin/ash
 ```
 
@@ -99,7 +99,7 @@ There is a possibility to run the ash shell, it can be launched using the follow
 Phoenix-RTOS image can be also launched on multiple processor cores. To do this please define the number of cores
 (e.g. 4) using the following command (launched from the `phoenix-rtos-project` directory).
 
-```console
+```shell
 qemu-system-i386 -hda _boot/phoenix-ia32-generic.disk -smp 4
 ```
 
@@ -119,7 +119,7 @@ There are few steps to follow:
 
 Install the required package and ensure that `libvirtd` is running:
 
-```console
+```shell
 sudo apt update
 sudo apt install qemu-system-common libvirt-clients libvirt-daemon
 systemctl enable libvirtd.service
@@ -128,20 +128,20 @@ systemctl start libvirtd.service
 
 Start the default network bridge, and configure it to run on startup.
 
-```console
+```shell
 sudo virsh net-autostart --network default
 sudo virsh net-start --network default
 ```
 
 After that verify that the IP range `192.168.122.1/24` is reported by the `vibr0` bridge:
 
-```console
+```shell
 ip addr show virbr0
 ```
 
 The expected output:
 
-```console
+```shell
 virbr0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default qlen 1000
   link/ether xx:xx:xx:xx:xx:xx brd ff:ff:ff:ff:ff:ff
   inet 192.168.122.1/24 brd 192.168.122.255 scope global virbr0
@@ -150,14 +150,14 @@ virbr0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN gr
 
 If `/etc/qemu` directory does not exist, create it and provide required privileges:
 
-```console
+```shell
 sudo mkdir /etc/qemu
 sudo chmod 755 /etc/qemu
 ```
 
 Provide bridge configuration for QEMU:
 
-```console
+```shell
 echo "allow virbr0" | sudo tee -a /etc/qemu/bridge.conf > /dev/null
 sudo chmod 644 /etc/qemu/bridge.conf
 ```
@@ -169,7 +169,7 @@ Mind that setting this permission is not fully secure.
 See this [discussion](https://bugs.launchpad.net/ubuntu/+source/qemu/+bug/1882420).
 ```
 
-```console
+```shell
 sudo chmod u+s /usr/lib/qemu/qemu-bridge-helper
 ```
 
@@ -227,7 +227,7 @@ sudo virsh net-start default
 
 ### 3. Launch QEMU using a starting script with `net` suffix
 
-```console
+```shell
 ./scripts/ia32-generic-qemu-net.sh
 ```
 
@@ -243,7 +243,7 @@ For now IPv6 configuration is possible only using `Busybox`.
 
 Enable dynamic IP address assignment and set default gateway:
 
-```console
+```shell
 ifconfig en1 dynamic
 route add default gw 192.168.122.1 en1
 ```
@@ -265,7 +265,7 @@ file for `ia32-generic-qemu` in `_projects/ia32-generic-qemu/rootfs-overlay/etc/
 
 Run the script by calling:
 
-```console
+```shell
 /linuxrc
 ```
 
@@ -283,6 +283,6 @@ To run the image on regular hardware please be sure that a target system is equi
 PATA interface. The image should be copied to the boot disk using the `dd` command (it is assumed that the target
 disk is represented by /dev/sda block device).
 
-```console
+```shell
 dd if=_boot/ia32-generic-pc/phoenix.disk of=/dev/sda
 ```

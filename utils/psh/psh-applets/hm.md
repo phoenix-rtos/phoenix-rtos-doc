@@ -5,7 +5,7 @@ these applications remain active, automatically respawning them if they terminat
 
 ## Usage
 
-```console
+```shell
 hm progname1[@argv[0]@argv[1]@...argv[n]] [progname2...]
 ```
 

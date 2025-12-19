@@ -26,7 +26,7 @@ To load the Phoenix-RTOS system image to the board, you will need to use the `GR
 
 Launch the `GRMON` monitor using the following command:
 
-```console
+```shell
 grmon -digilent
 ```
 
@@ -34,23 +34,23 @@ The `-digilent` parameter specifies the Digilent JTAG adapter.
 
 Load the Phoenix-RTOS system image to the RAM by running the following commands in the `GRMON`:
 
-```console
+```shell
 load _boot/riscv64-grfpga-artya7/sbi-grfpga.elf
 ```
 
-```console
+```shell
 load -binary _boot/riscv64-grfpga-artya7/phoenix.disk 0x08000000
 ```
 
 Set entry point of the program:
 
-```console
+```shell
 ep 0x0
 ```
 
 Check on which port the board is connected to the computer. To do this, run the following command:
 
-```console
+```shell
 ls -l /dev/serial/by-id
 ```
 
@@ -59,13 +59,13 @@ ls -l /dev/serial/by-id
 In this case, the serial port to use is `/dev/ttyUSB1`. Open the terminal emulator and connect to the board using the
 following command:
 
-```console
+```shell
 picocom -b 115200 --imap lfcrlf /dev/ttyUSB1
 ```
 
 To start the Phoenix-RTOS system, execute the following command in the `GRMON` monitor:
 
-```console
+```shell
 run
 ```
 

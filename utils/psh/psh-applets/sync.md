@@ -5,7 +5,7 @@ are written to the physical storage device.
 
 ## Usage
 
-```console
+```shell
 sync <device path>
 ```
 

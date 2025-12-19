@@ -18,7 +18,7 @@ Firstly, you need to have the docker installed.
 
 - Install required packages
 
-  ```console
+  ```shell
   sudo apt-get update && \
   sudo apt-get install curl \
   ca-certificates \
@@ -28,7 +28,7 @@ Firstly, you need to have the docker installed.
 
 - Make docker packages available
 
-  ```console
+  ```shell
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg && \
   echo \
   "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
@@ -37,14 +37,14 @@ Firstly, you need to have the docker installed.
 
 - Install docker packages
 
-  ```console
+  ```shell
   sudo apt-get update && \
   sudo apt-get install docker-ce docker-ce-cli containerd.io
   ```
 
 - Check if Docker is properly installed (version can be different):
 
-  ```console
+  ```shell
   sudo docker --version
   ```
 
@@ -52,20 +52,20 @@ Firstly, you need to have the docker installed.
 
 - To make calling docker command without `sudo` possible type:
 
-  ```console
+  ```shell
   sudo groupadd docker
   ```
 
   Even if group `docker` already exists type then:
 
-  ```console
+  ```shell
   sudo usermod -aG docker $USER && \
   newgrp docker
   ```
 
 - Check if running docker images without sudo works properly:
 
-  ```console
+  ```shell
   docker run hello-world
   ```
 
@@ -79,7 +79,7 @@ Firstly, you need to have the docker installed.
 
 Now, with docker installed you can run Phoenix-RTOS using the following command:
 
-```console
+```shell
 ./docker-devel.sh scripts/armv7a9-zynq7000-qemu.sh
 ```
 
@@ -102,7 +102,7 @@ As a result, you should see `psh` (Phoenix-RTOS shell).
 
 To get the available command list please type:
 
-```console
+```shell
 help
 ```
 
@@ -110,7 +110,7 @@ help
 
 If you want to get the list of working processes please type:
 
-```console
+```shell
 ps
 ```
 
@@ -118,7 +118,7 @@ ps
 
 To get the table of processes please type:
 
-```console
+```shell
 top
 ```
 

@@ -54,7 +54,7 @@ The onboard UART-USB converter is used here.
 
   - On Ubuntu:
 
-  ```console
+  ```shell
   ls -l /dev/serial/by-id
   ```
 
@@ -65,7 +65,7 @@ The onboard UART-USB converter is used here.
 - When the board is connected to your host-pc,
  open serial port in terminal using picocom and type the console port (in this case ACM0)
 
-  ```console
+  ```shell
   picocom -b 115200 --imap lfcrlf /dev/tty[port]
   ```
 
@@ -73,14 +73,14 @@ The onboard UART-USB converter is used here.
 
 <summary>How to get picocom and run it without privileges (Ubuntu 22.04)</summary>
 
-```console
+```shell
 sudo apt-get update && \
 sudo apt-get install picocom
 ```
 
 To use picocom without sudo privileges run this command and then restart:
 
-```console
+```shell
 sudo usermod -a -G tty <yourname>
 ```
 
@@ -118,7 +118,7 @@ Without erasure `jffs2` may encounter data from the previous flash operation and
  during the system startup may occur.
 That's why we have to run erase using plo command specific to `jffs2` file system:
 
-```console
+```shell
 jffs2 -d 2.0 -e -c 0x80:0x100:0x10000:16
 ```
 
@@ -145,7 +145,7 @@ You can check that using `ls` as follow:
 
 - On Ubuntu:
 
-```console
+```shell
 ls -l /dev/serial/by-id
 ```
 
@@ -154,11 +154,11 @@ ls -l /dev/serial/by-id
 To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments
  (choose suitable ttyACMx device, in this case, ttyACM1):
 
-```console
+```shell
 cd _boot/armv7a9-zynq7000-zedboard
 ```
 
-```console
+```shell
 sudo ./phoenixd -p /dev/tty[port] -b 115200 -s .
 ```
 
@@ -166,7 +166,7 @@ sudo ./phoenixd -p /dev/tty[port] -b 115200 -s .
 
 To start copying the file, write the following command in the console with plo interface:
 
-```console
+```shell
 copy usb0 phoenix.disk flash0 0x0 0x0
 ```
 
@@ -193,7 +193,7 @@ To run it you should follow the steps below:
 
   - On Ubuntu:
 
-  ```console
+  ```shell
   ls -l /dev/serial/by-id/
   ```
 
@@ -201,7 +201,7 @@ To run it you should follow the steps below:
 
 - connect to that port:
 
-  ```console
+  ```shell
   picocom -b 115200 --imap lfcrlf /dev/tty[port]
   ```
 
@@ -213,7 +213,7 @@ To run it you should follow the steps below:
 
 To get the available command list please type:
 
-```console
+```shell
 help
 ```
 
@@ -221,7 +221,7 @@ help
 
 If you want to get the list of working processes please type:
 
-```console
+```shell
 ps
 ```
 
@@ -229,7 +229,7 @@ ps
 
 To get the table of processes please type:
 
-```console
+```shell
 top
 ```
 

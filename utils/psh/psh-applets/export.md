@@ -6,7 +6,7 @@ and other programs.
 
 ## Usage
 
-```console
+```shell
 export [NAME[=value] ...]
 ```
 

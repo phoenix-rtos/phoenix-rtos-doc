@@ -322,6 +322,6 @@ Phoenix-RTOS libcache library provides a set of functional tests that are availa
 [phoenix-rtos-tests](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master). The tests can be run for
 different platforms, e.g. `ia32-generic-qemu` target:
 
-```console
+```shell
 python3 phoenix-rtos-tests/runner.py -T ia32-generic-qemu -t phoenix-rtos-tests/libcache
 ```

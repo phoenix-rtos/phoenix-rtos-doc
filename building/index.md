@@ -54,7 +54,7 @@ List of all valid targets can be seen using the `build.sh` script with `TARGET` 
 To build Phoenix-RTOS system image build.sh script is used. The simplest way to build the image is the
 following command.
 
-```console
+```shell
 TARGET=ia32-generic-qemu phoenix-rtos-build/build.sh all
 ```
 
@@ -62,7 +62,7 @@ As you can see there can be other arguments like `all`.
 
 You can also use the `clean` argument to clean the last build artifacts.
 
-```console
+```shell
 TARGET=ia32-generic-qemu phoenix-rtos-build/build.sh clean all
 ```
 
@@ -90,14 +90,14 @@ For the other targets, `all` can be different components configurations. </br>
 The `ports` component compiling process can take a while. If you need to build the system image quickly, you can use
 the command above.
 
-```console
+```shell
 TARGET=ia32-generic-qemu phoenix-rtos-build/build.sh core fs image project test
 ```
 
 For ia32-generic-qemu target, running the system in a separate window isn't the only option. There is the possibility
 to run it in a terminal, in that case, you have to set a few other variables.
 
-```console
+```shell
 TARGET=ia32-generic-qemu CONSOLE=serial ./phoenix-rtos-build/build.sh all
 ```
 

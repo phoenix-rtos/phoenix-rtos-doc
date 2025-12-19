@@ -5,6 +5,6 @@ returns the cursor to the top-left position of the screen, providing a clean wor
 
 ## Usage
 
-```console
+```shell
 clear
 ```

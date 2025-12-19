@@ -16,7 +16,7 @@ Firstly, you need to install QEMU emulator.
 
 - Install the required packages
 
-  ```console
+  ```shell
   sudo apt update && \
   sudo apt install -y \
   qemu-system \
@@ -31,11 +31,11 @@ Firstly, you need to install QEMU emulator.
 
 - Check if QEMU is properly installed:
 
-  ```console
+  ```shell
   qemu-system-riscv64 --version
   ```
 
-  ```console
+  ```shell
   ~$ qemu-system-riscv64 --version
   QEMU emulator version 4.2.1 (Debian 1:4.2-3ubuntu6.24)
   Copyright (c) 2003-2019 Fabrice Bellard and the QEMU Project developers
@@ -46,7 +46,7 @@ Firstly, you need to install QEMU emulator.
 
 To run the image under QEMU you should type:
 
-```console
+```shell
 ./scripts/riscv64-generic-qemu.sh
 ```
 
@@ -59,7 +59,7 @@ To run the image under QEMU you should type:
 Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal. To get the available
 command list please type:
 
-```console
+```shell
 help
 ```
 
@@ -67,7 +67,7 @@ help
 
 To get the list of working processes please type:
 
-```console
+```shell
 ps
 ```
 

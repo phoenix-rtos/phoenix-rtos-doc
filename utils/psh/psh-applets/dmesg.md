@@ -4,7 +4,7 @@
 
 ## Usage
 
-```console
+```shell
 dmesg [options]
 ```
 

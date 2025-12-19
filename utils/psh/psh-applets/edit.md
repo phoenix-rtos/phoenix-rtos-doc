@@ -7,7 +7,7 @@ directly on the device with Phoenix-RTOS or simply to take notes.
 Once `edit` command is entered at the `psh` prompt, hint message will be
 printed:
 
-```console
+```shell
 Usage: edit <file name>
 ```
 

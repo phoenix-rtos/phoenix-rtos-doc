@@ -6,7 +6,7 @@ The `df` utility prints mounted filesystem statistics (disk space/inodes usage).
 
 If used with `-h` parameter it prints the help message with possible arguments and parameters as follows:
 
-```console
+```shell
 Usage: df [options] [files]
   -T: print filesystem type
   -i: print inode information instead of block usage

@@ -5,7 +5,7 @@ and send other types of signals for various purposes.
 
 ## Usage
 
-```console
+```shell
 kill [-s signal | -signal] <pid [...]>
 ```
 

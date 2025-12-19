@@ -6,7 +6,7 @@ partitions, copying regions of raw device files, and converting data formats.
 
 ## Usage
 
-```console
+```shell
 dd [OPERAND]...
 ```
 
@@ -35,18 +35,18 @@ dd [OPERAND]...
 
 Copy a file with a specific block size:
 
-```console
+```shell
 dd if=input.txt of=output.txt bs=1M
 ```
 
 Create a disk image:
 
-```console
+```shell
 dd if=/dev/sda of=disk.img bs=4M
 ```
 
 Convert and copy data with no truncation
 
-```console
+```shell
 dd if=input.dat of=output.dat conv=notrunc
 ```

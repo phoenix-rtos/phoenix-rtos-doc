@@ -47,7 +47,7 @@ load new plo use SD card, otherwise you can simply load plo from QSPI flash.
 
 - Now you should verify, what USB device on your host-pc is connected with the `UART` (console). To check that run:
 
-  ```console
+  ```shell
   ls -l /dev/serial/by-id
   ```
 
@@ -58,7 +58,7 @@ load new plo use SD card, otherwise you can simply load plo from QSPI flash.
 - When the board is connected to your host-pc, open serial port in terminal using picocom and type the console port
   (in this case USB0)
 
-  ```console
+  ```shell
   picocom -b 115200 --imap lfcrlf /dev/ttyUSB0
   ```
 
@@ -69,14 +69,14 @@ load new plo use SD card, otherwise you can simply load plo from QSPI flash.
   <details>
   <summary>How to get picocom (Ubuntu 20.04)</summary>
 
-  ```console
+  ```shell
   sudo apt-get update && \
   sudo apt-get install picocom
   ```
 
   To use picocom without sudo privileges run this command and then restart:
 
-  ```console
+  ```shell
   sudo usermod -a -G dialout <yourname>
   ```
 
@@ -115,7 +115,7 @@ If you want to flash the system image please follow the next steps.
 To flash the disk image, first, you need to verify on which port plo USB device has appeared. You can check that using
 `ls` as follows:
 
-```console
+```shell
 ls -l /dev/serial/by-id
 ```
 
@@ -124,11 +124,11 @@ ls -l /dev/serial/by-id
 To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments (choose suitable
 ttyACMx device, in this case, ttyACM0):
 
-```console
+```shell
 cd _boot/armv7a9-zynq7000-zturn
 ```
 
-```console
+```shell
 sudo ./phoenixd -p /dev/ttyACM0 -b 115200 -s .
 ```
 
@@ -147,7 +147,7 @@ Without erasure `jffs2` may encounter data from the previous flash operation and
  during the system startup may occur.
 That's why we have run erase using plo command specific to `jffs2` file system:
 
-```console
+```shell
 jffs2 -d 2.0 -e -c 0x80:0x80:0x10000:16
 ```
 
@@ -169,7 +169,7 @@ Please wait until erasing is finished.
 
 To start copying the file, write the following command in the console with plo interface:
 
-```console
+```shell
 copy usb0 phoenix.disk flash0 0x0 0x0
 ```
 
@@ -190,7 +190,7 @@ To run it you should follow the steps below:
 
 - Check which port the console appeared on:
 
-  ```console
+  ```shell
   ls -l /dev/serial/by-id/
   ```
 
@@ -198,7 +198,7 @@ To run it you should follow the steps below:
 
 - connect to that port:
 
-  ```console
+  ```shell
   picocom -b 115200 --imap lfcrlf /dev/ttyACM0
   ```
 
@@ -214,7 +214,7 @@ Psh prompt indicates that everything is up and running.
 
 To get the available command list please type:
 
-```console
+```shell
 help
 ```
 
@@ -222,7 +222,7 @@ help
 
 If you want to get the list of working processes please type:
 
-```console
+```shell
 ps
 ```
 
@@ -230,7 +230,7 @@ ps
 
 To get the table of processes please type:
 
-```console
+```shell
 top
 ```
 

@@ -4,7 +4,7 @@
 
 ## Usage
 
-```console
+```shell
 rm [-d] FILE...
 ```
 
@@ -20,12 +20,12 @@ rm [-d] FILE...
 
 Remove a File:
 
-```console
+```shell
 rm file.txt
 ```
 
 Remove an Empty Directory:
 
-```console
+```shell
 rm -d dir
 ```

@@ -7,7 +7,7 @@
 
 When running `ping` with `-h` parameter the help message is displayed as follows:
 
-```console
+```shell
 Usage: ping [options] address
 Options
   -h:  prints help

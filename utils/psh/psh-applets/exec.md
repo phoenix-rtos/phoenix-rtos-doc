@@ -7,7 +7,7 @@ file.
 
 If used without any parameters specified it prints help message as follows:
 
-```console
+```shell
 usage: %s command [args]...
 ```
 
@@ -15,7 +15,7 @@ Where `[args]` are arguments passed to the file/command being executed.
 
 As an example a new `psh` can be run using the `exec` command:
 
-```console
+```shell
 exec /bin/psh
 ```
 

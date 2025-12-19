@@ -4,7 +4,7 @@
 
 ## Usage
 
-```console
+```shell
 rmdir [-p] DIRECTORY...
 ```
 
@@ -22,12 +22,12 @@ These directories must be empty for the operation to succeed.
 
 Remove a Single Empty Directory:
 
-```console
+```shell
 rmdir dir
 ```
 
 Remove a Directory and Its Empty Parents:
 
-```console
+```shell
 rmdir -p dir/emptydir/anotheremptydir
 ```

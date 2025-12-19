@@ -6,7 +6,7 @@ names please refer to [top](top.md) applet.
 ---
 When running `ps` with `-h` parameter the help message is displayed as follows:
 
-```console
+```shell
 Usage: ping [options] address
 Options
   Usage: ps [options]

@@ -18,7 +18,7 @@ It is built along with the `armv8m33-mcxn94x-frdm` and available in the `_boot` 
 
 Usage:
 
-```console
+```shell
 $ ./mcxisp
 MCX N94x series UART ISP util
 Usage: ./mcxisp -f program file -t ISP tty
@@ -27,7 +27,7 @@ Usage: ./mcxisp -f program file -t ISP tty
 Connect the board via the `MCU LINK` USB-C port. TTY link will become available. To find out the assigned tty
 device:
 
-```console
+```shell
 # dmesg
 (...)
 usb 1-1.1: Product: MCU-LINK FRDM-MCXN947 (r0E7) CMSIS-DAP V3.128
@@ -42,13 +42,13 @@ momentarily press the `Reset` button. MCX N947 will enter the ISP mode and `MCXI
 
 To upload the image:
 
-```console
+```shell
 ./mcxisp -f phoenix.disk -t /dev/ttyACM0
 ```
 
 The image will be uploaded:
 
-```console
+```shell
 Connecting to the target...
 Connected.
 Flash erase...
@@ -77,7 +77,7 @@ Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in 
 
 To get the available command list type:
 
-```console
+```shell
 help
 ```
 
@@ -85,7 +85,7 @@ help
 
 To get the list of working processes type:
 
-```console
+```shell
 ps
 ```
 

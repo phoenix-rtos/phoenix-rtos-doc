@@ -8,7 +8,7 @@ In general, a memory map is a structure of data that indicates how memory is arr
 ---
 Usage:
 
-```console
+```shell
 mem [options]
 Options:
   -p:  prints pages map

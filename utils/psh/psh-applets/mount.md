@@ -6,7 +6,7 @@ within the system's directory structure.
 
 ## Usage
 
-```console
+```shell
 mount <source> <target> <fstype> <mode> [data]
 ```
 

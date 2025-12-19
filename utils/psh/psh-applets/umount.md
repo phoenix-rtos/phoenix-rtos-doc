@@ -4,7 +4,7 @@ The `umount` utility unmounts a filesystem.
 
 ---
 
-```console
+```shell
 Usage: umount [target]
 ```
 
