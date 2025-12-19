@@ -1,7 +1,7 @@
-/* The default Pygments style for the Furo theme is Tango, and it's not possible to simply change it to a different one.
+/* The default Pygments (library for syntax highlighting) style for the Furo theme is Tango,
+and it's not possible to simply change it to a different one.
 Furo overrides the style even when pygments_style is set in conf.py.
-The most convenient way is to override the colors in a custom CSS file.
-Changes are made because colors in the default tango style are too bright.*/
+The most convenient way is to override the colors in a custom CSS file. */
 
 /* Override number colors [code blocks] */
 .highlight .m,
@@ -19,3 +19,9 @@ Changes are made because colors in the default tango style are too bright.*/
         color: #204A87 !important;
         font-weight: bold !important;
     }
+
+/* Disable commands coloring - since many bash/Phoenix commands aren't colored anyway */
+.highlight .nb {
+    color: inherit !important;
+    font-weight: normal !important;
+}
