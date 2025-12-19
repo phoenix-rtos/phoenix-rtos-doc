@@ -1,0 +1,21 @@
+/* The default Pygments style for the Furo theme is Tango, and it's not possible to simply change it to a different one.
+Furo overrides the style even when pygments_style is set in conf.py.
+The most convenient way is to override the colors in a custom CSS file.
+Changes are made because colors in the default tango style are too bright.*/
+
+/* Override number colors [code blocks] */
+.highlight .m,
+.highlight .mi,
+.highlight .mf,
+.highlight .mh,
+.highlight .il,
+.highlight .mo {
+    color: inherit !important;
+    font-weight: normal !important;
+}
+
+/* Set the same color for operators as for .kt [code blocks] */
+.highlight .o {
+        color: #204A87 !important;
+        font-weight: bold !important;
+    }
