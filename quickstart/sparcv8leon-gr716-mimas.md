@@ -40,7 +40,7 @@ repository.
 To load the disk image on the board, first step is to verify which device the `plo` serial interface is connected to
 using the following command:
 
-```bash
+```shell
 ls -l /dev/serial/by-id
 ```
 
@@ -54,19 +54,19 @@ To provide the disk image to the bootloader, `phoenixd` has to be launched with 
 we can just move to the desired folder and use `.` to point to the current directory.
 To do that simply type:
 
-```bash
+```shell
 cd _boot/sparcv8leon-gr716-mimas
 ```
 
 then
 
-```bash
+```shell
 sudo ./phoenixd -p /dev/ttyUSB[X] -b 115200 -s .
 ```
 
 In a second terminal start `picocom` using the following command:
 
-```bash
+```shell
 picocom --imap lfcrlf -b 115200 -r -l /dev/ttyUSB[X] --send-cmd cat
 ```
 
@@ -97,7 +97,7 @@ help
 
 To get the list of working processes type:
 
-```bash
+```shell
 ps
 ```
 

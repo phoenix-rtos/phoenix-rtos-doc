@@ -9,7 +9,7 @@ specifically targeting devices like `imxrt106x`, `imxrt117x`, and `imx6ull`.
 
 To use `psu`, follow the syntax:
 
-```bash
+```shell
 psu [OPTIONS] script_path
 ```
 
@@ -20,7 +20,7 @@ Options:
 
 ## Example Usage
 
-```bash
+```shell
 psu -t 15 script.sdp
 ```
 

@@ -19,20 +19,20 @@ FTDI JTAG interface, as described in the [GRMON2 User Manual](https://www.gaisle
 
 Erase the flash and upload the system image to the flash memory using the following command:
 
-```bash
+```shell
 flash erase all
 flash load phoenix-rtos-project/_boot/sparcv8leon-gr712rc-board/phoenix.disk 0x0
 ```
 
 Then, load the partition table to the last sector of the flash memory using the following command:
 
-```bash
+```shell
 flash load phoenix-rtos-project/_boot/sparcv8leon-gr712rc-board/ptable.img 0x7f0000
 ```
 
 To run the system, set entry point to address `0x0` and start the CPU using the following commands:
 
-```bash
+```shell
 ep 0x0
 run
 ```
