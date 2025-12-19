@@ -12,7 +12,7 @@ desired command. See [Applets](#applets) for a list of available commands.
 
 If the `psh` command is run with `-h` parameter the help message is displayed as follows:
 
-```bash
+```shell
 usage: psh [options] [script path] or no args to run shell interactively
   -i <script path>:  selects psh script to execute
   -h: shows this help message

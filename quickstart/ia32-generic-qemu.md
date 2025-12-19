@@ -178,7 +178,7 @@ Sources used: <https://apiraino.github.io/qemu-bridge-networking/>,
 
 ### 2. If IPv6 is needed, change the configuration of `virbr0`
 
-```bash
+```shell
 sudo virsh net-destroy default
 sudo virsh net-edit default
 ```
@@ -221,7 +221,7 @@ The overall config should look something like this:
 
 Save the config file and start the bridge by running:
 
-```bash
+```shell
 sudo virsh net-start default
 ```
 

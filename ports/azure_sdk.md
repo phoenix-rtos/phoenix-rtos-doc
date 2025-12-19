@@ -20,7 +20,7 @@ Each device has its connection string, which will be needed in the following ins
 
 First, please build the project with the `ports` component and set `AZURE_CONNECTION_STRING` (see below):
 
-```Bash
+```shell
 TARGET=ia32-generic-qemu AZURE_CONNECTION_STRING="HostName=test-hub.azure-devices.net;DeviceId=ia32-generic-qemu;SharedAccessKey=xxxxxxxxx=" ./phoenix-rtos-build/build.sh clean all
 ```
 

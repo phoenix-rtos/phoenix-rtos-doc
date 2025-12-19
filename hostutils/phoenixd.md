@@ -7,7 +7,7 @@ Operates as a background service, listening for incoming requests and responding
 
 ## Usage
 
-```bash
+```shell
 phoenixd [-1] [-k kernel] [-s bindir] [-p serial_device] [-m pipe_file] [-i udp_ip_addr:port] [-t tcp_ip_addr:port] [-u load_addr[:jump_addr]] [-b baudrate] [-o output_file]
 ```
 
