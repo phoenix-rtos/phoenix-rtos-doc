@@ -7,20 +7,20 @@ The first step of the preparation of the final system image is repository clonin
 To do this and make the following instructions possible, it’s recommended to update the currently installed packages
 and, if necessary, install `git`:
 
-```console
+```shell
 sudo apt update && \
 sudo apt install -y git
 ```
 
 Then, the repository should be cloned recursively (to get the submodules):
 
-```console
+```shell
 git clone --recursive https://github.com/phoenix-rtos/phoenix-rtos-project.git
 ```
 
 To execute the commands below, we should also enter the provided `phoenix-rtos-project` directory:
 
-```console
+```shell
 cd phoenix-rtos-project
 ```
 
@@ -28,7 +28,7 @@ cd phoenix-rtos-project
 
 To get a list of valid targets, the `build.sh` script should be launched with an empty `TARGET` variable, e.g.:
 
-```console
+```shell
 ./phoenix-rtos-build/build.sh
 ```
 
@@ -45,7 +45,7 @@ Firstly, you need to have `Docker` installed.
 
 - Install required packages
 
-  ```console
+  ```shell
   sudo apt update && sudo apt install -y \
   curl \
   ca-certificates \
@@ -55,7 +55,7 @@ Firstly, you need to have `Docker` installed.
 
 - Make docker packages available
 
-  ```console
+  ```shell
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | \
   sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg && \
   echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] " \
@@ -65,14 +65,14 @@ Firstly, you need to have `Docker` installed.
 
 - Install docker packages
 
-  ```console
+  ```shell
   sudo apt-get update && \
   sudo apt-get install docker-ce docker-ce-cli containerd.io
   ```
 
 - Check if Docker is properly installed (version can be different):
 
-  ```console
+  ```shell
   sudo docker --version
   ```
 
@@ -80,20 +80,20 @@ Firstly, you need to have `Docker` installed.
 
 - To make calling docker command without `sudo` possible type:
 
-  ```console
+  ```shell
   sudo groupadd docker
   ```
 
   Even if group `docker` already exists type then:
 
-  ```console
+  ```shell
   sudo usermod -aG docker $USER && \
   newgrp docker
   ```
 
 - Check if running docker images without sudo works properly:
 
-  ```console
+  ```shell
   docker run hello-world
   ```
 
@@ -107,7 +107,7 @@ Firstly, you need to have `Docker` installed.
 
 Then, to build, run build script with `TARGET` environment variable:
 
-```console
+```shell
 TARGET=ia32-generic-qemu ./docker-build.sh all
 ```
 
@@ -118,7 +118,7 @@ After the build completes, kernel and disk images will be created and placed in 
 If you prefer, you can build the toolchain from source yourself. Before doing so, run the command below
 to ensure that the prerequisites listed below are installed.
 
-```console
+```shell
 sudo apt update && sudo apt install -y \
 build-essential mtd-utils autoconf \
 pkg-config texinfo genext2fs \
@@ -129,23 +129,23 @@ python3-jinja2 python3-yaml
 In the phoenix-rtos-build/toolchain directory, run one of the following command to build the toolchain
 for the specific architecture:
 
-```console
+```shell
 ./build-toolchain.sh i386-pc-phoenix ~/toolchains/i386-pc-phoenix
 ```
 
-```console
+```shell
 ./build-toolchain.sh arm-phoenix ~/toolchains/arm-phoenix
 ```
 
-```console
+```shell
 ./build-toolchain.sh aarch64-phoenix ~/toolchains/aarch64-phoenix
 ```
 
-```console
+```shell
 ./build-toolchain.sh riscv64-phoenix ~/toolchains/riscv64-phoenix
 ```
 
-```console
+```shell
 ./build-toolchain.sh sparc-phoenix ~/toolchains/sparc-phoenix
 ```
 
@@ -163,7 +163,7 @@ the `toolchains` directory are broken for some reason. Removing a directory for 
 Then update your `PATH` variable. To make that change persistent across sessions, add the following command to your
 shell configuration file (e.g. `~/.bashrc`):
 
-```console
+```shell
 echo 'export PATH=$PATH \
       :$HOME/toolchains/i386-pc-phoenix/i386-pc-phoenix/bin \
       :$HOME/toolchains/arm-phoenix/arm-phoenix/bin \

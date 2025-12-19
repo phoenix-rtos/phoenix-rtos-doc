@@ -22,7 +22,7 @@ The process comes down to a few steps, described below.
 
 First, check on which JTAG channel the `GRMON` detects the board. To do this, run the following command:
 
-```console
+```shell
 grmon -ftdi -jtaglist
 ```
 
@@ -31,7 +31,7 @@ grmon -ftdi -jtaglist
 The JTAG connection to the GR740 processor is present on the GR740-MINI A connector. To connect to the board, run the
 following command:
 
-```console
+```shell
 grmon -ftdi -jtagcable 1 -sddcs
 ```
 
@@ -58,13 +58,13 @@ it is much slower than method 2, which skips the padded parts of the image.
 
 To load the system image to the onboard flash memory, run the following commands in the `GRMON` monitor:
 
-```console
+```shell
 flash load -erase phoenix-rtos-project/_boot/sparcv8leon-gr740-mini/flash0.disk 0xc0000000
 ```
 
 You can then verify the uploaded image by running the following command:
 
-```console
+```shell
 verify phoenix-rtos-project/_boot/sparcv8leon-gr740-mini/flash0.disk 0xc0000000
 ```
 
@@ -98,7 +98,7 @@ at offset `0x100000`, and `part_ptable.img` at offset `0x7fe0000`.
 
 To upload the files to the onboard flash memory, run the following commands in the `GRMON` monitor:
 
-```console
+```shell
 flash load -erase phoenix-rtos-project/_boot/sparcv8leon-gr740-mini/plo.img 0xc0000000
 flash load -erase phoenix-rtos-project/_boot/sparcv8leon-gr740-mini/part_kernel.img 0xc0020000
 flash load -erase phoenix-rtos-project/_boot/sparcv8leon-gr740-mini/rootfs.jffs2 0xc0100000
@@ -107,7 +107,7 @@ flash load -erase phoenix-rtos-project/_boot/sparcv8leon-gr740-mini/part_ptable.
 
 You can then verify the uploaded images by running the following commands:
 
-```console
+```shell
 verify phoenix-rtos-project/_boot/sparcv8leon-gr740-mini/plo.img 0xc0000000
 verify phoenix-rtos-project/_boot/sparcv8leon-gr740-mini/part_kernel.img 0xc0020000
 verify phoenix-rtos-project/_boot/sparcv8leon-gr740-mini/rootfs.jffs2 0xc0100000
@@ -119,7 +119,7 @@ verify phoenix-rtos-project/_boot/sparcv8leon-gr740-mini/part_ptable.img 0xc7fe0
 Before starting the system, you need to determine on which serial port the board is connected. To do this, run the
 following command:
 
-```console
+```shell
 ls -l /dev/serial/by-id
 ```
 
@@ -128,14 +128,14 @@ ls -l /dev/serial/by-id
 The serial console will be available on `if02` channel, which in this case is connected to `/dev/ttyUSB2`. To connect
 to the serial console, run the following command in a separate terminal:
 
-```console
+```shell
 picocom -b 115200 --imap lfcrlf /dev/ttyUSB2
 ```
 
 To start the execution you may reset the board by pressing the reset button or run the following commands in the
 `GRMON` monitor:
 
-```console
+```shell
 ep 0xc0000000
 run
 ```
@@ -150,7 +150,7 @@ Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in 
 
 To get the available command list type:
 
-```console
+```shell
 help
 ```
 
@@ -158,7 +158,7 @@ help
 
 To get the list of working processes type:
 
-```console
+```shell
 ps
 ```
 

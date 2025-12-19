@@ -7,7 +7,7 @@ them.
 
 Running `nc` with `-h` argument prints help message as follows:
 
-```console
+```shell
 Usage: nc [options] [destination] [port]
 Options
   -4:  IPv4 only

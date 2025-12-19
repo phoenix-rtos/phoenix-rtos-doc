@@ -41,7 +41,7 @@ that run:
 
 - On Ubuntu:
 
-  ```console
+  ```shell
   ls -l /dev/serial/by-id
   ```
 
@@ -53,21 +53,21 @@ that run:
 - When the board is connected to your host-pc, open serial port in terminal using picocom and type the console port
 (in this case ACM0)
 
-  ```console
+  ```shell
   picocom -b 115200 --imap lfcrlf /dev/tty[port]
   ```
 
   <details>
   <summary>How to get picocom and run it without privileges (Ubuntu 22.04)</summary>
 
-  ```console
+  ```shell
   sudo apt-get update && \
   sudo apt-get install picocom
   ```
 
   To use picocom without sudo privileges run this command and then restart:
 
-  ```console
+  ```shell
   sudo usermod -a -G tty <yourname>
   ```
 
@@ -91,11 +91,11 @@ NOTE: `i. MX RT1176` should be set in Serial Download mode. Set the appropriate 
 
 Change directory to `_boot` and run `psu` as follows:
 
-```console
+```shell
 cd _boot/armv7m7-imxrt117x-evk
 ```
 
-```console
+```shell
 sudo ./psu plo-ram.sdp
 ```
 
@@ -114,7 +114,7 @@ To flash the disk image, first, you need to verify on which port plo USB device 
 
 - On Ubuntu:
 
-```console
+```shell
 ls -l /dev/serial/by-id
 ```
 
@@ -123,7 +123,7 @@ ls -l /dev/serial/by-id
 To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments (choose suitable
 ttyACMx device, in this case, ttyACM1):
 
-```console
+```shell
 sudo ./phoenixd -p /dev/tty[port] -b 115200 -s .
 ```
 
@@ -131,7 +131,7 @@ sudo ./phoenixd -p /dev/tty[port] -b 115200 -s .
 
 To start copying a file, write the following command in the console with plo interface:
 
-```console
+```shell
 copy usb0 phoenix.disk flash0 0x0 0x0
 ```
 
@@ -152,7 +152,7 @@ interrupted by pressing any key. Then you can exit plo by passing `go!` command.
 
 If you want to get the available command list please type:
 
-```console
+```shell
 help
 ```
 
@@ -160,7 +160,7 @@ help
 
 To get the list of working processes please type:
 
-```console
+```shell
 ps
 ```
 
@@ -168,7 +168,7 @@ ps
 
 To get the table of processes please type:
 
-```console
+```shell
 top
 ```
 

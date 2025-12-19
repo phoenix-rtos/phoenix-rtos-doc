@@ -16,7 +16,7 @@ The `phoenix-rtos-usb` repository contains two directories, that match two build
 
 The source code of the USB host stack and Libusb can be obtained with the following command:
 
-```console
+```shell
 git clone https://github.com/phoenix-rtos/phoenix-rtos-usb.git
 ```
 

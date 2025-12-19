@@ -6,7 +6,7 @@
 
 If `history` is run with `-h` parameter the help message appears as follows:
 
-```console
+```shell
 usage: help [options] or no args to print command history
   -c:  clears command history
   -h:  shows this help message

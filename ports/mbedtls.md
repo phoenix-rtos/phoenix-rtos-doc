@@ -54,7 +54,7 @@ To build `mbedtls` tests please set `LONG_TEST=y` environment variable before ca
 In order to run the specific test please type in psh: `/bin/test_name mbedtls_test_configs/test_name.datax`, for
 example:
 
-```console
+```shell
 /bin/test_suite_ssl mbedtls_test_configs/test_suite_ssl.datax
 ```
 

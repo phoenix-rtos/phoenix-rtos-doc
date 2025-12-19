@@ -6,6 +6,6 @@
 
 Usage:
 
-```console
+```shell
 mkdir <dir path>...
 ```

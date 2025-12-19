@@ -56,7 +56,7 @@ terminal.
 
 To get the available command list type:
 
-```console
+```shell
 help
 ```
 
@@ -64,7 +64,7 @@ help
 
 To get the list of working processes type:
 
-```console
+```shell
 ps
 ```
 

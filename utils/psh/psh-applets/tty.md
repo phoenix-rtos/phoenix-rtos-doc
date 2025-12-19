@@ -5,7 +5,7 @@ change the tty device associated with the shell.
 
 ## Usage
 
-```console
+```shell
 tty [OPTION] [path_to_device]
 ```
 
@@ -18,12 +18,12 @@ printed.
 
 Print current tty device:
 
-```console
+```shell
 tty
 ```
 
 Change tty device:
 
-```console
+```shell
 tty /dev/console
 ```

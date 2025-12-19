@@ -5,7 +5,7 @@ enabling users to create multiple references to a single file or directory.
 
 ## Usage
 
-```console
+```shell
 ln [-s] TARGET LINK_NAME
 ln TARGET... LINK_NAME
 ```

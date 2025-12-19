@@ -4,6 +4,6 @@
 
 ## Usage
 
-```console
+```shell
 reset
 ```

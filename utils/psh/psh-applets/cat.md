@@ -7,14 +7,14 @@ output.
 
 If used with `-h` parameter it prints the help message with possible arguments and parameters as follows:
 
-```console
+```shell
 Usage: cat [options] [files]
   -h:  shows this help message
 ```
 
 To print a file using `cat` the filename must be specified as an argument. Following command:
 
-```console
+```shell
 cat file1 file2
 ```
 

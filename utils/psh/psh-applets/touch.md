@@ -7,6 +7,6 @@ exist.
 
 Usage:
 
-```console
+```shell
 usage: touch <file path>...
 ```

@@ -6,7 +6,7 @@ as well as to activate or deactivate network interfaces.
 
 ## Usage
 
-```console
+```shell
 ifconfig [-a] [-h] [interface]
 ifconfig <interface> [inet] <options> | <address> ...
 ```
@@ -51,24 +51,24 @@ ifconfig <interface> [inet] <options> | <address> ...
 
 Activate an Interface:
 
-```console
+```shell
 ifconfig eth0 up
 ```
 
 Set IP address and subnet mask:
 
-```console
+```shell
 ifconfig eth0 192.168.1.100 netmask 255.255.255.0
 ```
 
 Display configuration of all interfaces:
 
-```console
+```shell
 ifconfig -a
 ```
 
 Setting the MTU:
 
-```console
+```shell
 ifconfig eth0 mtu 1500
 ```

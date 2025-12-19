@@ -5,7 +5,7 @@ ensuring that the system is restarted safely and according to any specified opti
 
 ## Usage
 
-```console
+```shell
 reboot [options]
 ```
 

@@ -89,7 +89,7 @@ After loading, Phoenix-RTOS will be launched and the `psh` shell command prompt 
 
 To get the available command list type:
 
-```console
+```shell
 help
 ```
 

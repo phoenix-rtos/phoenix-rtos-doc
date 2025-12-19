@@ -20,7 +20,7 @@ must build QEMU from source.
 
 - Download QEMU 9.0.2 (or later) source code from the official repository and build for the `arm-softmmu` target:
 
-  ```console
+  ```shell
   git clone https://gitlab.com/qemu-project/qemu.git -b v9.0.2 && \
   cd qemu && \
   git submodule update --init --recursive && \
@@ -31,11 +31,11 @@ must build QEMU from source.
 
 - Check if QEMU is properly installed:
 
-  ```console
+  ```shell
   qemu-system-arm --version
   ```
 
-  ```console
+  ```shell
   ~$ qemu-system-arm --version
   QEMU emulator version 9.0.2 (v9.0.2)
   Copyright (c) 2003-2024 Fabrice Bellard and the QEMU Project developers
@@ -46,7 +46,7 @@ must build QEMU from source.
 
 To run the image under QEMU, use the following script provided in the `phoenix-rtos-project` repository:
 
-  ```console
+  ```shell
   ./scripts/armv8r52-mps3an536-qemu.sh
   ```
 
@@ -58,7 +58,7 @@ Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in 
 
 To get the available command list use command:
 
-```console
+```shell
 help
 ```
 
@@ -66,7 +66,7 @@ help
 
 To get the list of working processes use command:
 
-```console
+```shell
 ps
 ```
 

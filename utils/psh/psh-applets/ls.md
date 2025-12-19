@@ -6,7 +6,7 @@
 
 Using `ls` command with `-h` parameter prints help message as follows:
 
-```console
+```shell
 usage: ls [options] [files]
   -1:  one entry per line
   -a:  do not ignore entries starting with .
@@ -21,7 +21,7 @@ usage: ls [options] [files]
 
 By default, `.` (current directory) is used as `[files]`. Executing sole:
 
-```console
+```shell
 ls
 ```
 
@@ -29,7 +29,7 @@ Will print all normal files and directories in current directory.
 
 Options (excluding `-h`) may be used together, so the following command:
 
-```console
+```shell
 ls -laf bin/
 ```
 

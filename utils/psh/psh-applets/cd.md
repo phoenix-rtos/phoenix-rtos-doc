@@ -6,7 +6,7 @@ The `cd` command provided as a `psh` applet can be used to change the current wo
 
 If used with `-h` as the argument it prints the basic usage, which is:
 
-```console
+```shell
 Usage: cd [directory]
 ```
 
@@ -15,7 +15,7 @@ directory.
 To change the working directory with the `cd` command, the target `directory` may be specified as in the following
 example:
 
-```console
+```shell
 cd /usr/bin
 ```
 
@@ -25,7 +25,7 @@ not set, the current working directory will be changed to `/` (as a fallback).
 It is possible to switch back to the previous working directory by using `-` (a dash) as the `directory` argument to the
 `cd` command:
 
-```console
+```shell
 (psh)% cd /usr/bin
 (psh)% cd ../../etc
 (psh)% cd -

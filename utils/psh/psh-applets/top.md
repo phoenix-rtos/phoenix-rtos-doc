@@ -9,7 +9,7 @@ controlled with command-line arguments and further with interactive commands whe
 
 When `top` is run with `-h` argument the help message is displayed as follows:
 
-```console
+```shell
 Command-line arguments
   -h:  prints help
   -H:  starts with threads mode
@@ -29,7 +29,7 @@ Interactive commands:
 
 If sole:
 
-```console
+```shell
 top
 ```
 

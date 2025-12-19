@@ -5,7 +5,7 @@ affecting the shell environment and potentially the behavior of subsequent comma
 
 ## Usage
 
-```console
+```shell
 unset [VARIABLE]...
 ```
 

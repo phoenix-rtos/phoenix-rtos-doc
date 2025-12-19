@@ -6,7 +6,7 @@
 
 Prefixing filename with `/` executes the file. Usage:
 
-```console
+```shell
 /filename
 ```
 

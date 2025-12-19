@@ -42,13 +42,13 @@ Some targets require extra steps to make them compatible with the test runner. F
 target must be built with a custom syspage that includes the UART driver. Here is an example command to build an image
 with ports for the `ia32-generic-qemu` target:
 
-```console
+```shell
 TARGET=ia32-generic-qemu CONSOLE=serial LONG_TEST=y ./phoenix-rtos-build/build.sh all test
 ```
 
 But most of the targets can be build using simple:
 
-```console
+```shell
 TARGET=target ./phoenix-rtos-build/build.sh core fs project image test.
 ```
 
@@ -61,7 +61,7 @@ Currently, only user space tests are supported.
 Python packages required by the testing script have to be installed. To do this, create the virtual environment, change
 the directory to `phoenix-rtos-tests` and run the following command:
 
-```console
+```shell
 pip3 install -r requirements.txt
 ```
 
@@ -150,13 +150,13 @@ Important note: Every YAML configuration must start with the `test_` prefix.
 
 Finally, we can verify that everything works correctly. First, let's build the project:
 
-```console
+```shell
 TARGET=ia32-generic-qemu CONSOLE=serial ./phoenix-rtos-build/build.sh core fs project image test
 ```
 
 Once the project is built, we are ready to run our test:
 
-```console
+```shell
 ./phoenix-rtos-tests/runner.py --target ia32-generic-qemu -t phoenix-rtos-tests/hello/test_config.yaml
 ```
 

@@ -6,7 +6,7 @@
 
 Usage:
 
-```console
+```shell
 sysexec [-m mapname] progname [args]...
 ```
 
@@ -15,19 +15,19 @@ The default memory map is the one assigned with the `app` command in the plo scr
 
 As an example, if in the script plo it is set:
 
-```console
+```shell
 app flash1 -x progname xip1 ocram2
 ```
 
 then `ocram2` is the default map for an app, so
 
-```console
+```shell
 sysexec progname arg1 arg2
 ```
 
 to use a different map with read & write attributes set, provide an optional map with `-m` argument:
 
-```console
+```shell
 sysexec -m dtcm progname arg1 arg2
 ```
 
@@ -42,7 +42,7 @@ These commands can be defined in two ways:
 If storing commands in the `/etc/whitelist` file each complete `sysexec` command should be stored in a separate line
 with a line length not exceeding 79 characters:
 
-```console
+```shell
 sysexec argA1 argA2 argA3
 sysexec argB1 argB2
 sysexec argC1 argC2 argC3
@@ -51,7 +51,7 @@ sysexec argC1 argC2 argC3
 If the commands are stored in the `PSH_SYSEXECWL` environment variable, each command should end with a semicolon
 (`;`), as in the example below:
 
-```console
+```shell
 export PSH_SYSEXECWL="sysexec argD1 argD2 argD3;sysexec argE1 argE2 argE3;sysexec argF1 argF2"
 ```
 
@@ -64,7 +64,7 @@ specified using `*` wildcard. Checking will be performed only on arguments prior
 
 Command template `sysexec arg1 arg2 *` has the following impact:
 
-```console
+```shell
 sysexec arg1 arg2   #executed
 sysexec arg1 arg2 arg3 .. argN  #executed
 sysexec arg3 arg4   #NOT executed

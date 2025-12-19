@@ -47,7 +47,7 @@ Note: The required argument entered after `@` is EPOCH (POSIX time format) - you
 
 Providing that internet connection is working, and the current date is set, you can run `iothub_ll_telemetry_sample`:
 
-```console
+```shell
 /bin/iothub_ll_telemetry_sample
 ```
 
@@ -59,7 +59,7 @@ Providing that internet connection is working, and the current date is set, you 
 You can read messages received from Azure, for example using `AzureIotHub VS Code Extension` by clicking
 `Start Monitoring Built-in Event Endpoint`:
 
-```console
+```shell
 [IoTHubMonitor] [6:07:21 PM] Message received from [ia32-generic-qemu]:
 "test_message"
 [IoTHubMonitor] [6:07:21 PM] Message received from [ia32-generic-qemu]:
@@ -269,7 +269,7 @@ In the result, unit tests for the `c-utility` component should be placed in the 
 
 The tests have `ut_exe` suffix, for example: `connectionstringparser_ut_exe`. You run it as follows:
 
-```console
+```shell
 /bin/connectionstringparser_ut_exe
 ```
 

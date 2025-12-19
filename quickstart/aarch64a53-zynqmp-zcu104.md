@@ -79,7 +79,7 @@ micro-USB cable from the host PC to connector `J164`.
 
       The result should be similar to:
 
-      ```console
+      ```shell
       lrwxrwxrwx 1 root root 13 sty 31 11:48 usb-Xilinx_JTAG+3Serial_90805-if00-port0 -> ../../ttyUSB0
       lrwxrwxrwx 1 root root 13 sty 31 11:48 usb-Xilinx_JTAG+3Serial_90805-if01-port0 -> ../../ttyUSB1
       lrwxrwxrwx 1 root root 13 sty 31 11:48 usb-Xilinx_JTAG+3Serial_90805-if02-port0 -> ../../ttyUSB2
@@ -156,7 +156,7 @@ Without erasure `jffs2` may encounter data from the previous flash operation and
  during the system startup may occur.
 That's why we have to run erase using plo command specific to `jffs2` file system:
 
-```console
+```shell
 jffs2 -d 2.0 -e -c 0x80:0x100:0x10000:16
 ```
 
@@ -190,7 +190,7 @@ cd _boot/aarch64a53-zynqmp-zcu104
 
 To start copying the file, write the following command in the console with plo interface:
 
-```console
+```shell
 copy uart0 flash0.disk flash0 0x0 0x0
 ```
 
@@ -219,7 +219,7 @@ openocd -f "$(realpath ~/ftdi_zcu104.cfg)" -f "target/xilinx_zynqmp.cfg" \
 
 Once the flash image is in RAM disk you can copy it to flash0 in PLO:
 
-```console
+```shell
 copy ramdisk 0x0 0x4000000 flash0 0x0 0x4000000
 ```
 
@@ -236,7 +236,7 @@ To run it you should follow the steps below:
 
 4. Connect to the serial console port (in this case `ttyUSB2`).
 
-    ```console
+    ```shell
     picocom -b 115200 --imap lfcrlf /dev/tty[port]
     ```
 
@@ -248,7 +248,7 @@ To run it you should follow the steps below:
 
 To get the available command list please type:
 
-```console
+```shell
 help
 ```
 
@@ -256,7 +256,7 @@ help
 
 If you want to get the list of working processes please type:
 
-```console
+```shell
 ps
 ```
 
@@ -264,7 +264,7 @@ ps
 
 To get the table of processes please type:
 
-```console
+```shell
 top
 ```
 

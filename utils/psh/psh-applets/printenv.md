@@ -5,7 +5,7 @@ to display the value of specific variables.
 
 ## Usage
 
-```console
+```shell
 printenv [VARIABLE]...
 ```
 

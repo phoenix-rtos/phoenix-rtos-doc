@@ -5,7 +5,7 @@ by capturing and reporting performance events.
 
 ## Usage
 
-```console
+```shell
 perf [timeout]
 ```
 
