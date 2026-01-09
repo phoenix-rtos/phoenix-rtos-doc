@@ -1003,7 +1003,7 @@ C styles `#define` should be used for constants.
 
 #### PS-ASM-REC-005
 
-Magic number is code should be avoided.
+Magic numbers in code should be avoided.
 
 ##### Example
 ```

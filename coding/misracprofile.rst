@@ -24,7 +24,7 @@ Phoenix-RTOS development process is presented. The tailoring has been prepared t
 considerations incorporation of MISRA C benefits without performance and productivity
 degradation and therefore following assumptions:
 
-* All `Advisory` rules defined in the standard are treated as optional and will not be enforced Phoenix Systems;
+* All `Advisory` rules defined in the standard are treated as optional and will not be enforced by Phoenix Systems;
 * Rules limiting access to hardware resources (e.g. register based interface to peripherals) will be disabled;
 * Rules impacting pointer arithmetic performance and universal interfaces at kernel level will be disabled.
 
@@ -222,12 +222,12 @@ Column Descriptions
     "Rule 21.2", "Required", "DISABLED", "NO", "This rule is not applicable for Phoenix-RTOS kernel source code, because common identifiers are defined within its codebase and custom implementation of libc `libphoenix`."
     "Rule 21.3", "Required", "NO", "**YES**", ""
     "Rule 21.4", "Required", "NO", "**YES**", ""
-    "Rule 21.5", "Required", "DISABLED", "NO", "This rule is not applicable for the Phoenix-RTOS kernel source code, because <signal.h> is provided as part of custom implementation of libc `libphoenix`.` and therefore has defined behavior."
+    "Rule 21.5", "Required", "DISABLED", "NO", "This rule is not applicable for the Phoenix-RTOS kernel source code, because <signal.h> is provided as part of custom implementation of libc `libphoenix` and therefore has defined behavior."
     "Rule 21.6", "Required", "NO", "**YES**", ""
     "Rule 21.7", "Required", "NO", "**YES**", ""
     "Rule 21.8", "Required", "NO", "**YES**", ""
     "Rule 21.9", "Required", "NO", "**YES**", ""
-    "Rule 21.10", "Required", "DISABLED", "NO", "This rule is not applicable for the Phoenix-RTOS kernel source code, because date and time functions are provided as part of custom implementation of libc `libphoenix`.` and therefore have defined behavior. "
+    "Rule 21.10", "Required", "DISABLED", "NO", "This rule is not applicable for the Phoenix-RTOS kernel source code, because date and time functions are provided as part of custom implementation of libc `libphoenix` and therefore have defined behavior. "
     "Rule 21.11", "Advisory", "NO", "NO", ""
     "Rule 21.12", "Required", "NO", "**YES**", ""
     "Rule 21.13", "Mandatory", "NO", "**YES**", ""
