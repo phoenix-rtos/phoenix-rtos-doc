@@ -1,47 +1,107 @@
-# Software Code Standards
+# Software Code Standards for C and Assembly Code
 
 ## Introduction
 
 This document defines the Software Code Standards to be followed when writing Phoenix-RTOS source code.
-It is organized into sections that group coding rules, recommendations by topic.
+It is organized into sections that group coding rules and recommendations by topic.
+
+The ruleset defined for C language is based on the MISRA-C 2023 coding guidelines. The MISRA-C (*de facto*)
+standard has been tailored down to match the needs and objectives of operating system development.
+
+
 Rules identify quality considerations that must always be followed unless an exception is approved by
-the Technical Coordinator and Quality Assurance Engineer, this has to be noted in the  Source code peer-review.
+the Technical Coordinator and Quality Assurance Engineer, this has to be noted in the Source code peer-review.
 
 Recommendations are practices which should be followed. Known exceptions have to be noted in the software coding
 peer review record.
 
 The identifiers referenced in this standard are:
 
-- `PS-CODE-RULE-XXX` for rules, which are formulated using `shall` what indicates mandatory action;
-- `PS-CODE-REC-XXX` for recommendations, which are formulated using `should`;
+- `PS-GEN-RULE-XXX` generic rules for all supported languages (C and assembly), which are formulated using `shall` what indicates mandatory action;
+- `PS-GEN-REC-XXX` generic recommendations  for all supported languages (C and assembly), which are formulated using `should`;
+- `PS-C-RULE-XXX` rules for C language, which are formulated using `shall` what indicates mandatory action;
+- `PS-C-REC-XXX` recommendations for C language, which are formulated using `should`;
+- `PS-ASM-RULE-XXX` rules for assembly, which are formulated using `shall` what indicates mandatory action;
+- `PS-ASM-REC-XXX` recommendations for assembly, which are formulated using `should`.
 
 ### Note
-
-Rule numbering does not have to be sequential and should not be changed once assigned.
+Rule numbering does not have to be sequential and must not be changed once assigned.
 If a new rule is added in any section, it should be assigned the next available number after the highest existing rule
 number.
 
-## C language standard
+## Objectives
+This Software Code Standards is intended to help software developers, in particular developers of 
+Phoenix-RTOS to:
 
-### PS-CODE-RULE-001
+- establish a consistent coding style;
+- establish objectives for code peer-review;
+- avoid undefined behavior constructs in C language;
+- avoid common programming errors;
+- limit program complexity.
 
-The code shall be compliant with C99 (without GNU extensions) standard.
+## Generic rules and recommendations
 
-## MISRA C 2023 (2012)
+### Names and identifiers
 
-### PS-CODE-RULE-002
+#### PS-GEN-REC-001
 
-The code shall be compliant with the set of MISRA C 2023 (2012) defined in
-[Phoenix RTOS MISRA C Profile](./misracprofile.rst) with justified local rule exemptions.
+English should be the only language allowed in the code base.
 
-### PS-CODE-RULE-003
+##### Note
 
-Any local deviations from the [Phoenix RTOS MISRA C Profile](./misracprofile.rst) rules
-shall be justified within the code.
+This means english words are recommended for file and object names. It also means comments in other language 
+than english are not allowed in the code base. This recommendation does NOT prohibit usage of the so-called 
+loanwords commonly used in english for technical nomenclature, for example: greek symbols for mathematical 
+and scientific notation.
 
-## File label
+##### Example
 
-### PS-CODE-REC-004
+```c
+uint32_t result;    /* compliant, english */
+uint32_t wynik;     /* non-compliant, polish */
+float alpha;        /* compliant, scientific notation */
+bool is_valid;      /* compliant, english */
+
+/* This function computes ... */    /* compliant, english */
+/* Funkcja liczy ... */             /* non-compliant, polish */
+```
+
+#### PS-GEN-REC-002
+
+Only characters from the standard ASCII range (0x20–0x7E) should be used for names and identifiers.
+
+#### PS-GEN-REC-003
+
+All files should use LF (Unix-style) line endings.
+
+##### Note
+This means CRLF (Windows-style) is not permitted.
+
+### Source Files
+
+#### PS-GEN-REC-004
+
+Separate source files should be created for each operating system module.
+
+#### PS-GEN-REC-005
+
+Source files should be grouped in directories whose names correspond to the names of subsystems.
+
+#### PS-GEN-REC-006
+
+Source files should have following file extensions:
+
+- `.c` - C source files;
+- `.h` - C header files;
+- `.S` - Assembly source files;
+
+#### PS-GEN-REC-007
+
+Only lowercase alphanumeric characters (a-z, 0-9), underscores (_), and hyphens (-) should be used for 
+source and header file names.
+
+
+#### PS-GEN-REC-008
 
 Each operating system source file should be marked with label with the following structure:
 
@@ -56,7 +116,7 @@ Each operating system source file should be marked with label with the following
  * Copyright <Years of active development> Phoenix Systems
  * Author: <List of authors>
  *
- * %LICENSE%
+ * <License Identifier>
  */
 ```
 
@@ -69,15 +129,25 @@ The consecutive label blocks, in that order, should:
 - describe the file functionality
 - present copyright notices for the file, with the newest copyrights at the top and authors sorted
 according to the importance of their contribution
-- provide license information with %LICENSE% macro
+- provide license information with License Identifier macro
 
-#### Example
+##### License Identifier
+The License Identifier specifies the selected license and it can be assigned identifier of one 
+of the standard open source license as defined at the [SPDX List](https://spdx.org/licenses/) 
+for open source products or `Phoenix-Commercial` for commercial products. The statement 
+`SPDX-License-Identifier: ` precedes the license identifier.
+
+For open source products, the default license selected by Phoenix System is BSD-3-Clause
+license for which the SPDX defines identifier: `BSD-3-Clause`.
+
+This licensing scheme is compliant with [REUSE Specification](https://reuse.software/spec/).
+
+##### Example
 
 In this example, the file belongs to operating system kernel. The file implements `pmap` interface -
 the hardware dependent part of memory management subsystem for managing the MMU or MPU (part of HAL).
 The file was developed in years 2014-2015 and in the earlier period of 2005-2006. It has three
 authors sorted according to the importance of their contribution. All names are presented.
-The %LICENSE% macro is used to inject the license conditions.
 
 ```c
 
@@ -92,130 +162,137 @@ The %LICENSE% macro is used to inject the license conditions.
  * Copyright 2005-2006 Pawel Pisarczyk
  * Author: Pawel Pisarczyk, Radoslaw F. Wawrzusiak, Jacek Popko
  *
- * %LICENSE%
+ * SPDX-License-Identifier: BSD-3-Clause
  */
 ```
 
-## Allowed characters
+### Indentation
 
-### PS-CODE-REC-007
-
-Only characters from the standard ASCII range (0x20–0x7E) should be used in source files.
-
-## Indentation
-
-### PS-CODE-REC-008
+#### PS-GEN-REC-009
 
 The `Tab` character should be used as code indentation.
 
-#### Note
+##### Note
 
-It is not allowed to make an indentation with space character. The source code
-used for development tests (e.g. printf debug) should be entered without indentation. The following code presents
-correctly formatted code with one line (`lib_printf`) entered for debug purposes. The inserted line should be removed
-in the final code.
+It is not allowed to make an indentation with space character. The following code presents
+correctly formatted code with one line (`lib_printf`) entered for debug purposes. The debug line
+is also indented with `Tab` character following this recommendation.
 
-#### Example
+##### Example
 
 ```c
 int main(void)
 {
-    _hal_init();
-    hal_consolePrint(ATTR_BOLD, "Phoenix-RTOS microkernel v. " VERSION "\n");
+	_hal_init();
+	hal_consolePrint(ATTR_BOLD, "Phoenix-RTOS microkernel v. " VERSION "\n");
 
-    _vm_init(&main_common.kmap, &main_common.kernel);
-    _proc_init(&main_common.kmap, &main_common.kernel);
-    _syscalls_init();
+	_vm_init(&main_common.kmap, &main_common.kernel);
+	_proc_init(&main_common.kmap, &main_common.kernel);
+	_syscalls_init();
 
-lib_printf("DEBUG: starting first process...\n");
+	lib_printf("DEBUG: starting first process...\n");
 
-    /* Start init process */
-    proc_start(main_initthr, NULL, (const char *)"init");
+	/* Start init process */
+	proc_start(main_initthr, NULL, (const char *)"init");
 
-    /* Start scheduling, leave current stack */
-    hal_cpuEnableInterrupts();
-    hal_cpuReschedule();
+	/* Start scheduling, leave current stack */
+	hal_cpuEnableInterrupts();
+	hal_cpuReschedule();
 
-    return 0;
+	return 0;
 }
 ```
 
-## Source files
+```
+irq_fpu_done:
+	st  %sp, [%sp + 0x00] /* sp */
+	rd  %y, %g2
+	st  %g2, [%sp + 0x04] /* y */
+```
 
-### PS-CODE-REC-009
+## Coding standard for C
 
-Separate source files should be created for each operating system module.
+### C language standard
 
-### PS-CODE-REC-010
+#### PS-C-RULE-001
 
-Source files should be grouped in directories whose names correspond to the names of subsystems.
+The code shall be compliant with C99 (without GNU extensions) standard.
 
-## Functions and modules
+### MISRA C 2023 (2012)
 
-### PS-CODE-REC-011
+#### PS-C-RULE-002
+
+The code shall be compliant with the set of MISRA C 2023 (2012) defined in
+[Phoenix RTOS MISRA C Profile](./misracprofile.rst) with justified local rule exemptions.
+
+##### Note
+MISRA C 2023 rule headlines can be accessed on [MISRA official git repository](https://gitlab.com/MISRA/MISRA-C/MISRA-C-2012/tools/-/blob/main/misra_c_2023__headlines_for_cppcheck.txt?ref_type=heads) 
+
+
+#### PS-C-RULE-003
+
+Any local deviations from the [Phoenix RTOS MISRA C Profile](./misracprofile.rst) rules
+shall be justified within the code.
+
+
+### Functions and modules
+
+#### PS-C-REC-004
 
 Functions should be short and not too complex in terms of logic -
 not shorter than 10 and not longer than 200 lines of code.
 
-### PS-CODE-REC-012
-
-The function should do one thing only.
-
-### PS-CODE-REC-013
+#### PS-C-REC-005
 
 Functions should be separated with two `newline` characters.
 
-### PS-CODE-REC-014
+#### PS-C-REC-006
 
 Function names should be created according to the following schema `[_]<subsystem>_<functionality>` where:
 
 - `<subsystem>` is the name of subsystem or file in which function belongs
 - `<functionality>` is a brief sentence explaining the implemented functionality.
 
-#### Note
+##### Note
 
 Functions used only inside the selected subsystem could be named with the name of the module
 instead of the name of subsystem.
 
-### PS-CODE-REC-016
+#### PS-C-REC-007
 
 The subsystem name should consist of one word.
 
-### PS-CODE-REC-017
-
-The subsystem name should not contain the `underscore` characters.
-
-### PS-CODE-REC-018
+#### PS-C-REC-008
 
 The subsystem name should be written in the camelCase format if more than one word is used.
 
-#### Example
+##### Note
+The `underscore` character is not allowed in the subsystem name.
+
+##### Example
 
 The function for kernel space memory allocation could be named `vm_kmalloc()`.
 The function for creating a new thread could be named `proc_threadCreate()`.
 
-#### Note
+##### Note
 
-An underscore character at the start of the function name indicates that the function is not synchronized, and its usage
-by two parallel threads requires external synchronization. A good example of such function is the internal function
+An underscore character at the start of the function name indicates that the function is not synchronized, 
+and its usage requires external synchronization. A good example of such function is the internal function
 for adding a node to a red-black tree or the internal function for adding an item to a list.
 
-### PS-CODE-REC-019
+#### PS-C-REC-009
 
 Functions used only internally in the file, where they are defined, should be declared as `static`.
 
-### PS-CODE-REC-020
-
-Functions exported outside the subsystem should be named with the subsystem name only.
-
-### PS-CODE-REC-021
+#### PS-C-REC-010
 
 All external (i.e. non-static) symbols (including functions) of a library should be prefixed with the library name.
 
-#### Example
+##### Example
 
-We have library `libfoo` and it's function called `init`. This function must be prefixed with
-either `foo` or `libfoo` - prefix has to be unique and be consistent within the library:
+Library name is equivalent to submodule name in this case. We have library `libfoo` and it's function called `init`. 
+This function must be prefixed with either `foo` or `libfoo` - prefix has to be unique and be consistent within 
+the library:
 
 ```c
 int libfoo_init(void);
@@ -225,29 +302,27 @@ int libfoo_init(void);
 int foo_init(void);
 ```
 
-### PS-CODE-REC-022
+#### PS-C-REC-011
 
 If a library consists of submodules (i.e. well separated modules within one library) then second underscore can be used
 to separate library from submodule and from functionality names.
 
-#### Note
+##### Note
 
 Please note that in general such functions shouldn't be a part of API, but need to adhere to namespace rules
 as they can not also be `static`.  
 
-#### Example
+##### Example
 
 ```c
 int libfoo_bar_start();
 ```
 
-### PS-CODE-REC-023
+#### PS-C-REC-012
 
-*Rule derived from MISRA C.*
+Function declaration shall include arguments' names.
 
-When function handler is an argument of a function it should be specified with explicit arguments.
-
-#### Example
+##### Example
 
 Incorrect:
 
@@ -261,70 +336,90 @@ Correct:
 int hal_cpuCreateContext(cpu_context_t **nctx, void (*start)(void *harg), void *kstack, size_t kstacksz, void *ustack, void *arg, hal_tls_t *tls)
 ```
 
-### PS-CODE-REC-025
+#### PS-C-REC-013
+
+*Rule derived from MISRA C.*
+
+When function handler is an argument of a function it should be specified with explicit arguments.
+
+##### Example
+
+Incorrect:
+
+```c
+int hal_cpuCreateContext(cpu_context_t **nctx, void *start, void *kstack, size_t kstacksz, void *ustack, void *arg, hal_tls_t *tls)
+```
+
+Correct:
+
+```c
+int hal_cpuCreateContext(cpu_context_t **nctx, void (*start)(void *harg), void *kstack, size_t kstacksz, void *ustack, void *arg, hal_tls_t *tls)
+```
+
+#### PS-C-REC-014
 
 *Recommendation derived from MISRA C.*
 
 If the function output is not used it should be cast to `void`.
 
-#### Example
+##### Example
 
 ```c
 (void)lib_vprintf(fmt, ap);
 ```
 
-### PS-CODE-REC-026
+#### PS-C-REC-015
 
 *Recommendation derived from MISRA C.*
 
 Function types should be `typedef`-ed with `Fn_t` suffix to make them distinguishable from non-function types,
 e.g. `startFn_t`, `sighandlerFn_t`
 
-### PS-CODE-REC-027
+#### PS-C-REC-016
 
 *Recommendation derived from MISRA C.*
 
 `extern` keyword should not be used in function prototypes as it’s the default.
 
-## Variables
+### Variables
 
-### PS-CODE-REC-028
+#### PS-C-REC-017
 
 Variables should be named with one short word without the underscore characters.
 
-### PS-CODE-REC-029
+#### PS-C-REC-018
 
 For variable names longer than one word, the camelCase format should be used.
 
-### PS-CODE-REC-030
+#### PS-C-REC-019
 
 When defining a variable, it should be assigned with a value (do not assume that its value is zero).
 
-#### Note
+##### Note
 
 **In the kernel code always initialize global/static variables at runtime.** There's not `.bss` and
 `.data` initialization in the kernel.
 
-### PS-CODE-REC-031
+#### PS-C-REC-020
 
 **In the kernel code always initialize global/static variables at runtime.** There's no `.bss` and
 `const` should be used whenever it is not expected or prohibited for value to change.
 
-## Local variables - kernel
+### Local variables - kernel
 
-### PS-CODE-REC-032
+#### PS-C-REC-021
 
 Local variables should be defined before the function code in the kernel.
 
-### PS-CODE-REC-033
+#### PS-C-REC-022
 
 The stack usage and number of local variables should be minimized in the kernel.
 
-### PS-CODE-REC-034
+#### PS-C-REC-023
 
 Static local variables should not be used in the kernel.
 
-#### Example
+##### Example
 
 ```c
 void *_kmalloc_alloc(u8 hdridx, u8 idx)
@@ -348,22 +443,22 @@ void *_kmalloc_alloc(u8 hdridx, u8 idx)
 }
 ```
 
-## Local variables - libphoenix, userspace
+### Local variables - libphoenix, userspace
 
-### PS-CODE-REC-035
+#### PS-C-REC-024
 
-Scope of local variables should be minimized in libphoenix and userspace (as the stack usage and
+Scope of local variables should be minimized in `libphoenix` and user space (as the stack usage and
 number of local variables).
 
-### PS-CODE-REC-036
+#### PS-C-REC-025
 
 The variables should not be used for different purposes across the function.
 
-### PS-CODE-REC-037
+#### PS-C-REC-026
 
-Static local variables should be used in only libphoenix and userspace.
+Static local variables should be used in only `libphoenix` and user space.
 
-#### Example
+##### Example
 
 ```c
 void countSheeps(herd_t *herd)
@@ -382,29 +477,29 @@ void countSheeps(herd_t *herd)
 }
 ```
 
-## Global variables
+### Global variables
 
-### PS-CODE-REC-038
+#### PS-C-REC-027
 
 In the kernel code global variables should be always initialized at runtime.
 
-### PS-CODE-REC-039
+#### PS-C-REC-028
 
 Global variables should be used only if they're absolutely necessary.
 
-### PS-CODE-REC-040
+#### PS-C-REC-029
 
 The scope of global variables should be limited whenever possible by using `static`.
 
-### PS-CODE-REC-041
+#### PS-C-REC-030
 
 Global variables should only be placed in common structures.
 
-### PS-CODE-REC-042
+#### PS-C-REC-031
 
 The structure should be named after the system module that implements it, followed by `_common`.
 
-#### Example
+##### Example
 
 ```c
 static struct {
@@ -412,14 +507,14 @@ static struct {
 } pmap_common;
 ```
 
-#### Note
+##### Note
 
 The module name could be omitted in user space applications (i.e. not in the kernel) and name the structure `common`,
 only if static is used.
 
-## Operators
+### Operators
 
-### PS-CODE-REC-044
+#### PS-C-REC-032
 
 One space character should be used after and before the following binary and ternary operators:
 
@@ -427,7 +522,7 @@ One space character should be used after and before the following binary and ter
 =  +  -  <  >  *  /  %  |  &  ^  <=  >=  ==  !=  ?  :
 ```
 
-### PS-CODE-REC-045
+#### PS-C-REC-033
 
 No space should be used after the following unary operators:
 
@@ -435,7 +530,7 @@ No space should be used after the following unary operators:
 &  *  +  -  ~  !
 ```
 
-### PS-CODE-REC-046
+#### PS-C-REC-034
 
 The `sizeof` and `typeof` operators should be treated as functions and are to be used in accordance
 to the following notation:
@@ -445,33 +540,33 @@ sizeof(x)
 typeof(x)
 ```
 
-### PS-CODE-REC-047
+#### PS-C-REC-035
 
 If the increment `++` or decrement `--` operators are postfixed, no space should be used before the operator.
 
-### PS-CODE-REC-048
+#### PS-C-REC-036
 
 If the increment `++` or decrement `--` operators are prefixed, no space should be used after the operator.
 
-## Conditional expressions
+### Conditional expressions
 
-### PS-CODE-REC-049
+#### PS-C-REC-037
 
 A space should be used after a keyword of the conditional instruction.
 
-### PS-CODE-REC-050
+#### PS-C-REC-038
 
 Opening and closing braces should always be used.
 
-### PS-CODE-REC-051
+#### PS-C-REC-039
 
 The opening brace should be put in the same line as the keyword of the conditional instruction.
 
-### PS-CODE-REC-052
+#### PS-C-REC-040
 
 The closing brace should be placed after the last line of the conditional instruction in a new line.
 
-#### Example
+##### Example
 
 ```c
 if (expr) {
@@ -492,13 +587,13 @@ else {
 }
 ```
 
-### PS-CODE-REC-053
+#### PS-C-REC-041
 
 *Recommendation derived from MISRA C.*
 
 Only values of `bool` type should be used as condition input.
 
-#### Example
+##### Example
 
 Incorrect:
 
@@ -517,15 +612,15 @@ unsigned int len = 0;
 if (len == 0U)
 ```
 
-## Comparison output
+### Comparison output
 
-### PS-CODE-REC-054
+#### PS-C-REC-042
 
 *Recommendation derived from MISRA C.*
 
 An outcome of comparison operation should not be used as an integer value.
 
-#### Example
+##### Example
 
 ```c
 unsigned int a = 1U, b = 0U, c;
@@ -543,30 +638,17 @@ Correct:
 c = (a == b) ? 1U : 0U;
 ```
 
-## Type specifiers and definitions
+### Type specifiers and definitions
 
-### PS-CODE-REC-55
-
-The type specifiers from the list bellow should be used:
-
-- `char`
-- `unsigned char`
-- `int`
-- `unsigned int`
-- `long`
-- `unsigned long`
-- `long long`
-- `unsigned long long`
-
-### PS-CODE-REC-056
+#### PS-C-REC-043
 
 New types should only be defined if it is absolutely necessary.
 
-### PS-CODE-REC-057
+#### PS-C-REC-044
 
 If `typedef` is used for a structure/union, structure/union should be left anonymous if possible:
 
-#### Example
+##### Example
 
 ```c
 typedef struct {
@@ -575,17 +657,17 @@ typedef struct {
 } foobar_t;
 ```
 
-### PS-CODE-REC-058
+#### PS-C-REC-045
 
 *Recommendation derived from MISRA C.*
 
 Types of defined length should be used over default C types.
 
-#### Note
+##### Note
 
 That is especially valid for static variables used to operate on processor registers.
 
-#### Example
+##### Example
 
 Not recommended:
 `unsigned char`
@@ -593,17 +675,17 @@ Not recommended:
 Recommended:
 `uint8_t, u8, __u8`
 
-## Comments
+### Comments
 
-### PS-CODE-REC-059
+#### PS-C-REC-046
 
 When the C programming language is used only C language comments should be used: `/* */`.
 
-### PS-CODE-REC-060
+##### Note
 
-`//` comments should not to be used.
+`//` comments are not allowed in C source and header files.
 
-#### Example
+##### Example
 
 Multi line comment:
 
@@ -620,51 +702,62 @@ One line comment:
 /* comment */
 ```
 
-### PS-CODE-REC-061
+#### PS-C-REC-047
 
 Comments should be brief and placed only in essential parts of the code.
 
-### PS-CODE-REC-062
+#### PS-C-REC-048
 
 Comments should not contain copied parts of specification.
 
-#### Note
-
-Comments are not the place to express programmer's novel writing skills.
-
-### PS-CODE-REC-063
+#### PS-C-REC-049
 
 Documentation generators (e.g. Doxygen) should not be used.
 
-## Code disabling
+### Code disabling
 
-### PS-CODE-REC-064
+#### PS-C-REC-050
 
 Disabled or dead code should not be placed in the code.
 
-#### Note
+##### Note
 
 Version control should be relied upon to hold obsolete code.
 
-### PS-CODE-REC-065
+### Preprocessor
 
-If disabled or dead code is present (it was necessary), preprocessor should be used accordingly:
+#### PS-C-REC-051
 
+Each header file (`.h`) should include header guard formatted as follows:
+
+- based on `#ifndef`, `#define`, and `#endif` directives placed at the beginning and end of the file;
+- starts and ends with `_`;
+- upper case with `_` as words separator;
+- name derived from module mnemonic and file name.
+
+##### Note
+Header guard protect from multiple inclusions.
+
+##### Example
 ```c
-releveantCode();
+/*
+ * Phoenix-RTOS, file syscalls.h
+ * ...
+ * SPDX-License-Identifier: BSD-3-Clause
+ */
+#ifndef _PH_SYSCALLS_H_
+#define _PH_SYSCALLS_H_
 
-#if 0
-    obsoleteFunction();
+void _syscalls_init(void);
+
 #endif
 ```
 
-## Preprocessor
+#### PS-C-REC-052
 
-### PS-CODE-REC-066
+The header with the `#include` preprocessing directive should be placed after the label and header guard (for `.h` files).
 
-The header with the `#include` preprocessing directive should be placed after the label.
-
-#### Example
+##### Example
 
 ```c
 #include "pmap.h"
@@ -674,20 +767,41 @@ The header with the `#include` preprocessing directive should be placed after th
 #include "stm32.h"
 ```
 
-### PS-CODE-REC-067
+```c
+#ifndef _PH_POSIX_POSIX_PRIVATE_H_
+#define _PH_POSIX_POSIX_PRIVATE_H_
 
-MACROS should not be used in the code.
+#include "hal/hal.h"
+#include "proc/proc.h"
+#include "posix.h"
+```
 
-### PS-CODE-REC-068
+#### PS-C-REC-067
 
-The preprocessor conditionals like: `#if`, `#ifdef` or `#ifndef` should not be used in the code.
+The MACROS and DEFINE names should be written in upper case with `_` words separator.
 
-#### Note
+##### Note
+This allows to easily distinguish MACROS/DEFINES from objects.
+
+#### PS-C-REC-053
+
+The usage of MACROS should be minimized.
+
+##### Note
+Preprocessor text substitution for MACROS can lead to unexpected behavior. It is recommended to use 
+`inline` functions instead.
+
+#### PS-C-REC-054
+
+The usage of preprocessing conditionals like: `#if`, `#ifdef` or `#ifndef` should be minimized
+and limited to header guards.
+
+##### Note
 
 The use of preprocessing conditionals makes it harder to follow the code logic and can be used only
-if it is absolutely necessary.
+if it is absolutely necessary. The justification for each 
 
-### PS-CODE-REC-069
+#### PS-C-REC-055
 
 Preprocessing conditionals should be formatted as the following example:
 
@@ -710,9 +824,9 @@ Preprocessing conditionals should be formatted as the following example:
 #endif
 ```
 
-## Operating system messages
+### Operating system messages
 
-### PS-CODE-REC-070
+#### PS-C-REC-056
 
 Operating system messages should consist of, in that order:
 
@@ -721,70 +835,70 @@ Operating system messages should consist of, in that order:
 - a message body
 - a newline character
 
-#### Example
+##### Example
 
 ```c
 lib_printf("main: Starting syspage programs (%d) and init\n", syspage->progssz);
 ```
 
-## Literals
+### Literals
 
-### PS-CODE-REC-071
+#### PS-C-REC-057
 
 The numeric literals suffixes should be written with capital letters.
 
-#### Example
+##### Example
 
 ```c
 #define SIZE_PAGE 0x200U
 ```
 
-### PS-CODE-REC-072
+#### PS-C-REC-058
 
 *Recommendation derived from MISRA C.*
 
 When shifting unsigned constants by more than 7 bits the `UL` suffix should be used.
 
-#### Explanation
+##### Explanation
 
 It’s not sufficient to mark them with `U` as MISRA classifies `U` constants, despite the C standard implications, as
 8-bit essential type (see the “To assist in understanding” example in Rule 12.2 rationale, D.3 and D.7.4).
 
-#### Exception
+##### Exception
 
 Per exception 1 to rule 10.3 it is allowed to assign simple constants to unsigned variables without the `U`/`UL` suffix,
 like `size_t i = 0` provided that the constant fits into the variable type. Use of this exception is permitted as long
 as it is stylistically consistent.
 
-### PS-CODE-REC-073
+#### PS-C-REC-059
 
 The numeric hexadecimal literals should be written with small letters.
 
-#### Example
+##### Example
 
 ```c
 #define SIZE_PAGE 0xffU
 ```
 
-### PS-CODE-REC-074
+#### PS-C-REC-060
 
 *Recommendation derived from MISRA C.*
 
 `\0` literal should be used to define a variable of `char` type with a value of 0.
 
-## Pointers
+### Pointers
 
-### PS-CODE-REC-075
+#### PS-C-REC-061
 
 `NULL` should be used as default value for empty pointers.
 
-## Miscellaneous
+### Miscellaneous
 
-### PS-CODE-REC-076
+#### PS-C-REC-062
 
 The `goto` statement should not be used.
 
-#### Note
+##### Note
 
 The main goal of this prohibition is the minimization of the spaghetti code
 generation and the prevention of the linear programming usage.
@@ -797,15 +911,141 @@ In our opinion, the usage of goto increases chaos in the source code and
 offers no value, such as minimizing the number of lines of code.
 It also encourages programmers to poor code structurization.
 
-### PS-CODE-REC-077
+#### PS-C-REC-063
+
+*Recommendation derived from MISRA C.*
+
+Usage of flexible array members should be minimized.
+
+##### Explanation
+While MISRA C prohibits the use of flexible array members, Phoenix-RTOS kernel employs this type of structure for kernel 
+level management of dynamic data objects and memory. The recommendation to minimize usage of such constructs is dictated ]
+due to potential implication of the presence of flexible array members (e.g. modification of behavior of `sizeof`).
+
+##### Example
+```c
+typedef struct _vm_object_t {
+	rbnode_t linkage;
+	oid_t oid;
+	int refs;
+	size_t size;
+	page_t *pages[];
+} vm_object_t;
+```
+
+In the code above flexible structure `_vm_object_t` is used for memory management. Field `pages` can contain pointers to 
+multiple pages in memory hence the allowed use of flexible array member.
+
+#### PS-C-REC-064
+
+*Recommendation derived from MISRA C.*
+
+Recursive function calls, both direct and indirect, should be prohibited
+
+##### Explanation
+Recursive execution might make it impossible to determine the worst case stack usage.
+
+
+#### PS-C-REC-065
 
 All user input should be sanitized - consider this especially in cases such as syscall implementations:
  e.g. check if flags are in the required range (example: `(var & FLAG_MASK_ALL) == 0`).
 
-## Appendixes
+### Appendixes
 
 ```{toctree}
 :maxdepth: 1
 misracprofile.rst
 
+```
+
+## Coding standard for Assembly
+This coding standard is designed for GNU GCC and [GNU Assembler](https://www.gnu.org/software/binutils/) and
+is targeting multiple architectures supported by Phoenix-RTOS. Presented rules and recommendations are introduced 
+to maintain a consistent working experience across different Instruction Set Architectures.
+
+### General rules and formatting
+
+#### PS-ASM-REC-001
+
+All assembly mnemonics (instructions) and register names should be written in lower case.
+
+##### Example
+```
+movl %dr7, %eax   /* IA-32 ISA */
+```
+
+```
+mov x1, sp        /* ARM64 ISA */
+```
+
+#### PS-ASM-REC-002
+
+C language style comments should be used: `/* */` in assembly code.
+
+##### Note
+
+This allows to maintain a unified standard that works across all GCC-supported architectures. 
+Architecture-specific comment characters (like `@` in ARM or `;` in IA-32/SPARC are not allowed. 
+
+##### Example
+```
+irq_no_switch:
+	/* restore current window */
+	ld  [%sp + 0x04], %g1 /* y */
+```
+
+#### PS-ASM-REC-003
+
+Assembly labels should be left aligned without any indentation.
+
+### Defines and Preprocessing
+
+#### PS-ASM-REC-004
+
+C styles `#define` should be used for constants.
+
+#### PS-ASM-REC-005
+
+Magic number is code should be avoided.
+
+##### Example
+```
+irq_no_switch:
+#define X_ESR_EL1   x28
+
+	mrs X_ESR_EL1, esr_el1      /* correct */
+	mrs x28, esr_el1            /* incorrect, magic number in code! */
+```
+
+### Labels and naming
+
+#### PS-ASM-REC-006
+
+Local labels (no entry point to C code) should be written in lower case with `_` word separator.
+
+##### Note
+
+Labels for C code entry points match C declaration. Short labels e.g. `1:` are allowed e.g. for loops.
+
+### Memory and Data
+
+#### PS-ASM-REC-007
+
+.align or .balign directive should be placed before data or functions declaration to ensure proper alignment.
+
+##### Example
+
+```
+.align 4
+.type .L_two_nans, %object
+.L_two_nans:
+.word 0
+.word 0x7ff80000
+.word 0
+.word 0
+.word 0
+.word 0x7ff80000
+.word 0
+.word 0
 ```

@@ -1,8 +1,39 @@
 Appendix 1 - Phoenix MISRA C Profile
 ====================================
 
+MISRA C 2023 rule headlines can be accessed on
+`MISRA official git repository <https://gitlab.com/MISRA/MISRA-C/MISRA-C-2012/tools/-/blob/main/misra_c_2023__headlines_for_cppcheck.txt?ref_type=heads>`__
+For detailed information a licensed copy of the MISRA C 2023 standard needs to be obtained from MISRA organization.
+
 The following table lists the directives and rules of the MISRA C:2023 standard
 and their status within the Phoenix MISRA C Profile.
+
+MISRA C Tailoring for Phoenix-RTOS development
+----------------------------------------------
+MISRA C is a widely adapted guideline for C developers. Despite it automotive origin, MISRA C
+framework can be beneficial for other safety-critical industries like aerospace, aviation
+or medical. The primary objectives of this standard is elimination of undefined behavior,
+promotion of safety and consistent coding practices and effective reduction of reliability
+and predictability. For the low level development, especially development of operating system's
+core functions, compliance to some rules might be either not possible or result in performance
+degradation. For example, MISRA C promotes portability by limiting the reliance on
+implementation-defined behavior. At the same time, it's role of operating system to
+provide the implementation-agnostic interface and hide the low level interactions behind
+the hardware abstraction layer. Below a tailoring of MISRA C 2023 standard applicable to
+Phoenix-RTOS development process is presented. The tailoring has been prepared taking into
+considerations incorporation of MISRA C benefits without performance and productivity
+degradation and therefore following assumptions:
+
+* All `Advisory` rules defined in the standard are treated as optional and will not be enforced Phoenix Systems;
+* Rules limiting access to hardware resources (e.g. register based interface to peripherals) will be disabled;
+* Rules impacting pointer arithmetic performance and universal interfaces at kernel level will be disabled.
+
+The compliance to MISRA C standard will be assessed using commercially available Code Static
+Analyzers, for example: Parasoft Cpptest, QA Systems QA MISRA, Synopsys Coverity. The tool
+should be configured to match the profile defined in table below.
+
+It is also allowed to disable rule enforcement in the Code Static Analysis tool on case by case basis.
+Each case needs to be thoroughly reviewed by the developer and justification provided.
 
 Column Descriptions
 -------------------
@@ -187,16 +218,16 @@ Column Descriptions
     "Rule 20.12", "Required", "NO", "**YES**", ""
     "Rule 20.13", "Required", "NO", "**YES**", ""
     "Rule 20.14", "Required", "NO", "**YES**", ""
-    "Rule 21.1", "Required", "DISABLED", "NO", "This rule is not applicable for Phoenix-RTOS kernel source code, because common identifiers are defined within its codebase."
-    "Rule 21.2", "Required", "DISABLED", "NO", "This rule is not applicable for Phoenix-RTOS kernel source code, because common identifiers are defined within its codebase."
+    "Rule 21.1", "Required", "DISABLED", "NO", "This rule is not applicable for Phoenix-RTOS kernel source code, because common identifiers are defined within its codebase and custom implementation of libc `libphoenix`."
+    "Rule 21.2", "Required", "DISABLED", "NO", "This rule is not applicable for Phoenix-RTOS kernel source code, because common identifiers are defined within its codebase and custom implementation of libc `libphoenix`."
     "Rule 21.3", "Required", "NO", "**YES**", ""
     "Rule 21.4", "Required", "NO", "**YES**", ""
-    "Rule 21.5", "Required", "DISABLED", "NO", "This rule is not applicable for the Phoenix-RTOS kernel source code, because <signal.h> is proprietary to its codebase and has defined behavior."
+    "Rule 21.5", "Required", "DISABLED", "NO", "This rule is not applicable for the Phoenix-RTOS kernel source code, because <signal.h> is provided as part of custom implementation of libc `libphoenix`.` and therefore has defined behavior."
     "Rule 21.6", "Required", "NO", "**YES**", ""
     "Rule 21.7", "Required", "NO", "**YES**", ""
     "Rule 21.8", "Required", "NO", "**YES**", ""
     "Rule 21.9", "Required", "NO", "**YES**", ""
-    "Rule 21.10", "Required", "DISABLED", "NO", "This rule is not applicable for the Phoenix-RTOS kernel source code, because date and time functions are proprietary to its codebase and has defined behavior. "
+    "Rule 21.10", "Required", "DISABLED", "NO", "This rule is not applicable for the Phoenix-RTOS kernel source code, because date and time functions are provided as part of custom implementation of libc `libphoenix`.` and therefore have defined behavior. "
     "Rule 21.11", "Advisory", "NO", "NO", ""
     "Rule 21.12", "Required", "NO", "**YES**", ""
     "Rule 21.13", "Mandatory", "NO", "**YES**", ""
