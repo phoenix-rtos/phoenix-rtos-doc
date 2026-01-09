@@ -137,7 +137,7 @@ of the standard open source license as defined at the [SPDX List](https://spdx.o
 for open source products or `Phoenix-Commercial` for commercial products. The statement 
 `SPDX-License-Identifier: ` precedes the license identifier.
 
-For open source products, the default license selected by Phoenix System is BSD-3-Clause
+For open source products, the default license selected by Phoenix Systems is BSD-3-Clause
 license for which the SPDX defines identifier: `BSD-3-Clause`.
 
 This licensing scheme is compliant with [REUSE Specification](https://reuse.software/spec/).
@@ -320,20 +320,20 @@ int libfoo_bar_start();
 
 #### PS-C-REC-012
 
-Function declaration shall include arguments' names.
+Function declaration should include arguments' names.
 
 ##### Example
 
 Incorrect:
 
 ```c
-int hal_cpuCreateContext(cpu_context_t **nctx, void *start, void *kstack, size_t kstacksz, void *ustack, void *arg, hal_tls_t *tls)
+int sum(int, int);
 ```
 
 Correct:
 
 ```c
-int hal_cpuCreateContext(cpu_context_t **nctx, void (*start)(void *harg), void *kstack, size_t kstacksz, void *ustack, void *arg, hal_tls_t *tls)
+int sum(int a, int b);
 ```
 
 #### PS-C-REC-013
@@ -400,22 +400,18 @@ When defining a variable, it should be assigned with a value (do not assume that
 **In the kernel code always initialize global/static variables at runtime.** There's not `.bss` and
 `.data` initialization in the kernel.
 
-#### PS-C-REC-020
-
-**In the kernel code always initialize global/static variables at runtime.** There's no `.bss` and
-`const` should be used whenever it is not expected or prohibited for value to change.
 
 ### Local variables - kernel
 
-#### PS-C-REC-021
+#### PS-C-REC-020
 
 Local variables should be defined before the function code in the kernel.
 
-#### PS-C-REC-022
+#### PS-C-REC-021
 
 The stack usage and number of local variables should be minimized in the kernel.
 
-#### PS-C-REC-023
+#### PS-C-REC-022
 
 Static local variables should not be used in the kernel.
 
@@ -445,16 +441,16 @@ void *_kmalloc_alloc(u8 hdridx, u8 idx)
 
 ### Local variables - libphoenix, userspace
 
-#### PS-C-REC-024
+#### PS-C-REC-023
 
 Scope of local variables should be minimized in `libphoenix` and user space (as the stack usage and
 number of local variables).
 
-#### PS-C-REC-025
+#### PS-C-REC-024
 
 The variables should not be used for different purposes across the function.
 
-#### PS-C-REC-026
+#### PS-C-REC-025
 
 Static local variables should be used in only `libphoenix` and user space.
 
@@ -479,23 +475,23 @@ void countSheeps(herd_t *herd)
 
 ### Global variables
 
-#### PS-C-REC-027
+#### PS-C-REC-026
 
 In the kernel code global variables should be always initialized at runtime.
 
-#### PS-C-REC-028
+#### PS-C-REC-027
 
 Global variables should be used only if they're absolutely necessary.
 
-#### PS-C-REC-029
+#### PS-C-REC-028
 
 The scope of global variables should be limited whenever possible by using `static`.
 
-#### PS-C-REC-030
+#### PS-C-REC-029
 
 Global variables should only be placed in common structures.
 
-#### PS-C-REC-031
+#### PS-C-REC-030
 
 The structure should be named after the system module that implements it, followed by `_common`.
 
@@ -514,7 +510,7 @@ only if static is used.
 
 ### Operators
 
-#### PS-C-REC-032
+#### PS-C-REC-031
 
 One space character should be used after and before the following binary and ternary operators:
 
@@ -522,7 +518,7 @@ One space character should be used after and before the following binary and ter
 =  +  -  <  >  *  /  %  |  &  ^  <=  >=  ==  !=  ?  :
 ```
 
-#### PS-C-REC-033
+#### PS-C-REC-032
 
 No space should be used after the following unary operators:
 
@@ -530,7 +526,7 @@ No space should be used after the following unary operators:
 &  *  +  -  ~  !
 ```
 
-#### PS-C-REC-034
+#### PS-C-REC-033
 
 The `sizeof` and `typeof` operators should be treated as functions and are to be used in accordance
 to the following notation:
@@ -540,29 +536,29 @@ sizeof(x)
 typeof(x)
 ```
 
-#### PS-C-REC-035
+#### PS-C-REC-034
 
 If the increment `++` or decrement `--` operators are postfixed, no space should be used before the operator.
 
-#### PS-C-REC-036
+#### PS-C-REC-035
 
 If the increment `++` or decrement `--` operators are prefixed, no space should be used after the operator.
 
 ### Conditional expressions
 
-#### PS-C-REC-037
+#### PS-C-REC-036
 
 A space should be used after a keyword of the conditional instruction.
 
-#### PS-C-REC-038
+#### PS-C-REC-037
 
 Opening and closing braces should always be used.
 
-#### PS-C-REC-039
+#### PS-C-REC-038
 
 The opening brace should be put in the same line as the keyword of the conditional instruction.
 
-#### PS-C-REC-040
+#### PS-C-REC-039
 
 The closing brace should be placed after the last line of the conditional instruction in a new line.
 
@@ -587,7 +583,7 @@ else {
 }
 ```
 
-#### PS-C-REC-041
+#### PS-C-REC-040
 
 *Recommendation derived from MISRA C.*
 
@@ -614,7 +610,7 @@ if (len == 0U)
 
 ### Comparison output
 
-#### PS-C-REC-042
+#### PS-C-REC-041
 
 *Recommendation derived from MISRA C.*
 
@@ -640,11 +636,11 @@ c = (a == b) ? 1U : 0U;
 
 ### Type specifiers and definitions
 
-#### PS-C-REC-043
+#### PS-C-REC-042
 
 New types should only be defined if it is absolutely necessary.
 
-#### PS-C-REC-044
+#### PS-C-REC-043
 
 If `typedef` is used for a structure/union, structure/union should be left anonymous if possible:
 
@@ -657,7 +653,7 @@ typedef struct {
 } foobar_t;
 ```
 
-#### PS-C-REC-045
+#### PS-C-REC-044
 
 *Recommendation derived from MISRA C.*
 
@@ -677,7 +673,7 @@ Recommended:
 
 ### Comments
 
-#### PS-C-REC-046
+#### PS-C-REC-045
 
 When the C programming language is used only C language comments should be used: `/* */`.
 
@@ -702,21 +698,21 @@ One line comment:
 /* comment */
 ```
 
-#### PS-C-REC-047
+#### PS-C-REC-046
 
 Comments should be brief and placed only in essential parts of the code.
 
-#### PS-C-REC-048
+#### PS-C-REC-047
 
 Comments should not contain copied parts of specification.
 
-#### PS-C-REC-049
+#### PS-C-REC-048
 
 Documentation generators (e.g. Doxygen) should not be used.
 
 ### Code disabling
 
-#### PS-C-REC-050
+#### PS-C-REC-049
 
 Disabled or dead code should not be placed in the code.
 
@@ -726,7 +722,7 @@ Version control should be relied upon to hold obsolete code.
 
 ### Preprocessor
 
-#### PS-C-REC-051
+#### PS-C-REC-050
 
 Each header file (`.h`) should include header guard formatted as follows:
 
@@ -753,7 +749,7 @@ void _syscalls_init(void);
 #endif
 ```
 
-#### PS-C-REC-052
+#### PS-C-REC-051
 
 The header with the `#include` preprocessing directive should be placed after the label and header guard (for `.h` files).
 
@@ -776,7 +772,7 @@ The header with the `#include` preprocessing directive should be placed after th
 #include "posix.h"
 ```
 
-#### PS-C-REC-067
+#### PS-C-REC-052
 
 The MACROS and DEFINE names should be written in upper case with `_` words separator.
 
@@ -799,7 +795,7 @@ and limited to header guards.
 ##### Note
 
 The use of preprocessing conditionals makes it harder to follow the code logic and can be used only
-if it is absolutely necessary. The justification for each 
+if it is absolutely necessary. The justification for each use case will be provided in code review.
 
 #### PS-C-REC-055
 
