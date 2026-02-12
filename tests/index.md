@@ -554,3 +554,187 @@ Flashing an image to device...
 Done!
 TESTS: 0 PASSED: 0 FAILED: 0 SKIPPED: 0
 ```
+
+## Example 4: Testing with PyTest
+
+In the [first example](#example-1-hello-world), we used a custom-made Python harness. However, trunner comes with
+a built-in `pytest_harness`. It is an implementation of the [PyTest framework](https://docs.pytest.org/en/stable/)
+customized to our needs. In this example, we will learn how to use this ready-to-use harness instead of creating
+our own.
+
+We can start by creating a new directory `phoenix-rtos-tests/pytest_echo/`. Inside it, let's create an `echo.c` file.
+
+Our `echo.c` will be a simple program that will run in a loop until we terminate it with specific input:
+
+```c
+#include <stdio.h>
+#include <string.h>
+#include <unistd.h>
+#include <stdbool.h>
+
+#define BUF_SZ 256
+
+int main(int argc, char **argv)
+{
+	char c = '\0';
+	char buffer[BUF_SZ] = { 0 };
+	int pos = 0;
+
+	printf("Type 'quit' to exit\n");
+
+	while (true) {
+		if (read(STDIN_FILENO, &c, 1) != 1)
+			return -1;
+
+		if (c == '\n') {
+			buffer[pos] = '\0';
+			if (strcmp(buffer, "quit") == 0)
+				return 0;
+			else
+				printf("[ECHO] %s\n", buffer);
+			pos = 0;
+		}
+		else if (pos < BUF_SZ - 1) {
+			buffer[pos++] = c;
+		}
+		else {
+			printf("[Failure!]\n");
+			return -1;
+		}
+	}
+}
+```
+
+We will also need a `Makefile` to build it:
+
+```makefile
+NAME := test-echo-pytest
+LOCAL_SRCS := echo.c
+
+include $(binary.mk)
+```
+
+Now that our test source file and `Makefile` are ready, we can focus on writing the actual PyTest scripts.
+
+We should start by creating `conftest.py`, in which we will define PyTest fixtures we will need for our tests:
+
+```python
+import pytest
+
+@pytest.fixture(scope="session")
+def pexpect_bin(dut):
+    p = dut.pexpect_proc
+
+    # hold the pexpect process for the entire session
+    yield p
+
+    # terminate the application after session is terminated
+    p.sendline("quit")
+```
+
+In our new fixture `pexpect_bin`, we use the `dut` _(Device Under Test)_ fixture that returns the `dut` object
+directly from `trunner`. It grants us direct access to `pexpect_proc` for testing and more. We use the
+[pexpect library](https://pexpect.readthedocs.io/en/stable/) here to communicate with the test binary we created.
+
+`pytest-harness` also comes with a `ctx` (`TestContext`) fixture that provides information about the test environment.
+
+Now, let's write the actual tests. Create a file named `test_echo.py` inside `phoenix-rtos-tests/pytest_echo/`,
+alongside the other files we created.
+
+Copy the code below and paste it to `test_echo.py`:
+
+```python
+def test_echo_hello_world(pexpect_bin):
+    phrase = "hello world!"
+    pexpect_bin.sendline(phrase)
+    pexpect_bin.expect_exact(f"[ECHO] {phrase}\r\n")
+```
+
+Now that our first test case is ready, we only need to define our YAML configuration in
+`phoenix-rtos-tests/pytest_echo/test.yaml`:
+
+```yaml
+test:
+  tests:
+    - name: pytest-echo
+      type: pytest
+      script: test_echo.py
+      execute: test-echo-pytest
+```
+
+We need to set `type: pytest` and add `script: test_echo.py` to tell trunner which script to run.
+
+Additionally, our PyTest extension also supports a keyword argument `options`.
+We can use it to run PyTest with desired run arguments:
+
+```yaml
+test:
+  tests:
+    - name: pytest-echo
+      type: pytest
+      script: test_echo.py
+      execute: test-echo-pytest
+      kwargs:
+        options: "-k test_echo"
+```
+
+The above example would only run tests that have `test_echo` in their name.
+This functionality also supports multiple arguments.
+
+(For more information about YAMLs, [see _Example 1_](#example-1-hello-world))
+
+At the very end, we need to build the project by running this command:
+
+```shell
+TARGET=ia32-generic-qemu CONSOLE=serial ./phoenix-rtos-build/build.sh core fs project image test
+```
+
+Now, we can finally run our test:
+
+```shell
+./phoenix-rtos-tests/runner.py --target ia32-generic-qemu -t phoenix-rtos-tests/pytest_echo/
+```
+
+This is the output we should expect:
+
+```shell
+flash: OK
+phoenix-rtos-tests/pytest_echo/pytest-echo: OK
+TESTS: 2 PASSED: 2 FAILED: 0 SKIPPED: 0
+```
+
+Let's now add a new test case to the end of our `test_echo.py`:
+
+```python
+def test_echo(pexpect_bin):
+    pexpect_bin.sendline("hello again!")
+    pexpect_bin.readline()  # read echoed input
+    resp = pexpect_bin.readline().strip()
+    # force AssertionError by expecting something that was not sent
+    assert resp == "[ECHO] hello world!"
+
+```
+
+After running the test again, we should receive the following output:
+
+```shell
+flash: OK
+phoenix-rtos-tests/pytest_echo/pytest-echo: FAIL
+      test_echo: FAIL: pexpect_bin = <pexpect.pty_spawn.spawn object at 0x72f8d528e360>
+
+                           def test_echo(pexpect_bin):
+                               pexpect_bin.sendline("hello again!")
+                               pexpect_bin.readline()  # read echoed input
+                               resp = pexpect_bin.readline().strip()
+                               # force AssertionError by expecting something that was not sent
+                       >       assert resp == "[ECHO] hello world!"
+                       E       AssertionError: assert '[ECHO] hello again!' == '[ECHO] hello world!'
+                       E         - [ECHO] hello world!
+                       E         + [ECHO] hello again!
+
+                       phoenix-rtos-tests/pytest_echo/test_echo.py:12: AssertionError
+TESTS: 2 PASSED: 1 FAILED: 1 SKIPPED: 0
+```
+
+Our test failed as expected. The failure is reported with a sufficient traceback and some additional information like
+the expected value vs actual.
