@@ -1,4 +1,4 @@
-# Linux
+# Linux (Ubuntu)
 
 ## Obtaining the sources
 
