@@ -1,41 +1,32 @@
 # Ports
 
-Open-source tools adapted to Phoenix-RTOS are called ports. A source code of each port is downloaded from its official
-website as an archive file. Next, the file is unpacked and compiled using the appropriate toolchain.
-All these steps are performed during a building process when the ports component is specified. Read more about
-building components in the [Building](../building/index.md) chapter.
+Phoenix-RTOS supports a collection of third-party open-source tools that
+have been adapted (ported) to it.
 
-The [phoenix-rtos-ports](https://github.com/phoenix-rtos/phoenix-rtos-ports) repository mostly consists of specific
-building scripts and patches for each tool.
-If you don't know what are `phoenix-rtos` repositories you can check the [Project repository](../project/index.md)
-chapter.
+The collection lies in the
+[phoenix-rtos-ports](https://github.com/phoenix-rtos/phoenix-rtos-ports)
+repository. For information on structure of `phoenix-rtos` repositories, see
+[Project repository](../project/index.md) chapter.
 
-## Components
+For a list of ports available on Phoenix-RTOS, see {doc}`port_list`.
 
-Following ports are possible to use:
+## Brief conceptual description
 
-- `busybox` - application suite that provides several UN*X utilities,
-- `curl` - command-line tool for transferring data using various network protocols,
-- `dropbear` - package that provides SSH-compatible server and client,
-- `jansson` - library for encoding, decoding and manipulating JSON data,
-- `libevent`- library that provides asynchronous event notification,
-- `lighttpd`- web server optimized for speed-critical environments,
-- `lua` - programming language designed primarily for embedded use in applications,
-- `lzo` - portable lossless data compression library,
-- `mbedtls` - an open source, portable, easy to use SSL library,
-- `micropython` - lean and efficient implementation of the Python 3 programming language,
-- `openssl`- toolkit for general-purpose cryptography and secure communication,
-- `openvpn`- open source connection protocol used to facilitate a secure tunnel between two points in a network,
-- `pcre` - library that implements regular expression pattern matching using the same syntax and semantics as Perl 5,
-- `scep` - client-only implementation of the `SCEP` (Cisco System's Simple Certificate Enrollment Protocol),
-- `wpa_supplicant` - Wi-Fi Protected Access client and `IEEE 802.1X` supplicant
-- `azure_sdk` - Azure IoT C Software Development Kit
+Ports are defined using a `port.def.sh` file and can be enabled on a
+target using `ports.yaml` files defined per target/project.
+
+For an in-depth port structure specification, see {doc}`port_def`.
+
+For instructions on how to pick ports to install when building Phoenix-RTOS, see
+{doc}`ports_yaml`.
+
+## Table of contents
 
 ```{toctree}
 :maxdepth: 1
 
-mbedtls.md
-azure_sdk.md
+port_def.md
+ports_yaml.md
+port_list.md
+port_docs_index.md
 ```
-
-<!-- #TODO: add chapters on how to use each of these tools -->
