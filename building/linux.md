@@ -115,19 +115,54 @@ After the build completes, kernel and disk images will be created and placed in 
 
 ## Building the native toolchain
 
-If you prefer, you can build the toolchain from source yourself. Before doing so, run the command below
-to ensure that the prerequisites listed below are installed.
+If you prefer, you can build the toolchain from source yourself. Before doing
+so, ensure that the prerequisites listed below are installed:
 
 ```shell
-sudo apt update && sudo apt install -y \
-build-essential mtd-utils autoconf \
-pkg-config texinfo genext2fs \
-libtool libhidapi-dev python3 \
-python3-jinja2 python3-yaml
+sudo apt update
+
+# toolchain build dependencies
+sudo apt-get install -y --no-install-recommends \
+  autoconf \
+  automake \
+  bzip2 \
+  ca-certificates \
+  g++ \
+  git \
+  gcc \
+  libc6-dev \
+  libglib2.0-dev \
+  libmaxminddb-dev \
+  libtool \
+  make \
+  patch \
+  texinfo \
+  unzip \
+  wget \
+  xz-utils
+
+# phoenix-rtos-build runtime dependencies
+sudo apt-get install -y --no-install-recommends \
+  cpio \
+  genext2fs \
+  libhidapi-dev \
+  vim \
+  mtd-utils \
+  xxd \
+  cmake \
+  python3 \
+  python3-yaml \
+  python3-jinja2 \
+  python3-pycryptodome \
+  python3-packaging \
+  python3-resolvelib \
+  python3-pyparsing \
+  python3-rich \
+  jq
 ```
 
-In the phoenix-rtos-build/toolchain directory, run one of the following command to build the toolchain
-for the specific architecture:
+In the `phoenix-rtos-build/toolchain` directory, run one of the following
+commands to build the toolchain for the specific architecture:
 
 ```shell
 ./build-toolchain.sh i386-pc-phoenix ~/toolchains/i386-pc-phoenix
