@@ -8,8 +8,8 @@ To do this and make the following instructions possible, it’s recommended to u
 and, if necessary, install `git`:
 
 ```shell
-sudo apt update && \
-sudo apt install -y git
+sudo apt-get update && \
+sudo apt-get install -y git
 ```
 
 Then, the repository should be cloned recursively (to get the submodules):
@@ -46,7 +46,7 @@ Firstly, you need to have `Docker` installed.
 - Install required packages
 
   ```shell
-  sudo apt update && sudo apt install -y \
+  sudo apt-get update && sudo apt-get install -y \
   curl \
   ca-certificates \
   gnupg \
@@ -119,7 +119,7 @@ If you prefer, you can build the toolchain from source yourself. Before doing
 so, ensure that the prerequisites listed below are installed:
 
 ```shell
-sudo apt update
+sudo apt-get update
 
 # toolchain build dependencies
 sudo apt-get install -y --no-install-recommends \
