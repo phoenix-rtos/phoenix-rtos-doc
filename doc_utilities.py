@@ -1,3 +1,14 @@
+#
+# phoenix-rtos-doc
+#
+# Common utilities for Sphinx conf.py
+#
+# Copyright 2024, 2026 Phoenix Systems
+# Author: Damian Loewnau, Adam Greloch
+#
+# SPDX-License-Identifier: BSD-3-Clause
+#
+
 import subprocess
 import re
 from packaging import version
@@ -73,3 +84,10 @@ class VersionManager:
 def get_version_context(min_version: str = "3.3.0", max_versions: int = 3) -> tuple:
     manager = VersionManager(min_version, max_versions)
     return manager.get_version_context()
+
+
+def get_git_rev():
+    output = subprocess.check_output(["git", "describe"]).strip().decode()
+    commit_hash = output.split("-")[-1]
+    assert commit_hash
+    return output, commit_hash
