@@ -1,19 +1,22 @@
-<div class="version-container">
-    <div class="default-version">
-        <span class="version-top">
-            <span>Phoenix-RTOS</span>
-            <span class="curr-version">ver. latest</span>
-        </span>
-        <label>
-            <i class="icon"><svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg></i>
-        </label>
-    </div>
-    <div class="other-versions">
-        <dl>
-            <span>Document Release Versions:</span>
-            {% for name, url in versions %}
-                <dd><a href="{{ url }}">{{ name }}</a></dd>
-            {% endfor %}
-        </dl>
-    </div>
+<div class="d-flex justify-content-center align-items-center">
+  <!-- <div class="pst-js-only dropdown-center"> -->
+  <!--   <button class="btn dropdown-toggle phx-muted" type="button" data-bs-toggle="dropdown" aria-expanded="false"> -->
+  <!--     master -->
+  <!--   </button> -->
+  <!--   <ul class="dropdown-menu dropdown-menu-center"> -->
+  <!--     <li><h6 class="dropdown-header">Version</h6></li> -->
+  <!--     {% for name, url in versions %} -->
+  <!--     <li><a class="dropdown-item" href="{{ url }}">{{ name }}</a></li> -->
+  <!--     {% endfor %} -->
+  <!--   </ul> -->
+  <!-- </div> -->
+
+  <div class="btn-group">
+    <a class="btn phx-primary btn-sm" aria-current="page" href="">{{ current_version }}</a>
+    {% for name, url in versions %}
+    {% if name != current_version %}
+    <a class="btn phx-muted btn-sm" href="{{ url }}">{{ name }}</a>
+    {% endif %}
+    {% endfor %}
+  </div>
 </div>

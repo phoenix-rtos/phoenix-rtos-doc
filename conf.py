@@ -1,12 +1,11 @@
 # Configuration file for the Sphinx documentation builder.
 
 from version_management import get_version_context
-from pathlib import Path
 from datetime import datetime
 from phoenixsystems.docsresources import latex_default
 
 project = ""
-copyright = "2024-2025, Phoenix Systems"
+copyright = f"2024-{datetime.today().strftime('%Y')}, Phoenix Systems"
 author = "Phoenix Systems"
 
 extensions = ["myst_parser", "sphinx_copybutton"]
@@ -15,65 +14,34 @@ myst_enable_extensions = ["deflist", "fieldlist"]
 
 templates_path = ["_templates"]
 exclude_patterns = ["README", "_build", "Thumbs.db", ".DS_Store", "_venv", "docsresources", "pdf-template"]
+exclude_patterns += ["utils", "kernel", "libc"]
 myst_heading_anchors = 3
 pygments_dark_style = "tango"
 
 latexpdf_title = "Phoenix-RTOS Documentation"
 latexpdf_author = ""
 latexpdf_date = datetime.today().strftime('%d-%m-%Y')
-latexpdf_version = "Ver. latest"
+latexpdf_version = "latest"
 latexpdf_filename = "phoenix-rtos-documentation"
 
-html_theme = "furo"
+html_theme = "sphinx_book_theme"
 html_title = "Phoenix-RTOS Documentation"
 html_favicon = "_static/images/favicon.png"
-html_js_files = ["js/versions.js"]
-html_style = ["css/furo-phoenix.css", "css/furo-extensions-phoenix.css", "css/pygments-tango-overrides.css"]
-html_static_path = ["_static", "_static/images/light_logo.png"]
+html_static_path = ["_static"]
+html_css_files = ["css/custom.css"]
 html_baseurl = "https://docs.phoenix-rtos.com/latest/"
-html_context = {"versions": get_version_context()}
+html_context = {"versions": get_version_context(), "current_version": "latest"}
 
-# TODO: add dark mode support
+html_sidebars = {"**": ["navbar-logo.html", "icon-links.html", "versions.html", "search-button-field.html", "sbt-sidebar-nav.html" ]}
+
+# TODO: add sphinx-togglebutton?
+# https://sphinx-book-theme.readthedocs.io/en/latest/reference/extensions.html
+
 html_theme_options = {
-    "light_logo": "light_logo.png",
-    "light_css_variables": {
-        "sidebar-caption-font-size": "100%",
-        "sidebar-item-font-size": "90%",
-        "sidebar-item-spacing-vertical": "0.4rem",
-        "sidebar-item-line-height": "1.1rem",
-        "color-sidebar-search-icon": "#EA5B22",
-        "sidebar-search-space-above": "0.1rem",
-        "sidebar-caption-space-above": "0.1rem",
-        "sidebar-tree-space-above": "0.5rem",
-        "sidebar-search-input-font-size": "95%",
-        "font-stack": "'Open Sans', sans-serif",
-        "color-sidebar-background": "#0F1724",
-        "color-sidebar-link-text--top-level": "#273149",
-        "color-sidebar-item-background--current": "F1F3F3",
-        "color-foreground-primary": "#273149",
-        "color-brand-content": "#1890d7",
-        "color-header-background": "#0F1724",
-        "color-header-text": "white",
-    },
-    "dark_logo": "light_logo.png",
-    "dark_css_variables": {
-        "sidebar-caption-font-size": "100%",
-        "sidebar-item-font-size": "90%",
-        "sidebar-item-spacing-vertical": "0.4rem",
-        "sidebar-item-line-height": "1.1rem",
-        "color-sidebar-search-icon": "#EA5B22",
-        "sidebar-search-space-above": "0.1rem",
-        "sidebar-caption-space-above": "0.1rem",
-        "sidebar-tree-space-above": "0.5rem",
-        "sidebar-search-input-font-size": "95%",
-        "font-stack": "'Open Sans', sans-serif",
-        "color-sidebar-background": "#0F1724",
-        "color-sidebar-link-text--top-level": "#273149",
-        "color-sidebar-item-background--current": "#0F1F3F3",
-        "color-foreground-primary": "#273149",
-        "color-brand-content": "#1890d7",
-        "color-header-background": "#0F1724",
-        "color-header-text": "white",
+    "path_to_docs": ".",
+    "logo": {
+        "image_light": "_static/images/phoenix-light.svg",
+        "image_dark": "_static/images/phoenix-dark.svg",
     },
 }
 

@@ -1,0 +1,50 @@
+.navbar-brand .logo__image {
+  margin: 0 1rem;
+}
+
+@font-face {
+    font-display: swap;
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/open-sans-v40-latin-regular.woff2') format('woff2');
+}
+
+html {
+    --pst-font-family-base: Open Sans, var(--pst-font-family-base-system);
+    --pst-font-family-heading: Open Sans, var(--pst-font-family-base-system);
+    --pst-font-family-monospace: var(--pst-font-family-monospace-system);
+
+    --pst-color-danger: #cc3121 !important;
+    --pst-color-secondary: #657ca0 !important;
+    --pst-color-success: #3b8464 !important;
+
+    --pst-font-size-h1: 1.75rem;
+    --pst-font-size-h2: 1.5rem;
+    --pst-font-size-h3: 1.25rem;
+    --pst-font-size-h4: 1.125rem;
+    --pst-font-size-h5: 1rem;
+    --pst-font-size-h6: 0.85rem;
+}
+
+html[data-theme="light"] {
+    --pst-color-primary: #ea5b22 !important;
+    --pst-color-link: #ea5b22 !important;
+    --pst-color-text-base: #273149 !important;
+}
+
+html[data-theme="dark"] {
+    --pst-color-primary: #ea5b22 !important;
+    --pst-color-link: #ea5b22 !important;
+    --pst-color-text-base: white !important;
+    --pst-color-background: #0f1724 !important;
+}
+
+.phx-primary {
+  color: var(--pst-color-text-primary);
+}
+
+
+.phx-muted {
+  color: var(--pst-color-text-muted);
+}
