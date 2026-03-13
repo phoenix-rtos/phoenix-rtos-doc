@@ -5,6 +5,7 @@
 
 overview.md
 scheduler.md
+partitioning.md
 forking.md
 sync.md
 msg.md

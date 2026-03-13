@@ -17,7 +17,7 @@ to the kernel and interactive mode will be skipped.
 List all the available commands in plo (some of them are available only on the specific targets):
 
 * `alias` - sets alias to file, usage: `alias [<name> <offset> <size>]`
-* `app` - loads app, usage: `app [<dev> [-x] <name> <imap1;imap2...> <dmap1;dmap2...>]`
+* `app` - loads app, usage: `app [<dev> [-x] <name> <imap1;imap2...> <dmap1;dmap2...> [partition]]`
 * `bitstream - loads bitstream into PL, usage:`bitstream (dev) (name)`
 * `call` - calls user's script, usage: `call <dev> <script name> <magic>`
 * `console` - sets console to device, usage: `console <major.minor>`
@@ -29,7 +29,9 @@ List all the available commands in plo (some of them are available only on the s
 * `kernel` - loads Phoenix-RTOS, usage: `kernel [<dev> [name]]`
 * `map` - defines multimap, usage: `map [<name> <start> <end> <attributes>]`
 * `mpu` - prints the use of MPU regions, usage: `mpu [all]`
+* `part` - creates partition, usage: `part <name> [-ms] <allocmaps> <accessmaps> <schedwindows> <memlimit>`
 * `phfs` - registers device in phfs, usage: `phfs [<alias> <major.minor> [protocol]]`
+* `sched` - configures scheduler windows, usage: `sched <duration1;duration2;...>`
 * `script` - shows script, usage: `script [<dev> <name> <magic>]`
 * `test-ddr` - perform test DDR, usage: `test-ddr`
 * `wait` - waits in milliseconds or in an infinite loop, usage: `wait [ms]`
