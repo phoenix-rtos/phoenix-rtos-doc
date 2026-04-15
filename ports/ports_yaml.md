@@ -20,6 +20,7 @@ ports:
   - name: lua                   
     tests: true                 # Optional. Boolean. Default: false. AND-ed with global 'tests'
     use: ["safe"]               # Optional. List of strings. Default: []
+  - heatshrink                  # Shorthand notation for `name: heatshrink`
 ```
 
 The global `tests` field controls the test building for all ports that
@@ -41,14 +42,19 @@ building tests is enabled for all testable ports only if
 `LONG_TEST=y`, and the `lua` port is installed only if `INSTALL_LUA=y`:
 
 ```yaml
-tests: '{{ env.LONG_TEST }}'
+tests: {{ bool(env.LONG_TEST) }}
 ports:
   - name: busybox
   - name: lua                   
     tests: true
     use: ["safe"]
-    if: '{{ env.INSTALL_LUA }}' # Optional. Boolean. Default: true
+    if: {{ bool(env.INSTALL_LUA) }} # Optional. Boolean. Default: true
 ```
+
+The `bool` function is a global function that can be used to convert any
+bool-like environment variable values (`1`, `0`, `y`, `n`, etc.) into a proper
+Python boolean value. It returns `false`, when the environment variable is
+undefined.
 
 The `if` field is an additional, optional attribute that controls whether a port
 is built. If the expression evaluates to `false`, the port is skipped.
@@ -58,17 +64,37 @@ Here is another `ports.yaml` example that uses Jinja2 `if` block for
 `micropython`:
 
 ```jinja
-tests: '{{ env.LONG_TEST }}'
+tests: {{ bool(env.LONG_TEST) }}
 ports:
   - name: azure_sdk
-    {% if env.LONG_TEST %}
+    {% if bool(env.LONG_TEST) %}
     use: [longtest]
     tests: true
     {% endif %}
   - name: micropython
-    use: {{ ["longtest"] if env.LONG_TEST }}
+    use: {{ ["longtest"] if bool(env.LONG_TEST) }}
     tests: True
 ```
 
 This example exploits the fact that the `ports.yaml` is first treated as a Jinja2
 template, while the previous example passed Jinja2 snippets as strings.
+
+## Convenience features
+
+### Disabling multiple ports
+
+When multiple ports.yaml files are loaded, one way to disable ports inherited
+from previous ports.yaml is to write `if: false` for each unwanted port. This
+quickly becomes inconvenient when there are lots of ports to disable.
+
+The `disabled-ports` field allows to specify many port names to disable at once.
+For example, assuming `bar` and `baz` were specified in previous ports.yaml, the
+following ports.yaml will disable their build:
+
+```jinja
+ports:
+- name: foo
+disabled-ports:
+- bar
+- baz
+```
