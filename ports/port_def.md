@@ -49,7 +49,15 @@ repository (options are mutually exclusive):
   : Base URL where the source is hosted.
 
   `archive_filename`
-  : The name of the downloaded file.
+  : The name of the downloaded archive file. The download will be attempted from
+  the `${source}/${archive_filename}` URL and if that fails, then the mirror
+  will be tried (e.g. `https://files.phoesys.com/ports/${archive_filename}`).
+  This field can be either a single string or a two-element Bash array where the
+  first element is the archive file name for the mirror repository and the
+  second is for the `source` URL. The second option is provided in case the
+  archive names differ - for example, the expected name under the `source` URL
+  for the `foo` port could be `v3.2.1.tar.gz`, but on the mirror it is
+  `foo-3.2.1.tar.gz`.
 
 * If pulling from a Git repository, it must supply:
 
