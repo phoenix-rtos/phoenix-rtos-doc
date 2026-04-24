@@ -10,19 +10,19 @@
 
 ---
 
-## 2. OpenSSL Version Conflict Not Documented
+## 2. OpenSSL Version Conflict
 
-**Current code:** `openssl` and `openssl3` exist as separate ports with conflicts declared between `openssl` and `openssl111`.
+**Current code:** `phoenix-rtos-ports/openssl111/port.def.sh` line 21 declares `conflicts="openssl3>=0.0"`. An `openssl/` directory exists containing only a tarball (`openssl-1.1.1a.tar.gz`) with no `port.def.sh`. No `openssl3` port directory exists yet.
 
-**Documentation:** Does not mention the OpenSSL version situation or migration path.
+**Documentation:** Does not mention the OpenSSL version situation.
 
-**Recommendation:** Document OpenSSL version choices and conflict implications.
+**Recommendation:** Document the openssl111 port and its declared conflict with the future openssl3. Clarify that the `openssl/` directory is a legacy artifact without a proper port definition.
 
 ---
 
-## 3. Actual Port Count Not Mentioned
+## 3. Actual Port Count
 
-**Current code:** 30+ ports available (azure_sdk, busybox, coreMQTT, curl, dropbear, lua, micropython, openssl, zlib, libpng, etc.).
+**Current code:** 25 ports have `port.def.sh` files in `phoenix-rtos-ports/`: azure_sdk, busybox, coremark, coremark_pro, coreMQTT, curl, dropbear, fs_mark, heatshrink, jansson, libevent, lighttpd, lua, lzo, mbedtls, micropython, openiked, openssl111, openvpn, pcre, picocom, smolrtsp, sscep, wpa_supplicant, zlib. Additional directories without port definitions: joe, libpng, lsb_vsx, openssl, x11.
 
 **Documentation:** Does not state the total number of available ports.
 

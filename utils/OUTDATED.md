@@ -34,10 +34,13 @@
 
 **Documentation lists:** 48 applets.
 
-**Current code (Makefile `PSH_ALLCOMMANDS`):** Missing from docs:
-- `chmod` — file permission changes
-- `hd` — hex dump
-- `route` — routing table management
+**Current code (`psh/Makefile` `PSH_ALLCOMMANDS`):**
+```makefile
+PSH_ALLCOMMANDS := bind cat cd chmod cp date dd df dmesg echo edit exec hm hd \
+  ifconfig kill ln ls mem mkdir mount nc nslookup ntpclient perf ping pm printenv \
+  ps pwd reboot rm rmdir runfile route sync sysexec top touch tty umount uptime wget
+```
+Missing from docs: `chmod`, `hd`, `route`.
 
 **Recommendation:** Add documentation pages for chmod, hd, and route applets.
 
@@ -47,6 +50,6 @@
 
 **Documentation (`psh/index.md`):** Lists `clear`, `exit`, `reset`, `history`, `export`, `unset`, `pshlogin` as applets.
 
-**Current code:** `clear`, `exit`, `reset`, `history` are internal shell commands in `pshapp.c`, not separate applet directories. `export` and `unset` are in `env.c`.
+**Current code:** `clear`, `exit`, `reset`, `history` are internal shell commands in `pshapp/`, not separate applet directories and not in `PSH_ALLCOMMANDS`. `export` and `unset` are in `pshapp/env.c`. `pshlogin` is in `PSH_LINK_APPLETS` but not `PSH_ALLCOMMANDS`. These are built-in functions, not standalone applets.
 
 **Recommendation:** Clarify which are standalone applets and which are built-in shell commands.

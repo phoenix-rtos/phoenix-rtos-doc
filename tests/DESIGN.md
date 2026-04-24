@@ -3,11 +3,11 @@
 ## Three-Component Architecture
 
 Clean separation of concerns:
-1. **Binary**: Compiled C test code (Unity framework or custom)
-2. **Python harness**: Orchestration and assertion via pexpect pattern matching
-3. **YAML config**: Declarative test metadata, target filtering, timeout configuration
+1. **Binary**: Compiled C test code (Unity framework in `unity/` or custom)
+2. **Python harness**: Orchestration and assertion via pexpect pattern matching (in `trunner/harness/`)
+3. **YAML config**: Declarative test metadata, target filtering, timeout configuration (e.g., `psh/test.yaml`)
 
-This decoupling allows tests to be reused across targets with different harness configurations.
+Supporting infrastructure: `runner.py` (top-level entry), `resolve_binaries.py`, `requirements.txt` for Python dependencies.
 
 ## Target-Aware Test Selection
 

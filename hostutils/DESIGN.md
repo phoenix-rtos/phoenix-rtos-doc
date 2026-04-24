@@ -10,14 +10,18 @@ Each host utility is a standalone binary with a single responsibility:
 - **mcxisp**: MCX-specific ISP programming
 - **mkrofs**: ROFS image creation
 - **syspagen**: System page generation from PLO scripts
+- **trace**: RTT trace collection and conversion utilities (Python scripts)
 
 ## Common Library Dependency
 
-All tools link against `libhostutils-common`, providing:
-- Serial communication
-- HID device access
-- Dispatch mechanisms
-- Shared type definitions
+All tools link against `phoenix-rtos-hostutils/common/`, providing:
+- Serial communication (`common/serial.c`)
+- HID device access (`common/hid.c`)
+- Script parsing (`common/script.c`)
+- USB communication (`common/usb_imx.c`, `common/usb_vybrid.c`)
+- Shared type definitions (`common/include/hostutils-common/`)
+
+Note: dispatch functionality (`dispatch.c`, `dispatch.h`) is part of `phoenixd/`, not the common library.
 
 ## Multi-Protocol Bus Architecture (phoenixd)
 

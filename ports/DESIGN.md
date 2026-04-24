@@ -17,20 +17,21 @@ This Bash sourcing pattern provides declarative configuration with imperative cu
 
 ## Sophisticated Dependency Management
 
-Three dependency types:
-- `depends`: Required ports
-- `optional`: Optional enhancements
-- `conflicts`: Mutually exclusive ports
+Three dependency types in `port.def.sh`:
+- `depends`: Required ports (e.g., `azure_sdk`: `depends="openssl>=1.1.1a curl>=7.64.1"`)
+- `optional`: Optional enhancements (all currently empty strings)
+- `conflicts`: Mutually exclusive ports (e.g., `openssl111`: `conflicts="openssl3>=0.0"`)
 
-Supports version specifiers (e.g., `phoenix>=3.3`).
+Supports version specifiers via `supports` field (e.g., `supports="phoenix>=3.3"` — used by at least 5 ports).
 
 ## Variant System (iuse)
 
-Inspired by Gentoo USE flags / FreeBSD flavors:
-```bash
-iuse="flag1 flag2"
-```
-Enables custom build configurations per port, allowing the same port to be built with different feature sets.
+Inspired by Gentoo USE flags / FreeBSD flavors. Currently used by 3 ports:
+- `lua/port.def.sh`: `iuse="safe"`
+- `micropython/port.def.sh`: `iuse="longtest"`
+- `azure_sdk/port.def.sh`: `iuse="longtest"`
+
+Enables custom build configurations per port.
 
 ## Environment Injection
 
@@ -47,4 +48,4 @@ The modern port building system uses a Python-based `port_manager` tool with Jin
 
 ## Test Phase Separation
 
-Optional `p_build_test()` function allows ports to include test suites that can be built and run independently from the main port build.
+Optional `p_build_test()` function allows ports to include test suites. Currently implemented by 5 ports: `azure_sdk`, `busybox`, `lua`, `mbedtls`, `micropython`.

@@ -2,11 +2,22 @@
 
 ## 1. Missing Newer Targets
 
-**Documentation:** Does not mention newer targets.
+**Documentation:** Covers many targets but 11 targets in `_projects/` lack quickstart pages:
+- `aarch64a53-zynqmp-qemu`
+- `aarch64a53-zynqmp-som`
+- `armv7a9-zynq7000-qemu`
+- `armv7a9-zynq7000-zedboard`
+- `armv7a9-zynq7000-zturn`
+- `armv7r5f-zynqmp-qemu`
+- `armv7r5f-zynqmp-som`
+- `armv8m33-mcxn94x-frdm_cpu1`
+- `armv8m55-stm32n6-nucleo`
+- `host-generic-pc`
+- `ia32-generic-pc`
 
-**Current code:** Targets like `armv8m33-mcxn94x-frdm`, `armv8r52-mps3an536-qemu`, `armv8m55-stm32n6-nucleo` exist in `_projects/` but may not have quickstart pages.
+**Current code:** 29 targets exist in `_projects/`, 18 have quickstart pages.
 
-**Recommendation:** Verify all targets in `_projects/` have corresponding quickstart documentation.
+**Recommendation:** Add quickstart pages for all supported targets, especially QEMU ones that can be tried without hardware.
 
 ---
 
@@ -24,6 +35,9 @@
 
 **Documentation:** Infers script locations from examples but doesn't explicitly state the convention.
 
-**Current code:** Scripts follow `./scripts/TARGET-VARIANT.sh` naming pattern.
+**Current code:** 15 launch scripts in `scripts/` follow two naming patterns:
+- `scripts/TARGET.sh` (e.g., `ia32-generic-qemu.sh`, `riscv64-generic-qemu.sh`)
+- `scripts/run-TARGET.sh` (e.g., `run-armv7a7-imx6ull-evk.sh`)
+- Some targets have variants: `ia32-generic-qemu-net.sh`, `ia32-generic-qemu-virt.sh`, `*-test.sh`
 
-**Recommendation:** Explicitly document the script naming and location convention.
+**Recommendation:** Explicitly document the script naming convention and the test/variant suffixes.

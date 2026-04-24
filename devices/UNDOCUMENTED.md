@@ -2,50 +2,49 @@
 
 ## 1. Completely Undocumented Driver Categories
 
-### ADC (Analog-to-Digital Conversion)
+### ADC (Analog-to-Digital Conversion) — `phoenix-rtos-devices/adc/`
 - **ad7779**: Multi-channel ADC with SPI interface, uses DMA
 - **ade7913**: Energy metering IC
 - **mcp331**: Precision ADC
 
-### CAN Bus
+### CAN Bus — `phoenix-rtos-devices/can/`
 - **zynqmp-can**: Xilinx ZynqMP CAN peripheral (CAN0/CAN1) with custom `libzynqmp-can-if` static library interface
 
-### Display
+### Display — `phoenix-rtos-devices/display/`
 - **oled-128O064B0**: 128×64 OLED display driver
 
-### DMA (Direct Memory Access)
+### DMA (Direct Memory Access) — `phoenix-rtos-devices/dma/`
 - **grdmac2**: GRLIB DMA controller
 - **imx6ull-sdma**: i.MX 6ULL Smart DMA
 - **imxrt-edma**: i.MX RT eDMA
 
-### GPIO
-- **imx6ull-gpio**: Port + dir file interface with binary/text modes
+### GPIO — `phoenix-rtos-devices/gpio/`
+- **imx6ull-gpio**: Port + dir file interface with binary/text modes (`/dev/gpioN/port`, `/dev/gpioN/dir`)
 - **rcpwm**: Reversible PWM controller
 - **zynq-pwm**: Zynq PWM
 - **zynq7000-gpio**: Zynq 7000 GPIO
 - **zynq7000-xgpio**: Xilinx GPIO (AXI)
 
-### I2C
+### I2C — `phoenix-rtos-devices/i2c/`
 - **gri2cmst**: GRLIB I2C master
 - **imx6ull**: i.MX 6ULL I2C
 - **zynq**: Xilinx Zynq I2C
-- Common I2C library with `i2c-msg.h` (`bus_write`, `bus_read`, `reg_read` operations)
 
-### Magnetometer
+### Magnetometer — `phoenix-rtos-devices/mag/`
 - **mag-als31300**: ALS31300 magnetometer via I2C
 
-### RTC (Real-Time Clock)
+### RTC (Real-Time Clock) — `phoenix-rtos-devices/rtc/`
 - **imx6ull-rtc**: i.MX 6ULL RTC
 - **pcf85363a**: PCF85363 RTC via I2C
 
-### SPI
+### SPI — `phoenix-rtos-devices/spi/`
 - **grspictrl**: GRLIB SPI controller
 - **imx6ull-ecspi**: i.MX 6ULL eSPI (256-byte max burst, 4-channel)
 - **imx6ull-qspi**: Quad SPI
 - **zynq-spi**: Xilinx Zynq SPI
 - **zynq7000-xspi**: Xilinx Zynq 7000 SPI
 
-### Storage/Flash
+### Storage/Flash — `phoenix-rtos-devices/storage/`
 - **flashdrv**: Generic flash MTD interface
 - **gr716-flash**: GRLIB flash controller
 - **grlib-nandfctrl2**: NAND flash GRLIB
@@ -59,44 +58,60 @@
 - **zynq-flash**: Xilinx Zynq flash
 - **zynq7000-sdcard**: Xilinx Zynq SD card/MMC
 
-### TTY/UART
+### TTY/UART — `phoenix-rtos-devices/tty/`
 - **cmsdk-apbuart**: ARM CMSDK UART
 - **grlib-uart**: GRLIB UART
 - **imx6ull-uart**: i.MX 6ULL UART
-- **libtty**: TTY library with FIFO, line discipline, serial parameters
-- **pc-tty**: PC serial port
+- **libtty**: TTY library with FIFO, line discipline, serial parameters (shared by all UART drivers)
+- **pc-tty**: PC serial port + VGA console
 - **spike-tty**: RISC-V Spike simulator UART
 - **uart16550**: Intel 16550 UART
 - **usbacm**: USB CDC ACM modem
-- **pl2303**: Prolific PL2303 USB-to-serial
 - **zynq-uart**: Xilinx Zynq UART
+- **_pl2303**: Prolific PL2303 USB-to-serial (prefixed `_` — possibly WIP/disabled)
 
-### USB
+### USB — `phoenix-rtos-devices/usb/`
 - **cdc-demo**: USB CDC demo
-- **ehci**: USB EHCI host controller
-- **libusbclient**: USB device controller library (STM32N6 implementation)
+- **ehci**: USB EHCI host controller (i.MX platform variant in `ehci/imx/`)
+- **libusbclient**: USB device controller library (variants: `imx-usbc`, `imxrt-usbc`, `imx6ull-usbc`, `stm32n6-usbc`)
 
-### Watchdog
+### Watchdog — `phoenix-rtos-devices/watchdog/`
 - **imx6ull-watchdog**: i.MX 6ULL watchdog timer
 
-### SpaceWire
+### SpaceWire — `phoenix-rtos-devices/spacewire/`
 - **grspw2**: GRLIB SpaceWire interface
 - **grspwrtr**: GRLIB SpaceWire router
 - **libgrspw**: SpaceWire library
 
-### Temperature Sensors
+### Temperature Sensors — `phoenix-rtos-devices/temp/`
 - **nct75**: Nuvoton NCT75 via I2C
 - **sht3x**: Sensirion SHT3x humidity/temperature via I2C
 
-### PCIe
+### PCIe — `phoenix-rtos-devices/pcie/`
 - **pcie-xilinx-axi**: Xilinx AXI PCIe Gen1/Gen2
 - **pcie-xilinx-nwl**: Xilinx NWL PCIe Gen3
 - PCIe server (platform-agnostic)
 - **tebf0808**: TEBF0808 baseboard PCIe support
 
-### OTP (One-Time Programmable)
+### OTP (One-Time Programmable) — `phoenix-rtos-devices/otp/`
 - **imx6ull-otp**: i.MX 6ULL OTP/fuse controller
 - **imxrt117x-otp**: i.MX RT117x OTP
+
+## 2. Undocumented Shared Libraries
+
+- **libklog** (`phoenix-rtos-devices/libklog/`): Kernel log interface library
+- **libpseudodev** (`phoenix-rtos-devices/libpseudodev/`): Pseudo-device abstraction
+- **librtt** (`phoenix-rtos-devices/librtt/`): RTT (Real-Time Transfer) communication library
+
+## 3. Multi-Function Consolidated Servers — `phoenix-rtos-devices/multi/`
+
+Four consolidated servers handle multiple device types in a single process:
+- **grlib-multi**: GRLIB platform (SPARC)
+- **imxrt-multi**: i.MX RT platform
+- **mcxn94x-multi**: NXP MCX N94x platform
+- **stm32l4-multi**: STM32L4 + STM32N6 platform (includes ADC, LCD, RTC, GPIO, UART, flash, SPI, I2C, DMA modules)
+
+Each routes device operations via `mtDevCtl` message type with per-peripheral union structures.
 
 ### Multi-function Consolidated Servers
 - **grlib-multi**: GRLIB multi-function server

@@ -6,11 +6,15 @@ No matrix showing which ports are available/tested for which target architecture
 
 ## 2. Port Interdependency Graph
 
-Dependency chains (e.g., `azure_sdk → {openssl, curl, phoenix≥3.3}`) are declared in port definitions but no visual graph or comprehensive listing is provided.
+Dependency chains are declared in `port.def.sh` files via `depends`, `optional`, and `conflicts` fields. For example:
+- `azure_sdk/port.def.sh` (line 23): `depends="openssl>=1.1.1a curl>=7.64.1"`
+- `openssl111/port.def.sh` (line 21): `conflicts="openssl3>=0.0"`
+
+No visual graph or comprehensive listing of the dependency network is provided.
 
 ## 3. Conflict Resolution Strategy
 
-How conflicts between ports (e.g., `openssl` vs `openssl111`) are resolved during build is not documented. Precedence rules and error handling are unclear.
+Conflicts are declared per-port (e.g., `openssl111/port.def.sh` line 21: `conflicts="openssl3>=0.0"`). How the build system enforces mutual exclusion and what errors appear on violation is not documented.
 
 ## 4. PREFIX_ROOTFS vs PREFIX_FS Distinction
 
@@ -18,7 +22,7 @@ Both variables appear in port build scripts. The distinction between them and wh
 
 ## 5. Stripping Behavior
 
-`PORTS_INSTALL_STRIPPED` affects binary installation. How stripping is applied and its effects on debug capabilities are not documented.
+`PORTS_INSTALL_STRIPPED` is checked in port build scripts (e.g., `busybox/port.def.sh` line 45: `if [ -n "$PORTS_INSTALL_STRIPPED" ] && [ "$PORTS_INSTALL_STRIPPED" = "n" ]`). How stripping is applied by default and its effects on debug capabilities are not documented.
 
 ## 6. Platform-Specific Port Availability
 
@@ -30,12 +34,17 @@ Migration guide for `ports.yaml` format changes is missing. When the format evol
 
 ## 8. Port Version Requirements
 
-Ports can declare Phoenix-RTOS version requirements (e.g., `phoenix≥3.3`). How version checking works and what happens on mismatch is not documented.
+Ports declare version requirements via `supports` field (e.g., `lzo/port.def.sh` line 25: `supports="phoenix>=3.3"`). At least 5 ports use this. How version checking is enforced and what happens on mismatch is not documented.
 
 ## 9. iuse Variant Flags
 
-While documented at a high level, specific `iuse` flags available for each port and their effects are not listed.
+Only 3 ports use `iuse`:
+- `lua/port.def.sh` (line 25): `iuse="safe"`
+- `micropython/port.def.sh` (line 27): `iuse="longtest"`
+- `azure_sdk/port.def.sh` (line 28): `iuse="longtest"`
+
+The effects of these flags and how to activate them are not documented.
 
 ## 10. Port Test Phase
 
-`p_build_test()` is optional. Which ports include tests, how to run them, and interpreting results is undocumented.
+`p_build_test()` is implemented in 5 ports: `azure_sdk`, `busybox`, `lua`, `mbedtls`, `micropython`. How to invoke the test phase, expected output format, and how results are interpreted is undocumented.

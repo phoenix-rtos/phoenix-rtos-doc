@@ -2,7 +2,7 @@
 
 ## True Microkernel (~20K LoC)
 
-The kernel delegates file I/O and sockets to external POSIX server. All inter-process communication flows through ports. A single syscall dispatcher routes all ~106 syscalls via function pointer table. Clean separation: `proc/`, `vm/`, `hal/`.
+The kernel delegates file I/O and sockets to external POSIX server. All inter-process communication flows through ports. A single syscall dispatcher routes all 107 syscalls via function pointer table (verified in `phoenix-rtos-kernel/syscalls.c`). Clean separation: `proc/`, `vm/`, `hal/`.
 
 ## Dual-Path Architecture (MMU vs Non-MMU)
 

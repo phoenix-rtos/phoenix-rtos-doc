@@ -33,7 +33,15 @@ How to modify the system and rebuild during development iteration (incremental b
 
 ## 8. User Application Examples
 
-The `_user/` directory contains example applications (hello, hellocpp, msgmark_client/server, rotrectangle, serverdemo, voxeldemo). These are not referenced in the quickstart documentation.
+The `_user/` directory contains example applications with its own `Makefile`:
+- `hello` — C hello world
+- `hellocpp` — C++ hello world
+- `msgmark_client` / `msgmark_server` — message passing benchmark
+- `rotrectangle` — graphics demo
+- `serverdemo` — server pattern example
+- `voxeldemo` — 3D voxel rendering demo
+
+These are not referenced in the quickstart documentation.
 
 ## 9. Multi-core Launch
 

@@ -37,15 +37,16 @@ Non-blocking, asynchronous completion via thread pool.
 
 ## Address Allocation Strategy
 
-Bitmap-based address pool: `uint32_t addrmask[4]` (128 addresses). O(1) allocation using `__builtin_ffsl()` (find first set bit). Efficient for USB 2.0's 127-device limit.
+Bitmap-based address pool: `uint32_t addrmask[4]` (`usb/hcd.h` line 58, 128 addresses). O(1) allocation using `__builtin_ffsl()` (`usb/hcd.c` line 49). Initial mask `0x1` reserves address 0 (line 125). Efficient for USB 2.0's 127-device limit.
 
 ## Hub Enumeration Robustness
 
-Hardware-aware debounce logic:
-- 1.5s maximum debounce timeout
-- 100ms required stability window
-- 25ms sampling period
-- 3 enumeration retry attempts on failure
+Hardware-aware debounce logic (`usb/hub.c` lines 36–39):
+- 1.5s maximum debounce timeout (`HUB_DEBOUNCE_TIMEOUT`)
+- 100ms required stability window (`HUB_DEBOUNCE_STABLE`)
+- 25ms sampling period (`HUB_DEBOUNCE_PERIOD`)
+- 3 enumeration retry attempts on failure (`HUB_ENUM_RETRIES`)
+- Additional reset polling: 5 retries × 100ms (lines 207–208)
 
 ## Implicit Device Tree
 

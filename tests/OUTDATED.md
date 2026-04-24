@@ -14,6 +14,6 @@
 
 **Documentation:** Shows specific build commands for running tests.
 
-**Current code:** Build commands may not reflect current best practices depending on the target. The YAML `targets` filtering capability is not mentioned.
+**Current code:** The test repo has architecture-specific Makefiles (`Makefile.host`, `Makefile.riscv64`, `Makefile.sparcv8leon`) alongside the main `Makefile`. The YAML `targets` filtering capability (e.g., `psh/test.yaml` line 2: `targets:` with `include`/`exclude` lists) is not mentioned in the documentation.
 
-**Recommendation:** Verify and update all example commands against the current build system.
+**Recommendation:** Verify and update all example commands. Document target filtering in YAML configs.

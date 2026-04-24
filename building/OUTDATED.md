@@ -2,26 +2,25 @@
 
 ## 1. Primary Build Method Emphasis
 
-**Documentation says:** Significant space devoted to building toolchains from source on Linux, implying it is the primary workflow.
+**Documentation (`linux.md`):** Docker is already presented first as "the fastest way to start development." Manual toolchain building is a secondary section. This point is **no longer outdated** — the documentation correctly prioritizes Docker.
 
-**Current code reality:** Docker-based builds (`docker-build.sh`, `docker-devel.sh`) are the primary method. Pre-built Docker images (`phoenixrtos/build`, `phoenixrtos/devel`) include toolchains. Manual toolchain building is a secondary, advanced path.
+**Source evidence:** `docker-build.sh` (line 25) and `docker-devel.sh` (line 13) exist with pre-built images (`phoenixrtos/build`, `phoenixrtos/devel`).
 
-**Recommendation:** Reposition Docker as the primary build method and demote manual toolchain building to an advanced/optional section.
+**Recommendation:** No change needed; Docker emphasis is already correct.
 
 ---
 
 ## 2. Supported Target Count
 
-**Documentation lists:** ~24 targets.
+**Documentation lists:** 27 targets in `building/index.md`.
 
 **Current code shows:** 29 targets in `_projects/` directory. Missing from docs:
 - `armv7r5f-zynqmp-som`
 - `armv8m33-mcxn94x-frdm_cpu1`
-- `armv7a9-zynq7000-zedboard`
-- `armv7a9-zynq7000-zturn`
-- `riscv64-generic-spike`
 
-**Recommendation:** Update the target list in `index.md` to reflect all 29 build targets.
+**Source evidence:** `ls -d _projects/*/` shows 29 directories.
+
+**Recommendation:** Add the 2 missing targets to the list in `building/index.md`.
 
 ---
 
@@ -29,7 +28,7 @@
 
 **Documentation says:** Nothing about how ports are built.
 
-**Current code:** Uses a Python-based `port_manager` tool (`python3 -m "port_manager.main"`) with `ports.yaml` configuration per target. `build-ports.sh` has version detection and git integration.
+**Current code:** Uses a Python-based `port_manager` tool invoked via `python3 -m "port_manager.main"` in `phoenix-rtos-build/build-ports.sh` (line 16). Per-target `ports.yaml` configuration files exist in `_projects/` directories (e.g., `_projects/ia32-generic-qemu/ports.yaml`, `_projects/armv7a7-imx6ull-evk/ports.yaml`). Version detection uses `git describe --tags` (build-ports.sh line 28).
 
 **Recommendation:** Add a section documenting the port building mechanism and `ports.yaml` configuration.
 
@@ -37,21 +36,21 @@
 
 ## 4. Ubuntu Version Reference
 
-**Documentation says:** "Most supported development platform is Linux, particularly Ubuntu 24.04."
+**Documentation says:** "most supported development platform is Linux, particularly Ubuntu 24.04" (`building/index.md`, line 9).
 
-**Current code:** Docker approach abstracts the host platform; no version-specific dependencies in the build scripts.
+**Current state:** This reference is **accurate** as advisory guidance. Docker abstracts host-specific dependencies, but the native toolchain build instructions target Ubuntu packages.
 
-**Recommendation:** Clarify that Docker eliminates host-specific dependencies and Ubuntu version is advisory only.
+**Recommendation:** No change strictly needed, but could note Docker eliminates host-specific dependencies.
 
 ---
 
-## 5. Component Dependencies Description
+## 5. Component `all` Description
 
-**Documentation claims:** "for ia32-generic-qemu target all means `core fs image project ports host`."
+**Documentation claims:** "for ia32-generic-qemu target `all` means `core fs image project ports host`" (`building/index.md`).
 
-**Current code:** All targets use the same `all` logic defined in `build.sh`. The description should apply generically, not to a single target.
+**Current code:** `phoenix-rtos-build/build.sh` line 128 defines `all` identically for ALL targets: `B_FS="y"; B_CORE="y"; B_HOST="y"; B_PORTS="y"; B_PROJECT="y"; B_IMAGE="y"`. The description is misleading by specifying a single target when it applies generically.
 
-**Recommendation:** Clarify that `all` components are consistent across targets.
+**Recommendation:** Remove the target-specific framing. State that `all` means `core fs image project ports host` for every target.
 
 ---
 
@@ -59,6 +58,6 @@
 
 **Documentation:** Does not mention that host tools are built automatically for every cross-compilation build.
 
-**Current code:** `build.sh` always re-execs with `TARGET=host-generic-pc` to build host utilities (metaelf, phoenixd, psdisk, psu, syspagen, mcxisp, mkrofs).
+**Current code:** `phoenix-rtos-build/build.sh` lines 222–224: when `TARGET != host-generic-pc`, the build re-executes with `TARGET=$_TARGET_FOR_HOST_BUILD` (set to `host-generic-pc` at line 24) and `NOSAN=1` to build host utilities.
 
 **Recommendation:** Document the implicit host tools build step.

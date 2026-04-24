@@ -9,11 +9,11 @@ Balances modularity with integrated development. Each component (kernel, drivers
 
 ## Multi-Target Architecture
 
-The project infrastructure supports 20+ target architectures through:
+The project infrastructure supports 29 target architectures (in `_projects/`) across 13 architecture families (in `_targets/`) through:
 - `_targets/`: Per-architecture build rules (DRY via `build.common`)
-- `_projects/`: Per-target project configuration
-- `scripts/`: Per-target launch scripts
-- `_fs/`: Per-target filesystem templates
+- `_projects/`: Per-target project configuration (each contains `build.project`)
+- `scripts/`: Per-target launch scripts (15 scripts for QEMU/simulator targets)
+- `_fs/`: Per-target filesystem templates and overlays
 
 ## Hierarchical Build Rules
 
@@ -52,6 +52,7 @@ plo/                 → Bootloader
 ## Build Flexibility
 
 Multiple entry points for building:
-- Shell scripts (`build.sh`, `docker-build.sh`)
-- Makefiles (main, per-architecture variants)
+- Shell scripts (`phoenix-rtos-build/build.sh`, `docker-build.sh`, `docker-devel.sh`)
+- Project configuration files (`build.project` at root and per-target in `_projects/`)
 - Docker containers (build and development modes)
+- IDE integration via auto-generated `compile_commands.json` (bear detection in `build.sh` lines 135–150)

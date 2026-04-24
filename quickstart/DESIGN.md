@@ -6,7 +6,7 @@ The quickstart workflow assumes pre-built artifacts in `_boot/`. It is a post-bu
 
 ## Target Uniformity
 
-All targets follow the same script-based launch pattern (`./scripts/TARGET.sh`), enabling consistent workflow across 20+ architectures. This uniformity lowers the learning curve when switching between targets.
+All targets follow the same script-based launch pattern (`./scripts/TARGET.sh`), enabling consistent workflow across 29 architectures. 15 launch scripts exist in `scripts/`, with variants for networking (`-net`), virtualization (`-virt`), and testing (`-test`). This uniformity lowers the learning curve when switching between targets.
 
 ## Emulation-First Development
 

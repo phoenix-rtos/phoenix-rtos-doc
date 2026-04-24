@@ -2,20 +2,25 @@
 
 ## 1. Completely Undocumented Utilities
 
+The following exist in `phoenix-rtos-utils/` with no documentation:
+
+### benchmarks — Performance Benchmarks
+Source: `phoenix-rtos-utils/benchmarks/`. No documentation.
+
 ### gsm — Gateway/Serial Module Tool
-Source exists at `phoenix-rtos-utils/gsm/`. No documentation at all.
+Source: `phoenix-rtos-utils/gsm/`. No documentation.
 
 ### spitool — SPI Interface Tool
-Source exists at `phoenix-rtos-utils/spitool/`. No documentation.
+Source: `phoenix-rtos-utils/spitool/`. No documentation.
 
 ### metacheck — Metadata Validation Tool
-Source exists at `phoenix-rtos-utils/metacheck/`. No documentation.
+Source: `phoenix-rtos-utils/metacheck/`. No documentation.
 
 ### meterfs-migrate — MeterFS Migration Utility
-Source exists at `phoenix-rtos-utils/meterfs-migrate/`. No documentation.
+Source: `phoenix-rtos-utils/meterfs-migrate/`. No documentation.
 
 ### nandpart — NAND Partition Tool
-Source exists at `phoenix-rtos-utils/nandpart/`. No documentation.
+Source: `phoenix-rtos-utils/nandpart/`. No documentation.
 
 ## 2. Undocumented PSH Applets
 
@@ -31,10 +36,10 @@ Routing table management. Directory exists with implementation but no documentat
 ## 3. Undocumented PSH Architecture
 
 ### Auto-Registration Mechanism
-Applets use `__attribute__((constructor))` to register themselves at load time. Registration function pattern:
-```c
-void __attribute__((constructor)) <cmd>_registerapp(void)
-```
+Applets use `__attribute__((constructor))` to register themselves at load time. Verified in source:
+- `psh/cat/cat.c` line 123: `void __attribute__((constructor)) cat_registerapp(void)`
+- `psh/mem/mem.c` line 355: `void __attribute__((constructor)) mem_registerapp(void)`
+- `psh/sync/sync.c` line 49: `void __attribute__((constructor)) sync_registerapp(void)`
 
 ### Symlink Invocation Pattern
 PSH can be invoked via symlinks — the binary checks `argv[0]` to determine which applet to run. This allows individual commands to appear as standalone executables.
@@ -45,7 +50,13 @@ PSH can be invoked via symlinks — the binary checks `argv[0]` to determine whi
 - Not configurable at runtime
 
 ### Custom Applet Plugin System
-`PSH_PROJECT_DEPS` make variable allows project-specific applets to be added to the PSH build. This enables per-target customization.
+`PSH_PROJECT_DEPS` make variable allows project-specific applets to be added to the PSH build. Build selection via:
+```makefile
+PSH_COMMANDS ?= $(PSH_ALLCOMMANDS)  # Default: all applets
+PSH_INTERNAL_APPLETS := pshapp help $(filter $(PSH_ALLCOMMANDS), $(PSH_COMMANDS))
+PSH_LINK_APPLETS := $(PSH_COMMANDS) pshlogin
+```
+This enables per-target customization.
 
 ### Authentication System
 `auth.c` in `pshapp/` handles authentication. `pshlogin` applet provides login functionality. Not documented beyond existence in applet list.

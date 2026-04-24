@@ -2,11 +2,11 @@
 
 ## 1. YAML Target Filtering
 
-Test YAML configs support `targets: include: [...]` and `targets: exclude: [...]` for SoC-specific test selection. This critical feature for multi-target testing is not documented.
+Test YAML configs support `targets: include: [...]` and `targets: exclude: [...]` for SoC-specific test selection. Used extensively, e.g., `psh/test.yaml` (lines 2, 18, 50, 67, 82) contains multiple target filter blocks. This critical feature for multi-target testing is not documented.
 
 ## 2. Test Directory Organization
 
-The test repository contains organized subdirectories:
+The test repository contains 30+ organized subdirectories including:
 - `busybox/` — BusyBox command tests
 - `proc/` — Process management tests
 - `disk/` — Disk/storage tests
@@ -14,20 +14,35 @@ The test repository contains organized subdirectories:
 - `net/` — Networking tests
 - `devices/` — Device driver tests
 - `fs/` — Filesystem tests
+- `libc/` — C library tests
+- `psh/` — PSH shell tests
+- `virtio/` — VirtIO tests
+- Library tests: `libalgo/`, `libcache/`, `libtinyaes/`, `libtrace/`, `libuuid/`
+- Framework tests: `mbedtls/`, `micropython/`, `coremark_pro/`
+- Additional: `cpp/`, `gfx/`, `ioctl/`, `meterfs/`, `port/`, `stdio/`, `sys/`, `thread-local/`, `waitpid/`, `initfini/`, `setjmp/`, `lsb_vsx/`
 
 The structure and conventions for organizing tests are not documented.
 
 ## 3. `fails/` Subdirectory
 
-Sample tests include a `fails/` subdirectory whose purpose (expected failures, regression tracking) is not explained.
+The `sample/test/fails/` directory exists in the test repository. Its purpose (expected failures, regression tracking, negative test examples) is not explained. Appears to be part of the sample/template test structure.
 
 ## 4. trunner Package
 
-The test runner (`trunner/`) package internals and capabilities are not documented beyond the high-level overview. Developers extending the test framework need to understand:
-- Package architecture
-- Available assertion/matching primitives
-- Configuration options
-- How to add new test backend types
+The test runner (`trunner/`) package contains:
+- `test_runner.py` — Main test runner
+- `ctx.py` — Test context management
+- `dut.py` — Device Under Test abstraction
+- `host.py` — Host-side operations
+- `config.py` — Configuration handling
+- `types.py` — Type definitions
+- `text.py` — Text processing utilities
+- `extensions.py` — Extension system
+- `tools/` — Utility tools
+- `harness/` — Test harness implementations
+- `target/` — Target abstractions
+
+Internals and capabilities are not documented beyond the high-level overview.
 
 ## 5. Multi-File Test Patterns
 

@@ -43,6 +43,6 @@ PSH_PROJECT_DEPS = ...                    # Project-specific additions
 
 Allows resource-constrained targets to include only needed commands.
 
-## Five Undocumented Standalone Utilities
+## Five+ Undocumented Standalone Utilities
 
-Beyond PSH, there are 5 utilities (`gsm`, `spitool`, `metacheck`, `meterfs-migrate`, `nandpart`) that serve specialized hardware management needs. These follow the Phoenix-RTOS server pattern (message passing, port registration) rather than the PSH applet pattern.
+Beyond PSH, there are 6 undocumented utilities in `phoenix-rtos-utils/`: `benchmarks`, `gsm`, `spitool`, `metacheck`, `meterfs-migrate`, `nandpart`. Plus `cm4-tool` and `nandtool` are listed in docs but lack proper documentation pages. These serve specialized hardware management needs.

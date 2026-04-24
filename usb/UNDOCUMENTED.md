@@ -2,23 +2,24 @@
 
 ## 1. Procdriver API (2024)
 
-Thread-pool based event handling system:
+Thread-pool based event handling system (`libusb/include/usbprocdriver.h` line 26):
 ```c
-void usb_driverProcRun(usb_driver_t *driver, int priority, int nthreads, void *args);
+__attribute__((noreturn)) void usb_driverProcRun(usb_driver_t *driver, unsigned int prio, unsigned int nthreads, void *args);
 ```
 - Spawns thread pool for concurrent message handling
 - Handles insertion/deletion/completion events in parallel
-- Does not return (noreturn semantics)
+- `noreturn` semantics
 - Replaces manual `msgRecv()` loops in drivers
+- Uses `usb_hostLookup()` internally (`libusb/procdriver.c` line 124)
 
 ## 2. Device Info Query API (2025)
 
-Query device descriptor information via `/dev/usb`:
+Query device descriptor information via `/dev/usb` (`libusb/include/usbdevinfo.h` line 22):
 ```c
-int usb_devinfoGet(oid_t usboid, usb_devinfo_desc_t *desc);
+int usb_devinfoGet(oid_t oid, usb_devinfo_desc_t *desc);
 ```
-- `usb_hostLookup(oid_t*)` — blocks until `/dev/usb` is available
-- Retry loop for USB host availability
+- `usb_hostLookup(oid_t*)` (`libusb/internal.c` line 17) — blocks until `/dev/usb` is available
+- Used by `libusb/devinfo.c` (line 29) and `libusb/procdriver.c` (line 124)
 - Returns full device descriptor data
 
 ## 3. URB Control Commands (2024)
@@ -32,7 +33,8 @@ New message type `usb_msg_urbcmd` with three operations:
 
 - `hub_interrupt()` function for status change detection
 - Status change endpoint polling mechanism
-- Debounce state machine (1.5s timeout, 100ms stability, 25ms sampling, 3 retries)
+- Debounce state machine (`usb/hub.c` lines 36–39): 1.5s timeout (`HUB_DEBOUNCE_TIMEOUT`), 100ms stability (`HUB_DEBOUNCE_STABLE`), 25ms sampling (`HUB_DEBOUNCE_PERIOD`), 3 enumeration retries (`HUB_ENUM_RETRIES`)
+- Reset polling: 5 retries × 100ms (lines 207–208)
 
 ## 5. Driver Binding Algorithm
 
@@ -46,8 +48,10 @@ Algorithm details and tie-breaking rules are not documented.
 
 ## 6. Device Address Allocation
 
-Bitmap-based address pool using `uint32_t addrmask[4]` (128 addresses):
-- O(1) allocation via `__builtin_ffsl()` (find first set bit)
+Bitmap-based address pool using `uint32_t addrmask[4]` (`usb/hcd.h` line 58, 128 addresses):
+- O(1) allocation via `__builtin_ffsl()` (`usb/hcd.c` line 49)
+- Bit set on allocation (line 57), cleared on release (line 65)
+- Initial mask `0x1` reserves address 0 (line 125)
 - USB 2.0 limit: 127 device addresses
 
 ## 7. Port Status Flags
