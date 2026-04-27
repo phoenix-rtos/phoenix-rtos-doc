@@ -1,24 +1,40 @@
 # Libraries
 
-Phoenix-RTOS provides libraries, which enable the development of applications.
+This chapter describes the Phoenix-RTOS core libraries. After reading this chapter, you will know:
+
+- The available libraries and their purposes.
+- Which libraries are documented and which are not yet documented.
 
 The source code is available in the [phoenix-rtos-corelibs](https://github.com/phoenix-rtos/phoenix-rtos-corelibs)
-GitHub repository.
-The example of usage can be found in the `_user` directory, placed in
+GitHub repository. Usage examples can be found in the `_user` directory in
 [phoenix-rtos-project](https://github.com/phoenix-rtos/phoenix-rtos-project).
 
-Read more about the reference project in [Reference project](../project/index.md) chapter.
+## Library overview
 
-There are following Phoenix-RTOS libraries:
+The `phoenix-rtos-corelibs` repository contains 15 libraries. The following 7 have dedicated documentation:
 
-- Graphics library called `libgraph`, which provides drivers for graphic adapters,
-- Common Gateway Interface library called `libcgi`,
-- Video Graphics Array access library called `libvga`, used in graphic adapters' implementation,
-  for example Cirrus,
-- Virtual I/O Device library called `libvirtio`, used for device emulation,
-- Universally Unique identifiers library called `libuuid`,
-- Cache library called `libcache` which provides the user with n-way set-associative cache,
-- Software watchdog library called `libswdg` which provides the user with multichannel software watchdog.
+| Library | Description |
+|---|---|
+| `libgraph` | Graphics library with graphic adapter drivers |
+| `libcgi` | Common Gateway Interface library |
+| `libvga` | Video Graphics Array access for graphic adapter implementations |
+| `libvirtio` | Virtual I/O Device library for device emulation |
+| `libuuid` | Universally Unique Identifier generation |
+| `libcache` | N-way set-associative cache |
+| `libswdg` | Multi-channel software watchdog |
+
+The following 8 libraries do not yet have dedicated documentation pages:
+
+| Library | Description |
+|---|---|
+| `libtinyaes` | AES encryption (ECB, CBC, CTR, CCM*, EAX, GCM, KW, CMAC). STM32L4 HW-accelerated variant. |
+| `libptable` | Partition table management (v2). CRC checksum validation. |
+| `libmtd` | Memory Technology Device interface for NOR/NAND flash |
+| `libstorage` | Storage device abstraction (mount/unmount, device registration, message I/O) |
+| `libmodbus` | Modbus RTU master (client) library for industrial protocols |
+| `libalgo` | Lock-free SPSC FIFO using C11 atomics. Header-only. |
+| `libmbr` | Master Boot Record parsing (standard MBR layout, CHS/LBA addressing) |
+| `libtrace` | Trace data collection and formatting |
 
 ```{toctree}
 :maxdepth: 1

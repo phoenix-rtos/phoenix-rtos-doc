@@ -4,7 +4,7 @@ The Phoenix-RTOS loader is a self-sufficient application which does not use any 
 
 It only includes common syspage's header files from phoenix-rtos-kernel.
 
-Plo is divided into five subsystems:
+Plo is divided into the following subsystems:
 
 * cmds - command-line interface
 
@@ -15,6 +15,8 @@ Plo is divided into five subsystems:
 * lib - common routines
 
 * phfs - phoenix filesystem
+
+* riscv-sbi - RISC-V Supervisor Binary Interface (RISC-V targets only)
 
 * syspage - system configuration structure
 
@@ -31,16 +33,27 @@ All available commands are described in the [CLI chapter](cli.md).
 
 Devices are the hardware dependent subsystem containing a collection of drivers with a unified interface for the other
 loader components. Each driver has to register itself using constructor invocation. During bootloader initialization,
-the registered devices are initialized and appropriate `major.minor` numbers are assigned to them. The other plo's
-components refer to specific devices using `major.minor` identification. The minor number indicates on the device
+the registered devices are initialized and appropriate `major.minor` numbers are assigned to them. The other PLO
+components refer to specific devices using `major.minor` identification. The minor number indicates the device
 instance and is assigned dynamically. However, the major numbers are static and refer to the following device types:
 
-* `0` - UART
-* `1` - USB
-* `2` - STORAGE
-* `3` - TTY
+| Major | Symbol | Description |
+|---|---|---|
+| 0 | `DEV_UART` | Serial port |
+| 1 | `DEV_USB` | USB device interface |
+| 2 | `DEV_STORAGE` | Block storage device (NOR, SD, etc.) |
+| 3 | `DEV_TTY` | Terminal device |
+| 4 | `DEV_RAM` | RAM block device |
+| 5 | `DEV_NAND_DATA` | NAND flash data area |
+| 6 | `DEV_NAND_META` | NAND flash metadata / OOB area |
+| 7 | `DEV_NAND_RAW` | NAND flash raw access (data + metadata) |
+| 8 | `DEV_PIPE` | Inter-module data pipe |
 
-Each platform defines its own set of drivers in a `Makefile` file.
+The device subsystem supports up to 9 major types × 16 minor instances.
+
+Each platform defines its own set of drivers in a `Makefile` file. The loader includes over 60 device driver source
+files in `plo/devices/` covering UART (16550, cmsdk-apb, grlib, imx6ull, imxrt, zynq, and more), flash/storage
+(NOR, NAND, SD, RAM, USB), and specialized peripherals (GPIO, pipe-rtt).
 
 ## HAL
 
@@ -130,6 +143,20 @@ copy data/files from different sources to physical memory maps. Currently, phfs 
 
 In order to use a device in the phoenix filesystem, the user should assign an alias to a dedicated `major.minor`
 identification of the device with an appropriate protocol type, for example: `phfs usb0 1.0 phoenixd`.
+
+PHFS supports up to 32 file aliases (`SIZE_PHFS_ALIASES`).
+
+## RISC-V SBI
+
+On RISC-V targets, the loader includes a Supervisor Binary Interface (SBI) module at `plo/riscv-sbi/`. This module
+provides the runtime services required by the RISC-V privilege specification. It contains:
+
+- `entry.c` — SBI entry point
+- `core/` — SBI core implementation
+- `devices/` — SBI device drivers
+- `platform/` — platform-specific code
+- `include/` — headers
+- `ld/` — linker scripts
 
 ## Syspage
 

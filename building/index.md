@@ -1,6 +1,13 @@
 # Building
 
-To create Phoenix-RTOS image for a specific target, the `phoenix-rtos-project` repository should be used. This
+This chapter describes how to build Phoenix-RTOS system images. After reading this chapter, you will know:
+
+- How to build images using the build script or Docker.
+- The available target platforms.
+- The build system components and output directories.
+- Advanced build options and IDE integration.
+
+To create a Phoenix-RTOS image for a specific target, the `phoenix-rtos-project` repository should be used. This
 repository aggregates all operating system modules, including kernel, standard library, device drivers, filesystems,
 utilities and loader. Read more about `phoenix-rtos-project` submodule repositories in
 [Reference project](../project/index.md) chapter.
@@ -15,6 +22,8 @@ but to a limited extent.
 
 linux.md
 windows.md
+docker.md
+advanced.md
 ```
 
 ## Building script

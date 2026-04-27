@@ -31,9 +31,10 @@ Here's a list of the available applets:
 
 - [`bind`](psh-applets/bind.md) - binds device to directory
 - [`cat`](psh-applets/cat.md) - concatenate file(s) to standard output
-- [`cd`](psh-applets/cd.md)- change working directory
+- [`cd`](psh-applets/cd.md) - change working directory
+- `chmod` - change file permissions
 - [`clear`](psh-applets/clear.md) - clear the terminal screen
-- [`cp`](psh-applets/cp.md)- copy file
+- [`cp`](psh-applets/cp.md) - copy file
 - [`date`](psh-applets/date.md) - print/set the system date
 - [`dd`](psh-applets/dd.md) - copy a file according to the operands
 - [`df`](psh-applets/df.md) - prints filesystem statistics
@@ -41,10 +42,11 @@ Here's a list of the available applets:
 - [`echo`](psh-applets/echo.md) - display a line of text
 - [`edit`](psh-applets/edit.md) - text editor
 - [`exec`](psh-applets/exec.md) - replace shell with the given command
-- [`exit`](psh-applets/exit.md) - exits shell
-- [`export`](psh-applets/export.md) - set and export variables list to environment
+- [`exit`](psh-applets/exit.md) - exits shell (built-in)
+- [`export`](psh-applets/export.md) - set and export variables list to environment (built-in)
+- `hd` - hex dump
 - [`help`](psh-applets/help.md) - prints this help message
-- [`history`](psh-applets/history.md) - prints commands history
+- [`history`](psh-applets/history.md) - prints commands history (built-in)
 - [`hm`](psh-applets/hm.md) - health monitor, spawns apps and keeps them alive
 - [`ifconfig`](psh-applets/ifconfig.md) - configures network interfaces
 - [`kill`](psh-applets/kill.md) - terminates process
@@ -66,8 +68,9 @@ Here's a list of the available applets:
 - [`pwd`](psh-applets/pwd.md)- prints the name of current working directory
 - [`reboot`](psh-applets/reboot.md) - restarts the machine
 - [`reset`](psh-applets/reset.md) - restore terminal from abnormal state
-- [`rm`](psh-applets/rm.md) - unlink files or remove empty directorie
+- [`rm`](psh-applets/rm.md) - unlink files or remove empty directories
 - [`rmdir`](psh-applets/rmdir.md) - remove empty directories
+- `route` - display/modify routing table
 - [`sync`](psh-applets/sync.md) - synchronizes device
 - [`sysexec`](psh-applets/sysexec.md) - launch program from syspage using given map
 - [`top`](psh-applets/top.md) - top utility
@@ -99,3 +102,50 @@ that applet and then close. Executing `psh` with a different name can be achieve
 Only one interactive session of the `psh` can be run in a scope of a `psh` process. For now, running `psh` does not
 spawn a new process, so in order to invoke a second, independent shell user must execute a `psh` binary file.
 See [`exec`](psh-applets/exec.md) or [`/`](psh-applets/runfile.md) for examples.
+
+## Architecture
+
+### Applet Registration
+
+Each applet registers itself at load time using the `__attribute__((constructor))` GCC extension. This means no
+hardcoded command table is needed — applets self-register when the binary is loaded.
+
+```c
+void __attribute__((constructor)) cat_registerapp(void) {
+    static psh_appentry_t app = { .name = "cat", ... };
+    psh_registerapp(&app);
+}
+```
+
+### Applet Function Conventions
+
+Each applet provides two functions:
+
+- `void psh_<cmd>info(void)` — prints a brief description for help output
+- `int psh_<cmd>(int argc, char **argv)` — main entry point
+
+### Build-Time Applet Selection
+
+The set of compiled-in applets is controlled by a Makefile variable:
+
+```makefile
+PSH_COMMANDS ?= $(PSH_ALLCOMMANDS)      # Default: all applets
+PSH_PROJECT_DEPS = ...                    # Project-specific additions
+```
+
+This allows resource-constrained targets to include only needed commands.
+
+### Symlink Invocation
+
+PSH can be invoked via symlinks. The binary checks `argv[0]` to determine which applet to run. This allows individual
+commands to appear as standalone executables in the filesystem.
+
+### Built-in vs Standalone Commands
+
+Some commands listed above are built-in shell functions rather than standalone applets:
+
+- `clear`, `exit`, `reset`, `history` — internal shell commands in `pshapp/`
+- `export`, `unset` — environment management in `pshapp/env.c`
+- `pshlogin` — authentication handler
+
+These are always available regardless of `PSH_COMMANDS` selection.

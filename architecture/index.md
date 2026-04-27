@@ -1,5 +1,15 @@
 # Architecture
 
+## Synopsis
+
+After reading this chapter, you will know:
+
+- How the Phoenix-RTOS microkernel architecture separates kernel, servers, and libraries
+- How message passing works with three-tier copy minimization
+- How system calls transition between user and kernel privilege levels on each architecture
+- How the port-based namespace maps filesystem paths to servers
+- How multi-core support is implemented
+
 The Phoenix-RTOS operating system starting from version 3 is based on microkernel architecture.
 It means that system consists of microkernel implementing basic primitives and set of servers based on these primitives
 and communicating over it.
@@ -42,6 +52,20 @@ objects.
 Interprocess communication has been described in
 [Kernel - Processes and threads - Message passing](../kernel/proc/msg.md) chapter.
 
+### Message Copy Minimization
+
+To minimize the overhead of message passing, the kernel uses a three-tier data transfer strategy:
+
+1. **Inline (≤ 64 bytes)**: Data is carried in the `msg_t` structure's `raw[64]` union — no buffer allocation or
+   page mapping needed
+2. **Page mapping (larger aligned buffers)**: Sender's buffer pages are mapped into the receiver's address space
+   via `page_map()` — no data is copied
+3. **Boundary copy (unaligned partial pages)**: Only unaligned partial-page data at buffer boundaries requires
+   copying, using wrapper page allocation to prevent interference
+
+This means most IPC operations avoid data copying entirely, with only small messages and buffer boundaries incurring
+copy overhead. If both sides share the same address space, the mapping/copying phases are skipped.
+
 ## Standard library
 
 Standard library is the set of functions constituting the basic programming environment (providing the basic API) and
@@ -51,6 +75,10 @@ C89 and extended with some specific functions for memory mapping and process and
 extended (in cooperation with servers) with additional functions to provide the POSIX compliant environment. Such
 environment requires much more memory than basic ANSI C native interface but allows for execution of the popular
 open-source UN*X applications.
+
+> **Note:** The C89 compatibility applies to the `libphoenix` API. Internal system code uses modern C features
+> including C11 atomics (`atomic_load_explicit`, `memory_order_acquire`) and GCC extensions
+> (`__attribute__((constructor))`).
 
 Standard library has been described in [Standard library](../libc/index.md) chapter.
 
@@ -98,3 +126,40 @@ Microkernel architecture allows to easily emulate the application environment of
 (e.g. POSIX pipes, user and groups etc.) emulation servers should be provided. They implement the additional
 functionality and together with emulation libraries provide the application environment. The communication protocol
 implemented by these servers is specific for emulated application environment.
+
+## Namespace
+
+The port-based namespace maps filesystem paths to server ports. When a server starts, it creates a port
+(`portCreate()`) and registers it for a path (`portRegister()`). When an application opens a file, the kernel resolves
+the path through the namespace tree, finds the registered port, and routes all subsequent operations (read, write,
+close) as messages to that port.
+
+The namespace is hierarchical — a server registering `/dev` handles all paths under `/dev/` unless a more specific
+registration exists. Port registration/unregistration is dynamic, allowing servers to be started and stopped at runtime.
+
+## Interrupt-to-thread pipeline
+
+Device drivers on Phoenix-RTOS run in user space but still need to handle hardware interrupts. The `interrupt()` syscall
+registers a handler function that runs in kernel context. When the handler returns a value ≥ 0, the kernel broadcasts
+on the associated condition variable, waking the user-space thread that is waiting via `condWait()`. This allows
+interrupt handling to be split into a fast kernel-context acknowledgment and a deferred user-space processing phase.
+
+## Multi-core support
+
+Phoenix-RTOS supports symmetric multiprocessing on architectures with multiple cores:
+
+| Architecture | IPC Mechanism | Implementation |
+|-------------|---------------|----------------|
+| IA32 | APIC-based Inter-Processor Interrupts | `hal_cpuBroadcastIPI()`, `hal_cpuSendIPI()` |
+| RISC-V | SBI-based IPI | SBI extension `0x735049` for inter-hart interrupts |
+
+One core (boot hart/BSP) performs centralized initialization; other cores wait and are brought up afterward.
+Spinlocks with architecture-specific memory barriers coordinate access to shared kernel data structures. The scheduler
+uses 8 priority levels and distributes threads across available cores.
+
+## Memory Management: MMU vs NOMMU
+
+The kernel supports both MMU and NOMMU architectures through conditional compilation. On MMU architectures,
+full virtual memory with paging provides process isolation through separate page tables. On NOMMU architectures
+(e.g., Cortex-M), memory protection is achieved through MPU regions with a simplified `msg-nommu.c` message passing
+implementation that avoids page table manipulation.

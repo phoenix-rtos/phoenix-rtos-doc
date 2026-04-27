@@ -1,7 +1,13 @@
-# Phoenix disk tool (psdisk)
+# Phoenix Disk Tool (psdisk)
 
-`psdisk` is a tool responsible for creating a partition table where sources are placed under the following link:
-<https://github.com/phoenix-rtos/phoenix-rtos-filesystems/tree/master/ptable>
+`psdisk` creates and manages partition table images for Phoenix-RTOS flash storage. It operates in three modes
+determined automatically based on the command arguments:
+
+| Mode | Condition | Description |
+|---|---|---|
+| **CREATE** | Image file does not exist, memory and partitions specified | Creates a new disk image with partition table |
+| **UPDATE** | Image file exists, partitions or removals specified | Modifies partitions in an existing image |
+| **READ** | Image file exists, no partition operations | Displays the existing partition table |
 
 ## Preliminary information
 

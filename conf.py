@@ -15,6 +15,7 @@ myst_enable_extensions = ["deflist", "fieldlist"]
 
 templates_path = ["_templates"]
 exclude_patterns = ["README", "_build", "Thumbs.db", ".DS_Store", "_venv", "docsresources", "pdf-template"]
+exclude_patterns += ["**/OUTDATED.md", "**/UNDOCUMENTED.md", "**/DESIGN.md"]
 myst_heading_anchors = 3
 pygments_dark_style = "tango"
 

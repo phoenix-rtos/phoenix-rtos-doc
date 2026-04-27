@@ -34,18 +34,30 @@ There is possible to execute a lot of instructions between receiving and respond
 used to wake up the sending thread and inform it that data in output buffer are completed.
 
 To prevent copying of big data blocks over the kernel when communication goes between threads assigned to separate
-processes special optimization is introduced. When message is received by the receiving thread input and output buffers
-are transparently mapped into the receiver address space. To prevent interference with other data, if any of these
-buffers is not aligned with the page, the heading or tailing part of this buffer is copied to the newly allocated page
-mapped instead of the original page. When receiving thread responses to the message the buffers are unmapped and heading
-or tailing parts are copied to the original page located in sender address space. This technique is briefly presented on
-following figure.
+processes special optimization is introduced. The kernel uses a three-tier strategy for data transfer:
+
+1. **Inline (≤ 64 bytes)**: Small messages are carried directly in the `msg_t` structure's `raw[64]` union buffer —
+   no separate buffer allocation or page mapping is needed. This avoids the overhead of virtual memory operations for
+   the most common small messages.
+
+2. **Page mapping (larger aligned buffers)**: For larger messages, the sender's buffer pages are mapped into the
+   receiver's address space via `page_map()`. No data is copied — both processes reference the same physical pages.
+
+3. **Boundary copy (unaligned partial pages)**: If a buffer is not page-aligned, the heading or tailing partial-page
+   data is copied to a newly allocated wrapper page. This prevents interference between sender data and other data
+   sharing the same physical page. When the receiver responds, boundary data is copied back to the original page.
+
+
+If both sides share the same address space, the mapping/copying phases are skipped.
+
+This technique is briefly presented on the following figure.
 
 ![Image](../../_static/images/kernel/proc/proc-msg1.png)
 
 There is another type of optimization. If input or output data size is lower than page size and data fits into the
 buffer used for application header passing the data is copied instead of using virtual memory capabilities which provide
-extra overhead for small messages.
+extra overhead for small messages. On NOMMU targets, the simplified variant in `msg-nommu.c` is used, which avoids
+page table manipulation entirely.
 
 ## External interface
 

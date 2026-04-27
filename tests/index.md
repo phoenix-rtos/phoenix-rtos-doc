@@ -1,5 +1,14 @@
 # Tests and testing process
 
+## Synopsis
+
+After reading this chapter, you will know:
+
+- How the Python-based test runner executes tests on emulators and physical devices
+- How to write test harnesses and YAML configuration files
+- How to use YAML target filtering to control which targets run each test
+- How test directories are organized in the repository
+
 The testing process uses a Phoenix-RTOS testing framework written in Python. The framework provides an environment for
 running both unit and functional tests.
 Unit tests are written using [Unity](http://www.throwtheswitch.org/getting-started-with-unity) and the process is
@@ -554,3 +563,78 @@ Flashing an image to device...
 Done!
 TESTS: 0 PASSED: 0 FAILED: 0 SKIPPED: 0
 ```
+
+## YAML Target Filtering Reference
+
+The `targets` dictionary in YAML configs supports three keys:
+
+| Key | Scope | Behavior |
+|-----|-------|----------|
+| `value` | Main config or per-test | Sets the exact list of targets. If set per-test, the main config targets are ignored. |
+| `include` | Per-test only | Adds targets to the set inherited from the main config (or defaults). |
+| `exclude` | Per-test only | Removes targets from the set inherited from the main config (or defaults). |
+
+Example combining main and per-test filtering:
+
+```yaml
+test:
+  targets:
+    value: [ia32-generic-qemu, armv7a9-zynq7000-qemu, host-generic-pc]
+  tests:
+    - name: basic-test
+      execute: test-basic
+      harness: basic_harness.py
+      targets:
+        exclude: [host-generic-pc]     # Runs on ia32-generic-qemu and armv7a9-zynq7000-qemu only
+    - name: qemu-only-test
+      execute: test-qemu
+      harness: qemu_harness.py
+      targets:
+        value: [ia32-generic-qemu]     # Overrides main config entirely
+```
+
+## Additional YAML Configuration Keys
+
+| Key | Type | Description |
+|-----|------|-------------|
+| `nightly` | bool | If `true`, test only runs when `--nightly` flag is passed to the runner |
+| `ignore` | bool | If `true`, test is skipped entirely |
+| `type` | string | Set to `"unity"` to use the built-in Unity test harness instead of a custom Python harness |
+| `kwargs` | dict | Key-value pairs passed to the harness function as `**kwargs` |
+
+## Test Directory Organization
+
+The test repository contains 30+ organized subdirectories:
+
+| Category | Directories |
+|----------|-------------|
+| System tests | `proc/`, `mem/`, `thread-local/`, `waitpid/`, `sys/`, `ioctl/` |
+| Filesystem tests | `fs/`, `meterfs/`, `disk/`, `stdio/` |
+| Network tests | `net/`, `virtio/` |
+| Device tests | `devices/` |
+| Shell tests | `psh/`, `busybox/` |
+| Library tests | `libc/`, `libalgo/`, `libcache/`, `libtinyaes/`, `libtrace/`, `libuuid/` |
+| Port tests | `mbedtls/`, `micropython/`, `coremark_pro/` |
+| Language tests | `cpp/`, `setjmp/`, `initfini/` |
+| Graphics tests | `gfx/` |
+| Framework | `sample/` (template with `fails/` subdirectory for expected-failure examples) |
+| Port testing | `port/` |
+| LSB conformance | `lsb_vsx/` |
+
+Each test directory typically contains a C source file, a Makefile, a Python harness (`*_harness.py`), and a YAML
+configuration file (`test_*.yaml`).
+
+## Test Runner Components
+
+The `trunner/` package provides the test execution framework:
+
+| Module | Purpose |
+|--------|---------|
+| `test_runner.py` | Main entry point — iterates over YAML configs, manages test campaigns |
+| `dut.py` | Device Under Test abstraction — wraps pexpect for serial/emulator communication |
+| `ctx.py` | Test context management — tracks state across test runs |
+| `host.py` | Host-side operations — flashing, image management |
+| `config.py` | YAML configuration loading and validation |
+| `harness/` | Built-in test harnesses (e.g., Unity parser) |
+| `target/` | Target-specific abstractions for different boards and emulators |
+| `extensions.py` | Extension system for custom test types |

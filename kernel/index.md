@@ -1,22 +1,34 @@
 # Kernel
 
-Phoenix-RTOS is based on the written from scratch dedicated microkernel and consists of about 20K lines of code (LoC).
-Microkernel is responsible for:
+## Synopsis
 
-* memory management
-* thread and process management
-* inter-thread communication and synchronization
-* basic application interface implementation (syscalls)
+After reading this chapter, you will know:
 
-Kernel is divided into five subsystems.
+- How the Phoenix-RTOS microkernel is structured into HAL, VM, proc, lib, and test subsystems
+- How processes and threads are managed, including `fork()`, `vfork()`, and thread lifecycle
+- How message passing works with inline, page-mapped, and boundary-copy optimizations
+- How the signal subsystem delivers signals to processes and threads
+- How the system calls are organized across categories
 
-* hal - hardware abstraction layer
-* lib - common routines
-* vm - virtual memory management
-* proc - process and thread management
-* test - internal tests for kernel subsystems
+Phoenix-RTOS is based on a written-from-scratch dedicated microkernel consisting of about 20K lines of code (LoC).
+The microkernel is responsible for:
 
-The source code of the kernel could be obtained using the following command
+- Memory management (virtual memory, page allocation, kernel heap)
+- Thread and process management (scheduling, forking, signals, process groups)
+- Inter-thread communication and synchronization (message passing, mutexes, condition variables, semaphores)
+- System call interface (107 syscalls across 14 categories)
+
+The kernel is divided into five subsystems:
+
+| Subsystem | Purpose |
+|-----------|---------|
+| `hal`  | Hardware abstraction layer — architecture-specific CPU, MMU, timer, interrupt, and console code |
+| `lib`  | Common routines — string operations, printf, binary buddy allocator, red-black trees |
+| `vm`   | Virtual memory management — page allocator, kernel allocator, memory mapper, object cache |
+| `proc` | Process and thread management — scheduler, IPC, synchronization, namespace, signals |
+| `test` | Internal tests for kernel subsystems |
+
+The source code of the kernel can be obtained using the following command:
 
 ```shell
 git clone https://github.com/phoenix-rtos/phoenix-rtos-kernel.git
