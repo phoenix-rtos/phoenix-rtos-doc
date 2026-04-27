@@ -21,7 +21,7 @@ that execute write to and read from the cached source memory.
 
 |       Type       | Description | Remarks |
 | ---------------- | ----------- | ------- |
-| `cachectx_t`     | Cache context represents the cache table | Opaque type  -  can only be accessed and/or modified through/by provided API functions. |
+| `cachectx_t`     | Cache context represents the cache table | Opaque type - can only be accessed and/or modified through/by provided API functions. |
 | `cache_devCtx_t` | Device driver context | A cached source memory-specific `struct cache_devCtx_s` definition ought to be supplied by the user. <br><br> Constitutes a part of `cache_ops_t` interface. |
 | `cache_ops_t`    | Cached source memory interface | Mediates between the cache and the cached source memory by providing write (`cache_writeCb_t writeCb`) and read (`cache_readCb_t readCb`) callbacks as well as the device driver context (`cache_devCtx_t ctx`). |
 ```
@@ -51,7 +51,7 @@ typedef ssize_t (*cache_writeCb_t)(uint64_t offset, const void *buffer,
 
 |  Status  | Description | Return value | Remarks |
 | -------- | ----------- | ------------ | ------- |
-| Declared | Write callback  -  a pointer to a function responsible for writing data to the source memory. The pointer is registered in the cache during a call to `cache_init` function. <br><br> Writes up to `count` bytes from `buffer` under `offset`. <br><br> Utilizes additional device driver context provided in `ctx`. | **On success:** a number of bytes written to the cached source memory <br/><br/> **On failure:** an error number <!-- TODO: write whether errno is set --> | `count` is **always** equal to cache line size. <br><br> A cached source memory-specific implementation ought to be supplied by the user. <br><br> Constitutes a part of `cache_ops_t` interface. |
+| Declared | Write callback - a pointer to a function responsible for writing data to the source memory. The pointer is registered in the cache during a call to `cache_init` function. <br><br> Writes up to `count` bytes from `buffer` under `offset`. <br><br> Utilizes additional device driver context provided in `ctx`. | **On success:** a number of bytes written to the cached source memory <br/><br/> **On failure:** an error number <!-- TODO: write whether errno is set --> | `count` is **always** equal to cache line size. <br><br> A cached source memory-specific implementation ought to be supplied by the user. <br><br> Constitutes a part of `cache_ops_t` interface. |
 ```
 
 ### Functions
@@ -130,7 +130,7 @@ int cache_invalidate(cachectx_t *cache, const uint64_t begAddr,
 
 |           Status           | Description | Return value | Remarks |
 | -------------------------- | ----------- | ------------ | ------- |
-| Implemented <br><br>Tested | Invalidates a range of cache lines starting from an address `begAddr` up to `endAddr`. <br><br> Clears the validity bit for lines in that range. | **On success:** 0 (i.e. all lines marked with the validity bit in the given range were successfully invalidated) <br><br> **On failure:** an error number  | Fails if `begAddr` is greater than `endAddr` or/and `begAddr` is greater than `srcMemSize` (`EINVAL`). <br><br> This operation does **not** synchronize the dirty lines with the cached source memory and leads to **permanent** data loss. In order to save the important data it is advised to call `cache_clean` instead. |
+| Implemented <br><br>Tested | Invalidates a range of cache lines starting from an address `begAddr` up to `endAddr`. <br><br> Clears the validity bit for lines in that range. | **On success:** 0 (i.e. all lines marked with the validity bit in the given range were successfully invalidated) <br><br> **On failure:** an error number  | Fails if `begAddr` is greater than `endAddr` or/and `begAddr` is greater than `srcMemSize` (`EINVAL`). <br><br> This operation does **not** synchronize the dirty lines with the cached source memory and leads to **permanent** data loss. To save the important data it is advised to call `cache_clean` instead. |
 ```
 
 ```c
@@ -213,7 +213,7 @@ _DISCLAIMER: The numbers of bits corresponding to tag, set index and offset may 
 
 ### Bitmasks
 
-Three bit masks are computed and stored. They are applied to memory addresses in order to extract specific bits
+Three bit masks are computed and stored. They are applied to memory addresses to extract specific bits
 corresponding to tag, set index and offset. The tag is used to identify a cache line within a set. The offset indicates
 the position of a specific byte in that cache line.
 
@@ -249,7 +249,7 @@ into the set, replacing the _Least Recently Used_ (LRU) line in that set.
 
 ### Reading a buffer from a device via the cache
 
-In order to read up to count bytes from a source memory address, a valid buffer has to be supplied. Set index, tag and
+To read up to count bytes from a source memory address, a valid buffer has to be supplied. Set index, tag and
 offset of the first byte to be read from a cache line marked by the tag are computed from the requested memory address.
 
 The user might want to read just a few bytes starting from the offset. However, when count goes beyond the
@@ -308,7 +308,7 @@ A range of the cached source memory addresses can be invalidated and data remove
 The data is not being synchronized with the cached source memory during this operation, therefore it cannot be
 retrieved once the lines become invalidated.
 
-In order to save the important data on the source memory and invalidate the lines in the cache it is advised to perform
+To save the important data on the source memory and invalidate the lines in the cache it is advised to perform
 cache clean instead.
 
 ### Cleaning the cache

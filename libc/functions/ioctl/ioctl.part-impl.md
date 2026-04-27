@@ -29,7 +29,7 @@ The _arg_ argument represents additional information that is needed by this spec
 function. The type of _arg_ depends upon the particular control request, but it shall be either an integer or a pointer
 to a device-specific data structure.
 
-In order to define driver request one should use one of the macros presented below, which are available in the `ioctl.h`
+To define driver request one should use one of the macros presented below, which are available in the `ioctl.h`
 header file:
 
 - `_IOC(inout,group,num,len)` - macro which returns every possible request

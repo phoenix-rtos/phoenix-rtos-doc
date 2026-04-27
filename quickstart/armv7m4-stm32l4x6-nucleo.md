@@ -19,7 +19,7 @@ board with `stm32l4x6` microcontroller.
 To provide a power supply for the board and make flashing possible, you have to connect a USB to micro USB cable between
 your host pc and the development board (`USB PWR` port, also called `CN1`).
 
-To communicate with the board you will need to use a UART-USB converter, like `PL2303 TA`.
+To communicate with the board use a UART-USB converter, like `PL2303 TA`.
 
 - Connect TX, RX, and GND wires to the USART2 (called also USART_B) in the Nucleo board.
   For example, using PL2303 TA:
@@ -38,7 +38,7 @@ To communicate with the board you will need to use a UART-USB converter, like `P
 
 - Put the converter into your host PC's USB port
 
-  The picture below presents how the board should be connected:
+  Board connections:
 
   <!-- use image directive due to poor render in pdf -->
   ```{image} ../_static/images/quickstart/stm32l4x6-connections.png
@@ -46,7 +46,7 @@ To communicate with the board you will need to use a UART-USB converter, like `P
   :width: 50%
   ```
 
-- Now you should verify, what USB device on your host-pc is connected with the `UART` (console). To check that run:
+- Verify, what USB device on your host-pc is connected with the UART (console). To check that run:
 
   - On Ubuntu:
 
@@ -194,82 +194,5 @@ The script can be modified to accommodate other SWD interfaces.
 
 ## Using Phoenix-RTOS
 
-Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal with the serial port
-opened.
-
-```
-Phoenix-RTOS microkernel v. 2.97 rev: 10b7a77
-hal: STM32 ARMv7 Cortex-M4 r0 p1
-hal: softfp, MPU, Thumb
-hal: Using NVIC interrupt controller
-vm: Initializing page allocator 11/320 KB, page_t=12
-vm: Initializing memory mapper: (149*72) 10728
-vm: Initializing kernel memory allocator: (16*48) 768
-vm: Initializing memory objects
-proc: Initializing thread scheduler, priorities=8
-syscalls: Initializing syscall table [102]
-main: Starting syspage programs: 'stm32l4-multi', 'psh'
-multidrv: Started
-(psh)%
-```
-
-- Note: You can also enter plo (Phoenix-RTOS loader) by pressing any button, for example, `enter` within some time after
-reset (using `RESET B2`).
-
-To get the available command list please type:
-
-```shell
-help
-```
-
-```
-(psh)% help
-Available commands:
-  bind      - binds device to directory
-  cat       - concatenate file(s) to standard output
-  date      - print/set the system date and time
-  df        - print filesystem statistics
-  dmesg     - read kernel ring buffer
-  echo      - display a line of text
-  edit      - text editor
-  exec      - replace shell with the given command
-  exit      - exits shell
-  help      - prints this help message
-  history   - prints commands history
-  hm        - health monitor, spawns apps and keeps them alive
-  kill      - terminates process
-  ls        - lists files in the namespace
-  mem       - prints memory map
-  mkdir     - creates directory
-  mount     - mounts a filesystem
-  nc        - TCP and UDP connections and listens
-  nslookup  - queries domain name servers
-  perf      - track kernel performance events
-  ping      - ICMP ECHO requests
-  pm        - process monitor
-  ps        - prints processes and threads
-  reboot    - restarts the machine
-  sync      - synchronizes device
-  sysexec   - launch program from syspage using given map
-  top       - top utility
-  touch     - changes file timestamp
-  uptime    - prints how long the system has been running
-  wget      - downloads a file using http
-(psh)%
-```
-
-To get the list of working processes please type:
-
-```shell
-ps
-```
-
-```
-(psh)% ps
-  PID   PPID  PR  STATE  %CPU    WAIT       TIME    VMEM THR CMD
-    0      0   7  ready  99.5  934.8s   00:04:31    112K   1 [idle]
-    1      0   4  sleep   0.0  733us    00:00:00       0   1 init
-    2      1   1  sleep   0.1   11ms    00:00:01     21K   9 stm32l4-multi
-    3      1   4  ready   0.1  18.8ms   00:00:00   28.5K   1 psh
-(psh)%
-```
+Once booted, the `psh` shell prompt appears. See [Shell basics](psh-basics.md) for an introduction to
+the available shell commands, process inspection, and running programs.

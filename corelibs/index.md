@@ -1,9 +1,6 @@
 # Libraries
 
-This chapter describes the Phoenix-RTOS core libraries. After reading this chapter, you will know:
-
-- The available libraries and their purposes.
-- Which libraries are documented and which are not yet documented.
+This chapter covers the Phoenix-RTOS core libraries: available libraries, their purposes, and documentation status.
 
 The source code is available in the [phoenix-rtos-corelibs](https://github.com/phoenix-rtos/phoenix-rtos-corelibs)
 GitHub repository. Usage examples can be found in the `_user` directory in

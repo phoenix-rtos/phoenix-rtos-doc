@@ -2,12 +2,7 @@
 
 ## Synopsis
 
-After reading this chapter, you will know:
-
-- How the Python-based test runner executes tests on emulators and physical devices
-- How to write test harnesses and YAML configuration files
-- How to use YAML target filtering to control which targets run each test
-- How test directories are organized in the repository
+This chapter covers the Python-based test runner, writing test harnesses and YAML configuration, target filtering, and test directory organization.
 
 Tests require a built system image (see [Building](../building/index.md)) running on a target
 (see [Running system on targets](../quickstart/index.md)).
@@ -17,8 +12,7 @@ running both unit and functional tests.
 Unit tests are written using [Unity](http://www.throwtheswitch.org/getting-started-with-unity) and the process is
 adapted to it.
 
-Tests, in general, are launched using test runner, placed in
-[phoenix-rtos-tests](https://github.com/phoenix-rtos/phoenix-rtos-tests) repository.
+The test runner in [phoenix-rtos-tests](https://github.com/phoenix-rtos/phoenix-rtos-tests) executes tests.
 Read more about the reference project in [Reference project](../project/index.md) chapter.
 
 ## High level overview of the test runner
@@ -633,10 +627,10 @@ The `trunner/` package provides the test execution framework:
 
 | Module | Purpose |
 |--------|---------|
-| `test_runner.py` | Main entry point  -  iterates over YAML configs, manages test campaigns |
-| `dut.py` | Device Under Test abstraction  -  wraps pexpect for serial/emulator communication |
-| `ctx.py` | Test context management  -  tracks state across test runs |
-| `host.py` | Host-side operations  -  flashing, image management |
+| `test_runner.py` | Main entry point - iterates over YAML configs, manages test campaigns |
+| `dut.py` | Device Under Test abstraction - wraps pexpect for serial/emulator communication |
+| `ctx.py` | Test context management - tracks state across test runs |
+| `host.py` | Host-side operations - flashing, image management |
 | `config.py` | YAML configuration loading and validation |
 | `harness/` | Built-in test harnesses (e.g., Unity parser) |
 | `target/` | Target-specific abstractions for different boards and emulators |

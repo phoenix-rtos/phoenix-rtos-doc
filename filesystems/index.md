@@ -1,11 +1,6 @@
 # Filesystems
 
-This chapter describes the filesystem servers available in Phoenix-RTOS. After reading this chapter, you will know:
-
-- The available filesystem types and their use cases.
-- Which filesystems support read-write and which are read-only.
-- The flash memory requirements and crash resilience features of each filesystem.
-- How pseudo-filesystems provide special device files.
+This chapter covers the filesystem servers available in Phoenix-RTOS: filesystem types and use cases, read-write vs. read-only support, flash memory requirements, crash resilience, and pseudo-filesystems.
 
 Filesystems in Phoenix-RTOS are implemented as user-space file servers. Each file server is a separate process that
 implements a specific filesystem protocol and registers its port in the namespace during startup.

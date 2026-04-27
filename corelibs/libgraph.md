@@ -474,7 +474,7 @@ int main(void)
 
 - Setting and getting a color palette
 
-  The 8-bit color depth has to be applied, so for cirrus graphics adapter please use `GRAPH_800x600x8` instead of
+  The 8-bit color depth has to be applied, so for cirrus graphics adapter use `GRAPH_800x600x8` instead of
   `GRAPH_DEFMODE`. Note that in a default color palette when using the 8-bit mode, `0x01` refers to blue and for passed
   color map (`cmap`) it's `{ 0xff, 0x00, 0x00}` - red.
 

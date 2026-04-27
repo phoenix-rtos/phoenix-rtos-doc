@@ -11,7 +11,7 @@ See [Building](../../building/index.md) chapter.
 
 ## Running the system image
 
-Firstly, you need to have the docker installed.
+Install Docker.
 
   <details>
   <summary>How to get docker (Ubuntu 22.04)</summary>
@@ -117,7 +117,7 @@ Now, with docker installed you can run Phoenix-RTOS using the following command:
 ./docker-devel.sh scripts/armv7a9-zynq7000-qemu.sh
 ```
 
-As a result, you should see `psh` (Phoenix-RTOS shell).
+After boot, the `psh` (Phoenix-RTOS shell) prompt appears.
 
 - Note: It may take a while.
 
@@ -149,97 +149,5 @@ version 2.2. (NAND) (SUMMARY)  © 2001-2006 Red Hat, Inc.
 
 ## Using Phoenix-RTOS
 
-To get the available command list please type:
-
-```shell
-help
-```
-
-```
-(psh)% help
-Available commands:
-    bind       - binds device to directory
-    cat        - concatenate file(s) to standard output
-    date       - print/set the system date and time
-    df         - print filesystem statistics
-    dmesg      - read kernel ring buffer
-    echo       - display a line of text
-    edit       - text editor
-    exec       - replace shell with the given command
-    exit       - exits shell
-    help       - prints this help message
-    history    - prints commands history
-    hm         - health monitor, spawns apps and keeps them alive
-    kill       - terminates process
-    ls         - lists files in the namespace
-    mem        - prints memory map
-    mkdir      - creates directory
-    mount      - mounts a filesystem
-    nc         - TCP and UDP connections and listens
-    nslookup   - queries domain name servers
-    perf       - track kernel performance events
-    ping       - ICMP ECHO requests
-    pm         - process monitor
-    ps         - prints processes and threads
-    reboot     - restarts the machine
-    sync       - synchronizes device
-    sysexec    - launch program from syspage using given map
-    top        - top utility
-    touch      - changes file timestamp
-    uptime     - prints how long the system has been running
-    wget       - downloads a file using http
-(psh)%
-```
-
-If you want to get the list of working processes please type:
-
-```shell
-ps
-```
-
-```
-(psh)% ps
-      PID     PPID  PR  STATE  %CPU     WAIT        TIME    VMEM THR CMD
-        0        0   7  ready  41.8     56.3s    00:00:42    1.4M   1 [idle]
-        1        0   4  sleep   0.0       3ms    00:00:00       0   1 init
-        3        1   4  sleep   0.0       2ms    00:00:00    104K   3 zynq7000-uart
-        5        1   4  sleep   0.0       2ms    00:00:00     84K   1 dummyfs
-        7        6   1  sleep  67.1      1.7s    00:00:59    616K   7 zynq7000-flash
-        9        4   4  ready   0.0       2ms    00:00:00    156K   1 /bin/psh
-(psh)%
-```
-
-To get the table of processes please type:
-
-```shell
-top
-```
-
-```
-      PID     PPID  PR  STATE  %CPU     WAIT        TIME    VMEM CMD
-        7        6   1  sleep  60.5      1.7s     0:59.24    616K zynq7000-flash
-        0        0   7  ready  46.6     56.3s     0:52.11    1.4M [idle]
-        9        4   4  ready   0.1       2ms     0:00.09    164K /bin/psh
-        5        2   4  sleep   0.0       2ms     0:00.02     84K dummyfs
-        1        0   4  sleep   0.0       3ms     0:00.00       0 init
-        3        1   4  sleep   0.0       2ms     0:00.10    104K zynq7000-uart
-```
-
-If you want to quit, you should click on the terminal window, press `ctrl + a`, release it, and next press the `x` key.
-
-```
-Phoenix-RTOS microkernel v. 2.97 rev: aa8e57e
-hal: Xilinx Zynq-7000 ARMv7 Cortex-A9 r0p0
-hal: ThumbEE, Thumb, ARM, Security
-hal: Using gic interrupt controller
-vm: Initializing page allocator (876+0)/131072KB, page_t=16
-vm: [256x][24K][6P]H[17K][36A][127H]PPPP[805.]PPPS[31744.]
-vm: Initializing memory mapper: (8105*64) 518720
-vm: Initializing kernel memory allocator: (64*48) 3072
-vm: Initializing memory objects
-proc: Initializing thread scheduler, priorities=8
-syscalls: Initializing syscall table [101]
-main: Starting syspage programs: 'dummyfs', 'zynq7000-uart', 'psh'
-(psh)% QEMU: Terminated
-~/phoenix-rtos-project$
-```
+Once booted, the `psh` shell prompt appears. See [Shell basics](../psh-basics.md) for an introduction to
+the available shell commands, process inspection, and running programs.

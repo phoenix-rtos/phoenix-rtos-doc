@@ -141,7 +141,7 @@ copy data/files from different sources to physical memory maps. Currently, phfs 
 * `phoenixd` - protocol to exchange data between host and target platform via interfaces like serial or USB, using
  [Phoenix Daemon](https://github.com/phoenix-rtos/phoenix-rtos-hostutils/tree/master/phoenixd).
 
-In order to use a device in the phoenix filesystem, the user should assign an alias to a dedicated `major.minor`
+To use a device in the phoenix filesystem, assign an alias to a dedicated `major.minor`
 identification of the device with an appropriate protocol type, for example: `phfs usb0 1.0 phoenixd`.
 
 PHFS supports up to 32 file aliases (`SIZE_PHFS_ALIASES`).
@@ -151,12 +151,12 @@ PHFS supports up to 32 file aliases (`SIZE_PHFS_ALIASES`).
 On RISC-V targets, the loader includes a Supervisor Binary Interface (SBI) module at `plo/riscv-sbi/`. This module
 provides the runtime services required by the RISC-V privilege specification. It contains:
 
-- `entry.c`  -  SBI entry point
-- `core/`  -  SBI core implementation
-- `devices/`  -  SBI device drivers
-- `platform/`  -  platform-specific code
-- `include/`  -  headers
-- `ld/`  -  linker scripts
+- `entry.c` - SBI entry point
+- `core/` - SBI core implementation
+- `devices/` - SBI device drivers
+- `platform/` - platform-specific code
+- `include/` - headers
+- `ld/` - linker scripts
 
 ## Syspage
 

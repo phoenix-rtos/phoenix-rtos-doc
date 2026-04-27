@@ -16,14 +16,13 @@ The build system automatically generates a `compile_commands.json` compilation d
 installed. This file enables code navigation and completion in editors that support the LSP protocol (VS Code,
 CLion, Vim with clangd, etc.).
 
-To use this feature, install `bear`:
+Install `bear`:
 
 ```shell
 sudo apt install bear
 ```
 
-The build script detects `bear` automatically and re-executes the build under it. The resulting
-`compile_commands.json` is placed at the project root.
+The build script auto-detects `bear` and outputs `compile_commands.json` to the project root.
 
 ## Git Version Tracking
 
@@ -50,13 +49,13 @@ The following environment variables affect the build:
 When building for a non-host target, the build system automatically re-executes itself with
 `TARGET=host-generic-pc` to build the host utilities needed for image creation. The following tools are built:
 
-- `metaelf`  -  ELF metadata embedder
-- `phoenixd`  -  host communication daemon
-- `psdisk`  -  disk image tool
-- `psu`  -  serial uploader
-- `syspagen`  -  system page generator
-- `mcxisp`  -  MCX ISP tool
-- `mkrofs`  -  ROFS image creator
+- `metaelf` - ELF metadata embedder
+- `phoenixd` - host communication daemon
+- `psdisk` - disk image tool
+- `psu` - serial uploader
+- `syspagen` - system page generator
+- `mcxisp` - MCX ISP tool
+- `mkrofs` - ROFS image creator
 
 ## Port Manager
 

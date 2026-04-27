@@ -1,21 +1,19 @@
 # Process and thread overview
 
-This section provides information on process and thread abstractions for controlling program execution in Phoenix-RTOS.
+This section describes processes and threads.
 
 ## Process
 
-Process is the abstraction used for resource aggregation and to define the linear address space for the program
-execution. The process linear address space is defined using address spaces. Each process contains set of address spaces
+A process is a container for a program's address space and resources.
+The process linear address space is defined using address spaces. Each process contains set of address spaces
 (each of them is described by its own memory map) accessible via its linear address space. On MMU architectures these
 address spaces are accessible using paging technique and segment definitions. On non-MMU architectures address spaces
 are accessible in the process linear address space using a segment definition only (e.g. using MPU on ARM).
 
 ## Thread
 
-Thread represents the program instruction stream, and it is executed by processor concurrently with other threads. It
-means that execution of each thread is interrupted (periodically by system timer or periodically by external
-hardware interrupts), the processor state resulting from the thread execution is preserved, and other thread is selected
-for the execution. If a computer system is equipped with many processor cores many threads are in fact executed
+Thread represents the program instruction stream, and it is executed by processor concurrently with other threads. The
+scheduler interrupts threads via timer or interrupt, saves processor state, and selects the next thread. If a computer system is equipped with many processor cores many threads are in fact executed
 concurrently. If only single processor core is available only one thread is executed in the particular time slot. The
 execution of threads is controller by operating system scheduler, a special subprogram invoked after each thread
 interruption deciding what thread from the ready thread pool should be executed on current processor in the following
@@ -25,10 +23,8 @@ a program.
 Thread can be associated with the kernel or with a process. When thread is associated with the kernel it can use only
 kernel address spaces. When it is associated with a process it can use all address spaces associated wit the process
 and kernel. While access to the address space requires switching the processor to the privileged execution mode
-(e.g. access to kernel address spaces) the thread can do this using specific kernel function. Should be noticed that
-such transition between mode is carefully controlled by the operating system. The processor can enter into the
-particular mode using only well-defined entry points (e.g. after receiving hardware interrupt or executing program trap)
- handled by the operating system. The discussion of processor execution mode is presented below.
+(e.g. access to kernel address spaces) the thread can do this using specific kernel function. Mode transitions are strictly controlled
+by the operating system. The processor enters privileged mode only through defined entry points (interrupts or system calls). The discussion of processor execution mode is presented below.
 
 ## Operating system resources
 
@@ -71,7 +67,9 @@ operating systems.
 The virtual addressing has a great impact on program creation, execution and process separation. Due to virtual memory
 the linear address space of each process can use the same address ranges and each program can be loaded into the memory
 without performing the address relocations. The linear address space of each process can use the private address spaces
-(defined per-process) and global address spaces e.g. kernel address space. It should be noticed the kernel address space
+(defined per-process) and global address spaces e.g. kernel address space.
+<!-- REVIEW: verbose hedging - consider rewriting as direct statement -->
+It should be noticed the kernel address space
 have to be mapped into the linear address space of each process because it is necessary to provide operating system
 services.
 

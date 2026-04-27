@@ -24,7 +24,7 @@ First, please build the project with the `ports` component and set `AZURE_CONNEC
 TARGET=ia32-generic-qemu AZURE_CONNECTION_STRING="HostName=test-hub.azure-devices.net;DeviceId=ia32-generic-qemu;SharedAccessKey=xxxxxxxxx=" ./phoenix-rtos-build/build.sh clean all
 ```
 
-- Note: The connection string above is only an example, please use your own.
+- Note: The connection string above is only an example, use your own.
 
 - Note: You do not need all the ports provided for the `ia32-generic-qemu` target architecture. The necessary ports
 are: `busybox`, `openssl`, `curl` and `azure_sdk`.

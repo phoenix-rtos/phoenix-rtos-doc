@@ -38,7 +38,7 @@ To get a list of valid targets, the `build.sh` script should be launched with an
 
 This is the fastest way to start development, as all the necessary tools are included in the prepared Docker image.
 
-Firstly, you need to have `Docker` installed.
+Install Docker.
 
   <details>
   <summary>Installing Docker on Ubuntu (click to expand)</summary>

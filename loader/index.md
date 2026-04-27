@@ -1,16 +1,9 @@
 # Loader (plo)
 
-This chapter describes the Phoenix-RTOS bootloader (plo). After reading this chapter, you will know:
+This chapter covers the Phoenix-RTOS bootloader (plo): hardware preparation, kernel loading, CLI commands, supported device types, the PHFS filesystem abstraction, and internal limits.
 
-- How the loader prepares hardware and loads the kernel.
-- The available CLI commands and their usage.
-- The device types supported by the loader.
-- The PHFS filesystem abstraction and its protocols.
-- Internal limits for commands, devices, and aliases.
-
-The bootlader is an inherent part of Phoenix-RTOS used to prepare the system setup structure and load the kernel and
-applications to selected memory areas defined as maps. The loader configuration is flexible and allows the user to
-customize appropriate sets of functionality depending on hardware resources.
+The bootloader prepares the system setup structure and loads the kernel and applications into memory areas
+(maps). Its configuration allows customizing functionality to match available hardware resources.
 
 The Phoenix-RTOS loader supports all the target platforms listed in the [Building](../building/index.md) chapter.
 

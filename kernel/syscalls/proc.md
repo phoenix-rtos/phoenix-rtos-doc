@@ -9,7 +9,7 @@ Forks current process into two processes.
 Forks current process into two processes, but they initially share the address space until `exec()` or `exit()` calls
 are called. Parent process execution is suspended until `exec()` or `exit()` call as well.
 
-|Opaque type  -  can only be accessed and/or modified through/by provided API functions.##
+|Opaque type - can only be accessed and/or modified through/by provided API functions.##
 `syscalls_procExec` (`syscalls_exec`)
 
 ````C

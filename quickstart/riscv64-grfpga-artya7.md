@@ -11,7 +11,7 @@ Connect the board to the computer using 1 micro USB cable that provides power an
 
 ## Loading the Phoenix-RTOS system image
 
-To load the Phoenix-RTOS system image to the board, you will need to use the `GRMON` debug monitor.
+To load the Phoenix-RTOS system image to the board, use the GRMON debug monitor.
 
 <details>
 <summary>How to get GRMON</summary>
@@ -24,7 +24,7 @@ To load the Phoenix-RTOS system image to the board, you will need to use the `GR
 </details>
 </br>
 
-Launch the `GRMON` monitor using the following command:
+Launch the GRMON monitor using the following command:
 
 ```shell
 grmon -digilent
@@ -32,7 +32,7 @@ grmon -digilent
 
 The `-digilent` parameter specifies the Digilent JTAG adapter.
 
-Load the Phoenix-RTOS system image to the RAM by running the following commands in the `GRMON`:
+Load the Phoenix-RTOS system image to the RAM by running the following commands in the GRMON:
 
 ```shell
 load _boot/riscv64-grfpga-artya7/sbi-grfpga.elf
@@ -66,7 +66,7 @@ following command:
 picocom -b 115200 --imap lfcrlf /dev/ttyUSB1
 ```
 
-To start the Phoenix-RTOS system, execute the following command in the `GRMON` monitor:
+To start the Phoenix-RTOS system, execute the following command in the GRMON monitor:
 
 ```shell
 run

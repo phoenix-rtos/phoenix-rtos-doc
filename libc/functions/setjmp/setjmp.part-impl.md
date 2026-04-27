@@ -19,7 +19,7 @@ IEEE Std 1003.1-2017
 ## Description
 
 A call to `setjmp()` shall save the calling environment in its _env_ argument for later use by `longjmp()`.
-It is unspecified whether `setjmp()` is a macro or a function. If a macro definition is suppressed in order to access an
+It is unspecified whether `setjmp()` is a macro or a function. If a macro definition is suppressed to access an
 actual function, or a program defines an external identifier with the name `setjmp`, the behavior is undefined.
 An application shall ensure that an invocation of `setjmp()` appears in one of the following contexts only:
 

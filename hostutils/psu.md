@@ -12,8 +12,8 @@ psu [OPTIONS] script_path
 
 Options:
 
-- `-t`  -  Set timeout for the wait command (default is 10 seconds)
-- `-h`  -  Display help
+- `-t` - Set timeout for the wait command (default is 10 seconds)
+- `-h` - Display help
 
 ## Example Usage
 

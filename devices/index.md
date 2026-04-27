@@ -1,16 +1,12 @@
 # Device drivers
 
-This chapter describes the Phoenix-RTOS device driver architecture. After reading this chapter, you will know:
-
-- How device drivers are structured as user-level servers.
-- The available driver categories and their platforms.
-- The multi-function consolidated server pattern.
+This chapter covers the Phoenix-RTOS device driver architecture: user-level driver servers, available driver categories and platforms, and the multi-function consolidated server pattern.
 
 Phoenix-RTOS implements device drivers as device servers running on the user level. The communication with drivers is
 done via message passing using a well-defined interface for exchanging data between programs and drivers.
 
-To control a device, two mechanisms are necessary and should be provided by the operating system kernel: access to
-device hardware registers and a method of handling interrupts triggered by the device.
+Device control requires two kernel mechanisms: access to device hardware registers and a method of handling
+interrupts triggered by the device.
 
 Device drivers communicate with clients through the kernel message passing mechanism described in
 [Message passing](../kernel/proc/msg.md).

@@ -14,7 +14,7 @@ load new plo use SD card, otherwise you can simply load plo from QSPI flash.
 
 ### Loading plo from SD card
 
-- Firstly, you should copy the disk image `phoenix.disk` from the `_boot/armv7a9-zynq7000-zturn` directory to the SD
+- Copy the disk image `phoenix.disk` from the `_boot/armv7a9-zynq7000-zturn` directory to the SD
   card and rename it to `BOOT.bin`, make sure that this file is in binary format, otherwise you won't be able to load
   plo (Phoenix-RTOS Loader) from SD card to RAM.
 
@@ -34,18 +34,18 @@ load new plo use SD card, otherwise you can simply load plo from QSPI flash.
 
 ### Loading plo - common steps
 
-- To communicate with the board you will need to connect the USB cable to the `USB_UART` port (`J6`).
+- To communicate with the board connect the USB cable to the `USB_UART` port (`J6`).
 
 - You should also connect another micro USB cable to the `USB_OTG` port (`J2`).
 
-  The picture below presents how the board should be connected:
+  Board connections:
 
   ![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-zturn-connections.jpg)
 
 - If you connected everything like in the picture above, the board should be powered on and the `D25` POWER LED should
   shine blue.
 
-- Now you should verify, what USB device on your host-pc is connected with the `UART` (console). To check that run:
+- Verify, what USB device on your host-pc is connected with the UART (console). To check that run:
 
   ```shell
   ls -l /dev/serial/by-id
@@ -56,7 +56,7 @@ load new plo use SD card, otherwise you can simply load plo from QSPI flash.
   lrwxrwxrwx 1 root root 13 Jul  3 16:57 usb-Silicon_Labs_CP2103_USB_to_UART_Bridge_Controller_0001-if00-port0 -> ../../ttyUSB0
   ```
 
-  If your output is like in the example above, the console (`UART` in the evaluation board) is on the `USB0` port.
+  If the output matches, the console (UART in the evaluation board) is on the `USB0` port.
 
 - When the board is connected to your host-pc, open serial port in terminal using picocom and type the console port
   (in this case USB0)
@@ -117,13 +117,13 @@ You can leave the terminal with the serial port open, and follow the next steps.
 
 ## Flashing the Phoenix-RTOS system image
 
-At first, before any flashing, you need to enter Phoenix-RTOS loader (plo).
+At first, before any flashing, enter Phoenix-RTOS loader (plo).
 
 ### Entering Phoenix-RTOS loader (plo)
 
 Press RESET button (`K2`) to restart the chip.
 
-If flash memory doesn't contain Phoenix-RTOS system image, booting process will stop at plo level, you should see:
+If flash memory doesn't contain a Phoenix-RTOS system image, the boot process stops at plo:
 
 ```
 Phoenix-RTOS loader v. 1.21 rev: ac040e9
@@ -140,7 +140,7 @@ Magic number for user.plo is wrong.
 
 Phoenix-RTOS loader tried to find an image in flash, which was unsuccessful. That's why there is an error message.
 
-Otherwise, in order to get into plo you need to press any key within 500ms. If you don't do that, plo will load system
+Otherwise, in order to get into plo press any key within 500ms. If you don't do that, plo will load system
 and start psh, but we cannot flash from there. Output when you enter psh:
 
 ```
@@ -182,7 +182,7 @@ If you want to flash the system image please follow the next steps.
 
 ### Copying image to flash memory using PHFS (phoenixd)
 
-To flash the disk image, first, you need to verify on which port plo USB device has appeared. You can check that using
+To flash the disk image, first, verify on which port plo USB device has appeared. Check with
 `ls` as follows:
 
 ```shell
@@ -196,7 +196,7 @@ lrwxrwxrwx 1 root root 13 lis  8 18:37 usb-2012_Cypress_Semiconductor_Cypress-US
 lrwxrwxrwx 1 root root 13 lis  8 18:38 usb-Phoenix_Systems_plo_CDC_ACM-if00 -> ../../ttyACM1
 ```
 
-To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments (choose suitable
+Launch `phoenixd` to share the disk image with the bootloader (choose suitable
 ttyACMx device, in this case, ttyACM0):
 
 ```shell
@@ -223,7 +223,7 @@ Before flashing, good practice is to erase older file system on flash memory (th
 
 ### Erasing the area intended for file system
 
-It's needed to erase sectors that will be used by `jffs2` file system as we place in the `phoenix.disk`
+Erase sectors used by `jffs2` file system as we place in the `phoenix.disk`
  only the necessary file system content, not the whole area intended for it.
 Without erasure `jffs2` may encounter data from the previous flash operation and errors
  during the system startup may occur.
@@ -271,7 +271,7 @@ copy usb0 phoenix.disk flash0 0x0 0x0
 ### Booting Phoenix-RTOS from QSPI flash memory
 
 Now, the image is located in the QSPI Flash memory.
-To run it you should follow the steps below:
+Follow these steps:
 
 - Power off the board by disconnecting USB_OTG and USB_UART connectors
 
@@ -301,7 +301,7 @@ To run it you should follow the steps below:
 
 - restart the chip using the `K2` RESET button, after that booting starts
 
-- after successful boot you should see:
+- after successful boot:
 
   ```
   Phoenix-RTOS loader v. 1.21 rev: ac040e9
@@ -336,88 +336,5 @@ Psh prompt indicates that everything is up and running.
 
 ## Using Phoenix-RTOS
 
-To get the available command list please type:
-
-```shell
-help
-```
-
-```
-(psh)% help
-Available commands:
-  bind        - binds device to directory
-  cat         - concatenate file(s) to standard output
-  cd          - changes the working directory
-  cp          - copy file
-  date        - print/set the system date and time
-  dd          - copy a file according to the operands
-  df          - print filesystem statistics
-  dmesg       - read kernel ring buffer
-  echo        - display a line of text
-  edit        - text editor
-  exec        - replace shell with the given command
-  exit        - exits shell
-  help        - prints this help message
-  history     - prints commands history
-  hm          - health monitor, spawns apps and keeps them alive
-  kill        - terminates process
-  ln          - make links between files
-  ls          - lists files in the namespace
-  mem         - prints memory map
-  mkdir       - creates directory
-  mount       - mounts a filesystem
-  nc          - TCP and UDP connections and listens
-  nslookup    - queries domain name servers
-  ntpclient   - set the system's date from a remote host
-  perf        - track kernel performance events
-  ping        - ICMP ECHO requests
-  pm          - process monitor
-  ps          - prints processes and threads
-  pwd         - prints the name of current working directory
-  reboot      - restarts the machine
-  sync        - synchronizes device
-  sysexec     - launch program from syspage using given map
-  top         - top utility
-  touch       - changes file timestamp
-  tty         - print or replace interactive shell tty device
-  umount      - unmount a filesystem
-  uptime      - prints how long the system has been running
-  wget        - downloads a file using http
-(psh)%
-```
-
-If you want to get the list of working processes please type:
-
-```shell
-ps
-```
-
-```
-(psh)% ps
-  PID   PPID  PR  STATE  %CPU    WAIT       TIME   VMEM  THR  CMD
-    0      0   4  ready  83.5   185ms   00:01:25   1.6M    2  [idle]
-    1      0   4  sleep   0.0   1.2ms   00:00:00      0    1  init
-    3      1   4  ready   0.1   1.2ms   00:00:00   128K    4  zynq7000-uart
-    4      1   4  sleep   0.0     1ms   00:00:00    96K    1  dummyfs
-    7      1   1  sleep  16.1  76.3ms   00:00:17   596K    7  zynq7000-flash
-    9      1   4  sleep   0.0   471us   00:00:00   128K    5  /bin/posixsrv
-   10      1   4  ready   0.0   965us   00:00:00   148K    1  /bin/psh
-(psh)%
-```
-
-To get the table of processes please type:
-
-```shell
-top
-```
-
-```
-  PID   PPID  PR  STATE  %CPU    WAIT      TIME   VMEM  CMD
-    0      0   4  ready  84.6   185ms   1:33.79   1.6M  [idle]
-    7      1   1  sleep  15.0  76.3ms   0:16.66   596K  zynq7000-flash
-    3      1   4  ready   0.2   1.4ms   0:00.24   128K  zynq7000-uart
-    4      1   4  sleep   0.0     1ms   0:00.00    96K  dummyfs
-    1      0   4  sleep   0.0   1.2ms   0:00.00      0  init
-    9      1   4  sleep   0.0   471us   0:00.00   128K  /bin/posixsrv
-   10      1   4  ready   0.0   965us   0:00.02   156K  /bin/psh
-```
+Once booted, the `psh` shell prompt appears. See [Shell basics](../psh-basics.md) for an introduction to
+the available shell commands, process inspection, and running programs.

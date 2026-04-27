@@ -11,8 +11,8 @@ Power on the board and connect it to the computer using 2 micro USB cables that 
 
 ## Loading the Phoenix-RTOS system image
 
-To load the Phoenix-RTOS system image to the board, you will need to use the `GRMON` debug monitor. Note that the
-Professional version of the `GRMON` is required to run the system on the GR765 target.
+To load the Phoenix-RTOS system image to the board, use the GRMON debug monitor. Note that the
+Professional version of the GRMON is required to run the system on the GR765 target.
 
 <details>
 <summary>How to get GRMON</summary>
@@ -25,7 +25,7 @@ Professional version of the `GRMON` is required to run the system on the GR765 t
 </details>
 </br>
 
-Launch the `GRMON` monitor using the following command:
+Launch the GRMON monitor using the following command:
 
 ```shell
 grmon -digilent
@@ -33,7 +33,7 @@ grmon -digilent
 
 The `-digilent` parameter specifies the Digilent JTAG adapter.
 
-Load the Phoenix-RTOS system image to the RAM by running the following commands in the `GRMON`:
+Load the Phoenix-RTOS system image to the RAM by running the following commands in the GRMON:
 
 ```shell
 load _boot/riscv64-gr765-vcu118/sbi-gr765.elf
@@ -68,7 +68,7 @@ following command:
 picocom -b 115200 --imap lfcrlf /dev/ttyUSB2
 ```
 
-To start the Phoenix-RTOS system, execute the following command in the `GRMON` monitor:
+To start the Phoenix-RTOS system, execute the following command in the GRMON monitor:
 
 ```shell
 run

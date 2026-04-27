@@ -51,7 +51,7 @@ directory or using an environment variable.
 
 To build `mbedtls` tests please set `LONG_TEST=y` environment variable before calling `build.sh`.
 
-In order to run the specific test please type in psh: `/bin/test_name mbedtls_test_configs/test_name.datax`, for
+To run the specific test please type in psh: `/bin/test_name mbedtls_test_configs/test_name.datax`, for
 example:
 
 ```shell

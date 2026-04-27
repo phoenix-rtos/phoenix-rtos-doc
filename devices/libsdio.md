@@ -127,7 +127,7 @@ called before any other API function. Should no device be present, or it does no
 sequence, this function shall return an error code and free resources it acquired.
 
 ```{note}
-Calling this function more than once after successful completion will have no effect. In order to
+Calling this function more than once after successful completion will have no effect. To
 reinitialize the interface, `sdio_free` should be called between concurrent `sdio_init` calls instead.
 ```
 
@@ -286,7 +286,7 @@ int sdio_eventRegister(uint8_t event,
 This function registers an event handler to be called when a given interrupt event occurs. An interrupt event will not
 be signalled until its detection is enabled by `sdio_eventEnable`. Please note that only one handler can be registered
 per event - calling this function multiple times for the same event will result in the previous handler being
-overwritten. In order to deregister the handler one can pass `NULL` as the `handler` parameter.
+overwritten. To deregister the handler one can pass `NULL` as the `handler` parameter.
 
 **Parameters:**
 

@@ -2,15 +2,9 @@
 
 ## Synopsis
 
-After reading this chapter, you will know:
+This chapter covers booting Phoenix-RTOS on supported hardware and emulators, using launch scripts for QEMU targets, and boot image contents.
 
-- How to boot Phoenix-RTOS on supported hardware and emulators
-- How to use launch scripts for QEMU targets
-- What components are included in a typical boot image
-
-This chapter presents how to run Phoenix-RTOS on supported targets. It is assumed that `phoenix-rtos-project` is built,
-and system artifacts are available in the `_boot` directory. The building process has been described in
-[Building](../building/index.md) chapter.
+Prerequisites: a built `phoenix-rtos-project` with artifacts in `_boot/` (see [Building](../building/index.md)).
 
 ## Launch scripts
 
@@ -21,8 +15,8 @@ QEMU and simulator targets include launch scripts in the `scripts/` directory:
 ```
 
 Script naming follows two patterns:
-- `scripts/<target>.sh`  -  standard launch
-- `scripts/<target>-test.sh`  -  launch with test configuration (e.g., serial console for automated testing)
+- `scripts/<target>.sh` - standard launch
+- `scripts/<target>-test.sh` - launch with test configuration (e.g., serial console for automated testing)
 
 Some targets have additional variants (e.g., `ia32-generic-qemu-net.sh` for networking, `ia32-generic-qemu-virt.sh`
 for VirtIO).
@@ -46,6 +40,7 @@ The following targets have project configurations in `_projects/` but do not yet
 ```{toctree}
 :maxdepth: 1
 
+psh-basics.md
 aarch64a53-zynqmp-zcu104.md
 armv7m4-stm32l4x6-nucleo.md
 armv7m7-imxrt105x-evk.md

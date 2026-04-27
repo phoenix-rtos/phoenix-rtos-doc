@@ -24,7 +24,7 @@ virtual address space.
 
 ## Initial concept of paging technique
 
-The concept of paging was first introduced in the late 1960s in order to organize the program memory overlaying for
+The concept of paging was first introduced in the late 1960s to organize the program memory overlaying for
 hierarchical memory systems consisting of transistor-based memory, core memory, magnetic disks and tapes. Historically,
 the virtual address space size was comparable to the physical memory size. The page table was used to point to the data
 location in the hierarchical memory system and to associate the physical memory location, called a page frame, with the
@@ -42,7 +42,7 @@ Over the years, paging has morphed into a technique used for defining the proces
 separation. In general-purpose operating systems, paging is fundamental for memory management. Each process runs in its
 own virtual memory space and uses all address ranges for its needs. The address space is defined by a set of
 virtual-to-physical address associations for the MMU defined in the physical memory and stored in a structure that is
-much more complicated than a page table used in early computers. This is necessary in order to optimize memory
+much more complicated than a page table used in early computers. This is necessary to optimize memory
 consumption and speed up the virtual-to-physical memory translations. When a process is executed on a selected
 processor, the address space is switched to its virtual space, which prevents it from interfering with other processes.
 The address space is switched by providing the MMU with new sets of virtual-to-physical associations. In this scheme,

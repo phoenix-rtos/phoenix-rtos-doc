@@ -9,7 +9,7 @@ image yet, please refer to the [Building Phoenix-RTOS image](../building/index.m
 Connect the board to the computer using a USB cable. The board provides a 4-channel USB-UART bridge, of which three may
 be used:
 
-- Channel 0 - `if00` - used for `GRMON` debug connection, interfaces to `AHBUART1` on the board,
+- Channel 0 - `if00` - used for GRMON debug connection, interfaces to `AHBUART1` on the board,
 - Channel 2 - `if02` - used for console, interfaces to `UART2` on the board,
 - Channel 3 - `if03` - used for interfacing with the `phoenixd` server, interfaces to `UART3` on the board.
 
@@ -17,7 +17,7 @@ be used:
 
 The process comes down to a few steps, described below.
 
-### Using `GRMON` to upload Phoenix-RTOS loader (`PLO`) to RAM
+### Using GRMON to upload Phoenix-RTOS loader (`PLO`) to RAM
 
 First, check on which port the board is connected to the computer. To do this, run the following command:
 
@@ -36,7 +36,7 @@ lrwxrwxrwx 1 root root 13 maj 31 14:37 usb-Cobham_Gaisler_AB_GR716-MINI_71619020
 ```
 
 In this case, the debug UART is connected to the `ttyUSB0` port.
-Launch the `GRMON` monitor using the following command:
+Launch the GRMON monitor using the following command:
 
 ```shell
 grmon -uart /dev/ttyUSB0 -baud 115200
@@ -55,7 +55,7 @@ The `-baud` parameter specifies the baud rate of the `AHBUART1` interface.
 Optionally you can pass the `-gdb` parameter, which enables the GDB server on port 2222.
 Default CPU clock frequency is 50 MHz.
 
-To load the bootloader (`plo`) to the RAM, run the following commands in the `GRMON` monitor:
+To load the bootloader (`plo`) to the RAM, run the following commands in the GRMON monitor:
 
 ```shell
 load phoenix-rtos-project/_boot/sparcv8leon-gr716-mini/plo-ram.img 0x31000000
@@ -80,7 +80,7 @@ picocom -b 115200 --imap lfcrlf /dev/ttyUSB2
 ```
 
 This will connect to the `UART2` interface, which is used for the console.
-To start the bootloader, execute the following command in the `GRMON` monitor:
+To start the bootloader, execute the following command in the GRMON monitor:
 
 ```shell
 go
@@ -99,14 +99,14 @@ console: Setting console to 0.2
 
 ### Copying flash image using PHFS (phoenixd)
 
-To flash the disk image, first, you need to verify to which port the `plo` serial interface is connected using the
+To flash the disk image, first, verify to which port the `plo` serial interface is connected using the
 following command:
 
 ```shell
 ls -l /dev/serial/by-id
 ```
 
-To provide the disk image to the bootloader, `phoenixd` has to be launched with the following arguments
+Launch `phoenixd` to share the disk image with the bootloader
 (choose suitable ttyUSBx device, in this case, `ttyUSB3`):
 
 ```shell
@@ -164,76 +164,5 @@ console or press the reset button on the board.
 
 ## Using Phoenix-RTOS
 
-After reboot, Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal.
-
-```
-Phoenix-RTOS microkernel v. 2.97 rev: fa9d23f
-hal: SPARCv8 LEON3-GR716
-hal: GRFPU-Lite, 31 windows
-hal: Using IRQAMP interrupt controller
-vm: Initializing page allocator 73/2043 KB, page_t=16
-vm: Initializing memory mapper: (951*72) 68472
-vm: Initializing kernel memory allocator: (16*48) 768
-vm: Initializing memory objects
-proc: Initializing thread scheduler, priorities=8
-syscalls: Initializing syscall table [102]
-main: Starting syspage programs: 'dummyfs', 'gr716-uart', 'psh', 'gr716-flash'
-dummyfs: initialized
-gr716-flashdrv: detected Macronix MX25L25635F (0xc2201900)
-meterfs: Filesystem check done. Found 0 files.
-meterfs: Filesystem check done. Found 1 files.
-gr716-flashsrv: initialized
-(psh)%
-```
-
-- Note: You can also enter `plo` by pressing any button within some time after reset.
-
-To get the available command list type:
-
-```shell
-help
-```
-
-```
-(psh)% help
-Available commands:
-  bind       - binds device to directory
-  cat        - concatenate file(s) to standard output
-  cd         - changes the working directory
-  cp         - copy file
-  date       - print/set the system date and time
-  dd         - copy a file according to the operands
-  df         - print filesystem statistics
-  dmesg      - read kernel ring buffer
-  echo       - display a line of text
-  edit       - text editor
-  exec       - replace shell with the given command
-  exit       - exits shell
-  help       - prints this help message
-  history    - prints commands history
-  hm         - health monitor, spawns apps and keeps them alive
-  kill       - terminates process
-  ln         - make links between files
-  ls         - lists files in the namespace
-  mem        - prints memory map
-  mkdir      - creates directory
-  mount      - mounts a filesystem
-  nc         - TCP and UDP connections and listens
-```
-
-To get the list of working processes type:
-
-```shell
-ps
-```
-
-```
-(psh)% ps
-     PID     PPID PR STATE  %CPU     WAIT       TIME    VMEM THR CMD
-       0        0  4 ready  99.2    498ms   00:02:03    646K   2 [idle]
-       1        0  4 sleep   0.0      3ms   00:00:00       0   1 init
-       2        1  4 sleep   0.1     24ms   00:00:00     15K   1 dummyfs
-       3        1  2 sleep   0.1      5ms   00:00:00   24.5K   4 gr716-uart
-       4        1  4 ready   0.3      4ms   00:00:00   29.5K   1 psh
-       5        1  3 sleep   0.0      3ms   00:00:00   22.5K   4 gr716-flash
-```
+Once booted, the `psh` shell prompt appears. See [Shell basics](psh-basics.md) for an introduction to
+the available shell commands, process inspection, and running programs.

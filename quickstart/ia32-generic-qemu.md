@@ -1,15 +1,13 @@
 # Running system on <nobr>ia32-generic-qemu</nobr>
 
-This version is designated for generic PC based on the IA32 processor. To launch this version the final disk image
-should be provided. The image is created as the final artifact of the `phoenix-rtos-project` building and is located in
-the `_boot` directory. The image consists of the bootloader (plo), kernel, TTY VGA driver, ATA driver with ext2
-filesystem.
+This page covers running Phoenix-RTOS on a generic IA32 (x86) PC using QEMU. The disk image is built to `_boot/`
+and includes the bootloader (plo), kernel, TTY VGA driver, ATA driver, and ext2 filesystem.
 
 See [Building](../building/index.md) chapter.
 
 ## Running image under QEMU
 
-Firstly, you need to install QEMU emulator.
+Install QEMU:
 <details>
   <summary>How to get QEMU (Ubuntu)</summary>
 
@@ -43,8 +41,7 @@ Firstly, you need to install QEMU emulator.
 
   </details>
 
-To run the system image under QEMU you should type the following command
-(launched from `phoenix-rtos-project` directory).
+Run from the project root:
 
 ```shell
 ./scripts/ia32-generic-qemu.sh
@@ -69,46 +66,16 @@ main: Starting syspage programs: 'pc-ata', 'pc-tty', 'psh'
 (psh)%
 ```
 
-To get the available command list please type:
+See [Shell basics](psh-basics.md) for an introduction to the available shell commands, process inspection,
+and running programs.
 
-```shell
-help
-```
-
-```
-Available commands:
- bind          - binds device to directory
- cat           - concatenate file(s) to standard output
- edit          - text editor
- exec          - replace shell with the given command
- exit          - exits shell
- help          - prints this help message
- history       - prints commands history
- kill          - terminates process
- ls            - lists files in the namespace
- mem           - prints memory map
- mkdir         - creates directory
- mount         - mounts a filesystem
- nc            - TCP and UDP connections and listens
- nslookup      - queries domain name servers
- perf          - track kernel performance events
- ping          - ICMP ECHO requests
- ps            - prints processes and threads
- reboot        - restarts the machine
- sync          - synchronizes device
- sysexec       - launch program from syspage using given map
- top           - top utility
- touch         - changes file timestamp
- uptime        - prints how long the system has been running
-(psh)%
-```
-
-In order to run one of the user applications you should type `/usr/bin/appname`, for example:
+To run one of the user applications, type its path:
 
 ```shell
 /usr/bin/voxeldemo
 ```
 
+<!-- REVIEW: filler - remove or rephrase -->
 The result is presented below.
 
 ```{only} html
@@ -121,23 +88,7 @@ The result is presented below.
 
 You can press `ctrl + c` to quit the voxeldemo app.
 
-To get the list of working processes please type:
-
-```shell
-ps
-```
-
-```
-  PID  PPID PR STATE  %CPU   WAIT     TIME    VMEM THR CMD
-    0     0  7 ready  93.0   50ms     0:02    3.1M   1 [idle]
-    1     0  4 sleep   0.6   10ms     0:00       0   1 init
-    3     1  1 sleep   0.7   10ms     0:00    728K   3 pc-tty
-    4     1  4 ready   0.7    0us     0:00    192K   1 psh
-    5     2  4 sleep   3.0   10ms     0:00    216K   6 pc-ata
-(psh)%
-```
-
-There is a possibility to run the ash shell, it can be launched using the following command.
+The `ash` shell (BusyBox) is also available:
 
 ```shell
 /bin/ash
@@ -152,14 +103,13 @@ Enter 'help' for a list of built-in commands.
 ~ #
 ```
 
-Phoenix-RTOS image can be also launched on multiple processor cores. To do this please define the number of cores
-(e.g. 4) using the following command (launched from the `phoenix-rtos-project` directory).
+To run on multiple cores, pass `-smp` to QEMU:
 
 ```shell
 qemu-system-i386 -hda _boot/phoenix-ia32-generic.disk -smp 4
 ```
 
-The number of detected cores is presented during kernel initialization (note `cores=4` in the first line).
+The kernel reports the detected core count during boot:
 
 ```
 Phoenix-RTOS microkernel v. 2.97 rev: 400c40d
@@ -177,7 +127,7 @@ main: Starting syspage programs: 'pc-ata', 'pc-tty', 'psh'
 This guide was tested on `Ubuntu 24.04 LTS` host OS.
 ```
 
-There are few steps to follow:
+Follow these steps:
 
 ### 1. Create and set up `vibr0` bridge on a host using `qemu-bridge-helper`
 
@@ -226,7 +176,7 @@ echo "allow virbr0" | sudo tee -a /etc/qemu/bridge.conf > /dev/null
 sudo chmod 644 /etc/qemu/bridge.conf
 ```
 
-Set necessary permission for `qemu-bridge-helper` in order to enable running QEMU without root privileges.
+Set permissions on `qemu-bridge-helper` to allow running QEMU without root privileges.
 
 ```{warning}
 Mind that setting this permission is not fully secure.
@@ -312,19 +262,19 @@ ifconfig en1 dynamic
 route add default gw 192.168.122.1 en1
 ```
 
-Here `192.168.122.1` is the address of the virtual bridge interface on the host pc.
-You should put a different address if applicable.
+Here `192.168.122.1` is the address of the virtual bridge interface on the host.
+Adjust the address if your bridge uses a different subnet.
 
 #### Network configuration using `Busybox` and `rc` script
 
 ```{note}
-By default `IP` is assigned using `DHCP`. For other possibilities please check the configuration file
-located in `_projects/ia32-generic-qemu/rootfs-overlay/etc/rc.conf.d/network`
+By default `IP` is assigned using `DHCP`. For other options, see
+`_projects/ia32-generic-qemu/rootfs-overlay/etc/rc.conf.d/network`
 ```
 
 ```{note}
-There are other programs executed by the script. For more information please check the content of the `rc`
-file for `ia32-generic-qemu` in `_projects/ia32-generic-qemu/rootfs-overlay/etc/rc`
+Other programs are also started by this script. For details, see
+`_projects/ia32-generic-qemu/rootfs-overlay/etc/rc`
 ```
 
 Run the script by calling:
@@ -333,7 +283,7 @@ Run the script by calling:
 /linuxrc
 ```
 
-As you can see, the advanced version of `Phoenix-RTOS` with `POSIX` shell has been started:
+The full system with POSIX shell starts:
 
 ```
 BusyBox v1.27.2 (2022-06-30 17:42:15 CEST) built-in shell (ash)
@@ -350,8 +300,7 @@ Some applications may require accurate datetime to be set. See how it is done in
 
 ## Running image on regular hardware
 
-To run the image on regular hardware please be sure that a target system is equipped with an ATA disk supporting the
-PATA interface. The image should be copied to the boot disk using the `dd` command (it is assumed that the target
+To run on regular hardware, ensure the target has an ATA disk with PATA interface support. The image should be copied to the boot disk using the `dd` command (it is assumed that the target
 disk is represented by /dev/sda block device).
 
 ```shell

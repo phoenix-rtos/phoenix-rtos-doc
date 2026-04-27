@@ -1,7 +1,6 @@
 # Management
 
-Processes are created in Phoenix-RTOS using forking technique. When new process is created the current process
-forks into two processes - parent (process which initializes fork) and child. There are two forking functions
+Processes are created by forking. The current process splits into parent and child. There are two forking functions
 used for process creation in Phoenix-RTOS - each of them should be used depending on the platform and MMU presence.
 The differences between these functions and circumstances of their usage are discussed in this chapter.
 
@@ -12,32 +11,30 @@ The explanation of this method is quite simple. In the certain point of time a t
 system call which creates a new process (child process) based on linear address space and operating system resources
 used by process calling `fork()` (parent process) and launches the thread within a child process. From this point of
 time processes are separated, and they operate on their own address spaces. It means that all modifications of process
-memory are visible only within them. For example, let's consider process A forking into processes A and B.
+memory are visible only within them.
+
+<!-- REVIEW: consider condensing the fork/COW example (lines ~13-17) - five sentences for a simple concept -->
+For example, let's consider process A forking into processes A and B.
 After forking, one of the threads of process A modifies variable located at address `addr` and stores their value 1
 and thread of process B modifies the same variable at address `addr` and stores there 2. The modification is specific
 for the forked processes, and operating system assures that process A sees the variable located at `addr`
 as 1 and process B sees it as 2.
 
-This technique can be only implemented when processors are equipped with MMU providing mechanisms for memory
-virtualization (e.g. paging) which enables programs to use the same linear address to access different segments of
-physical memory. On processors lacked of MMU the `fork()` method is unavailable, and it is replaced by `vfork()`.
+This requires MMU hardware. On processors lacked of MMU the `fork()` method is unavailable, and it is replaced by `vfork()`.
 
 ## Creating new process using `vfork()`
 
-Historically `vfork()` is designed to be used in the specific case where the child will `exec()` another program, and
-the parent can block until this happens. A traditional `fork()` requires duplicating all the memory of the parent
+`vfork()` optimizes the fork-then-exec pattern. A traditional `fork()` requires duplicating all the memory of the parent
 process in the child which leads to significant overhead. The goal of the `vfork()` function was to reduce this
-overhead by preventing unnecessary memory copying when new process is created. Usually, after process creation using
-`fork()` function a new program is executed. In such case, traditional fork before `exec()` leads to unnecessary
-overhead (memory is copied to the child process and then is freed and replaced by new memory objects as the result of
-`exec()`).
+overhead by preventing unnecessary memory copying when new process is created. `fork()` before `exec()` wastes effort:
+child memory is copied only to be discarded when `exec()` loads a new program.
 
 In UN*X operating system history "The Mach VM system" added Copy On Write (COW), which made the `fork()` much cheaper,
 and in BSD 4.4, `vfork()` was made synonymous to `fork()`.
 
-`vfork()` function has another important repercussion for non-MMU architectures. Because of semantics, it allows
-launching a new process in the same way as using `fork()` which enables application portability.
+`vfork()` also enables POSIX-compatible process creation on non-MMU architectures.
 
+<!-- REVIEW: POSIX history paragraph (vfork removed in POSIX.1-2008) may be excessive detail -->
 Some consider the semantics of `vfork()` to be an architectural blemish and POSIX.1-2008 removed `vfork()` from the
 standard and replaced it with `posix_spawn()`. The POSIX rationale for the `posix_spawn()` function notes that that
 function, which provides functionality equivalent to `fork()`+`exec()`, is designed to be implementable on
@@ -144,10 +141,10 @@ In addition to run states, two flags control thread termination:
 
 | Flag | Value | Description |
 |------|-------|-------------|
-| `THREAD_END` | 1 | Cooperative termination request  -  thread should exit at its next safe point |
-| `THREAD_END_NOW` | 2 | Immediate termination request  -  thread is forcibly stopped |
+| `THREAD_END` | 1 | Cooperative termination request - thread should exit at its next safe point |
+| `THREAD_END_NOW` | 2 | Immediate termination request - thread is forcibly stopped |
 
-These are flags, not states  -  a thread can be in `READY` state with `THREAD_END` set, meaning it will terminate
+These are flags, not states - a thread can be in `READY` state with `THREAD_END` set, meaning it will terminate
 the next time it is scheduled. The reaper thread handles final resource cleanup for `GHOST` threads.
 
 ### Kernel Stack Architecture

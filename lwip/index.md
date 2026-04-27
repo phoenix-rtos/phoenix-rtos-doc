@@ -1,11 +1,6 @@
 # Network stack
 
-This chapter describes the Phoenix-RTOS network stack. After reading this chapter, you will know:
-
-- The available network interface types (Ethernet, PPP, Wi-Fi, cellular modem, G3-PLC).
-- How to configure Ethernet interfaces and PHY drivers.
-- How PPP over UART connectivity works for IoT scenarios.
-- Which network interfaces are available per target platform.
+This chapter covers the Phoenix-RTOS network stack: available network interface types (Ethernet, PPP, Wi-Fi, cellular modem, G3-PLC), Ethernet and PHY configuration, PPP over UART for IoT, and per-platform interface availability.
 
 The Phoenix-RTOS network stack is based on LwIP. Following the microkernel architecture philosophy, it runs as a
 user-level server and provides a socket interface. Sockets are implemented using the native Phoenix-RTOS message passing

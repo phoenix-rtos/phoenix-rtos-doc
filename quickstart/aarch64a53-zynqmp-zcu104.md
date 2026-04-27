@@ -132,7 +132,7 @@ You can leave the terminal with the serial port open, and follow the next steps.
 
 ## Flashing the Phoenix-RTOS system image
 
-At first before any flashing, you need to enter Phoenix-RTOS loader (plo), which should have been already loaded.
+At first before any flashing, enter Phoenix-RTOS loader (plo), which should have been already loaded.
 
 If there wasn't an older system image in the NOR flash the following output should appear:
 
@@ -203,7 +203,7 @@ Waiting for input,   700 [ms]
 
 ### Erasing the area intended for file system
 
-It's needed to erase sectors that will be used by `jffs2` file system as we place in the `phoenix.disk`
+Erase sectors used by `jffs2` file system as we place in the `phoenix.disk`
  only the necessary file system content, not the whole area intended for it.
 Without erasure `jffs2` may encounter data from the previous flash operation and errors
  during the system startup may occur.
@@ -223,7 +223,7 @@ Quick description of used arguments:
   - start block: `0x80` (`FS_OFFS`/`BLOCK_SIZE`),
   - number of blocks: `0x100` (`FS_SZ`/`BLOCK_SIZE`),
   - block size: `0x10000` (`erase_size`)
-  - clean marker size: `16` (value specific for `jffs2` on `NOR` flash)
+  - clean marker size: `16` (value specific for `jffs2` on NOR flash)
 
 ```console
 (plo)% jffs2 -d 2.0 -e -c 0x80:0x100:0x10000:16
@@ -235,7 +235,7 @@ Please wait until erasing is finished.
 
 ### Copying flash image using PHFS (phoenixd)
 
-To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments
+Launch `phoenixd` to share the disk image with the bootloader
  (choose suitable `ttyUSBx` device, in this case, `ttyUSB1`):
 
 ```sh
@@ -337,7 +337,7 @@ copy ramdisk 0x0 0x4000000 flash0 0x0 0x4000000
 ### Booting Phoenix-RTOS from NOR flash memory
 
 Now, the image is located in the NOR Quad SPI Flash memory.
-To run it you should follow the steps below:
+Follow these steps:
 
 1. Power off the board using `SW1`
 
@@ -386,85 +386,8 @@ To run it you should follow the steps below:
 
 ## Using Phoenix-RTOS
 
-To get the available command list please type:
-
-```shell
-help
-```
-
-```console
-(psh)% help
-Available commands:
-  bind       - binds device to directory
-  cat        - concatenate file(s) to standard output
-  cd         - changes the working directory
-  chmod      - changes file mode, chmod [-R] <mode> <file>...
-  clear      - clear the terminal screen
-  cp         - copy file
-  date       - print/set the system date and time
-  dd         - copy a file according to the operands
-  df         - print filesystem statistics
-  dmesg      - read kernel ring buffer
-  echo       - display a line of text
-  edit       - text editor
-  exec       - replace shell with the given command
-  exit       - exits shell
-  export     - set and export variables list to environment
-  hd         - dumps file contents in hexadecimal and ascii representation
-  help       - prints this help message
-  history    - prints commands history
-  hm         - health monitor, spawns apps and keeps them alive
-  ifconfig   - configures network interfaces
-  kill       - sends a signal to a process
-  ln         - make links between files
-  ls         - lists files in the namespace
-  mem        - prints memory map
-  mkdir      - creates directory
-  mount      - mounts a filesystem
-  nc         - TCP and UDP connections and listens
-  nslookup   - queries domain name servers
-  ntpclient  - set the system's date from a remote host
-  perf       - track kernel performance events
-```
-
-If you want to get the list of working processes please type:
-
-```shell
-ps
-```
-
-```console
-(psh)% ps
-  PID   PPID  PR  STATE  %CPU    WAIT       TIME   VMEM  THR  CMD
-    0      0   4  ready  395.2   1.5ms   00:08:47  34.9M    5  [idle]
-    1      0   4  sleep    0.0  413us    00:00:00      0    1  init
-    3      1   4  ready    0.2  246us    00:00:00   148K    4  zynq7000-uart
-    5      1   4  sleep    0.0  223us    00:00:00   124K    1  dummyfs
-    7      1   1  sleep    4.1  690us    00:00:06   460K    7  zynq7000-flash
-   10      1   4  sleep    0.0   60us    00:00:00   116K    1  /sbin/dummyfs
-   11      1   4  sleep    0.0  182us    00:00:00   152K    5  /bin/posixsrv
-   12      1   4  ready    0.0  119us    00:00:00   228K    1  /bin/psh
-(psh)%
-```
-
-To get the table of processes please type:
-
-```shell
-top
-```
-
-```console
-Tasks:     8 total, running: 3, sleeping: 5
-  PID   PPID  PR  STATE  %CPU    WAIT       TIME   VMEM  CMD
-    0      0   4  ready  396.2   1.7ms   13:11.99  34.9M  [idle]
-    3      1   4  ready    2.4  472us     0:00.94   148K  zynq7000-uart
-    7      1   1  sleep    0.8  690us     0:06.39   468K  zynq7000-flash
-   12      1   4  ready    0.2  224us     0:00.08   236K  /bin/psh
-   11      1   4  sleep    0.0  182us     0:00.00   152K  /bin/posixsrv
-    1      0   4  sleep    0.0  413us     0:00.00     0   init
-    5      1   4  sleep    0.0  223us     0:00.00   124K  dummyfs
-   10      1   4  sleep    0.0   60us     0:00.00   116K  /sbin/dummyfs
-```
+Once booted, the `psh` shell prompt appears. See [Shell basics](psh-basics.md) for an introduction to
+the available shell commands, process inspection, and running programs.
 
 ## Debugging
 
@@ -491,7 +414,7 @@ openocd -f "ftdi_zcu104.cfg" -f "target/xilinx_zynqmp.cfg" -c "reset_config srst
 ```
 
 You may get an error `LIBUSB_ERROR_ACCESS`. If this happens, try running `openocd` with `sudo` - if this fixes
-the problem, you need to configure [udev rules](https://github.com/arduino/OpenOCD/blob/master/contrib/60-openocd.rules)
+the problem, configure [udev rules](https://github.com/arduino/OpenOCD/blob/master/contrib/60-openocd.rules)
 for `openocd` and add your user account to group `plugdev`.
 
 If the connection was successful, this result should appear:
@@ -523,8 +446,8 @@ Info : gdb port disabled
 
 Now GDB can be connected to port 3333 on local machine.
 
-For debugging the kernel or userspace you will need to examine all cores before starting GDB.
-To do this you need to run OpenOCD with command:
+For debugging the kernel or userspace examine all cores before starting GDB.
+To do this run OpenOCD with command:
 
 ```sh
 openocd -f "ftdi_zcu104.cfg" -f "target/xilinx_zynqmp.cfg" -c "reset_config srst_only" -c "init" -c "core_up 1 2 3"

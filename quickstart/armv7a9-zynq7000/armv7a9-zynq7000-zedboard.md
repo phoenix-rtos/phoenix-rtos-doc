@@ -15,7 +15,7 @@ Otherwise, you can simply use plo from the already flashed image.
 
 ### Loading plo from SD card
 
-- Firstly, you should copy the disk image `phoenix.disk`
+- Copy the disk image `phoenix.disk`
  from the `_boot/armv7a9-zynq7000-zedboard` directory to the SD card and rename it to `BOOT.bin`.
 
 - Then, insert the SD card into the board.
@@ -36,21 +36,21 @@ set the jumpers to the following configuration (`JP11`: `110`, `JP10`: `011`, `J
 
 ### Loading plo - common steps
 
-- To provide a power supply for the board, you should connect AC Adapter to the DC socket on the board.
+- To provide a power supply for the board, connect AC Adapter to the DC socket on the board.
 For now, leave the `SW8` switch in the `OFF` position.
 
-- To communicate with the board you will need to connect the USB cable to the `UART` port (`J14`).
+- To communicate with the board connect the USB cable to the UART port (`J14`).
 The onboard UART-USB converter is used here.
 
 - You should also connect another micro USB cable to the `USB OTG` port (`J13`).
 
-  The picture below presents how the board should be connected:
+  Board connections:
 
   ![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-connections.jpg)
 
 - Now you can power up the board, changing the `SW8` position to `ON`. The `LD13` LED should turn green.
 
-- Now you should verify, what USB device on your host-pc is connected with the `UART` (console). To check that run:
+- Verify, what USB device on your host-pc is connected with the UART (console). To check that run:
 
   - On Ubuntu:
 
@@ -66,7 +66,7 @@ The onboard UART-USB converter is used here.
   ~$
   ```
 
-  If your output is like in the example above, the console (`UART` in the evaluation board) is on the `ACM0` port.
+  If the output matches, the console (UART in the evaluation board) is on the `ACM0` port.
 
 - When the board is connected to your host-pc,
  open serial port in terminal using picocom and type the console port (in this case ACM0)
@@ -97,7 +97,7 @@ You can leave the terminal with the serial port open, and follow the next steps.
 
 ## Flashing the Phoenix-RTOS system image
 
-At first before any flashing, you need to enter Phoenix-RTOS loader (plo), which should have been already loaded.
+At first before any flashing, enter Phoenix-RTOS loader (plo), which should have been already loaded.
 
 If there wasn't an older system image in the NOR flash the following output should appear:
 
@@ -167,7 +167,7 @@ If you encountered some problems during this step please see
 
 ### Erasing the area intended for file system
 
-It's needed to erase sectors that will be used by `jffs2` file system as we place in the `phoenix.disk`
+Erase sectors used by `jffs2` file system as we place in the `phoenix.disk`
  only the necessary file system content, not the whole area intended for it.
 Without erasure `jffs2` may encounter data from the previous flash operation and errors
  during the system startup may occur.
@@ -187,7 +187,7 @@ Quick description of used arguments:
   - start block: `0x80` (`FS_OFFS`/`BLOCK_SIZE`),
   - number of blocks: `0x100` (`FS_SZ`/`BLOCK_SIZE`),
   - block size: `0x10000` (`erase_size`)
-  - clean marker size: `16` (value specific for `jffs2` on `NOR` flash)
+  - clean marker size: `16` (value specific for `jffs2` on NOR flash)
 
 ```
 (plo)% jffs2 -d 2.0 -e -c 0x80:0x100:0x10000:16
@@ -220,8 +220,8 @@ Please wait until erasing is finished.
 
 ### Copying flash image using PHFS (phoenixd)
 
-To flash the disk image, first, you need to verify on which port plo USB device has appeared.
-You can check that using `ls` as follow:
+To flash the disk image, first, verify on which port plo USB device has appeared.
+Check with `ls` as follow:
 
 - On Ubuntu:
 
@@ -238,7 +238,7 @@ lrwxrwxrwx 1 root root 13 lis  8 18:38 usb-Phoenix_Systems_plo_CDC_ACM-if00 -> .
 ~$
 ```
 
-To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments
+Launch `phoenixd` to share the disk image with the bootloader
  (choose suitable ttyACMx device, in this case, ttyACM1):
 
 ```shell
@@ -282,7 +282,7 @@ Erasing sectors from 0x17f0000 to 0x1800000 ...
 ### Booting Phoenix-RTOS from NOR flash memory
 
 Now, the image is located in the NOR Quad SPI Flash memory.
-To run it you should follow the steps below:
+Follow these steps:
 
 *If you have already set the `NOR flash` mode by following instructions from
  [Loading plo from NOR flash](#loading-plo-from-nor-flash) chapter,
@@ -351,88 +351,5 @@ To run it you should follow the steps below:
 
 ## Using Phoenix-RTOS
 
-To get the available command list please type:
-
-```shell
-help
-```
-
-```
-(psh)% help
-Available commands:
-    bind       - binds device to directory
-    cat        - concatenate file(s) to standard output
-    cd         - changes the working directory
-    cp         - copy file
-    date       - print/set the system date and time
-    dd         - copy a file according to the operands
-    df         - print filesystem statistics
-    dmesg      - read kernel ring buffer
-    echo       - display a line of text
-    edit       - text editor
-    exec       - replace shell with the given command
-    exit       - exits shell
-    help       - prints this help message
-    history    - prints commands history
-    hm         - health monitor, spawns apps and keeps them alive
-    kill       - terminates process
-    ln         - make links between files
-    ls         - lists files in the namespace
-    mem        - prints memory map
-    mkdir      - creates directory
-    mount      - mounts a filesystem
-    nc         - TCP and UDP connections and listens
-    nslookup   - queries domain name servers
-    ntpclient  - set the system's date from a remote host
-    perf       - track kernel performance events
-    ping       - ICMP ECHO requests
-    pm         - process monitor
-    ps         - prints processes and threads
-    pwd        - prints the name of current working directory
-    reboot     - restarts the machine
-    sync       - synchronizes device
-    sysexec    - launch program from syspage using given map
-    top        - top utility
-    touch      - changes file timestamp
-    tty        - print or replace interactive shell tty device
-    umount     - unmount a filesystem
-    uptime     - prints how long the system has been running
-    wget       - downloads a file using http
-(psh)%
-```
-
-If you want to get the list of working processes please type:
-
-```shell
-ps
-```
-
-```
-(psh)% ps
-    PID   PPID  PR STATE  %CPU    WAIT       TIME  VMEM THR CMD
-      0      0   4 ready  83.5   185ms   00:01:25  1.6M   2 [idle]
-      1      0   4 sleep   0.0   1.2ms   00:00:00     0   1 init
-      3      1   4 ready   0.1   1.2ms   00:00:00  128K   4 zynq7000-uart
-      4      1   4 sleep   0.0     1ms   00:00:00   96K   1 dummyfs
-      7      1   1 sleep  16.1  76.3ms   00:00:17  596K   7 zynq7000-flash
-      9      1   4 sleep   0.0  471us   00:00:00  128K   5 /bin/posixsrv
-     10      1   4 ready   0.0  965us   00:00:00  148K   1 /bin/psh
-(psh)%
-```
-
-To get the table of processes please type:
-
-```shell
-top
-```
-
-```
-    PID   PPID  PR STATE  %CPU    WAIT      TIME  VMEM CMD
-      0      0   4 ready  84.6   185ms   1:33.79  1.6M [idle]
-      7      1   1 sleep  15.0  76.3ms   0:16.66  596K zynq7000-flash
-      3      1   4 ready   0.2   1.4ms   0:00.24  128K zynq7000-uart
-      4      1   4 sleep   0.0     1ms   0:00.00   96K dummyfs
-      1      0   4 sleep   0.0   1.2ms   0:00.00     0 init
-      9      1   4 sleep   0.0  471us   0:00.00  128K /bin/posixsrv
-     10      1   4 ready   0.0  965us   0:00.02  156K /bin/psh
-```
+Once booted, the `psh` shell prompt appears. See [Shell basics](../psh-basics.md) for an introduction to
+the available shell commands, process inspection, and running programs.

@@ -1,8 +1,6 @@
 # Host utilities
 
-This chapter describes tools that run on the host computer to build, flash, and debug Phoenix-RTOS systems. After
-reading this chapter, you will know how to use each host utility for firmware upload, disk image management, and
-system debugging.
+This chapter covers the host tools for building, flashing, and debugging Phoenix-RTOS systems: firmware upload, disk image management, and system debugging utilities.
 
 The source code of host utilities is in the
 [phoenix-rtos-hostutils](https://github.com/phoenix-rtos/phoenix-rtos-hostutils) GitHub repository.

@@ -1,12 +1,11 @@
 # Message passing
 
-Message passing is the fundamental functionality of the operating system kernel which acts as a basic method of
-interaction between operating system components. Message passing in Phoenix-RTOS is synchronous. Sending thread is
+Message passing is the kernel's primary IPC mechanism. Message passing in Phoenix-RTOS is synchronous. Sending thread is
 suspended until the receiving thread receives a message and responds to it.
 
 ## Ports
 
-Port is the communication endpoint used for passing messages between executed threads.
+A port is a kernel-managed endpoint for message exchange.
 
 ## Data transfer
 
@@ -30,18 +29,18 @@ buffer, output buffer data length and buffer for output application header.
 When message is sent by the `proc_send` function the sending thread is suspended until the receiving thread executes
 `proc_recv` function, reads data from input buffer, writes the final answer to the output buffer and executes
 `proc_respond`. The `rid` word identifies the receiving context and should be provided to the `proc_respond` function.
-There is possible to execute a lot of instructions between receiving and responding procedures. Responding function is
+The server can execute arbitrary logic between `msgRecv()` and `msgRespond()`. Responding function is
 used to wake up the sending thread and inform it that data in output buffer are completed.
 
 To prevent copying of big data blocks over the kernel when communication goes between threads assigned to separate
 processes special optimization is introduced. The kernel uses a three-tier strategy for data transfer:
 
-1. **Inline (≤ 64 bytes)**: Small messages are carried directly in the `msg_t` structure's `raw[64]` union buffer  - 
+1. **Inline (≤ 64 bytes)**: Small messages are carried directly in the `msg_t` structure's `raw[64]` union buffer -
    no separate buffer allocation or page mapping is needed. This avoids the overhead of virtual memory operations for
    the most common small messages.
 
 2. **Page mapping (larger aligned buffers)**: For larger messages, the sender's buffer pages are mapped into the
-   receiver's address space via `page_map()`. No data is copied  -  both processes reference the same physical pages.
+   receiver's address space via `page_map()`. No data is copied - both processes reference the same physical pages.
 
 3. **Boundary copy (unaligned partial pages)**: If a buffer is not page-aligned, the heading or tailing partial-page
    data is copied to a newly allocated wrapper page. This prevents interference between sender data and other data

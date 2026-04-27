@@ -2,20 +2,14 @@
 
 ## Synopsis
 
-After reading this chapter, you will know:
-
-- How the Phoenix-RTOS microkernel architecture separates kernel, servers, and libraries
-- How message passing works with three-tier copy minimization
-- How system calls transition between user and kernel privilege levels on each architecture
-- How the port-based namespace maps filesystem paths to servers
-- How multi-core support is implemented
+This chapter covers the microkernel architecture, message-passing IPC, system call transitions between privilege levels, port-based namespace design, and multi-core support.
 
 The Phoenix-RTOS operating system starting from version 3 is based on microkernel architecture.
-It means that system consists of microkernel implementing basic primitives and set of servers based on these primitives
+The system consists of a microkernel implementing basic primitives and a set of servers based on these primitives
 and communicating over it.
 The main advantage of such architecture is high scalability.
-The disadvantage is performance degradation caused by message passing.
-Message passing demands in some cases memory copying and additional thread context switching.
+The disadvantage is performance degradation caused by message passing,
+as message passing incurs memory copying and context switching overhead.
 
 The architecture is schematically presented on figure below.
 
@@ -90,7 +84,9 @@ enabling to use them like files. Special mechanism is used to allow user level p
 hardware. In architectures without I/O address space where device registers are accessible in the memory address space
 the special memory mapping is used. When device uses I/O space (e.g. ports on IA32) special processor flag is set
 permitting the unprivileged code to access the parts or whole I/O space. The flag is set during runtime using specific
-system call. Second important issue which should be discussed here is interrupt handling. When device drivers run on
+system call.
+<!-- REVIEW: verbose intro - consider condensing "Second important issue which should be discussed here is" -->
+Second important issue which should be discussed here is interrupt handling. When device drivers run on
 user-level, interrupts are redirected to the selected processes and interrupt handling routines are implemented as
 regular functions.
 

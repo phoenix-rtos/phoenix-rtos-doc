@@ -2,12 +2,7 @@
 
 ## Synopsis
 
-After reading this chapter, you will know:
-
-- How third-party software is packaged as ports using `port.def.sh` definitions
-- How to select ports for a target using `ports.yaml` configuration
-- How port dependencies, conflicts, and version requirements work
-- Which of the available ports are supported on your target
+This chapter covers porting third-party software using `port.def.sh` definitions, selecting ports via `ports.yaml` configuration, managing port dependencies and conflicts, and per-target port availability.
 
 Phoenix-RTOS supports a collection of third-party open-source tools that
 have been adapted (ported) to it.

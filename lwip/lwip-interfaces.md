@@ -48,9 +48,9 @@ Source: `wi-fi/`
 
 The Wi-Fi interface driver uses the Wireless Host Driver (WHD) architecture:
 
-- `wi-fi/hal/`  -  hardware abstraction
-- `wi-fi/lwip/`  -  LwIP integration
-- `wi-fi/whd/`  -  Wireless Host Driver
+- `wi-fi/hal/` - hardware abstraction
+- `wi-fi/lwip/` - LwIP integration
+- `wi-fi/whd/` - Wireless Host Driver
 
 ## Cellular Modem
 
@@ -58,9 +58,9 @@ Source: `modem/`
 
 Three cellular modem vendor drivers are available:
 
-- `modem/esp8266/`  -  Espressif ESP8266 Wi-Fi module
-- `modem/huawei/`  -  Huawei cellular modem
-- `modem/quectel/`  -  Quectel cellular modem
+- `modem/esp8266/` - Espressif ESP8266 Wi-Fi module
+- `modem/huawei/` - Huawei cellular modem
+- `modem/quectel/` - Quectel cellular modem
 
 Modem drivers typically establish PPP sessions over AT command interfaces.
 

@@ -2,7 +2,7 @@
 
 This section describes each filesystem server in detail, including its features, limitations, and typical use cases.
 
-## dummyfs  -  In-Memory Filesystem
+## dummyfs - In-Memory Filesystem
 
 Source: `phoenix-rtos-filesystems/dummyfs/`
 
@@ -18,7 +18,7 @@ role to `tmpfs` on Linux.
 
 **Use cases:** Temporary files, development and testing, `/tmp` equivalent on embedded targets.
 
-## ext2  -  Second Extended Filesystem
+## ext2 - Second Extended Filesystem
 
 Source: `phoenix-rtos-filesystems/ext2/`
 
@@ -34,12 +34,12 @@ block devices.
 
 **Limitations:**
 
-- The ext2 header (`sb.h`) defines fields for journaling (ext3), compression, and encryption for format
-  compatibility. **None of these features are implemented.** Only base ext2 functionality is supported.
+- The ext2 header (`sb.h`) defines fields for ext3/compression/encryption for format compatibility, but only base
+  ext2 is implemented.
 - No extended attributes
 - No large file support beyond ext2 format limits
 
-## FAT  -  File Allocation Table
+## FAT - File Allocation Table
 
 Source: `phoenix-rtos-filesystems/fat/`
 
@@ -59,7 +59,7 @@ The FAT server provides **read-only** access to FAT12, FAT16, and FAT32 formatte
 
 **Use cases:** Reading data from SD cards and USB mass storage devices formatted with FAT.
 
-## JFFS2  -  Journalling Flash File System 2
+## JFFS2 - Journalling Flash File System 2
 
 Source: `phoenix-rtos-filesystems/jffs2/`
 
@@ -82,7 +82,7 @@ wear leveling through garbage collection and crash resilience through its journa
 - Per-inode compression tuning via `chattr` not implemented
 - NAND bad block checking incomplete
 
-## LittleFS  -  Little File System
+## LittleFS - Little File System
 
 Source: `phoenix-rtos-filesystems/littlefs/`
 
@@ -100,7 +100,7 @@ crash resilience using copy-on-write metadata pairs.
 
 **Use cases:** Small NOR flash on Cortex-M and similar constrained targets.
 
-## MeterFS  -  Meter/Logging Filesystem
+## MeterFS - Meter/Logging Filesystem
 
 Source: `phoenix-rtos-filesystems/meterfs/`
 
@@ -111,7 +111,7 @@ and industrial data acquisition applications.
 
 - Fixed-size files with pre-allocated sectors
 - Fixed-size records within files
-- Log-style (FIFO) writing  -  when a file is full, oldest records are overwritten
+- Log-style (FIFO) writing - when a file is full, oldest records are overwritten
 - Write-verify for reliability
 - Power control hooks
 - Partial erase journal for crash recovery
@@ -123,7 +123,7 @@ and industrial data acquisition applications.
 
 **Use cases:** Energy metering, data logging, industrial sensor recording.
 
-## ROFS  -  Read-Only File System
+## ROFS - Read-Only File System
 
 Source: `phoenix-rtos-filesystems/rofs/`
 
@@ -154,5 +154,5 @@ several pseudo-devices:
 
 The POSIX server also implements:
 
-- **Named pipes**  -  FIFO communication channels with circular buffers and event notifications.
-- **Pseudo-terminals (PTY)**  -  terminal emulation for remote access and serial console redirection.
+- **Named pipes** - FIFO communication channels with circular buffers and event notifications.
+- **Pseudo-terminals (PTY)** - terminal emulation for remote access and serial console redirection.

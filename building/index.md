@@ -1,16 +1,10 @@
 # Building
 
-This chapter describes how to build Phoenix-RTOS system images. After reading this chapter, you will know:
+This chapter covers building Phoenix-RTOS system images: using the build script or Docker, available target platforms, build system components and output directories, and advanced build options.
 
-- How to build images using the build script or Docker.
-- The available target platforms.
-- The build system components and output directories.
-- Advanced build options and IDE integration.
-
-To create a Phoenix-RTOS image for a specific target, the `phoenix-rtos-project` repository should be used. This
-repository aggregates all operating system modules, including kernel, standard library, device drivers, filesystems,
-utilities and loader. Read more about `phoenix-rtos-project` submodule repositories in
-[Reference project](../project/index.md) chapter.
+Build Phoenix-RTOS images using the `phoenix-rtos-project` repository, which aggregates all operating system modules
+(kernel, standard library, device drivers, filesystems, utilities, and loader). See
+[Reference project](../project/index.md) for details on the submodule layout.
 
 ## Host operating system
 
@@ -67,15 +61,15 @@ following command.
 TARGET=ia32-generic-qemu phoenix-rtos-build/build.sh all
 ```
 
-As you can see there can be other arguments like `all`.
+Other arguments further customize the build:
 
-You can also use the `clean` argument to clean the last build artifacts.
+Use `clean` to remove previous build artifacts:
 
 ```shell
 TARGET=ia32-generic-qemu phoenix-rtos-build/build.sh clean all
 ```
 
-When you want to compile only the new changes and save time you don't have to use it.
+Omit `clean` for incremental rebuilds.
 
 The `all` argument specifies that all system components for a given target should be compiled (excluding tests).
 The available components are listed below:
@@ -96,8 +90,8 @@ The available components are listed below:
 
 For example, in ia32-generic-qemu target `all` means `core fs image project ports host`.</br>
 For the other targets, `all` can be different components configurations. </br>
-The `ports` component compiling process can take a while. If you need to build the system image quickly, you can use
-the command above.
+The `ports` component can take a while to compile. To build the system image without it, specify only the needed
+components:
 
 ```shell
 TARGET=ia32-generic-qemu phoenix-rtos-build/build.sh core fs image project test

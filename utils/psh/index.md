@@ -7,10 +7,9 @@ and processes.
 
 ## Usage
 
-If the `psh` is in control of the command line each new line starts with `(psh)%` prompt. The user can then enter the
-desired command. See [Applets](#applets) for a list of available commands.
+The command prompt is `(psh)%`. See [Applets](#applets) for a list of available commands.
 
-If the `psh` command is run with `-h` parameter the help message is displayed as follows:
+Run with `-h` for usage:
 
 ```shell
 usage: psh [options] [script path] or no args to run shell interactively
@@ -25,6 +24,7 @@ With `-i` option `psh` can execute a script - fixed set of `psh` commands saved 
 In `psh`, each command or set of commands is a separate applet. The basic usage of the majority of these applets is
 compatible with POSIX standards. For example, `ls` works like the `ls` user command on Ubuntu
 (or other Linux distribution), except for particular arguments that are not supported.
+<!-- REVIEW: remove disclaimer - adds no value for users -->
 The Phoenix Shell is in ongoing development, which means its behavior can slightly vary,
 particularly as new features are introduced.
 Here's a list of the available applets:
@@ -100,7 +100,7 @@ that applet and then close. Executing `psh` with a different name can be achieve
 ## Restrictions
 
 Only one interactive session of the `psh` can be run in a scope of a `psh` process. For now, running `psh` does not
-spawn a new process, so in order to invoke a second, independent shell user must execute a `psh` binary file.
+spawn a new process, so to invoke a second, independent shell user must execute a `psh` binary file.
 See [`exec`](psh-applets/exec.md) or [`/`](psh-applets/runfile.md) for examples.
 
 Applets like `ps` and `top` query process information via [System Calls](../../kernel/syscalls/index.md).
@@ -109,8 +109,7 @@ Applets like `ps` and `top` query process information via [System Calls](../../k
 
 ### Applet Registration
 
-Each applet registers itself at load time using the `__attribute__((constructor))` GCC extension. This means no
-hardcoded command table is needed  -  applets self-register when the binary is loaded.
+Applets self-register at load time using `__attribute__((constructor))`.
 
 ```c
 void __attribute__((constructor)) cat_registerapp(void) {
@@ -123,8 +122,8 @@ void __attribute__((constructor)) cat_registerapp(void) {
 
 Each applet provides two functions:
 
-- `void psh_<cmd>info(void)`  -  prints a brief description for help output
-- `int psh_<cmd>(int argc, char **argv)`  -  main entry point
+- `void psh_<cmd>info(void)` - prints a brief description for help output
+- `int psh_<cmd>(int argc, char **argv)` - main entry point
 
 ### Build-Time Applet Selection
 
@@ -146,8 +145,8 @@ commands to appear as standalone executables in the filesystem.
 
 Some commands listed above are built-in shell functions rather than standalone applets:
 
-- `clear`, `exit`, `reset`, `history`  -  internal shell commands in `pshapp/`
-- `export`, `unset`  -  environment management in `pshapp/env.c`
-- `pshlogin`  -  authentication handler
+- `clear`, `exit`, `reset`, `history` - internal shell commands in `pshapp/`
+- `export`, `unset` - environment management in `pshapp/env.c`
+- `pshlogin` - authentication handler
 
 These are always available regardless of `PSH_COMMANDS` selection.

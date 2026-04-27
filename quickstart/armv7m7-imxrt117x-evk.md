@@ -26,17 +26,17 @@ Phoenix-RTOS.
 `USB OTG` port. It is the simplest way, but the good practice is using a USB hub. You can provide power using an AC
 adapter and DC connector too (1-2 jumper position).
 
-- To provide a power supply for the board and make flashing possible, you should connect a USB to micro USB cable
+- To provide a power supply for the board and make flashing possible, connect a USB to micro USB cable
 between your host pc and `USB OTG` (`J20`) of the development board. Do it first.
 
-- To communicate with the board you will need to connect another USB cable, but to `DEBUG USB` port (`J11`). The
+- To communicate with the board connect another USB cable, but to `DEBUG USB` port (`J11`). The
 onboard UART-USB converter is used here.
 
-  The picture below presents how the board should be connected:
+  Board connections:
 
   ![Image](../_static/images/quickstart/imxrt117x-connections.jpg)
 
-- Now you should verify what USB device on your host-pc is connected with the `DEBUG USB` (console). In order to check
+- Verify what USB device on your host-pc is connected with the `DEBUG USB` (console). To check
 that run:
 
 - On Ubuntu:
@@ -52,7 +52,7 @@ that run:
   ~$
   ```
 
-  If your output is like in the example above, the console (`DEBUG USB` in the evaluation board) is on the `ACM0`
+  If the output matches, the console (`DEBUG USB` in the evaluation board) is on the `ACM0`
   port.
 
 - When the board is connected to your host-pc, open serial port in terminal using picocom and type the console port
@@ -88,10 +88,10 @@ The process comes down to a few steps, described below.
 ### Uploading Phoenix-RTOS loader (plo) to the RAM memory
 
 To flash the disk image to the board, the bootloader (plo) image located in the `_boot` directory should be uploaded to
-the RAM using `psu` (Phoenix Serial Uploader) via `SDP` (Serial Download Protocol).
+the RAM using `psu` (Phoenix Serial Uploader) via SDP (Serial Download Protocol).
 
 NOTE: `i. MX RT1176` should be set in Serial Download mode. Set the appropriate configuration of the `SW1` switch on
- `MIMXRT1170-EVK`, which is `0001`. If the configuration was different you should restart the board after the
+ `MIMXRT1170-EVK`, which is `0001`. If the configuration was different restart the board after the
  change and open the serial port using picocom once again.
 
 Change directory to `_boot` and run `psu` as follows:
@@ -116,7 +116,7 @@ console: Setting console to 0.0
 (plo)%
 ```
 
-To get the available bootloader command list please type `help`.
+Type `help`.
 
 ```
 (plo)% help
@@ -143,7 +143,7 @@ To get the available bootloader command list please type `help`.
 
 ### Copying flash image using PHFS (phoenixd)
 
-To flash the disk image, first, you need to verify on which port plo USB device has appeared. You can check that using
+To flash the disk image, first, verify on which port plo USB device has appeared. Check with
 `ls` as follows:
 
 - On Ubuntu:
@@ -160,7 +160,7 @@ lrwxrwxrwx 1 root root 13 lis 23 10:52 usb-Phoenix_Systems_plo_CDC_ACM-if00 -> .
 ~$
 ```
 
-To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments (choose suitable
+Launch `phoenixd` to share the disk image with the bootloader (choose suitable
 ttyACMx device, in this case, ttyACM1):
 
 ```shell
@@ -211,71 +211,5 @@ dummyfs: initialized
 
 ## Using Phoenix-RTOS
 
-If you want to get the available command list please type:
-
-```shell
-help
-```
-
-```
-(psh)% help
-Available commands:
-  bind        - binds device to directory
-  cat         - concatenate file(s) to standard output
-  edit        - text editor
-  exec        - replace shell with the given command
-  exit        - exits shell
-  help        - prints this help message
-  history     - prints commands history
-  hm          - health monitor, spawns apps and keeps them alive
-  kill        - terminates process
-  ls          - lists files in the namespace
-  mem         - prints memory map
-  mkdir       - creates directory
-  mount       - mounts a filesystem
-  nc          - TCP and UDP connections and listens
-  nslookup    - queries domain name servers
-  perf        - track kernel performance events
-  ping        - ICMP ECHO requests
-  ps          - prints processes and threads
-  reboot      - restarts the machine
-  sync        - synchronizes device
-  sysexec     - launch program from syspage using given map
-  top         - top utility
-  touch       - changes file timestamp
-  uptime      - prints how long the system has been running
-(psh)%
-```
-
-To get the list of working processes please type:
-
-```shell
-ps
-```
-
-```
-(psh)% ps
-  PID  PPID  PR  STATE  %CPU  WAIT     TIME   VMEM  THR  CMD
-    0     0   7  ready  99.7  13ms     0:25    50K    1  [idle]
-    1     0   4  sleep   0.0   1ms     0:00      0    1  init
-    2     1   4  sleep   0.0   0us     0:00    13K    1  dummyfs
-    3     1   2  sleep   0.0   1ms     0:00    12K    6  imxrt-multi
-    4     1   4  ready   0.0   1ms     0:00  23.5K    1  psh
-(psh)%
-```
-
-To get the table of processes please type:
-
-```shell
-top
-```
-
-```
-Tasks:     5 total, running: 2, sleeping: 3
-  PID  PPID  PR  STATE  %CPU  WAIT     TIME   VMEM  CMD
-    0     0   7  ready  99.7  13ms  0:28.57    50K  [idle]
-    3     1   2  sleep   0.1   1ms  0:00.02    12K  imxrt-multi
-    4     1   4  ready   0.1   1ms  0:00.01    30K  psh
-    2     1   4  sleep   0.0   0us  0:00.00    13K  dummyfs
-    1     0   4  sleep   0.0   1ms  0:00.01      0  init
-```
+Once booted, the `psh` shell prompt appears. See [Shell basics](psh-basics.md) for an introduction to
+the available shell commands, process inspection, and running programs.

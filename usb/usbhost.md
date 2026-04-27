@@ -1,10 +1,8 @@
 # USB Host stack
 
-This chapter describes the USB Host stack server and its internal architecture. After reading this chapter, you will
-understand how the USB Host stack manages Host Controller Devices, enumerates USB devices, communicates with device
-drivers, and handles data transfers.
+This chapter covers the USB Host stack server's internal architecture: Host Controller Device management, USB device enumeration, driver communication, and data transfers.
 
-The USB Host stack server  -  `usb`  -  provides the generic core functionality, including abstraction of Host Controller
+The USB Host stack server - `usb` - provides the generic core functionality, including abstraction of Host Controller
 Devices, managing device enumeration, hub management, and communication with device drivers. The USB Host stack is
 accessible to other processes through a port registered at `/dev/usb`.
 
@@ -20,11 +18,11 @@ structure.
 
 The HCD callback interface consists of:
 
-- `init`  -  initialize the host controller
-- `transferEnqueue`  -  submit a transfer for processing
-- `transferDequeue`  -  cancel a queued transfer
-- `pipeDestroy`  -  destroy a pipe and free resources
-- `getRoothubStatus`  -  read the root hub port status
+- `init` - initialize the host controller
+- `transferEnqueue` - submit a transfer for processing
+- `transferDequeue` - cancel a queued transfer
+- `pipeDestroy` - destroy a pipe and free resources
+- `getRoothubStatus` - read the root hub port status
 
 The USB Host stack during initialization first fetches the platform-dependent information on the available HCD instances
 using `hcd_info_t` structure via the `hcd_getInfo()` function. It then matches instances with previously registered HCD
@@ -118,7 +116,7 @@ but the host stack chooses the most *specific* one to bind the interface to. The
 3. Subclass match
 4. Protocol match (least specific)
 
-It is the driver's responsibility to create ports in order to give other processes access to resources of a particular
+It is the driver's responsibility to create ports to give other processes access to resources of a particular
 device, e.g. `/dev/umass0`, `/dev/umass1`, `/dev/usbacm0`, etc.
 
 ### Two Driver Models
@@ -177,7 +175,7 @@ characterized by a direction (in or out) and a type (control, bulk, interrupt, o
 details on a pipe it requests to open. If the USB Host stack finds an endpoint on a given device interface with given
 direction and type, it creates a pipe, allocates an `id` unique in the context of the driver and returns the ID to the
 driver. The driver can then send transfers using this pipe ID. A pipe ID can be thought of as a UNIX-like file
-descriptor  -  it is a key to communicate with a specific endpoint.
+descriptor - it is a key to communicate with a specific endpoint.
 
 ## Transfers
 
@@ -204,9 +202,9 @@ The driver's thread pool receives a `usb_msg_completion` message when the transf
 
 In addition to `usb_msg_urb`, process drivers can use `usb_msg_urbcmd` messages for fine-grained control:
 
-- `urbcmd_submit`  -  submit a URB for processing
-- `urbcmd_cancel`  -  cancel a pending URB
-- `urbcmd_free`  -  free URB resources
+- `urbcmd_submit` - submit a URB for processing
+- `urbcmd_cancel` - cancel a pending URB
+- `urbcmd_free` - free URB resources
 
 Transfers are managed with a state machine using reference counting, mutex-protected states
 (idle/ongoing/completed), and condition variables.
