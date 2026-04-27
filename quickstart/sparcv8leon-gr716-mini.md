@@ -25,7 +25,15 @@ First, check on which port the board is connected to the computer. To do this, r
 ls -l /dev/serial/by-id
 ```
 
-![Image](../_static/images/quickstart/gr716-ls.png)
+```
+~$ ls -l /dev/serial/by-id/
+total 0
+lrwxrwxrwx 1 root root 13 maj 31 14:37 usb-Cobham_Gaisler_AB_GR716-MINI_716190200180018-if00-port0 -> ../../ttyUSB0
+lrwxrwxrwx 1 root root 13 maj 31 14:37 usb-Cobham_Gaisler_AB_GR716-MINI_716190200180018-if01-port0 -> ../../ttyUSB1
+lrwxrwxrwx 1 root root 13 maj 31 14:37 usb-Cobham_Gaisler_AB_GR716-MINI_716190200180018-if02-port0 -> ../../ttyUSB2
+lrwxrwxrwx 1 root root 13 maj 31 14:37 usb-Cobham_Gaisler_AB_GR716-MINI_716190200180018-if03-port0 -> ../../ttyUSB3
+~$
+```
 
 In this case, the debug UART is connected to the `ttyUSB0` port.
 Launch the `GRMON` monitor using the following command:
@@ -80,7 +88,14 @@ go
 
 The bootloader interface should appear in the console.
 
-![Image](../_static/images/quickstart/gr716-plo.png)
+```
+Phoenix-RTOS loader v. 1.21 rev: 1d88209
+hal: LEON3FT GR716 MINI
+dev/flash/nor: Configured Macronix MX25L25635F 32MB nor flash(2.0)
+cmd: Executing pre-init script
+console: Setting console to 0.2
+(plo)%
+```
 
 ### Copying flash image using PHFS (phoenixd)
 
@@ -98,7 +113,15 @@ To provide the disk image to the bootloader, `phoenixd` has to be launched with 
 sudo ./phoenixd -p /dev/ttyUSB3 -b 115200 -s .
 ```
 
-![Image](../_static/images/quickstart/gr716-phoenixd.png)
+```
+~$ cd _boot/sparcv8leon3-gr716-mini/
+~$ sudo ./phoenixd -p /dev/ttyUSB3 -b 115200 -s .
+-\- Phoenix server, ver. 1.5
+(c) 2012 Phoenix Systems
+(c) 2000, 2005 Pawel Pisarczyk
+
+[69165] dispatch: Starting message dispatcher on [/dev/ttyUSB3] (speed=115200)
+```
 
 To start copying a file, write the following command in the console with the `plo` interface:
 
@@ -106,7 +129,14 @@ To start copying a file, write the following command in the console with the `pl
 copy uart3 phoenix.disk flash0 0x0 0x0
 ```
 
-![Image](../_static/images/quickstart/gr716-copy.png)
+```
+Phoenix-RTOS loader v. 1.21 rev: 1d88209
+hal: LEON3FT GR716 MINI
+dev/flash/nor: Configured Macronix MX25L25635F 32MB nor flash(2.0)
+cmd: Executing pre-init script
+console: Setting console to 0.2
+(plo)% copy uart3 phoenix.disk flash0 0x0 0x0
+```
 
 The `flash0` is an external flash memory.
 
@@ -115,7 +145,12 @@ File containing BCH error correction codes is located in the `_boot` directory a
 During system build, address at which the BCH error correction codes should be written is printed in the `plo`
 console, as shown below:
 
-![Image](../_static/images/quickstart/gr716-bch.png)
+```
+BIN plo-sparcv8leon3-gr716.img
+Converted /home/lukasz/phoenix-rtos-project/_build/sparcv8leon3-gr716-mini/prog.stripped/plo-sparcv8leon3-gr716.elf to /home/lukasz/phoenix-rtos-project/_build/sparcv8leon3-gr716-mini/prog.stripped/plo-sparcv8leon3-gr716.img
+Generated BCH of /home/lukasz/phoenix-rtos-project/_build/sparcv8leon3-gr716-mini/prog.stripped/plo-sparcv8leon3-gr716.img to /home/lukasz/phoenix-rtos-project/_boot/sparcv8leon3-gr716-mini/plo.bch
+Please load the BCH file to the SPI flash at offset 0xffcb20
+```
 
 In this case, the file should be written to the address `0xffcb20`. To do this, write the following command in the
 console with the `plo` interface:
@@ -131,7 +166,25 @@ console or press the reset button on the board.
 
 After reboot, Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal.
 
-![Image](../_static/images/quickstart/gr716-start.png)
+```
+Phoenix-RTOS microkernel v. 2.97 rev: fa9d23f
+hal: SPARCv8 LEON3-GR716
+hal: GRFPU-Lite, 31 windows
+hal: Using IRQAMP interrupt controller
+vm: Initializing page allocator 73/2043 KB, page_t=16
+vm: Initializing memory mapper: (951*72) 68472
+vm: Initializing kernel memory allocator: (16*48) 768
+vm: Initializing memory objects
+proc: Initializing thread scheduler, priorities=8
+syscalls: Initializing syscall table [102]
+main: Starting syspage programs: 'dummyfs', 'gr716-uart', 'psh', 'gr716-flash'
+dummyfs: initialized
+gr716-flashdrv: detected Macronix MX25L25635F (0xc2201900)
+meterfs: Filesystem check done. Found 0 files.
+meterfs: Filesystem check done. Found 1 files.
+gr716-flashsrv: initialized
+(psh)%
+```
 
 - Note: You can also enter `plo` by pressing any button within some time after reset.
 
@@ -141,7 +194,32 @@ To get the available command list type:
 help
 ```
 
-![Image](../_static/images/quickstart/gr716-help.png)
+```
+(psh)% help
+Available commands:
+  bind       - binds device to directory
+  cat        - concatenate file(s) to standard output
+  cd         - changes the working directory
+  cp         - copy file
+  date       - print/set the system date and time
+  dd         - copy a file according to the operands
+  df         - print filesystem statistics
+  dmesg      - read kernel ring buffer
+  echo       - display a line of text
+  edit       - text editor
+  exec       - replace shell with the given command
+  exit       - exits shell
+  help       - prints this help message
+  history    - prints commands history
+  hm         - health monitor, spawns apps and keeps them alive
+  kill       - terminates process
+  ln         - make links between files
+  ls         - lists files in the namespace
+  mem        - prints memory map
+  mkdir      - creates directory
+  mount      - mounts a filesystem
+  nc         - TCP and UDP connections and listens
+```
 
 To get the list of working processes type:
 
@@ -149,4 +227,13 @@ To get the list of working processes type:
 ps
 ```
 
-![Image](../_static/images/quickstart/gr716-ps.png)
+```
+(psh)% ps
+     PID     PPID PR STATE  %CPU     WAIT       TIME    VMEM THR CMD
+       0        0  4 ready  99.2    498ms   00:02:03    646K   2 [idle]
+       1        0  4 sleep   0.0      3ms   00:00:00       0   1 init
+       2        1  4 sleep   0.1     24ms   00:00:00     15K   1 dummyfs
+       3        1  2 sleep   0.1      5ms   00:00:00   24.5K   4 gr716-uart
+       4        1  4 ready   0.3      4ms   00:00:00   29.5K   1 psh
+       5        1  3 sleep   0.0      3ms   00:00:00   22.5K   4 gr716-flash
+```

@@ -18,7 +18,7 @@ Phoenix-RTOS shell provides a UNIX-like command-line shell with built-in applets
 
 | Utility | Purpose |
 |---|---|
-| `psd` | Phoenix Serial Downloader — SDP protocol for NXP microcontrollers |
+| `psd` | Phoenix Serial Downloader  -  SDP protocol for NXP microcontrollers |
 | `nandtool` | NAND flash programming and erasing tool |
 | `cm4-tool` | Communication tool for i.MX RT117x Cortex-M4 server |
 | `gsm` | Gateway/Serial Module tool |

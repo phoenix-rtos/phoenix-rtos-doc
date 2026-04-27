@@ -14,9 +14,3 @@ It also registers and handles special files, such as `/dev/null` or `/dev/random
 
 In the current implementation, some parts of `posixsrv` functionality is kept inside the kernel and accessed using a set
 of system calls. Future implementations will instead delegate requests directly to `posixsrv`.
-
-The source code of `posixsrv` is available on GitHub and can be obtained using the following command:
-
-```shell
-git clone https://github.com/phoenix-rtos/phoenix-rtos-posixsrv.git
-```

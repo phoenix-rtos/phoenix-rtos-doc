@@ -99,7 +99,7 @@ software parts (e.g. operating system kernel or machine emulation layer) from ot
 enters into the particular mode only hardware resources (i.e. I/O space, memory segments) and processor programming
 model specific for this mode can be used.
 
-There are three commonly used and widely known processor execution modes – kernel mode (supervisor mode), user mode
+There are three commonly used and widely known processor execution modes - kernel mode (supervisor mode), user mode
 (application mode) and machine mode (machine emulation mode).
 
 The first of them is devoted for the operating system kernel execution, provides practically unlimited access to the

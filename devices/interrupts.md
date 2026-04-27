@@ -27,3 +27,5 @@ If handler returns value >= 0 then kernel performs `condBroadcast()` on a condit
 interrupt. If this feature is not needed, one can pass 0 as _`cond`_.
 
 To unregister the interrupt, `resourceDestroy()` should be called on the _`handle`_ variable.
+
+The interrupt controller is managed by the kernel HAL, see [HAL](../kernel/hal/index.md).

@@ -44,9 +44,14 @@ UART-USB converter is used here.
   ls -l /dev/serial/by-id
   ```
 
-  ![Image](../_static/images/quickstart/imxrt106x-ls.png)
+  ```
+  ~$ ls -l /dev/serial/by-id/
+  total 0
+  lrwxrwxrwx 1 root root 13 lis 16 15:26 usb-ARM_DAPLink_CMSIS-DAP_0232000007b01b88000000000000000000000097969905-if01 -> ../../ttyACM0
+  ~$
+  ```
 
-  If your output is like in the screenshot above, the console (`DEBUG USB` in the evaluation board) is on the `ACM0`
+  If your output is like in the example above, the console (`DEBUG USB` in the evaluation board) is on the `ACM0`
   port.
 
 - When the board is connected to your host-pc, open serial port in terminal using picocom and type the console port
@@ -102,11 +107,41 @@ sudo ./psu plo-ram.sdp
 
 The plo user interface should appear in the console.
 
-![Image](../_static/images/quickstart/imxrt106x-plo.png)
+```
+Phoenix-RTOS loader v. 1.21 rev: 53e52e2
+hal: Cortex-M i.MX RT106x
+uart: Initializing uart(0.0)
+uartsb/usb-cdc: Initializing uartsb/usb-cdc(1.2)
+flash: Initializing flash(2.0)
+flash: Initializing flash(2.1)
+pre-init script
+console 0.0
+(plo)%
+```
 
 To get the available bootloader command list please type `help`.
 
-![Image](../_static/images/quickstart/imxrt106x-plo-help.png)
+```
+(plo)% help
+available commands:
+  alias     - defines or displays aliases
+  app       - loads app to memory and registers in syspage
+  call      - calls user script
+  console   - sets console to device
+  copy      - copies data between devices
+  dump      - dumps memory
+  echo      - displays text
+  go!       - starts Phoenix-RTOS loaded into memory
+  help      - prints this message
+  kernel    - loads phoenix-rtos-kernel
+  map       - defines a memory map entry in the syspage
+  mpu       - displays or modifies the MPU table from syspage
+  phfs      - registers phfs server
+  script    - roles script from devices
+  syspage   - shows syspage contents
+  wait      - waits for data on device or for a number of milliseconds
+(plo)%
+```
 
 ### Copying flash image using PHFS (phoenixd)
 
@@ -119,7 +154,13 @@ using `ls` as follows:
 ls -l /dev/serial/by-id
 ```
 
-![Image](../_static/images/quickstart/imxrt106x-ls-2.png)
+```
+~$ ls -l /dev/serial/by-id/
+total 0
+lrwxrwxrwx 1 root root 13 lis 16 15:26 usb-ARM_DAPLink_CMSIS-DAP_0232000007b01b88000000000000000000000097969905-if01 -> ../../ttyACM0
+lrwxrwxrwx 1 root root 13 lis 16 15:27 usb-Phoenix_Systems_plo_CDC_ACM-if00 -> ../../ttyACM1
+~$
+```
 
 To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments
 (choose suitable ttyACMx device, in this case, ttyACM1):
@@ -128,7 +169,12 @@ To share disk image to the bootloader, `phoenixd` has to be launched with the fo
 sudo ./phoenixd -p /dev/tty[port] -b 115200 -s .
 ```
 
-![Image](../_static/images/quickstart/imxrt106x-phoenixd.png)
+```
+~$ sudo ./phoenixd -p /dev/ttyACM1 -b 115200 -s .
+[roles/phoenixd] Phoenix server ver. 1.5
+[roles/phoenixd] Starting roles server [/dev/ttyACM1] - speed: 115200
+[roles/phoenixd] Roles daemon is waiting...
+```
 
 To start copying a file, write the following command in the console with plo interface:
 
@@ -150,7 +196,12 @@ If everything has gone correctly, Phoenix-RTOS with the default configuration an
 appear in the terminal after 2 seconds. If there is a need to enter the bootloader, the waiting for input should be
 interrupted by pressing any key. Then you can exit plo by passing `go!` command.
 
-![Image](../_static/images/quickstart/imxrt106x-start.png)
+```
+Phoenix-RTOS microkernel v. 2.97 rev: 10b7a77
+hal: NXP i.MX RT10xx ARMv7 Cortex-M7
+dummyfs: initialized
+(psh)%
+```
 
 ## Using Phoenix-RTOS
 
@@ -160,7 +211,34 @@ If you want to get the available command list please type:
 help
 ```
 
-![Image](../_static/images/quickstart/imxrt106x-help.png)
+```
+(psh)% help
+Available commands:
+  bind      - binds device to directory
+  cat       - concatenate file(s) to standard output
+  edit      - text editor
+  exec      - replace shell with the given command
+  exit      - exits shell
+  help      - prints this help message
+  history   - prints commands history
+  kill      - terminates process
+  ls        - lists files in the namespace
+  mem       - prints memory map
+  mkdir     - creates directory
+  mount     - mounts a filesystem
+  nc        - TCP and UDP connections and listens
+  nslookup  - queries domain name servers
+  perf      - track kernel performance events
+  ping      - ICMP ECHO requests
+  ps        - prints processes and threads
+  reboot    - restarts the machine
+  sync      - synchronizes device
+  sysexec   - launch program from syspage using given map
+  top       - top utility
+  touch     - changes file timestamp
+  uptime    - prints how long the system has been running
+(psh)%
+```
 
 To get the list of working processes please type:
 
@@ -168,7 +246,16 @@ To get the list of working processes please type:
 ps
 ```
 
-![Image](../_static/images/quickstart/imxrt106x-ps.png)
+```
+(psh)% ps
+  PID  PPID PR STATE  %CPU  WAIT     TIME  VMEM THR CMD
+    0     0  7 ready  99.9  13ms     5:11 59.5K   1 [idle]
+    1     0  4 sleep   0.0   1ms     0:00     0   1 init
+    2     1  4 sleep   0.0   0us     0:00   12K   1 dummyfs
+    3     1  2 sleep   0.0   1ms     0:00  8.5K   5 imxrt-multi
+    4     1  4 ready   0.0   0us     0:00 23.5K   1 psh
+(psh)%
+```
 
 To get the table of processes please type:
 
@@ -176,4 +263,12 @@ To get the table of processes please type:
 top
 ```
 
-![Image](../_static/images/quickstart/imxrt106x-top.png)
+```
+Tasks:    5 total, running: 2, sleeping: 3
+  PID  PPID PR STATE  %CPU  WAIT      TIME   VMEM CMD
+    0     0  7 ready  99.7  13ms   3:32.95  59.5K [idle]
+    3     1  2 sleep   0.1   1ms   0:00.03   8.5K imxrt-multi
+    2     1  4 sleep   0.0   0us   0:00.00    12K dummyfs
+    1     0  4 sleep   0.0   1ms   0:00.01      0 init
+    4     1  4 ready   0.0   0us   0:00.02    30K psh
+```

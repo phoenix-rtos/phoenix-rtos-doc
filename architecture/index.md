@@ -52,19 +52,6 @@ objects.
 Interprocess communication has been described in
 [Kernel - Processes and threads - Message passing](../kernel/proc/msg.md) chapter.
 
-### Message Copy Minimization
-
-To minimize the overhead of message passing, the kernel uses a three-tier data transfer strategy:
-
-1. **Inline (≤ 64 bytes)**: Data is carried in the `msg_t` structure's `raw[64]` union — no buffer allocation or
-   page mapping needed
-2. **Page mapping (larger aligned buffers)**: Sender's buffer pages are mapped into the receiver's address space
-   via `page_map()` — no data is copied
-3. **Boundary copy (unaligned partial pages)**: Only unaligned partial-page data at buffer boundaries requires
-   copying, using wrapper page allocation to prevent interference
-
-This means most IPC operations avoid data copying entirely, with only small messages and buffer boundaries incurring
-copy overhead. If both sides share the same address space, the mapping/copying phases are skipped.
 
 ## Standard library
 
@@ -76,9 +63,11 @@ extended (in cooperation with servers) with additional functions to provide the 
 environment requires much more memory than basic ANSI C native interface but allows for execution of the popular
 open-source UN*X applications.
 
-> **Note:** The C89 compatibility applies to the `libphoenix` API. Internal system code uses modern C features
-> including C11 atomics (`atomic_load_explicit`, `memory_order_acquire`) and GCC extensions
-> (`__attribute__((constructor))`).
+```{note}
+The C89 compatibility applies to the `libphoenix` API. Internal system code uses modern C features
+including C11 atomics (`atomic_load_explicit`, `memory_order_acquire`) and GCC extensions
+(`__attribute__((constructor))`).
+```
 
 Standard library has been described in [Standard library](../libc/index.md) chapter.
 

@@ -45,9 +45,14 @@ that run:
   ls -l /dev/serial/by-id
   ```
 
-  ![Image](../_static/images/quickstart/imxrt117x-ls.png)
+  ```
+  ~$ ls -l /dev/serial/by-id/
+  total 0
+  lrwxrwxrwx 1 root root 13 lis 23 10:11 usb-ARM_DAPLink_CMSIS-DAP_02440000325121ab000000000000000000000097969905-if01 -> ../../ttyACM0
+  ~$
+  ```
 
-  If your output is like in the screenshot above, the console (`DEBUG USB` in the evaluation board) is on the `ACM0`
+  If your output is like in the example above, the console (`DEBUG USB` in the evaluation board) is on the `ACM0`
   port.
 
 - When the board is connected to your host-pc, open serial port in terminal using picocom and type the console port
@@ -101,11 +106,40 @@ sudo ./psu plo-ram.sdp
 
 The plo user interface should appear in the console.
 
-![Image](../_static/images/quickstart/imxrt117x-plo.png)
+```
+Phoenix-RTOS loader v. 1.21 rev: f540178
+hal: Cortex-M i.MX RT117x
+dev/usb: Initializing usb-cdc(1.2)
+dev/flash: Initializing flash(2.0)
+cmd: Executing pre-init script
+console: Setting console to 0.0
+(plo)%
+```
 
 To get the available bootloader command list please type `help`.
 
-![Image](../_static/images/quickstart/imxrt117x-plo-help.png)
+```
+(plo)% help
+  alias       - sets alias to file, usage: alias [<name> <offset> <size>]
+  app         - loads app, usage: app [<dev> [-x] <name> <imap> <dmap>]
+  call        - calls user's script, usage: call <dev> <script name> <magic>
+  console     - sets console to device, usage: console <major.minor>
+  copy        - copies data between devices, usage:
+                  copy <src dev> <file/offs size> <dst dev> <file/offs size>
+  dump        - dumps memory, usage: dump <addr>
+  echo        - command switch on/off information logs, usage: echo [on/off]
+  go!         - starts Phoenix-RTOS loaded into memory
+  help        - prints this message
+  kernel      - loads Phoenix-RTOS, usage: kernel [<dev> [name]]
+  map         - defines multimap, usage: map [<name> <start> <end> <attributes>]
+  mpu         - prints the use of MPU regions, usage: mpu [all]
+  phfs        - registers device in phfs, usage: phfs [<alias> <major.minor> [protocol]]
+  reboot      - reboot system (final state may depend on the latched boot config state)
+  script      - shows script, usage: script [<dev> <name> <magic>]
+  syspage     - sets syspage address or shows it, usage: syspage [address]
+  wait        - waits in milliseconds or in infinite loop, usage: wait [ms]
+(plo)%
+```
 
 ### Copying flash image using PHFS (phoenixd)
 
@@ -118,7 +152,13 @@ To flash the disk image, first, you need to verify on which port plo USB device 
 ls -l /dev/serial/by-id
 ```
 
-![Image](../_static/images/quickstart/imxrt117x-ls-2.png)
+```
+~$ ls -l /dev/serial/by-id/
+total 0
+lrwxrwxrwx 1 root root 13 lis 23 10:48 usb-ARM_DAPLink_CMSIS-DAP_02440000325121ab000000000000000000000097969905-if01 -> ../../ttyACM0
+lrwxrwxrwx 1 root root 13 lis 23 10:52 usb-Phoenix_Systems_plo_CDC_ACM-if00 -> ../../ttyACM1
+~$
+```
 
 To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments (choose suitable
 ttyACMx device, in this case, ttyACM1):
@@ -127,7 +167,14 @@ ttyACMx device, in this case, ttyACM1):
 sudo ./phoenixd -p /dev/tty[port] -b 115200 -s .
 ```
 
-![Image](../_static/images/quickstart/imxrt117x-phoenixd.png)
+```
+~/phoenix-rtos-project/_boot/armv7m7-imxrt117x-evk$ sudo ./phoenixd -p /dev/ttyACM1 -b 115200 -s .
+-\- Phoenix server, ver. 1.5
+(c) 2012 Phoenix Systems
+(c) 2000, 2005 Pawel Pisarczyk
+
+[121982] dispatch: Starting message dispatcher on [/dev/ttyACM1] (speed=115200)
+```
 
 To start copying a file, write the following command in the console with plo interface:
 
@@ -146,7 +193,21 @@ If everything has gone correctly, Phoenix-RTOS with the default configuration an
 appear in the terminal after 2 seconds. If there is a need to enter the bootloader, the waiting for input should be
 interrupted by pressing any key. Then you can exit plo by passing `go!` command.
 
-![Image](../_static/images/quickstart/imxrt117x-start.png)
+```
+Phoenix-RTOS microkernel v. 2.97 rev: 10b7a77
+hal: NXP i.MX RT117x ARMv7 Cortex-M7 r1 p2
+hal: FPU, MPU, Thumb
+hal: Using NVIC interrupt controller
+vm: Initializing page allocator 8/160 KB, page_t=12
+vm: Initializing memory mapper: (73*72) 5256
+vm: Initializing kernel memory allocator: (16*48) 768
+vm: Initializing memory objects
+proc: Initializing thread scheduler, priorities=8
+syscalls: Initializing syscall table [102]
+main: Starting syspage programs: 'dummyfs', 'imxrt-multi', 'psh'
+dummyfs: initialized
+(psh)%
+```
 
 ## Using Phoenix-RTOS
 
@@ -156,7 +217,35 @@ If you want to get the available command list please type:
 help
 ```
 
-![Image](../_static/images/quickstart/imxrt117x-help.png)
+```
+(psh)% help
+Available commands:
+  bind        - binds device to directory
+  cat         - concatenate file(s) to standard output
+  edit        - text editor
+  exec        - replace shell with the given command
+  exit        - exits shell
+  help        - prints this help message
+  history     - prints commands history
+  hm          - health monitor, spawns apps and keeps them alive
+  kill        - terminates process
+  ls          - lists files in the namespace
+  mem         - prints memory map
+  mkdir       - creates directory
+  mount       - mounts a filesystem
+  nc          - TCP and UDP connections and listens
+  nslookup    - queries domain name servers
+  perf        - track kernel performance events
+  ping        - ICMP ECHO requests
+  ps          - prints processes and threads
+  reboot      - restarts the machine
+  sync        - synchronizes device
+  sysexec     - launch program from syspage using given map
+  top         - top utility
+  touch       - changes file timestamp
+  uptime      - prints how long the system has been running
+(psh)%
+```
 
 To get the list of working processes please type:
 
@@ -164,7 +253,16 @@ To get the list of working processes please type:
 ps
 ```
 
-![Image](../_static/images/quickstart/imxrt117x-ps.png)
+```
+(psh)% ps
+  PID  PPID  PR  STATE  %CPU  WAIT     TIME   VMEM  THR  CMD
+    0     0   7  ready  99.7  13ms     0:25    50K    1  [idle]
+    1     0   4  sleep   0.0   1ms     0:00      0    1  init
+    2     1   4  sleep   0.0   0us     0:00    13K    1  dummyfs
+    3     1   2  sleep   0.0   1ms     0:00    12K    6  imxrt-multi
+    4     1   4  ready   0.0   1ms     0:00  23.5K    1  psh
+(psh)%
+```
 
 To get the table of processes please type:
 
@@ -172,4 +270,12 @@ To get the table of processes please type:
 top
 ```
 
-![Image](../_static/images/quickstart/imxrt117x-top.png)
+```
+Tasks:     5 total, running: 2, sleeping: 3
+  PID  PPID  PR  STATE  %CPU  WAIT     TIME   VMEM  CMD
+    0     0   7  ready  99.7  13ms  0:28.57    50K  [idle]
+    3     1   2  sleep   0.1   1ms  0:00.02    12K  imxrt-multi
+    4     1   4  ready   0.1   1ms  0:00.01    30K  psh
+    2     1   4  sleep   0.0   0us  0:00.00    13K  dummyfs
+    1     0   4  sleep   0.0   1ms  0:00.01      0  init
+```

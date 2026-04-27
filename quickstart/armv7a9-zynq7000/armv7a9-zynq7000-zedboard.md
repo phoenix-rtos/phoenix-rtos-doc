@@ -58,9 +58,15 @@ The onboard UART-USB converter is used here.
   ls -l /dev/serial/by-id
   ```
 
-  ![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-ls.png)
+  ```
+  ~$ ls -l /dev/serial/by-id/
+  total 0
+  lrwxrwxrwx 1 root root 13 lis  8 16:49 usb-2012_Cypress_Semiconductor_Cypress-USB2UART-Ver1.0G_04640
+  4C54711-if00 -> ../../ttyACM0
+  ~$
+  ```
 
-  If your output is like in the screenshot above, the console (`UART` in the evaluation board) is on the `ACM0` port.
+  If your output is like in the example above, the console (`UART` in the evaluation board) is on the `ACM0` port.
 
 - When the board is connected to your host-pc,
  open serial port in terminal using picocom and type the console port (in this case ACM0)
@@ -95,17 +101,66 @@ At first before any flashing, you need to enter Phoenix-RTOS loader (plo), which
 
 If there wasn't an older system image in the NOR flash the following output should appear:
 
-![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-sd-plo.png)
+```
+Phoenix-RTOS loader v. 1.21 rev: 9a488af
+hal: Cortex-A9 Zynq 7000
+dev/uart: Initializing uart(0.0)
+dev/uart: Initializing uart(0.1)
+dev/usb: Initializing usb-cdc(1.2)
+dev/flash: Configured Spansion s25fl256s1 32MB nor flash(2.0)
+cmd: Executing pre-init script
+console: Setting console to 0.1
+Magic number for user.plo is wrong.
+(plo)%
+```
 
 If you don't see it, please press the `PS-RST` button (`BTN7`) to restart the chip.
 
 Providing that Phoenix-RTOS is present in the flash memory you will probably see the system startup:
 
-![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-ram-start-2.png)
+```
+Phoenix-RTOS loader v. 1.21 rev: ac040e9
+hal: Cortex-A9 Zynq 7000
+dev/uart: Initializing uart(0.0)
+dev/uart: Initializing uart(0.1)
+dev/usb: Initializing usb-cdc(1.2)
+dev/flash: Configured Spansion s25fl256s1 32MB nor flash(2.0)
+cmd: Executing pre-init script
+console: Setting console to 0.1
+Waiting for input,      0 [ms]
+Phoenix-RTOS microkernel v. 2.97 rev: 2571d96
+hal: Xilinx Zynq-7000 ARMv7 Cortex-A9 r3p0
+hal: ThumbEE, Jazelle, Thumb, ARM, Security
+hal: Using GIC interrupt controller
+vm: Initializing page allocator (1036+0)/131072KB, page_t=16
+vm: [256x][24K][6P]H[17K][76A][127H]PPPP[765.]PPPS[31744.]
+vm: Initializing memory mapper: (8095*64) 518080
+vm: Initializing kernel memory allocator: (64*48) 3072
+vm: Initializing memory objects
+proc: Initializing thread scheduler, priorities=8
+syscalls: Initializing syscall table [102]
+main: Starting syspage programs: 'dummyfs;-N;devfs;-D', 'zynq7000-uart', 'psh;-i;/etc/rc.psh', 'zynq
+7000-flash;-r;/dev/mtd1:8257536:16777216:jffs2;-p;/dev/mtd1:0x1800000:0x4e0000'
+dummyfs: initialized
+version 2.2. (NAND) (SUMMARY)  © 2001-2006 Red Hat, Inc.
+
+(psh)%
+```
 
 You want to press the `PS-RST` button (`BTN7`) again and interrupt `Waiting for input` by pressing any key to enter plo:
 
-![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-plo.png)
+```
+(psh)% Phoenix-RTOS loader v. 1.21 rev: ac040e9
+hal: Cortex-A9 Zynq 7000
+dev/uart: Initializing uart(0.0)
+dev/uart: Initializing uart(0.1)
+dev/usb: Initializing usb-cdc(1.2)
+dev/flash: Configured Spansion s25fl256s1 32MB nor flash(2.0)
+cmd: Executing pre-init script
+console: Setting console to 0.1
+Waiting for input,  300 [ms]
+(plo)%
+```
 
 If you encountered some problems during this step please see
  [common problems](index.md#common-problems-on-zynq7000-boards).
@@ -134,7 +189,32 @@ Quick description of used arguments:
   - block size: `0x10000` (`erase_size`)
   - clean marker size: `16` (value specific for `jffs2` on `NOR` flash)
 
-![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-plo-erase.png)
+```
+(plo)% jffs2 -d 2.0 -e -c 0x80:0x100:0x10000:16
+Erasing sectors from 0x800000 to 0x810000 ...
+Erasing sectors from 0x810000 to 0x820000 ...
+Erasing sectors from 0x820000 to 0x830000 ...
+Erasing sectors from 0x830000 to 0x840000 ...
+Erasing sectors from 0x840000 to 0x850000 ...
+Erasing sectors from 0x850000 to 0x860000 ...
+Erasing sectors from 0x860000 to 0x870000 ...
+Erasing sectors from 0x870000 to 0x880000 ...
+Erasing sectors from 0x880000 to 0x890000 ...
+Erasing sectors from 0x890000 to 0x8a0000 ...
+Erasing sectors from 0x8a0000 to 0x8b0000 ...
+Erasing sectors from 0x8b0000 to 0x8c0000 ...
+Erasing sectors from 0x8c0000 to 0x8d0000 ...
+Erasing sectors from 0x8d0000 to 0x8e0000 ...
+Erasing sectors from 0x8e0000 to 0x8f0000 ...
+Erasing sectors from 0x8f0000 to 0x900000 ...
+Erasing sectors from 0x900000 to 0x910000 ...
+Erasing sectors from 0x910000 to 0x920000 ...
+Erasing sectors from 0x920000 to 0x930000 ...
+Erasing sectors from 0x930000 to 0x940000 ...
+Erasing sectors from 0x940000 to 0x950000 ...
+Erasing sectors from 0x950000 to 0x960000 ...
+Erasing sectors from 0x960000 to 0x970000 ...
+```
 
 Please wait until erasing is finished.
 
@@ -149,7 +229,14 @@ You can check that using `ls` as follow:
 ls -l /dev/serial/by-id
 ```
 
-![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-ls-2.png)
+```
+~$ ls -l /dev/serial/by-id/
+total 0
+lrwxrwxrwx 1 root root 13 lis  8 18:37 usb-2012_Cypress_Semiconductor_Cypress-USB2UART-Ver1.0G_04640
+4C54711-if00 -> ../../ttyACM0
+lrwxrwxrwx 1 root root 13 lis  8 18:38 usb-Phoenix_Systems_plo_CDC_ACM-if00 -> ../../ttyACM1
+~$
+```
 
 To share disk image to the bootloader, `phoenixd` has to be launched with the following arguments
  (choose suitable ttyACMx device, in this case, ttyACM1):
@@ -162,7 +249,16 @@ cd _boot/armv7a9-zynq7000-zedboard
 sudo ./phoenixd -p /dev/tty[port] -b 115200 -s .
 ```
 
-![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-phoenixd.png)
+```
+~phoenix-rtos-project$ cd _boot/armv7a9-zynq7000-zedboard/
+~phoenix-rtos-project/_boot/armv7a9-zynq7000-zedboard$ sudo ./phoenixd -p /dev/ttyACM1 -b 115200 -s
+.
+-\- Phoenix server, ver. 1.5
+(c) 2012 Phoenix Systems
+(c) 2000, 2005 Pawel Pisarczyk
+
+[201186] dispatch: Starting message dispatcher on [/dev/ttyACM1] (speed=115200)
+```
 
 To start copying the file, write the following command in the console with plo interface:
 
@@ -170,7 +266,18 @@ To start copying the file, write the following command in the console with plo i
 copy usb0 phoenix.disk flash0 0x0 0x0
 ```
 
-![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-plo-copy.png)
+```
+Erasing sectors from 0x1780000 to 0x1790000 ...
+Erasing sectors from 0x1790000 to 0x17a0000 ...
+Erasing sectors from 0x17a0000 to 0x17b0000 ...
+Erasing sectors from 0x17b0000 to 0x17c0000 ...
+Erasing sectors from 0x17c0000 to 0x17d0000 ...
+Erasing sectors from 0x17d0000 to 0x17e0000 ...
+Erasing sectors from 0x17e0000 to 0x17f0000 ...
+Erasing sectors from 0x17f0000 to 0x1800000 ...
+(plo)% copy usb0 phoenix.disk flash0 0x0 0x0
+(plo)%
+```
 
 ### Booting Phoenix-RTOS from NOR flash memory
 
@@ -197,7 +304,13 @@ To run it you should follow the steps below:
   ls -l /dev/serial/by-id/
   ```
 
-  ![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-ls-3.png)
+  ```
+  ~$ ls -l /dev/serial/by-id/
+  total 0
+  lrwxrwxrwx 1 root root 13 lis  8 19:08 usb-2012_Cypress_Semiconductor_Cypress-USB2UART-Ver1.0G_04640
+  4C54711-if00 -> ../../ttyACM0
+  ~$
+  ```
 
 - connect to that port:
 
@@ -207,7 +320,34 @@ To run it you should follow the steps below:
 
 - restart the chip using the `PS-RST` button to print initialization logs:
 
-  ![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-qspi-start.png)
+  ```
+  Phoenix-RTOS loader v. 1.21 rev: ac040e9
+  hal: Cortex-A9 Zynq 7000
+  dev/uart: Initializing uart(0.0)
+  dev/uart: Initializing uart(0.1)
+  dev/usb: Initializing usb-cdc(1.2)
+  dev/flash: Configured Spansion s25fl256s1 32MB nor flash(2.0)
+  cmd: Executing pre-init script
+  console: Setting console to 0.1
+  Waiting for input,      0 [ms]
+  Phoenix-RTOS microkernel v. 2.97 rev: d39db91
+  hal: Xilinx Zynq-7000 ARMv7 Cortex-A9 r3p0
+  hal: ThumbEE, Jazelle, Thumb, ARM, Security
+  hal: Using GIC interrupt controller
+  vm: Initializing page allocator (1040+0)/131072KB, page_t=16
+  vm: [256x][24K][6P]H[17K][77A][127H]PPPP[764.]PPPS[31744.]
+  vm: Initializing memory mapper: (8095*64) 518080
+  vm: Initializing kernel memory allocator: (64*48) 3072
+  vm: Initializing memory objects
+  proc: Initializing thread scheduler, priorities=8
+  syscalls: Initializing syscall table [102]
+  main: Starting syspage programs: 'dummyfs;-N;devfs;-D', 'zynq7000-uart', 'psh;-i;/etc/rc.psh', 'zynq
+  7000-flash;-r;/dev/mtd1:8257536:16777216:jffs2;-p;/dev/mtd1:0x1800000:0x4e0000'
+  dummyfs: initialized
+  version 2.2. (NAND) (SUMMARY)  © 2001-2006 Red Hat, Inc.
+
+  (psh)%
+  ```
 
 ## Using Phoenix-RTOS
 
@@ -217,7 +357,49 @@ To get the available command list please type:
 help
 ```
 
-![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-help.png)
+```
+(psh)% help
+Available commands:
+    bind       - binds device to directory
+    cat        - concatenate file(s) to standard output
+    cd         - changes the working directory
+    cp         - copy file
+    date       - print/set the system date and time
+    dd         - copy a file according to the operands
+    df         - print filesystem statistics
+    dmesg      - read kernel ring buffer
+    echo       - display a line of text
+    edit       - text editor
+    exec       - replace shell with the given command
+    exit       - exits shell
+    help       - prints this help message
+    history    - prints commands history
+    hm         - health monitor, spawns apps and keeps them alive
+    kill       - terminates process
+    ln         - make links between files
+    ls         - lists files in the namespace
+    mem        - prints memory map
+    mkdir      - creates directory
+    mount      - mounts a filesystem
+    nc         - TCP and UDP connections and listens
+    nslookup   - queries domain name servers
+    ntpclient  - set the system's date from a remote host
+    perf       - track kernel performance events
+    ping       - ICMP ECHO requests
+    pm         - process monitor
+    ps         - prints processes and threads
+    pwd        - prints the name of current working directory
+    reboot     - restarts the machine
+    sync       - synchronizes device
+    sysexec    - launch program from syspage using given map
+    top        - top utility
+    touch      - changes file timestamp
+    tty        - print or replace interactive shell tty device
+    umount     - unmount a filesystem
+    uptime     - prints how long the system has been running
+    wget       - downloads a file using http
+(psh)%
+```
 
 If you want to get the list of working processes please type:
 
@@ -225,7 +407,18 @@ If you want to get the list of working processes please type:
 ps
 ```
 
-![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-ps.png)
+```
+(psh)% ps
+    PID   PPID  PR STATE  %CPU    WAIT       TIME  VMEM THR CMD
+      0      0   4 ready  83.5   185ms   00:01:25  1.6M   2 [idle]
+      1      0   4 sleep   0.0   1.2ms   00:00:00     0   1 init
+      3      1   4 ready   0.1   1.2ms   00:00:00  128K   4 zynq7000-uart
+      4      1   4 sleep   0.0     1ms   00:00:00   96K   1 dummyfs
+      7      1   1 sleep  16.1  76.3ms   00:00:17  596K   7 zynq7000-flash
+      9      1   4 sleep   0.0  471us   00:00:00  128K   5 /bin/posixsrv
+     10      1   4 ready   0.0  965us   00:00:00  148K   1 /bin/psh
+(psh)%
+```
 
 To get the table of processes please type:
 
@@ -233,4 +426,13 @@ To get the table of processes please type:
 top
 ```
 
-![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-top.png)
+```
+    PID   PPID  PR STATE  %CPU    WAIT      TIME  VMEM CMD
+      0      0   4 ready  84.6   185ms   1:33.79  1.6M [idle]
+      7      1   1 sleep  15.0  76.3ms   0:16.66  596K zynq7000-flash
+      3      1   4 ready   0.2   1.4ms   0:00.24  128K zynq7000-uart
+      4      1   4 sleep   0.0     1ms   0:00.00   96K dummyfs
+      1      0   4 sleep   0.0   1.2ms   0:00.00     0 init
+      9      1   4 sleep   0.0  471us   0:00.00  128K /bin/posixsrv
+     10      1   4 ready   0.0  965us   0:00.02  156K /bin/psh
+```

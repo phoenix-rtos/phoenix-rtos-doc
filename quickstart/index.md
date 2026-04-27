@@ -21,8 +21,8 @@ QEMU and simulator targets include launch scripts in the `scripts/` directory:
 ```
 
 Script naming follows two patterns:
-- `scripts/<target>.sh` — standard launch
-- `scripts/<target>-test.sh` — launch with test configuration (e.g., serial console for automated testing)
+- `scripts/<target>.sh`  -  standard launch
+- `scripts/<target>-test.sh`  -  launch with test configuration (e.g., serial console for automated testing)
 
 Some targets have additional variants (e.g., `ia32-generic-qemu-net.sh` for networking, `ia32-generic-qemu-virt.sh`
 for VirtIO).
@@ -37,9 +37,11 @@ and the shell (psh). The exact set of components varies per target and is define
 The `_user/` directory contains example applications that are included in the root filesystem. These can be
 run directly from the psh shell prompt after boot.
 
-> **Note:** The following targets have project configurations in `_projects/` but do not yet have quickstart pages:
-> `aarch64a53-zynqmp-qemu`, `aarch64a53-zynqmp-som`, `armv7r5f-zynqmp-qemu`, `armv7r5f-zynqmp-som`,
-> `armv8m33-mcxn94x-frdm_cpu1`, `armv8m55-stm32n6-nucleo`, `host-generic-pc`, `ia32-generic-pc`.
+```{note}
+The following targets have project configurations in `_projects/` but do not yet have quickstart pages:
+`aarch64a53-zynqmp-qemu`, `aarch64a53-zynqmp-som`, `armv7r5f-zynqmp-qemu`, `armv7r5f-zynqmp-som`,
+`armv8m33-mcxn94x-frdm_cpu1`, `armv8m55-stm32n6-nucleo`, `host-generic-pc`, `ia32-generic-pc`.
+```
 
 ```{toctree}
 :maxdepth: 1

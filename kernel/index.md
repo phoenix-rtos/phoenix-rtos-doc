@@ -10,6 +10,8 @@ After reading this chapter, you will know:
 - How the signal subsystem delivers signals to processes and threads
 - How the system calls are organized across categories
 
+For a high-level overview of where the kernel fits in the system, see [Architecture](../architecture/index.md).
+
 Phoenix-RTOS is based on a written-from-scratch dedicated microkernel consisting of about 20K lines of code (LoC).
 The microkernel is responsible for:
 
@@ -22,17 +24,11 @@ The kernel is divided into five subsystems:
 
 | Subsystem | Purpose |
 |-----------|---------|
-| `hal`  | Hardware abstraction layer — architecture-specific CPU, MMU, timer, interrupt, and console code |
-| `lib`  | Common routines — string operations, printf, binary buddy allocator, red-black trees |
-| `vm`   | Virtual memory management — page allocator, kernel allocator, memory mapper, object cache |
-| `proc` | Process and thread management — scheduler, IPC, synchronization, namespace, signals |
+| `hal`  | Hardware abstraction layer  -  architecture-specific CPU, MMU, timer, interrupt, and console code |
+| `lib`  | Common routines  -  string operations, printf, binary buddy allocator, red-black trees |
+| `vm`   | Virtual memory management  -  page allocator, kernel allocator, memory mapper, object cache |
+| `proc` | Process and thread management  -  scheduler, IPC, synchronization, namespace, signals |
 | `test` | Internal tests for kernel subsystems |
-
-The source code of the kernel can be obtained using the following command:
-
-```shell
-git clone https://github.com/phoenix-rtos/phoenix-rtos-kernel.git
-```
 
 ```{toctree}
 :maxdepth: 1

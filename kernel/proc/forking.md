@@ -58,8 +58,10 @@ achieves this by saving and restoring the parent's kernel stack:
    from `parentkstack` and resumes the parent. An additional `execkstack` buffer handles the transition when the child
    calls `exec()`.
 
-> **Note:** `vfork()` is a full synchronization primitive — the parent is unconditionally blocked, not merely
-> deprioritized. On non-MMU architectures this is the primary process creation mechanism.
+```{note}
+`vfork()` is a full synchronization primitive - the parent is unconditionally blocked, not merely
+deprioritized. On non-MMU architectures this is the primary process creation mechanism.
+```
 
 ## Process termination
 
@@ -142,10 +144,10 @@ In addition to run states, two flags control thread termination:
 
 | Flag | Value | Description |
 |------|-------|-------------|
-| `THREAD_END` | 1 | Cooperative termination request — thread should exit at its next safe point |
-| `THREAD_END_NOW` | 2 | Immediate termination request — thread is forcibly stopped |
+| `THREAD_END` | 1 | Cooperative termination request  -  thread should exit at its next safe point |
+| `THREAD_END_NOW` | 2 | Immediate termination request  -  thread is forcibly stopped |
 
-These are flags, not states — a thread can be in `READY` state with `THREAD_END` set, meaning it will terminate
+These are flags, not states  -  a thread can be in `READY` state with `THREAD_END` set, meaning it will terminate
 the next time it is scheduled. The reaper thread handles final resource cleanup for `GHOST` threads.
 
 ### Kernel Stack Architecture

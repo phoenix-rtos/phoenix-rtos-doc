@@ -82,7 +82,7 @@ This table presents a timeline of the most important events in the history of op
 | 1985 | AmigaOS                        | Operating system for Amiga personal computers |
 | 1985 | {violet-text}`MS Windows 1.01` | {violet-text}`Graphical environment for MS-DOS` |
 | 1986 | {green-text}`Mach`             | {green-text}`The first multiserver UN*X emulation based on message passing (for VAX-11)` |
-| 1987 | {blue-text}`Xenix`             | {blue-text}`The UN*X operating system developed by SCO (initially with Microsoft) for IBM PC – the first 32-bit operating system for IBM PC` |
+| 1987 | {blue-text}`Xenix`             | {blue-text}`The UN*X operating system developed by SCO (initially with Microsoft) for IBM PC - the first 32-bit operating system for IBM PC` |
 | 1987 | {red-text}`VxWorks`            | {red-text}`Real-time operating system for safety critical embedded applications` |
 | 1988 | {violet-text}`OS/2`            | {violet-text}`The first operating system with GUI for IBM PC` |
 | 1990 | {violet-text}`MS Windows 3.0`  | {violet-text}`The next generation of graphical environment for MS-DOS with a virtual memory, multiprogramming and MS-DOS virtual machines` |
@@ -101,7 +101,7 @@ This table presents a timeline of the most important events in the history of op
 | 2000 | {violet-text}`MS Windows 2000` | {violet-text}`Next generation of Windows NT` |
 | 2001 | {red-text}`QNX6`               | {red-text}`Microkernel-based POSIX-compliant real-time operating system with a virtual memory and resource protection` |
 | 2001 | {violet-text}`MS Windows Xp`   | {violet-text}`The next generation of MS Windows 2000 integrating MS Windows 9x and MS Windows NT lines` |
-| 2001 | MAFALDA                        | Microkernel Assessment by Fault-injection AnaLysis for Design Aid – a series of prototype tools for the assessment of real-time COTS microkernel based systems |
+| 2001 | MAFALDA                        | Microkernel Assessment by Fault-injection AnaLysis for Design Aid - a series of prototype tools for the assessment of real-time COTS microkernel based systems |
 | 2001 | {red-text}`Phoenix`            | {red-text}`Operating system prototype developed at the Warsaw University of Technology` |
 | 2005 | {red-text}`Phoenix-RTOS 2`     | {red-text}`Real-time operating system for embedded applications developed as the successor of the Phoenix prototype` |
 | 2006 | {red-text}`FreeRTOS`           | {red-text}`Simple operating system for microcontrollers for embedded applications with a small code footprint` |

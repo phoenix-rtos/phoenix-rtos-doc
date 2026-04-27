@@ -530,12 +530,12 @@ There are few steps to follow:
 
 - Open `Gimp` and paste the image
 
-- Set the desired resolution (image → scale image)
+- Set the desired resolution (image -> scale image)
 
 - Depending on the desired format:
 
-  - for 8-bit indexed color - change the file mode (image → mode → indexed) and export the file as raw binary data
-  (file → export and choose raw image data format)
+  - for 8-bit indexed color - change the file mode (image -> mode -> indexed) and export the file as raw binary data
+  (file -> export and choose raw image data format)
 
   - for other color depths - export the file to C source/header format (a dialog window pops up with additional options
   for color conversion)

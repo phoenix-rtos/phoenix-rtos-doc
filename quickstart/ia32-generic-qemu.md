@@ -52,7 +52,22 @@ To run the system image under QEMU you should type the following command
 
 Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal.
 
-![Image](../_static/images/quickstart/qemu-ia32-generic.png)
+```
+Phoenix-RTOS microkernel v. 2.97 rev: 400c40d
+hal: GenuineIntel Family 6 Model 6 Stepping 3 (4/4), cores=1
+hal: +fpu+de+pse+tsc+msr+pae+apic+pge+cmov+pat
+hal: Using i8259 interrupt controller
+vm: Initializing page allocator (1332+452)/131008KB, page_t=16
+vm: KCYPPS[128H]PP[20,]PPPB[80x][16B][14,]P[192K]P[32272,][32B][1015744x][64B]
+vm: Initializing memory mapper: (8046*60) 482760
+vm: Initializing kernel memory allocator: (64*48) 3072
+vm: Initializing memory objects
+proc: Initializing thread scheduler, priorities=8
+syscalls: Initializing syscall table [101]
+main: Decoding programs from data segment
+main: Starting syspage programs: 'pc-ata', 'pc-tty', 'psh'
+(psh)%
+```
 
 To get the available command list please type:
 
@@ -60,7 +75,33 @@ To get the available command list please type:
 help
 ```
 
-![Image](../_static/images/quickstart/qemu-ia32-generic-help.png)
+```
+Available commands:
+ bind          - binds device to directory
+ cat           - concatenate file(s) to standard output
+ edit          - text editor
+ exec          - replace shell with the given command
+ exit          - exits shell
+ help          - prints this help message
+ history       - prints commands history
+ kill          - terminates process
+ ls            - lists files in the namespace
+ mem           - prints memory map
+ mkdir         - creates directory
+ mount         - mounts a filesystem
+ nc            - TCP and UDP connections and listens
+ nslookup      - queries domain name servers
+ perf          - track kernel performance events
+ ping          - ICMP ECHO requests
+ ps            - prints processes and threads
+ reboot        - restarts the machine
+ sync          - synchronizes device
+ sysexec       - launch program from syspage using given map
+ top           - top utility
+ touch         - changes file timestamp
+ uptime        - prints how long the system has been running
+(psh)%
+```
 
 In order to run one of the user applications you should type `/usr/bin/appname`, for example:
 
@@ -86,7 +127,15 @@ To get the list of working processes please type:
 ps
 ```
 
-![Image](../_static/images/quickstart/qemu-ia32-generic-ps.png)
+```
+  PID  PPID PR STATE  %CPU   WAIT     TIME    VMEM THR CMD
+    0     0  7 ready  93.0   50ms     0:02    3.1M   1 [idle]
+    1     0  4 sleep   0.6   10ms     0:00       0   1 init
+    3     1  1 sleep   0.7   10ms     0:00    728K   3 pc-tty
+    4     1  4 ready   0.7    0us     0:00    192K   1 psh
+    5     2  4 sleep   3.0   10ms     0:00    216K   6 pc-ata
+(psh)%
+```
 
 There is a possibility to run the ash shell, it can be launched using the following command.
 
@@ -94,7 +143,14 @@ There is a possibility to run the ash shell, it can be launched using the follow
 /bin/ash
 ```
 
-![Image](../_static/images/quickstart/qemu-ia32-generic-ash.png)
+```
+(psh)% /bin/ash
+
+BusyBox v1.27.2 (2021-10-28 15:31:03 CEST) built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+~ #
+```
 
 Phoenix-RTOS image can be also launched on multiple processor cores. To do this please define the number of cores
 (e.g. 4) using the following command (launched from the `phoenix-rtos-project` directory).
@@ -103,9 +159,17 @@ Phoenix-RTOS image can be also launched on multiple processor cores. To do this 
 qemu-system-i386 -hda _boot/phoenix-ia32-generic.disk -smp 4
 ```
 
-The number of detected cores is presented during kernel initialization.
+The number of detected cores is presented during kernel initialization (note `cores=4` in the first line).
 
-![Image](../_static/images/quickstart/qemu-ia32-generic-smp.png)
+```
+Phoenix-RTOS microkernel v. 2.97 rev: 400c40d
+hal: GenuineIntel Family 6 Model 6 Stepping 3 (4/4), cores=4
+hal: +fpu+de+pse+tsc+msr+pae+apic+pge+cmov+pat
+hal: Using i8259 interrupt controller
+...
+main: Starting syspage programs: 'pc-ata', 'pc-tty', 'psh'
+(psh)%
+```
 
 ## Network setup on ia32-generic-qemu
 
@@ -271,7 +335,14 @@ Run the script by calling:
 
 As you can see, the advanced version of `Phoenix-RTOS` with `POSIX` shell has been started:
 
-![Image](../_static/images/quickstart/ia32_linuxrc.png)
+```
+BusyBox v1.27.2 (2022-06-30 17:42:15 CEST) built-in shell (ash)
+Enter 'help' for a list of built-in commands.
+
+         Welcome to Phoenix-RTOS
+
+root@?:~ #
+```
 
 ```{note}
 Some applications may require accurate datetime to be set. See how it is done in case of [Azure IoT SDK](../ports/azure_sdk.md).

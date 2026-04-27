@@ -26,7 +26,21 @@ First, check on which JTAG channel the `GRMON` detects the board. To do this, ru
 grmon -ftdi -jtaglist
 ```
 
-![Image](../_static/images/quickstart/gr740-jtaglist.png)
+```
+  GRMON debug monitor v3.3.12 64-bit eval version
+
+  Copyright (C) 2024 Frontgrade Gaisler - All rights reserved.
+  For latest updates, go to https://www.gaisler.com/
+  Comments or bug-reports to support@gaisler.com
+
+  This eval version will expire on 16/04/2025
+
+NUM NAME          SERIAL
+1) GR740-MINI A   GR740M0034A
+2) GR740-MINI B   GR740M0034B
+
+Use -jtagcable <num>, or -jtagserial <sn>, to select cable
+```
 
 The JTAG connection to the GR740 processor is present on the GR740-MINI A connector. To connect to the board, run the
 following command:
@@ -123,7 +137,13 @@ following command:
 ls -l /dev/serial/by-id
 ```
 
-![Image](../_static/images/quickstart/gr740-ls.png)
+```
+total 0
+lrwxrwxrwx 1 root root 13 Jan 20 10:40 usb-Frontgrade_Gaisler_AB_GR740-MINI_GR740M0034-if00-port0 -> ../../ttyUSB0
+lrwxrwxrwx 1 root root 13 Jan 20 10:40 usb-Frontgrade_Gaisler_AB_GR740-MINI_GR740M0034-if01-port0 -> ../../ttyUSB1
+lrwxrwxrwx 1 root root 13 Jan 20 10:40 usb-Frontgrade_Gaisler_AB_GR740-MINI_GR740M0034-if02-port0 -> ../../ttyUSB2
+lrwxrwxrwx 1 root root 13 Jan 20 10:40 usb-Frontgrade_Gaisler_AB_GR740-MINI_GR740M0034-if03-port0 -> ../../ttyUSB3
+```
 
 The serial console will be available on `if02` channel, which in this case is connected to `/dev/ttyUSB2`. To connect
 to the serial console, run the following command in a separate terminal:
@@ -144,7 +164,32 @@ run
 
 Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal.
 
-![Image](../_static/images/quickstart/gr740-start.png)
+```
+hal: LEON4FT GR740
+dev/flash: configured Infineon S29GL01/512T 128 MB flash(2.0)
+cmd: Executing pre-init script
+console: Setting console to 0.0
+alias: Setting relative base address to 0x00020000
+Waiting for input,     0 [ms]
+Phoenix-RTOS microkernel v. 3.2 rev: 18535ec
+hal: SPARCv8 LEON3-GR740
+hal: GRFPU, 8 windows
+hal: Using IRQAMP interrupt controller
+hal: Using General Purpose Timer
+vm: Initializing page allocator (1108+0)/114688KB, page_t=16
+vm: [47K][114A][112H]PPPP[28395.]
+vm: Initializing memory mapper: (9415*64) 602560
+vm: Initializing kernel memory allocator: (64*48) 3072
+vm: Initializing memory objects
+proc: Initializing thread scheduler, priorities=8
+syscalls: Initializing syscall table [100]
+main: Starting syspage programs: 'dummyfs;-N;devfs;-D', 'grlib-multi', 'ftmctrl-flash;-r;rootfs:jffs2', 'psh;-i;/etc/rc.psh'
+dummyfs: initialized
+ftmctrl-flashsrv: configured Infineon S29GL01/512T 128 MB flash
+ftmctrl-flashsrv: Mounting devfs/mtd0.rootfs as jffs2 root filesystem
+version 2.2. (NAND) (SUMMARY)  (c) 2001-2006 Red Hat, Inc.
+(psh)%
+```
 
 - Note: You can also enter `plo` by pressing any button within some time after reset.
 
@@ -154,7 +199,32 @@ To get the available command list type:
 help
 ```
 
-![Image](../_static/images/quickstart/gr740-help.png)
+```
+(psh)% help
+Available commands:
+  bind       - binds device to directory
+  cat        - concatenate file(s) to standard output
+  cd         - changes the working directory
+  chmod      - changes file mode, chmod [-R] <mode> <file>...
+  clear      - clear the terminal screen
+  cp         - copy file
+  date       - print/set the system date and time
+  dd         - copy a file according to the operands
+  df         - print filesystem statistics
+  dmesg      - read kernel ring buffer
+  echo       - display a line of text
+  edit       - text editor
+  exec       - replace shell with the given command
+  exit       - exits shell
+  export     - set and export variables list to environment
+  hd         - dumps file contents in hexadecimal and ascii representation
+  help       - prints this help message
+  history    - prints commands history
+  hm         - health monitor, spawns apps and keeps them alive
+  ifconfig   - configures network interfaces
+  kill       - sends a signal to a process
+  ln         - make links between files
+```
 
 To get the list of working processes type:
 
@@ -162,4 +232,15 @@ To get the list of working processes type:
 ps
 ```
 
-![Image](../_static/images/quickstart/gr740-ps.png)
+```
+(psh)% ps
+     PID     PPID PR STATE  %CPU     WAIT       TIME    VMEM THR CMD
+       0        0  4 ready 394.2   40.6ms   00:09:02    1.5M   5 [idle]
+       1        0  4 sleep   0.0      3ms   00:00:00       0   1 init
+       3        1  2 sleep   0.1      1ms   00:00:00   180K  10 grlib-multi
+       4        1  4 sleep   0.0    6.5ms   00:00:00    84K   1 dummyfs
+       7        1  1 sleep   5.0      1ms   00:00:07 128.6M   6 ftmctrl-flash
+       9        1  4 sleep   0.0   679us   00:00:00   116K   5 /bin/posixsrv
+      10        1  4 ready   0.0   459us   00:00:00   220K   1 /bin/psh
+(psh)%
+```

@@ -7,6 +7,9 @@ system debugging.
 The source code of host utilities is in the
 [phoenix-rtos-hostutils](https://github.com/phoenix-rtos/phoenix-rtos-hostutils) GitHub repository.
 
+These tools are used during the flashing process described in
+[Running system on targets](../quickstart/index.md).
+
 The following host utilities are available:
 
 | Tool | Purpose |
@@ -20,7 +23,9 @@ The following host utilities are available:
 | `syspagen` | System page generator from PLO scripts |
 | `trace` | RTT trace collection and conversion utilities |
 
-> **Note:** `phoenixd` supports up to 8 concurrent device instances across all transport modes (serial, UDP, TCP, USB).
+```{note}
+`phoenixd` supports up to 8 concurrent device instances across all transport modes (serial, UDP, TCP, USB).
+```
 
 ```{toctree}
 :maxdepth: 1

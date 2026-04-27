@@ -114,4 +114,6 @@ After build completes, the disk image and all files needed to run system will be
 
 ## Launching Phoenix-RTOS
 
+The default system image includes [Phoenix Shell (psh)](../utils/psh/index.md) as the command-line interface.
+
 To start the created image on target architecture please see [Running system on targets](../quickstart/index.md).

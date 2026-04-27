@@ -17,6 +17,8 @@ The collection lies in the
 repository. For information on structure of `phoenix-rtos` repositories, see
 [Project repository](../project/index.md) chapter.
 
+Ports are built as part of the [Building](../building/index.md) process.
+
 For a list of ports available on Phoenix-RTOS, see {doc}`port_list`.
 
 ## Brief conceptual description

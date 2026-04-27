@@ -54,7 +54,29 @@ To run the image under QEMU, use the following script provided in the `phoenix-r
 
 Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal.
 
-![Image](../_static/images/quickstart/mps3an536-qemu-psh.png)
+```
+~/phoenix-rtos-project$ ./scripts/armv8r52-mps3an536-qemu.sh
+VNC server running on 127.0.0.1:5900
+Phoenix-RTOS loader v. 1.21 rev: 06a21e6
+hal: Cortex-R52 MPS3-AN536
+cmd: Executing pre-init script
+console: Setting console to 0.2
+Waiting for input,     0 [ms]
+Phoenix-RTOS microkernel v. 3.2 rev: ec52ca2
+hal: MPS3 AN536 ARMv8 Cortex-R52 r1p3 x1
+hal: Jazelle, Thumb, ARM, Generic Timer, Virtualization
+hal: Using GICv3 interrupt controller
+hal: Using ARM Dual Timer
+vm: Initializing page allocator 18/431 KB, page_t=12
+vm: Initializing memory mapper: (199*80) 15920
+vm: Initializing kernel memory allocator: (16*48) 768
+vm: Initializing memory objects
+proc: Initializing thread scheduler, priorities=8
+syscalls: Initializing syscall table [100]
+main: Starting syspage programs: 'dummyfs', 'cmsdk-apbuart', 'psh'
+dummyfs: initialized
+(psh)%
+```
 
 To get the available command list use command:
 
@@ -62,7 +84,32 @@ To get the available command list use command:
 help
 ```
 
-![Image](../_static/images/quickstart/mps3an536-qemu-help.png)
+```
+(psh)% help
+Available commands:
+    bind       - binds device to directory
+    cat        - concatenate file(s) to standard output
+    cd         - changes the working directory
+    chmod      - changes file mode, chmod [-R] <mode> <file>...
+    clear      - clear the terminal screen
+    cp         - copy file
+    date       - print/set the system date and time
+    dd         - copy a file according to the operands
+    df         - print filesystem statistics
+    dmesg      - read kernel ring buffer
+    echo       - display a line of text
+    edit       - text editor
+    exec       - replace shell with the given command
+    exit       - exits shell
+    export     - set and export variables list to environment
+    hd         - dumps file contents in hexadecimal and ascii representation
+    help       - prints this help message
+    history    - prints commands history
+    hm         - health monitor, spawns apps and keeps them alive
+    ifconfig   - configures network interfaces
+    kill       - sends a signal to a process
+    ln         - make links between files
+```
 
 To get the list of working processes use command:
 
@@ -70,4 +117,13 @@ To get the list of working processes use command:
 ps
 ```
 
-![Image](../_static/images/quickstart/mps3an536-qemu-ps.png)
+```
+(psh)% ps
+      PID     PPID  PR  STATE  %CPU     WAIT        TIME    VMEM THR CMD
+        0        0   4  ready  93.0      69ms    00:00:02    190K   2 [idle]
+        1        0   4  sleep   0.3       3ms    00:00:00       0   1 init
+        2        1   4  sleep   1.8       2ms    00:00:00   42.5K   1 dummyfs
+        3        1   2  sleep   3.3       2ms    00:00:00     43K   4 cmsdk-apbuart
+        4        1   4  ready   1.3       2ms    00:00:00   31.5K   1 psh
+(psh)%
+```

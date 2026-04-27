@@ -73,7 +73,7 @@ bool is_valid;      /* compliant, english */
 
 #### PS-GEN-REC-002
 
-Only characters from the standard ASCII range (0x20–0x7E) should be used for names and identifiers.
+Only characters from the standard ASCII range (0x20-0x7E) should be used for names and identifiers.
 
 #### PS-GEN-REC-003
 

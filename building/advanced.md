@@ -50,13 +50,13 @@ The following environment variables affect the build:
 When building for a non-host target, the build system automatically re-executes itself with
 `TARGET=host-generic-pc` to build the host utilities needed for image creation. The following tools are built:
 
-- `metaelf` — ELF metadata embedder
-- `phoenixd` — host communication daemon
-- `psdisk` — disk image tool
-- `psu` — serial uploader
-- `syspagen` — system page generator
-- `mcxisp` — MCX ISP tool
-- `mkrofs` — ROFS image creator
+- `metaelf`  -  ELF metadata embedder
+- `phoenixd`  -  host communication daemon
+- `psdisk`  -  disk image tool
+- `psu`  -  serial uploader
+- `syspagen`  -  system page generator
+- `mcxisp`  -  MCX ISP tool
+- `mkrofs`  -  ROFS image creator
 
 ## Port Manager
 
@@ -66,7 +66,6 @@ Third-party software ports are built using a Python-based port manager tool. The
 python3 -m "port_manager.main"
 ```
 
-Port selection is configured via `ports.yaml` files in each target's `_projects/<target>/` and `_targets/<target>/` directories.
+Port selection is configured via [ports.yaml configuration files](./../ports/ports_yaml.md) in each target's `_projects/<target>/` and
+`_targets/<target>/` directories.
 
-For instructions on how to pick ports to install when building Phoenix-RTOS, see
-{doc}`ports_yaml`.

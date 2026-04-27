@@ -4,7 +4,7 @@ This chapter describes the USB Host stack server and its internal architecture. 
 understand how the USB Host stack manages Host Controller Devices, enumerates USB devices, communicates with device
 drivers, and handles data transfers.
 
-The USB Host stack server — `usb` — provides the generic core functionality, including abstraction of Host Controller
+The USB Host stack server  -  `usb`  -  provides the generic core functionality, including abstraction of Host Controller
 Devices, managing device enumeration, hub management, and communication with device drivers. The USB Host stack is
 accessible to other processes through a port registered at `/dev/usb`.
 
@@ -20,19 +20,21 @@ structure.
 
 The HCD callback interface consists of:
 
-- `init` — initialize the host controller
-- `transferEnqueue` — submit a transfer for processing
-- `transferDequeue` — cancel a queued transfer
-- `pipeDestroy` — destroy a pipe and free resources
-- `getRoothubStatus` — read the root hub port status
+- `init`  -  initialize the host controller
+- `transferEnqueue`  -  submit a transfer for processing
+- `transferDequeue`  -  cancel a queued transfer
+- `pipeDestroy`  -  destroy a pipe and free resources
+- `getRoothubStatus`  -  read the root hub port status
 
 The USB Host stack during initialization first fetches the platform-dependent information on the available HCD instances
 using `hcd_info_t` structure via the `hcd_getInfo()` function. It then matches instances with previously registered HCD
 ops and creates `hcd_t` instances, with which it communicates in terms of scheduling transfers and detecting device
 connection/disconnection.
 
-> **Note:** Device tree-based HCD enumeration is not currently implemented. The `hcd_getInfo()` function with static
-> per-platform registration via GCC constructors is the only supported method.
+```{note}
+Device tree-based HCD enumeration is not currently implemented. The `hcd_getInfo()` function with static
+per-platform registration via GCC constructors is the only supported method.
+```
 
 ## Hubs
 
@@ -60,7 +62,7 @@ intervals.
 
 ### Device Address Allocation
 
-Each device on the USB bus requires a unique address (1–127, per USB 2.0 specification). The USB Host stack allocates
+Each device on the USB bus requires a unique address (1-127, per USB 2.0 specification). The USB Host stack allocates
 addresses using a bitmap-based pool: `uint32_t addrmask[4]` in the `hcd_t` structure (128 bits total). Address 0 is
 reserved for device enumeration. Allocation uses `__builtin_ffsl()` for O(1) lookup of the first available address.
 
@@ -127,14 +129,14 @@ The USB subsystem supports two distinct driver architectures:
 with no IPC overhead. The hub driver uses this path:
 
 ```
-usb_internalDriverInit() → usb_libDrvInit() → direct function calls
+usb_internalDriverInit() -> usb_libDrvInit() -> direct function calls
 ```
 
 **Process drivers** are separate processes that communicate with the USB Host stack via IPC messages. They provide fault
 isolation and use thread pools for concurrent event processing:
 
 ```
-usb_connect() → message registration → usb_driverProcRun() → thread pool
+usb_connect() -> message registration -> usb_driverProcRun() -> thread pool
 ```
 
 #### Process Driver API
@@ -175,7 +177,7 @@ characterized by a direction (in or out) and a type (control, bulk, interrupt, o
 details on a pipe it requests to open. If the USB Host stack finds an endpoint on a given device interface with given
 direction and type, it creates a pipe, allocates an `id` unique in the context of the driver and returns the ID to the
 driver. The driver can then send transfers using this pipe ID. A pipe ID can be thought of as a UNIX-like file
-descriptor — it is a key to communicate with a specific endpoint.
+descriptor  -  it is a key to communicate with a specific endpoint.
 
 ## Transfers
 
@@ -187,7 +189,7 @@ The transfer model differs between the two driver architectures:
 **Linked library drivers** use synchronous transfers:
 
 ```
-usb_transferSubmit(t, pipe, cond) → hcd->ops->transferEnqueue() → condWait()
+usb_transferSubmit(t, pipe, cond) -> hcd->ops->transferEnqueue() -> condWait()
 ```
 
 The calling thread blocks until the transfer completes.
@@ -195,16 +197,16 @@ The calling thread blocks until the transfer completes.
 **Process drivers** use asynchronous transfers:
 
 ```
-usb_msg_urb message → usb_handleUrb() → hcd->ops->transferEnqueue() → usb_msg_completion message
+usb_msg_urb message -> usb_handleUrb() -> hcd->ops->transferEnqueue() -> usb_msg_completion message
 ```
 
 The driver's thread pool receives a `usb_msg_completion` message when the transfer finishes.
 
 In addition to `usb_msg_urb`, process drivers can use `usb_msg_urbcmd` messages for fine-grained control:
 
-- `urbcmd_submit` — submit a URB for processing
-- `urbcmd_cancel` — cancel a pending URB
-- `urbcmd_free` — free URB resources
+- `urbcmd_submit`  -  submit a URB for processing
+- `urbcmd_cancel`  -  cancel a pending URB
+- `urbcmd_free`  -  free URB resources
 
 Transfers are managed with a state machine using reference counting, mutex-protected states
 (idle/ongoing/completed), and condition variables.

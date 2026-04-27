@@ -9,6 +9,9 @@ After reading this chapter, you will know:
 - How to use YAML target filtering to control which targets run each test
 - How test directories are organized in the repository
 
+Tests require a built system image (see [Building](../building/index.md)) running on a target
+(see [Running system on targets](../quickstart/index.md)).
+
 The testing process uses a Phoenix-RTOS testing framework written in Python. The framework provides an environment for
 running both unit and functional tests.
 Unit tests are written using [Unity](http://www.throwtheswitch.org/getting-started-with-unity) and the process is
@@ -630,10 +633,10 @@ The `trunner/` package provides the test execution framework:
 
 | Module | Purpose |
 |--------|---------|
-| `test_runner.py` | Main entry point — iterates over YAML configs, manages test campaigns |
-| `dut.py` | Device Under Test abstraction — wraps pexpect for serial/emulator communication |
-| `ctx.py` | Test context management — tracks state across test runs |
-| `host.py` | Host-side operations — flashing, image management |
+| `test_runner.py` | Main entry point  -  iterates over YAML configs, manages test campaigns |
+| `dut.py` | Device Under Test abstraction  -  wraps pexpect for serial/emulator communication |
+| `ctx.py` | Test context management  -  tracks state across test runs |
+| `host.py` | Host-side operations  -  flashing, image management |
 | `config.py` | YAML configuration loading and validation |
 | `harness/` | Built-in test harnesses (e.g., Unity parser) |
 | `target/` | Target-specific abstractions for different boards and emulators |

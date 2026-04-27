@@ -9,13 +9,8 @@ This chapter describes the Phoenix-RTOS network stack. After reading this chapte
 
 The Phoenix-RTOS network stack is based on LwIP. Following the microkernel architecture philosophy, it runs as a
 user-level server and provides a socket interface. Sockets are implemented using the native Phoenix-RTOS message passing
-mechanism and are placed in the `libphoenix` library.
-
-The source code of the network server can be obtained using the following command:
-
-```shell
-git clone https://github.com/phoenix-rtos/phoenix-rtos-lwip.git
-```
+mechanism and are placed in the `libphoenix` library. The network stack communicates with hardware via
+[Device Drivers](../devices/index.md) and uses kernel [Message passing](../kernel/proc/msg.md) for client requests.
 
 ## Network Interface Types
 

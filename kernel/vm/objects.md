@@ -25,7 +25,7 @@ microkernel.
 
 Process’s address space is constituted by set of mapped objects. In traditional operating system memory objects
 correspond with files or devices (and are identified by `vnode`, `inode` etc.) or with anonymous objects representing
-the dynamically allocated physical memory. There are two strategies for retrieving object data into the process memory –
+the dynamically allocated physical memory. There are two strategies for retrieving object data into the process memory -
 immediate retrieval strategy when object is mapped (e.g. during process start) and lazy on-demand retrieval strategy
 when virtual page is first-time accessed during the runtime.
 

@@ -54,7 +54,10 @@ To communicate with the board you will need to use a UART-USB converter, like `P
     ls -l /dev/serial/by-id
   ```
 
-  ![Image](../_static/images/quickstart/stm32l4x6-ls.png)
+  ```
+  total 0
+  lrwxrwxrwx 1 root root 13 lip 25 14:55 usb-STMicroelectronics_STM32_STLink_066FFF393430533457035332-if02 -> ../../ttyACM0
+  ```
 
 - Open serial port in terminal using picocom
 
@@ -126,7 +129,12 @@ If you encounter errors install manually from sources (v0.12.0):
   openocd -v
   ```
 
-  ![Image](../_static/images/quickstart/openocd-version.png)
+  ```
+  Open On-Chip Debugger 0.11.0-rc2
+  Licensed under GNU GPL v2
+  For bug reports, read
+          http://openocd.org/doc/doxygen/bugs.html
+  ```
 
   </details>
 
@@ -144,7 +152,43 @@ openocd -f interface/stlink.cfg \
 -c "program _boot/armv7m4-stm32l4x6-nucleo/phoenix.disk 0x08000000 verify reset exit"
 ```
 
-![Image](../_static/images/quickstart/stm32l4x6-openocd.png)
+```
+~/phoenix-rtos-project$ openocd -f interface/stlink.cfg -f target/stm32l4x.cfg -c "reset_config srst_only srst_nogate connect_assert_srst" -c "program _boot/armv7m4-stm32l4x6-nucleo/phoenix.disk 0x08000000 verify reset exit"
+Open On-Chip Debugger 0.11.0-rc2
+Licensed under GNU GPL v2
+For bug reports, read
+        http://openocd.org/doc/doxygen/bugs.html
+Info : auto-selecting first available session transport "hla_swd". To override use 'transport select
+  <transport>'.
+Info : The selected transport took over low-level target control. The results might differ compared
+to plain JTAG/SWD
+srst_only separate srst_nogate srst_open_drain connect_assert_srst
+
+Info : clock speed 500 kHz
+Info : STLINK V2J30M19 (API v2) VID:PID 0483:374B
+Info : Target voltage: 3.248358
+Info : stm32l4x.cpu: hardware has 6 breakpoints, 4 watchpoints
+Info : starting gdb server for stm32l4x.cpu on 3333
+Info : Listening on port 3333 for gdb connections
+Info : Unable to match requested speed 500 kHz, using 480 kHz
+Info : Unable to match requested speed 500 kHz, using 480 kHz
+target halted due to debug-request, current mode: Thread
+xPSR: 0x01000000 pc: 0x080003a4 msp: 0x20013a00
+** Programming Started **
+Info : device idcode = 0x20006461 (STM32L49/L4Axx - Rev B : 0x2000)
+Info : flash size = 1024kbytes
+Info : flash mode : dual-bank
+Info : Padding image section 0 at 0x0803bf9c with 4 bytes (bank write end alignment)
+Warn : Adding extra erase range, 0x0803bfa0 .. 0x0803bfff
+** Programming Finished **
+** Verify Started **
+** Verified OK **
+** Resetting Target **
+Info : Unable to match requested speed 500 kHz, using 480 kHz
+Info : Unable to match requested speed 500 kHz, using 480 kHz
+shutdown command invoked
+~/phoenix-rtos-project$
+```
 
 The script can be modified to accommodate other SWD interfaces.
 
@@ -153,7 +197,21 @@ The script can be modified to accommodate other SWD interfaces.
 Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the terminal with the serial port
 opened.
 
-![Image](../_static/images/quickstart/stm32l4x6-start.png)
+```
+Phoenix-RTOS microkernel v. 2.97 rev: 10b7a77
+hal: STM32 ARMv7 Cortex-M4 r0 p1
+hal: softfp, MPU, Thumb
+hal: Using NVIC interrupt controller
+vm: Initializing page allocator 11/320 KB, page_t=12
+vm: Initializing memory mapper: (149*72) 10728
+vm: Initializing kernel memory allocator: (16*48) 768
+vm: Initializing memory objects
+proc: Initializing thread scheduler, priorities=8
+syscalls: Initializing syscall table [102]
+main: Starting syspage programs: 'stm32l4-multi', 'psh'
+multidrv: Started
+(psh)%
+```
 
 - Note: You can also enter plo (Phoenix-RTOS loader) by pressing any button, for example, `enter` within some time after
 reset (using `RESET B2`).
@@ -164,7 +222,41 @@ To get the available command list please type:
 help
 ```
 
-![Image](../_static/images/quickstart/stm32l4x6-help.png)
+```
+(psh)% help
+Available commands:
+  bind      - binds device to directory
+  cat       - concatenate file(s) to standard output
+  date      - print/set the system date and time
+  df        - print filesystem statistics
+  dmesg     - read kernel ring buffer
+  echo      - display a line of text
+  edit      - text editor
+  exec      - replace shell with the given command
+  exit      - exits shell
+  help      - prints this help message
+  history   - prints commands history
+  hm        - health monitor, spawns apps and keeps them alive
+  kill      - terminates process
+  ls        - lists files in the namespace
+  mem       - prints memory map
+  mkdir     - creates directory
+  mount     - mounts a filesystem
+  nc        - TCP and UDP connections and listens
+  nslookup  - queries domain name servers
+  perf      - track kernel performance events
+  ping      - ICMP ECHO requests
+  pm        - process monitor
+  ps        - prints processes and threads
+  reboot    - restarts the machine
+  sync      - synchronizes device
+  sysexec   - launch program from syspage using given map
+  top       - top utility
+  touch     - changes file timestamp
+  uptime    - prints how long the system has been running
+  wget      - downloads a file using http
+(psh)%
+```
 
 To get the list of working processes please type:
 
@@ -172,4 +264,12 @@ To get the list of working processes please type:
 ps
 ```
 
-![Image](../_static/images/quickstart/stm32l4x6-ps.png)
+```
+(psh)% ps
+  PID   PPID  PR  STATE  %CPU    WAIT       TIME    VMEM THR CMD
+    0      0   7  ready  99.5  934.8s   00:04:31    112K   1 [idle]
+    1      0   4  sleep   0.0  733us    00:00:00       0   1 init
+    2      1   1  sleep   0.1   11ms    00:00:01     21K   9 stm32l4-multi
+    3      1   4  ready   0.1  18.8ms   00:00:00   28.5K   1 psh
+(psh)%
+```

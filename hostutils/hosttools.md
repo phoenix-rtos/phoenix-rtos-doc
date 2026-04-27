@@ -2,7 +2,7 @@
 
 This section describes host utilities beyond the three primary tools (phoenixd, psu, psdisk).
 
-## metaelf — ELF Metadata Embedder
+## metaelf  -  ELF Metadata Embedder
 
 Source: `phoenix-rtos-hostutils/metaelf/`
 
@@ -18,10 +18,10 @@ verification.
 
 **Modes:**
 
-- `checkCRC` — verify the CRC of an existing ELF
-- `writeCRC` — compute and embed CRC into the ELF
+- `checkCRC`  -  verify the CRC of an existing ELF
+- `writeCRC`  -  compute and embed CRC into the ELF
 
-## mcxisp — MCX ISP Tool
+## mcxisp  -  MCX ISP Tool
 
 Source: `phoenix-rtos-hostutils/mcxisp/`
 
@@ -41,7 +41,7 @@ using a frame-based protocol with CRC16 checksums.
 
 Flash page operations use 128-byte pages.
 
-## mkrofs — ROFS image creator
+## mkrofs  -  ROFS image creator
 
 Source: `phoenix-rtos-hostutils/mkrofs/`
 
@@ -56,8 +56,8 @@ mkrofs [OPTIONS] <source_directory> <output_image>
 
 **Options:**
 
-- `-m` — select endianness (big or little)
-- `-d` — set maximum directory depth
+- `-m`  -  select endianness (big or little)
+- `-d`  -  set maximum directory depth
 
 **Image format:**
 
@@ -65,7 +65,7 @@ mkrofs [OPTIONS] <source_directory> <output_image>
 - Directory tree with CRC32 checksums
 - Metadata: timestamps, UID/GID, permissions
 
-## syspagen — System page generator
+## syspagen  -  System page generator
 
 Source: `phoenix-rtos-hostutils/syspagen/`
 
@@ -74,14 +74,14 @@ that the kernel reads during startup.
 
 **Supported commands:**
 
-- `alias` — define file aliases
-- `map` — define memory maps
-- `app` — register applications
-- `console` — set console device
+- `alias`  -  define file aliases
+- `map`  -  define memory maps
+- `app`  -  register applications
+- `console`  -  set console device
 
 **Output formats:** syspage32 (32-bit) and syspage64 (64-bit).
 
-## trace — Tracing utilities
+## trace  -  Tracing utilities
 
 Source: `phoenix-rtos-hostutils/trace/`
 
@@ -89,10 +89,10 @@ Collection of Python scripts for collecting and converting trace data from targe
 
 **Components:**
 
-- `collect_rtt_trace.py` — captures RTT (Real-Time Transfer) trace data from the target through OpenOCD
-- `convert.sh` / `rootfs_convert.sh` — conversion pipelines
-- `ctf_to_proto/` — converts Common Trace Format (CTF) to protocol buffers
-- `get_rootfs_offset.sh` — finds the rootfs offset in a firmware image
+- `collect_rtt_trace.py`  -  captures RTT (Real-Time Transfer) trace data from the target through OpenOCD
+- `convert.sh` / `rootfs_convert.sh`  -  conversion pipelines
+- `ctf_to_proto/`  -  converts Common Trace Format (CTF) to protocol buffers
+- `get_rootfs_offset.sh`  -  finds the rootfs offset in a firmware image
 
 ## Common Library
 
@@ -100,7 +100,7 @@ Source: `phoenix-rtos-hostutils/common/`
 
 All host tools share a common library that provides:
 
-- **Serial communication** (`serial.c`) — platform-independent serial port access
-- **HID device access** (`hid.c`) — USB HID communication for SDP protocol
-- **Script parsing** (`script.c`) — SDP/MCUBoot script file parsing
-- **USB communication** (`usb_imx.c`, `usb_vybrid.c`) — platform-specific USB transports
+- **Serial communication** (`serial.c`)  -  platform-independent serial port access
+- **HID device access** (`hid.c`)  -  USB HID communication for SDP protocol
+- **Script parsing** (`script.c`)  -  SDP/MCUBoot script file parsing
+- **USB communication** (`usb_imx.c`, `usb_vybrid.c`)  -  platform-specific USB transports

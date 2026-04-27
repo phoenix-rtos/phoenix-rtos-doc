@@ -21,7 +21,7 @@ that execute write to and read from the cached source memory.
 
 |       Type       | Description | Remarks |
 | ---------------- | ----------- | ------- |
-| `cachectx_t`     | Cache context represents the cache table | Opaque type — can only be accessed and/or modified through/by provided API functions. |
+| `cachectx_t`     | Cache context represents the cache table | Opaque type  -  can only be accessed and/or modified through/by provided API functions. |
 | `cache_devCtx_t` | Device driver context | A cached source memory-specific `struct cache_devCtx_s` definition ought to be supplied by the user. <br><br> Constitutes a part of `cache_ops_t` interface. |
 | `cache_ops_t`    | Cached source memory interface | Mediates between the cache and the cached source memory by providing write (`cache_writeCb_t writeCb`) and read (`cache_readCb_t readCb`) callbacks as well as the device driver context (`cache_devCtx_t ctx`). |
 ```
@@ -51,7 +51,7 @@ typedef ssize_t (*cache_writeCb_t)(uint64_t offset, const void *buffer,
 
 |  Status  | Description | Return value | Remarks |
 | -------- | ----------- | ------------ | ------- |
-| Declared | Write callback — a pointer to a function responsible for writing data to the source memory. The pointer is registered in the cache during a call to `cache_init` function. <br><br> Writes up to `count` bytes from `buffer` under `offset`. <br><br> Utilizes additional device driver context provided in `ctx`. | **On success:** a number of bytes written to the cached source memory <br/><br/> **On failure:** an error number <!-- TODO: write whether errno is set --> | `count` is **always** equal to cache line size. <br><br> A cached source memory-specific implementation ought to be supplied by the user. <br><br> Constitutes a part of `cache_ops_t` interface. |
+| Declared | Write callback  -  a pointer to a function responsible for writing data to the source memory. The pointer is registered in the cache during a call to `cache_init` function. <br><br> Writes up to `count` bytes from `buffer` under `offset`. <br><br> Utilizes additional device driver context provided in `ctx`. | **On success:** a number of bytes written to the cached source memory <br/><br/> **On failure:** an error number <!-- TODO: write whether errno is set --> | `count` is **always** equal to cache line size. <br><br> A cached source memory-specific implementation ought to be supplied by the user. <br><br> Constitutes a part of `cache_ops_t` interface. |
 ```
 
 ### Functions

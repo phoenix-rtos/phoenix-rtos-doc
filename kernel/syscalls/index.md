@@ -26,9 +26,13 @@ The kernel implements 107 system calls organized into the following categories:
 | Process groups | `setpgid`, `getpgid`, `setpgrp`, `setsid` |
 | RISC-V | `sbi_putchar`, `sbi_getchar` |
 
-> **Note:** File I/O and socket syscalls have kernel-level entry points but are routed to user-space servers
-> (e.g., filesystem servers, `lwip`) via message passing. The kernel provides the syscall interface; the actual
-> implementation resides in the server process.
+```{note}
+File I/O and socket syscalls have kernel-level entry points but are routed to user-space servers
+(e.g., filesystem servers, `lwip`) via message passing. The kernel provides the syscall interface; the actual
+implementation resides in the server process.
+```
+
+The C library wrappers for these system calls are documented in [Standard library](../../libc/index.md).
 
 The documented pages below cover the most commonly used syscalls. Refer to the
 [prototypes](prototypes.md) page for a complete list of all syscall signatures.

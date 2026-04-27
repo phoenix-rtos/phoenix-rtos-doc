@@ -55,7 +55,11 @@ Check on which port the board is connected to the computer. To do this, run the 
 ls -l /dev/serial/by-id
 ```
 
-![Image](../_static/images/quickstart/gr765-ls.png)
+```
+total 0
+lrwxrwxrwx 1 root root 13 Jul 10 11:04 usb-Silicon_Labs_CP2105_Dual_USB_to_UART_Bridge_Controller_0109165A-if00-port0 -> ../../ttyUSB1
+lrwxrwxrwx 1 root root 13 Jul 10 11:04 usb-Silicon_Labs_CP2105_Dual_USB_to_UART_Bridge_Controller_0109165A-if01-port0 -> ../../ttyUSB2
+```
 
 In this case, the serial port to use is `/dev/ttyUSB2`. Open the terminal emulator and connect to the board using the
 following command:
@@ -75,4 +79,27 @@ run
 After executing the `run` command, Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the
 terminal.
 
-![Image](../_static/images/quickstart/gr765-start.png)
+```
+Phoenix SBI
+Phoenix-RTOS loader v. 1.21 rev: a98f5e6
+hal: RISC-V 64-bit GR765
+cmd: Executing pre-init script
+console: Setting console to 0.0
+alias: Setting relative base address to 0x0000000000040000
+Waiting for input,     0 [ms]
+Phoenix-RTOS microkernel v. 3.3.2 rev. 4a2dcecc +39
+hal: RISC-V GR765 (fixed-clock) - 1 core
+hal: gaisler,noelv@MHz(rv64imafd+riscv,sv39)
+hal: Using PLIC interrupt controller
+hal: Using hypervisor timer
+vm: Initializing page allocator (4624+0)/524224KB, page_t=32
+vm: [16x]P[47H][12A]HHHH[68K][50A][374H]P[512H]P[86H][129900.]
+vm: Initializing memory mapper: (42908*112) 4805696
+vm: Initializing kernel memory allocator: (32*88) 2816
+vm: Initializing memory objects
+proc: Initializing thread scheduler, priorities=8
+syscalls: Initializing syscall table [102]
+main: Starting syspage programs: 'dummyfs', 'grlib-uart', 'psh'
+dummyfs: initialized
+(psh)%
+```

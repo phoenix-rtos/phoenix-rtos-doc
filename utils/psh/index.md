@@ -103,12 +103,14 @@ Only one interactive session of the `psh` can be run in a scope of a `psh` proce
 spawn a new process, so in order to invoke a second, independent shell user must execute a `psh` binary file.
 See [`exec`](psh-applets/exec.md) or [`/`](psh-applets/runfile.md) for examples.
 
+Applets like `ps` and `top` query process information via [System Calls](../../kernel/syscalls/index.md).
+
 ## Architecture
 
 ### Applet Registration
 
 Each applet registers itself at load time using the `__attribute__((constructor))` GCC extension. This means no
-hardcoded command table is needed — applets self-register when the binary is loaded.
+hardcoded command table is needed  -  applets self-register when the binary is loaded.
 
 ```c
 void __attribute__((constructor)) cat_registerapp(void) {
@@ -121,8 +123,8 @@ void __attribute__((constructor)) cat_registerapp(void) {
 
 Each applet provides two functions:
 
-- `void psh_<cmd>info(void)` — prints a brief description for help output
-- `int psh_<cmd>(int argc, char **argv)` — main entry point
+- `void psh_<cmd>info(void)`  -  prints a brief description for help output
+- `int psh_<cmd>(int argc, char **argv)`  -  main entry point
 
 ### Build-Time Applet Selection
 
@@ -144,8 +146,8 @@ commands to appear as standalone executables in the filesystem.
 
 Some commands listed above are built-in shell functions rather than standalone applets:
 
-- `clear`, `exit`, `reset`, `history` — internal shell commands in `pshapp/`
-- `export`, `unset` — environment management in `pshapp/env.c`
-- `pshlogin` — authentication handler
+- `clear`, `exit`, `reset`, `history`  -  internal shell commands in `pshapp/`
+- `export`, `unset`  -  environment management in `pshapp/env.c`
+- `pshlogin`  -  authentication handler
 
 These are always available regardless of `PSH_COMMANDS` selection.

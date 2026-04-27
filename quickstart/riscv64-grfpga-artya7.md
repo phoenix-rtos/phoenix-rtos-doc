@@ -54,7 +54,10 @@ Check on which port the board is connected to the computer. To do this, run the 
 ls -l /dev/serial/by-id
 ```
 
-![Image](../_static/images/quickstart/grfpga-ls.png)
+```
+total 0
+lrwxrwxrwx 1 root root 13 sie 14 10:37 usb-Digilent_Digilent_USB_Device_210319B7CF39-if01-port0 -> ../../ttyUSB1
+```
 
 In this case, the serial port to use is `/dev/ttyUSB1`. Open the terminal emulator and connect to the board using the
 following command:
@@ -74,4 +77,26 @@ run
 After executing the `run` command, Phoenix-RTOS will be launched and the `psh` shell command prompt will appear in the
 terminal.
 
-![Image](../_static/images/quickstart/grfpga-start.png)
+```
+Phoenix SBI
+Phoenix-RTOS loader v. 1.21 rev: 8326603
+hal: RISC-V 64-bit NOEL-V
+cmd: Executing pre-init script
+console: Setting console to 0.0
+Waiting for input,     0 [ms]
+Phoenix-RTOS microkernel v. 3.2 rev: fa2cb46
+hal: RISC-V NOEL-V 64 bit (fixed-clock) - 1 core
+hal: riscv@MHz(rv64ima_zicbom+riscv,sv39)
+hal: Using PLIC interrupt controller
+hal: Using hypervisor timer
+vm: Initializing page allocator (2544+0)/260096KB, page_t=32
+vm: [512x]P[31H][68K][156H][58A][238H]P[83H][64388.]
+vm: Initializing memory mapper: (15987*112) 1790544
+vm: Initializing kernel memory allocator: (32*88) 2816
+vm: Initializing memory objects
+proc: Initializing thread scheduler, priorities=8
+syscalls: Initializing syscall table [100]
+main: Starting syspage programs: 'dummyfs', 'grlib-uart', 'psh'
+dummyfs: initialized
+(psh)%
+```

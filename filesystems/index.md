@@ -8,14 +8,9 @@ This chapter describes the filesystem servers available in Phoenix-RTOS. After r
 - How pseudo-filesystems provide special device files.
 
 Filesystems in Phoenix-RTOS are implemented as user-space file servers. Each file server is a separate process that
-implements a specific filesystem protocol and registers its port in the namespace during startup. File servers
+implements a specific filesystem protocol and registers its port in the namespace during startup.
+Filesystems register in the kernel namespace; see [Namespace](../kernel/proc/namespace.md). File servers
 communicate with the kernel and other processes using the standard Phoenix-RTOS message passing interface.
-
-The source code of Phoenix-RTOS file servers can be obtained using the following command:
-
-```shell
-git clone https://github.com/phoenix-rtos/phoenix-rtos-filesystems.git
-```
 
 ## Filesystem Comparison
 

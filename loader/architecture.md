@@ -151,12 +151,12 @@ PHFS supports up to 32 file aliases (`SIZE_PHFS_ALIASES`).
 On RISC-V targets, the loader includes a Supervisor Binary Interface (SBI) module at `plo/riscv-sbi/`. This module
 provides the runtime services required by the RISC-V privilege specification. It contains:
 
-- `entry.c` — SBI entry point
-- `core/` — SBI core implementation
-- `devices/` — SBI device drivers
-- `platform/` — platform-specific code
-- `include/` — headers
-- `ld/` — linker scripts
+- `entry.c`  -  SBI entry point
+- `core/`  -  SBI core implementation
+- `devices/`  -  SBI device drivers
+- `platform/`  -  platform-specific code
+- `include/`  -  headers
+- `ld/`  -  linker scripts
 
 ## Syspage
 

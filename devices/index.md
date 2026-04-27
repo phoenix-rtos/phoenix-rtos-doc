@@ -1,4 +1,4 @@
-# Device divers
+# Device drivers
 
 This chapter describes the Phoenix-RTOS device driver architecture. After reading this chapter, you will know:
 
@@ -12,14 +12,11 @@ done via message passing using a well-defined interface for exchanging data betw
 To control a device, two mechanisms are necessary and should be provided by the operating system kernel: access to
 device hardware registers and a method of handling interrupts triggered by the device.
 
+Device drivers communicate with clients through the kernel message passing mechanism described in
+[Message passing](../kernel/proc/msg.md).
+
 Each typical driver creates a communication port, registers it in the namespace, initializes the device, and starts
 processing incoming messages using `msgRecv`/`msgRespond` syscalls.
-
-The source code of Phoenix-RTOS device drivers can be obtained using the following command:
-
-```shell
-git clone https://github.com/phoenix-rtos/phoenix-rtos-devices.git
-```
 
 ## Driver Categories
 

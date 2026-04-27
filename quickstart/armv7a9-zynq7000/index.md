@@ -40,7 +40,7 @@ armv7a9-zynq7000-qemu.md
 
 - Phoenix-RTOS loader does not appear:
   - When booting using SD card: Make sure that a proper `BOOT.bin` file
-  is placed on the card, and that it's in a binary format (right click → properties):
+  is placed on the card, and that it's in a binary format (right click -> properties):
 
   ```{image} ../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-problems-file-type.png
   :align: center
