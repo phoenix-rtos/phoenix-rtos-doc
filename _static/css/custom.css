@@ -21,6 +21,9 @@ html {
     --pst-color-inline-code: var(--pst-color-text-base) !important;
     --pst-color-inline-code-links: var(--pst-color-link) !important;
 
+    --pst-color-link: #ea5b22 !important;
+    --pst-color-primary: #ea5b22 !important;
+
     --pst-font-size-h1: 1.75rem;
     --pst-font-size-h2: 1.5rem;
     --pst-font-size-h3: 1.25rem;
@@ -30,16 +33,12 @@ html {
 }
 
 html[data-theme="light"] {
-    --pst-color-primary: #ea5b22 !important;
-    --pst-color-link: #ea5b22 !important;
     --pst-color-text-base: #273149 !important;
-    --pst-color-link-hover: #e89217 !important;
-    --pst-color-link-hover: black !important;
+    --pst-color-background: white !important;
+    --pst-color-link-hover: #0f1724 !important;
 }
 
 html[data-theme="dark"] {
-    --pst-color-primary: #ea5b22 !important;
-    --pst-color-link: #ea5b22 !important;
     --pst-color-text-base: white !important;
     --pst-color-background: #0f1724 !important;
     --pst-color-link-hover: white !important;
@@ -50,7 +49,6 @@ html[data-theme="dark"] {
 }
 
 .phx-primary {
-  color: var(--pst-color-text-primary);
   font-weight: 600;
 }
 
