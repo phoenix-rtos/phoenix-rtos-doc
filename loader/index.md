@@ -13,5 +13,6 @@ The Phoenix-RTOS loader supports all the target platforms listed in the [Buildin
 
 functionality.md
 architecture.md
+linker.md
 cli.md
 ```

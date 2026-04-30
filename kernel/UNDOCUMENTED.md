@@ -4,6 +4,9 @@ This status file has no open undocumented items after the current source audit.
 
 | Former item | Resolution |
 | --- | --- |
+| Kernel launch and memory layout | Documented in `kernel/launch.md`. |
+| Syspage handoff and build placement variables | Documented in `kernel/launch.md`. |
+| Application ELF loading and heap mapping | Documented in `kernel/launch.md`. |
 | Thread-specific kill | Documented in `kernel/syscalls/signals.md`. |
 | Complete signal subsystem | Documented in `kernel/syscalls/signals.md`. |
 | Thread-local storage | Documented in `kernel/proc/tls.md`. |

@@ -4,6 +4,7 @@ This status file has no open undocumented items after the current source audit.
 
 | Former item | Resolution |
 | --- | --- |
+| PLO linker scripts | `loader/linker.md` documents common, RTT, SBI, and EFI linker scripts. |
 | CLI commands | `loader/cli.md` documents the current registered command inventory. |
 | Device types | `loader/architecture.md` documents all major device types. |
 | RISC-V SBI subsystem | `loader/architecture.md` and `loader/DESIGN.md` document the subsystem role. |

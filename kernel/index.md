@@ -25,6 +25,7 @@ return path.
 ```{toctree}
 :maxdepth: 1
 
+launch.md
 hal/index.md
 proc/index.md
 vm/index.md

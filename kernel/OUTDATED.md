@@ -4,6 +4,7 @@ This status file has no open outdated items after the current source audit.
 
 | Former item | Resolution |
 | --- | --- |
+| Kernel load and placement details | Documented from PLO, kernel, and build sources in `kernel/launch.md`. |
 | Syscall inventory count | Updated in the kernel overview, syscall overview, and syscall prototypes page. |
 | `vfork()` semantics | Documented in `kernel/proc/forking.md` and `kernel/proc/stacks.md`. |
 | Process groups and sessions | Documented in `kernel/syscalls/proc.md` and summarized in `kernel/proc/forking.md`. |
