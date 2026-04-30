@@ -1,6 +1,7 @@
 # USB stack
 
-This chapter covers the Phoenix-RTOS USB subsystem: host stack enumeration and hub management, the linked library and process driver models, USB message protocol, writing drivers with `libusb`, and acting as a USB device with `libusbclient`.
+The Phoenix-RTOS USB subsystem provides a USB host server, process and linked driver models, shared `libusb` driver
+interfaces, and USB client-side support for selected device roles.
 
 Phoenix-RTOS supports both USB host and device (client) roles. As a
 host, the USB stack is implemented as a server called `usb`, which communicates with specific device `drivers`

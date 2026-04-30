@@ -1,10 +1,13 @@
-# Kernel — Design Observations
+# Kernel design observations
 
-## True Microkernel (~20K LoC)
+## Microkernel organization
 
-The kernel delegates file I/O and sockets to external POSIX server. All inter-process communication flows through ports. A single syscall dispatcher routes all 107 syscalls via function pointer table (verified in `phoenix-rtos-kernel/syscalls.c`). Clean separation: `proc/`, `vm/`, `hal/`.
+The kernel delegates file I/O and sockets to user-space servers through the POSIX compatibility layer.
+Inter-process communication flows through ports.
+A single syscall dispatcher routes 103 syscall IDs through a function pointer table generated from `SYSCALLS(ID)`.
+The main implementation areas are `proc/`, `vm/`, `hal/`, `lib/`, `posix/`, and `perf/`.
 
-## Dual-Path Architecture (MMU vs Non-MMU)
+## Dual-path architecture for MMU and non-MMU targets
 
 ```c
 #ifndef NOMMU
@@ -18,14 +21,14 @@ Same API but different internal implementation. Conditional compilation is scatt
 
 ## Priority Scheduling
 
-- 8 priority levels (0–7, lower = higher priority)
+- 8 priority levels (0-7, lower value has higher priority)
 - Preemptive round-robin within each level
-- No priority inheritance mechanism observed — risk of unbounded priority inversion with nested locks
+- No priority inheritance mechanism observed; nested locks need a subject-matter review for inversion risk.
 
 ## Process Lifecycle with Reaper Pattern
 
 ```
-Process exit → GHOST thread state → Reaper thread cleanup → SIGCHLD to parent
+Process exit -> GHOST thread state -> Reaper thread cleanup -> SIGCHLD to parent
 ```
 
 Dedicated reaper thread handles zombie cleanup. Parent must reap children via signal handling.
@@ -48,13 +51,15 @@ Spinlocks (active waiting, HAL-level)
 
 ## Resource Handle Model
 
-Unified handle namespace: mutexes, conditions, and ports share `idtree_t`. Per-process tracking via `process_t.resources`. Automatic cleanup on process exit destroys all handles.
+Unified handle namespace: mutexes, conditions, and ports share `idtree_t`.
+Per-process tracking uses `process_t.resources`.
+Automatic cleanup on process exit destroys all handles.
 
 ## Hardware Context Switching
 
-- Full `cpu_context_t` saved on kernel stack during interrupt/exception
+- Full `cpu_context_t` saved on kernel stack during interrupt or exception
 - Scheduler picks new thread; `pmap_switch()` updates MMU on process switch
-- No assembly in scheduler itself — context switching is entirely within HAL
+- No assembly in scheduler itself; context switching is entirely within HAL.
 
 ## Message Buffer Optimization
 
@@ -75,7 +80,7 @@ Unified handle namespace: mutexes, conditions, and ports share `idtree_t`. Per-p
 - Process-level: `sighandler` function pointer, process-wide `sigpend`/`sigmask`
 - Thread-level: per-thread `sigmask` and `sigpend`
 - `sys_tkill` can deliver signals to specific threads
-- Signal delivery is not preemptive — checked from pending mask
+- Signal delivery is not preemptive; pending masks are checked at defined kernel return points.
 
 ## Kernel Stack Per-Thread
 

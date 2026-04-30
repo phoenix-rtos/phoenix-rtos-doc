@@ -1,6 +1,7 @@
 # Loader (plo)
 
-This chapter covers the Phoenix-RTOS bootloader (plo): hardware preparation, kernel loading, CLI commands, supported device types, the PHFS filesystem abstraction, and internal limits.
+The Phoenix-RTOS loader (PLO) prepares hardware, builds the syspage, and loads the kernel and initial programs before
+control is transferred to Phoenix-RTOS.
 
 The bootloader prepares the system setup structure and loads the kernel and applications into memory areas
 (maps). Its configuration allows customizing functionality to match available hardware resources.

@@ -24,12 +24,14 @@ The following limits apply to CLI usage:
 
 ## Commands
 
-The following commands are available in PLO. Some commands are available only on specific target platforms.
+The source tree registers 35 user commands in `plo/cmds/`.
+Some commands are available only on specific target platforms because each target selects a `PLO_COMMANDS` set.
 
 ### Core Boot Commands
 
 * `alias` - sets alias to file, usage: `alias [<name> <offset> <size>]`
 * `app` - loads app, usage: `app [<dev> [-x] <name> <imap1;imap2...> <dmap1;dmap2...>]`
+* `bankswitch` - switches an active storage bank on platforms that implement bank switching
 * `console` - sets console to device, usage: `console <major.minor>`
 * `copy` - copies data between devices, usage: `copy <src dev> <file/offs size> <dst dev> <file/offs size>`
 * `go!` - starts Phoenix-RTOS loaded into memory
@@ -77,3 +79,21 @@ The following commands are available in PLO. Some commands are available only on
 Commands use a linker-section-based plugin system. Each command registers itself at load time using
 `__attribute__((constructor))` and is placed in the `.commands` section, bounded by `__cmd_start`/`__cmd_end` anchors.
 Each platform selects its command set via the `PLO_COMMANDS` variable in its `Makefile`.
+
+## PHFS command and limits
+
+The `phfs` command maps a short alias to a `major.minor` device and protocol:
+
+```text
+phfs <alias> <major.minor> [protocol]
+```
+
+Supported protocols are `raw` and `phoenixd`.
+When the protocol is omitted, the source code selects `raw`.
+
+| Limit | Source value | Effect |
+| --- | --- | --- |
+| Device handlers | `SIZE_PHFS_HANDLERS = 8` | Maximum registered PHFS devices. |
+| File aliases | `SIZE_PHFS_ALIASES = 32` | Maximum aliases created with `alias`. |
+| Device alias storage | `char alias[8]` | Alias text is truncated to fit the field. |
+| File alias storage | `char alias[34]` | File alias text is stored in the PHFS file table. |

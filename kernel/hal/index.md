@@ -36,7 +36,7 @@ The low-level kernel initialization is based on `syspage_t` structure. This stru
 process by the operating system loader.  It is stored in physical memory at the address chosen by the loader.
 The `syspage_t`definition depends on the hardware architecture and provides information like physical memory maps,
 interrupts tables,
-preloaded user application, etc. It should be treated as the main structure used for operating system configuration.
+preloaded user application, etc. It is the main structure used for operating system configuration.
 
 ## Spinlocks
 
@@ -53,8 +53,8 @@ value from memory indicates the lock the operation is repeated.
 
 The console is used for presenting kernel messages until the first process and terminal drivers are started. It is
 typically based on UART, but it can use other display devices (on IA32 there is a console based on a VGA
-graphics adapter and keyboard). The console should work from the early boot stage, and therefore it should be kept as
-simple as possible and should use no interrupts and other HAL mechanisms.
+graphics adapter and keyboard). The console works from the early boot stage, stays minimal, and uses no interrupts or
+other HAL mechanisms.
 
 ## String functions
 
@@ -66,7 +66,7 @@ references.
 ## MMU or MPU management
 
 HAL is responsible for the lowest part of the memory management subsystem - `pmap`. This layer provides functions used
-for controlling the MMU or MPU. When no memory control units are available these functions should be empty.
+for controlling the MMU or MPU. When no memory control units are available, these functions are empty.
 
 ## Exception and interrupts
 
@@ -107,6 +107,8 @@ Context is described using `cpu_contex_t` structure.
 ```{toctree}
 :maxdepth: 1
 
+dtb.md
+multicore.md
 aarch64.md
 armv7m.md
 armv7r.md

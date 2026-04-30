@@ -8,7 +8,8 @@ applications.
 
 Host side device drivers:
 
-* [USB Mass Storage class driver](https://github.com/phoenix-rtos/phoenix-rtos-devices/blob/master/storage/umass/umass.c)
+* USB Mass Storage class driver:
+	[umass.c](https://github.com/phoenix-rtos/phoenix-rtos-devices/blob/master/storage/umass/umass.c)
 * [USB CDC ACM class driver](https://github.com/phoenix-rtos/phoenix-rtos-devices/blob/master/tty/usbacm/usbacm.c)
 
 Client side applications:
@@ -42,3 +43,33 @@ constants assigned to USB human interface device based on the USB standard. It c
 communication.
 * [**hid_client.h**](https://github.com/phoenix-rtos/phoenix-rtos-usb/blob/master/libusb/include/hid_client.h) -
 functions used by applications that need to make a Phoenix-RTOS device act as a USB HID device.
+
+## Process driver API
+
+`usbprocdriver.h` provides `usb_driverProcRun()` for process drivers.
+The function initializes the driver, discovers the USB host server, registers the driver, creates a driver port, and
+spawns a worker pool for insertion, deletion, and completion messages.
+It does not return.
+
+Drivers provide handlers through `usb_driver_t.handlers`:
+
+| Handler | Input | Effect |
+| --- | --- | --- |
+| `insertion` | `usb_devinfo_t` | Creates device resources and can return `usb_event_insertion_t`. |
+| `deletion` | `usb_deletion_t` | Removes resources for a detached device or interface. |
+| `completion` | `usb_completion_t` and optional data buffer | Handles asynchronous URB completion. |
+
+## Device info API
+
+`usb_devinfoGet(oid_t oid, usb_devinfo_desc_t *desc)` queries the USB host server for descriptor information.
+The helper blocks in `usb_hostLookup()` until `/dev/usb` or `devfs/usb` is available.
+It returns a negative error from `msgSend()` or from the host response, and returns `0` on success.
+
+`usb_devinfo_desc_t` contains the device descriptor and bounded manufacturer, product, and serial-number strings.
+
+## Modeswitch helpers
+
+`usb_modeswitchFind()` searches an array of `usb_modeswitch_t` entries by vendor ID and product ID.
+`usb_modeswitchHandle()` opens control, bulk IN, and bulk OUT pipes, sets configuration `1`, and sends the mode switch
+message over the bulk OUT pipe.
+It returns `0` on success and `-EINVAL` on open, configuration, or transfer failure.

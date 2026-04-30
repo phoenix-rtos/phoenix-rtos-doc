@@ -26,6 +26,17 @@ GETFROMSTACK(ustack, oid_t *, oid, 2);
 
 Registers `port` in the namespace at `name` and returns object identifier `oid` identifying this association.
 
+## `syscalls_portUnregister` (`syscalls_sys_portUnregister`)
+
+```c
+GETFROMSTACK(ustack, const char *, name, 0U);
+```
+
+Removes a name-to-port association from the kernel name cache.
+`proc_portUnregister()` returns `-ENOENT` when the name is not registered.
+For a registered name, it removes the cache entry under the name cache lock, frees the entry, and returns `EOK`.
+It does not destroy the port object and does not flush messages queued on that port.
+
 ## `syscalls_msgSend`
 
 ````C
@@ -67,10 +78,4 @@ GETFROMSTACK(ustack, oid_t *, dev, 2);
 Lookups for object identifier (`port` and resource `id`) associated with `name`. Object identifier representing file is
 returned in `file` variable. If file is associated with other object the other object ID is returned in `dev`.
 
-## `syscalls_signalHandle`
-
-## `syscalls_signalPost`
-
-## `syscalls_signalMask`
-
-## `syscalls_signalSuspend`
+Signal syscalls are documented in [Signal syscalls](signals.md).

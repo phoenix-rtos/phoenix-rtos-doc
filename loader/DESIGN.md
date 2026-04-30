@@ -1,46 +1,52 @@
-# Loader (PLO) — Design Observations
+# Loader design observations
 
-## Flexible Subsystem Architecture
+## Flexible subsystem architecture
 
-6 subsystems (Cmds, Devices, HAL, Lib, PHFS, riscv-sbi) with clean separation. New platforms only require HAL implementation. The approach mirrors the kernel's portability strategy.
+The loader is organized around `cmds`, `devices`, `hal`, `lib`, `phfs`, `riscv-sbi`, and `syspage`.
+New platforms primarily add HAL and device implementations while reusing the command and PHFS layers.
 
-## Dynamic Command Registration
+## Dynamic command registration
 
-No hardcoded command table. Uses custom linker section `.commands` with `__cmd_start`/`__cmd_end` anchors. Commands register via constructor attributes. This allows platform-specific commands to be included/excluded at link time.
+Commands live in the `.commands` linker section and are bounded by `__cmd_start` and `__cmd_end`.
+The target `PLO_COMMANDS` selection controls which command objects are linked.
 
-## Device Major.Minor Identification
+## Device major and minor identification
 
-9 major device types (UART, USB, STORAGE, TTY, RAM, NAND_DATA, NAND_META, NAND_RAW, PIPE) with minor numbers for instances. This grew from the original 4-type design, indicating scope expansion over time.
+PLO uses 9 major device types and 16 minor slots per major.
+The major identifies the device class, and the minor identifies the instance assigned at initialization.
 
-## PHFS Protocol Abstraction
+## PHFS protocol abstraction
 
 File access layer decouples bootloader logic from device/protocol details:
-- "raw" protocol for direct device access
-- "phoenixd" protocol for host communication
+- `raw` protocol for direct device access
+- `phoenixd` protocol for host communication
 - Aliases map logical names to device+protocol pairs
 
-## PLO Script Mechanism
+## PLO script mechanism
 
 Two-level configuration:
-1. `preinit.plo.yaml` — target-level baseline configuration
-2. `user.plo.yaml` — project-level overrides
+1. `preinit.plo.yaml`: target-level baseline configuration
+2. `user.plo.yaml`: project-level overrides
 
-Scripts are generated during build and embedded in the bootloader binary via `.data` section patching. This allows per-board boot sequences without recompiling the bootloader.
+Scripts are generated during build and embedded in the bootloader binary through `.data` section patching.
+This allows per-board boot sequences without recompiling the bootloader.
 
-## Scope Evolution
+## Loader scope
 
-PLO has expanded from a simple bootloader to include:
+PLO includes boot preparation, diagnostics, storage maintenance, and hardware setup commands:
 - **Diagnostics**: `mem`, `test-dev`, `devices`, `lspci`
 - **Administration**: `otp`, `watchdog`, `erase`, `reboot`
 - **Configuration**: `ptable`, `jffs2` cleanmarkers
 - **Hardware setup**: `vbe` (graphics), `bridge` (serial mux), `bankswitch`
 
-This scope creep is intentional for embedded systems that need hardware management capabilities before the OS boots.
+These capabilities are used before the operating system starts.
 
-## 33+ Platform-Specific Device Drivers
+## Platform-specific device drivers
 
-The PLO includes its own device driver collection (separate from the kernel's), covering UART, flash, storage, GPIO, and specialized interfaces. This duplication is necessary because PLO runs before the kernel and cannot use kernel drivers.
+PLO includes its own device driver collection for UART, flash, storage, GPIO, USB CDC, and specialized interfaces.
+The loader runs before the kernel, so it cannot use kernel drivers.
 
-## RISC-V SBI Integration
+## RISC-V SBI integration
 
-The `riscv-sbi` module provides hardware abstraction specific to RISC-V platforms, bridging the bootloader to SBI firmware (OpenSBI or equivalent). This is architecturally significant but completely undocumented.
+The `riscv-sbi` module provides RISC-V firmware services, HART coordination, exceptions, interrupts, timer support,
+FDT parsing, and console drivers for RISC-V loader targets.

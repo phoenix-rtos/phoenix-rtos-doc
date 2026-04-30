@@ -1,10 +1,10 @@
 # Architecture
 
-The Phoenix-RTOS loader is a self-sufficient application which does not use any of the external libraries.
+The Phoenix-RTOS loader is a self-sufficient application that does not use external libraries.
 
-It only includes common syspage's header files from phoenix-rtos-kernel.
+It includes common syspage headers from `phoenix-rtos-kernel`.
 
-Plo is divided into the following subsystems:
+PLO is divided into the following subsystems:
 
 * cmds - command-line interface
 
@@ -22,7 +22,9 @@ Plo is divided into the following subsystems:
 
 ## Cmds
 
-Each of the commands has to implement interface defined in `cmds/cmd.h` and be registered using constructor invocation.
+Each command implements the `cmd_t` interface defined in `cmds/cmd.h`.
+Commands are placed in the `.commands` linker section and discovered at runtime through `__cmd_start` and `__cmd_end`.
+The source tree currently contains 35 registered user commands in `plo/cmds/`.
 
 There is a flexibility of defining command setups for each platform. The targets define their own set of commands in
 `PLO_COMMANDS` variable in a `Makefile` file.
@@ -50,6 +52,16 @@ instance and is assigned dynamically. However, the major numbers are static and 
 | 8 | `DEV_PIPE` | Inter-module data pipe |
 
 The device subsystem supports up to 9 major types × 16 minor instances.
+
+Device drivers expose a `dev_ops_t` table with `sync`, `map`, `control`, `read`, `write`, and `erase` callbacks.
+The generic control operations are:
+
+| Operation | Purpose |
+| --- | --- |
+| `DEV_CONTROL_SETBAUD` | Set device baud rate. |
+| `DEV_CONTROL_GETBAUD` | Read device baud rate. |
+| `DEV_CONTROL_GETPROP_TOTALSZ` | Read total device size. |
+| `DEV_CONTROL_GETPROP_BLOCKSZ` | Read device block size. |
 
 Each platform defines its own set of drivers in a `Makefile` file. The loader includes over 60 device driver source
 files in `plo/devices/` covering UART (16550, cmsdk-apb, grlib, imx6ull, imxrt, zynq, and more), flash/storage
@@ -90,8 +102,8 @@ PLLs, external memory controllers like DDR and preparing other crucial component
 
 Console is used for presenting plo messages until the device driver for the console is initialized. It is typically
 based on UART, but it can use other display devices (on IA32 there is a console based on VGA graphics adapter and
-keyboard). Initially, the console should be kept as simple as possible, so it works from the early boot stage. It
-does not use interrupts or other HAL mechanisms, nor allow the loader to read data.
+keyboard). Initially, the console stays minimal so it works from the early boot stage.
+It does not use interrupts or other HAL mechanisms, nor allow the loader to read data.
 
 ### Strings
 
@@ -145,6 +157,8 @@ To use a device in the phoenix filesystem, assign an alias to a dedicated `major
 identification of the device with an appropriate protocol type, for example: `phfs usb0 1.0 phoenixd`.
 
 PHFS supports up to 32 file aliases (`SIZE_PHFS_ALIASES`).
+It supports up to 8 registered device handlers (`SIZE_PHFS_HANDLERS`).
+Device aliases are stored in an 8-byte field, and file aliases are stored in a 34-byte field.
 
 ## RISC-V SBI
 
@@ -158,10 +172,13 @@ provides the runtime services required by the RISC-V privilege specification. It
 - `include/` - headers
 - `ld/` - linker scripts
 
+The module implements cold and warm SBI entry paths, core exception and interrupt handling, HART coordination, CLINT
+timer and IPI support, UART console drivers, platform support, and FDT parsing for RISC-V targets.
+
 ## Syspage
 
 Low-level kernel initialization is based on `syspage_t` structure. This structure is prepared during the bootstrap
 process by the loader. It is stored on the physical memory at the address above the stack memory. The `syspage_t`
 definition consists of the generic part which is common to all architectures and the hardware architecture dependent
 data. Syspage provides information like physical memory maps, interrupts tables, preloaded user applications and data
-for specific architecture. It should be treated as the main structure used for operating system configuration.
+for specific architecture. It is the main structure used for operating system configuration.

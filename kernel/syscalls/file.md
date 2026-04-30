@@ -149,6 +149,16 @@ GETFROMSTACK(ustack, const char *, filename, 0);
 GETFROMSTACK(ustack, const struct timeval *, times, 1);
 ````
 
+## `syscalls_fileFutureTimes` (`syscalls_sys_futimens`)
+
+```c
+GETFROMSTACK(ustack, int, fildes, 0U);
+GETFROMSTACK(ustack, const struct timespec *, times, 1U);
+```
+
+Updates file timestamps for an open file descriptor through `posix_futimens()`.
+When `times` is not `NULL`, the handler verifies that the pointer belongs to the calling process map.
+
 ## `syscalls_filePoll` (`syscalls_sys_poll`)
 
 ````C
@@ -156,3 +166,6 @@ GETFROMSTACK(ustack, struct pollfd *, fds, 0);
 GETFROMSTACK(ustack, nfds_t, nfds, 1);
 GETFROMSTACK(ustack, int, timeout_ms, 2);
 ````
+
+Polls file descriptors through `posix_poll()`.
+The handler verifies that the `pollfd` array belongs to the calling process map before dispatching the request.

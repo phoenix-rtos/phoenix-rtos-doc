@@ -1,6 +1,7 @@
-# USB Host stack
+# USB host stack
 
-This chapter covers the USB Host stack server's internal architecture: Host Controller Device management, USB device enumeration, driver communication, and data transfers.
+The USB host stack server manages Host Controller Devices (HCDs), USB device enumeration, hubs, driver binding,
+message-based driver communication, and transfer scheduling.
 
 The USB Host stack server - `usb` - provides the generic core functionality, including abstraction of Host Controller
 Devices, managing device enumeration, hub management, and communication with device drivers. The USB Host stack is
@@ -11,18 +12,20 @@ accessible to other processes through a port registered at `/dev/usb`.
 The USB Host stack allows using different types and multiple instances of HCDs. It provides generic types `hcd_t` and
 `hcd_ops_t`. Specific drivers for different types of HCDs such as `ehci`, `ohci` etc. are a part of the
 `phoenix-rtos-devices` repository in the form of a static library named, e.g. `libusbehci`. When building the USB Host
-stack, one should set the environmental variable `USB_HCD_LIBS` to an appropriate value denoting host controllers
-available on the platform. Each Host Controller driver library should register its `hcd_ops_t` instance using a GCC
+stack, set the environmental variable `USB_HCD_LIBS` to the host controllers available on the platform.
+Each Host Controller driver library registers its `hcd_ops_t` instance using a GCC
 constructor. It allows the USB Host stack to communicate with an HCD driver using callbacks within a `hcd_ops_t`
 structure.
 
 The HCD callback interface consists of:
 
-- `init` - initialize the host controller
-- `transferEnqueue` - submit a transfer for processing
-- `transferDequeue` - cancel a queued transfer
-- `pipeDestroy` - destroy a pipe and free resources
-- `getRoothubStatus` - read the root hub port status
+| Callback | Purpose | Return or effect |
+| --- | --- | --- |
+| `init` | Initialize the host controller instance. | Returns `0` on success or a negative error. |
+| `transferEnqueue` | Submit a transfer for processing. | Returns `0` on enqueue success or a negative error. |
+| `transferDequeue` | Cancel a queued transfer. | No return value. |
+| `pipeDestroy` | Destroy controller-private pipe resources. | No return value. |
+| `getRoothubStatus` | Read root hub port status. | Returns a controller-specific port status bitmap. |
 
 The USB Host stack during initialization first fetches the platform-dependent information on the available HCD instances
 using `hcd_info_t` structure via the `hcd_getInfo()` function. It then matches instances with previously registered HCD
@@ -58,11 +61,48 @@ Hub enumeration uses the following timing parameters (defined in `usb/hub.c`):
 After connection is detected, the hub resets the port and polls for reset completion with up to 5 retries at 100 ms
 intervals.
 
+### Hub interrupt transfer
+
+The hub driver opens an interrupt IN pipe for each hub with `hub_interruptInit()`.
+It allocates a status transfer buffer sized to `(nports / 8) + 1`, stores the transfer in `hub->statusTransfer`, and
+submits it with `hub_requestStatus()`.
+When an interrupt transfer completes with data, `usb_transferFinished()` calls `hub_notify()`.
+The hub thread then reads port status, clears change bits, debounces connections, and starts enumeration or removal.
+
+### Port status and feature flags
+
+The port status fields are defined in `usb/hub.h`.
+
+| Group | Flags |
+| --- | --- |
+| Status bits | `CONNECTION`, `ENABLE`, `SUSPEND`, `OVERCURRENT`, `RESET`, `POWER` |
+| Speed and test bits | `LOW_SPEED`, `HIGH_SPEED`, `TEST`, `INDICATOR` |
+| Change bits | `C_CONNECTION`, `C_ENABLE`, `C_SUSPEND`, `C_OVERCURRENT`, `C_RESET` |
+| Feature codes | Connection, enable, suspend, overcurrent, reset, power, test, and indicator controls |
+
+The hub code clears change bits with `hub_clearPortFeatures()` after reading port status.
+
 ### Device Address Allocation
 
 Each device on the USB bus requires a unique address (1-127, per USB 2.0 specification). The USB Host stack allocates
 addresses using a bitmap-based pool: `uint32_t addrmask[4]` in the `hcd_t` structure (128 bits total). Address 0 is
 reserved for device enumeration. Allocation uses `__builtin_ffsl()` for O(1) lookup of the first available address.
+
+### Device tree and speed
+
+Each USB device stores a parent pointer, a port number on the parent hub, and a child array when the device is a hub.
+The fields are `hub`, `port`, `devs`, and `nports` in `usb_dev_t`.
+This structure represents the USB tree rooted at an HCD root hub.
+
+Device speed is stored as `usb_full_speed`, `usb_low_speed`, or `usb_high_speed` in `usb_dev_t.speed`.
+The hub and enumeration paths set this value from port status and descriptor handling.
+
+### Configuration limit
+
+The current enumeration path reads the first configuration descriptor and stores one `usb_configuration_desc_t` pointer
+per device.
+The source contains a `TODO` for multiple-configuration devices, so devices that depend on alternate configurations
+need a subject-matter review before they are treated as fully supported.
 
 ## Message Protocol
 
@@ -79,6 +119,17 @@ Drivers communicate with the USB Host stack using a message-based protocol. The 
 | `usb_msg_urbcmd` | URB control operations: submit, cancel, or free |
 | `usb_msg_completion` | Transfer completion notification |
 | `usb_msg_devdesc` | Query device descriptor information |
+
+The structured payloads include:
+
+| Message | Key payload fields |
+| --- | --- |
+| `usb_msg_connect` | Driver port, filter count, and driver name. |
+| `usb_msg_open` | Bus, device, interface, location ID, transfer type, and direction. |
+| `usb_msg_urb` | Pipe ID, transfer size, setup packet, direction, transfer type, and sync flag. |
+| `usb_msg_urbcmd` | Pipe ID, URB ID, transfer size, setup packet, and `submit`, `cancel`, or `free` command. |
+| `usb_msg_completion` | Pipe ID, URB ID, transferred byte count, and error code. |
+| `usb_msg_devdesc` | Object identifier for descriptor lookup through `/dev/usb`. |
 
 ## Drivers
 
@@ -119,6 +170,13 @@ but the host stack chooses the most *specific* one to bind the interface to. The
 It is the driver's responsibility to create ports to give other processes access to resources of a particular
 device, e.g. `/dev/umass0`, `/dev/umass1`, `/dev/usbacm0`, etc.
 
+The comparison algorithm requires every non-`USBDRV_ANY` filter field to match.
+For class, subclass, and protocol matching, the code checks device descriptor fields first and falls back to interface
+descriptor fields when the device descriptor field is zero.
+The best numerical match score wins.
+When two drivers have the same score, the first registered driver keeps the match because later equal scores do not
+replace `best`.
+
 ### Two Driver Models
 
 The USB subsystem supports two distinct driver architectures:
@@ -149,6 +207,18 @@ __attribute__((noreturn)) void usb_driverProcRun(usb_driver_t *driver,
 This function spawns a thread pool of `nthreads` threads at priority `prio`. The threads handle `usb_msg_insertion`,
 `usb_msg_deletion`, and `usb_msg_completion` events concurrently. This function does not return.
 
+The function first calls `driver->ops.init(driver, args)`.
+It then blocks in `usb_hostLookup()` until `/dev/usb` or `devfs/usb` is registered, creates a driver port, sends a
+`usb_msg_connect` message, and starts worker threads.
+Each extra worker gets a `USB_UMSG_STACKSIZE` stack, which defaults to 2048 bytes.
+The calling thread enters the same event loop after its priority is set.
+Initialization failures call `exit(1)`.
+
+Insertion handlers return an error in `msg.o.err`.
+When insertion succeeds, the handler can fill `usb_event_insertion_t`, which is copied to `msg.o.raw`.
+Deletion and completion handlers are called for their side effects, and the worker responds to the host after the
+handler returns.
+
 The process driver initialization sequence is:
 
 1. Call `usb_hostLookup()` to discover `/dev/usb` (blocks until the Host stack is available).
@@ -166,6 +236,9 @@ int usb_devinfoGet(oid_t oid, usb_devinfo_desc_t *desc);
 
 The function blocks until `/dev/usb` becomes available, making it safe to call early in
 process startup before the USB Host stack has finished initialization.
+
+The response is written to `usb_devinfo_desc_t`.
+It contains the USB device descriptor and bounded strings for manufacturer, product, and serial number.
 
 ## Pipes
 
@@ -208,3 +281,22 @@ In addition to `usb_msg_urb`, process drivers can use `usb_msg_urbcmd` messages 
 
 Transfers are managed with a state machine using reference counting, mutex-protected states
 (idle/ongoing/completed), and condition variables.
+
+### Transfer lifecycle
+
+The host stack uses three URB states: `urb_idle`, `urb_ongoing`, and `urb_completed`.
+Asynchronous URBs are allocated first and inserted into the driver URB ID tree with a reference count of 1.
+`urbcmd_submit` moves an idle URB to `urb_ongoing` and hands one reference to the HCD.
+`usb_transferFinished()` marks the transfer finished, stores either the transferred byte count or error code, moves URB
+transfers to `urb_completed`, and signals the finished-transfer condition.
+
+For process drivers, completion is delivered with `usb_msg_completion`.
+For linked library drivers, synchronous paths wait on a condition variable passed to `usb_transferSubmit()`.
+`urbcmd_cancel` calls the HCD dequeue operation, and `urbcmd_free` releases URB resources when references allow it.
+
+### String descriptor caching
+
+Enumeration reads string descriptor `0` to select a language ID and stores it in `usb_dev_t.langId`.
+Manufacturer, product, serial number, and interface strings are cached as `usb_lenStr_t` values.
+If string descriptors are missing or a string fetch fails, the device code installs fallback strings such as `Generic`,
+`Unknown`, or a class-derived product name.

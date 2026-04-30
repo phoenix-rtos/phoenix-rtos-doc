@@ -35,5 +35,6 @@ zalloc.md
 kmalloc.md
 objects.md
 protection.md
+flags.md
 subsystem.md
 ```
