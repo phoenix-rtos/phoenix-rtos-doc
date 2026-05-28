@@ -1,33 +1,52 @@
 # Fine-grained allocator
 
-Fine-grained allocator implemented by `vm_kmalloc()` function is the main method of dynamic memory allocation used by
-the Phoenix-RTOS kernel. The operating system kernel uses dynamic data structures to manage dynamic data structures
-created during the operating system runtime (e.g. process descriptors, threads descriptors, ports). Size of these
-structures varies from few bytes to tens of kilobytes. The allocator can allocate either the group of memory pages and
-manage the fragments allocated within the page.
+`vm_kmalloc()` is the main dynamic allocator used by the kernel. It allocates variable-size objects by routing requests
+to zone allocators grouped by power-of-two size classes.
 
-## Architecture
+Typical users include process, thread, port, and VM metadata allocation.
 
-Fine-grained allocator is based on zone allocator. The architecture is presented on the following picture.
+## Allocation model
 
-Main allocator data structure is `sizes[]` table. Table entries point to list of zone allocators consisting of fragments
-with sizes proportional to the entry number. Fragments have sizes equal to `2^e` where `e` is the entry number.
+The allocator keeps size-class lists. For a requested size, it selects the smallest power-of-two class that can hold the
+object. Allocation then uses the first zone in that class. If no zone has a free block, the allocator creates a new zone
+and adds it to the class list and address-index tree.
 
-## Memory allocation
+When a zone becomes full, it is removed from the free-zone list for that class. When a block is freed, the allocator
+finds the owning zone by address and returns the block to that zone. Empty zones can be destroyed so their backing pages
+return to the page allocator.
 
-The first step of the allocation process is the calculation of entry number. The best fit strategy is used, so the
-requested size is rounded to the nearest power of two. After calculating the entry number the fragment is allocated
-from the first zone associated with the entry number.
+## API
 
-If the selected entry is empty and there are no empty zones associated with the entry, the new zone is created and added
-to the list. New zone is added either to `sizes[]` table and to the zone RB-tree. The zone RB-tree is used to find the
-proper zone when a fragment is released.
+```{function} void *vm_kmalloc(size_t sz)
 
-If the allocated fragment is the last free fragment from the zone, the zone is removed from the entry zone list and is
-linked with the used zones list.
+Allocates a kernel memory block.
 
-## Memory deallocation
+:param sz: Requested size in bytes.
+:returns: Kernel virtual address of the allocated block, or `NULL` when allocation fails.
+```
 
-When fragment is deallocated the first step is to find proper zone based on its virtual address. The zone RB-tree is
-searched. When zone is established the fragment is released using `vm_zfree()` call and returned to the zone. When zone
-is empty it is released and allocated memory is returned to the operating system pool.
+```{function} void vm_kfree(void *p)
+
+Frees a block previously allocated with `vm_kmalloc()`.
+
+:param p: Pointer returned by `vm_kmalloc()`.
+```
+
+```{function} void vm_kmallocGetStats(size_t *allocsz)
+
+Returns allocator statistics.
+
+:param allocsz: Output total memory allocated by kmalloc zones.
+```
+
+```{function} void vm_kmallocDump(void)
+
+Prints allocator debug information.
+```
+
+```{function} int _kmalloc_init(void)
+
+Initializes the kernel allocator.
+
+:returns: `EOK` on success or a negative error code.
+```

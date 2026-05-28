@@ -1,40 +1,21 @@
-# Core Libraries Documentation — Outdated Points
+# Core libraries documentation outdated points
 
-## 1. libswdg.md Typo
+## Resolved points
 
-**Documentation:** Example code at `corelibs/libswdg.md` line 78 shows `swdg_reaload(0)`.
+`libswdg.md` typo
+: `corelibs/libswdg.md` now uses `swdg_reload(0)` and documents the API with function directives.
 
-**Current code:** The function is `swdg_reload(0)` — see `phoenix-rtos-corelibs/libswdg/swdg.h` line 22 and `swdg.c` line 94.
+`libcache.md` open questions
+: `corelibs/libcache.md` now documents the library type, callback error handling, `cache_deinit()` return values, and
+  the API with function directives.
 
-**Recommendation:** Fix the typo on line 78 from `swdg_reaload(0)` to `swdg_reload(0)`.
+`libvga.md` API coverage
+: `corelibs/libvga.md` now documents public register access, state save and restore, and mode initialization functions
+  from `<vga.h>`.
 
----
+## Open points
 
-## 2. libcache.md Unresolved TODOs
-
-**Documentation contains unresolved TODOs at specific lines:**
-- Line 5: Whether the library is static and precompiled
-- Line 30: Whether `errno` is set on callback failures
-- Line 54: Whether `errno` is set on write callback failure
-- Line 81: Additional error codes for `deinit` (mentions `EBUSY` as example)
-
-**Source evidence:** `phoenix-rtos-corelibs/libcache/` contains the implementation that can resolve these questions.
-
-**Recommendation:** Resolve the TODOs based on current implementation.
-
----
-
-## 3. libvga API Coverage
-
-**Documentation (`corelibs/libvga.md`):** Mentions register access functions but doesn't fully document all register fields or the complete API.
-
-**Current code:** `phoenix-rtos-corelibs/libvga/` includes full register access for CRT controller, sequencer, graphics controller, and attribute controller.
-
-**Recommendation:** Complete the API reference or note which functions are internal.
-
----
-
-## 4. Documentation Coverage Ratio
+## 1. Documentation coverage ratio
 
 **Documentation covers:** 7 out of 15 libraries (47%): libcache, libcgi, libgraph, libswdg, libuuid, libvga, libvirtio.
 
@@ -44,4 +25,5 @@
 
 The 8 undocumented libraries include critical infrastructure (storage, encryption, partitioning).
 
-**Recommendation:** Prioritize documenting `libptable`, `libstorage`, `libmtd`, and `libtinyaes` as these are critical for embedded system operation.
+**Recommendation:** Prioritize documenting `libptable`, `libstorage`, `libmtd`, and `libtinyaes` because they support
+embedded storage and partition workflows.

@@ -1,16 +1,16 @@
 # Running system on <nobr>armv7a9-zynq7000-zturn</nobr>
 
 These instructions describe how to run a Phoenix-RTOS system image for `armv7a9-zynq7000-zturn` target architecture.
-Note that, the build artifacts, including the system image, should be first provided in the `_boot` directory.
+The build artifacts, including the system image, must be present in the `_boot` directory.
 If you haven't run the `build.sh` script yet, run it for `armv7a9-zynq7000-zturn` target.
 
 See [Building](../../building/index.md) chapter.
 
 ## Preparing the board
 
-Preparing the board depends on how the plo is loaded into RAM, this quickstart describes 2 approaches - loading from SD
-card and QSPI flash, use one of them depending on your needs. For example if you have empty flash memory or want to
-load new plo use SD card, otherwise you can simply load plo from QSPI flash.
+Preparing the board depends on how PLO is loaded into RAM. This quickstart describes 2 approaches: loading from an SD
+card and loading from QSPI flash. For empty flash memory or a new PLO image, use the SD card path. Otherwise, load PLO
+from QSPI flash.
 
 ### Loading plo from SD card
 
@@ -36,19 +36,18 @@ load new plo use SD card, otherwise you can simply load plo from QSPI flash.
 
 - To communicate with the board connect the USB cable to the `USB_UART` port (`J6`).
 
-- You should also connect another micro USB cable to the `USB_OTG` port (`J2`).
+- Connect another micro USB cable to the `USB_OTG` port (`J2`).
 
   Board connections:
 
   ![Image](../../_static/images/quickstart/armv7a9-zynq7000/zynq7000-zturn-connections.jpg)
 
-- If you connected everything like in the picture above, the board should be powered on and the `D25` POWER LED should
-  shine blue.
+- If the board is connected as shown in the picture above, the `D25` POWER LED shines blue.
 
 - Verify, what USB device on your host-pc is connected with the UART (console). To check that run:
 
-  ```shell
-  ls -l /dev/serial/by-id
+  ```
+  $ ls -l /dev/serial/by-id
   ```
 
   ```
@@ -61,11 +60,11 @@ load new plo use SD card, otherwise you can simply load plo from QSPI flash.
 - When the board is connected to your host-pc, open serial port in terminal using picocom and type the console port
   (in this case USB0)
 
-  ```shell
-  picocom -b 115200 --imap lfcrlf /dev/ttyUSB0
+  ```
+  $ picocom -b 115200 --imap lfcrlf /dev/ttyUSB0
   ```
 
-- You should see such output:
+- The serial console prints output similar to this:
 
   ```
   picocom v3.1
@@ -185,8 +184,8 @@ If you want to flash the system image please follow the next steps.
 To flash the disk image, first, verify on which port plo USB device has appeared. Check with
 `ls` as follows:
 
-```shell
-ls -l /dev/serial/by-id
+```
+$ ls -l /dev/serial/by-id
 ```
 
 ```
@@ -199,16 +198,9 @@ lrwxrwxrwx 1 root root 13 lis  8 18:38 usb-Phoenix_Systems_plo_CDC_ACM-if00 -> .
 Launch `phoenixd` to share the disk image with the bootloader (choose suitable
 ttyACMx device, in this case, ttyACM0):
 
-```shell
-cd _boot/armv7a9-zynq7000-zturn
 ```
-
-```shell
-sudo ./phoenixd -p /dev/ttyACM0 -b 115200 -s .
-```
-
-```
-~/phoenix-rtos-project/_boot/armv7a9-zynq7000-zturn$ sudo ./phoenixd -p /dev/ttyACM0 -b 115200 -s .
+$ cd _boot/armv7a9-zynq7000-zturn
+$ sudo ./phoenixd -p /dev/ttyACM0 -b 115200 -s .
 -\- Phoenix server, ver. 1.5
 (c) 2012 Phoenix Systems
 (c) 2000, 2005 Pawel Pisarczyk
@@ -229,8 +221,8 @@ Without erasure `jffs2` may encounter data from the previous flash operation and
  during the system startup may occur.
 That's why we have run erase using plo command specific to `jffs2` file system:
 
-```shell
-jffs2 -d 2.0 -e -c 0x80:0x80:0x10000:16
+```
+(plo)% jffs2 -d 2.0 -e -c 0x80:0x80:0x10000:16
 ```
 
 Quick description of used arguments:
@@ -259,8 +251,8 @@ Please wait until erasing is finished.
 
 To start copying the file, write the following command in the console with plo interface:
 
-```shell
-copy usb0 phoenix.disk flash0 0x0 0x0
+```
+(plo)% copy usb0 phoenix.disk flash0 0x0 0x0
 ```
 
 ```

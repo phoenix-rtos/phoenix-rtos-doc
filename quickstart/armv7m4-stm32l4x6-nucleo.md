@@ -1,8 +1,8 @@
 # Running system on <nobr>armv7m4-stm32l4x6-nucleo</nobr>
 
-This version is designated for STM32L4x6 processors with Cortex-M4 core. To launch this version the final flash image
-should be provided. The image is created as the final artifact of the `phoenix-rtos-project` building and is located in
-the `_boot` directory. The image consists of a kernel, TTY UART driver, RAM disk filesystem, and psh (shell).
+This version is designated for STM32L4x6 processors with Cortex-M4 core. To launch this version, provide the final
+flash image. The image is created as the final artifact of the `phoenix-rtos-project` build and is located in the
+`_boot` directory. The image consists of a kernel, TTY UART driver, RAM disk filesystem, and psh (shell).
 
 See [Building](../building/index.md) chapter.
 
@@ -87,8 +87,8 @@ You can leave the terminal with the serial port open, and follow the next steps.
 
 To flash the image to the board you will need `openocd` in version 0.11 or 0.12. You can check it using
 
-```shell
-openocd -v
+```
+$ openocd -v
 ```
 
   <details>
@@ -140,20 +140,17 @@ If you encounter errors install manually from sources (v0.12.0):
 
 If you have openocd, next you can use the following script:
 
-```shell
-sudo phoenix-rtos-build/scripts/program-stm32l4x6.sh _boot/armv7m4-stm32l4x6-nucleo/phoenix.disk
+```
+$ sudo phoenix-rtos-build/scripts/program-stm32l4x6.sh _boot/armv7m4-stm32l4x6-nucleo/phoenix.disk
 ```
 
-or use openocd directly:
-
-```shell
-openocd -f interface/stlink.cfg \
--f target/stm32l4x.cfg -c "reset_config srst_only srst_nogate connect_assert_srst" \
--c "program _boot/armv7m4-stm32l4x6-nucleo/phoenix.disk 0x08000000 verify reset exit"
-```
+or use OpenOCD directly:
 
 ```
-~/phoenix-rtos-project$ openocd -f interface/stlink.cfg -f target/stm32l4x.cfg -c "reset_config srst_only srst_nogate connect_assert_srst" -c "program _boot/armv7m4-stm32l4x6-nucleo/phoenix.disk 0x08000000 verify reset exit"
+$ openocd -f interface/stlink.cfg \
+  -f target/stm32l4x.cfg \
+  -c "reset_config srst_only srst_nogate connect_assert_srst" \
+  -c "program _boot/armv7m4-stm32l4x6-nucleo/phoenix.disk 0x08000000 verify reset exit"
 Open On-Chip Debugger 0.11.0-rc2
 Licensed under GNU GPL v2
 For bug reports, read
@@ -187,7 +184,6 @@ Warn : Adding extra erase range, 0x0803bfa0 .. 0x0803bfff
 Info : Unable to match requested speed 500 kHz, using 480 kHz
 Info : Unable to match requested speed 500 kHz, using 480 kHz
 shutdown command invoked
-~/phoenix-rtos-project$
 ```
 
 The script can be modified to accommodate other SWD interfaces.

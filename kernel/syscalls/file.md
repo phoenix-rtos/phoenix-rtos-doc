@@ -1,171 +1,159 @@
 # File operations
 
-## `syscalls_fileOpen`
+File syscall handlers unpack arguments from the user stack with `GETFROMSTACK()` and dispatch work to the POSIX
+server-facing helpers in `posix_*()`.
 
-````C
-GETFROMSTACK(ustack, unsigned int *, h, 0);
-GETFROMSTACK(ustack, oid_t *, oid, 1);
-GETFROMSTACK(ustack, unsigned int, mode, 2);
+````{function} syscalls_sys_open(ustack)
+Opens a path through `posix_open()`.
+
+:param ustack: User stack containing `const char *filename` at index `0` and `int oflag` at index `1`.
+:returns: File descriptor on success or a negative error returned by `posix_open()`.
 ````
 
-Adds file given by `oid` to process resources. Added process resource is identified by handle returned in `h` variable.
-The access mode is set to `mode`.
 
-## `syscalls_fileOpen` (`syscalls_sys_open`)
+````{function} syscalls_sys_close(ustack)
+Closes a file descriptor through `posix_close()`.
 
-````C
-GETFROMSTACK(ustack, const char *, filename, 0);
-GETFROMSTACK(ustack, int, oflag, 1);
+:param ustack: User stack containing `int fildes` at index `0`.
+:returns: `0` on success or a negative error returned by `posix_close()`.
 ````
 
-## `syscalls_fileClose`
+````{function} syscalls_sys_read(ustack)
+Reads from a file descriptor through `posix_read()`.
 
-````C
-GETFROMSTACK(ustack, unsigned int, h, 0);
+:param ustack: User stack containing `int fildes`, `void *buf`, `size_t nbyte`, and `off_t offset` at indexes `0`
+  through `3`.
+:returns: Number of bytes read, `-EFAULT` for an invalid non-empty buffer range, or a negative error returned by
+  `posix_read()`.
 ````
 
-Removes file given by `h` from resources of calling process.
+````{function} syscalls_sys_write(ustack)
+Writes to a file descriptor through `posix_write()`.
 
-## `syscalls_fileRead` (`syscalls_sys_read`)
-
-````C
-GETFROMSTACK(ustack, int, fildes, 0);
-GETFROMSTACK(ustack, void *, buf, 1);
-GETFROMSTACK(ustack, size_t, nbyte, 2);
+:param ustack: User stack containing `int fildes`, `void *buf`, `size_t nbyte`, and `off_t offset` at indexes `0`
+  through `3`.
+:returns: Number of bytes written, `-EFAULT` for an invalid non-empty buffer range, or a negative error returned by
+  `posix_write()`.
 ````
 
-## `syscalls_fileWrite` (`syscalls_sys_write`)
+````{function} syscalls_sys_dup(ustack)
+Duplicates a file descriptor through `posix_dup()`.
 
-````C
-GETFROMSTACK(ustack, int, fildes, 0);
-GETFROMSTACK(ustack, void *, buf, 1);
-GETFROMSTACK(ustack, size_t, nbyte, 2);
+:param ustack: User stack containing `int fildes` at index `0`.
+:returns: New file descriptor on success or a negative error returned by `posix_dup()`.
 ````
 
-## `syscalls_fileClose` (`syscalls_sys_close`)
+````{function} syscalls_sys_dup2(ustack)
+Duplicates a file descriptor to a selected descriptor number through `posix_dup2()`.
 
-````C
-GETFROMSTACK(ustack, int, fildes, 0);
+:param ustack: User stack containing `int fildes` at index `0` and `int fildes2` at index `1`.
+:returns: File descriptor on success or a negative error returned by `posix_dup2()`.
 ````
 
-## `syscalls_fileLink` (`syscalls_sys_link`)
+````{function} syscalls_sys_link(ustack)
+Creates a hard link through `posix_link()`.
 
-````C
-GETFROMSTACK(ustack, const char *, path1, 0);
-GETFROMSTACK(ustack, const char *, path2, 1);
+:param ustack: User stack containing `const char *path1` at index `0` and `const char *path2` at index `1`.
+:returns: `0` on success or a negative error returned by `posix_link()`.
 ````
 
-## `syscalls_fileUnlink` (`syscalls_sys_unlink`)
+````{function} syscalls_sys_unlink(ustack)
+Removes a path through `posix_unlink()`.
 
-````C
-GETFROMSTACK(ustack, const char *, pathname, 0);
+:param ustack: User stack containing `const char *pathname` at index `0`.
+:returns: `0` on success or a negative error returned by `posix_unlink()`.
 ````
 
-## `syscalls_fileCtl` (`syscalls_sys_fcntl`)
+````{function} syscalls_sys_lseek(ustack)
+Changes or reads a file offset through `posix_lseek()`.
 
-````C
-GETFROMSTACK(ustack, unsigned int, fd, 0);
-GETFROMSTACK(ustack, unsigned int, cmd, 1);
+:param ustack: User stack containing `int fildes`, `off_t *offset`, and `int whence` at indexes `0` through `2`.
+:returns: `0` on success, `-EFAULT` when `offset` is outside the process map, or a negative error returned by
+  `posix_lseek()`.
 ````
 
-## `syscalls_fileTrunc` (`syscalls_sys_ftruncate`)
+````{function} syscalls_sys_ftruncate(ustack)
+Truncates an open file through `posix_ftruncate()`.
 
-````C
-GETFROMSTACK(ustack, int, fildes, 0);
-GETFROMSTACK(ustack, off_t, length, 1);
+:param ustack: User stack containing `int fildes` at index `0` and `off_t length` at index `1`.
+:returns: `0` on success or a negative error returned by `posix_ftruncate()`.
 ````
 
-## `syscalls_fileSeek` (`syscalls_sys_lseek`)
+````{function} syscalls_sys_fcntl(ustack)
+Handles file-control operations through `posix_fcntl()`.
 
-````C
-GETFROMSTACK(ustack, int, fildes, 0);
-GETFROMSTACK(ustack, off_t, offset, 1);
-GETFROMSTACK(ustack, int, whence, 2);
+:param ustack: User stack containing `int fd` at index `0` and `unsigned int cmd` at index `1`. Additional command
+  data remains on the user stack for `posix_fcntl()`.
+:returns: Command-specific result or a negative error returned by `posix_fcntl()`.
 ````
 
-## `syscalls_fileDup` (`syscalls_sys_dup`)
+````{function} syscalls_sys_pipe(ustack)
+Creates a pipe through `posix_pipe()`.
 
-````C
-GETFROMSTACK(ustack, int, fildes, 0);
+:param ustack: User stack containing `int *fildes` at index `0`.
+:returns: `0` on success, `-EFAULT` when the two-element descriptor array is outside the process map, or a negative
+  error returned by `posix_pipe()`.
 ````
 
-## `syscalls_fileDup2` (`syscalls_sys_dup2`)
+````{function} syscalls_sys_mkfifo(ustack)
+Creates a FIFO special file through `posix_mkfifo()`.
 
-````C
-GETFROMSTACK(ustack, int, fildes, 0);
-GETFROMSTACK(ustack, int, fildes2, 1);
+:param ustack: User stack containing `const char *path` at index `0` and `mode_t mode` at index `1`.
+:returns: `0` on success or a negative error returned by `posix_mkfifo()`.
 ````
 
-## `syscalls_filePipe` (`syscalls_sys_pipe`)
+````{function} syscalls_sys_fstat(ustack)
+Reads file status through `posix_fstat()`.
 
-````C
-GETFROMSTACK(ustack, int *, fildes, 0);
+:param ustack: User stack containing `int fd` at index `0` and `struct stat *buf` at index `1`.
+:returns: `0` on success, `-EFAULT` when `buf` is outside the process map, or a negative error returned by
+  `posix_fstat()`.
 ````
 
-## `syscalls_fileMakeFifo` (`syscalls_sys_mkfifo`)
+````{function} syscalls_sys_statvfs(ustack)
+Reads filesystem status for a path or file descriptor through `posix_statvfs()`.
 
-````C
-GETFROMSTACK(ustack, const char *, path, 0);
-GETFROMSTACK(ustack, mode_t, mode, 1);
+:param ustack: User stack containing `const char *path`, `int fd`, and `struct statvfs *buf` at indexes `0` through
+  `2`.
+:returns: `0` on success, `-EFAULT` when `buf` is outside the process map, or a negative error returned by
+  `posix_statvfs()`.
 ````
 
-## `syscalls_fileChangeMode` (`syscalls_sys_chmod`)
+````{function} syscalls_sys_fsync(ustack)
+Synchronizes an open file through `posix_fsync()`.
 
-````C
-GETFROMSTACK(ustack, const char *, path, 0);
-GETFROMSTACK(ustack, mode_t, mode, 1);
+:param ustack: User stack containing `int fd` at index `0`.
+:returns: `0` on success or a negative error returned by `posix_fsync()`.
 ````
 
-## `syscalls_fileStat` (`syscalls_sys_fstat`)
+````{function} syscalls_sys_chmod(ustack)
+Changes path permissions through `posix_chmod()`.
 
-````C
-GETFROMSTACK(ustack, int, fd, 0);
-GETFROMSTACK(ustack, struct stat *, buf, 1);
+:param ustack: User stack containing `const char *path` at index `0` and `mode_t mode` at index `1`.
+:returns: `0` on success or a negative error returned by `posix_chmod()`.
 ````
 
-## `syscalls_fileStatvfs` (`syscalls_sys_statvfs`)
+````{function} syscalls_sys_ioctl(ustack)
+Handles descriptor-specific control operations through `posix_ioctl()`.
 
-````C
-GETFROMSTACK(ustack, const char *, path, 0);
-GETFROMSTACK(ustack, int, fd, 1);
-GETFROMSTACK(ustack, struct statvfs *, buf, 2);
+:param ustack: User stack containing `int fildes` at index `0` and `unsigned long request` at index `1`. Optional
+  request data remains on the user stack and is validated by `posix_ioctl()`.
+:returns: Request-specific result or a negative error returned by `posix_ioctl()`.
 ````
 
-Perform statvfs on path or file descriptor.
+````{function} syscalls_sys_poll(ustack)
+Polls a file-descriptor array through `posix_poll()`.
 
-When path is NULL fd must be non-negative. When path is non-NULL fd must be set to -1.
-
-## `syscalls_fileIoCtl` (`syscalls_sys_ioctl`)
-
-````C
-GETFROMSTACK(ustack, int, fildes, 0);
-GETFROMSTACK(ustack, unsigned long, request, 1);
+:param ustack: User stack containing `struct pollfd *fds`, `nfds_t nfds`, and `int timeout_ms` at indexes `0`
+  through `2`.
+:returns: Number of ready descriptors, `-EFAULT` when the array is outside the process map, or a negative error
+  returned by `posix_poll()`.
 ````
 
-## `syscalls_fileTimes` (`syscalls_sys_utimes`)
+````{function} syscalls_sys_futimens(ustack)
+Updates timestamps for an open file descriptor through `posix_futimens()`.
 
-````C
-GETFROMSTACK(ustack, const char *, filename, 0);
-GETFROMSTACK(ustack, const struct timeval *, times, 1);
+:param ustack: User stack containing `int fildes` at index `0` and `const struct timespec *times` at index `1`.
+:returns: `0` on success, `-EFAULT` when non-`NULL` `times` is outside the process map, or a negative error returned by
+  `posix_futimens()`.
 ````
-
-## `syscalls_fileFutureTimes` (`syscalls_sys_futimens`)
-
-```c
-GETFROMSTACK(ustack, int, fildes, 0U);
-GETFROMSTACK(ustack, const struct timespec *, times, 1U);
-```
-
-Updates file timestamps for an open file descriptor through `posix_futimens()`.
-When `times` is not `NULL`, the handler verifies that the pointer belongs to the calling process map.
-
-## `syscalls_filePoll` (`syscalls_sys_poll`)
-
-````C
-GETFROMSTACK(ustack, struct pollfd *, fds, 0);
-GETFROMSTACK(ustack, nfds_t, nfds, 1);
-GETFROMSTACK(ustack, int, timeout_ms, 2);
-````
-
-Polls file descriptors through `posix_poll()`.
-The handler verifies that the `pollfd` array belongs to the calling process map before dispatching the request.

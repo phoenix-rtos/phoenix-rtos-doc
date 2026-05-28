@@ -1,7 +1,7 @@
 # Running system on <nobr>armv7a7-imx6ull-evk</nobr>
 
-This version is designed for NXP i.MX 6ULL processors with ARM Cortex-A7 core. To launch this version the final disk
-image and loader image should be provided. Images are created as the final artifacts of the `phoenix-rtos-project`
+This version is designed for NXP i.MX 6ULL processors with ARM Cortex-A7 core. To launch this version, provide the
+final disk image and loader image. Images are created as the final artifacts of the `phoenix-rtos-project`
 building and are located in the `_boot` directory. The disk image consists of bootloader (plo), kernel, UART driver
 (tty), dummyfs filesystem server (RAM disk), and psh (shell). Necessary tools to carry out the uploading process are
 located in the `_boot` directory as well.
@@ -25,22 +25,17 @@ the `SW2001` switch in the `1` position.
 - To communicate with the board connect the USB cable to the `DEBUG USB` port (`J1901`). The onboard
 UART-USB converter is used here.
 
-- You should also connect another micro USB cable to the `USB OTG` port (`J1102`). As a result two available USB ports
-in `i. MX 6ULL - EVK` will be connected to your host-pc.
+- Connect another micro USB cable to the `USB OTG` port (`J1102`). This connects two USB ports from
+  `i.MX 6ULL - EVK` to the host PC.
 
-- Now you can power up the board by changing the `SW2001` position to `2`. The `D2003` LED should turn green.
+- Power up the board by changing the `SW2001` position to `2`. The `D2003` LED turns green.
 
 - Verify what USB device on your host-pc is connected with the `DEBUG USB` (console). To check that run:
 
-  ```shell
-  ls -l /dev/serial/by-id
   ```
-
-  ```
-  ~$ ls -l /dev/serial/by-id/
+  $ ls -l /dev/serial/by-id/
   total 0
   lrwxrwxrwx 1 root root 13 lis  8 13:07 usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0 -> ../../ttyUSB0
-  ~$
   ```
 
   If the output matches, the console (`DEBUG USB` in the evaluation board) is on the `USB0`
@@ -49,16 +44,16 @@ in `i. MX 6ULL - EVK` will be connected to your host-pc.
 - When the board is connected to your host-pc, open serial port in terminal using picocom and type the console port
 (in this case USB0)
 
-  ```shell
-  picocom -b 115200 --imap lfcrlf /dev/ttyUSB0
+  ```
+  $ picocom -b 115200 --imap lfcrlf /dev/ttyUSB0
   ```
 
   <details>
   <summary>How to get picocom (Ubuntu 20.04)</summary>
 
-  ```shell
-  sudo apt-get update && \
-  sudo apt-get install picocom
+  ```
+  $ sudo apt-get update
+  $ sudo apt-get install picocom
   ```
 
   </details>
@@ -71,8 +66,8 @@ The process comes down to a few steps, described below.
 
 ### Uploading Phoenix-RTOS loader (plo) to the RAM memory
 
-To flash the disk image to the board, the bootloader (plo) image located in the `_boot` directory should be uploaded to
-the RAM using `psu` (Phoenix Serial Uploader) via SDP (Serial Download Protocol).
+To flash the disk image to the board, upload the bootloader (PLO) image from the `_boot` directory to RAM by using
+`psu` (Phoenix Serial Uploader) over Serial Download Protocol (SDP).
 
 - Make sure, that the SW602 switch is in the following configuration (serial downloader mode):
 
@@ -85,16 +80,9 @@ the RAM using `psu` (Phoenix Serial Uploader) via SDP (Serial Download Protocol)
 
 - Change directory to `_boot` and run `psu` as follows:
 
-  ```shell
-  cd _boot/armv7a7-imx6ull-evk
-  ```
-
-  ```shell
-  sudo ./psu plo-ram.sdp
-  ```
-
 ```
-~/phoenix-rtos-project/_boot/armv7a7-imx6ull-evk$ sudo ./psu plo-ram.sdp
+$ cd _boot/armv7a7-imx6ull-evk
+$ sudo ./psu plo-ram.sdp
 WAIT 0x15a2 0x80
 ERROR_STATUS
 WRITE_FILE F "plo-ram.img" 0x00907000
@@ -103,10 +91,9 @@ WRITE_FILE F "plo-ram.img" 0x00907000
  - File has been written correctly.
 JUMP_ADDRESS 0x00908000
  - To the address: 0x908000
-~/phoenix-rtos-project/_boot/armv7a7-imx6ull-evk$
 ```
 
-- The plo user interface should appear in the console.
+- The PLO user interface appears in the console.
 
 ```
 Phoenix-RTOS loader v. 1.21 rev: a8408b1
@@ -127,62 +114,26 @@ console: Setting console to 0.0
 (plo)%
 ```
 
-- Type `help`.
-
-```
-(plo)% help
-  alias       - sets alias to file, usage: alias [-b <base> | [-r] <name> <offset> <size>]
-  app         - loads app, usage: app [<dev> [-x | -xn] <name> <imap1;imap2...> <dmap1;dmap2...>]
-  call        - calls user's script, usage: call <dev> <script name> <magic>
-  console     - sets console to device, usage: console <major.minor>
-  copy        - copies data between devices, usage:
-                copy <src dev> <file/offs size> <dst dev> <file/offs size>
-  dump        - dumps memory, usage: dump [-F|-r <phfs>] <addr> [<size>]
-  echo        - command switch on/off information logs, usage: echo [on/off]
-  erase       - erase sectors or all data from storage device using phfs interface, Usage: erase <d
-  ev> [<offset> <size>]
-  go!         - starts Phoenix-RTOS loaded into memory
-  help        - prints this message
-  jffs2       - writes jffs2 cleanmarkers, usage: jffs2 -d <major>.<minor> -c <start block>:<number
-   of blocks>:<block size>:<clean marker size> [-e]
-  kernel      - loads Phoenix-RTOS, usage: kernel [<dev> [name]]
-  map         - defines multimap, usage: map [<name> <start> <end> <attributes>]
-  mem         - Reads or writes values from/to a range of memory addresses
-  phfs        - registers device in phfs, usage: phfs [<alias> <major.minor> [protocol]]
-  script      - shows script, usage: script [<dev> <name> <magic>]
-  test-dev    - performs simple dev read/write test, usage:test-dev [-e erase before] [-E erase aft
-  er] -d <dev> [-s <addr> start(default 0)] -l length
-  test-ddr    - perform test DDR, usage: test-ddr
-  wait        - waits in milliseconds or in infinite loop, usage: wait [ms]
-(plo)%
-```
+The `(plo)%` prompt confirms that PLO is ready for the copy step.
 
 ### Copying flash image using PHFS (phoenixd)
 
 To flash the disk image, first, verify on which port plo USB device has appeared. Check with
 `ls` as follows:
 
-```shell
-ls -l /dev/serial/by-id
 ```
-
-```
-~$ ls -l /dev/serial/by-id
+$ ls -l /dev/serial/by-id
 total 0
 lrwxrwxrwx 1 root root 13 bře 19 16:46 usb-Phoenix_Systems_plo_CDC_ACM-if00 -> ../../ttyACM0
 lrwxrwxrwx 1 root root 13 bře 19 16:06 usb-Silicon_Labs_CP2102_USB_to_UART_Bridge_Controller_0001-if00-port0 -> ../../ttyUSB0
-~$
 ```
 
 Launch `phoenixd` to share the disk image with the bootloader
 (choose suitable ttyACMx device, in this case, ttyACM0):
 
-```shell
-sudo ./phoenixd -p /dev/ttyACM0 -b 115200 -s .
 ```
-
-```
-~/phoenix-rtos-project/_boot/armv7a7-imx6ull-evk$ sudo ./phoenixd -p /dev/ttyACM0 -b 115200 -s .
+$ cd _boot/armv7a7-imx6ull-evk
+$ sudo ./phoenixd -p /dev/ttyACM0 -b 115200 -s .
 -\- Phoenix server, ver. 1.5
 (c) 2012 Phoenix Systems
 (c) 2000, 2005 Pawel Pisarczyk
@@ -192,8 +143,8 @@ sudo ./phoenixd -p /dev/ttyACM0 -b 115200 -s .
 
 To start copying a file, write the following command in the console with plo interface:
 
-```shell
-copy usb0 phoenix.disk nor0 0x0 0x0
+```
+(plo)% copy usb0 phoenix.disk nor0 0x0 0x0
 ```
 
 The `nor0` is the flash memory.
@@ -215,9 +166,9 @@ The `nor0` is the flash memory.
 
 - Turn on the board.
 
-If everything has gone correctly, Phoenix-RTOS with the default configuration and the `psh` shell command prompt will
-appear in the terminal after 2 seconds. If there is a need to enter the bootloader, the waiting for input should be
-interrupted by pressing any key. Then you can exit plo by passing `go!` command.
+If the boot succeeds, Phoenix-RTOS with the default configuration and the `psh` shell command prompt appears in the
+terminal after 2 seconds. To enter the bootloader, press any key during the input wait period. To leave PLO, pass the
+`go!` command.
 
 ```
 (plo)% Phoenix-RTOS loader v. 1.21 rev: a8408b1

@@ -73,13 +73,8 @@ micro-USB cable from the host PC to connector `J164`.
 3. Verify that the UART ports of FT4232HL are visible on host PC.
     - On Ubuntu:
 
-      ```sh
-      ls -l /dev/serial/by-id
       ```
-
-      The result should be similar to:
-
-      ```shell
+      $ ls -l /dev/serial/by-id
       lrwxrwxrwx 1 root root 13 sty 31 11:48 usb-Xilinx_JTAG+3Serial_90805-if00-port0 -> ../../ttyUSB0
       lrwxrwxrwx 1 root root 13 sty 31 11:48 usb-Xilinx_JTAG+3Serial_90805-if01-port0 -> ../../ttyUSB1
       lrwxrwxrwx 1 root root 13 sty 31 11:48 usb-Xilinx_JTAG+3Serial_90805-if02-port0 -> ../../ttyUSB2
@@ -95,34 +90,35 @@ micro-USB cable from the host PC to connector `J164`.
       `ttyUSB0` is not connected to UART but the corresponding port on FT4232HL is connected to JTAG. The device may
       disappear after connecting OpenOCD (described at the end of the guide).
 
-4. Power up the board, changing the `SW1` position to `ON`. Two rows of green LEDs should turn on indicating
-power rails - see "Power and Status LEDs" section of the ZCU104 Board User Guide (UG1267) for detailed descriptions.
-    - If the `DS36` LED is turned on (red), the board is in reset. It should light up for a short time after turning on
-    the board or pressing the `POR_B` button.
+4. Power up the board by changing the `SW1` position to `ON`. Two rows of green LEDs turn on, indicating the power
+rails. See the "Power and Status LEDs" section of the ZCU104 Board User Guide (UG1267) for detailed descriptions.
 
-    - If the `DS35` LED is turned on (red), it indicates an error loading plo. Ensure that the boot mode is
-    set correctly, and the boot image is written correctly to the chosen boot medium (SD card or NOR flash).
+If the `DS36` LED is turned on (red), the board is in reset. It lights up for a short time after turning on the board
+or pressing the `POR_B` button.
+
+If the `DS35` LED is turned on (red), it indicates an error loading PLO. Ensure that the boot mode is set correctly and
+that the boot image is written correctly to the chosen boot medium (SD card or NOR flash).
 
 5. When the board is connected to your host PC, open serial port in terminal using picocom and type the console port
 (in this case `ttyUSB2`)
 
-    ```sh
-    picocom -b 115200 --imap lfcrlf /dev/[port]
-    ```
+```
+$ picocom -b 115200 --imap lfcrlf /dev/[port]
+```
 
 <details>
 
 <summary>How to get picocom and run it without privileges (Ubuntu 22.04)</summary>
 
-```sh
-sudo apt-get update && \
-sudo apt-get install picocom
+```
+$ sudo apt-get update
+$ sudo apt-get install picocom
 ```
 
 To use picocom without sudo privileges run this command and then restart:
 
-```sh
-sudo usermod -a -G tty <yourname>
+```
+$ sudo usermod -a -G tty <yourname>
 ```
 
 </details>
@@ -132,11 +128,11 @@ You can leave the terminal with the serial port open, and follow the next steps.
 
 ## Flashing the Phoenix-RTOS system image
 
-At first before any flashing, enter Phoenix-RTOS loader (plo), which should have been already loaded.
+Before flashing, enter Phoenix-RTOS loader (PLO), which is already loaded.
 
-If there wasn't an older system image in the NOR flash the following output should appear:
+If NOR flash does not contain an older system image, the following output appears:
 
-```console
+```
 Phoenix-RTOS loader v. 1.21 rev: 66720bf
 hal: Cortex-A53 ZynqMP
 dev/uart: Initializing uart(0.0)
@@ -153,7 +149,7 @@ If you don't see it, please press the `POR_B` button (`SW4`) to reset the chip.
 
 Providing that Phoenix-RTOS is present in the flash memory you will probably see the system startup:
 
-```console
+```
 Phoenix-RTOS loader v. 1.21 rev: b3bf39c
 hal: Cortex-A53 ZynqMP
 dev/uart: Initializing uart(0.0)
@@ -186,7 +182,7 @@ dummyfs: initialized
 
 You want to press the `POR_B` button (`SW4`) again and interrupt `Waiting for input` by pressing any key to enter plo:
 
-```console
+```
 Type [C-a] [C-h] to see available commands
 Terminal ready
 Phoenix-RTOS loader v. 1.21 rev: b3bf39c
@@ -209,8 +205,10 @@ Without erasure `jffs2` may encounter data from the previous flash operation and
  during the system startup may occur.
 That's why we have to run erase using plo command specific to `jffs2` file system:
 
-```shell
-jffs2 -d 2.0 -e -c 0x80:0x100:0x10000:16
+```
+(plo)% jffs2 -d 2.0 -e -c 0x80:0x100:0x10000:16
+jffs2: block 255/256
+(plo)%
 ```
 
 Quick description of used arguments:
@@ -219,17 +217,11 @@ Quick description of used arguments:
 
 - `-e` - erase,
 
-- `-c 0x80:0x100:0x10000:16` - set clean markers
+- `-c 0x80:0x100:0x10000:16` - set clean markers:
   - start block: `0x80` (`FS_OFFS`/`BLOCK_SIZE`),
   - number of blocks: `0x100` (`FS_SZ`/`BLOCK_SIZE`),
   - block size: `0x10000` (`erase_size`)
   - clean marker size: `16` (value specific for `jffs2` on NOR flash)
-
-```console
-(plo)% jffs2 -d 2.0 -e -c 0x80:0x100:0x10000:16
-jffs2: block 255/256
-(plo)%
-```
 
 Please wait until erasing is finished.
 
@@ -238,13 +230,9 @@ Please wait until erasing is finished.
 Launch `phoenixd` to share the disk image with the bootloader
  (choose suitable `ttyUSBx` device, in this case, `ttyUSB1`):
 
-```sh
-cd _boot/aarch64a53-zynqmp-zcu104
-./phoenixd -p /dev/tty[port] -b 921600 -s .
 ```
-
-```console
-~/Documents/repos/phoenix-rtos-project/_boot/aarch64a53-zynqmp-zcu104$ ./phoenixd -p /dev/ttyUSB1 -b 921600 -s .
+$ cd _boot/aarch64a53-zynqmp-zcu104
+$ ./phoenixd -p /dev/ttyUSB1 -b 921600 -s .
 -\- Phoenix server, ver. 1.5
 (c) 2012 Phoenix Systems
 (c) 2000, 2005 Pawel Pisarczyk
@@ -254,11 +242,7 @@ cd _boot/aarch64a53-zynqmp-zcu104
 
 To start copying the file, write the following command in the console with plo interface:
 
-```shell
-copy uart0 flash0.disk flash0 0x0 0x0
 ```
-
-```console
 Phoenix-RTOS loader v. 1.21 rev: b3bf39c
 hal: Cortex-A53 ZynqMP
 dev/uart: Initializing uart(0.0)
@@ -283,18 +267,9 @@ See [Debugging](#debugging) for details on how to launch OpenOCD.
 
 Run the following commands (Note: this assumes the `ftdi_zcu104.cfg` file is in your home directory):
 
-```sh
-cd _boot/aarch64a53-zynqmp-zcu104
-openocd -f "$(realpath ~/ftdi_zcu104.cfg)" -f "target/xilinx_zynqmp.cfg" \
-  -c "init" \
-  -c "halt" \
-  -c "load_image flash0.disk 0x08000000 bin" \
-  -c "resume" \
-  -c "exit"
 ```
-
-```console
-~/Documents/repos/phoenix-rtos-project/_boot/aarch64a53-zynqmp-zcu104$ openocd -f "$(realpath ~/ftdi_zcu104.cfg)" -f "target/xilinx_zynqmp.cfg" \
+$ cd _boot/aarch64a53-zynqmp-zcu104
+$ openocd -f "$(realpath ~/ftdi_zcu104.cfg)" -f "target/xilinx_zynqmp.cfg" \
   -c "init" \
   -c "halt" \
   -c "load_image flash0.disk 0x08000000 bin" \
@@ -325,13 +300,12 @@ cpsr: 0x8000020d pc: 0xffffc1bb8
 MMU: enabled, D-Cache: enabled, I-Cache: enabled
 65448436 bytes written at address 0x08000000
 downloaded 65448436 bytes in 126.627167s (504.745 KiB/s)
-~/Documents/repos/phoenix-rtos-project/_boot/aarch64a53-zynqmp-zcu104$
 ```
 
 Once the flash image is in RAM disk you can copy it to flash0 in PLO:
 
-```shell
-copy ramdisk 0x0 0x4000000 flash0 0x0 0x4000000
+```
+(plo)% copy ramdisk 0x0 0x4000000 flash0 0x0 0x4000000
 ```
 
 ### Booting Phoenix-RTOS from NOR flash memory
@@ -347,13 +321,13 @@ Follow these steps:
 
 4. Connect to the serial console port (in this case `ttyUSB2`).
 
-    ```shell
-    picocom -b 115200 --imap lfcrlf /dev/tty[port]
-    ```
+```
+$ picocom -b 115200 --imap lfcrlf /dev/tty[port]
+```
 
 5. Restart the chip using the `POR_B` button to print initialization logs:
 
-    ```console
+```
     Phoenix-RTOS loader v. 1.21 rev: 66720bf
     hal: Cortex-A53 ZynqMP
     dev/uart: Initializing uart(0.0)
@@ -381,8 +355,8 @@ Follow these steps:
     version 2.2. (NAND) (SUMMARY)  © 2001-2006 Red Hat, Inc.
 
     dummyfs: initialized
-    (psh)%
-    ```
+        (psh)%
+```
 
 ## Using Phoenix-RTOS
 
@@ -409,17 +383,17 @@ adapter speed 8000
 
 Then run OpenOCD with the following command:
 
-```sh
-openocd -f "ftdi_zcu104.cfg" -f "target/xilinx_zynqmp.cfg" -c "reset_config srst_only"
+```
+$ openocd -f "ftdi_zcu104.cfg" -f "target/xilinx_zynqmp.cfg" -c "reset_config srst_only"
 ```
 
 You may get an error `LIBUSB_ERROR_ACCESS`. If this happens, try running `openocd` with `sudo` - if this fixes
 the problem, configure [udev rules](https://github.com/arduino/OpenOCD/blob/master/contrib/60-openocd.rules)
 for `openocd` and add your user account to group `plugdev`.
 
-If the connection was successful, this result should appear:
+If the connection succeeds, this result appears:
 
-```console
+```
 Open On-Chip Debugger 0.12.0+dev-01590-g437dde701 (2024-06-07-11:06)
 Licensed under GNU GPL v2
 For bug reports, read
@@ -449,6 +423,6 @@ Now GDB can be connected to port 3333 on local machine.
 For debugging the kernel or userspace examine all cores before starting GDB.
 To do this run OpenOCD with command:
 
-```sh
-openocd -f "ftdi_zcu104.cfg" -f "target/xilinx_zynqmp.cfg" -c "reset_config srst_only" -c "init" -c "core_up 1 2 3"
+```
+$ openocd -f "ftdi_zcu104.cfg" -f "target/xilinx_zynqmp.cfg" -c "reset_config srst_only" -c "init" -c "core_up 1 2 3"
 ```

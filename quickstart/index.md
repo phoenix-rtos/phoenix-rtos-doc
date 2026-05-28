@@ -2,7 +2,8 @@
 
 ## Synopsis
 
-This chapter covers booting Phoenix-RTOS on supported hardware and emulators, using launch scripts for QEMU targets, and boot image contents.
+Use these pages to boot Phoenix-RTOS on supported hardware and emulators, run QEMU launch scripts, and identify boot
+image contents.
 
 Prerequisites: a built `phoenix-rtos-project` with artifacts in `_boot/` (see [Building](../building/index.md)).
 
@@ -10,8 +11,8 @@ Prerequisites: a built `phoenix-rtos-project` with artifacts in `_boot/` (see [B
 
 QEMU and simulator targets include launch scripts in the `scripts/` directory:
 
-```shell
-./scripts/ia32-generic-qemu.sh
+```
+$ ./scripts/ia32-generic-qemu.sh
 ```
 
 Script naming follows two patterns:
@@ -24,12 +25,15 @@ for VirtIO).
 ## Boot image contents
 
 A typical boot image in `_boot/<target>/` contains the bootloader (plo), kernel, device drivers, filesystem servers,
-and the shell (psh). The exact set of components varies per target and is defined in the target's `build.project`.
+and the shell (psh). The target `build.project` defines the exact component set.
 
 ## User applications
 
 The `_user/` directory contains example applications that are included in the root filesystem. These can be
 run directly from the psh shell prompt after boot.
+
+For common post-boot commands, process inspection, and program execution, use [Shell basics](psh-basics.md) instead of
+duplicating first-step shell examples in target quickstarts.
 
 ```{note}
 The following targets have project configurations in `_projects/` but do not yet have quickstart pages:

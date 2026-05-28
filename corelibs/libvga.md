@@ -1,292 +1,331 @@
 # VGA library (libvga)
 
-## General information
+`libvga` provides VGA-compatible register access and mode-state helpers used by graphics adapter implementations.
 
-`libvga` is designed to interface with VGA-compatible display hardware. This library provides both low-level hardware
-access and high-level functionality to manage VGA display settings, modes, and memory.
+The public interface is declared in `<vga.h>`. The low-level `vgahw_*()` functions are hardware abstraction hooks.
+The high-level `vga_*()` functions build on those hooks to save, restore, and initialize VGA state.
 
-## Mode Adjustment Flags
+## Sizes and mode flags
 
-Adjustment flags are used to modify the behavior of the VGA display modes.
+| Constant | Value | Meaning |
+| --- | --- | --- |
+| `VGA_CTXSZ` | `0x80` | Hardware context size used by VGA backends. |
+| `VGA_MEMSZ` | `0x10000` | VGA memory aperture size. |
+| `VGA_CMAPSZ` | `768` | Color map size, `256` entries with 3 channels. |
+| `VGA_TEXTSZ` | `VGA_MEMSZ >> 1` | Text plane storage size. |
+| `VGA_FONTSZ` | `VGA_MEMSZ` | Font plane storage size. |
+| `VGA_HSYNCP` | `1 << 0` | Horizontal sync positive polarity. |
+| `VGA_VSYNCP` | `1 << 1` | Vertical sync positive polarity. |
+| `VGA_CLKDIV` | `1 << 2` | Pixel clock divided by 2. |
+| `VGA_DBLSCAN` | `1 << 3` | Double-scan vertical timings. |
+| `VGA_INTERLACE` | `1 << 4` | Interlaced vertical timings. |
 
-`VGA_HSYNCP`: Set for HSync positive polarity.
+## State structures
 
-`VGA_VSYNCP`: Set for VSync positive polarity.
+`vga_cfg_t`
+: Mode timing configuration used by `vga_initstate()`.
 
-`VGA_CLKDIV`: Indicates the pixel clock is divided by 2.
+  The structure stores clock source, clock frequency in kHz, horizontal and vertical timing values, and mode flags.
 
-`VGA_DBLSCAN`: Enables double scanning.
+`vga_state_t`
+: Saved or generated VGA register and memory state.
 
-`VGA_INTERLACE`: Activates interlace mode.
+  The structure stores the miscellaneous register, CRT controller registers, sequencer registers, graphics controller
+  registers, attribute controller registers, and optional pointers for the color map, text planes, and font planes.
 
-## Structures
+## Hardware abstraction functions
 
-- `vga_cfg_t` - Holds the configuration for a VGA mode, including pixel clock, horizontal and vertical timings,
-and mode adjustment flags.
+````{function} vgahw_mem(hwctx)
+Returns the mapped VGA memory aperture for the hardware context.
 
-  ```c
-  typedef struct {
-      /* Pixel clock */
-      unsigned int clkidx; /* Pixel clock source index */
-      unsigned int clk;    /* Pixel clock frequency (kHz) */
-      /* Horizontal timings */
-      unsigned int hres;   /* Horizontal resolution */
-      unsigned int hsyncs; /* Horizontal sync start */
-      unsigned int hsynce; /* Horizontal sync end */
-      unsigned int htotal; /* Horizontal total pixels */
-      /* Vertical timings */
-      unsigned int vres;   /* Vertical resolution */
-      unsigned int vsyncs; /* Vertical sync start */
-      unsigned int vsynce; /* Vertical sync end */
-      unsigned int vtotal; /* Vertical total lines */
-      /* Mode adjustments */
-      unsigned char flags; /* Mode adjustment flags */
-  } vga_cfg_t;
-  ```
+:param hwctx: Hardware-specific VGA context.
+:returns: Pointer to VGA memory. The empty backend returns `NULL`.
+````
 
-- `vga_state_t` - Represents the state of the VGA, including various registers, color map, text, and font data.
+````{function} vgahw_status(hwctx)
+Reads the VGA input status register.
 
-  ```c
-  typedef struct {
-      unsigned char mr;     /* Miscellaneous register */
-      unsigned char cr[25]; /* CRT controller registers */
-      unsigned char sr[5];  /* Sequencer registers */
-      unsigned char gr[9];  /* Graphics controller registers */
-      unsigned char ar[21]; /* Attribute controller registers */
-      unsigned char *cmap;  /* Color map */
-      unsigned char *text;  /* Plane 0 and 1 text */
-      unsigned char *font1; /* Plane 2 font */
-      unsigned char *font2; /* Plane 3 font */
-  } vga_state_t;
-  ```
+:param hwctx: Hardware-specific VGA context.
+:returns: Register value. The empty backend returns `0`.
+````
 
-## Low-Level Interface (Hardware Abstraction Layer)
+````{function} vgahw_readfcr(hwctx)
+Reads the feature control register.
 
-### Memory and Register Access
+:param hwctx: Hardware-specific VGA context.
+:returns: Register value. The empty backend returns `0`.
+````
 
-- `vgahw_mem` - Returns the mapped VGA memory address.
+````{function} vgahw_writefcr(hwctx, val)
+Writes the feature control register.
 
-  ```c
-  void *vgahw_mem(void *hwctx)
-  ```
+:param hwctx: Hardware-specific VGA context.
+:param val: Register value to write.
+:returns: Nothing.
+````
 
-- `vgahw_status` - Reads from the input status register.
+````{function} vgahw_readmisc(hwctx)
+Reads the miscellaneous output register.
 
-  ```c
-  unsigned char vgahw_status(void *hwctx)
-  ```
+:param hwctx: Hardware-specific VGA context.
+:returns: Register value. The empty backend returns `0`.
+````
 
-- `vgahw_readfcr` - Read operations for the feature control register.
+````{function} vgahw_writemisc(hwctx, val)
+Writes the miscellaneous output register.
 
-  ```c
-  unsigned char vgahw_readfcr(void *hwctx)
-  ```
+:param hwctx: Hardware-specific VGA context.
+:param val: Register value to write.
+:returns: Nothing.
+````
 
-- `vgahw_writefcr` - Write operations for the feature control register.
+````{function} vgahw_readcrtc(hwctx, reg)
+Reads a CRT controller register.
 
-  ```c
-  void vgahw_writefcr(void *hwctx, unsigned char val)
-  ```
+:param hwctx: Hardware-specific VGA context.
+:param reg: CRT controller register index.
+:returns: Register value. The empty backend returns `0`.
+````
 
-- `vgahw_readmisc` - Read operations for the miscellaneous register.
+````{function} vgahw_writecrtc(hwctx, reg, val)
+Writes a CRT controller register.
 
-  ```c
-  unsigned char vgahw_readmisc(void *hwctx)
-  ```
+:param hwctx: Hardware-specific VGA context.
+:param reg: CRT controller register index.
+:param val: Register value to write.
+:returns: Nothing.
+````
 
-- `vgahw_readmisc` - Write operations for the miscellaneous register.
+````{function} vgahw_readseq(hwctx, reg)
+Reads a sequencer register.
 
-  ```c
-  void vgahw_writemisc(void *hwctx, unsigned char val)
-  ```
+:param hwctx: Hardware-specific VGA context.
+:param reg: Sequencer register index.
+:returns: Register value. The empty backend returns `0`.
+````
 
-- `vgahw_readcrtc` - Read operations for CRT controller registers.
+````{function} vgahw_writeseq(hwctx, reg, val)
+Writes a sequencer register.
 
-  ```c
-  unsigned char vgahw_readcrtc(void *hwctx, unsigned char reg)
-  ```
+:param hwctx: Hardware-specific VGA context.
+:param reg: Sequencer register index.
+:param val: Register value to write.
+:returns: Nothing.
+````
 
-- `vgahw_writecrtc` - Write operations for CRT controller registers.
+````{function} vgahw_readgfx(hwctx, reg)
+Reads a graphics controller register.
 
-  ```c
-  void vgahw_writecrtc(void *hwctx, unsigned char reg, unsigned char val)
-  ```
+:param hwctx: Hardware-specific VGA context.
+:param reg: Graphics controller register index.
+:returns: Register value. The empty backend returns `0`.
+````
 
-- `vgahw_readseq` - Read operations for sequencer registers.
+````{function} vgahw_writegfx(hwctx, reg, val)
+Writes a graphics controller register.
 
-  ```c
-  unsigned char vgahw_readseq(void *hwctx, unsigned char reg)
-  ```
+:param hwctx: Hardware-specific VGA context.
+:param reg: Graphics controller register index.
+:param val: Register value to write.
+:returns: Nothing.
+````
 
-- `vgahw_writeseq` - Write operations for sequencer registers.
+````{function} vgahw_readattr(hwctx, reg)
+Reads an attribute controller register.
 
-  ```c
-  void vgahw_writeseq(void *hwctx, unsigned char reg, unsigned char val)
-  ```
+:param hwctx: Hardware-specific VGA context.
+:param reg: Attribute controller register index.
+:returns: Register value. The empty backend returns `0`.
+````
 
-- `vgahw_readgfx` - Read operations for graphics controller registers.
+````{function} vgahw_writeattr(hwctx, reg, val)
+Writes an attribute controller register.
 
-  ```c
-  unsigned char vgahw_readgfx(void *hwctx, unsigned char reg)
-  ```
+:param hwctx: Hardware-specific VGA context.
+:param reg: Attribute controller register index.
+:param val: Register value to write.
+:returns: Nothing.
+````
 
-- `vgahw_writegfx` - Write operations for graphics controller registers.
+````{function} vgahw_readdac(hwctx, reg)
+Reads a Digital-to-Analog Converter (DAC) register.
 
-  ```c
-  void vgahw_writegfx(void *hwctx, unsigned char reg, unsigned char val)
-  ```
+:param hwctx: Hardware-specific VGA context.
+:param reg: DAC register index.
+:returns: Register value. The empty backend returns `0`.
+````
 
-- `vgahw_readattr` - Read operations for attribute controller registers.
+````{function} vgahw_writedac(hwctx, reg, val)
+Writes a DAC register.
 
-  ```c
-  unsigned char vgahw_readattr(void *hwctx, unsigned char reg)
-  ```
+:param hwctx: Hardware-specific VGA context.
+:param reg: DAC register index.
+:param val: Register value to write.
+:returns: Nothing.
+````
 
-- `vgahw_writeattr` - Write operations for attribute controller registers.
+````{function} vgahw_enablecmap(hwctx)
+Enables color-map register access.
 
-  ```c
-  void vgahw_writeattr(void *hwctx, unsigned char reg, unsigned char val)
-  ```
+:param hwctx: Hardware-specific VGA context.
+:returns: Nothing.
+````
 
-- `vgahw_readdac` - Read operations for DAC controller registers.
+````{function} vgahw_disablecmap(hwctx)
+Disables color-map register access.
 
-  ```c
-  unsigned char vgahw_readdac(void *hwctx, unsigned char reg)
-  ```
+:param hwctx: Hardware-specific VGA context.
+:returns: Nothing.
+````
 
-- `vgahw_writedac` - Write operations for DAC controller registers.
+````{function} vgahw_init(hwctx)
+Initializes the hardware context.
 
-  ```c
-  void vgahw_writedac(void *hwctx, unsigned char reg, unsigned char val)
-  ```
+The PC backend maps VGA memory and returns `EOK` on success. The empty backend returns `-ENODEV`.
 
-### Color Map Management
+:param hwctx: Hardware-specific VGA context storage.
+:returns: `EOK`, `-ENOMEM`, or `-ENODEV`, depending on the backend.
+````
 
-- `vgahw_enablecmap` - Enables the color map.
+````{function} vgahw_done(hwctx)
+Destroys the hardware context.
 
-  ```c
-  void vgahw_enablecmap(void *hwctx)
-  ```
+:param hwctx: Hardware-specific VGA context initialized by `vgahw_init()`.
+:returns: Nothing.
+````
 
-- `vgahw_disablecmap` - Disables the color map.
+## High-level state functions
 
-  ```c
-  void vgahw_disablecmap(void *hwctx)
-  ```
+````{function} vga_lock(hwctx)
+Locks CRT controller registers `0` through `7` by setting bit `7` of register `0x11`.
 
-### VGA Handle Management
+:param hwctx: Hardware-specific VGA context.
+:returns: Nothing.
+````
 
-- `vgahw_init` - Initializes the VGA handle.
+````{function} vga_unlock(hwctx)
+Unlocks CRT controller registers `0` through `7` by clearing bit `7` of register `0x11`.
 
-  ```c
-  int vgahw_init(void *hwctx)
-  ```
+:param hwctx: Hardware-specific VGA context.
+:returns: Nothing.
+````
 
-- `vgahw_done` - Destroys the VGA handle.
+````{function} vga_mlock(hwctx)
+Protects registers and memory during a mode switch.
 
-  ```c
-  void vgahw_done(void *hwctx)
-  ```
+The function disables display output, stops the sequencer, and enables color-map access.
 
-## High-Level Interface
+:param hwctx: Hardware-specific VGA context.
+:returns: Nothing.
+````
 
-### VGA Register and Mode Management
+````{function} vga_munlock(hwctx)
+Releases mode-switch protection set by `vga_mlock()`.
 
-- `vga_lock` - Lock CRTC[0-7] registers.
+The function restarts the sequencer, enables display output, and disables color-map access.
 
-  ```c
-  void vga_lock(void *hwctx)
-  ```
+:param hwctx: Hardware-specific VGA context.
+:returns: Nothing.
+````
 
-- `vga_unlock` - Unlock CRTC[0-7] registers.
+````{function} vga_blank(hwctx)
+Blanks the display by setting the sequencer screen-off bit.
 
-  ```c
-  void vga_unlock(void *hwctx)
-  ```
+:param hwctx: Hardware-specific VGA context.
+:returns: Nothing.
+````
 
-- `vga_mlock` - Protect/release VGA registers and memory during mode switch.
+````{function} vga_unblank(hwctx)
+Unblanks the display by clearing the sequencer screen-off bit.
 
-  ```c
-  void vga_mlock(void *hwctx)
-  ```
+:param hwctx: Hardware-specific VGA context.
+:returns: Nothing.
+````
 
-- `vga_munlock` - Protect/release VGA registers and memory during mode switch.
+````{function} vga_savemode(hwctx, state)
+Reads VGA mode registers into `state`.
 
-  ```c
-  void vga_munlock(void *hwctx)
-  ```
+The function fills `mr`, `cr`, `sr`, `gr`, and `ar`. It does not allocate storage for optional pointers in `state`.
 
-- `vga_blank` - Blanks the screen.
+:param hwctx: Hardware-specific VGA context.
+:param state: State object supplied by the caller.
+:returns: Nothing.
+````
 
-  ```c
-  void vga_blank(void *hwctx)
-  ```
+````{function} vga_restoremode(hwctx, state)
+Writes VGA mode registers from `state`.
 
-- `vga_unblank` - Un blanks the screen.
+The function unlocks restored CRT controller registers before writing the stored CRT controller array.
 
-  ```c
-  void vga_unblank(void *hwctx)
-  ```
+:param hwctx: Hardware-specific VGA context.
+:param state: State object filled by `vga_savemode()` or `vga_initstate()`.
+:returns: Nothing.
+````
 
-### VGA State Management
+````{function} vga_savecmap(hwctx, state)
+Copies the current DAC color map to `state->cmap`.
 
-- `vga_savemode` - Save the VGA mode.
+When `state->cmap == NULL`, the function returns without reading DAC data.
 
-  ```c
-  void vga_savemode(void *hwctx, vga_state_t *state)
-  ```
+:param hwctx: Hardware-specific VGA context.
+:param state: State object with optional `cmap` buffer of `VGA_CMAPSZ` bytes.
+:returns: Nothing.
+````
 
-- `vga_restoremode` - Restore the VGA mode.
+````{function} vga_restorecmap(hwctx, state)
+Writes DAC color-map data from `state->cmap`.
 
-  ```c
-  void vga_restoremode(void *hwctx, vga_state_t *state)
-  ```
+When `state->cmap == NULL`, the function returns without writing DAC data.
 
-- `vga_savecmap` - Save the VGA color map.
+:param hwctx: Hardware-specific VGA context.
+:param state: State object with optional `cmap` buffer of `VGA_CMAPSZ` bytes.
+:returns: Nothing.
+````
 
-  ```c
-  void vga_savecmap(void *hwctx, vga_state_t *state)
-  ```
+````{function} vga_savetext(hwctx, state)
+Copies VGA text and font planes into buffers referenced by `state`.
 
-- `vga_restorecmap` - Restore the VGA color map.
+The function returns without copying when the current attribute mode indicates graphics mode. It copies only the
+buffers whose pointers are non-`NULL`.
 
-  ```c
-  void vga_restorecmap(void *hwctx, vga_state_t *state)
-  ```
+:param hwctx: Hardware-specific VGA context.
+:param state: State object with optional `text`, `font1`, and `font2` buffers.
+:returns: Nothing.
+````
 
-- `vga_savetext` - Save VGA fonts and text.
+````{function} vga_restoretext(hwctx, state)
+Restores VGA text and font planes from buffers referenced by `state`.
 
-  ```c
-  void vga_savetext(void *hwctx, vga_state_t *state)
-  ```
+The function writes only the buffers whose pointers are non-`NULL`.
 
-- `vga_restoretext` - Restore VGA fonts and text.
+:param hwctx: Hardware-specific VGA context.
+:param state: State object with optional `text`, `font1`, and `font2` buffers.
+:returns: Nothing.
+````
 
-  ```c
-  void vga_restoretext(void *hwctx, vga_state_t *state)
-  ```
+````{function} vga_save(hwctx, state)
+Saves text planes, color map, and mode registers into `state`.
 
-- `vga_save` - Save all VGA settings.
+:param hwctx: Hardware-specific VGA context.
+:param state: State object supplied by the caller.
+:returns: Nothing.
+````
 
-  ```c
-  void vga_save(void *hwctx, vga_state_t *state)
-  ```
+````{function} vga_restore(hwctx, state)
+Restores mode registers, color map, and text planes from `state`.
 
-- `vga_restore` - Restore all VGA settings.
+:param hwctx: Hardware-specific VGA context.
+:param state: State object supplied by the caller.
+:returns: Nothing.
+````
 
-  ```c
-  void vga_restore(void *hwctx, vga_state_t *state)
-  ```
+````{function} vga_initstate(cfg, state)
+Generates VGA register state for the timing configuration in `cfg`.
 
-### VGA Configuration
+The function applies `VGA_DBLSCAN` and `VGA_INTERLACE` to vertical timings, fills the miscellaneous register, and
+generates CRT controller, sequencer, graphics controller, and attribute controller register arrays.
 
-- `vga_initstate` - Initializes the VGA state for a given mode configuration.
-
-  ```c
-  void vga_initstate(vga_cfg_t *cfg, vga_state_t *state)
-  ```
-
-## Using libvga
-
-To use functions provided by `libvga` please add the library to the `LIBS` variable in `Makefile` and include the
-required header file.
+:param cfg: Mode timing configuration.
+:param state: State object whose register arrays are written by the function.
+:returns: Nothing.
+````

@@ -1,7 +1,7 @@
 # Running system on <nobr>armv7m7-imxrt117x-evk</nobr>
 
-This version is designed for NXP i.MX RT117x processors with ARM Cortex-M7 core. To launch this version the final disk
-image and loader image should be provided. The images are created as the final artifacts of the `phoenix-rtos-project`
+This version is designed for NXP i.MX RT117x processors with ARM Cortex-M7 core. To launch this version, provide the
+final disk image and loader image. The images are created as the final artifacts of the `phoenix-rtos-project`
 building and are located in the `_boot` directory. The disk image consists of the bootloader (plo), kernel, UART driver
 (tty), dummyfs filesystem server (RAM disk), and `psh` (shell). Necessary tools to carry out the flashing process are
 located in the `_boot` directory as well.
@@ -41,15 +41,10 @@ that run:
 
 - On Ubuntu:
 
-  ```shell
-  ls -l /dev/serial/by-id
   ```
-
-  ```
-  ~$ ls -l /dev/serial/by-id/
+  $ ls -l /dev/serial/by-id/
   total 0
   lrwxrwxrwx 1 root root 13 lis 23 10:11 usb-ARM_DAPLink_CMSIS-DAP_02440000325121ab000000000000000000000097969905-if01 -> ../../ttyACM0
-  ~$
   ```
 
   If the output matches, the console (`DEBUG USB` in the evaluation board) is on the `ACM0`
@@ -58,22 +53,22 @@ that run:
 - When the board is connected to your host-pc, open serial port in terminal using picocom and type the console port
 (in this case ACM0)
 
-  ```shell
-  picocom -b 115200 --imap lfcrlf /dev/tty[port]
+  ```
+  $ picocom -b 115200 --imap lfcrlf /dev/tty[port]
   ```
 
   <details>
   <summary>How to get picocom and run it without privileges (Ubuntu 22.04)</summary>
 
-  ```shell
-  sudo apt-get update && \
-  sudo apt-get install picocom
+  ```
+  $ sudo apt-get update
+  $ sudo apt-get install picocom
   ```
 
   To use picocom without sudo privileges run this command and then restart:
 
-  ```shell
-  sudo usermod -a -G tty <yourname>
+  ```
+  $ sudo usermod -a -G tty <yourname>
   ```
 
   </details>
@@ -87,24 +82,21 @@ The process comes down to a few steps, described below.
 
 ### Uploading Phoenix-RTOS loader (plo) to the RAM memory
 
-To flash the disk image to the board, the bootloader (plo) image located in the `_boot` directory should be uploaded to
-the RAM using `psu` (Phoenix Serial Uploader) via SDP (Serial Download Protocol).
+To flash the disk image to the board, upload the bootloader (PLO) image from the `_boot` directory to RAM by using
+`psu` (Phoenix Serial Uploader) over Serial Download Protocol (SDP).
 
-NOTE: `i. MX RT1176` should be set in Serial Download mode. Set the appropriate configuration of the `SW1` switch on
+NOTE: `i. MX RT1176` must be set in Serial Download mode. Set the appropriate configuration of the `SW1` switch on
  `MIMXRT1170-EVK`, which is `0001`. If the configuration was different restart the board after the
  change and open the serial port using picocom once again.
 
 Change directory to `_boot` and run `psu` as follows:
 
-```shell
-cd _boot/armv7m7-imxrt117x-evk
+```
+$ cd _boot/armv7m7-imxrt117x-evk
+$ sudo ./psu plo-ram.sdp
 ```
 
-```shell
-sudo ./psu plo-ram.sdp
-```
-
-The plo user interface should appear in the console.
+The PLO user interface appears in the console.
 
 ```
 Phoenix-RTOS loader v. 1.21 rev: f540178
@@ -116,30 +108,7 @@ console: Setting console to 0.0
 (plo)%
 ```
 
-Type `help`.
-
-```
-(plo)% help
-  alias       - sets alias to file, usage: alias [<name> <offset> <size>]
-  app         - loads app, usage: app [<dev> [-x] <name> <imap> <dmap>]
-  call        - calls user's script, usage: call <dev> <script name> <magic>
-  console     - sets console to device, usage: console <major.minor>
-  copy        - copies data between devices, usage:
-                  copy <src dev> <file/offs size> <dst dev> <file/offs size>
-  dump        - dumps memory, usage: dump <addr>
-  echo        - command switch on/off information logs, usage: echo [on/off]
-  go!         - starts Phoenix-RTOS loaded into memory
-  help        - prints this message
-  kernel      - loads Phoenix-RTOS, usage: kernel [<dev> [name]]
-  map         - defines multimap, usage: map [<name> <start> <end> <attributes>]
-  mpu         - prints the use of MPU regions, usage: mpu [all]
-  phfs        - registers device in phfs, usage: phfs [<alias> <major.minor> [protocol]]
-  reboot      - reboot system (final state may depend on the latched boot config state)
-  script      - shows script, usage: script [<dev> <name> <magic>]
-  syspage     - sets syspage address or shows it, usage: syspage [address]
-  wait        - waits in milliseconds or in infinite loop, usage: wait [ms]
-(plo)%
-```
+The `(plo)%` prompt confirms that PLO is ready for the copy step.
 
 ### Copying flash image using PHFS (phoenixd)
 
@@ -148,27 +117,19 @@ To flash the disk image, first, verify on which port plo USB device has appeared
 
 - On Ubuntu:
 
-```shell
-ls -l /dev/serial/by-id
 ```
-
-```
-~$ ls -l /dev/serial/by-id/
+$ ls -l /dev/serial/by-id/
 total 0
 lrwxrwxrwx 1 root root 13 lis 23 10:48 usb-ARM_DAPLink_CMSIS-DAP_02440000325121ab000000000000000000000097969905-if01 -> ../../ttyACM0
 lrwxrwxrwx 1 root root 13 lis 23 10:52 usb-Phoenix_Systems_plo_CDC_ACM-if00 -> ../../ttyACM1
-~$
 ```
 
 Launch `phoenixd` to share the disk image with the bootloader (choose suitable
 ttyACMx device, in this case, ttyACM1):
 
-```shell
-sudo ./phoenixd -p /dev/tty[port] -b 115200 -s .
 ```
-
-```
-~/phoenix-rtos-project/_boot/armv7m7-imxrt117x-evk$ sudo ./phoenixd -p /dev/ttyACM1 -b 115200 -s .
+$ cd _boot/armv7m7-imxrt117x-evk
+$ sudo ./phoenixd -p /dev/ttyACM1 -b 115200 -s .
 -\- Phoenix server, ver. 1.5
 (c) 2012 Phoenix Systems
 (c) 2000, 2005 Pawel Pisarczyk
@@ -178,8 +139,8 @@ sudo ./phoenixd -p /dev/tty[port] -b 115200 -s .
 
 To start copying a file, write the following command in the console with plo interface:
 
-```shell
-copy usb0 phoenix.disk flash0 0x0 0x0
+```
+(plo)% copy usb0 phoenix.disk flash0 0x0 0x0
 ```
 
 The `flash0` is the external flash memory.
@@ -189,9 +150,9 @@ The `flash0` is the external flash memory.
 To launch Phoenix-RTOS from flash memory, change the `SW1` switch to Internal Boot mode (`0010` configuration) and
 restart the board (you can do it by pushing the `SW4` button).
 
-If everything has gone correctly, Phoenix-RTOS with the default configuration and the `psh` shell command prompt will
-appear in the terminal after 2 seconds. If there is a need to enter the bootloader, the waiting for input should be
-interrupted by pressing any key. Then you can exit plo by passing `go!` command.
+If the boot succeeds, Phoenix-RTOS with the default configuration and the `psh` shell command prompt appears in the
+terminal after 2 seconds. To enter the bootloader, press any key during the input wait period. To leave PLO, pass the
+`go!` command.
 
 ```
 Phoenix-RTOS microkernel v. 2.97 rev: 10b7a77

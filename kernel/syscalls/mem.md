@@ -1,52 +1,46 @@
 # Memory management
 
-Functions allow managing process address spaces.
+Memory syscall handlers unpack arguments from the user stack with `GETFROMSTACK()` and operate on the current
+process map.
 
-## `syscalls_sys_mmap`
+````{function} syscalls_sys_mmap(ustack)
+Maps memory in the current process address space.
 
-````C
-GETFROMSTACK(ustack, void **, vaddr, 0);
-GETFROMSTACK(ustack, size_t, size, 1);
-GETFROMSTACK(ustack, int, prot, 2);
-GETFROMSTACK(ustack, int, flags, 3);
-GETFROMSTACK(ustack, int, fildes, 4);
-GETFROMSTACK(ustack, off_t, offs, 5);
+The handler rounds `size` up to a page boundary, validates the output pointer, resolves the object from `fildes` when
+the mapping is not anonymous, and calls `vm_mmap()` with `PROT_USER` added to the requested protections.
+
+:param ustack: User stack containing `void **vaddr`, `size_t size`, `int prot`, `int flags`, `int fildes`, and
+  `off_t offs` at indexes `0` through `5`.
+:returns: `EOK` on success, with `*vaddr` updated to the mapped address. Returns `-EFAULT` when `vaddr` is outside the
+  process map, `-ENOMEM` when a contiguous or final mapping allocation fails, or a negative error from descriptor or
+  VM object lookup.
 ````
 
-Maps part of object given by `fildes`, `offs` and `size` at `vaddr` with protection attributes given by
-`prot` using mapping mode defined by `flags`.
 
-## `syscalls_sys_munmap`
+````{function} syscalls_sys_munmap(ustack)
+Unmaps memory from the current process address space.
 
-````C
-GETFROMSTACK(ustack, void *, vaddr, 0);
-GETFROMSTACK(ustack, size_t, size, 1);
+:param ustack: User stack containing `void *vaddr` at index `0` and `size_t size` at index `1`.
+:returns: `EOK` on success or a negative error returned by `vm_munmap()`.
 ````
 
-Unmaps part of address space defined by `vaddr` and `size`.
+````{function} syscalls_sys_mprotect(ustack)
+Changes protection bits for a mapped region in the current process.
 
-## `syscalls_meminfo`
-
-````C
-GETFROMSTACK(ustack, meminfo_t *, info, 0);
+:param ustack: User stack containing `void *vaddr`, `size_t len`, and `int prot` at indexes `0` through `2`.
+:returns: `EOK` on success or a negative error returned by `vm_mprotect()`.
 ````
 
-Returns memory map entries associated with calling process.
+````{function} syscalls_meminfo(ustack)
+Copies kernel memory information to a user-provided `meminfo_t` structure.
 
-## `syscalls_va2pa`
-
-````C
-GETFROMSTACK(ustack, void *, va, 0);
+:param ustack: User stack containing `meminfo_t *info` at index `0`.
+:returns: Nothing. The handler calls `vm_meminfo()` only when `info` belongs to the current process map.
 ````
 
-Converts virtual address given by `va` to physical address.
+````{function} syscalls_va2pa(ustack)
+Resolves a user virtual address to a physical address in the current process page map.
 
-## `syscalls_sys_mprotect`
-
-````C
-GETFROMSTACK(ustack, void *, vaddr, 0);
-GETFROMSTACK(ustack, size_t, len, 1);
-GETFROMSTACK(ustack, int, prot, 2);
+:param ustack: User stack containing `void *va` at index `0`.
+:returns: Physical address formed from the resolved page frame and the low 12 bits of `va`.
 ````
-
-Sets protection access to a memory region given by `vaddr` of size `len` to `prot`.

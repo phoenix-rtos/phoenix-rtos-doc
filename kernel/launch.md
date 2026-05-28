@@ -268,7 +268,7 @@ PLO `.rodata`
 : `_startc()` copies it from `__rodata_load` to `__rodata_start` when the addresses differ.
 
 PLO `.bss`
-: `_startc()` clears `__bss_start` through `__bss_end` with `hal_memset()`.
+: `_startc()` clears PLO's own `__bss_start` through `__bss_end` range with `hal_memset()`.
 
 PLO `.heap`
 : Linker-reserved `NOLOAD` region. `syspage_init()` places `syspage_t` at `__heap_base`.

@@ -1,8 +1,8 @@
 # Running system on <nobr>riscv64-generic-spike</nobr>
 
-This version is designated for RISC-V 64 processors based spike machine implemented by the Spike (`riscv-isa-sim`)
-emulator. To launch this version `phoenix.osbi` file should be provided - system image with integrated OpenSBI
-bootloader, containing PLO, kernel, console driver, dummyfs filesystem and the `psh` shell.
+This version is designated for RISC-V 64 processors based on the Spike (`riscv-isa-sim`) emulator. To launch this
+version, provide `phoenix.osbi`, a system image with integrated OpenSBI bootloader, PLO, kernel, console driver,
+dummyfs filesystem, and the `psh` shell.
 
 The file is created as the final artifact of the `phoenix-rtos-project` build and is located in the `_boot` directory.
 See [Building](../building/index.md) chapter.
@@ -52,14 +52,10 @@ Install the Spike simulator.
   </details>
   </br>
 
-Then, to run the image under spike change to `phoenix-rtos-project` and type:
-
-```shell
-./scripts/riscv64-generic-spike.sh
-```
+Then, run the image under Spike from the project root:
 
 ```
-~/phoenix-rtos-project$ ./scripts/riscv64-generic-spike.sh
+$ ./scripts/riscv64-generic-spike.sh
 
 OpenSBI v1.4
    ____                    _____ ____ _____

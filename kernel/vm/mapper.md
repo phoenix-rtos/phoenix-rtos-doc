@@ -1,223 +1,113 @@
 # Memory mapper
 
-After memory pages are allocated, they must be mapped into the process or kernel address space so that the memory can be
-used by the kernel or user processes. A memory mapper is a part of memory management system which is responsible for
-this process and manages the available address space.
+The mapper owns virtual address ranges. It stores every mapped range as a `map_entry_t` in a red-black tree attached to
+`vm_map_t`. The tree is ordered by virtual address and stores gap sizes, so the mapper can find free ranges without
+linear scans.
 
-In non-MMU architectures, the kernel and user processes share the same address space. In architectures with a paged
-memory, address spaces are separated, but the kernel is mapped into each of them. The kernel mapping is shared among the
-processes, using specific features of virtual-to-physical address resolution. To illustrate, the IA32 architecture’s MMU
-uses two-level page tables: after the kernel is initialized, all kernel page tables are created on the second level and
-used by the first level page tables, created during process creation.
+## Main structures
 
-## Memory map
+`vm_map_t` describes one address space. It contains:
 
-A memory map (`vm_map_t` structure) is the main structure used for describing the address space. Built using the
-red-black tree structure, the memory map stores entries (`map_entry_t`) which describe the memory segments. The memory
-map belongs both to the kernel and processes. In non-MMU architectures, the kernel and processes share the same memory
-map. In MMU architectures, each process has its own separate memory map defining the user mappings. The kernel uses a
-separate memory map that describes the parts of the address space which belong to the kernel.
+| Field | Meaning |
+| --- | --- |
+| `pmap` | Architecture page-map state used by the HAL. |
+| `start`, `stop` | Valid virtual address range. |
+| `tree` | Red-black tree of mapped ranges. |
+| `lock` | Map lock. |
 
-The map definition and its entry is presented below.
+`map_entry_t` describes one mapped range. Important fields are:
 
-```c
-typedef struct _vm_map_t {
-    pmap_t pmap;
-    void *start;
-    void *stop;
-    rbtree_t tree;
-} vm_map_t;
+| Field | Meaning |
+| --- | --- |
+| `vaddr`, `size` | Range start and size. |
+| `lmaxgap`, `rmaxgap` | Largest free gaps in the left and right subtrees. |
+| `flags`, `prot`, `protOrig` | Mapping flags and current/original protection. |
+| `object`, `offs` | Backing object and object offset. |
+| `amap`, `aoffs` | Anonymous memory backing used by private writable mappings. |
+| `map` | Owning map. |
+
+On MMU targets each process has its own user map and the kernel has a separate map. On NOMMU targets mappings are kept
+in shared maps because processes do not have separate hardware address spaces.
+
+## Address selection
+
+The internal search code finds the first gap that can hold the requested size at or above the requested address. The
+`lmaxgap` and `rmaxgap` fields let the search skip subtrees that cannot contain a large enough gap. After insertion or
+removal, the mapper updates these gap values on the affected tree path.
+
+When a new mapping is adjacent to an entry with compatible flags, protection, object, and offset, the mapper can merge
+entries instead of adding another tree node.
+
+## Mapping API
+
+```{function} void *vm_mapFind(vm_map_t *map, void *vaddr, size_t size, vm_flags_t flags, vm_prot_t prot)
+
+Finds a free address range in `map`.
+
+:param map: Address-space map.
+:param vaddr: Preferred start address.
+:param size: Requested mapping size.
+:param flags: Mapping flags.
+:param prot: Requested protection.
+:returns: Selected virtual address, or `NULL` when no suitable range exists.
 ```
 
-The `start`, `stop` attributes define the beginning and ending of the address space described by the map. The `pmap`
-attribute defines the `pmap` structure encapsulating the hardware-dependent structures used by the MMU for address
-resolution. The tree attribute stores the red-black tree of map entries.
+```{function} void *vm_mmap(map, vaddr, p, size, prot, o, offs, flags)
 
-```c
-typedef struct _map_entry_t {
-    rbnode_t linkage;
-    struct _map_entry_t *next;
-    struct _map_arena_t *arena;
+Creates a mapping in `map`.
 
-    void *vaddr;
-    size_t size;
-    size_t lmaxgap;
-    size_t rmaxgap;
-
-    unsigned int flags;
-    vm_object_t *object;
-    vm_map_t *map;
-    offs_t offs;
-} map_entry_t;
+:param map: Address-space map.
+:param vaddr: Requested address. With `MAP_FIXED`, the address must be available.
+:param p: Optional page backing for direct page mappings.
+:param size: Mapping size in bytes.
+:param prot: Requested protection.
+:param o: Optional backing memory object.
+:param offs: Offset in the backing object.
+:param flags: Mapping flags.
+:returns: Mapped virtual address, or `MAP_FAILED` on error.
 ```
 
-Each `map_entry_t` constitutes a tree node (the `linkage` field) and the tree is constructed on the basis of the virtual
-address value (`vaddr`). The virtual address points to the segment address. It is complemented by the segment size,
-segment attributes and two special attributes: `rmaxgap` and `lmaxgap`, which store the size of the maximum gap between
-the segments in the left or right subtree of the current node. The segment attributes are defined by the `flags` field.
-The `object` field points to the object mapped into the address space. The `NULL` value of this field contains the
-information that mapping is anonymous (no object is mapped). The offset (`offs`) defines the in-object location of the
-data which should be copied into the memory.
+```{function} int vm_munmap(vm_map_t *map, void *vaddr, size_t size)
 
-### Understanding the map tree representation
+Removes mappings from an address range.
 
-The figure below briefly presents the idea behind describing the address space with a memory map based on a binary tree.
-
-![Image](../../_static/images/kernel/vm/mem-map1.png)
-
-The sample tree presented in the figure above will help you better understand the map structure. The root node points to
-the segment located approximately in the middle of the address space described by the map (the address range is defined
-by the `start`, `stop` attributes). The maximum gap in the left subtree is the gap marked with green color. The maximum
-gap in the right subtree is the gap marked with dark purple. The left child of the root node points to the segment in
-the middle of the left (lower) half of the address space. The right child of the root node points to the segment located
-in the middle of the right (upper) half of the address space. In the right subtree, where the right child of the map
-root node constitutes the root node, the maximum left gap is marked with dark blue. The maximum right gap for this
-subtree is marked with dark purple. A similar analysis may be performed for the other parts of the tree.
-
-## Mapping algorithm
-
-Page mapping is performed using the `_map_find()` function. The function tries to find the first suitable address for
-the mapping which is greater than the address specified as the argument and closest to it. The right maximum gap and the
-left maximum gap attributes are used for this operation to achieve a logarithmic algorithm complexity. The other
-argument provided for this function is a page set, obtained during page allocation. The function returns the nearest
-left and right neighbor entries. The returned entries are used to check whether the mapping is performed for the same
-object as the left and right neighbors. If the left or right neighbor attributes are the same as the required mapping
-attributes, and the mapping is performed for the same object as the left or right neighbors, the left or right entry is
-expanded respectively, and no new entry is inserted into the tree.
-
-The mapping algorithm is presented below. Due to its complexity, it will be discussed step by step: a fragment of the
-code is followed by an explanation of each step.
-
-```c
-void *_map_find(vm_map_t *map, void *vaddr, size_t size,
-                map_entry_t **prev, map_entry_t **next)
-{
-    map_entry_t *e = lib_treeof(map_entry_t, linkage, map->tree.root);
-
-    *prev = NULL;
-    *next = NULL;
+:param map: Address-space map.
+:param vaddr: Start of the range.
+:param size: Range size in bytes.
+:returns: `EOK` on success or a negative error code.
 ```
 
-The first entry is assigned to the root entry of the map. The pointers for neighbors are null'ed.
+```{function} int vm_mprotect(vm_map_t *map, void *vaddr, size_t len, vm_prot_t prot)
 
-```c
-if (map->stop - size < vaddr)
-    return NULL;
-if (vaddr < map->start)
-    vaddr = map->start;
+Changes protection attributes for an existing range.
+
+:param map: Address-space map.
+:param vaddr: Start of the range.
+:param len: Range size in bytes.
+:param prot: New protection flags.
+:returns: `EOK` on success or a negative error code.
 ```
 
-The address of the mapping is checked according to the map range.
+```{function} int vm_mapCreate(vm_map_t *map, void *start, void *stop)
 
-```c
-while (e != NULL) {
+Initializes a memory map.
 
-    if ((size <= e->lmaxgap) && ((vaddr + size) <= e->vaddr)) {
-        *next = e;
-
-        if (e->linkage.left == &nil)
-            return max(vaddr, e->vaddr - e->lmaxgap);
-        e = lib_treeof(map_entry_t, linkage, e->linkage.left);
-        continue;
-    }
+:param map: Map object to initialize.
+:param start: First address managed by the map.
+:param stop: End address managed by the map.
+:returns: `EOK` on success or a negative error code.
 ```
 
-The mapping address and sizes are compared with the left child of the node. If the address is less than the address of
-the current node and there is a space for the mapping, the left child is selected for the next iteration.
+```{function} void vm_mapDestroy(process_t *p, vm_map_t *map)
 
-```c
-if (size <= e->rmaxgap) {
-    *prev = e;
+Destroys a map and releases its entries.
 
-    if (e->linkage.right == &nil)
-        return max(vaddr, e->vaddr + e->size);
-
-    e = lib_treeof(map_entry_t, linkage, e->linkage.right);
-    continue;
-}
+:param p: Process owning the map.
+:param map: Map to destroy.
 ```
 
-If the mapping address is not less than the address of the current node, the tree is traversed using the right child.
+## Hardware boundary
 
-```c
-for (;; e = lib_treeof(map_entry_t, linkage, e->linkage.parent)) {
-    if (e->linkage.parent == &nil)
-        return NULL;
-    if ((e == lib_treeof(map_entry_t, linkage, e->linkage.parent->left)) &&
-        ((lib_treeof(map_entry_t, linkage, e->linkage.parent)->rmaxgap >= size)))
-        break;
-}
-e = lib_treeof(map_entry_t, linkage, e->linkage.parent);
-```
-
-If we get lost in the tree (the mapping address should be decreased to fulfill the size requirement), the tree is
-traversed up until the right child with a proper maximum gap is found.
-
-```c
-for (*next = e; (*next)->linkage.parent != &nil;
-    *next = lib_treeof(map_entry_t, linkage, (*next)->linkage.parent))
-
-    if ((*next) == lib_treeof(map_entry_t, linkage, (*next)->linkage.parent->left))
-        break;
-*next = lib_treeof(map_entry_t, linkage, (*next)->linkage.parent);
-```
-
-When we find a new node from which we should move to the right, the right neighbor is established. The tree is traversed
-starting from the parent of the new node until the node representing the right becomes the left child. In this case,
-the right neighbor is the parent of this node.
-
-```c
-*prev = e;
-```
-
-The left neighbor points to the new node.
-
-```c
-if (e->linkage.right == &nil)
-    return e->vaddr + e->size;
-
-e = lib_treeof(map_entry_t, linkage, e->linkage.right);
-```
-
-The tree is traversed to the right, starting from the new node. If the new node does not have the right child, the
-mapping is performed after the new node.
-
-```c
-    }
-
-    return vaddr;
-}
-```
-
-## Map entry allocator
-
-There is a dependency problem with memory mappings.
-
-```c
-typedef struct _map_arena_t {
-    struct _map_arena_t *next;
-    struct _map_arena_t *prev;
-    page_t *page;
-
-    unsigned int nall;
-    unsigned int nfree;
-    map_entry_t *free;
-    map_entry_t entries[];
-} map_arena_t;
-```
-
-## Object mapping function
-
-It is not possible to map pages directly into the process address space on the user level. Instead, there is mechanism
-for mapping objects which is based on page mapping. See the next sections for a description of objects and related
-mechanisms.
-
-The `vm_mmap()` function maps object into the address space starting from address specified as function argument. Other
-function arguments define the size of the mapping, the attributes of the finally created memory segment, the object
-handle and flags determining the function behavior. If fixed mapping is specified in the flags' argument mapping tries
-to map object at specified address. If address range of requested mapping overlaps with existing mapping the function
-will fail.
-
-### Memory regions
-
-A NUMA machine has different memory controllers with different distances to specific CPUs.
+The mapper decides which ranges exist and which protections apply. The HAL `pmap` layer installs and removes the
+architecture-specific page-table entries. `vm_flagsToAttr()` converts VM flags such as `MAP_UNCACHED` or `MAP_DEVICE`
+into page-map attributes used by the HAL.

@@ -1,61 +1,67 @@
 # Zone allocator
 
-Zone allocator is used to allocate memory inside the allocated pages mapped into the address space. The main idea of
-this allocator is to allocate the memory area and divide it into similar chunks aligned to their size. Zone allocator
-is used when equal fragments of memory should be allocated dynamically with minimum processing overhead. The good use
-case is allocation of network buffer headers.
+The zone allocator allocates fixed-size blocks from a page-backed area. It is used directly by kernel code that needs
+many objects of the same size and indirectly by the kernel `vm_kmalloc()` allocator.
 
-Each zone used for allocation is described using `vm_zone_t` header.
+Each zone is described by `vm_zone_t`, declared in `vm/zone.h`.
 
-```c
-typedef struct _vm_zone_t {
-    struct _vm_zone_t *next;
-    struct _vm_zone_t *prev;
-    rbnode_t linkage;
-    size_t blocksz;
-    volatile unsigned int blocks;
-    volatile unsigned int used;
-    void *vaddr;
-    void *first;
-    page_t *pages;
-} vm_zone_t;
+| Field | Meaning |
+| --- | --- |
+| `next`, `prev` | Links used by the kmalloc size-class lists. |
+| `linkage` | Red-black tree node used to find a zone by block address. |
+| `blocksz` | Aligned block size. |
+| `blocks` | Number of blocks in the zone. |
+| `used` | Number of allocated blocks. |
+| `vaddr` | Kernel virtual address where zone pages are mapped. |
+| `first` | First free block. |
+| `pages` | First page descriptor backing the zone. |
+
+## API
+
+```{function} int _vm_zoneCreate(vm_zone_t *zone, size_t blocksz, unsigned int blocks)
+
+Creates a zone, allocates backing pages, maps them into the kernel map, and initializes the free-block list.
+
+:param zone: Zone descriptor to initialize.
+:param blocksz: Requested block size.
+:param blocks: Requested number of blocks.
+:returns: `EOK` on success or a negative error code.
 ```
 
-For purposes of fine-grained allocator (described in the next chapter) zones are linked using the `next` and `prev`
-attributes. Attribute `linkage` is used for adding zone headers into the red-black tree used by fine-grained allocator
-for memory deallocation. Attributes `blocksz` and `blocks` define the chunk size and number of chunks in the zone.
-Attribute `used` stores the number of chunks already allocated. Virtual address at which page set is mapped is pointed
-by `vaddr`. The first page descriptor of pages sets constituting the zone is pointed by `pages` attribute. Attribute
-`first` points the first free chunk in the zone.
+The final block size can be larger than `blocksz` because it is aligned. The final number of blocks can be larger than
+`blocks` because the backing allocation is page-sized.
 
-## Chunk allocation
+```{function} int _vm_zoneDestroy(vm_zone_t *zone)
 
-Functions used for chunk allocations are presented below.
+Destroys a zone and returns its backing pages to the page allocator.
 
-```c
-extern int _vm_zoneCreate(vm_zone_t *zone, size_t blocksz,
-                          unsigned int blocks);
+:param zone: Zone to destroy.
+:returns: `EOK` on success or a negative error code.
 ```
 
-Function creates the new zone containing the `blocks` number of blocks. The size of single block is given by `blocksz`
-argument. During the zone creation a new page set is allocated and mapped into the kernel address space. The address of
-the mapping is returned to the zone header given by `zone` pointer. The final number of blocks in the zone can be
-greater than requested (because of the allocation with the page size granulation). The final block size can be greater
-than requested because block size should be aligned.
+```{function} void *_vm_zalloc(vm_zone_t *zone, addr_t *addr)
 
-```c
-extern int _vm_zoneDestroy(vm_zone_t *zone);
+Allocates one block from a zone.
+
+:param zone: Source zone.
+:param addr: Optional output physical address for the allocated block.
+:returns: Kernel virtual address of the block, or `NULL` when no block is available.
 ```
 
-Function destroys zone given by the argument.
+```{function} void _vm_zfree(vm_zone_t *zone, void *block)
 
-```c
-extern void *_vm_zalloc(vm_zone_t *zone, addr_t *addr);
+Returns a block to its zone.
+
+:param zone: Zone that owns the block.
+:param block: Kernel virtual address returned by `_vm_zalloc()`.
 ```
 
-Function allocates bucket of memory from zone given by `zone`. The `addr` stores the physical address of allocated
-bucket.
+```{function} void _zone_init(vm_map_t *map, vm_object_t *kernel, void **bss, void **top)
 
-```c
-extern void _vm_zfree(vm_zone_t *zone, void *vaddr);
+Initializes the zone allocator during VM startup.
+
+:param map: Kernel map used for zone mappings.
+:param kernel: Kernel memory object.
+:param bss: Current end of kernel BSS and early heap metadata.
+:param top: Current top of early heap mapping.
 ```

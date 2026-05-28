@@ -1,13 +1,14 @@
 # Software watchdog library (libswdg)
 
-Software multichannel watchdog implementation.
+`libswdg` provides a multichannel software watchdog for applications that need process-level timeout supervision.
 
 ## Application interface
 
 ### Data types
 
-- `swdg_callback_t` - Callback function to be provided to be executed in the event of channel timeout. `channel` param
-conveys information which channel timeout has occurred, this allows one callback to be used for all channels.
+`swdg_callback_t`
+: Callback invoked when a watchdog channel times out. The `channel` argument identifies the expired channel, so one
+  callback can handle multiple channels.
 
   ```c
   typedef void (*swdg_callback_t)(int channel);
@@ -15,51 +16,55 @@ conveys information which channel timeout has occurred, this allows one callback
 
 ### Functions
 
-- `swdg_reload` - Reloads selected watchdog channel `no` timer. This causes channel deadline to be set to value set
-in configuration.
+````{function} swdg_reload(no)
+Reloads the timer for watchdog channel `no`.
 
-  ```c
-  void swdg_reload(int no);
-  ```
+:param no: Channel number. Values outside the configured channel range are ignored.
+:returns: Nothing.
+````
 
-- `swdg_disable` - Disables selected watchdog channel `no` timer. Configuration is kept, so channel can be re-enabled
-without additional steps.
+````{function} swdg_disable(no)
+Disables watchdog channel `no` without changing its callback or timeout configuration.
 
-  ```c
-  void swdg_disable(int no);
-  ```
+:param no: Channel number. Values outside the configured channel range are ignored.
+:returns: Nothing.
+````
 
-- `swdg_enable` - Enables selected watchdog channel `no` timer. Channel is refreshed on enable, so no spurious timeout
-can occur.
+````{function} swdg_enable(no)
+Enables watchdog channel `no` and reloads it before signaling the watchdog thread.
 
-  ```c
-  void swdg_enable(int no);
-  ```
+:param no: Channel number. Values outside the configured channel range are ignored.
+:returns: Nothing.
+````
 
-- `swdg_chanConfig` - Configures selected watchdog channel `no` with desired `callback` function and `limit`
-(in microseconds) deadline.
+````{function} swdg_chanConfig(no, callback, limit)
+Configures watchdog channel `no` with a timeout callback and deadline.
 
-  ```c
-  void swdg_chanConfig(int no, swdg_callback_t callback, time_t limit);
-  ```
+:param no: Channel number. Values outside the configured channel range are ignored.
+:param callback: Callback executed by the watchdog thread when the channel times out.
+:param limit: Timeout value in microseconds.
+:returns: Nothing.
+````
 
-- `swdg_init` - Initialize library with `chanCount` channels and watchdog thread with priority `priority`.
-Needs to be called before any other operation. `chanCount` has to be greater than zero, `priority`
-has to be greater or equal to zero (the highest priority) and less than 7.
+````{function} swdg_init(chanCount, priority)
+Initializes the library with `chanCount` channels and starts the watchdog thread at `priority`.
 
-  ```c
-  void swdg_init(size_t chanCount, int priority);
-  ```
+:param chanCount: Number of watchdog channels. The value must be greater than `0`.
+:param priority: Watchdog thread priority. The implementation accepts values from `0` through `6`.
+:returns: `0` on success, `-EINVAL` for invalid arguments, `-ENOMEM` when channel allocation fails, or a negative
+  error returned by `mutexCreate()`, `condCreate()`, or `beginthread()`.
+````
 
 ### Notes
 
-- All channels start disabled,
-- Channel configuration does not change its state, channel needs to be enabled if it was not prior,
-- Callback function **must not** call any libswdg functions! Deadlock will occur.
+- All channels start disabled.
+- Channel configuration does not enable a disabled channel.
+- A timeout callback must not call `libswdg` functions, because the watchdog thread holds the library lock while it
+  invokes callbacks.
 
 ## Using libswdg
 
-Normal usage example - one channel active with 30 seconds timeout.
+The following example configures one channel with a 30 second timeout.
 
 ```c
 void callback(int no)
@@ -75,11 +80,11 @@ int main()
 
     while (1) {
         doAppStuff();
-        swdg_reaload(0);
+        swdg_reload(0);
     }
 
     return 0;
 }
 ```
 
-Should `doAppStuff()` function hang/crash for more than 30 seconds, the system will reset.
+If `doAppStuff()` blocks or crashes for more than 30 seconds, the watchdog callback resets the system.
