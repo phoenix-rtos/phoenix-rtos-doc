@@ -112,9 +112,12 @@ then `src_path="somepkg-1.27-src"`.
 : Defines mandatory dependencies on other ports (e.g. `openssl>=1.1.1`, enforces
   that OpenSSL >=1.1.1 will be installed prior to the port).
 
-`optional`
-: Like `depends`, but will build the dependency only if it is explicitly enabled
-  in the [ports.yaml configuration file](./ports_yaml.md).
+  The `depends` field also supports conditional dependencies and USE flag
+  propagation:
+
+  - `ssl ? ( openssl>=3.0 )`: include dependency only when USE flag `ssl` is enabled.
+  - `openssl>=3.0[fips]`: propagate USE flag `fips` to dependency `openssl`.
+  - `ssl ? ( openssl>=3.0[fips] )`: conditional dependency with propagated USE flags.
 
 `conflicts`
 : Expresses conflicts with other ports that provide the same functionality (e.g.
@@ -134,6 +137,18 @@ using `iuse` coupled with helpers like {func}`b_use()`.
 : List of flags exported by the port. For example, `iuse="longtest safe"` declares that
   a given port supports two flags, `longtest` and `safe`, that alter the build
   process.
+
+`required_use` (optional)
+: USE constraint expression validated by port manager. Supports Gentoo-like forms:
+
+  - `^^ ( a b c )`: exactly one flag in the group must be enabled.
+  - `?? ( a b c )`: at most one flag in the group may be enabled.
+  - `|| ( a b c )`: at least one flag in the group must be enabled.
+  - `ssl? ( crypto )`: if `ssl` is enabled, `crypto` must be enabled.
+  - `!minimal? ( extras )`: if `minimal` is disabled, `extras` must be enabled.
+  - `ssl? ( !gnutls )`: if `ssl` is enabled, `gnutls` must be disabled.
+
+  Multiple expressions can be combined in one field, separated by spaces.
 
 ## Executable section
 
@@ -247,22 +262,12 @@ Returns the installation directory of a required dependency named `dep_name`.
 If the dependency is not installed, the function aborts the installation
 process.
 
-:param dep_name: The name of the optional dependency to query (e.g. `openssl`).
+:param dep_name: The name of the required dependency to query (e.g. `openssl`).
 ````
 
-````{function} b_optional_dir(dep_name)
-
-Returns the installation directory of an optional dependency named `dep_name`. 
-
-If the optional dependency is not installed, the function returns an empty
-string.
-
-:param dep_name: The name of the optional dependency to query (e.g. `openssl`).
-````
-
-The installation directory returned by `b_dependency_dir()` and
-`b_optional_dir()` serves as the root for `lib` and `include` directories
-containing the dependency's libraries and headers.
+The installation directory returned by `b_dependency_dir()` serves as the root
+for `lib` and `include` directories containing the dependency's libraries and
+headers.
 
 ````{function} b_use(flag_name)
 Returns 0 (success) if the specified flag is enabled, and a non-zero value
