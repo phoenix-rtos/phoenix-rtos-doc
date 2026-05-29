@@ -27,6 +27,7 @@ For instructions on how to pick ports to install when building Phoenix-RTOS, see
 
 port_def.md
 ports_yaml.md
+port_manager/index.md
 port_list.md
 port_docs_index.md
 ```
