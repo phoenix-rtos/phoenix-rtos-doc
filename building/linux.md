@@ -199,12 +199,12 @@ Then update your `PATH` variable. To make that change persistent across sessions
 shell configuration file (e.g. `~/.bashrc`):
 
 ```shell
-echo 'export PATH=$PATH \
-      :$HOME/toolchains/i386-pc-phoenix/i386-pc-phoenix/bin \
-      :$HOME/toolchains/arm-phoenix/arm-phoenix/bin \
-      :$HOME/toolchains/aarch64-phoenix/aarch64-phoenix/bin \
-      :$HOME/toolchains/riscv64-phoenix/riscv64-phoenix/bin \
-      :$HOME/toolchains/sparc-phoenix/sparc-phoenix/bin' >> $HOME/.bashrc
+echo 'export PATH=$PATH\
+:$HOME/toolchains/i386-pc-phoenix/i386-pc-phoenix/bin\
+:$HOME/toolchains/arm-phoenix/arm-phoenix/bin\
+:$HOME/toolchains/aarch64-phoenix/aarch64-phoenix/bin\
+:$HOME/toolchains/riscv64-phoenix/riscv64-phoenix/bin\
+:$HOME/toolchains/sparc-phoenix/sparc-phoenix/bin' >> $HOME/.bashrc
 ```
 
 As a final step, source the `~/.bashrc` file to apply the changes immediately, or restart your terminal session for

@@ -140,8 +140,8 @@ according to the importance of their contribution
 
 The License Identifier specifies the selected license and it can be assigned identifier of one
 of the standard open source license as defined at the [SPDX List](https://spdx.org/licenses/)
-for open source products or `Phoenix-Commercial` for commercial products. The statement
-`SPDX-License-Identifier:` precedes the license identifier.
+for open source products or `LicenseRef-Phoenix-Systems-Commercial` for commercial products.
+The statement `SPDX-License-Identifier:` precedes the license identifier.
 
 For open source products, the default license selected by Phoenix Systems is BSD-3-Clause
 license for which the SPDX defines identifier: `BSD-3-Clause`.
