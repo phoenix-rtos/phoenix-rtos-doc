@@ -8,6 +8,7 @@ If used with `-h` parameter it prints the help message with possible arguments a
 
 ```shell
 Usage: echo [options] [string]
+  -n:  do not output the trailing newline
   -h:  shows this help message
 ```
 
