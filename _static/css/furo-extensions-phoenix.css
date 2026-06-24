@@ -6,3 +6,41 @@
 .highlight:hover button.copybtn {
     color: #ea5b22 !important
 }
+
+.shell-line {
+    font-family: var(--pst-font-family-monospace);
+    margin-left: 0.5rem;
+    /* TODO: proper padding on scroll */
+}
+
+.shell-line.root::before {
+    content: "root # ";
+    color: #c33;
+    font-weight: bold;
+    user-select: none;
+    padding-left: .2em;
+}
+
+.shell-line.user::before {
+    content: "user $ ";
+    font-weight: bold;
+    user-select: none;
+    padding-left: .2em;
+}
+
+.shell-line.psh::before {
+    content: "psh % ";
+    color: #ea5b22;
+    font-weight: bold;
+    user-select: none;
+    padding-left: .2em;
+}
+
+.shell-transcript {
+    background: var(--color-background-secondary);
+    border-radius: 4px;
+    padding: 0.75rem;
+    font-family: monospace;
+    overflow-x: auto;
+    white-space: nowrap;
+}

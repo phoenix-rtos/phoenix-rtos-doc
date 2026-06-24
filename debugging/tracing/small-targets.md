@@ -103,21 +103,20 @@ Options:
 
 The minimal invocation is:
 
-```text
-(psh)% perf -m trace
+```{shell-parse}
+[psh] perf -m trace
 ```
 
 This starts a trace for 3 seconds and emits it over RTT.
 
 A successful invocation:
 
-```text
-(psh)% perf -m trace
+```{shell-parse}
+[psh] perf -m trace
 trace: started
 trace: stopped
 trace: nothing left to write, exiting
 trace: finished
-(psh)%
 ```
 
 While the trace is gathering, the log from `collect_rtt_trace.py` should display

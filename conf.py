@@ -4,6 +4,7 @@ from version_management import get_version_context
 from pathlib import Path
 from datetime import datetime
 from phoenixsystems.docsresources import latex_default
+from directives import ShellTranscript
 
 project = ""
 copyright = "2024-2025, Phoenix Systems"
@@ -15,6 +16,7 @@ myst_enable_extensions = ["deflist", "fieldlist", "attrs_inline"]
 
 templates_path = ["_templates"]
 exclude_patterns = ["README", "_build", "Thumbs.db", ".DS_Store", "_venv", "docsresources", "pdf-template"]
+exclude_patterns += ["libc", "kernel"]
 myst_heading_anchors = 3
 pygments_dark_style = "tango"
 
@@ -96,3 +98,7 @@ modified_elements["maketitle"] = fr'''
     ''' + modified_elements["maketitle"]
 
 latex_elements = modified_elements
+
+
+def setup(app):
+    app.add_directive("shell-transcript", ShellTranscript)

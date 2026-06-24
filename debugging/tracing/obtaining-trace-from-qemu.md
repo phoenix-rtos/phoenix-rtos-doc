@@ -45,3 +45,10 @@ automatically and outputs a ready to view perfetto trace. Invoke
 $ cd $PRTOS_PROJECT/phoenix-rtos-hostutils/trace
 $ ./rootfs_convert.sh ../../_boot/ia32-generic-qemu/hd0.disk /my_trace ../../phoenix-rtos-kernel/perf/tsdl/metadata out.pftrace
 ```
+
+
+```{shell-transcript}
+[root] mount -o loop,offset=$((4096*512)) _boot/ia32-generic-qemu/hd0.disk /mnt
+[user] cp /mnt/my_trace $TRACE_DIR
+[user] ./rootfs_convert.sh ../../_boot/ia32-generic-qemu/hd0.disk /my_trace ../../phoenix-rtos-kernel/perf/tsdl/metadata out.pftrace
+```
