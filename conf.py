@@ -11,7 +11,7 @@ author = "Phoenix Systems"
 
 extensions = ["myst_parser", "sphinx_copybutton"]
 
-myst_enable_extensions = ["deflist", "fieldlist"]
+myst_enable_extensions = ["deflist", "fieldlist", "attrs_inline"]
 
 templates_path = ["_templates"]
 exclude_patterns = ["README", "_build", "Thumbs.db", ".DS_Store", "_venv", "docsresources", "pdf-template"]
