@@ -29,6 +29,7 @@ Attributes structure `condAttr` is defined as follows:
 ```c
 struct condAttr {
 	int clock;
+	int type;
 };
 ```
 
@@ -37,6 +38,15 @@ The `clock` field specifies the clock to be used for the condition variable. The
 * `PH_CLOCK_RELATIVE` - `timeout` passed to `condWait()` is relative to the current time.
 * `PH_CLOCK_REALTIME` - `timeout` passed to `condWait()` is absolute time based on the real-time clock.
 * `PH_CLOCK_MONOTONIC` - `timeout` passed to `condWait()` is absolute time based on the monotonic clock.
+
+The `type` field specifies the type of the condition variable. The following values are supported:
+
+* `PH_COND_NORMAL` - regular condition variable, `condWait()` shall be called with a mutex locked by the calling
+  thread.
+* `PH_COND_UNLOCKED` - condition variable without an associated mutex. This is useful when waiting for an interrupt
+  signal (see `interrupt()`), in which case a mutex would protect nothing if a single thread is waiting. It is the
+  responsibility of the user to ensure that such a condition variable is used in a thread-safe manner. For interrupt
+  handling the dedicated wrappers from [sys/interrupt.h](../interrupt/index.md) should be used.
 
 ## Return value
 

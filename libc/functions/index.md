@@ -19,6 +19,7 @@ stdio/index.md
 stdlib/index.md
 string/index.md
 syslog/index.md
+sys/interrupt/index.md
 sys/mman/index.md
 sys/mount/index.md
 sys/msg/index.md
