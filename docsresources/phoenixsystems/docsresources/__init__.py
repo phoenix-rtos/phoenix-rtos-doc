@@ -19,22 +19,28 @@ generated PDF follows Sphinx's own `language` option, so it can be also
 switched from the command line with `-D language=pl`.
 """
 
+from sphinx.errors import ConfigError
+
 from .latex import latex_config
 
 __all__ = ["latex_config", "setup"]
 
 
 def _configure_latex(app, config):
-    defaults = latex_config(
-        config.language,
-        title=config.latexpdf_title,
-        author=config.latexpdf_author,
-        version=config.latexpdf_version,
-        date=config.latexpdf_date,
-        signatures=config.latexpdf_signatures,
-        history=config.latexpdf_history,
-        preamble=config.latexpdf_preamble,
-    )
+    try:
+        defaults = latex_config(
+            config.language,
+            title=config.latexpdf_title,
+            author=config.latexpdf_author,
+            version=config.latexpdf_version,
+            date=config.latexpdf_date,
+            signatures=config.latexpdf_signatures,
+            history=config.latexpdf_history,
+            preamble=config.latexpdf_preamble,
+        )
+    except ValueError as exc:
+        # a document silently typeset in the wrong language must not be released
+        raise ConfigError(f"docsresources: {exc}") from exc
 
     config.latex_engine = defaults["engine"]
     config.latex_table_style = defaults["table_style"]
