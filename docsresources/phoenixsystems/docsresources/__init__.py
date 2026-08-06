@@ -14,7 +14,9 @@
 """Phoenix Systems LaTeX resources for Sphinx.
 
 Add "phoenixsystems.docsresources" to `extensions` in conf.py, the document
-properties are taken from the `latexpdf_*` options.
+properties are taken from the `latexpdf_*` options. The language of the
+generated PDF follows Sphinx's own `language` option, so it can be also
+switched from the command line with `-D language=pl`.
 """
 
 from .latex import latex_config
@@ -24,6 +26,7 @@ __all__ = ["latex_config", "setup"]
 
 def _configure_latex(app, config):
     defaults = latex_config(
+        config.language,
         title=config.latexpdf_title,
         author=config.latexpdf_author,
         version=config.latexpdf_version,

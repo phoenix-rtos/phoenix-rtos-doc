@@ -12,10 +12,12 @@ project = ""
 copyright = "2024, Phoenix Systems"
 author = "Phoenix Systems"
 
+language = "en"
+
 extensions = ["myst_parser", "sphinx_copybutton", "phoenixsystems.docsresources"]
 
 templates_path = ["_templates"]
-exclude_patterns = ["README.md", "_build", "Thumbs.db", ".DS_Store", "venv", "docsresources"]
+exclude_patterns = ["README", "_build", "Thumbs.db", ".DS_Store", "venv", "docsresources"]
 myst_heading_anchors = 3
 pygments_dark_style = "tango"
 
