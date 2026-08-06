@@ -5,12 +5,18 @@ Phoenix-RTOS Documentation using sphinx.
 
 Here are few steps to prepare environment:
 - sudo apt update
-- sudo apt install latexmk texlive-xetex fonts-liberation
+- sudo apt install latexmk texlive-xetex texlive-latex-extra
+- sudo apt install fonts-liberation fonts-dejavu fonts-noto-core fonts-freefont-ttf
 - sudo apt install texlive-lang-polish (only for documents built in Polish)
 - sudo apt install python3-pip
 - sudo apt install python3-venv
 - ./prepare_venv.py
 - source _venv/bin/activate
+
+The fonts are the ones the documents are typeset with, so an environment that
+has none of them, a bare container among them, needs them as well: Liberation
+Sans for the text, DejaVu Sans Mono for the code blocks, and Noto Sans Symbols2
+with FreeSans for the icons.
 
 To build html or pdf versions:
 - make html

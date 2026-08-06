@@ -28,5 +28,16 @@ they just should not be placed in {toctree}.
 When the whole directory is not intended be included in PDF, 
 it can be added to exclude_patterns in conf.py
 
-4. For more information visit the Sphinx Documentation (https://www.sphinx-doc.org/en/master/)
+4. Icons such as ✅ ❌ ⚠️ 🔴 🟡 🟢 🔶 ⏭ can be used directly in the text,
+docsresources draws them with the glyphs of the fonts it declares, so that they
+stay characters of the PDF. See icons.py of that package for the whole supported
+set. An icon which is missing there has to be mapped in conf.py, otherwise it is
+dropped from the PDF, for example:
+```python
+from phoenixsystems.docsresources.icons import Icon
+
+latexpdf_icons = {"🔒": Icon(color="ps-darkblue")}
+```
+
+5. For more information visit the Sphinx Documentation (https://www.sphinx-doc.org/en/master/)
 -->
