@@ -6,6 +6,7 @@ Phoenix-RTOS Documentation using sphinx.
 Here are few steps to prepare environment:
 - sudo apt update
 - sudo apt install latexmk texlive-xetex fonts-liberation
+- sudo apt install texlive-lang-polish (only for documents built in Polish)
 - sudo apt install python3-pip
 - sudo apt install python3-venv
 - ./prepare_venv.py
@@ -18,4 +19,9 @@ To build html or pdf versions:
 The output files will be available in _build directory.
 
 Optionally run make clean to clear _build directory.
+
+The language of the generated documents is set by the 'language' option in
+conf.py ("en" or "pl"). It can be also overridden for a single build, then
+a separate build directory is worth using to keep both variants:
+- make latexpdf BUILDDIR=_build/pl O="-D language=pl"
 
