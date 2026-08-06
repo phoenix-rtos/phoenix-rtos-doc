@@ -1,22 +1,21 @@
 # TemplateConfiguration file for the Sphinx documentation builder.
 
 import sys
-from datetime import datetime
-from phoenixsystems.docsresources import latex_default
 
 project = ""
 copyright = "2025, Phoenix Systems"
 author = "Phoenix Systems"
 
-extensions = ["myst_parser", "sphinx_copybutton"]
+extensions = ["myst_parser", "sphinx_copybutton", "phoenixsystems.docsresources"]
 
 exclude_patterns = ["README", "_build", "Thumbs.db", ".DS_Store", "_venv"]
 
 latexpdf_title = "Your Title"
 latexpdf_author = "Your Name"
-latexpdf_date = datetime.today().strftime("%d-%m-%Y")
 latexpdf_version = "Ver. X.X"
 latexpdf_filename = "your_filename"
+# latexpdf_date = "01-01-2026"  # defaults to the build date
+# leave latexpdf_author empty to omit the author line on the title page
 
 if " " in latexpdf_filename:
     print(
@@ -32,21 +31,3 @@ if " " in latexpdf_filename:
 latex_documents = [
     ("index", f"{latexpdf_filename}.tex", latexpdf_title, author, "howto", False),
 ]
-
-latex_engine = latex_default["engine"]
-latex_table_style = latex_default["table_style"]
-latex_additional_files = latex_default["additional_files"]
-
-# overwrite the maketitle element to use the variables from the current file
-modified_elements = latex_default["elements"].copy()
-modified_elements["maketitle"] = (
-    rf"""
-        \newcommand{{\doctitle}}{{{latexpdf_title}}}
-        \newcommand{{\docauthor}}{{{latexpdf_author}}}
-        \newcommand{{\docversion}}{{{latexpdf_version}}}
-        \newcommand{{\docdate}}{{{latexpdf_date}}}
-    """
-    + modified_elements["maketitle"]
-)
-
-latex_elements = modified_elements
