@@ -39,18 +39,16 @@ def _definitions(macros):
     return "".join(f"\\newcommand{{\\{name}}}{{{value}}}\n" for name, value in macros.items())
 
 
-def _company_macros(language):
+def _company_macros(strings):
     """Build the macros used by the title page and the last page.
 
     The .tex templates hold the layout only - all the text they typeset is
     defined here, which keeps a single template for every language.
     """
-    strings = translations(language)
     macros = {
         "psCompanyName": COMPANY["name"],
         "psRegistryInfo": "".join(f"{line.format(**COMPANY)}\\\\\n" for line in strings["registry_lines"]),
         "psContactLabel": strings["contact_label"],
-        "psAuthorLabel": strings["author_label"],
         "psTocTitle": strings["toc_title"],
     }
 
@@ -67,6 +65,7 @@ def latex_config(
     *,
     title="",
     author="",
+    subtitle="",
     version="",
     date="",
     signatures="",
@@ -75,17 +74,26 @@ def latex_config(
 ):
     """Return the Sphinx LaTeX settings for a document in the given language.
 
+    The line below the title holds either the author, with a translated label,
+    or a subtitle typeset as it is given. Only one of them can be used.
+
     The `signatures` and the `history` are LaTeX of a page each, put after the
     title page, and the `preamble` is LaTeX added to the one of the package.
     """
+    if author and subtitle:
+        raise ValueError("the author and the subtitle cannot share the line below the title")
+
+    strings = translations(language)
     document_macros = {
         "doctitle": title,
         "docversion": version,
         "docdate": date or datetime.today().strftime(DATE_FORMAT),
     }
-    # keep \docauthor undefined when unset - the templates then skip the author line
-    if author:
-        document_macros["docauthor"] = author
+    # keep \docsubtitle undefined when unset - the templates then skip that line
+    if subtitle:
+        document_macros["docsubtitle"] = subtitle
+    elif author:
+        document_macros["docsubtitle"] = f"{strings['author_label']}: {author}"
 
     # the same goes for the pages that follow the title one
     if signatures:
@@ -124,7 +132,7 @@ def latex_config(
         \usepackage{lastpage}
         \usepackage{fontspec}
     """,
-            "preamble": _read("preamble.tex") + _definitions(_company_macros(language))
+            "preamble": _read("preamble.tex") + _definitions(_company_macros(strings))
             + preamble,
             "atendofbody": _read("atendofbody.tex"),
             "maketitle": _definitions(document_macros) + _read("maketitle.tex"),
