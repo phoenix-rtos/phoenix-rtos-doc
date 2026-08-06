@@ -32,6 +32,7 @@ def _configure_latex(app, config):
             config.language,
             title=config.latexpdf_title,
             author=config.latexpdf_author,
+            subtitle=config.latexpdf_subtitle,
             version=config.latexpdf_version,
             date=config.latexpdf_date,
             signatures=config.latexpdf_signatures,
@@ -52,6 +53,7 @@ def _configure_latex(app, config):
 def setup(app):
     app.add_config_value("latexpdf_title", "", "env", str)
     app.add_config_value("latexpdf_author", "", "env", str)
+    app.add_config_value("latexpdf_subtitle", "", "env", str)
     app.add_config_value("latexpdf_version", "", "env", str)
     app.add_config_value("latexpdf_date", "", "env", str)
     app.add_config_value("latexpdf_signatures", "", "env", str)

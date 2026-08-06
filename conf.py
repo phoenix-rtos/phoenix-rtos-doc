@@ -18,6 +18,7 @@ myst_heading_anchors = 3
 pygments_dark_style = "tango"
 
 latexpdf_title = "Phoenix-RTOS Documentation"
+# either the author or latexpdf_subtitle can be put below the title, not both
 latexpdf_author = ""
 latexpdf_version = "Ver. latest"
 latexpdf_filename = "phoenix-rtos-documentation"
