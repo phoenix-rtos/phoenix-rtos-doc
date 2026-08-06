@@ -6,6 +6,8 @@ project = ""
 copyright = "2024-2025, Phoenix Systems"
 author = "Phoenix Systems"
 
+language = "en"
+
 extensions = ["myst_parser", "sphinx_copybutton", "phoenixsystems.docsresources"]
 
 myst_enable_extensions = ["deflist", "fieldlist"]
