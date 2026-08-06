@@ -31,6 +31,18 @@ TRANSLATIONS = {
         "countries": {"pl": "POLAND", "uk": "UNITED KINGDOM"},
         "cities": {"warsaw": "Warsaw", "lomza": "Lomza"},
     },
+    "pl": {
+        "toc_title": "Spis treści",
+        "author_label": "Autor",
+        "contact_label": "Kontakt",
+        "registry_lines": (
+            "NIP: {tax_id}, REGON: {registry_no}",
+            "KRS: {krs} (Sąd Rejonowy dla m. st. Warszawy, {krs_division} Wydział Gospodarczy KRS)",
+            "Kapitał zakładowy {share_capital} zł w całości opłacony",
+        ),
+        "countries": {"pl": "POLSKA", "uk": "WIELKA BRYTANIA"},
+        "cities": {"warsaw": "Warszawa", "lomza": "Łomża"},
+    },
 }
 
 DEFAULT_LANGUAGE = "en"

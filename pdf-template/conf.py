@@ -6,6 +6,10 @@ project = ""
 copyright = "2025, Phoenix Systems"
 author = "Phoenix Systems"
 
+# language of the generated document, "en" or "pl"
+# it can be also overridden per build: make latexpdf O="-D language=pl"
+language = "en"
+
 extensions = ["myst_parser", "sphinx_copybutton", "phoenixsystems.docsresources"]
 
 exclude_patterns = ["README", "_build", "Thumbs.db", ".DS_Store", "_venv"]
