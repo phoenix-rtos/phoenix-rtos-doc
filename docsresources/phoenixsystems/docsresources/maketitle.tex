@@ -23,10 +23,12 @@
 
 \vspace{0.4cm}
 
-{\setmainfont{Liberation Sans}
-\textcolor{ps-darkblue}{%
-	{\fontsize{16}{19}\selectfont \textbf{\docauthor}}
-}}
+\ifdefined\docauthor
+	{\setmainfont{Liberation Sans}
+	\textcolor{ps-darkblue}{%
+		{\fontsize{16}{19}\selectfont \textbf{\psAuthorLabel: \docauthor}\\}
+	}}
+\fi
 
 \vspace{2.25cm}
 
