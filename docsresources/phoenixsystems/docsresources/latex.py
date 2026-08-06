@@ -1,3 +1,16 @@
+#
+# Phoenix-RTOS
+#
+# Documentation resources
+#
+# LaTeX settings of the PDF documents
+#
+# Copyright 2025-2026 Phoenix Systems
+# Author: Damian Loewnau
+#
+# SPDX-License-Identifier: BSD-3-Clause
+#
+
 from pathlib import Path
 
 RESOURCES_DIR = Path(__file__).parent
