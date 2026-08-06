@@ -15,6 +15,7 @@ from datetime import datetime
 from pathlib import Path
 
 from .company import COMPANY, OFFICES
+from .icons import ICONS
 from .translations import translations
 
 RESOURCES_DIR = Path(__file__).parent
@@ -37,6 +38,29 @@ def _read(filename):
 def _definitions(macros):
     r"""Render a {name: value} mapping as LaTeX \newcommand definitions."""
     return "".join(f"\\newcommand{{\\{name}}}{{{value}}}\n" for name, value in macros.items())
+
+
+def _icon(char, icon):
+    r"""Render an icon as a character of the font that has the glyph of it.
+
+    The character is given by its code, as \newunicodechar has made the one of
+    the icon active. Drawing a character, rather than a symbol of a font that
+    knows no Unicode, is what keeps the icon selectable in the PDF and found by
+    a search for it.
+    """
+    if icon is None:
+        return ""
+
+    glyph, font, color = icon
+    drawn = rf'{{\{font}\symbol{{"{ord(glyph or char):04X}}}}}'
+    return rf"\textcolor{{{color}}}{{{drawn}}}" if color else drawn
+
+
+def _icon_definitions(icons):
+    r"""Render a {character: icon} mapping as \newunicodechar definitions."""
+    return "".join(
+        f"\\newunicodechar{{{char}}}{{{_icon(char, icon)}}}\n" for char, icon in icons.items()
+    )
 
 
 def _company_macros(strings):
@@ -71,6 +95,7 @@ def latex_config(
     signatures="",
     history="",
     preamble="",
+    icons=None,
 ):
     """Return the Sphinx LaTeX settings for a document in the given language.
 
@@ -79,6 +104,8 @@ def latex_config(
 
     The `signatures` and the `history` are LaTeX of a page each, put after the
     title page, and the `preamble` is LaTeX added to the one of the package.
+
+    The `icons` mapping extends and overrides the icons supported by default.
     """
     if author and subtitle:
         raise ValueError("the author and the subtitle cannot share the line below the title")
@@ -123,6 +150,9 @@ def latex_config(
         \setmainfont{Liberation Sans}
         \setsansfont{Liberation Sans}
         \setmonofont{DejaVu Sans Mono}
+        % the icons are drawn with the glyphs of these two, see icons.py
+        \newfontfamily{\psSymbolFont}{Noto Sans Symbols2}
+        \newfontfamily{\psFreeFont}{FreeSans}
     """,
             "extrapackages": r"""
         \usepackage{tocloft}
@@ -131,8 +161,11 @@ def latex_config(
         \usepackage{etoolbox}
         \usepackage{lastpage}
         \usepackage{fontspec}
+        \usepackage{newunicodechar}
     """,
-            "preamble": _read("preamble.tex") + _definitions(_company_macros(strings))
+            "preamble": _read("preamble.tex")
+            + _definitions(_company_macros(strings))
+            + _icon_definitions({**ICONS, **(icons or {})})
             + preamble,
             "atendofbody": _read("atendofbody.tex"),
             "maketitle": _definitions(document_macros) + _read("maketitle.tex"),
