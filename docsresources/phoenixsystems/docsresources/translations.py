@@ -56,5 +56,10 @@ def base_language(language):
 
 
 def translations(language):
-    """Return the strings for `language`, falling back to English."""
-    return TRANSLATIONS.get(base_language(language), TRANSLATIONS[DEFAULT_LANGUAGE])
+    """Return the strings for `language`, raise ValueError if it is not supported."""
+    try:
+        return TRANSLATIONS[base_language(language)]
+    except KeyError:
+        raise ValueError(
+            f"no PDF templates for language {language!r}, supported: {', '.join(SUPPORTED_LANGUAGES)}"
+        ) from None
