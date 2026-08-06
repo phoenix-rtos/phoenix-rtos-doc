@@ -39,5 +39,15 @@ from phoenixsystems.docsresources.icons import Icon
 latexpdf_icons = {"🔒": Icon(color="ps-darkblue")}
 ```
 
-5. For more information visit the Sphinx Documentation (https://www.sphinx-doc.org/en/master/)
+5. The cells of a table are aligned to the left and to the top, which is what
+the tables holding descriptions need. A table of short values looks better
+with its cells centered both ways, which the \psC column type of docsresources
+does. It takes the width of the column as a fraction of the width of the table
+and is passed by the {tabularcolumns} directive, applying to the table that
+follows it and replacing the :widths: option of that table:
+
+    ```{tabularcolumns} |\psC{18}{100}|\psC{24}{100}|\psC{29}{100}|\psC{29}{100}|
+    ```
+
+6. For more information visit the Sphinx Documentation (https://www.sphinx-doc.org/en/master/)
 -->
