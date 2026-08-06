@@ -11,6 +11,43 @@
 # SPDX-License-Identifier: BSD-3-Clause
 #
 
-from .latex import (
-    latex_default,
-)
+"""Phoenix Systems LaTeX resources for Sphinx.
+
+Add "phoenixsystems.docsresources" to `extensions` in conf.py, the document
+properties are taken from the `latexpdf_*` options.
+"""
+
+from .latex import latex_config
+
+__all__ = ["latex_config", "setup"]
+
+
+def _configure_latex(app, config):
+    defaults = latex_config(
+        title=config.latexpdf_title,
+        author=config.latexpdf_author,
+        version=config.latexpdf_version,
+        date=config.latexpdf_date,
+        signatures=config.latexpdf_signatures,
+        history=config.latexpdf_history,
+        preamble=config.latexpdf_preamble,
+    )
+
+    config.latex_engine = defaults["engine"]
+    config.latex_table_style = defaults["table_style"]
+    # values set in conf.py take precedence over the defaults of this package
+    config.latex_additional_files = [*defaults["additional_files"], *config.latex_additional_files]
+    config.latex_elements = {**defaults["elements"], **config.latex_elements}
+
+
+def setup(app):
+    app.add_config_value("latexpdf_title", "", "env", str)
+    app.add_config_value("latexpdf_author", "", "env", str)
+    app.add_config_value("latexpdf_version", "", "env", str)
+    app.add_config_value("latexpdf_date", "", "env", str)
+    app.add_config_value("latexpdf_signatures", "", "env", str)
+    app.add_config_value("latexpdf_history", "", "env", str)
+    app.add_config_value("latexpdf_preamble", "", "env", str)
+    app.connect("config-inited", _configure_latex)
+
+    return {"parallel_read_safe": True, "parallel_write_safe": True}
