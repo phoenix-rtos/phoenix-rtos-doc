@@ -130,7 +130,8 @@ def latex_config(
 
     return {
         "engine": "xelatex",
-        "table_style": ["colorrows"],
+        # the look of the tables comes from tables.tex, not from the sphinx styles
+        "table_style": ["standard"],
         "additional_files": [str(RESOURCES_DIR / image) for image in IMAGES],
         "elements": {
             "sphinxsetup": r"pre_padding-right=6pt, pre_padding-left=0pt",
@@ -164,6 +165,7 @@ def latex_config(
         \usepackage{newunicodechar}
     """,
             "preamble": _read("preamble.tex")
+            + _read("tables.tex")
             + _definitions(_company_macros(strings))
             + _icon_definitions({**ICONS, **(icons or {})})
             + preamble,

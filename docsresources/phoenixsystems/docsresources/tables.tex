@@ -1,0 +1,138 @@
+%
+% Phoenix-RTOS
+%
+% Documentation resources
+%
+% Look of the tables of the PDF documents
+%
+% Copyright 2026 Phoenix Systems
+% Author: Damian Loewnau
+%
+% This file is part of Phoenix-RTOS.
+%
+% SPDX-License-Identifier: BSD-3-Clause
+
+% The internals of sphinx and of the array package are used below
+\makeatletter
+
+% Rules: a thin grey grid with the orange rule below the header row
+\definecolor{ps-tableline}{HTML}{BFBFBF}
+
+\newlength{\psTableRuleWidth}
+\newlength{\psTableHeaderRuleWidth}
+\setlength{\psTableRuleWidth}{0.8pt}
+\setlength{\psTableHeaderRuleWidth}{2pt}
+
+\arrayrulecolor{ps-tableline}
+\setlength{\arrayrulewidth}{\psTableRuleWidth}
+
+% Least width of a column of a table sized by tabulary, which otherwise shrinks
+% every column in the same proportion and can leave a short header clipped
+\setlength{\tymin}{3em}
+
+% Space kept above and below the content of a cell, the header row getting more
+% of it. The space is part of the cell, so that the vertical rules span it.
+\newlength{\psTableCellPadding}
+\newlength{\psTableHeaderPadding}
+\setlength{\psTableCellPadding}{11pt}
+\setlength{\psTableHeaderPadding}{6pt}
+
+% A table standing in a box, an admonition among them, keeps a tighter padding:
+% such a box does not break across pages, so the taller rows would overflow it.
+% The flag is taken before sphinx marks the table itself as a box, which it does
+% for the sake of the code blocks that may sit in its cells.
+\newif\ifpsTableBoxed
+\newlength{\psTableBoxedCellPadding}
+\setlength{\psTableBoxedCellPadding}{3pt}
+
+\newcommand{\psTableCellPaddingNow}{%
+	\ifpsTableBoxed\psTableBoxedCellPadding\else\psTableCellPadding\fi}
+
+\let\psTableStart\sphinxattablestart
+
+\def\sphinxattablestart{%
+	\ifspx@inframed\psTableBoxedtrue\else\psTableBoxedfalse\fi
+	\psTableStart
+}
+
+% Struts keeping the given space above and below the line they are put in
+\newcommand{\psTableStrutAbove}[1]{%
+	\rule{\z@}{\dimexpr\ht\strutbox+#1\relax}}
+\newcommand{\psTableStrutBelow}[1]{%
+	\rule[\dimexpr-\dp\strutbox-#1\relax]{\z@}{\dimexpr\dp\strutbox+#1\relax}}
+
+\newcommand{\psTableHeaderCellPadding}{%
+	\dimexpr\psTableCellPaddingNow+\psTableHeaderPadding\relax}
+
+% Padding of a cell, put around its content by the column types below. A header
+% cell asks for more of it by the flag, which lives in the group of that single
+% cell, hence it needs no cleaning up.
+\newif\ifpsTableHeaderCell
+
+\newcommand{\psTableCellTop}{\psTableStrutAbove{\psTableCellPaddingNow}}
+\newcommand{\psTableCellBottom}{%
+	\ifpsTableHeaderCell
+		\psTableStrutBelow{\psTableHeaderCellPadding}%
+	\else
+		\psTableStrutBelow{\psTableCellPaddingNow}%
+	\fi}
+
+% Width of a column given as the #1/#2 fraction of the table width, copied from
+% the \X column type of sphinx (see sphinxlatextables.sty)
+\newcommand{\psTableColumnWidth}[2]{\dimexpr
+	(\linewidth-\spx@arrayrulewidth)*#1/#2-\tw@\tabcolsep-\spx@arrayrulewidth\relax}
+
+% The column types of sphinx, redefined to pad their cells. T is used for the
+% tables of an automatic layout, \X and \Y for the ones of given widths, the
+% width of \Y being copied from sphinx as well.
+\newcolumntype{T}{>{\psTableCellTop}J<{\psTableCellBottom}}
+\newcolumntype{\X}[2]{%
+	>{\psTableCellTop}p{\psTableColumnWidth{#1}{#2}}<{\psTableCellBottom}}
+\newcolumntype{\Y}[1]{%
+	>{\psTableCellTop}p{\dimexpr
+		#1\dimexpr\linewidth-\spx@arrayrulewidth\relax
+		-\tw@\tabcolsep-\spx@arrayrulewidth\relax}<{\psTableCellBottom}}
+
+% Cells of a data table, centered both horizontally and vertically, as the
+% column types of sphinx are all aligned to the top
+\newcolumntype{\psC}[2]{%
+	>{\centering\arraybackslash\psTableCellTop}m{\psTableColumnWidth{#1}{#2}}%
+	<{\psTableCellBottom}}
+
+% Header cells are bold, centered and taller than the ones of the body. The
+% strut above has to repeat the padding of the cell, as only the tallest strut
+% of a line counts, while the space below is left to \psTableCellBottom, which
+% is put after the last line of the cell.
+\protected\def\sphinxstyletheadfamily{%
+	\sffamily\bfseries\centering\arraybackslash
+	\psTableHeaderCelltrue
+	\psTableStrutAbove{\psTableHeaderCellPadding}}
+
+% The rules are drawn on their own instead of by \hline, which longtable splits
+% into two rules with a page break in between, one of them ending a page and the
+% other one starting the next one. Such a leftover rule shows up right below the
+% orange rule of the head repeated on that page.
+\newcommand{\psTableRule}[2]{\noalign{{\color{#1}\hrule height#2}}}
+
+% Drawing the rules takes those page breaks away, so a row rule brings one back,
+% after the rule, which keeps the rule on the page of the row it closes
+\newcommand{\psTableRowRule}{%
+	\psTableRule{ps-tableline}{\psTableRuleWidth}%
+	\noalign{\penalty-\@lowpenalty}%
+}
+
+\newcommand{\psTableHeaderRule}{\psTableRule{ps-orange}{\psTableHeaderRuleWidth}}
+
+% All of the above is applied to every table by extending the style macro that
+% sphinx executes inside the scope of a single table
+\let\psTableStandardStyle\sphinxthistablewithstandardstyle
+
+\def\sphinxthistablewithstandardstyle{%
+	\psTableStandardStyle
+	\let\sphinxmidrule\psTableHeaderRule
+	\let\sphinxhline\psTableRowRule
+	\let\spx@toprule\psTableRowRule
+	\let\sphinxbottomrule\psTableRowRule
+}
+
+\makeatother
