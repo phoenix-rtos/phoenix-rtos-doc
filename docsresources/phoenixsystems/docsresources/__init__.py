@@ -38,6 +38,7 @@ def _configure_latex(app, config):
             signatures=config.latexpdf_signatures,
             history=config.latexpdf_history,
             preamble=config.latexpdf_preamble,
+            icons=config.latexpdf_icons,
         )
     except ValueError as exc:
         # a document silently typeset in the wrong language must not be released
@@ -59,6 +60,7 @@ def setup(app):
     app.add_config_value("latexpdf_signatures", "", "env", str)
     app.add_config_value("latexpdf_history", "", "env", str)
     app.add_config_value("latexpdf_preamble", "", "env", str)
+    app.add_config_value("latexpdf_icons", {}, "env", dict)
     app.connect("config-inited", _configure_latex)
 
     return {"parallel_read_safe": True, "parallel_write_safe": True}
