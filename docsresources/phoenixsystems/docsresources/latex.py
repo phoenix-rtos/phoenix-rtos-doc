@@ -14,6 +14,9 @@
 from datetime import datetime
 from pathlib import Path
 
+from .company import COMPANY, OFFICES
+from .translations import translations
+
 RESOURCES_DIR = Path(__file__).parent
 
 IMAGES = (
@@ -24,6 +27,7 @@ IMAGES = (
 )
 
 DATE_FORMAT = "%d-%m-%Y"
+HQ_SUFFIX = " (HQ)"
 
 
 def _read(filename):
@@ -35,8 +39,41 @@ def _definitions(macros):
     return "".join(f"\\newcommand{{\\{name}}}{{{value}}}\n" for name, value in macros.items())
 
 
-def latex_config(*, title="", author="", version="", date="", signatures="", history="", preamble=""):
-    """Return the Sphinx LaTeX settings of the document.
+def _company_macros(language):
+    """Build the macros used by the title page and the last page.
+
+    The .tex templates hold the layout only - all the text they typeset is
+    defined here, which keeps a single template for every language.
+    """
+    strings = translations(language)
+    macros = {
+        "psCompanyName": COMPANY["name"],
+        "psRegistryInfo": "".join(f"{line.format(**COMPANY)}\\\\\n" for line in strings["registry_lines"]),
+        "psContactLabel": strings["contact_label"],
+        "psAuthorLabel": strings["author_label"],
+        "psTocTitle": strings["toc_title"],
+    }
+
+    for office in OFFICES:
+        country = strings["countries"][office["country"]] + (HQ_SUFFIX if office.get("hq") else "")
+        lines = (rf"\textbf{{{country}}}", *(line.format(**strings["cities"]) for line in office["address"]))
+        macros[f"psOffice{office['key'].capitalize()}"] = "\\\\\n".join(lines)
+
+    return macros
+
+
+def latex_config(
+    language="en",
+    *,
+    title="",
+    author="",
+    version="",
+    date="",
+    signatures="",
+    history="",
+    preamble="",
+):
+    """Return the Sphinx LaTeX settings for a document in the given language.
 
     The `signatures` and the `history` are LaTeX of a page each, put after the
     title page, and the `preamble` is LaTeX added to the one of the package.
@@ -68,7 +105,7 @@ def latex_config(*, title="", author="", version="", date="", signatures="", his
         \makeatletter
         \begingroup
         \pagestyle{normal}
-        \section*{Table of Contents}
+        \section*{\psTocTitle}
         \@starttoc{toc}
         \clearpage
         \endgroup
@@ -87,7 +124,7 @@ def latex_config(*, title="", author="", version="", date="", signatures="", his
         \usepackage{lastpage}
         \usepackage{fontspec}
     """,
-            "preamble": _read("preamble.tex")
+            "preamble": _read("preamble.tex") + _definitions(_company_macros(language))
             + preamble,
             "atendofbody": _read("atendofbody.tex"),
             "maketitle": _definitions(document_macros) + _read("maketitle.tex"),
