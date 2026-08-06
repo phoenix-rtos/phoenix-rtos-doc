@@ -19,7 +19,11 @@ latexpdf_author = "Your Name"
 latexpdf_version = "Ver. X.X"
 latexpdf_filename = "your_filename"
 # latexpdf_date = "01-01-2026"  # defaults to the build date
-# leave latexpdf_author empty to omit the author line on the title page
+
+# The line below the title holds either the author, prefixed with a label
+# translated to the language of the document, or a subtitle typeset as it is
+# given. Setting both is an error, leaving both empty omits that line.
+# latexpdf_subtitle = "Prepared for ..."
 
 if " " in latexpdf_filename:
     print(
