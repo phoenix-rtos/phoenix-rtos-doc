@@ -63,3 +63,33 @@ follows it and replacing the :widths: option of that table:
 
 6. For more information visit the Sphinx Documentation (https://www.sphinx-doc.org/en/master/)
 -->
+
+## Example section
+
+Every section starts on a new page. The text of the document goes here, and the
+icons can be put right into it, like this note of a skipped step ⏭.
+
+```{note}
+A note holds a remark the reader should not miss.
+```
+
+```{hint}
+A hint reads a little softer than a note.
+```
+
+```{warning}
+A warning stands out the most, for what breaks the described behaviour.
+```
+
+### Example table
+
+```{table} Results of the example test run
+:name: example-results
+
+| Test case | Result | Notes |
+| --------- | ------ | ----- |
+| Reads the configuration | ✅ | |
+| Writes the configuration | ❌ | 🔴 the file stays empty, see ISSUE-123 |
+| Reboots the device | ⚠️ | 🔶 passes on the second try only |
+| Restores the defaults | ⏭ | skipped, needs the hardware |
+```
