@@ -29,6 +29,7 @@ jobs:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-review
           fail_level: warning
+          exclude: ./docsresources/phoenixsystems/docsresources/translations.py
 
 
   languagetool:
