@@ -55,6 +55,10 @@
 	\psTableStart
 }
 
+% Space between the table and its caption
+\newlength{\psTableCaptionSkip}
+\setlength{\psTableCaptionSkip}{4pt}
+
 % Struts keeping the given space above and below the line they are put in
 \newcommand{\psTableStrutAbove}[1]{%
 	\rule{\z@}{\dimexpr\ht\strutbox+#1\relax}}
@@ -123,6 +127,55 @@
 
 \newcommand{\psTableHeaderRule}{\psTableRule{ps-orange}{\psTableHeaderRuleWidth}}
 
+% Sphinx puts the caption above the table while the documents want it below, so
+% the caption is only remembered at that point and typeset once the table ends.
+% Of the caption, only its label, \fnum@table, follows the language of the
+% document, while the text is taken as it was written.
+\let\psSavedTableCaption\relax
+
+\newcommand{\psRememberTableCaption}[2]{%
+	\addcontentsline{lot}{table}{\protect\numberline{\thetable}{\ignorespaces #1}}%
+	\gdef\psSavedTableCaption{#2}%
+}
+
+% A table of a single page has nothing else to step its counter, and it has to be
+% stepped before the \label that sphinx puts right after the caption
+\long\def\psSaveTableCaption[#1]#2{%
+	\refstepcounter{table}%
+	\psRememberTableCaption{#1}{#2}%
+}
+
+\newcommand{\psTypesetTableCaption}{%
+	\ifx\psSavedTableCaption\relax\else
+		\par\nobreak
+		\vskip\psTableCaptionSkip
+		\noindent\vtop{\hsize\linewidth\raggedleft
+			\fnum@table: \psSavedTableCaption\par}%
+		\par
+		\global\let\psSavedTableCaption\relax
+	\fi
+}
+
+% The caption of a multi-page table is turned by longtable into a row of the
+% head, which would keep it above the table. Sphinx emits it as
+%     \caption{...}\label{...}\\*[\sphinxlongtablecapskipadjust]
+% so the row that terminates it and the space adjusting it are swallowed here as
+% well, leaving the caption itself to \psTypesetTableCaption below the table.
+% The pattern is the one of the table templates of the pinned sphinx.
+\long\def\psTakeOverLongtableCaption#1\\*[#2]{\noalign{\psGrabLongtableCaption#1}}
+
+% \LT@array of longtable has stepped the counter at the start of the table
+\long\def\psGrabLongtableCaption#1{\psRememberTableCaption{#1}{#1}}
+
+\let\psLongtableStart\sphinxatlongtablestart
+
+\def\sphinxatlongtablestart{%
+	\ifspx@inframed\psTableBoxedtrue\else\psTableBoxedfalse\fi
+	\psLongtableStart
+	% \caption of a longtable is \LT@caption, which longtable itself installs
+	\let\LT@caption\psTakeOverLongtableCaption
+}
+
 % All of the above is applied to every table by extending the style macro that
 % sphinx executes inside the scope of a single table
 \let\psTableStandardStyle\sphinxthistablewithstandardstyle
@@ -133,6 +186,10 @@
 	\let\sphinxhline\psTableRowRule
 	\let\spx@toprule\psTableRowRule
 	\let\sphinxbottomrule\psTableRowRule
+	\def\sphinxcaption{\@dblarg\psSaveTableCaption}%
+	% the caption is gone from above the table, so undo the space made for it
+	\def\sphinxaftertopcaption{\vskip\baselineskip\vskip\parskip}%
+	\let\sphinxtableafterendhook\psTypesetTableCaption
 }
 
 \makeatother
