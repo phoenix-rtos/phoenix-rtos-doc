@@ -39,7 +39,19 @@ from phoenixsystems.docsresources.icons import Icon
 latexpdf_icons = {"🔒": Icon(color="ps-darkblue")}
 ```
 
-5. The cells of a table are aligned to the left and to the top, which is what
+5. A table gets its caption from the {table} directive, which takes the caption
+as its argument and the table itself as its content. The caption is typeset
+below the table and aligned to its right edge:
+
+    ```{table} Requirements coverage
+    :name: coverage
+
+    | Requirement | Value |
+    | ----------- | ----- |
+    | ...         | ...   |
+    ```
+
+The cells of a table are aligned to the left and to the top, which is what
 the tables holding descriptions need. A table of short values looks better
 with its cells centered both ways, which the \psC column type of docsresources
 does. It takes the width of the column as a fraction of the width of the table
