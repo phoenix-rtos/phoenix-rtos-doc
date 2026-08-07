@@ -22,9 +22,9 @@ RESOURCES_DIR = Path(__file__).parent
 
 IMAGES = (
     "company_logo.png",
-    "lastpage_image.png",
+    "lastpage_image.jpg",
     "page_header.png",
-    "titlepage_image.png",
+    "titlepage_image.jpg",
 )
 
 DATE_FORMAT = "%d-%m-%Y"
