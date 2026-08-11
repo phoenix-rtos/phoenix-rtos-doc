@@ -1,0 +1,25 @@
+index.md
+  s_cc349fbfe69f06::t_0dec6cd95ace5b 123
+corelibs/libsha256.md
+  s_cc349fbfe69f06::t_c47e4e94296b01 1-33,36-119
+  s_cc349fbfe69f06::t_193ba856388ee8 34-35
+corelibs/index.md
+  s_cc349fbfe69f06::t_ba0cb888486626 34
+  s_cc349fbfe69f06::t_f0c78cf27e4f49 21-22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "c78b781dc8f783a39a4937efc2a4aadf9cf82e67",
+  "prompts": {},
+  "sessions": {
+    "s_cc349fbfe69f06": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "cf509191-06bd-4d74-b72e-5b23a7e1abee",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Marek Białowąs <marek.bialowas@phoenix-rtos.com>"
+    }
+  }
+}
