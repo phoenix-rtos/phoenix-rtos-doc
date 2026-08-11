@@ -738,3 +738,71 @@ TESTS: 2 PASSED: 1 FAILED: 1 SKIPPED: 0
 
 Our test failed as expected. The failure is reported with a sufficient traceback and some additional information like
 the expected value vs actual.
+
+## Unit tests placed next to the code
+
+The examples above keep the test sources in the `phoenix-rtos-tests` repository and run them through the test runner.
+Libraries and tools can also be covered by unit tests kept in their own repository, next to the code they test. Such
+tests are declared to the build system, which builds them for every target and - where the build host is the target -
+runs them directly, with no emulator and no runner involved.
+
+### Declaring a test
+
+The test itself is written with Unity, exactly as in [Example 2](#example-2-unit-tests-using-c). The binary is declared
+with `test-binary.mk` instead of `binary.mk`:
+
+```make
+NAME := test-libsha256
+LOCAL_SRCS := test_libsha256.c
+DEP_LIBS := libsha256
+LIBS := unity
+
+include $(test-binary.mk)
+```
+
+`test-binary.mk` accepts everything `binary.mk` does. The difference is that the component is registered in
+`TEST_COMPONENTS` instead of `ALL_COMPONENTS` - so adding a test does not change what the repository builds and installs
+by default - and that it takes part in the test goals listed below.
+
+Note that `unity` is linked with `LIBS` rather than `DEP_LIBS`: it is a component of another repository
+(`phoenix-rtos-tests`), while `DEP_LIBS` only resolves components of the same one.
+
+A unit test has to be self-contained: no arguments, no fixtures to prepare, the exit status is the verdict.
+
+### Make goals
+
+Every repository containing such tests gains the following goals:
+
+| goal           | does                                                                  |
+|----------------|-----------------------------------------------------------------------|
+| `test`         | build the test binaries                                               |
+| `test-install` | install them into `PREFIX_ROOTFS`                                     |
+| `test-run`     | run them serially (host targets only), the exit status is the verdict |
+| `test-clean`   | clean them (also a prerequisite of the repository's own `clean`)      |
+
+Each test is a component in its own right, so `<NAME>`, `<NAME>-install`, `<NAME>-clean` and `<NAME>-run` work as well.
+If not all tests of a repository build for every target, the list can be narrowed down with `DEFAULT_TEST_COMPONENTS`;
+`TEST_FILTER` (a make pattern, so `%` is the wildcard) selects a subset for a single invocation.
+
+### Building and running the tests
+
+```shell
+TARGET=host-generic-pc ./phoenix-rtos-build/build.sh core test runtest
+```
+
+`test` builds and installs the tests, `runtest` executes them. On a host target the binaries are run on the spot; on a
+cross target they are placed in the rootfs and executed on the device by the test runner described above.
+
+The repositories taking part are listed in `TEST_DIRS` in `build.project`; a target or a project extends the list with
+`TEST_DIRS+=(...)`.
+
+### Building a single test by hand
+
+`build.sh env` spawns a shell with the whole build environment of `$TARGET` exported (marking the prompt, the way a
+Python virtualenv does), so that single components can be built without going through `build.sh`:
+
+```shell
+TARGET=host-generic-pc ./phoenix-rtos-build/build.sh env
+make -C phoenix-rtos-corelibs test-libsha256-run
+make -C phoenix-rtos-corelibs help          # the components and the goals
+```
