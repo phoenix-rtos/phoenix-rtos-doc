@@ -120,6 +120,7 @@ The ARINC653 execution environment (APEX) is under development.
     5. [Universally Unique identifiers library (libuuid)](corelibs/libuuid.md)
     6. [Cache library (libcache)](corelibs/libcache.md)
     7. [Software watchdog library (libswdg)](corelibs/libswdg.md)
+    8. [SHA-256 library (libsha256)](corelibs/libsha256.md)
 16. [Ports](ports/index.md)
 17. [Tests and testing process](tests/index.md)
 18. [Coding convention](coding/index.md)
