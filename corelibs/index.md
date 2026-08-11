@@ -18,7 +18,8 @@ There are following Phoenix-RTOS libraries:
 - Virtual I/O Device library called `libvirtio`, used for device emulation,
 - Universally Unique identifiers library called `libuuid`,
 - Cache library called `libcache` which provides the user with n-way set-associative cache,
-- Software watchdog library called `libswdg` which provides the user with multichannel software watchdog.
+- Software watchdog library called `libswdg` which provides the user with multichannel software watchdog,
+- SHA-256 library called `libsha256` which provides the user with a message digest without a TLS stack.
 
 ```{toctree}
 :maxdepth: 1
@@ -30,4 +31,5 @@ libgraph.md
 libuuid.md
 libcache.md
 libswdg.md
+libsha256.md
 ```
