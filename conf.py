@@ -1,6 +1,7 @@
 # Configuration file for the Sphinx documentation builder.
 
 from version_management import get_version_context
+from directives import ShellTranscript
 
 project = ""
 copyright = "2024-2025, Phoenix Systems"
@@ -79,3 +80,6 @@ html_theme_options = {
 latex_documents = [
     ("index", f"{latexpdf_filename}.tex", latexpdf_title, author, "howto", False),
 ]
+
+def setup(app):
+    app.add_directive("shell-transcript", ShellTranscript)
