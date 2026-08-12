@@ -1,0 +1,14 @@
+docsresources/phoenixsystems/docsresources/atendofbody.tex
+  h_3689a52f3dab5f 34,36
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "development:1.4.2",
+  "base_commit_sha": "7ae352d4b396969354ac29ea14eed101e45db1a8",
+  "prompts": {},
+  "humans": {
+    "h_3689a52f3dab5f": {
+      "author": "Damian Loewnau <damian.loewnau@phoenix-rtos.com>"
+    }
+  }
+}
