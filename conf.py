@@ -1,6 +1,7 @@
 # Configuration file for the Sphinx documentation builder.
 
 from version_management import get_version_context
+from directives import ShellTranscript, ShellTranscriptToLiteral
 
 project = ""
 copyright = "2024-2025, Phoenix Systems"
@@ -9,6 +10,8 @@ author = "Phoenix Systems"
 language = "en"
 
 extensions = ["myst_parser", "sphinx_copybutton", "phoenixsystems.docsresources"]
+
+copybutton_selector = "div.highlight pre, pre.shell-transcript-copy"
 
 myst_enable_extensions = ["deflist", "fieldlist", "attrs_inline"]
 
@@ -79,3 +82,7 @@ html_theme_options = {
 latex_documents = [
     ("index", f"{latexpdf_filename}.tex", latexpdf_title, author, "howto", False),
 ]
+
+def setup(app):
+    app.add_directive("shell-transcript", ShellTranscript)
+    app.add_post_transform(ShellTranscriptToLiteral)

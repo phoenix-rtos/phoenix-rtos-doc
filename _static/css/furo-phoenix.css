@@ -145,7 +145,8 @@ img {
 /* Class to make ![](img_path){.inline-icon} appear truly inline */
 img.inline-icon {
   display: inline !important;
-  width: 16px;
+  height: 1em;
+  width: auto;
   vertical-align: middle;
 }
 
