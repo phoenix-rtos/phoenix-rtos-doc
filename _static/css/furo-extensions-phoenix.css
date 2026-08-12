@@ -3,6 +3,114 @@
 @import 'furo-extensions.css';
 
 /* Change color of copy button on hover*/
-.highlight:hover button.copybtn {
+.highlight:hover button.copybtn,
+.shell-transcript-wrapper:hover button.copybtn {
     color: #ea5b22 !important
+}
+
+.shell-output-group {
+    padding-bottom: 0.25rem;
+}
+
+.shell-toggle-checkbox {
+    display: none;
+}
+
+.shell-toggle-label {
+    display: block;
+    margin-left: 1rem;
+    width: max-content;
+    font-family: var(--pst-font-family-monospace, monospace);
+    color: var(--color-foreground-muted);
+    cursor: pointer;
+    user-select: none;
+}
+
+.shell-toggle-label:hover {
+    text-decoration: underline;
+}
+
+.shell-toggle-checkbox:not(:checked) + .shell-toggle-label::before {
+    content: "[show output]";
+}
+
+.shell-toggle-checkbox:checked + .shell-toggle-label::before {
+    content: "[hide output]";
+}
+
+.shell-toggle-checkbox:not(:checked) ~ .shell-line.plain {
+    display: none;
+}
+
+.shell-line {
+    font-family: var(--pst-font-family-monospace);
+    margin-left: 1rem;
+
+    /* fix the padding on scroll end */
+    width: max-content;
+    padding-right: 1rem !important; /* must overwrite the padding=0 in the 'container' */
+}
+
+.shell-line > span {
+    white-space: pre;
+}
+
+.shell-line .prompt {
+    font-weight: bold;
+    user-select: none;
+}
+
+.shell-line.root .prompt {
+    color: #c33;
+}
+
+.shell-line.psh .prompt {
+    color: #ea5b22;
+}
+
+.shell-transcript-wrapper {
+    position: relative;
+}
+
+/* Copy button styled as in code blocks (see furo-extensions.css) */
+.shell-transcript-wrapper button.copybtn {
+    align-items: center;
+    background-color: var(--color-background-secondary);
+    border: none;
+    color: var(--color-background-item);
+    cursor: pointer;
+    height: 1.25em;
+    opacity: 1;
+    right: .5rem;
+    top: .625rem;
+    transition: color .3s, opacity .3s;
+    width: 1.25em
+}
+
+.shell-transcript-wrapper button.copybtn:after {
+    background-color: transparent;
+    color: var(--color-foreground-primary);
+    display: none
+}
+
+.shell-transcript-wrapper button.copybtn.success {
+    color: #22863a;
+    transition: color 0ms
+}
+
+.shell-transcript-wrapper button.copybtn.success:after {
+    display: block
+}
+
+.shell-transcript-wrapper button.copybtn svg {
+    padding: 0
+}
+
+.shell-transcript {
+    background: var(--color-background-secondary);
+    border-radius: 4px;
+    padding: 0.75rem;
+    font-family: monospace;
+    overflow-x: auto;
+    white-space: nowrap;
 }
