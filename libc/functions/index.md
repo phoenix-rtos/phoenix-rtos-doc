@@ -13,6 +13,7 @@ libgen/index.md
 math/index.md
 netdb/index.md
 pwd/index.md
+semaphore/index.md
 setjmp/index.md
 signal/index.md
 stdio/index.md
