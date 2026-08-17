@@ -99,8 +99,9 @@ These functions may fail if:
 
 ## Tests
 
-Untested
+Tested in [test-libc](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/libc)
 
 ## Known bugs
 
-None
+[#Issue 1615](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/1615): readdir() silently drops valid
+directory entries of length NAME_MAX
