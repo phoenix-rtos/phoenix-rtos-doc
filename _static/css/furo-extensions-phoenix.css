@@ -6,3 +6,79 @@
 .highlight:hover button.copybtn {
     color: #ea5b22 !important
 }
+
+.shell-transcript.hide-outputs .shell-line.plain {
+    display: none;
+}
+
+.shell-output-group {
+    padding-bottom: 0.25rem;
+}
+
+.shell-toggle-checkbox {
+    display: none;
+}
+
+.shell-toggle-label {
+    display: block;
+    margin-left: 1rem;
+    width: max-content;
+    font-family: var(--pst-font-family-monospace, monospace);
+    color: var(--color-foreground-muted);
+    cursor: pointer;
+    user-select: none;
+}
+
+.shell-toggle-label:hover {
+    text-decoration: underline;
+}
+
+.shell-toggle-checkbox:not(:checked) + .shell-toggle-label::before {
+    content: "[show output]";
+}
+
+.shell-toggle-checkbox:checked + .shell-toggle-label::before {
+    content: "[hide output]";
+}
+
+.shell-toggle-checkbox:not(:checked) ~ .shell-line.plain {
+    display: none;
+}
+
+.shell-line {
+    font-family: var(--pst-font-family-monospace);
+    margin-left: 1rem;
+
+    /* fix the padding on scroll end */
+    width: max-content;
+    padding-right: 1rem !important; /* must overwrite the padding=0 in the 'container' */
+}
+
+.shell-line.root::before {
+    content: "root # ";
+    color: #c33;
+    font-weight: bold;
+    user-select: none;
+}
+
+.shell-line.user::before {
+    content: "user $ ";
+    font-weight: bold;
+    user-select: none;
+}
+
+.shell-line.psh::before {
+    content: "(psh)% ";
+    color: #ea5b22;
+    font-weight: bold;
+    user-select: none;
+}
+
+.shell-transcript {
+    background: var(--color-background-secondary);
+    border-radius: 4px;
+    padding: 0.75rem;
+    font-family: monospace;
+    overflow-x: auto;
+    white-space: nowrap;
+}
