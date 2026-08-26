@@ -1,0 +1,30 @@
+tests/index.md
+  s_d74aef5a1d95d2::t_0c42f4b3ff31b2 797-819
+  s_d74aef5a1d95d2::t_47fd4da49f4a95 820-830
+  s_64038140da5d7d::t_22563abc36216b 741-775
+  s_64038140da5d7d::t_5ed3be51cfcb05 776-796
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.24",
+  "base_commit_sha": "f3a98c2a1f9f877e2c31c54231287dcdddaf2ed4",
+  "prompts": {},
+  "sessions": {
+    "s_64038140da5d7d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4a492f2e-27d1-493b-8cda-8ac513fde7f4",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Marek Białowąs <marek.bialowas@phoenix-rtos.com>"
+    },
+    "s_d74aef5a1d95d2": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "a68174a9-7f84-452b-9eac-3d6350c0d0ab",
+        "model": "claude-opus-5"
+      },
+      "human_author": null
+    }
+  }
+}
