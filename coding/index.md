@@ -222,7 +222,22 @@ irq_fpu_done:
 
 #### PS-C-RULE-001
 
-The code shall be compliant with C99 (without GNU extensions) standard.
+The code shall be compliant with C99 standard with exceptions listed below.
+
+Allowed GNU extensions:
+
+- `typeof` operator
+- `void *` pointer arithmetic
+- Implicit function-pointer ↔ `void *` conversion
+- Statement expressions `({...})`
+- `__FUNCTION__`
+- `##__VA_ARGS__`
+- build-in functions starting with `_builtin*` and `_atomic*`
+
+Allowed C11 standard elements:
+
+- `_Static_assert`
+- Unnamed struct/union members
 
 ### MISRA C 2023 (2012)
 

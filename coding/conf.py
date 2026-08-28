@@ -48,6 +48,8 @@ latexpdf_history = r'''
         \hline
         1.0 & Initial version & B. Paczek, K. Ber & 2026-01-12 \\
         \hline
+        1.1 & Updated version accordingly to PR - DO-906 & B. Paczek & 2026-28-08 \\
+        \hline
         \end{tabular}
         \end{table}
         '''
