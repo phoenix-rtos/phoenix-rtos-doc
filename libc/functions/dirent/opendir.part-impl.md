@@ -10,6 +10,14 @@ DIR *fdopendir(int fd);
 DIR *opendir(const char *dirname);
 ```
 
+## Status
+
+Partially implemented
+
+## Conformance
+
+IEEE Std 1003.1-2017
+
 ## Description
 
 The functions open the directory associated with a file descriptor or a name.
@@ -60,3 +68,12 @@ intermediate result with a length that exceeds {`PATH_MAX`}.
 
 * Implement `fdopendir()` function
 * Implement error detection as described above.
+
+## Tests
+
+Tested in [test-libc](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/libc)
+
+## Known bugs
+
+[Issue #1610](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/1610): opendir() exceeds _SC_OPEN_MAX without
+setting EMFILE
