@@ -42,7 +42,7 @@ Column Descriptions
 - **Category:** The rule's category as defined by the standard. By default, the Phoenix MISRA C Profile
   applies all ``Required`` and ``Mandatory`` rules.
 - **Applicability Change:** Shows any deviation from the standard's default applicability.
-  ``Advisory`` rules may be ``ENABLED``, while ``Required`` or ``Mandatory`` rules may be ``DISABLED``.
+  ``Advisory`` rules may be ``ENABLED``, while ``Required`` or ``Mandatory`` rules may be ``DISABLED`` or ``PARTIALLY DISABLED``
   ``NO`` indicates no change.
 - **Applied:** A ``YES``/``NO`` indicator of whether the rule is active in the Phoenix MISRA C Profile.
 - **Justification:** Provides the justification for enabling or disabling a rule.
@@ -72,7 +72,7 @@ Column Descriptions
     "Dir 5.1", "Required", "NO", "**YES**", ""
     "Dir 5.2", "Required", "NO", "**YES**", ""
     "Dir 5.3", "Required", "NO", "**YES**", ""
-    "Rule 1.1", "Required", "NO", "**YES**", ""
+    "Rule 1.1", "Required", "PARTIALLY DISABLED", "**PARTIALLY**", "There are exceptions to C99 standard defined in PS-C-RULE-001"
     "Rule 1.2", "Advisory", "NO", "NO", ""
     "Rule 1.3", "Required", "NO", "**YES**", ""
     "Rule 1.4", "Required", "NO", "**YES**", ""
@@ -163,7 +163,7 @@ Column Descriptions
     "Rule 13.6", "Required", "NO", "**YES**", ""
     "Rule 14.1", "Required", "NO", "**YES**", ""
     "Rule 14.2", "Required", "NO", "**YES**", ""
-    "Rule 14.3", "Required", "NO", "**YES**", ""
+    "Rule 14.3", "Required", "DISABLED", "NO", "``do { ... } while ((_Bool)0)`` clause is a standard practice to declare macros that need a scope and do not pose a thread to the software safety, therefore the rule is disabled"
     "Rule 14.4", "Required", "NO", "**YES**", ""
     "Rule 15.1", "Advisory", "NO", "NO", ""
     "Rule 15.2", "Required", "NO", "**YES**", ""
@@ -172,7 +172,7 @@ Column Descriptions
     "Rule 15.5", "Advisory", "NO", "NO", ""
     "Rule 15.6", "Required", "NO", "**YES**", ""
     "Rule 15.7", "Required", "NO", "**YES**", ""
-    "Rule 16.1", "Required", "NO", "**YES**", ""
+    "Rule 16.1", "Required", "PARTIALLY DISABLED", "**PARTIALLY**", "To allow specific logical constructs needed for Microkernel implementation, ``return`` break from ``switch case`` is allowed"
     "Rule 16.2", "Required", "NO", "**YES**", ""
     "Rule 16.3", "Required", "NO", "**YES**", ""
     "Rule 16.4", "Required", "NO", "**YES**", ""
@@ -223,7 +223,7 @@ Column Descriptions
     "Rule 21.3", "Required", "NO", "**YES**", ""
     "Rule 21.4", "Required", "NO", "**YES**", ""
     "Rule 21.5", "Required", "DISABLED", "NO", "This rule is not applicable for the Phoenix-RTOS kernel source code, because <signal.h> is provided as part of custom implementation of libc `libphoenix` and therefore has defined behavior."
-    "Rule 21.6", "Required", "NO", "**YES**", ""
+    "Rule 21.6", "Required", "PARTIALLY DISABLED", "**PARTIALLY**", "This rule is not applicable for the Phoenix-RTOS kernel source code as Microkernel defines on its own standard library implementation and so symbols that are the same as in the standard library."
     "Rule 21.7", "Required", "NO", "**YES**", ""
     "Rule 21.8", "Required", "NO", "**YES**", ""
     "Rule 21.9", "Required", "NO", "**YES**", ""
