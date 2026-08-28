@@ -19,8 +19,8 @@ latexpdf_title = "Software Code Standards"
 #latexpdf_author = 
 #latexpdf_reviewer = 
 latexpdf_date = datetime.today().strftime('%d-%m-%Y')
-latexpdf_version = "Rev. 1.0"
-latexpdf_filename = "PHOENIX-RTOS-DO178-STD-0003-Software_Code_Standards"
+latexpdf_version = "Rev. 1.1"
+latexpdf_filename = "PHOENIX-RTOS-DO178-STD-0008-Software_Code_Standards"
 latexpdf_signatures = r'''
         \section*{Approvals}
         \begin{table}[h!]
@@ -51,6 +51,8 @@ latexpdf_dochistory = r'''
         \textbf{Rev.} & \textbf{Description} & \textbf{Elaborated by} & \textbf{Date} \\
         \hline
         1.0 & Initial version & B. Paczek, K. Ber & 2026-01-12 \\
+        \hline
+        1.1 & Updated version accordingly to PR - DO-906 & B. Paczek & 2026-08-31 \\
         \hline
         \end{tabular}
         \end{table}
