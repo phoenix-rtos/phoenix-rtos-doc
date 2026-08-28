@@ -50,7 +50,7 @@ shall fail if:
 
 ## Tests
 
-Untested
+Tested in [test-libc](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/libc).
 
 ## Known bugs
 

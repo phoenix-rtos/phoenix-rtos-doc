@@ -74,4 +74,5 @@ Untested
 
 ## Known bugs
 
-None
+[#923 issue](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/923): fdopen() doesn't create
+unix domain socket, unless run with internet socket.
