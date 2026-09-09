@@ -41,8 +41,11 @@ CELL_PADDING = 22
 # Characters a column keeps beyond its longest word, for the padding of the cell
 COLUMN_MARGIN = 4
 
-# Characters a word of a bold header takes over a word of the body
+# Characters of the text font one character of a bold header takes, and one of
+# the monospace font of a literal, whose 6.02pt stand against the 4.77pt of the
+# line of the text divided into LINE_CHARACTERS
 HEADER_WIDTH = 1.15
+LITERAL_WIDTH = 1.3
 
 
 # Nodes typeset as a box, which is narrower than the page and holds no table
@@ -79,9 +82,37 @@ def _rows(node):
                 cells, column = [], 0
                 for entry in row.children:
                     span = entry.get("morecols", 0) + 1
-                    cells.append((column, span, entry.astext()))
+                    cells.append((column, span, entry))
                     column += span
                 yield isinstance(part, nodes.thead), cells
+
+
+def _pieces(node, character):
+    """Yield the text of the node as (characters, width of a character) pieces."""
+    if isinstance(node, nodes.Text):
+        yield str(node), character
+        return
+    if isinstance(node, nodes.literal):
+        character = LITERAL_WIDTH
+    for index, child in enumerate(node.children):
+        if index:
+            yield node.child_text_separator, character
+        yield from _pieces(child, character)
+
+
+def _measure(entry, character):
+    """Characters of the text font the cell takes, and its longest word of them.
+
+    A literal is set in the monospace font and a header in a bold one, both wider
+    than the text the line of the page is measured in.
+    """
+    total, word, longest = 0, 0, 0
+    for text, width in _pieces(entry, character):
+        for letter in text:
+            total += width
+            word = 0 if letter.isspace() else word + width
+            longest = max(longest, word)
+    return total, longest
 
 
 def _demands(node, columns):
@@ -93,13 +124,13 @@ def _demands(node, columns):
     widest = [0] * columns
     longest_word = [0] * columns
     for header, cells in _rows(node):
-        bold = HEADER_WIDTH if header else 1
-        for column, span, text in cells:
+        character = HEADER_WIDTH if header else 1
+        for column, span, entry in cells:
             if span != 1 or column >= columns:
                 continue
-            widest[column] = max(widest[column], len(text))
-            words = (len(word) * bold for word in text.split())
-            longest_word[column] = max(longest_word[column], max(words, default=0))
+            cell, word = _measure(entry, character)
+            widest[column] = max(widest[column], cell)
+            longest_word[column] = max(longest_word[column], word)
     return widest, [round(word) for word in longest_word]
 
 
@@ -134,11 +165,13 @@ def _widths(widest, longest_word):
 def _height(node, widths):
     """Points the table would take, to tell whether it fits a page."""
     height = 0
-    for _, cells in _rows(node):
+    for header, cells in _rows(node):
+        character = HEADER_WIDTH if header else 1
         lines = 1
-        for column, span, text in cells:
-            width = sum(widths[column : column + span]) or 1
-            lines = max(lines, -(-len(text) // width))
+        for column, span, entry in cells:
+            available = sum(widths[column : column + span]) or 1
+            cell, _ = _measure(entry, character)
+            lines = max(lines, -(-cell // available))
         height += lines * LINE_HEIGHT + CELL_PADDING
     return height
 
