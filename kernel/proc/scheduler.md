@@ -5,27 +5,55 @@ having the most significant influence on the performance and responsiveness of t
 
 ## Scheduling policy
 
-The scheduling algorithm is defined in the `threads_schedule` function. It is invoked by timer interrupt or voluntary
-reschedule (`hal_cpuReschedule`). Each function's invocation changes the context of the currently executed thread to
-the next one, available in a thread's ready queue. The scheduling policy determined which thread shall be chosen for
-the next execution. In Phoenix-RTOS a priority preempted round-robin algorithm is used. There are eight priority levels,
-the smallest value holds the highest priority.
+The scheduling algorithm is defined in the `_threads_schedule` function. It is invoked by timer interrupt or voluntary
+reschedule (`hal_cpuReschedule`). Phoenix-RTOS uses a priority-preempted round-robin algorithm with 64 priority levels
+(`NPRIOS`), described in [Thread priorities](#thread-priorities).
 
-The thread management unit contains an eight-element array, where each of them holds a pointer to the list of threads of
-the same priority. A scheduling algorithm is defined as follows:
+The thread management unit contains an `NPRIOS`-element array where each element holds a pointer to the list of threads
+at that priority level. A 64-bit bitmask (`readyBitmask`) tracks which queues are non-empty, allowing O(1) selection of
+the highest-priority ready thread (`_readyMinPrioIdx` finds the first set bit of the bitmask halves using
+`hal_cpuGetFirstBit`). The scheduling algorithm is as follows:
 
-1. The `threads_common.spinlock` is set before any operations on common data.
-2. The current thread's context for the interrupted core is saved and added to the end of its priority list.
-3. The next available thread with the highest priority is selected to be run and is removed from the ready thread list.
-If a selected thread is a ghost (a thread whose process has ended execution) and has not been executed in a supervisor
-mode, it is added to the ghosts list and the reaper thread woke up.
-4. For the selected thread, the following actions are performed:
-    * a global pointer to the current thread is changed to the selected one,
-    * a pointer to the kernel stack is updated to the stack of a new thread,
-    * a memory map is changed to the map associated with the thread's process,
-    * signal handlers are performed,
-    * performance data is saved in a perf unit,
-    * in the `hal_cpuRestore` pointer to the stack in a context of current thread is updated with a pointer to the stack
-    of selected thread. When the scheduler finishes work, the context of selected thread restore is performed.
-5. The CPU usage is updated for the current and selected thread.
-6. At the end of the modification of the `threads_common.spinlock` is cleared.
+1. `threads_common.spinlock` is held by the caller (`threads_schedule()`) before any operations on shared data.
+2. The current thread's context for the interrupted core is saved and added to the end of its priority queue.
+3. The next highest-priority ready thread is selected and removed from its ready
+   queue. If a selected thread is a ghost (its process has ended and it has not
+   been executing in supervisor mode), it is added to the ghosts list and the
+   reaper thread is woken up.
+4. For the selected thread:
+    * the current-thread pointer is updated,
+    * the kernel stack pointer is updated,
+    * the address space is switched to the thread's process memory map,
+    * pending signal handlers are invoked,
+    * `hal_cpuRestore` switches to the selected thread's context.
+5. Wait-time statistics are updated for both the preempted and selected threads.
+6. `threads_common.spinlock` is cleared by the caller after `_threads_schedule()` returns.
+
+## Thread priorities
+
+The thread priority is a signed value (`priority_t`, defined in `proc/threads.h`) taken from the range
+`[MIN_PRIO, MAX_PRIO]`, where `MIN_PRIO` equals `-NPRIOS / 2` and `MAX_PRIO` equals `NPRIOS / 2 - 1`. For the default
+`NPRIOS` of 64 the range is therefore `[-32, 31]`. **The lower the numeric value, the higher the criticality of the
+thread**: a thread at `MIN_PRIO` (-32) preempts every other thread, while a thread at `MAX_PRIO` (31) is scheduled only
+when no other thread is ready.
+
+The range is deliberately centered around zero instead of spanning `[0, NPRIOS - 1]`. Userspace code has historically
+used the `[0, 7]` range with 4 (`PH_PRIO_DEFAULT`) as the default thread priority, so keeping those values in place and
+extending the range in both directions relaxes the contention around the default priority without the need to rescale
+existing code.
+
+`NPRIOS` can be overridden at build time. It must be even and not lower than 16, and it must fit in `readyBitmask`,
+which currently limits it to 64 levels. Lowering it is a way to reduce the size of the ready queue array on
+memory-constrained targets.
+
+Each thread carries two priorities:
+
+* `priorityBase` - the priority requested for the thread (by `beginthreadex()` or `sys_priority()`),
+* `priority` - the effective priority the scheduler uses.
+
+The effective priority is the more critical (numerically lower) of `priorityBase` and the priority derived from the
+locks the thread currently holds, so priority inheritance (`PH_LOCK_PROTO_INHERIT`) and the priority ceiling protocol
+(`PH_LOCK_PROTO_PRIOCEILING`) can only raise a thread's criticality, never lower it below its base level.
+
+Userspace should not hardcode the priority range. It is reported at runtime by the `schedInfo()` call (and by the POSIX
+`sched_get_priority_min()` and `sched_get_priority_max()` wrappers) for the `SCHED_RR` policy.
