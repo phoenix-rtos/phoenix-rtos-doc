@@ -1,0 +1,56 @@
+%
+% Phoenix-RTOS
+%
+% Copyright 2025-2026 Phoenix Systems
+% Author: Adam Debek, Damian Loewnau
+%
+% This file is part of Phoenix-RTOS.
+%
+% SPDX-License-Identifier: BSD-3-Clause
+
+\clearpage
+\thispagestyle{empty}
+
+% Image on the upper part of the page
+\includegraphics[width=\textwidth]{page_header.png}
+
+\vspace{2.0cm}
+
+{\setmainfont{Liberation Sans}
+\textcolor{ps-darkblue}{%
+	{\fontsize{30}{36}\selectfont \textbf{\doctitle}\\}
+}}
+
+\vspace{0.4cm}
+
+\ifdefined\docsubtitle
+	{\setmainfont{Liberation Sans}
+	\textcolor{ps-darkblue}{%
+		{\fontsize{16}{19}\selectfont \textbf{\docsubtitle}\\}
+	}}
+\fi
+
+\vspace{2.25cm}
+
+% Right side main image
+\begin{flushright}
+	\includegraphics[width=1.0\textwidth]{titlepage_image.jpg}
+\end{flushright}
+
+\vspace{\fill}
+
+% Orange line below bottom blocks
+\begin{center}
+	\color{ps-orange}\rule{\textwidth}{2pt}
+\end{center}
+
+\vspace{0.15cm}
+
+% % Version and date text
+{\setmainfont{Liberation Sans}
+\fontsize{10}{12}\selectfont
+\textcolor{ps-lightblue}{%
+	\makebox[\textwidth][l]{\hspace{0.2cm}\docversion\hfill \docdate\hspace{0.2cm}}
+}}
+\clearpage
+\pagestyle{plain}

@@ -8,23 +8,24 @@
 
 from version_management import get_version_context
 
-
 project = ""
 copyright = "2024, Phoenix Systems"
 author = "Phoenix Systems"
 
-# -- General configuration ---------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
+language = "en"
 
-extensions = ["myst_parser", "sphinx_copybutton"]
+extensions = ["myst_parser", "sphinx_copybutton", "phoenixsystems.docsresources"]
 
 templates_path = ["_templates"]
-exclude_patterns = ["README.md", "_build", "Thumbs.db", ".DS_Store"]
+exclude_patterns = ["README", "_build", "Thumbs.db", ".DS_Store", "venv", "docsresources"]
 myst_heading_anchors = 3
 pygments_dark_style = "tango"
 
-# -- Options for HTML output -------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
+latexpdf_title = "Phoenix-RTOS Documentation"
+# either the author or latexpdf_subtitle can be put below the title, not both
+latexpdf_author = ""
+latexpdf_version = "Ver. latest"
+latexpdf_filename = "phoenix-rtos-documentation"
 
 html_title = "Phoenix-RTOS Documentation"
 html_favicon = "_images/RTOS_sign.png"
@@ -78,3 +79,7 @@ html_theme_options = {
         "color-header-text": "white",
     },
 }
+
+latex_documents = [
+    ("index", f"{latexpdf_filename}.tex", latexpdf_title, author, "howto", False),
+]

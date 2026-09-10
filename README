@@ -1,0 +1,33 @@
+The full documentation can be found at https://docs.phoenix-rtos.com.
+
+This repository contains all the necessary files needed to build
+Phoenix-RTOS Documentation using sphinx.
+
+Here are few steps to prepare environment:
+- sudo apt update
+- sudo apt install latexmk texlive-xetex texlive-latex-extra
+- sudo apt install fonts-liberation fonts-dejavu fonts-noto-core fonts-freefont-ttf
+- sudo apt install texlive-lang-polish (only for documents built in Polish)
+- sudo apt install python3-pip
+- sudo apt install python3-venv
+- ./prepare_venv.py
+- source _venv/bin/activate
+
+The fonts are the ones the documents are typeset with, so an environment that
+has none of them, a bare container among them, needs them as well: Liberation
+Sans for the text, DejaVu Sans Mono for the code blocks, and Noto Sans Symbols2
+with FreeSans for the icons.
+
+To build html or pdf versions:
+- make html
+- make latexpdf
+
+The output files will be available in _build directory.
+
+Optionally run make clean to clear _build directory.
+
+The language of the generated documents is set by the 'language' option in
+conf.py ("en" or "pl"). It can be also overridden for a single build, then
+a separate build directory is worth using to keep both variants:
+- make latexpdf BUILDDIR=_build/pl O="-D language=pl"
+

@@ -1,0 +1,73 @@
+%
+% Phoenix-RTOS
+%
+% Copyright 2025-2026 Phoenix Systems
+% Author: Adam Debek, Damian Loewnau
+%
+% This file is part of Phoenix-RTOS.
+%
+% SPDX-License-Identifier: BSD-3-Clause
+
+\clearpage
+\thispagestyle{empty}
+
+% Company logo in upper left corner
+\begin{flushleft}
+    \includegraphics[width=0.45\textwidth]{company_logo.png}
+\end{flushleft}
+
+% TODO: add a Phoenix-RTOS logo as in GD templates
+
+\vspace{2.5cm}
+
+% Right side main image
+\begin{flushright}
+	\includegraphics[width=0.85\textwidth]{lastpage_image.jpg}
+\end{flushright}
+
+\vspace{1cm}
+
+{\setmainfont{Liberation Sans}
+\color{ps-darkblue}
+% Vertically stacked text
+\begin{flushright}
+	{\fontsize{13}{24}\selectfont \textbf{\psCompanyName}\\}
+	{\fontsize{10}{16}\selectfont \psRegistryInfo}
+	\vspace{0.6cm}
+	\hypersetup{colorlinks=true, urlcolor=ps-darkblue}
+	{\fontsize{10}{16}\selectfont
+		\href{https://phoenix-rtos.com}{phoenix-rtos.com}
+		~~~|~~~
+		\href{https://github.com/phoenix-rtos}{github.com/phoenix-rtos}\\
+	}
+	{\fontsize{10}{12}\selectfont \psContactLabel: contact@phoenix-rtos.com}
+\end{flushright}
+
+\vspace{\fill}
+
+% Three bottom blocks horizontally aligned
+\noindent
+\makebox[\textwidth][l]{%
+	\fontsize{10}{15}\selectfont
+	\begin{minipage}{0.275\textwidth}
+		\raggedleft
+		\psOfficeHq
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.25\textwidth}
+		\raggedleft
+		\psOfficeLomza
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.4\textwidth}
+		\raggedleft
+		\psOfficeUk
+	\end{minipage}
+}}
+
+\vspace{0.4cm}
+
+% Orange line below bottom blocks
+\begin{center}
+	\color{ps-orange}\rule{\textwidth}{2pt}
+\end{center}
