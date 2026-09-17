@@ -209,6 +209,10 @@ tree is extracted.
   whether to install stripped binaries. Usually used as an argument to
   {func}`b_install()`.
 
+`LIBM_USE_LIBMCS`
+: Provides information to the port build enviroment, if libmcs math library version
+  is being used. This way ports may decide if additional patches are required or not.
+
 ### Helper functions
 
 ````{function} b_port_apply_patches(srcdir, [patch_subdir])
