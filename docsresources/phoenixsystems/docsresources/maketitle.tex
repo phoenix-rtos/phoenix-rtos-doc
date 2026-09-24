@@ -18,10 +18,13 @@
 
 % The title and the subtitle are set in a box, whose lines keep the spacing of
 % their large font, while the line holding the box is spaced like the text, so
-% that the box stays where it was. The line is broken by \hfil\break, as \\ and
-% \newline end the paragraph in the ragged right text, which would space the
-% line by the large font too and move it down.
-\newcommand{\psTitleBox}[1]{\parbox[t]{\linewidth}{#1}\hfil\break}
+% that the box stays where it was. A word that does not fit its line moves whole
+% to the next one, instead of being broken with a hyphen. The line is broken by
+% \hfil\break, as \\ and \newline end the paragraph in the ragged right text,
+% which would space the line by the large font too and move it down.
+\newcommand{\psTitleBox}[1]{%
+	\parbox[t]{\linewidth}{\raggedright\hyphenpenalty=10000 \exhyphenpenalty=10000 #1}%
+	\hfil\break}
 
 {\setmainfont{Liberation Sans}
 \textcolor{ps-darkblue}{%
