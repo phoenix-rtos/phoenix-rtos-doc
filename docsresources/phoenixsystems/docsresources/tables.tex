@@ -86,14 +86,22 @@
 \newcommand{\psTableColumnWidth}[2]{\dimexpr
 	(\linewidth-\spx@arrayrulewidth)*#1/#2-\tw@\tabcolsep-\spx@arrayrulewidth\relax}
 
-% The column types of sphinx, redefined to pad their cells. T is used for the
-% tables of an automatic layout, \X and \Y for the ones of given widths, the
-% width of \Y being copied from sphinx as well.
-\newcolumntype{T}{>{\psTableCellTop}J<{\psTableCellBottom}}
+% Text of a cell is set ragged right instead of justified: a narrow cell holding
+% a literal, which does not break, would otherwise have its line stretched into
+% wide gaps between the words. \arraybackslash gives \\ back to the table, which
+% ends its rows with it.
+\newcommand{\psTableRaggedRight}{\raggedright\arraybackslash}
+
+% The column types of sphinx, redefined to pad their cells and to set them ragged
+% right. T is used for the tables of an automatic layout, taking the ragged L of
+% tabulary in place of its justified J, \X and \Y for the ones of given widths,
+% the width of \Y being copied from sphinx as well.
+\newcolumntype{T}{>{\psTableCellTop}L<{\psTableCellBottom}}
 \newcolumntype{\X}[2]{%
-	>{\psTableCellTop}p{\psTableColumnWidth{#1}{#2}}<{\psTableCellBottom}}
+	>{\psTableRaggedRight\psTableCellTop}p{\psTableColumnWidth{#1}{#2}}%
+	<{\psTableCellBottom}}
 \newcolumntype{\Y}[1]{%
-	>{\psTableCellTop}p{\dimexpr
+	>{\psTableRaggedRight\psTableCellTop}p{\dimexpr
 		#1\dimexpr\linewidth-\spx@arrayrulewidth\relax
 		-\tw@\tabcolsep-\spx@arrayrulewidth\relax}<{\psTableCellBottom}}
 
