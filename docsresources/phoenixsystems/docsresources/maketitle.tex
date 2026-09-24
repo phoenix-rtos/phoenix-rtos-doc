@@ -16,9 +16,19 @@
 
 \vspace{2.0cm}
 
+% The title and the subtitle are set in a box, whose lines keep the spacing of
+% their large font, while the line holding the box is spaced like the text, so
+% that the box stays where it was. A word that does not fit its line moves whole
+% to the next one, instead of being broken with a hyphen. The line is broken by
+% \hfil\break, as \\ and \newline end the paragraph in the ragged right text,
+% which would space the line by the large font too and move it down.
+\newcommand{\psTitleBox}[1]{%
+	\parbox[t]{\linewidth}{\raggedright\hyphenpenalty=10000 \exhyphenpenalty=10000 #1}%
+	\hfil\break}
+
 {\setmainfont{Liberation Sans}
 \textcolor{ps-darkblue}{%
-	{\fontsize{30}{36}\selectfont \textbf{\doctitle}\\}
+	{\fontsize{30}{36}\selectfont \psTitleBox{\textbf{\doctitle}}}
 }}
 
 \vspace{0.4cm}
@@ -26,7 +36,7 @@
 \ifdefined\docsubtitle
 	{\setmainfont{Liberation Sans}
 	\textcolor{ps-darkblue}{%
-		{\fontsize{16}{19}\selectfont \textbf{\docsubtitle}\\}
+		{\fontsize{16}{19}\selectfont \psTitleBox{\textbf{\docsubtitle}}}
 	}}
 \fi
 

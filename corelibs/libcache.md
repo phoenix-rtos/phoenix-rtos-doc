@@ -17,7 +17,6 @@ that execute write to and read from the cached source memory.
 ### Data types
 
 ```{table}
-:widths: 10 10 30
 
 |       Type       | Description | Remarks |
 | ---------------- | ----------- | ------- |

@@ -41,8 +41,55 @@ CELL_PADDING = 22
 # Characters a column keeps beyond its longest word, for the padding of the cell
 COLUMN_MARGIN = 4
 
-# Characters a word of a bold header takes over a word of the body
+# Characters of the text font one character of a bold header takes, and one of
+# the monospace font of a literal, whose 6.02pt stand against the 4.77pt of the
+# line of the text divided into LINE_CHARACTERS
 HEADER_WIDTH = 1.15
+LITERAL_WIDTH = 1.3
+
+# Widths of the characters of the text font, Liberation Sans, which shares the
+# metrics of Helvetica, in thousandths of its size. A name such as
+# modemConnectionBelow10s, made of the wide letters, takes a fifth more than as
+# many average characters, which is enough to have it run out of a column sized
+# by the count of its characters. A character not listed takes the width of a
+# digit.
+GLYPH_WIDTHS = {
+    character: width
+    for width, characters in (
+        (222, "'`ijl"),
+        (260, "|"),
+        (278, " !,./:;I[\\]ft"),
+        (333, "()-r"),
+        (334, "{}"),
+        (355, '"'),
+        (389, "*"),
+        (469, "^"),
+        (500, "Jcksvxyz"),
+        (556, "#$0123456789?L_abdeghnopqu"),
+        (584, "+<=>~"),
+        (611, "FTZ"),
+        (667, "&ABEKPSVXY"),
+        (722, "CDHNRUw"),
+        (778, "GOQ"),
+        (833, "Mm"),
+        (889, "%"),
+        (944, "W"),
+        (1015, "@"),
+    )
+    for character in characters
+}
+DIGIT_WIDTH = 556
+
+# Points of the size of the text font and of the width of the text
+FONT_SIZE = 10
+TEXT_WIDTH = 452.97
+
+# Characters a line of the plain text of a cell may break after. A long name of a
+# path or of an identifier holds no space, and taken whole as a word it would pin
+# a column wider than the line can share, so the column is squeezed below it and
+# the name runs over the next one. A literal is left alone, sphinx breaking it
+# after a slash of its own accord, while an underscore is a part of the code.
+BREAKS = "/_"
 
 
 # Nodes typeset as a box, which is narrower than the page and holds no table
@@ -79,9 +126,64 @@ def _rows(node):
                 cells, column = [], 0
                 for entry in row.children:
                     span = entry.get("morecols", 0) + 1
-                    cells.append((column, span, entry.astext()))
+                    cells.append((column, span, entry))
                     column += span
                 yield isinstance(part, nodes.thead), cells
+
+
+def breaks_words(node):
+    """Tell whether the text node is plain text of a cell, breaking after BREAKS."""
+    parent = node.parent
+    in_cell = False
+    while parent is not None:
+        if isinstance(parent, (nodes.literal, nodes.FixedTextElement, nodes.raw)):
+            return False
+        in_cell = in_cell or isinstance(parent, nodes.entry)
+        parent = parent.parent
+    return in_cell
+
+
+def break_points(latex):
+    """Let a line break after BREAKS in the text, given as it is set in LaTeX."""
+    return latex.replace("/", r"/\allowbreak{}").replace(r"\_", r"\_\allowbreak{}")
+
+
+def _pieces(node, literal=False):
+    """Yield the text of the node as (characters, whether a literal) pieces."""
+    if isinstance(node, nodes.Text):
+        yield str(node), literal
+        return
+    literal = literal or isinstance(node, nodes.literal)
+    for index, child in enumerate(node.children):
+        if index:
+            yield node.child_text_separator, literal
+        yield from _pieces(child, literal)
+
+
+def _letter_width(letter):
+    """Width of the letter of the text font, in the average characters of a line."""
+    if letter.isspace():
+        letter = " "  # a line break of the source is typeset as a space
+    points = GLYPH_WIDTHS.get(letter, DIGIT_WIDTH) * FONT_SIZE / 1000
+    return points * LINE_CHARACTERS / TEXT_WIDTH
+
+
+def _measure(entry, character):
+    """Characters of the text font the cell takes, and its longest word of them.
+
+    A literal is set in the monospace font, of letters of a single width, and a
+    header in a bold one, wider than the text the line of the page is measured in.
+    """
+    total, word, longest = 0, 0, 0
+    for text, literal in _pieces(entry):
+        for letter in text:
+            width = LITERAL_WIDTH if literal else character * _letter_width(letter)
+            total += width
+            word = 0 if letter.isspace() else word + width
+            longest = max(longest, word)
+            if not literal and letter in BREAKS:
+                word = 0
+    return total, longest
 
 
 def _demands(node, columns):
@@ -93,13 +195,13 @@ def _demands(node, columns):
     widest = [0] * columns
     longest_word = [0] * columns
     for header, cells in _rows(node):
-        bold = HEADER_WIDTH if header else 1
-        for column, span, text in cells:
+        character = HEADER_WIDTH if header else 1
+        for column, span, entry in cells:
             if span != 1 or column >= columns:
                 continue
-            widest[column] = max(widest[column], len(text))
-            words = (len(word) * bold for word in text.split())
-            longest_word[column] = max(longest_word[column], max(words, default=0))
+            cell, word = _measure(entry, character)
+            widest[column] = max(widest[column], cell)
+            longest_word[column] = max(longest_word[column], word)
     return widest, [round(word) for word in longest_word]
 
 
@@ -134,11 +236,13 @@ def _widths(widest, longest_word):
 def _height(node, widths):
     """Points the table would take, to tell whether it fits a page."""
     height = 0
-    for _, cells in _rows(node):
+    for header, cells in _rows(node):
+        character = HEADER_WIDTH if header else 1
         lines = 1
-        for column, span, text in cells:
-            width = sum(widths[column : column + span]) or 1
-            lines = max(lines, -(-len(text) // width))
+        for column, span, entry in cells:
+            available = sum(widths[column : column + span]) or 1
+            cell, _ = _measure(entry, character)
+            lines = max(lines, -(-cell // available))
         height += lines * LINE_HEIGHT + CELL_PADDING
     return height
 
