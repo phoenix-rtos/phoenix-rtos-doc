@@ -163,6 +163,13 @@ def latex_config(
         \usepackage{lastpage}
         \usepackage{fontspec}
         \usepackage{newunicodechar}
+        % the text is set ragged right, as a justified line holding a literal,
+        % which does not break, gets wide gaps between its words; the cells of
+        % the tables are set so by tables.tex, while the document option of the
+        % package is not used, as it overrides an internal of LaTeX that other
+        % packages rely on and loads footmisc on top of the footnotes of sphinx
+        \usepackage{ragged2e}
+        \AtBeginDocument{\RaggedRight}
     """,
             "preamble": _read("preamble.tex")
             + _read("tables.tex")
