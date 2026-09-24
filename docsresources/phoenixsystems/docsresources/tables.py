@@ -47,6 +47,43 @@ COLUMN_MARGIN = 4
 HEADER_WIDTH = 1.15
 LITERAL_WIDTH = 1.3
 
+# Widths of the characters of the text font, Liberation Sans, which shares the
+# metrics of Helvetica, in thousandths of its size. A name such as
+# modemConnectionBelow10s, made of the wide letters, takes a fifth more than as
+# many average characters, which is enough to have it run out of a column sized
+# by the count of its characters. A character not listed takes the width of a
+# digit.
+GLYPH_WIDTHS = {
+    character: width
+    for width, characters in (
+        (222, "'`ijl"),
+        (260, "|"),
+        (278, " !,./:;I[\\]ft"),
+        (333, "()-r"),
+        (334, "{}"),
+        (355, '"'),
+        (389, "*"),
+        (469, "^"),
+        (500, "Jcksvxyz"),
+        (556, "#$0123456789?L_abdeghnopqu"),
+        (584, "+<=>~"),
+        (611, "FTZ"),
+        (667, "&ABEKPSVXY"),
+        (722, "CDHNRUw"),
+        (778, "GOQ"),
+        (833, "Mm"),
+        (889, "%"),
+        (944, "W"),
+        (1015, "@"),
+    )
+    for character in characters
+}
+DIGIT_WIDTH = 556
+
+# Points of the size of the text font and of the width of the text
+FONT_SIZE = 10
+TEXT_WIDTH = 452.97
+
 
 # Nodes typeset as a box, which is narrower than the page and holds no table
 # that breaks across pages
@@ -87,28 +124,36 @@ def _rows(node):
                 yield isinstance(part, nodes.thead), cells
 
 
-def _pieces(node, character):
-    """Yield the text of the node as (characters, width of a character) pieces."""
+def _pieces(node, literal=False):
+    """Yield the text of the node as (characters, whether a literal) pieces."""
     if isinstance(node, nodes.Text):
-        yield str(node), character
+        yield str(node), literal
         return
-    if isinstance(node, nodes.literal):
-        character = LITERAL_WIDTH
+    literal = literal or isinstance(node, nodes.literal)
     for index, child in enumerate(node.children):
         if index:
-            yield node.child_text_separator, character
-        yield from _pieces(child, character)
+            yield node.child_text_separator, literal
+        yield from _pieces(child, literal)
+
+
+def _letter_width(letter):
+    """Width of the letter of the text font, in the average characters of a line."""
+    if letter.isspace():
+        letter = " "  # a line break of the source is typeset as a space
+    points = GLYPH_WIDTHS.get(letter, DIGIT_WIDTH) * FONT_SIZE / 1000
+    return points * LINE_CHARACTERS / TEXT_WIDTH
 
 
 def _measure(entry, character):
     """Characters of the text font the cell takes, and its longest word of them.
 
-    A literal is set in the monospace font and a header in a bold one, both wider
-    than the text the line of the page is measured in.
+    A literal is set in the monospace font, of letters of a single width, and a
+    header in a bold one, wider than the text the line of the page is measured in.
     """
     total, word, longest = 0, 0, 0
-    for text, width in _pieces(entry, character):
+    for text, literal in _pieces(entry):
         for letter in text:
+            width = LITERAL_WIDTH if literal else character * _letter_width(letter)
             total += width
             word = 0 if letter.isspace() else word + width
             longest = max(longest, word)
