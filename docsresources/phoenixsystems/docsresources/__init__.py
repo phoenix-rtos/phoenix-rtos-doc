@@ -87,12 +87,19 @@ def _patch_table_layout():
         return
 
     visit_table = LaTeXTranslator.visit_table
+    visit_text = LaTeXTranslator.visit_Text
     is_longtable = Table.is_longtable
     get_table_type = Table.get_table_type
 
     def patched_visit_table(self, node):
         visit_table(self, node)
         _lay_out_table(self, node)
+
+    def patched_visit_text(self, node):
+        start = len(self.body)
+        visit_text(self, node)
+        if tables.breaks_words(node):
+            self.body[start:] = [tables.break_points(text) for text in self.body[start:]]
 
     def patched_is_longtable(self):
         return getattr(self, "breakable", False) or is_longtable(self)
@@ -105,6 +112,7 @@ def _patch_table_layout():
         return get_table_type(self)
 
     LaTeXTranslator.visit_table = patched_visit_table
+    LaTeXTranslator.visit_Text = patched_visit_text
     LaTeXTranslator._ps_table_layout = True
     Table.is_longtable = patched_is_longtable
     Table.get_table_type = patched_get_table_type
