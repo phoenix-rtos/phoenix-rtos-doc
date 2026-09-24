@@ -84,6 +84,13 @@ DIGIT_WIDTH = 556
 FONT_SIZE = 10
 TEXT_WIDTH = 452.97
 
+# Characters a line of the plain text of a cell may break after. A long name of a
+# path or of an identifier holds no space, and taken whole as a word it would pin
+# a column wider than the line can share, so the column is squeezed below it and
+# the name runs over the next one. A literal is left alone, sphinx breaking it
+# after a slash of its own accord, while an underscore is a part of the code.
+BREAKS = "/_"
+
 
 # Nodes typeset as a box, which is narrower than the page and holds no table
 # that breaks across pages
@@ -124,6 +131,23 @@ def _rows(node):
                 yield isinstance(part, nodes.thead), cells
 
 
+def breaks_words(node):
+    """Tell whether the text node is plain text of a cell, breaking after BREAKS."""
+    parent = node.parent
+    in_cell = False
+    while parent is not None:
+        if isinstance(parent, (nodes.literal, nodes.FixedTextElement, nodes.raw)):
+            return False
+        in_cell = in_cell or isinstance(parent, nodes.entry)
+        parent = parent.parent
+    return in_cell
+
+
+def break_points(latex):
+    """Let a line break after BREAKS in the text, given as it is set in LaTeX."""
+    return latex.replace("/", r"/\allowbreak{}").replace(r"\_", r"\_\allowbreak{}")
+
+
 def _pieces(node, literal=False):
     """Yield the text of the node as (characters, whether a literal) pieces."""
     if isinstance(node, nodes.Text):
@@ -157,6 +181,8 @@ def _measure(entry, character):
             total += width
             word = 0 if letter.isspace() else word + width
             longest = max(longest, word)
+            if not literal and letter in BREAKS:
+                word = 0
     return total, longest
 
 
