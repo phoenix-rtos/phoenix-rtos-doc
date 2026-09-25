@@ -20,3 +20,22 @@ The source code of `posixsrv` is available on GitHub and can be obtained using t
 ```shell
 git clone https://github.com/phoenix-rtos/phoenix-rtos-posixsrv.git
 ```
+
+## Blocking operations are not interruptible
+
+A POSIX call that blocks in `posixsrv` - `sem_wait()` on a named semaphore, a read from an
+empty pipe or pseudo-terminal, an event queue wait - is a message send. The calling thread
+parks inside `msgSend()` in the kernel's `msg_received` state, and that wait is deliberately
+uninterruptible: the kernel message descriptor is allocated on the sender's kernel stack, so
+the thread cannot be unwound while a server holds the request.
+
+This is a known deviation from IEEE Std 1003.1-2017. For the affected calls:
+
+- they never fail with `EINTR`, whatever signal is delivered;
+- they are not cancellation points, although the standard lists them as such
+  (XSH 2.9.5), so `pthread_cancel()` has no effect until the call returns;
+- a thread blocked on a condition that never occurs cannot be killed, and the process
+  cannot be terminated until the server answers.
+
+The deviation is a property of the messaging layer, not of any individual server, so it
+applies uniformly to every blocking POSIX operation that `posixsrv` implements.
