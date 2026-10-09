@@ -142,6 +142,13 @@ img {
     margin-right: auto !important
 }
 
+/* Class to make ![](img_path){.inline-icon} appear truly inline */
+img.inline-icon {
+  display: inline !important;
+  width: 16px;
+  vertical-align: middle;
+}
+
 /* Change sidebar width, hide border and move to the left */
 .sidebar-drawer {
     background: var(--color-sidebar-background);

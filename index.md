@@ -149,4 +149,5 @@ corelibs/index.md
 ports/index.md
 tests/index.md
 coding/index.md
+debugging/index.md
 ```
