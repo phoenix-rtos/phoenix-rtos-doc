@@ -73,7 +73,7 @@ The `msg_t` structure is defined as follows:
 typedef struct _msg_t {
     int type;
     unsigned int pid;
-    unsigned int priority;
+    int priority;
     oid_t oid;
 
     struct {
@@ -152,7 +152,7 @@ Common fields for all message types are:
 
 - `type` - message type,
 - `pid` - sender process ID,
-- `priority` - priority of sender thread,
+- `priority` - priority of sender thread (signed, see [Thread priorities](scheduler.md#thread-priorities)),
 - `oid` - object identifier of the target object (e.g. file or device).
 
 Additionally, there are two fields used to store input and output data specific to the message type:
