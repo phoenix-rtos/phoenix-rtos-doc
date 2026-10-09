@@ -13,6 +13,7 @@ armv7m7-imxrt105x-evk.md
 armv7m7-imxrt106x-evk.md
 armv7m7-imxrt117x-evk.md
 armv8m33-mcxn94x-frdm.md
+armv8m55-stm32n6-nucleo.md
 armv7a7-imx6ull-evk.md
 armv7a9-zynq7000/index.md
 armv8r52-mps3an536-qemu.md
