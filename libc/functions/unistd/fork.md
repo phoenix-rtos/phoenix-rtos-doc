@@ -38,7 +38,7 @@ child process may share directory stream positioning with the corresponding dire
 * The child process values of `tms_utime,` `tms_stime,` `tms_cutime,` and `tms_cstime` shall be set to `0`.
 
 * The time left until an alarm clock signal shall be reset to zero, and the alarm, if any, shall be canceled.
-See [alarm](../unistd/alarm.part-impl.md)
+See [alarm](../unistd/alarm.md)
 
 * All semaphore adjustment values shall be cleared.
 

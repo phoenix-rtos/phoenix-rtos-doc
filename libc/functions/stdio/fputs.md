@@ -32,7 +32,7 @@ indicator for the stream and set `errno` to indicate the error.
 
 ## Errors
 
-Refer to [fputc](fputc.part-impl.md)
+Refer to [fputc](fputc.md)
 
 ## Tests
 
