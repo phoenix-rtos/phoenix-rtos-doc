@@ -36,7 +36,7 @@ stream shall be set, `fgets()` shall return a `null` pointer and shall set `errn
 
 ## Errors
 
-Refer to [`fgetc`](./fgetc.md).
+Refer to [`fgetc`](fgetc.md).
 
 ## Tests
 

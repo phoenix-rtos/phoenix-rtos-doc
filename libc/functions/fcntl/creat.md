@@ -32,11 +32,11 @@ int creat(const char *path, mode_t mode)
 
 ## Return value
 
-Refer to [open](../fcntl/open.md).
+Refer to [open](open.md).
 
 ## Errors
 
-Refer to [open](../fcntl/open.md).
+Refer to [open](open.md).
 
 ## Tests
 
