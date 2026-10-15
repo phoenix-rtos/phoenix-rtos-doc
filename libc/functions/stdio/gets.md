@@ -37,7 +37,7 @@ pointer, and set `errno` to indicate the error.
 
 ## Errors
 
-Refer to [fgetc](../stdio/fgetc.part-impl.md).
+Refer to [fgetc](../stdio/fgetc.md).
 
 ## Tests
 

@@ -24,11 +24,11 @@ side effects.
 
 ## Return value
 
-Refer to [fgetc](../stdio/fgetc.part-impl.md).
+Refer to [fgetc](../stdio/fgetc.md).
 
 ## Errors
 
-Refer to [fgetc](../stdio/fgetc.part-impl.md).
+Refer to [fgetc](../stdio/fgetc.md).
 
 ## Tests
 

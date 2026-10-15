@@ -34,11 +34,11 @@ functions invoke the `va_arg` macro, the value of _ap_ after the return is unspe
 
 ## Return value
 
-Refer to [fscanf](../stdio/fscanf.part-impl.md).
+Refer to [fscanf](../stdio/fscanf.md).
 
 ## Errors
 
-Refer to [fscanf](../stdio/fscanf.part-impl.md).
+Refer to [fscanf](../stdio/fscanf.md).
 
 ## Tests
 
