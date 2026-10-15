@@ -32,7 +32,7 @@ typedef struct _meminfo_t {
 The structure consists of two following parts: `page` and `entry`.
 
 The page, in general, is a representation of RAM physical memory's part. For more information about paging technique
-please refer to the [`Memory management chapter`](../../../../kernel/vm/../index.md) and
+please refer to the [`Memory management chapter`](../../../../kernel/vm/index.md) and
 [`Page allocator chapter`](../../../../kernel/vm/page.md).
 
 Each of the structure's elements has been briefly described:

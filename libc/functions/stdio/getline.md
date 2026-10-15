@@ -60,7 +60,7 @@ indicate the error.
 ## Errors
 
 For the conditions under which the `getdelim()` and `getline()` functions shall fail and may fail, refer to
-[fgetc](../stdio/fgetc.md).
+[fgetc](fgetc.md).
 
 In addition, these functions shall fail if:
 
