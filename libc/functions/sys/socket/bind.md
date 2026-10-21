@@ -34,6 +34,8 @@ The `bind()` function assigns a local socket address `address` to a socket ident
 local socket address assigned. Sockets created with the `socket()` function are initially unnamed; they are identified
 only by their address family.
 
+If the address family of the socket is `AF_UNIX`, the path name in _address_ has to be an absolute path name.
+
 ## Return value
 
 `0` on successful completion,
@@ -104,4 +106,5 @@ directory nor a symbolic link to a directory.
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+For `AF_UNIX` sockets, `bind()` accepts only absolute path names in _address_. A path name given relative to the
+current working directory is not accepted, so the application has to pass the full path of the socket file.
