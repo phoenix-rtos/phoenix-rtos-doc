@@ -51,21 +51,6 @@ which shall result in the fetching of zero or more arguments. The results are un
 arguments for the _format_. If the _format_ is exhausted while arguments remain, the excess arguments shall be evaluated
 but are otherwise ignored.
 
- Conversions can be applied to the `nth` argument after the _format_ in the argument list, rather than to the next
- unused argument. In this case, the conversion specifier character `%` (see below) is replaced by the sequence `%n$`,
- where `n` is a decimal integer in the range `[1,NL_ARGMA]`, giving the position of the argument in the argument list.
- This feature provides for the definition of format strings that select arguments in an order appropriate to specific
- languages.
-
-The format can contain either numbered argument conversion specifications (that is, `%n$` and `*m$`), or unnumbered
-argument conversion specifications (that is, `%` and `*`), but not both. The only exception to this is that `%%` can
-be mixed with the `%n$` form. The results of mixing numbered and unnumbered argument specifications in a format string
-are undefined. When numbered argument specifications are used, specifying the `Nth` argument requires that all the
-leading arguments, from the first to the `(N-1)th`, are specified in the format string.
-
-In format strings containing the `%n$` form of conversion specification, numbered arguments in the argument list can be
-referenced from the format string as many times as required.
-
 In format strings containing the `%` form of conversion specification, each conversion specification uses the first
 unused argument in the argument list.
 
@@ -73,7 +58,7 @@ unused argument in the argument list.
  string. The `radix` character is defined in the current locale (category `LC_NUMERIC`). In the POSIX locale, or in a
  locale where the `radix` character is not defined, the `radix` character shall default to a `<period>` (`.`).
 
-Each conversion specification is introduced by the `%` character or by the character sequence `%n$`, after which
+Each conversion specification is introduced by the `%` character, after which
 the following appear in sequence:
 
 * Zero or more flags (in any order), which modify the meaning of the conversion specification.
@@ -98,12 +83,7 @@ A conversion specifier character that indicates the type of conversion to be app
 A field width, or precision, or both, may be indicated by a `<asterisk>` (`*`). In this case an argument of type int
 supplies the field width or precision. Applications shall ensure that arguments specifying field width, or precision,
 or both appear in that order before the argument, if any, to be converted. A negative field width is taken as a `-`
-flag followed by a positive field width. A negative precision is taken as if the precision were omitted. In format
-strings containing the `%n$` form of a conversion specification, a field width or precision may be indicated by the
-sequence `*m$`, where `m` is a decimal integer in the range `[1,NL_ARGMA]` giving the position in the argument list
-(after the format argument) of an integer argument containing the field width or precision, for example:
-
-`printf("%1$d:%2$.*3$d:%4$.*3$d\n", hour, min, precision, sec);`
+flag followed by a positive field width. A negative precision is taken as if the precision were omitted.
 
 The flag characters and their meanings are:
 
@@ -371,4 +351,9 @@ The `snprintf()` function shall fail if:
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+IEEE Std 1003.1-2017 defines numbered argument conversion specifications (`%n$` and `*m$`). The libphoenix library does
+not support them: a conversion specification in the `%n$` form is not interpreted as a conversion and no argument is
+selected by position. Only the `%` character and the `$` character are written to the output, the digits before `$` are
+taken as a field width and dropped, and the characters after `$` are written as ordinary characters (for example `%3$d`
+is written as `%$d`). The `printf()` core of libphoenix is intentionally kept compact to suit resource-constrained
+targets, so selecting arguments by position is not provided.
