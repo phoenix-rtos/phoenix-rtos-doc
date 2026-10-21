@@ -87,11 +87,6 @@ flag followed by a positive field width. A negative precision is taken as if the
 
 The flag characters and their meanings are:
 
-* __`'`__ \(The `<apostrophe>`\)
-The integer portion of the result of a decimal conversion (`%i`, `%d`, `%u`, `%f`, `%F`, `%g`, or `%G`) shall be
-formatted with thousands' grouping characters. For other conversions the behavior is undefined. The non-monetary
-grouping character is used.
-
 * __`-`__ -
 The result of the conversion shall be left-justified within the field. The conversion is right-justified if this flag is
 not specified.
@@ -357,3 +352,10 @@ selected by position. Only the `%` character and the `$` character are written t
 taken as a field width and dropped, and the characters after `$` are written as ordinary characters (for example `%3$d`
 is written as `%$d`). The `printf()` core of libphoenix is intentionally kept compact to suit resource-constrained
 targets, so selecting arguments by position is not provided.
+
+The `'` (`<apostrophe>`) flag, which requests thousands' grouping characters in the integer portion of a decimal
+conversion, is not supported: a conversion specification containing it is not interpreted as a conversion. Only the `%`
+character and the `'` character are written to the output, any flags, field width, precision and length modifier before
+the `'` character are dropped, and the characters after it are written as ordinary characters (for example `%5'd` is
+written as `%'d`). Grouping is defined by the `LC_NUMERIC` category of the current locale and libphoenix does not
+implement locales, since the locale machinery does not fit the footprint of the target devices.
