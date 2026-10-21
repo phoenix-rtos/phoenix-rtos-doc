@@ -38,3 +38,7 @@ pointer, and set `errno` to indicate the error.
 ## Errors
 
 Refer to [fgetc](fgetc.md).
+
+## POSIX deviations
+
+No POSIX deviations discovered.

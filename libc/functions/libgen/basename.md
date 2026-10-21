@@ -28,3 +28,7 @@ The `basename()` function shall return a pointer to the final component of _path
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

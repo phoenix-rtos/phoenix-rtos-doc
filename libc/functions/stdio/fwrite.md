@@ -39,3 +39,7 @@ shall be set to indicate the error.
 ## Errors
 
 Refer to fputc.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

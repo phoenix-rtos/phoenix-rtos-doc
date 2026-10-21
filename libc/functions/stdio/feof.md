@@ -29,3 +29,7 @@ The `feof()` function shall return non-zero if and only if the end-of-file indic
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

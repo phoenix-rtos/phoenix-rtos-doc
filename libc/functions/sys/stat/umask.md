@@ -42,3 +42,7 @@ unspecified use of those bits.
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

@@ -53,6 +53,10 @@ with the corresponding stream.
 * [`EPIPE`] An attempt is made to write to a pipe or `FIFO` that is not open for reading by any process. A `SIGPIPE`
 signal is also sent to the thread.
 
+## POSIX deviations
+
+No POSIX deviations discovered.
+
 ## Implementation tasks
 
 * Implement error handling for the `getc_unlocked()` function.

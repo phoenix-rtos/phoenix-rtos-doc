@@ -29,3 +29,7 @@ value is reserved to indicate an error.
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

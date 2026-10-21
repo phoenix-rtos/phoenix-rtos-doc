@@ -67,3 +67,7 @@ The `fdopen()` function may fail if:
 * `EMFILE` - `FOPEN_MAX` streams are currently open in the calling process.
 
 * `ENOMEM` - Insufficient space to allocate a buffer.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

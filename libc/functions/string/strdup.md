@@ -47,3 +47,7 @@ duplicated string. Otherwise, it shall return a null pointer and set errno to in
 These functions shall fail if:
 
 - `[ENOMEM]` - Storage space available is insufficient.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

@@ -29,3 +29,7 @@ Refer to [fgetc](fgetc.md).
 ## Errors
 
 Refer to [fgetc](fgetc.md).
+
+## POSIX deviations
+
+No POSIX deviations discovered.

@@ -38,3 +38,7 @@ This function shall fail if:
 * `ENAMETOOLONG` - the length of _name_ exceeds `NAME_MAX`,
 
 * `ENOENT` - the named semaphore does not exist.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

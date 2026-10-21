@@ -31,3 +31,7 @@ The `iscntrl()` function shall return non-zero if _c_ is a control character, ot
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

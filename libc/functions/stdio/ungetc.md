@@ -44,3 +44,7 @@ Upon successful completion, `ungetc()` shall return the byte pushed back after c
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

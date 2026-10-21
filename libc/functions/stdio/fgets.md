@@ -37,3 +37,7 @@ stream shall be set, `fgets()` shall return a `null` pointer and shall set `errn
 ## Errors
 
 Refer to [`fgetc`](fgetc.md).
+
+## POSIX deviations
+
+No POSIX deviations discovered.

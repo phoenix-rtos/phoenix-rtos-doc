@@ -226,3 +226,7 @@ identifier.
 
 * `EPERM` - The _cmd_ argument is `F_SETOWN` and the calling process does not have permission to send a `SIGURG` signal
 to any process specified by _arg_.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

@@ -29,3 +29,7 @@ The `ferror()` function shall return non-zero if and only if the error indicator
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

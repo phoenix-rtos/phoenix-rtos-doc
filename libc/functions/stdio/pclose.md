@@ -52,3 +52,7 @@ Upon successful return, `pclose()` shall return the termination status of the co
 The `pclose()` function shall fail if:
 
 * [`ECHILD`] - The status of the child process could not be obtained, as described above.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

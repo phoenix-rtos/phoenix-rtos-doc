@@ -37,3 +37,7 @@ If two members compare as equal, which member is matched is unspecified.
 ### Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

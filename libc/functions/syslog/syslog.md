@@ -104,3 +104,7 @@ The `setlogmask()` function returns the previous log priority mask.
 ### Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

@@ -37,3 +37,7 @@ Refer to [open](open.md).
 ## Errors
 
 Refer to [open](open.md).
+
+## POSIX deviations
+
+No POSIX deviations discovered.

@@ -43,3 +43,7 @@ This function shall fail if:
 * `ENOSPC` - a resource required to initialise the semaphore has been exhausted,
 
 * `ENOSYS` - _pshared_ is non-zero; process-shared unnamed semaphores are not supported.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

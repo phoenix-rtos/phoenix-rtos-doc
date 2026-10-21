@@ -55,3 +55,7 @@ to delivery of a signal, the return value shall be the "unslept" amount
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

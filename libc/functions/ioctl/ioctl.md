@@ -79,6 +79,10 @@ The `ioctl()` function may fail if:
 
 - `EINVAL` - Tried to send message to invalid port.
 
+## POSIX deviations
+
+No POSIX deviations discovered.
+
 ## Example usage
 
 The following example sends a request to specific device.

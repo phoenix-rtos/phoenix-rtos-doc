@@ -53,3 +53,7 @@ The `tcflush()` function shall fail if:
 process is not ignoring SIGTTOU.
 
 * `ENOTTY` - The file associated with _fildes_ is not a terminal.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

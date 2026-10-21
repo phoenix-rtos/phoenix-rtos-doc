@@ -31,3 +31,7 @@ Refer to `rmdir()` or `unlink()`.
 ## Errors
 
 Refer to `rmdir()` or `unlink()`.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

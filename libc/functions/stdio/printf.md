@@ -368,3 +368,7 @@ The `dprintf()`, `fprintf()`, and `printf()` functions may fail if:
 The `snprintf()` function shall fail if:
 
 * [`EOVERFLOW`] - The value of `n` is greater than `INT_MA`.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

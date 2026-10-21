@@ -43,3 +43,7 @@ The `exit()` function does not return.
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

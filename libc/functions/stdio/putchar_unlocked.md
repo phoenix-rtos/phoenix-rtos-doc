@@ -42,3 +42,7 @@ See `getc()`, `getchar()`, `putc()`, and `putchar()`.
 ## Errors
 
 See `getc()`, `getchar()`, `putc()`, and `putchar()`.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

@@ -34,3 +34,7 @@ The `getsid()` function shall fail if:
  does not allow access to the process group ID of the session leader of that process from the calling process.
 
 * `ESRCH` - There is no process with a process ID equal to _pid_.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

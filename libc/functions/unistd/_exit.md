@@ -91,3 +91,7 @@ The functions can never return.
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

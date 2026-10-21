@@ -34,3 +34,9 @@ The functions can never return.
 ## Errors
 
 No errors are defined.
+
+<!-- #MUST_BE: describe every intentional difference from the standard, if none are known write that no POSIX
+deviations were discovered -->
+## POSIX deviations
+
+No POSIX deviations discovered.

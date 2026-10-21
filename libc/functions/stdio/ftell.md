@@ -47,3 +47,7 @@ shall fail if:
 * `EOVERFLOW` - For `ftello()`, the current file offset cannot be represented correctly in an object of type `off_t`.
 
 * `ESPIPE` - The file descriptor underlying stream is associated with a pipe, FIFO, or socket.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

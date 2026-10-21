@@ -38,4 +38,8 @@ If the return is from a successful direct invocation, `sigsetjmp()` shall return
 
 No errors are defined.
 
+## POSIX deviations
+
+No POSIX deviations discovered.
+
 The following sections are informative.

@@ -35,6 +35,10 @@ with the corresponding stream.
 * [`ENOMEM`] - Insufficient storage space is available.
 * [`ENXIO`] - A request was made of a nonexistent device, or the request was outside the capabilities of the device.
 
+## POSIX deviations
+
+No POSIX deviations discovered.
+
 ## Implementation tasks
 
 * Implement error handling for the `getchar()` function.

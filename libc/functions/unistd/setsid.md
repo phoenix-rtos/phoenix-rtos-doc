@@ -35,3 +35,7 @@ The `setsid()` function shall fail if:
 
 * `EPERM` - The calling process is already a process group leader, or the process group ID of a process other than the
 calling process matches the process ID of the calling process.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

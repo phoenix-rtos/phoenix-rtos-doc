@@ -28,3 +28,7 @@ Upon completion, `strchr()` shall return a pointer to the byte, or a `null` poin
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

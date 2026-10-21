@@ -59,3 +59,7 @@ memory referenced by _ptr_ shall not be changed.
 The `realloc()` function shall fail if:
 
 * `ENOMEM` - Insufficient memory is available.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

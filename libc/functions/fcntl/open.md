@@ -254,3 +254,7 @@ intermediate result with a length that exceeds `PATH_MAX`.
 
 * `ETXTBSY` - The file is a pure procedure (shared text) file that is being executed and _oflag_ is `O_WRONLY` or
 `O_RDWR`.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

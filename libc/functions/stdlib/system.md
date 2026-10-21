@@ -67,3 +67,7 @@ shall return `-1` and set `errno` to indicate the error.
 In addition, `system()` may fail if:
 
 * `ECHILD` - The status of the child process created by `system()` is no longer available.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

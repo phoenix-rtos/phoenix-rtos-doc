@@ -47,3 +47,7 @@ return value is reserved to indicate an error.
 These functions may fail if:
 
 * `EINVAL` - The _s1_ or _s2_ arguments contain characters outside the domain of the collating sequence.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

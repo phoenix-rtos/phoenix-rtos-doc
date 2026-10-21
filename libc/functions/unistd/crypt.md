@@ -46,3 +46,7 @@ error.
 The `crypt()` function shall fail if:
 
 * `ENOSYS` - The functionality is not supported in this implementation.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

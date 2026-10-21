@@ -39,3 +39,7 @@ Refer to [fscanf](fscanf.md).
 ## Errors
 
 Refer to [fscanf](fscanf.md).
+
+## POSIX deviations
+
+No POSIX deviations discovered.

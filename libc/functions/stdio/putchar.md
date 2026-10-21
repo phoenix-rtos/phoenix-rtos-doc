@@ -29,3 +29,7 @@ Refer to fputc.
 ## Errors
 
 Refer to fputc.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

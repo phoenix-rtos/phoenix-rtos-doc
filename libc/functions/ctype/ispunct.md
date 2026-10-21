@@ -31,3 +31,7 @@ The `ispunct()` function shall return non-zero if _c_ is a punctuation character
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

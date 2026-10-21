@@ -80,3 +80,7 @@ This string is pointed to by the argument _buf_. If the function is unsuccessful
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

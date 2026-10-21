@@ -62,3 +62,7 @@ The `dup2()` function shall fail if:
 The `dup2()` function may fail if:
 
 * `EIO` - An I/O error occurred while attempting to close _fildes2_.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

@@ -37,3 +37,7 @@ passed, otherwise, they shall return the argument unchanged.
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

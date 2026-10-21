@@ -27,3 +27,7 @@ The `getpid()` function shall always be successful, and no return value is reser
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

@@ -30,3 +30,7 @@ to by _s1_ is greater than, equal to, or less than the string pointed to by _s2_
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

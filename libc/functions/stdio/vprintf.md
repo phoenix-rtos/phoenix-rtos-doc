@@ -84,3 +84,8 @@ These functions may fall if:
 * `ENOMEM` - Insufficient storage space is available.
 
 * `ENXIO` - A request was made of a nonexistent device, or the request was outside the capabilities of the device.
+
+## POSIX deviations
+
+The format of these functions is processed as by `printf()`, so the deviations described for
+[printf](printf.md#posix-deviations) apply here too.

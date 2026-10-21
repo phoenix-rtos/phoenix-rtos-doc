@@ -38,3 +38,7 @@ The `vfork()` function shall fail if:
 * `EAGAIN` - The system-wide limit on the total number of processes under execution would be exceeded, or the
 system-imposed limit on the total number of processes under execution by a single user would be exceeded.
 * `ENOMEM` - There is insufficient swap space for the new process.
+
+## POSIX deviations
+
+No POSIX deviations discovered.
