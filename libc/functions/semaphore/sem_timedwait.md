@@ -37,6 +37,9 @@ A call that blocks on a named semaphore is not interruptible and is not a cancel
 The clock is fixed at `CLOCK_REALTIME`. Use `sem_clockwait()`, added in
 IEEE Std 1003.1-2024, where the deadline has to be measured on another clock.
 
+For a named semaphore _abstime_ is converted to microseconds, so its `tv_sec` field must not exceed
+`TIME_T_MAX / 1000000` (see POSIX deviations).
+
 _abstime_ is only validated once the semaphore is found to be unavailable, so a call that
 can be satisfied immediately succeeds whatever _abstime_ contains.
 
@@ -59,4 +62,7 @@ This function shall fail if:
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+For a named semaphore the deadline is converted to microseconds by `posixsrv`, so the `tv_sec` field of _abstime_ must
+not exceed `TIME_T_MAX / 1000000`. A later deadline overflows the conversion and the wait ends early. IEEE Std
+1003.1-2024 accepts any valid `timespec`. For an unnamed semaphore a deadline beyond this range is treated as an
+infinite one.

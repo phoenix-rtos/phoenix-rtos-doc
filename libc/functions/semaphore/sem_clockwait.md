@@ -36,6 +36,9 @@ For a named semaphore the deadline and the clock are sent to `posixsrv` and reso
 at the moment the request is parked, so the time the message spends in flight is not charged
 against it.
 
+For a named semaphore _abstime_ is converted to microseconds, so its `tv_sec` field must not exceed
+`TIME_T_MAX / 1000000` (see POSIX deviations).
+
 _abstime_ and _clock_id_ are checked before the semaphore is examined, so an invalid one is
 rejected even when the semaphore could have been locked at once. The standard requires the
 error only for a call that would have blocked, which leaves either behaviour open.
@@ -63,4 +66,7 @@ This function shall fail if:
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+For a named semaphore the deadline is converted to microseconds by `posixsrv`, so the `tv_sec` field of _abstime_ must
+not exceed `TIME_T_MAX / 1000000`. A later deadline overflows the conversion and the wait ends early. IEEE Std
+1003.1-2024 accepts any valid `timespec`. For an unnamed semaphore a deadline beyond this range is treated as an
+infinite one.
