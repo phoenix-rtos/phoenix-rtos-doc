@@ -359,3 +359,9 @@ character and the `'` character are written to the output, any flags, field widt
 the `'` character are dropped, and the characters after it are written as ordinary characters (for example `%5'd` is
 written as `%'d`). Grouping is defined by the `LC_NUMERIC` category of the current locale and libphoenix does not
 implement locales, since the locale machinery does not fit the footprint of the target devices.
+
+A long double argument of a floating-point conversion specifier (with the `L` length modifier) is converted to double
+before it is formatted, so the precision and the range of the printed value are limited to those of double. For the `a`
+and `A` conversion specifiers the result is the hexadecimal representation of the converted double value. Printing of
+long double values is only partially supported by the compact `printf()` core of libphoenix, which is kept small to suit
+resource-constrained targets.
