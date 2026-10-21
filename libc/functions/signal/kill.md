@@ -70,4 +70,8 @@ The `kill()` function shall fail if:
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+The default actions of the job control signals are not implemented: `SIGSTOP`, `SIGTSTP`, `SIGTTIN` and `SIGTTOU` do not
+stop the process and `SIGCONT` does not continue it. With the default disposition these signals are ignored, so a
+process cannot be stopped (see the deviations of `waitpid()`). The other default actions, including the termination of
+the process by `SIGHUP`, are implemented as specified. Stopping and continuing processes is outside the scope of the
+lightweight system, which is aimed at embedded devices.
