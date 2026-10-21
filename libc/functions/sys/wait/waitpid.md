@@ -56,14 +56,12 @@ absolute value of pid.
 The options argument is constructed from the bitwise-inclusive OR of zero or more of the following flags, defined in
 the `<sys/wait.h>` header:
 
-* `WCONTINUED` - The `waitpid()` function shall report the status of any continued child process specified by pid whose
-status has not been reported since it continued from a job control stop.
+* `WCONTINUED` - Accepted, but has no effect, as a child process is never continued from a job control stop.
 
 * `WNOHANG` - The `waitpid()` function shall not suspend execution of the calling thread if status is not immediately
 available for one of the child processes specified by pid.
 
-* `WUNTRACED` - The status of any child processes specified by pid that are stopped, and whose status has not yet been
-reported since they stopped, shall also be reported to the requesting process.
+* `WUNTRACED` - Accepted, but has no effect, as a child process is never stopped.
 
 If `wait()` or `waitpid()` return because the status of a child process is available, these functions shall return a
 value equal to the process ID of the child process. In this case, if the value of the argument stat_loc is not a null
@@ -93,14 +91,11 @@ due to the receipt of a signal that was not caught (see `<signal.h>`).
 * `WTERMSIG(stat_val)` - If the value of WIFSIGNALED(stat_val) is non-zero, this macro evaluates to the number of the
 signal that caused the termination of the child process.
 
-* `WIFSTOPPED(stat_val)` - Evaluates to a non-zero value if status was returned for a child process that is currently
-stopped.
+* `WIFSTOPPED(stat_val)` - Always evaluates to `0`.
 
-* `WSTOPSIG(stat_val)` - If the value of WIFSTOPPED(stat_val) is non-zero, this macro evaluates to the number of the
-signal that caused the child process to stop.
+* `WSTOPSIG(stat_val)` - Always evaluates to `0`.
 
-* `WIFCONTINUED(stat_val)` - Evaluates to a non-zero value if status was returned for a child process that has continued
-from a job control stop.
+* `WIFCONTINUED(stat_val)` - Always evaluates to `0`.
 
 It is unspecified whether the status value returned by calls to `wait()` or `waitpid()` for processes created by
 `posix_spawn()` or `posix_spawnp()` can indicate a `WIFSTOPPED(stat_val)` before subsequent calls to `wait()` or
@@ -171,4 +166,8 @@ specified by pid does not exist or does not have any member process that is a ch
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+Processes cannot be stopped or continued in Phoenix-RTOS, as the default actions of the job control signals (`SIGSTOP`,
+`SIGTSTP`, `SIGTTIN`, `SIGTTOU` and `SIGCONT`) are not implemented. Therefore, the `WUNTRACED` and `WCONTINUED` options
+are accepted but never cause a stopped or continued child process to be reported, and the `WIFSTOPPED(stat_val)`,
+`WSTOPSIG(stat_val)` and `WIFCONTINUED(stat_val)` macros always evaluate to `0`. Stopping and continuing processes is
+outside the scope of the lightweight system, which is aimed at embedded devices.
