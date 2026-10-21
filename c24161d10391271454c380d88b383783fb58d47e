@@ -1,0 +1,66 @@
+libc/functions/sys/interrupt/interrupt_queueWaitLocked.phrtos.md
+  s_b0df60ac7dda82::t_81736cccc7b746 1-55
+libc/functions/sys/interrupt/index.md
+  s_b0df60ac7dda82::t_979e0bd1c79f4f 1-8
+libc/functions/sys/interrupt/interrupt_queueWait.phrtos.md
+  h_fc26ad17182140 47-48
+  s_b0df60ac7dda82::t_993a019bfd7225 1-46,49-56
+libc/functions/sys/interrupt/interrupt_queueCreate.phrtos.md
+  s_b0df60ac7dda82::t_d970ba4d5ea4ff 25-27
+  s_b0df60ac7dda82::t_ee5ba41f135863 1-24,28-63
+devices/interrupts.md
+  s_b0df60ac7dda82::t_13e32961f27df7 30-33,36-45,50-57,62-65,67-70,73-76,79-89,92,95-96
+  h_fc26ad17182140 34-35,66,71-72,77-78,90-91,93-94
+  s_b0df60ac7dda82::t_ad6eeb40f9de1b 16
+  s_91e73b835130ff::t_4c17196cc6add4 46-49,58-61
+libc/functions/index.md
+  s_b0df60ac7dda82::t_e44c97c1589d13 22
+libc/functions/sys/interrupt/interrupt_queueCreateLocked.phrtos.md
+  s_b0df60ac7dda82::t_3e36738ec49a35 1-39,41-61
+  h_fc26ad17182140 40
+libc/functions/sys/threads/condCreateWithAttr.phrtos.md
+  s_b0df60ac7dda82::t_e44c97c1589d13 46-47,49-50
+  h_fc26ad17182140 48
+  s_868f0f19ba0f4f::t_1b4e0cbb9ef9ef 32,42-45
+libc/functions/sys/interrupt/interrupt_queueSignal.phrtos.md
+  s_91e73b835130ff::t_43c64875fe853a 1-51
+libc/functions/sys/interrupt/interrupt_queueBroadcast.phrtos.md
+  s_91e73b835130ff::t_681be87d2325bf 1-54
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "c24161d10391271454c380d88b383783fb58d47e",
+  "prompts": {},
+  "humans": {
+    "h_fc26ad17182140": {
+      "author": "Lukasz Leczkowski <lukasz.leczkowski@phoenix-rtos.com>"
+    }
+  },
+  "sessions": {
+    "s_868f0f19ba0f4f": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "1021763e-669e-4b5e-85a9-f3e7882ff690",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Lukasz Leczkowski <lukasz.leczkowski@phoenix-rtos.com>"
+    },
+    "s_91e73b835130ff": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "4dfd6a4a-466e-4677-91d3-1fdfcbe139e9",
+        "model": "copilot/claude-opus-5"
+      },
+      "human_author": null
+    },
+    "s_b0df60ac7dda82": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "7c6517bd-c6dd-4ba0-891c-6ba6f1b47fc7",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Lukasz Leczkowski <lukasz.leczkowski@phoenix-rtos.com>"
+    }
+  }
+}

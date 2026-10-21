@@ -1,0 +1,14 @@
+building/linux.md
+  h_fc26ad17182140 161-162
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "5785068f74bb7f863b2d1693f0a1a77aec937802",
+  "prompts": {},
+  "humans": {
+    "h_fc26ad17182140": {
+      "author": "Lukasz Leczkowski <lukasz.leczkowski@phoenix-rtos.com>"
+    }
+  }
+}

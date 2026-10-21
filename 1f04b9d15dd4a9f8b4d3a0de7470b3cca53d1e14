@@ -1,0 +1,19 @@
+tests/index.md
+  s_cc349fbfe69f06::t_393b65ae2abaca 741-808
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "1f04b9d15dd4a9f8b4d3a0de7470b3cca53d1e14",
+  "prompts": {},
+  "sessions": {
+    "s_cc349fbfe69f06": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "cf509191-06bd-4d74-b72e-5b23a7e1abee",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Marek Białowąs <marek.bialowas@phoenix-rtos.com>"
+    }
+  }
+}

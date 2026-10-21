@@ -1,0 +1,12 @@
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "development:1.4.2",
+  "base_commit_sha": "e667c919c03c7b28a7faa09d44005ebc9faa1699",
+  "prompts": {},
+  "humans": {
+    "h_3689a52f3dab5f": {
+      "author": "Damian Loewnau <damian.loewnau@phoenix-rtos.com>"
+    }
+  }
+}
