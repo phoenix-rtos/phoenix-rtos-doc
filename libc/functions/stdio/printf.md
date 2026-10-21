@@ -133,9 +133,8 @@ short argument.
 
 * `l (ell)` -
 Specifies that a following `d`, `i`, `o`, `u`, `x`, or `X` conversion specifier applies to a long or unsigned long
-argument; that a following `n` conversion specifier applies to a pointer to a long argument; that a following `c`
-conversion specifier applies to a `wint_t` argument; that a following `s` conversion specifier applies to a pointer
-to a `wchar_t` argument; or has no effect on a following `a`, `A`, `e`, `E`, `f`, `F`, `g`, or `G` conversion specifier.
+argument; that a following `n` conversion specifier applies to a pointer to a long argument; or has no effect on a
+following `a`, `A`, `e`, `E`, `f`, `F`, `g`, or `G` conversion specifier.
 
 * `ll (ell-ell)` -
 Specifies that a following `d`, `i`, `o`, `u`, `x`, or `X` conversion specifier applies to a `long long` or `unsigned
@@ -238,25 +237,12 @@ of a `f` or `F` conversion specifier.
 
 * `c` -
 The int argument shall be converted to a `unsigned char`, and the resulting byte shall be written.
-If a `l (ell)` qualifier is present, the `wint_t` argument shall be converted as if by a `ls` conversion specification
-with no precision and an argument that points to a two-element array of type `wchar_t,` the first element of which
-contains the `wint_t` argument to the `ls` conversion specification and the second element contains a `null` wide
-character.
 
 * `s` -
 The argument shall be a pointer to an array of `char`. Bytes from the array shall be written up to (but not including)
 any terminating `null` byte. If the precision is specified, no more than that many bytes shall be written. If the
 precision is not specified or is greater than the size of the array, the application shall ensure that the array
 contains a `null` byte.
-If a `l (ell)` qualifier is present, the argument shall be a pointer to an array of type `wchar_t`. Wide characters
-from the array shall be converted to characters (each as if by a call to the `wcrtomb()` function, with the conversion
-state described by a `mbstate_t` object initialized to zero before the first wide character is converted) up to and
-including a terminating `null` wide character. The resulting characters shall be written up to (but not including) the
-terminating `null` character (byte). If no precision is specified, the application shall ensure that the array contains
-a `null` wide character. If a precision is specified, no more than that many characters (bytes) shall be written
-(including shift sequences, if any), and the array shall contain a `null` wide character if, to equal the character
-sequence length given by the precision, the function would need to access a wide character one past the end of the
-array. In no case shall a partial character be written.
 
 * `p` -
 The argument shall be a pointer to `void`. The value of the pointer is converted to a sequence of printable characters,
@@ -265,12 +251,6 @@ in an implementation-defined manner.
 * `n` -
 The argument shall be a pointer to an integer into which is written the number of bytes written to the output so far by
 this call to one of the `fprintf()` functions. No argument is converted.
-
-* `C` -
-Equivalent to `lc`.
-
-* `S` -
-Equivalent to `ls`.
 
 * `%` -
 Print a `%` character; no argument is converted. The complete conversion specification shall be `%%`.
@@ -365,3 +345,11 @@ before it is formatted, so the precision and the range of the printed value are 
 and `A` conversion specifiers the result is the hexadecimal representation of the converted double value. Printing of
 long double values is only partially supported by the compact `printf()` core of libphoenix, which is kept small to suit
 resource-constrained targets.
+
+Wide characters are not supported by libphoenix. With the `l` length modifier, the `c` conversion specifier converts its
+`wint_t` argument to `unsigned char` and writes that single byte without any multibyte conversion, and the `s`
+conversion specifier treats its argument as a pointer to an array of `char`, so a wide-character string is not
+converted. The `C` and `S` conversion specifiers (equivalent to `lc` and `ls`) are not recognized: a conversion
+specification using them is not interpreted as a conversion, only the `%` character and the conversion specifier
+character are written to the output, and any flags, field width, precision and length modifier before it are dropped
+(for example `%5C` is written as `%C`).
