@@ -31,6 +31,9 @@ cannot.
 For a named semaphore the deadline is sent to `posixsrv` and resolved there, at the moment
 the request is parked, so the time the message spends in flight is not charged against it.
 
+A call that blocks on a named semaphore is not interruptible and is not a cancellation point, exactly as described for
+`sem_wait()`, so the deadline is the only way for the calling thread to regain control.
+
 The clock is fixed at `CLOCK_REALTIME`. Use `sem_clockwait()`, added in
 IEEE Std 1003.1-2024, where the deadline has to be measured on another clock.
 

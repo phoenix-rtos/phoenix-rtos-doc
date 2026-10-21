@@ -51,7 +51,9 @@ If the request caused the file size to exceed the soft file size limit for the p
 any bytes to be written, the request shall fail, and the implementation shall generate the `SIGXFSZ` signal for the
 thread.
 
-If `write()` is interrupted by a signal before it writes any data, it shall return `-1` with errno set to `EINTR`.
+If `write()` is interrupted by a signal before it writes any data, it shall return `-1` with errno set to `EINTR`. A
+`write()` that waits for a server which has already received the request is not interruptible (see POSIX
+deviations).
 
 If `write()` is interrupted by a signal after it successfully writes some data, it shall return the number of bytes
 written.
@@ -167,7 +169,8 @@ size limit of the process, and there was no room for any bytes to be written.
 * `EFBIG` - The file is a regular file, _nbyte_ is greater than `0`, and the starting position is greater than or equal
 to the offset maximum established in the open file description associated with fildes.
 
-* `EINTR` - The write operation was terminated due to the receipt of a signal, and no data was transferred.
+* `EINTR` - The write operation was terminated due to the receipt of a signal, and no data was transferred. A
+`write()` that waits for a server which has already received the request does not fail with this error.
 
 * `EIO` - The process is a member of a background process group attempting to write to its controlling
  terminal, `TOSTOP` is set, the calling thread is not blocking `SIGTTOU`, the process is not ignoring `SIGTTOU`, and
@@ -215,4 +218,8 @@ The `write()` function may fail if:
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+A `write()` on a file handled by a server (for example a full pipe or a device) is a message sent to that server. Once
+the server has received the request, the calling thread waits for the response uninterruptibly: a signal does not
+interrupt the call and `write()` does not fail with `EINTR`, even if no data has been transferred. `EINTR` can be
+reported only while the request is still waiting in the queue of the server. This is a limitation of the Phoenix-RTOS
+messaging layer and applies to blocking in any server. See [POSIX layer](../../posix.md) for details.
