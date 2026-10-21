@@ -47,6 +47,9 @@ The `tcsetpgrp()` function shall fail if:
 * `EIO` - The process group of the writing process is orphaned, the calling thread is not blocking `SIGTTOU`, and the
 process is not ignoring SIGTTOU.
 
+* `EINVAL` - The file associated with _fildes_ is not a terminal, and the server handling it reports unsupported
+requests with `EINVAL` (see POSIX deviations).
+
 * `ENOTTY` - The calling process does not have a controlling terminal, or the file is not the controlling terminal, or
 the controlling terminal is no longer associated with the session of the calling process.
 
@@ -55,4 +58,7 @@ of a process in the same session as the calling process.
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+If the file associated with _fildes_ is not a terminal, the error reported by `tcsetpgrp()` depends on the server
+handling the file. The function is implemented on top of `ioctl()`, and the kernel forwards every request to the server
+without checking the type of the file. Servers that do not handle terminal requests report them either with `ENOTTY`
+(for example files in `jffs2`) or with `EINVAL` (for example pipes and files in `dummyfs`).

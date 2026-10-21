@@ -77,11 +77,17 @@ The `ioctl()` function may fail if:
 
 - `ENOSYS` - Couldn't get information about calling process.
 
-- `EINVAL` - Tried to send message to invalid port.
+- `EINVAL` - Tried to send message to invalid port, or the request is not supported by the device. Depending on the
+  server, a request addressed to a file of a different type than the one it is meant for fails with this error instead
+  of `ENOTTY` (see POSIX deviations).
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+When `ioctl()` is called with a request that the file does not support, for example a terminal request on a regular
+file, the error depends on the server handling the file: some servers report `ENOTTY` (for example files in `jffs2`),
+others `EINVAL` (for example pipes and files in `dummyfs`). The kernel does not know the type of the device behind a
+file descriptor and forwards every request to the server, so the type of the file is not checked before the request is
+handled.
 
 ## Example usage
 
