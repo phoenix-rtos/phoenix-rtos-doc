@@ -12,6 +12,7 @@ ioctl/index.md
 libgen/index.md
 math/index.md
 netdb/index.md
+pthread/index.md
 pwd/index.md
 semaphore/index.md
 setjmp/index.md
