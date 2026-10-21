@@ -31,11 +31,3 @@ The `atof()` function shall return the converted value if the value can be repre
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

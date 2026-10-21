@@ -52,11 +52,3 @@ returned the value specified by _val_. The `longjmp()` function shall not cause 
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

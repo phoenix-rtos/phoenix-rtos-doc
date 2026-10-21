@@ -41,11 +41,3 @@ indicate the error.
 The `interrupt_queueSignal()` function shall fail if:
 
 * `-EINVAL` - The value _`queue`_ does not refer to a valid interrupt queue.
-
-## Tests
-
-Tested through [test-sys](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/sys)
-
-## Known bugs
-
-None

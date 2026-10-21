@@ -43,11 +43,3 @@ The returned pointer might also be invalidated if the calling thread is terminat
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

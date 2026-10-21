@@ -49,11 +49,3 @@ The `pipe()` function shall fail if:
 
 * [`EMFILE`] - All, or all but one, of the file descriptors available to the process are currently open.
 * [`ENFILE`] - The number of simultaneously open files in the system would exceed a system-imposed limit.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

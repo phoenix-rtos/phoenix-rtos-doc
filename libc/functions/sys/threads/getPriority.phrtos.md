@@ -40,11 +40,3 @@ The `getPriority()` function shall return the base priority of the calling threa
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

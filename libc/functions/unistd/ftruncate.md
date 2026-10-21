@@ -69,11 +69,3 @@ The `ftruncate()` function shall fail if:
  description associated with _fildes_.
 * `EIO` - An I/O error occurred while reading from or writing to a file system.
 * `EBADF` or `EINVAL` - The _fildes_ argument is not a file descriptor open for writing.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

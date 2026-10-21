@@ -80,11 +80,3 @@ These functions may fail if:
 The `strerror_r()` function may fail if:
 
 - `[ERANGE]` Insufficient storage was supplied via _strerrbuf_ and _buflen_ to contain the generated message string.
-
-## Tests
-
-Tested
-
-## Known bugs
-
-None

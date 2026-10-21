@@ -28,11 +28,3 @@ The `getuid()` function shall always be successful, and no return value is reser
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

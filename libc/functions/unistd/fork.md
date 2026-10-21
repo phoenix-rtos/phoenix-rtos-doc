@@ -114,11 +114,3 @@ Upon successful completion, `fork()` shall return `0` to the child process and s
 process to the parent process. Both processes shall continue to execute from the `fork()` function. Otherwise, `-1`
 shall be returned to the parent process, no child process shall be created, and `errno` shall be set to indicate the
 error.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

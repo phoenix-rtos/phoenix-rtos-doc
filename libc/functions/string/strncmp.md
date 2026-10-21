@@ -32,11 +32,3 @@ array pointed to by _s2_ respectively.
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

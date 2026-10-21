@@ -62,11 +62,3 @@ The `strtok_r()` function shall return a pointer to the token found, or a `null`
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

@@ -45,11 +45,3 @@ Upon successful completion, `gai_strerror()` shall return a pointer to an implem
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

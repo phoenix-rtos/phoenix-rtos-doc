@@ -62,11 +62,3 @@ be represented correctly in the structure pointed to by _buf_.
 The `fstat()` function may fail if:
 
 - `[EOVERFLOW]`- One of the values is too large to store into the structure pointed to by the _buf_ argument.
-
-## Tests
-
-Tested
-
-## Known bugs
-
-None

@@ -36,11 +36,3 @@ as a type double, float, or long double, respectively.
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

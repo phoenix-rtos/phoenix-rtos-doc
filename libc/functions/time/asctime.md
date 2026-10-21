@@ -80,11 +80,3 @@ This string is pointed to by the argument _buf_. If the function is unsuccessful
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

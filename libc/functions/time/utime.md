@@ -62,11 +62,3 @@ The `utime()` function may fail if:
 * `ELOOP` - More than `SYMLOOP_MAX` symbolic links were encountered during resolution of the _path_ argument.  
 * `ENAMETOOLONG` - The length of a path name exceeds `PATH_MAX`, or path name resolution of a symbolic link produced an
  intermediate result with a length that exceeds `PATH_MAX`.  
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

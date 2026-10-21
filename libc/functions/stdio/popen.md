@@ -66,11 +66,3 @@ The `popen()` function may fail if:
 * `EINVAL` - The mode argument is invalid.
 
 The `popen()` function may also set `errno` values as described by `fork` or `pipe`.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

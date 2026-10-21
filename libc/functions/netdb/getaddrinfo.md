@@ -177,11 +177,3 @@ Neither _nodename_ nor _servname_ were supplied. At least one of these shall be 
 * `EAI_SOCKTYPE` - The intended socket type was not recognized.
 
 * `EAI_SYSTEM` - A system error occurred, the error code can be found in `errno`.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

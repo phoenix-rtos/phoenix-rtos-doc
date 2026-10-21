@@ -44,11 +44,3 @@ the error.
 The `priority()` function shall fail if:
 
 * `-EINVAL` - _`val`_ is not a valid priority value.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

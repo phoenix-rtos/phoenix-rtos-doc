@@ -127,11 +127,3 @@ intermediate result with a length that exceeds `PATH_MAX`.
 The `fstatat()` function may fail if:
 
 * `EINVAL` - The value of the flag argument is not valid.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

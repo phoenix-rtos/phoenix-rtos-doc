@@ -45,11 +45,3 @@ The `interrupt_queueWaitLocked()` function shall fail if:
 * `-EINVAL` - The value _`queue`_ does not refer to a valid interrupt queue, or _`lock`_ does not refer to an
   initialized mutex,
 * `-ETIME` - The queue was not signaled before the specified timeout expired.
-
-## Tests
-
-Tested through [test-sys](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/sys)
-
-## Known bugs
-
-None

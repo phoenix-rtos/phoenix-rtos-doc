@@ -212,11 +212,3 @@ The `write()` function may fail if:
 
 * `EPIPE` - A writ was attempted on a socket that is shut down for writing, or is no longer connected. In the latter
  case, if the socket is of type `SOCK_STREAM`, a `SIGPIPE` signal shall also be sent to the thread.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

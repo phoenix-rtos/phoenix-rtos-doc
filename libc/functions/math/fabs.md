@@ -35,11 +35,3 @@ Upon successful completion, these functions shall return the absolute value of _
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

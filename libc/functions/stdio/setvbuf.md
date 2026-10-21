@@ -47,11 +47,3 @@ The `setvbuf()` function may fail if:
 * `EBADF` - The file descriptor underlying stream is not valid.
 
 The following sections are informative.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

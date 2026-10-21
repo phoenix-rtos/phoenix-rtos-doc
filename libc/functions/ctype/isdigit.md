@@ -31,11 +31,3 @@ The `isdigit()` function shall return non-zero if _c_ is decimal digit, otherwis
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Tested
-
-## Known bugs
-
-None

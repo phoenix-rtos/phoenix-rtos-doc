@@ -42,11 +42,3 @@ The `sigsuspend()` function shall fail if:
 - `EINTR` - A signal is caught by the calling process and control is returned from the signal-catching function.</br>
   
 The following sections are informative.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

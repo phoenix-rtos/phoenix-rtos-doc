@@ -69,12 +69,3 @@ This function shall fail if:
 
 * `ENOSPC` - there is insufficient space for the new semaphore, or `SEM_NSEMS_MAX`
   semaphores already exist.
-
-## Tests
-
-Tested in [test-libc-semaphore](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/libc/semaphore)
-
-## Known bugs
-
-The _mode_ argument is ignored; the semaphore node is always created with the fixed
-permissions that `create_dev()` applies.

@@ -46,11 +46,3 @@ The `interrupt_queueWait()` function shall fail if:
 * `-EINVAL` - The value _`queue`_ does not refer to a valid interrupt queue,
 * `-ETIME` - The queue was not signaled before the specified timeout expired,
 * `-EBUSY` - Another thread is already waiting on the queue.
-
-## Tests
-
-Tested through [test-sys](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/sys)
-
-## Known bugs
-
-None

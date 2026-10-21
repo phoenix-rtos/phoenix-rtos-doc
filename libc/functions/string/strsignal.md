@@ -43,11 +43,3 @@ signal number, the return value is unspecified.
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Tested
-
-## Known bugs
-
-None

@@ -60,11 +60,3 @@ The `condBroadcast()` and `condSignal()` function may fail if:
 * `-EINVAL` - Parent process for _h_ variable ceased to exist during function call
 
 These functions shall not return an error code of `-EINTR`.
-
-## Tests
-
-Tested in [test-sys](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/sys)
-
-## Known bugs
-
-None

@@ -37,11 +37,3 @@ double, float, or long double, as appropriate for the return type of the functio
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

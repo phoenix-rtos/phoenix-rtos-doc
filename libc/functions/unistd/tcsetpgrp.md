@@ -52,11 +52,3 @@ the controlling terminal is no longer associated with the session of the calling
 
 * `EPERM` - The value of _pgid_id_ is a value supported by the implementation, but does not match the process group ID
 of a process in the same session as the calling process.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

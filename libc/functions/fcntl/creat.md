@@ -37,11 +37,3 @@ Refer to [open](open.md).
 ## Errors
 
 Refer to [open](open.md).
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

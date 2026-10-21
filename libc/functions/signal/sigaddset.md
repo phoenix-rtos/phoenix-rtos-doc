@@ -36,11 +36,3 @@ the error.
 The `sigaddset()` function may fail if:
 
 - `EINVAL` - The value of the _signo_ argument is an invalid or unsupported signal number.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

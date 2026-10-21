@@ -41,11 +41,3 @@ indicator for the stream shall be set and `errno` shall be set to indicate the e
 ## Errors
 
 Refer to [fgetc](fgetc.md)
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

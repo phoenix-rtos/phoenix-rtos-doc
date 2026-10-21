@@ -37,11 +37,3 @@ passed, otherwise, they shall return the argument unchanged.
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Tested
-
-## Known bugs
-
-None

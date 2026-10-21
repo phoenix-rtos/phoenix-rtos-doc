@@ -42,11 +42,3 @@ See `getc()`, `getchar()`, `putc()`, and `putchar()`.
 ## Errors
 
 See `getc()`, `getchar()`, `putc()`, and `putchar()`.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

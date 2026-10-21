@@ -27,11 +27,3 @@ The `getppid()` function shall always be successful, and no return value is rese
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

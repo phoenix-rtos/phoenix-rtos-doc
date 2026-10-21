@@ -38,11 +38,3 @@ This function shall fail if:
 * `ENAMETOOLONG` - the length of _name_ exceeds `NAME_MAX`,
 
 * `ENOENT` - the named semaphore does not exist.
-
-## Tests
-
-Tested in [test-libc-semaphore](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/libc/semaphore)
-
-## Known bugs
-
-None

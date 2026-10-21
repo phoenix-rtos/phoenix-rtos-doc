@@ -96,11 +96,3 @@ These functions may fail if:
 * [`EBADF`] - The _dirp_ argument does not refer to an open directory stream.
 
 * [`ENOENT`] - The current position of the directory stream is invalid.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

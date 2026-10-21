@@ -109,11 +109,3 @@ int main() {
     }
 }
 ```
-
-## Tests
-
-Tested
-
-## Known bugs
-
-None

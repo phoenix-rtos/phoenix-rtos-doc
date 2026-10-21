@@ -38,11 +38,3 @@ pointer, and set `errno` to indicate the error.
 ## Errors
 
 Refer to [fgetc](fgetc.md).
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

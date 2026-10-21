@@ -33,11 +33,3 @@ indicator for the stream and set `errno` to indicate the error.
 ## Errors
 
 Refer to [fputc](fputc.md)
-
-## Tests
-
-Tested in [test-libc](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/libc).
-
-## Known bugs
-
-None

@@ -46,11 +46,3 @@ The `tcgetattr()` function shall fail if:
 * `EBADF` - The _fildes_ argument is not a valid file descriptor.
 
 * `ENOTTY` - The file associated with _fildes_ is not a terminal.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

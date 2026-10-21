@@ -30,11 +30,3 @@ The `isalnum()` function shall return non-zero if _c_ is an alphanumeric charact
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Tested
-
-## Known bugs
-
-None

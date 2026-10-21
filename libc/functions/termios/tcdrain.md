@@ -43,11 +43,3 @@ The `tcdrain()` function shall fail if:
 process is not ignoring `SIGTTOU`.
 
 * `ENOTTY` - The file associated with _fildes_ is not a terminal.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

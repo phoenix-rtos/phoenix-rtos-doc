@@ -43,11 +43,3 @@ This function shall fall if:
 This function may fall if:
 
 * `-EINTR` - calling thread was woken up by signal before the message was received by the server.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

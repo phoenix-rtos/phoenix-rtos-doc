@@ -43,11 +43,3 @@ array and shall return the argument as its value.
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

@@ -67,11 +67,3 @@ The `kill()` function shall fail if:
 * `EPERM` - The process does not have permission to send the signal to any receiving process.
 
 * `ESRCH` - No process or process group can be found corresponding to that specified by _pid_.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

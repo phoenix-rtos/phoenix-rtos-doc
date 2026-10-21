@@ -72,11 +72,3 @@ the error.
 The `usleep()` function may fail if:
 
 * `EINVAL` - The time interval specified one million or more microseconds.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

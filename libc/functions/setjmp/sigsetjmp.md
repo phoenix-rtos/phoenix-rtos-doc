@@ -39,11 +39,3 @@ If the return is from a successful direct invocation, `sigsetjmp()` shall return
 No errors are defined.
 
 The following sections are informative.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

@@ -109,11 +109,3 @@ These functions shall fail if:
 These functions may fail if:
 
 * `EINVAL` - No conversion could be performed.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

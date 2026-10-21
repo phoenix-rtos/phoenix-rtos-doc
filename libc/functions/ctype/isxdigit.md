@@ -31,11 +31,3 @@ The `isxdigit()` function shall return non-zero if _c_ is a hexadecimal digit, o
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Tested
-
-## Known bugs
-
-None

@@ -76,11 +76,3 @@ The `meminfo()` function doesn't return anything.
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

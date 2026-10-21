@@ -35,11 +35,3 @@ had just returned the value specified by _val_. The `siglongjmp()` function shal
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

@@ -93,11 +93,3 @@ return another non-zero value.
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

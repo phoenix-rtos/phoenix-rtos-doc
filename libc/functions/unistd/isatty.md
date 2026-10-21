@@ -35,11 +35,3 @@ The `isatty()` function may fail if:
 * `EBADF` - The _fildes_ argument is not a valid open file descriptor.
 
 * `ENOTTY` - The file associated with the _fildes_ argument is not a terminal.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

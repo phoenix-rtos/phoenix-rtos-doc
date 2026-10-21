@@ -12,6 +12,16 @@ git clone https://github.com/phoenix-rtos/libphoenix.git
 
 The preferred way to deal with this project is to use a Phoenix-RTOS reference project repository.
 
+## Tests
+
+All existing tests of the Phoenix-RTOS functions are located in the
+[phoenix-rtos-tests](https://github.com/phoenix-rtos/phoenix-rtos-tests) repository.
+
+## Known bugs
+
+Known bugs are tracked in the
+[phoenix-rtos-project issues](https://github.com/phoenix-rtos/phoenix-rtos-project/issues) on GitHub.
+
 ```{toctree}
 :maxdepth: 1
 

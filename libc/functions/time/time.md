@@ -32,11 +32,3 @@ Upon successful completion, `time()` shall return the value of time. Otherwise, 
 The `time()` function may fail if:
 
 * `EOVERFLOW` - the number of seconds since the Epoch will not fit in an object of type `time_t`.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

@@ -33,11 +33,3 @@ Upon successful completion, these functions shall return a value with the magnit
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

@@ -84,11 +84,3 @@ caught or ignore a signal that cannot be ignored.
 The `signal()` function may fail if:
 
 * `EINVAL` - An attempt was made to set the action to `SIG_DFL` for a signal that cannot be caught or ignored (or both).
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

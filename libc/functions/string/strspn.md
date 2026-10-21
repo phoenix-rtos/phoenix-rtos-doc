@@ -28,11 +28,3 @@ The `strspn()` function shall return the computed length; no return value is res
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

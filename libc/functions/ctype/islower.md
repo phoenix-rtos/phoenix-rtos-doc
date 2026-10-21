@@ -31,11 +31,3 @@ The `islower()` function shall return non-zero if _c_ is a lowercase letter, oth
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Tested
-
-## Known bugs
-
-None

@@ -53,16 +53,3 @@ This function shall fail if:
   `tv_nsec` field of _abstime_ is negative or 1000 million or more,
 
 * `EBADF` - the named semaphore has been closed or removed.
-
-## Tests
-
-Tested in [test-libc-semaphore](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/libc/semaphore)
-
-## Known bugs
-
-The deadline is converted to microseconds internally, so a `tv_sec` beyond
-`TIME_T_MAX / 1000000` overflows and the wait ends early.
-
-A blocking call is not interruptible and is not a cancellation point. IEEE Std 1003.1-2024
-permits both, but a thread parked on a semaphore that is never posted cannot be cancelled or
-killed before the deadline passes.
