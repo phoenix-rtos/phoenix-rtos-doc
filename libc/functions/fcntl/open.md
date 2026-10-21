@@ -246,7 +246,9 @@ These functions may fail if:
 * `ELOOP` - More than `SYMLOOP_MAX` symbolic links were encountered during resolution of the path argument.
 
 * `ENAMETOOLONG` - The length of a path name exceeds `PATH_MAX`, or path name resolution of a symbolic link produced an
-intermediate result with a length that exceeds `PATH_MAX`.
+intermediate result with a length that exceeds `PATH_MAX`. The current working directory is prepended to a relative path
+before it is canonicalized, so a path that is not in canonical form can fail with this error even if its canonical form
+fits within `PATH_MAX` (see POSIX deviations).
 
 * `ENOMEM` - The path argument names a `STREAMS` file and the system is unable to allocate resources.
 
@@ -257,4 +259,9 @@ intermediate result with a length that exceeds `PATH_MAX`.
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+The length of a path name is checked after the current working directory has been prepended to it and before the path is
+canonicalized. A path name that is not in canonical form (for example one containing dot or dot-dot components or
+repeated `<slash>` characters) can therefore fail with `ENAMETOOLONG` although its canonical form, combined with the
+current working directory, fits within `PATH_MAX`. Path resolution works on a bounded buffer, which must not be allowed
+to grow arbitrarily on a resource-constrained system. IEEE Std 1003.1-2017 does not prohibit reporting `ENAMETOOLONG`
+under implementation-defined conditions.
