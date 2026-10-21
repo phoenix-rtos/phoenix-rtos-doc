@@ -73,8 +73,8 @@ or process group ID, regardless of permission. It is unspecified whether this is
 `fcntl(_fildes_, F_SETOWN, 0)` call at the time the process terminates or is waited for or the process group becomes
 empty, or by other means. If _fildes_ does not refer to a socket, the results are unspecified.
 
-The following values for _cmd_ are available for advisory record locking. Record locking shall be supported for regular
-files, and may be supported for other files.
+The following values for _cmd_ are available for advisory record locking. The commands below succeed, but no lock is
+recorded, and the structure pointed to by _arg_ is not modified (see POSIX deviations).
 
 * `F_GETLK` - Get any lock which blocks the lock description pointed to by the third argument, arg, taken as a pointer
 to type struct flock, defined in `<fcntl.h>`. The information retrieved shall overwrite the information passed to
@@ -229,4 +229,6 @@ to any process specified by _arg_.
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+Advisory record locking is not supported. The `F_GETLK`, `F_SETLK` and `F_SETLKW` commands are accepted, and `fcntl()`
+returns success, but no lock is recorded, no request is ever blocked and the structure pointed to by _arg_ is not
+modified. Record locking is not implemented in the POSIX layer of the Phoenix-RTOS kernel.
