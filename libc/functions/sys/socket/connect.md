@@ -71,7 +71,8 @@ The `connect()` function shall fail if:
 
 * `EBADF` - The _socket_ argument is not a valid file descriptor.
 
-* `ECONNREFUSED` - The target address was not listening for connections or refused the connection request.
+* `ECONNREFUSED` - The target address was not listening for connections or refused the connection request. For
+`AF_INET` sockets a refused TCP connection is reported as `ECONNRESET` instead.
 
 * `EINPROGRESS` - `O_NONBLOCK` is set for the file descriptor for the socket and the connection cannot be immediately
 established, the connection shall be established asynchronously.
@@ -111,7 +112,7 @@ denied.
 
 * `EADDRINUSE` - Attempt to establish a connection that uses addresses that are already in use.
 
-* `ECONNRESET` - Remote host reset the connection request.
+* `ECONNRESET` - Remote host reset the connection request, or an `AF_INET` socket was refused by the target address.
 
 * `EHOSTUNREACH` - The destination host cannot be reached (probably because the host is down, or a remote router cannot
 reach it).
@@ -132,4 +133,7 @@ intermediate result with a length that exceeds `PATH_MAX`.
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+For `AF_INET` sockets, a connection request that is refused because nothing listens on the target address fails with
+`ECONNRESET` instead of `ECONNREFUSED`. IEEE Std 1003.1-2017 allows `ECONNRESET` when the remote host resets the
+connection request, and Phoenix-RTOS reports a refused TCP connection in this way. `AF_UNIX` sockets
+report `ECONNREFUSED` as specified.
