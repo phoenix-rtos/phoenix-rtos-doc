@@ -31,11 +31,3 @@ The `isupper()` function shall return non-zero if _c_ is an uppercase letter, ot
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Tested
-
-## Known bugs
-
-None

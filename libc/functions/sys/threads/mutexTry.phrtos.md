@@ -32,11 +32,3 @@ The `mutexTry()` function shall fail if:
 
 * `-EINVAL` - The provided handle _`h`_ does not point to a valid mutex object.
 * `-EBUSY` - The mutex is already locked.
-
-## Tests
-
-Tested in [test-sys](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/sys)
-
-## Known bugs
-
-None

@@ -51,11 +51,3 @@ The `mblen()` function may fail if:
 
 * `EILSEQ` - An invalid character sequence is detected. In the POSIX locale a `EILSEQ` error cannot occur since all
 byte values are valid characters.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

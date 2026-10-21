@@ -38,11 +38,3 @@ of seconds until the previous request would have generated a `SIGALRM` signal. O
 ## Errors
 
 The `alarm()` function is always successful, and no return value is reserved to indicate an error.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

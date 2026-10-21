@@ -29,11 +29,3 @@ The `ferror()` function shall return non-zero if and only if the error indicator
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Tested in [test-libc](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/libc).
-
-## Known bugs
-
-None

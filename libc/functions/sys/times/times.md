@@ -47,11 +47,3 @@ the process to another. The return value may overflow the possible range of type
 The `times()` function shall fail if:
 
 * `EOVERFLOW` - the return value would overflow the range of `clock_t`.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

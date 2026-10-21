@@ -28,11 +28,3 @@ Refer to fputc.
 ## Errors
 
 Refer to fputc.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

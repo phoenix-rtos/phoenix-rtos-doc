@@ -42,11 +42,3 @@ unspecified use of those bits.
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

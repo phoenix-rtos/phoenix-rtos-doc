@@ -39,11 +39,3 @@ Refer to [fscanf](fscanf.md).
 ## Errors
 
 Refer to [fscanf](fscanf.md).
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

@@ -42,11 +42,3 @@ The `setbuf()` function shall not return a value.
 
 Although the `setvbuf()` interface may set errno in defined ways, the value
 of `errno` after a call to `setbuf()` is unspecified.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

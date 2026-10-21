@@ -33,11 +33,3 @@ respectively.
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Tested
-
-## Known bugs
-
-None

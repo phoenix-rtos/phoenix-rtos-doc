@@ -55,11 +55,3 @@ The `tmpfile()` function may fail if:
 * `EMFILE` - `FOPEN_MAX` streams are currently open in the calling process.
 
 * `ENOMEM` - insufficient storage space is available.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

@@ -37,11 +37,3 @@ The function may fail if:
 * [`EINVAL`] - The string argument doesn't contain `'='`.
 
 * [`ENOMEM`] - Insufficient memory was available.
-
-## Tests
-
-Tested
-
-## Known bugs
-
-None

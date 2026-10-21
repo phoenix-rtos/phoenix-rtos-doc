@@ -31,11 +31,3 @@ Refer to `rmdir()` or `unlink()`.
 ## Errors
 
 Refer to `rmdir()` or `unlink()`.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

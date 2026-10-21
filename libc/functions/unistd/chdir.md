@@ -48,11 +48,3 @@ The `chdir()` function may fail if:
 
 * `ENAMETOOLONG` - The length of a path name exceeds `PATH_MAX`, or path name resolution of a symbolic link produced an
  intermediate result with length that exceeds `PATH_MAX`.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

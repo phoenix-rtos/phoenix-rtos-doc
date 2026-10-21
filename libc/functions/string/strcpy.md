@@ -34,11 +34,3 @@ No return values are reserved to indicate an error.
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

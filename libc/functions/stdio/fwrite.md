@@ -39,11 +39,3 @@ shall be set to indicate the error.
 ## Errors
 
 Refer to fputc.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

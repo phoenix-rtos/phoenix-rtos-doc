@@ -35,11 +35,3 @@ error, and the environment shall be unchanged.
 The function shall fail if:
 
 * `EINVAL` - The name argument points to an empty string, or points to a string containing a `'='` character.
-
-## Tests
-
-Tested
-
-## Known bugs
-
-None

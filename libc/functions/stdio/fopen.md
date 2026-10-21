@@ -140,11 +140,3 @@ The `fopen()` function may fail if:
 * `ENOMEM` - Insufficient storage space is available.
 
 * `ETXTBSY` - The file is a pure procedure (shared text) file that is being executed and mode requires write access.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

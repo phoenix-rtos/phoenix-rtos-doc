@@ -51,11 +51,3 @@ The `interrupt_queueCreateLocked()` function shall fail if:
 * `-ENOMEM` - Insufficient memory exists to initialize the queue,
 * `-EINVAL` - The value of _`clock`_ is invalid,
 * `-EFAULT` - The address specified by _`queue`_ is invalid.
-
-## Tests
-
-Tested through [test-sys](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/sys)
-
-## Known bugs
-
-None

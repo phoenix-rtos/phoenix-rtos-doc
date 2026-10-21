@@ -120,11 +120,3 @@ an intermediate result with a length that exceeds `PATH_MAX`.
 * `ENXIO` - A request was made of a nonexistent device, or the request was outside the capabilities of the device.
 
 * `ETXTBSY` - The file is a pure procedure (shared text) file that is being executed and _mode_ requires write access.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

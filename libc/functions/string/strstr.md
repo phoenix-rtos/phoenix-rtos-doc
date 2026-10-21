@@ -31,11 +31,3 @@ If _s2_ points to a string with zero length, the function shall return _s1_.
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

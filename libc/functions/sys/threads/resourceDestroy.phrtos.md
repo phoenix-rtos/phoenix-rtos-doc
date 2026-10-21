@@ -38,11 +38,3 @@ error number shall be returned to indicate the error.
 The `resourceDestroy()` function may fail if:
 
 * `-EINVAL` - The provided handle _`h`_ does not point to a valid resource.
-
-## Tests
-
-Tested in [test-sys](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/sys)
-
-## Known bugs
-
-None

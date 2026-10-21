@@ -37,11 +37,3 @@ _s_ contains a `null` byte within the first _maxlen_ bytes; otherwise, it shall 
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

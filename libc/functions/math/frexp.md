@@ -36,11 +36,3 @@ or `0`, and _num_ equals `x` times `2` raised to the power _*exp_.
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

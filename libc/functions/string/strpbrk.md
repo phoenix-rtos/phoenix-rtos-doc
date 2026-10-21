@@ -29,11 +29,3 @@ occurs in _s1_.
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

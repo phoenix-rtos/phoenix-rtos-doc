@@ -161,11 +161,3 @@ The `rename()` and `renameat()` functions may fail if:
  that is being executed.
 
 The following sections are informative.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

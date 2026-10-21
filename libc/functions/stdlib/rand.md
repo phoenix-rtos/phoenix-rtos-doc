@@ -44,11 +44,3 @@ at least `232`.
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

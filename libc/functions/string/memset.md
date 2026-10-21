@@ -28,11 +28,3 @@ The `memset()` function shall return _s_; no return value is reserved to indicat
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

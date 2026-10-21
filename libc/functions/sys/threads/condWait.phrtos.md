@@ -76,11 +76,3 @@ This function shall fall if:
 * `-EINVAL` - Parent process for _h_ variable or mutex _m_ ceased to exist during function call
 
 * `-ETIME` - Condition was not signaled before specified timeout
-
-## Tests
-
-Tested in [test-sys](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/sys)
-
-## Known bugs
-
-None

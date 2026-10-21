@@ -46,11 +46,3 @@ long long   rem;     /* Remainder */
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

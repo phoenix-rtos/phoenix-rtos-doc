@@ -47,11 +47,3 @@ The `getcwd()` function may fail if:
 * [`EACCES`] - Search permission was denied for the current directory, or read, or search permission was denied for a
  directory above the current directory in the file hierarchy.
 * [`ENOMEM`] - Insufficient storage space is available.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

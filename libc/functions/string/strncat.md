@@ -30,11 +30,3 @@ The `strncat()` function shall return _s1_; no return value shall be reserved to
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

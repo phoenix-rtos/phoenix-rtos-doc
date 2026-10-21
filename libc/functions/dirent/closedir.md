@@ -34,11 +34,3 @@ The `closedir()` function may fail if:
 * `EBADF` - The _dirp_ argument does not refer to an open directory stream.
 
 * `EINTR` - The `closedir()` function was interrupted by a signal.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

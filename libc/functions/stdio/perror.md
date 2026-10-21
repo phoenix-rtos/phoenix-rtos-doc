@@ -47,11 +47,3 @@ The `perror()` function shall not return a value.
 ## Errors
 
 Refer to `fputc()`
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

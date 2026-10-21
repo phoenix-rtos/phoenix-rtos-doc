@@ -29,11 +29,3 @@ The `feof()` function shall return non-zero if and only if the end-of-file indic
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Tested in [test-libc](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/libc).
-
-## Known bugs
-
-None

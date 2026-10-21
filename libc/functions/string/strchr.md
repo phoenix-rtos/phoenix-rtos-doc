@@ -28,11 +28,3 @@ Upon completion, `strchr()` shall return a pointer to the byte, or a `null` poin
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

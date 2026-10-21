@@ -85,11 +85,3 @@ Otherwise, `getopt()` shall return `-1` when all command line options are parsed
 If the application has not set the variable _opterr_ to `0`, the first character of optstring is not a `<colon>`, and a
 write error occurs while `getopt()` is printing a diagnostic message to `stderr`, then the error indicator for `stderr`
 shall be set; but `getopt()` shall still succeed and the value of `errno` after `getopt()` is unspecified.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

@@ -37,11 +37,3 @@ set `errno` to indicate the error.
 This function shall fail if:
 
 * `EINVAL` - _sem_ is a null pointer or does not refer to a named semaphore.
-
-## Tests
-
-Tested in [test-libc-semaphore](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/libc/semaphore)
-
-## Known bugs
-
-None

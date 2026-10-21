@@ -60,11 +60,3 @@ The `fgetc()` function may fail if:
 * `ENOMEM` - Insufficient storage space is available.
 
 * `ENXIO` - A request was made of a nonexistent device, or the request was outside the capabilities of the device.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

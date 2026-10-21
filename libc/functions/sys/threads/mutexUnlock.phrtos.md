@@ -31,11 +31,3 @@ The `mutexUnlock()` function shall fail if:
 
 * `-EINVAL` - The provided handle _`h`_ does not point to a valid mutex object.
 * `-EPERM` - The lock's owner thread was destroyed.
-
-## Tests
-
-Tested in [test-sys](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/sys)
-
-## Known bugs
-
-None

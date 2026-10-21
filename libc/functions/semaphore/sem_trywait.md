@@ -38,11 +38,3 @@ This function shall fail if:
 * `EINVAL` - _sem_ is a null pointer or does not refer to a valid semaphore,
 
 * `EBADF` - the named semaphore has been closed or removed.
-
-## Tests
-
-Tested in [test-libc-semaphore](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/libc/semaphore)
-
-## Known bugs
-
-None

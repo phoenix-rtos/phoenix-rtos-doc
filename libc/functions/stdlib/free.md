@@ -33,11 +33,3 @@ The `free()` function shall not return a value.
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Tested
-
-## Known bugs
-
-None

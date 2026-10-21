@@ -92,11 +92,3 @@ A connection has been aborted.
 The `accept()` function may fail if:
 
 * `EPROTO` - A protocol error has occurred; [OB XSR] for example, the STREAMS protocol stack has not been initialized.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

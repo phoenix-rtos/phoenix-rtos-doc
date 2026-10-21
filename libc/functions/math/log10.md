@@ -55,11 +55,3 @@ shall be raised.
 If the integer expression `(math_errhandling & MATH_ERRNO)` is non-zero, then `errno` shall be set to `ERANGE`. If
 the integer expression `(math_errhandling & MATH_ERREXCEPT)` is non-zero, then the divide-by-zero floating-point
 exception shall be raised.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

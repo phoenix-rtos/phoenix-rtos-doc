@@ -34,11 +34,3 @@ The `abort()` function shall not return.
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

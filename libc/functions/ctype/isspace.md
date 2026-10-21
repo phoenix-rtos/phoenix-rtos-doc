@@ -32,11 +32,3 @@ The `isspace()` function shall return non-zero if _c_ is a white-space character
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Tested
-
-## Known bugs
-
-None

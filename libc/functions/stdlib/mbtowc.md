@@ -54,11 +54,3 @@ The `mbtowc()` function shall fail if:
 
 * `EILSEQ` - An invalid character sequence is detected. In the POSIX locale an `EILSEQ` error cannot occur since all
  byte values are valid characters.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

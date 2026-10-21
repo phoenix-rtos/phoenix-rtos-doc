@@ -327,11 +327,3 @@ exceeds
 
 * `ETXTBSY` - The new process image file is a pure procedure (shared text) file that is currently open for writing by
 some process.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

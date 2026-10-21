@@ -34,11 +34,3 @@ If an error occurs during a function call an error value shall be returned. Othe
 This function shall fall if:
 
 * `-EINVAL` - _port_ does not name an existing port, or _port_ is closed
-
-## Tests
-
-Untested
-
-## Known bugs
-
-* Does not check if message pointer _m_ is not `NULL`.

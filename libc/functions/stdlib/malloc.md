@@ -47,11 +47,3 @@ Otherwise, it shall return a null pointer and set `errno` to indicate the error
 The `malloc()` function shall fail if:
 
 * `ENOMEM` - Insufficient storage space is available.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

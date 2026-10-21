@@ -53,11 +53,3 @@ These functions may fail if:
 
 * `EINVAL` - The string pointed to by the _s2_ argument contains characters outside the domain of the collating
 sequence.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

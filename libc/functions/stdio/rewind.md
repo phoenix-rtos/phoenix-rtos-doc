@@ -40,11 +40,3 @@ The `rewind()` function shall not return a value.
 ## Errors
 
 Refer to `fseek()` except `EINVAL` which does not apply.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

@@ -34,14 +34,3 @@ The functions can never return.
 ## Errors
 
 No errors are defined.
-
-<!-- #MUST_BE: function by default shall be untested, when tested there should be a link to test location and test 
-command for ia32 test runner  -->
-## Tests
-
-Untested
-
-<!-- #MUST_BE: check for pending issues in  -->
-## Known bugs
-
-None

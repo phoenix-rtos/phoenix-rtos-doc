@@ -36,11 +36,3 @@ The `mutexCreate()` function shall fail if:
 * `-EFAULT` - The address specified by `h` is invalid.
 
 These functions shall not return an error code of `EINTR`.
-
-## Tests
-
-Tested in [test-sys](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/sys)
-
-## Known bugs
-
-None

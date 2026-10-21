@@ -135,11 +135,3 @@ These functions may fail if:
 The `linkat()` function may fail if:
 
 * `EINVAL` - The value of the _flag_ argument is not valid.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

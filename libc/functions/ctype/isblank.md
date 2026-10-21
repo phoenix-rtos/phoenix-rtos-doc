@@ -31,11 +31,3 @@ The `isblank()` function shall return non-zero if _c_ is a `<blank>`, otherwise 
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Tested
-
-## Known bugs
-
-None

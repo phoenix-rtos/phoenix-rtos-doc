@@ -38,11 +38,3 @@ The `getpgid()` function shall fail if:
 The `getpgid()` function may fail if:
 
 * `EINVAL` - The value of the _pid_ argument is invalid.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

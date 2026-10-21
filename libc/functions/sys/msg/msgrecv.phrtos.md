@@ -49,11 +49,3 @@ This function shall fall if:
 - `-EINTR` - thread was woken up by signal during waiting for messages in `msgRecv()`
 
 - `-ENOMEM` - insufficient memory is available for allocating incoming message
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

@@ -168,15 +168,3 @@ specified by pid does not exist or does not have any member process that is a ch
 * `EINTR` - the function was interrupted by a signal. The value of the location pointed to by stat_loc is undefined.
 
 * `EINVAL` - the options argument is not valid.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-* Description
-  * `WIFSTOPPED(stat_val)`, `WSTOPSIG(stat_val)`, `WIFCONTINUED(stat_val)` always return `0`
-  * `WNOHANG` option does not work ([Issue link](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/184))
-  * `waitpid()` does not discard a pending `SIGCHLD`signal that is associated with a successfully waited-for child
-  process. ([Issue link](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/188))

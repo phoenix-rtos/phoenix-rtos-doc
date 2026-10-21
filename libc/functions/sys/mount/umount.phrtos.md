@@ -27,11 +27,3 @@ On success, zero is returned. On error, `-1` is returned, and `errno` is set to 
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

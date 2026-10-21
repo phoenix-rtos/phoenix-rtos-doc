@@ -91,5 +91,3 @@ The functions can never return.
 ## Errors
 
 No errors are defined.
-
-## Tests

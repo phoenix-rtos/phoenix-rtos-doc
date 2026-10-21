@@ -32,11 +32,3 @@ return `0`.
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Tested
-
-## Known bugs
-
-None

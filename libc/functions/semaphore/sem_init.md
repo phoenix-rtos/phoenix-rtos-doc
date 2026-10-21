@@ -43,11 +43,3 @@ This function shall fail if:
 * `ENOSPC` - a resource required to initialise the semaphore has been exhausted,
 
 * `ENOSYS` - _pshared_ is non-zero; process-shared unnamed semaphores are not supported.
-
-## Tests
-
-Tested in [test-libc-semaphore](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/libc/semaphore)
-
-## Known bugs
-
-None

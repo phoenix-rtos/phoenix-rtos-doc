@@ -26,11 +26,3 @@ environ to `NULL`. After this call, new variables can be added to the environmen
 Upon successful completion, zero shall be returned.
 
 ## Errors
-
-## Tests
-
-Tested
-
-## Known bugs
-
-None

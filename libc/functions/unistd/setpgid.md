@@ -51,11 +51,3 @@ same session as the calling process.
 
 * `ESRCH` - The value of the _pid_ argument does not match the process ID of the calling process or of a child process
 of the calling process.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

@@ -56,11 +56,3 @@ process.
 The `munmap()` function may fail if:
 
 * `EINVAL` - The _addr_ argument is not a multiple of the page size as returned by `sysconf()`.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

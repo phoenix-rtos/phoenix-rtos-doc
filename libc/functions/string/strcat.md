@@ -29,11 +29,3 @@ The `strcat()` function shall return _s1_; no return value is reserved to indica
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

@@ -29,11 +29,3 @@ Refer to [fgetc](fgetc.md).
 ## Errors
 
 Refer to [fgetc](fgetc.md).
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

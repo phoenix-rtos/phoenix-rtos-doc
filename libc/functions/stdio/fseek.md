@@ -104,11 +104,3 @@ to be flushed, and the call to `fseek()` or `fseeko()` causes an underlying `lse
 The `fseek()` and `fseeko()` functions may fail if:
 
 * `ENXIO` - A request was made of a nonexistent device, or the request was outside the capabilities of the device.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

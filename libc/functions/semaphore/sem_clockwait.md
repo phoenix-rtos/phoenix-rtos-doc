@@ -60,12 +60,3 @@ This function shall fail if:
   clock,
 
 * `EBADF` - the named semaphore has been closed or removed.
-
-## Tests
-
-Tested in [test-libc-semaphore](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/libc/semaphore)
-
-## Known bugs
-
-The deadline is converted to microseconds internally, so a `tv_sec` beyond
-`TIME_T_MAX / 1000000` overflows and the wait ends early.

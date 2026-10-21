@@ -34,11 +34,3 @@ The `mutexLock()` function shall fail if:
 * `-EDEADLK` - _`PH_LOCK_ERRORCHECK`_ attribute was set and the mutex was already locked by the same thread.
 * `-EAGAIN` - _`PH_LOCK_RECURSIVE`_ attribute was set and the mutex was already locked by the same thread.
 * `-EINTR` - The lock's owner thread was destroyed.
-
-## Tests
-
-Tested in [test-sys](https://github.com/phoenix-rtos/phoenix-rtos-tests/tree/master/sys)
-
-## Known bugs
-
-None

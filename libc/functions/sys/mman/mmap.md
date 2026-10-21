@@ -232,11 +232,3 @@ The `mmap()` function may fail if:
 
 * `EINVAL` - The _addr_ argument (if `MAP_FIXED` was specified) or off is not a multiple of the page size as returned by
 `sysconf()`, or is considered invalid by the implementation.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None

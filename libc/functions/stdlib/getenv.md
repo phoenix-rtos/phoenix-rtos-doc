@@ -35,11 +35,3 @@ If the specified name cannot be found in the environment of the calling process,
 ## Errors
 
 No errors are defined.
-
-## Tests
-
-Tested
-
-## Known bugs
-
-None

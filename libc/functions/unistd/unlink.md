@@ -119,11 +119,3 @@ executed.
 The `unlinkat()` function may fail if:
 
 * `EINVAL` - The value of the flag argument is not valid.
-
-## Tests
-
-Untested
-
-## Known bugs
-
-None
