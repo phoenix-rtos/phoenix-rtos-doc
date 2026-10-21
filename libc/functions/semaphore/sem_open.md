@@ -42,9 +42,8 @@ the server, and each must be released with its own `sem_close()`. IEEE Std 1003.
 leaves this implementation-defined; IEEE Std 1003.1-2017 required the same address to be
 returned for every such call, so this is conformant only from the 2024 edition on.
 
-_mode_ is accepted but not applied: the node is published with fixed permissions, because
-`create_dev()` takes no mode argument. The number of semaphores that may exist at one time
-is bounded by `SEM_NSEMS_MAX`, the value reported by `sysconf(_SC_SEM_NSEMS_MAX)`.
+The number of semaphores that may exist at one time is bounded by `SEM_NSEMS_MAX`, the value
+reported by `sysconf(_SC_SEM_NSEMS_MAX)`.
 
 ## Return value
 
@@ -72,4 +71,6 @@ This function shall fail if:
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+The _mode_ argument of `sem_open()` is accepted but ignored. Named semaphores are published as device nodes by
+`posixsrv` through `create_dev()`, which takes no mode argument, so every semaphore is created with the same fixed
+permissions regardless of the requested _mode_ and the file mode creation mask.
