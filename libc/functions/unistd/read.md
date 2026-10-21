@@ -72,7 +72,9 @@ The value returned may be less than _nbyte_ if the number of bytes left in the f
 _nbyte_ bytes immediately available for reading. For example, a `read()` from a file associated with a terminal may
 return one typed line of data.
 
-If a `read()` is interrupted by a signal before it reads any data, it shall return `-1` with errno set to `EINTR`.
+If a `read()` is interrupted by a signal before it reads any data, it shall return `-1` with errno set to `EINTR`. A
+`read()` that waits for a server which has already received the request is not interruptible (see POSIX
+deviations).
 
 If a `read()` is interrupted by a signal after it has successfully read some data, it shall return the number of bytes
 read.
@@ -150,7 +152,8 @@ descriptor, and the thread would be delayed in the read operation.
 a control
 part.
 
-* `EINTR` - The read operation was terminated due to the receipt of a signal, and no data was transferred.
+* `EINTR` - The read operation was terminated due to the receipt of a signal, and no data was transferred. A
+`read()` that waits for a server which has already received the request does not fail with this error.
 
 * `EINVAL` - The `STREAM` or multiplexer referenced by _fildes_ is linked (directly or indirectly) downstream from a
 multiplexer.
@@ -199,4 +202,8 @@ These functions may fail if:
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+A `read()` on a file handled by a server (for example an empty pipe, a pseudo-terminal or a device) is a message sent to
+that server. Once the server has received the request, the calling thread waits for the response uninterruptibly: a
+signal does not interrupt the call and `read()` does not fail with `EINTR`, even if no data has been transferred.
+`EINTR` can be reported only while the request is still waiting in the queue of the server. This is a limitation of the
+Phoenix-RTOS messaging layer and applies to blocking in any server. See [POSIX layer](../../posix.md) for details.
