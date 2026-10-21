@@ -63,7 +63,8 @@ links to the directory other than dot or a single entry in dot-dot.
 
 * `ELOOP` - A loop exists in symbolic links encountered during resolution of the _path_ argument.
 
-* `ENAMETOOLONG` - The length of a component of a path name is longer than `NAME_MAX`.
+* `ENAMETOOLONG` - The length of a component of a path name is longer than the name length limit of the filesystem,
+which may differ from `NAME_MAX` (see POSIX deviations).
 
 * `ENOENT` - A component of _path_ does not name an existing file, or the path argument names a nonexistent directory or
 points to an empty string.
@@ -85,4 +86,9 @@ intermediate result with a length that exceeds `PATH_MAX`.
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+The length of a path name component is not checked against `NAME_MAX` by libphoenix (except in `mkdir()`), but by the
+filesystem server, against the name length limit of the filesystem, which may differ from `NAME_MAX`. The error reported
+for a too long component therefore depends on the filesystem: for example `jffs2` reports `ENAMETOOLONG` already when
+the name is looked up, while `dummyfs` reports `ENAMETOOLONG` only when a new directory entry is created, and otherwise
+the lookup of the name fails with `ENOENT`. On targets where `NAME_MAX` is 64 (armv7m, armv7r, armv8m and armv8r),
+`dummyfs` accepts names of up to 255 bytes, so files with names longer than `NAME_MAX` can exist.
