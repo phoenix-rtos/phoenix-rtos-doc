@@ -39,7 +39,9 @@ placed concerning the file.
 The `stat()` function shall update any time-related fields, before writing into the stat structure. If the named file is
 a shared memory object, the implementation shall update in the stat structure pointed to by the buf argument the
 `st_uid,` `st_gid,` `st_size,` and `st_mode` fields, and only the `S_IRUSR,` `S_IWUSR,` `S_IRGRP,` `S_IWGRP,` `S_IROTH,`
-and `S_IWOTH` file permission bits need be valid. The implementation may update other fields and flags.
+and `S_IWOTH` file permission bits need be valid. The implementation may update other fields and flags. The `st_atim`,
+`st_mtim` and `st_ctim` fields are reported by the server handling the file, and whether I/O operations update
+them depends on that server (see POSIX deviations).
 
 If the named file is a typed memory object, the implementation shall update in the stat structure pointed to by the buf
 argument the `st_uid,` `st_gid,` `st_size,` and `st_mode` fields, and only the `S_IRUSR,` `S_IWUSR,` `S_IRGRP,`
@@ -137,3 +139,9 @@ for a too long component therefore depends on the filesystem: for example `jffs2
 the name is looked up, while `dummyfs` reports `ENAMETOOLONG` only when a new directory entry is created, and otherwise
 the lookup of the name fails with `ENOENT`. On targets where `NAME_MAX` is 64 (armv7m, armv7r, armv8m and armv8r),
 `dummyfs` accepts names of up to 255 bytes, so files with names longer than `NAME_MAX` can exist.
+
+The access, modification and status change timestamps (`st_atim`, `st_mtim` and `st_ctim`) are reported by the server
+handling the file, and whether they are updated by I/O operations depends on that server. Servers without a built-in
+filesystem (`posixsrv` and most device drivers) do not update them, as this would require an additional message to the
+filesystem server on every `read()` and `write()`, which adds latency to I/O operations that is not acceptable on a
+real-time system. `dummyfs` does not update `st_mtim` and `st_ctim` of a regular file on `write()`.
