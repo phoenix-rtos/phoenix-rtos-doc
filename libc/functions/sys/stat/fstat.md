@@ -41,7 +41,9 @@ member shall be set to the number of links to the file.
 An implementation that provides additional or alternative file access control mechanisms may, under
 implementation-defined conditions, cause `fstat()` to fail.
 
-The `fstat()` function shall update any time-related fields, before writing into the stat structure.
+The `fstat()` function shall update any time-related fields, before writing into the stat structure. For a pipe, a FIFO,
+a socket, the kernel console, and the `/dev/null`, `/dev/zero`, `/dev/full` and `/dev/urandom` special files the
+`st_atim`, `st_mtim` and `st_ctim` fields are set to zero (see POSIX deviations).
 
 ## Return value
 
@@ -65,4 +67,14 @@ The `fstat()` function may fail if:
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+For an open file descriptor that refers to a pipe, a FIFO, a socket or the kernel console (the terminal set up by the
+kernel as the standard streams of the first process), `fstat()` does not query the server handling the file, and the
+`st_atim`, `st_mtim` and `st_ctim` fields are set to zero. The kernel also treats the `/dev/null`, `/dev/zero`,
+`/dev/full` and `/dev/urandom` special files as pipes, so `fstat()` reports zero timestamps and the `S_IFIFO` file type
+for them.
+
+For other files the timestamps are reported by the server handling the file, and whether they are updated by I/O
+operations depends on that server. Servers without a built-in filesystem (`posixsrv` and most device drivers) do not
+update them, as this would require an additional message to the filesystem server on every `read()` and `write()`, which
+adds latency to I/O operations that is not acceptable on a real-time system. `dummyfs` does not update `st_mtim` and
+`st_ctim` of a regular file on `write()`.
