@@ -28,3 +28,7 @@ The `strspn()` function shall return the computed length; no return value is res
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

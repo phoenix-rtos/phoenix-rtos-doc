@@ -40,3 +40,7 @@ The `rewind()` function shall not return a value.
 ## Errors
 
 Refer to `fseek()` except `EINVAL` which does not apply.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

@@ -49,3 +49,7 @@ Otherwise, it shall return a `null` pointer and set `errno` to indicate the erro
 The `calloc()` function shall fail if:
 
 * `ENOMEM` - Insufficient memory is available.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

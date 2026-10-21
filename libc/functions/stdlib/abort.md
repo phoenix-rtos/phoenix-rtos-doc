@@ -34,3 +34,7 @@ The `abort()` function shall not return.
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

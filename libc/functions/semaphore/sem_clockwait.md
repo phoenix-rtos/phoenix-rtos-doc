@@ -60,3 +60,7 @@ This function shall fail if:
   clock,
 
 * `EBADF` - the named semaphore has been closed or removed.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

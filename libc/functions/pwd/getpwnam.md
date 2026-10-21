@@ -65,3 +65,7 @@ The `getpwnam_r()` function may fail if:
 
 * `ERANGE` - Insufficient storage was supplied via _buffer_ and _bufsize_ to contain the data to be referenced by the
  resulting `passwd` structure.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

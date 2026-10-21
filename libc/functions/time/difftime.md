@@ -28,3 +28,7 @@ The `difftime()` function shall return the difference expressed in seconds as a 
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

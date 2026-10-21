@@ -32,3 +32,7 @@ The `llabs()` function shall return the absolute value of the long long integer 
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

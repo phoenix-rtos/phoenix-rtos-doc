@@ -129,3 +129,7 @@ intermediate result with a length that exceeds `PATH_MAX`.
 * `ENOBUFS` - No buffer space is available.
 
 * `EOPNOTSUPP` - The socket is listening and cannot be connected.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

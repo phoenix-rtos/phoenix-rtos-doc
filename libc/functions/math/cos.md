@@ -47,3 +47,7 @@ These functions shall fail if:
   If the integer expression `(math_errhandling & MATH_ERRNO)` is non-zero, then `errno` shall be set to `EDOM`.
   If the integer expression `(math_errhandling & MATH_ERREXCEPT)` is non-zero, then the invalid floating-point exception
   shall be raised.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

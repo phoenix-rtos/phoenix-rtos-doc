@@ -89,3 +89,7 @@ The `close()` function shall fail if:
 The `close()` function may fail if:
 
 * `EIO` - An I/O error occurred while reading from or writing to the file system.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

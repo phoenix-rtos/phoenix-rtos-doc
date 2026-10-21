@@ -30,3 +30,7 @@ The `isalpha()` function shall return non-zero if _c_ is an alphanumeric charact
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

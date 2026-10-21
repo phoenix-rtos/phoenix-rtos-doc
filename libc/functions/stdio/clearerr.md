@@ -29,3 +29,7 @@ The `clearerr()` function shall not return a value.
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

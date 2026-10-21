@@ -130,3 +130,7 @@ intermediate result with a length that exceeds `PATH_MAX`.
 The `utimensat()` function may fail if:
 
 * `EINVAL` - The value of the flag argument is not valid.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

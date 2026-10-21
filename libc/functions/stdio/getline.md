@@ -72,3 +72,7 @@ These functions may fail if:
 
 * `EOVERFLOW` - The number of bytes to be written into the buffer, including the _delimiter_ character
  (if encountered), would exceed `SSIZE_MAX`.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

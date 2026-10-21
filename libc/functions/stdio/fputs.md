@@ -33,3 +33,7 @@ indicator for the stream and set `errno` to indicate the error.
 ## Errors
 
 Refer to [fputc](fputc.md)
+
+## POSIX deviations
+
+No POSIX deviations discovered.

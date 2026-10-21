@@ -91,3 +91,7 @@ The value of _base_ is not supported.
 These functions may fail if:
 
 * `EINVAL` - No conversion could be performed.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

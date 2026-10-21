@@ -29,3 +29,7 @@ occurs in _s1_.
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

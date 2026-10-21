@@ -32,3 +32,7 @@ _s1_ is greater than, equal to, or less than the object pointed to by _s2_, resp
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

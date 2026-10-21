@@ -273,3 +273,7 @@ In addition, the `fscanf()` function shall fail if:
 In addition, the `fscanf()` function may fail if:
 
 * `EINVAL` - There are insufficient arguments.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

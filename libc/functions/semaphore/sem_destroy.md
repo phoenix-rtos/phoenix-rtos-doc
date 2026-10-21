@@ -34,3 +34,7 @@ and set `errno` to indicate the error.
 This function shall fail if:
 
 * `EINVAL` - _sem_ is a null pointer or does not refer to an unnamed semaphore.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

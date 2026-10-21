@@ -93,3 +93,7 @@ return another non-zero value.
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

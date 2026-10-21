@@ -51,3 +51,7 @@ The _x_ argument is finite and is not in the range `[-1,1]`, or is `±Inf`.
 If the integer expression `(math_errhandling & MATH_ERRNO)` is non-zero, then `errno` shall be set to `EDOM`. If
 the integer expression `(math_errhandling & MATH_ERREXCEPT)` is non-zero, then the invalid floating-point
 exception shall be raised.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

@@ -33,3 +33,7 @@ Upon successful completion, these functions shall return a value with the magnit
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

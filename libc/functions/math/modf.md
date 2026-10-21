@@ -36,3 +36,7 @@ Upon successful completion, these functions shall return the signed fractional p
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

@@ -40,5 +40,9 @@ occurs, `-1` shall be returned and `errno` set to indicate the error.
 The `sigsuspend()` function shall fail if:
 
 - `EINTR` - A signal is caught by the calling process and control is returned from the signal-catching function.</br>
-  
+
+## POSIX deviations
+
+No POSIX deviations discovered.
+
 The following sections are informative.

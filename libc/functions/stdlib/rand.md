@@ -44,3 +44,7 @@ at least `232`.
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

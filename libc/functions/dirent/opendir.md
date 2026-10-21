@@ -56,6 +56,10 @@ directory.
 intermediate result with a length that exceeds {`PATH_MAX`}.
 [`ENFILE`] Too many files are currently open in the system.
 
+## POSIX deviations
+
+No POSIX deviations discovered.
+
 ### Implementation tasks
 
 * Implement `fdopendir()` function

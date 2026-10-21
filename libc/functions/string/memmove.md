@@ -30,3 +30,7 @@ The `memmove()` function shall return _s1_; no return value is reserved to indic
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

@@ -36,3 +36,7 @@ Upon successful completion, `atexit()` shall return `0`, otherwise, it shall ret
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

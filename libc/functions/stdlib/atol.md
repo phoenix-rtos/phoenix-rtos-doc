@@ -32,3 +32,7 @@ This function shall return the converted value if the value can be represented.
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

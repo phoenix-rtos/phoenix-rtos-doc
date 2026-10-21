@@ -47,3 +47,7 @@ The `perror()` function shall not return a value.
 ## Errors
 
 Refer to `fputc()`
+
+## POSIX deviations
+
+No POSIX deviations discovered.

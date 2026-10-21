@@ -31,3 +31,7 @@ The `memchr()` function shall return a pointer to the located byte, or a `null` 
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

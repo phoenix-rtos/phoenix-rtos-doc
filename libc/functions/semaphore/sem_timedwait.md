@@ -53,3 +53,7 @@ This function shall fail if:
   `tv_nsec` field of _abstime_ is negative or 1000 million or more,
 
 * `EBADF` - the named semaphore has been closed or removed.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

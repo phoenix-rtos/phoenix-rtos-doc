@@ -69,3 +69,7 @@ This function shall fail if:
 
 * `ENOSPC` - there is insufficient space for the new semaphore, or `SEM_NSEMS_MAX`
   semaphores already exist.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

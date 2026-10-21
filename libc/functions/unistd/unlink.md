@@ -119,3 +119,7 @@ executed.
 The `unlinkat()` function may fail if:
 
 * `EINVAL` - The value of the flag argument is not valid.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

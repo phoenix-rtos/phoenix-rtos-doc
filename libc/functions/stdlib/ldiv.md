@@ -46,3 +46,7 @@ long long   rem;     /* Remainder */
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

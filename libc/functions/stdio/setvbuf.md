@@ -46,4 +46,8 @@ The `setvbuf()` function may fail if:
 
 * `EBADF` - The file descriptor underlying stream is not valid.
 
+## POSIX deviations
+
+No POSIX deviations discovered.
+
 The following sections are informative.

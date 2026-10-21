@@ -43,3 +43,7 @@ signal number, the return value is unspecified.
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

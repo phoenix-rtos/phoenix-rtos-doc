@@ -71,3 +71,7 @@ The `pthread_sigmask()` and `sigprocmask()` functions shall fail if:
 * `EINVAL` - The value of how argument is not equal to one of the defined values. </br>
   
 The `pthread_sigmask()` function shall not return an error code of `EINT`.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

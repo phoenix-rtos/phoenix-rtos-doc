@@ -32,3 +32,7 @@ return `0`.
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

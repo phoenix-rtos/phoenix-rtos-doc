@@ -43,3 +43,7 @@ If the return is from a direct invocation, `setjmp()` shall return `0`. If the r
 ## Errors
 
 No errors are defined.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

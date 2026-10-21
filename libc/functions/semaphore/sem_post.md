@@ -40,3 +40,7 @@ This function shall fail if:
 * `EINVAL` - _sem_ is a null pointer or does not refer to a valid semaphore,
 
 * `EBADF` - the named semaphore has been closed or removed.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

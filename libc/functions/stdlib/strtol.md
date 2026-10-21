@@ -86,3 +86,7 @@ These functions shall fail if:
 These functions may fail if:
 
 * `EINVAL` - No conversion could be performed.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

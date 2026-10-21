@@ -62,3 +62,7 @@ The `lseek()` function shall fail if:
  `off_t`.
 
 * `ESPIPE` - The _fildes_ argument is associated with a pipe, `FIFO`, or socket.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

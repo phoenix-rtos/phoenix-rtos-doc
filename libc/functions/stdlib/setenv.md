@@ -44,3 +44,7 @@ The `seteuid()` function shall fail if:
 * `EINVAL` - The envname argument points to an empty string or points to a string containing a `'='` character.
 
 * `ENOMEM` - Insufficient memory was available to add a variable or its value to the environment.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

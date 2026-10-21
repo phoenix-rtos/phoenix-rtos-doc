@@ -42,3 +42,7 @@ The `tcgetpgrp()` function shall fail if:
 * `EBADF` - The _fildes_ argument is not a valid file descriptor.
 
 * `ENOTTY` - The calling process does not have a controlling terminal, or the file is not the controlling terminal.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

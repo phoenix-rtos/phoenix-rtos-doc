@@ -37,3 +37,7 @@ The function may fail if:
 * [`EINVAL`] - The string argument doesn't contain `'='`.
 
 * [`ENOMEM`] - Insufficient memory was available.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

@@ -160,4 +160,8 @@ The `rename()` and `renameat()` functions may fail if:
 * `ETXTBSY` - The file named by _new_ exists and is the last directory entry to a pure procedure (shared text) file
  that is being executed.
 
+## POSIX deviations
+
+No POSIX deviations discovered.
+
 The following sections are informative.

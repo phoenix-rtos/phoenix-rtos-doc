@@ -34,3 +34,7 @@ The `fileno()` function shall fail if:
 The `fileno()` function may fail if:
 
 * `EBADF` - The file descriptor underlying stream is not a valid file descriptor.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

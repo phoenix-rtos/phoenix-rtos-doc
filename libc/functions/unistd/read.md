@@ -196,3 +196,7 @@ These functions may fail if:
 * `ENOMEM` - Insufficient memory was available to fulfill the request.
 
 * `ENXIO` - A request was made of a nonexistent device, or the request was outside the capabilities of the device.
+
+## POSIX deviations
+
+No POSIX deviations discovered.

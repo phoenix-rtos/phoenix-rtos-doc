@@ -80,3 +80,7 @@ These functions may fail if:
 The `strerror_r()` function may fail if:
 
 - `[ERANGE]` Insufficient storage was supplied via _strerrbuf_ and _buflen_ to contain the generated message string.
+
+## POSIX deviations
+
+No POSIX deviations discovered.
