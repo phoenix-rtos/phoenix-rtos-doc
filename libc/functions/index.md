@@ -14,6 +14,7 @@ math/index.md
 netdb/index.md
 pthread/index.md
 pwd/index.md
+sched/index.md
 semaphore/index.md
 setjmp/index.md
 signal/index.md
