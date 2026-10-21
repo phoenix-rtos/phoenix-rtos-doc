@@ -27,7 +27,8 @@ The environment of the executed command shall be as if a child process were crea
 
 `execl(shell path, "sh", "-c", command, (char *)0);`
 
-Where shell path is an unspecified path name for the `sh` utility.
+Where shell path is an unspecified path name for the `sh` utility. The `sh` utility has to be installed in the system;
+the default `psh` shell of Phoenix-RTOS is not installed as `sh`.
 
 The `popen()` function shall ensure that any streams from previous `popen()` calls that remain open in the parent
 process are closed in the new child process.
@@ -69,4 +70,6 @@ The `popen()` function may also set `errno` values as described by `fork` or `pi
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+The command is executed by the `sh` utility, which `popen()` expects to find in the system. Phoenix-RTOS does not
+provide `sh` by default (the `psh` shell is not installed as `sh`), so commands run through `popen()` fail unless a
+POSIX shell such as BusyBox `ash` is installed as `sh`.
