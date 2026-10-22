@@ -8,6 +8,7 @@ and system artifacts are available in the `_boot` directory. The building proces
 :maxdepth: 1
 
 aarch64a53-zynqmp-zcu104.md
+armv7r5f-zynqmp-zcu104.md
 armv7m4-stm32l4x6-nucleo.md
 armv7m7-imxrt105x-evk.md
 armv7m7-imxrt106x-evk.md
