@@ -8,4 +8,5 @@ start guides and any usage instructions that deviate from the upstream.
 
 azure_sdk.md
 mbedtls.md
+wamr.md
 ```
