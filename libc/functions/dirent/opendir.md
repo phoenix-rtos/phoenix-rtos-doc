@@ -29,6 +29,15 @@ The `FD_CLOEXEC` flag is set on the file descriptor by a successful call to `fdo
 The `opendir()` function opens a directory stream corresponding to the directory named by the _dirname_ argument. The
 directory stream is positioned at the first entry.
 
+A directory stream opened by `opendir()` doesn't use a file descriptor: the directory is opened directly at the
+filesystem server and the stream keeps the identifier of the directory object, which `readdir()` and `closedir()` pass
+to the server. Keeping the stream out of the per-process descriptor table held by the kernel saves a kernel allocation
+for every open directory and an additional lookup on every directory operation, which matters on resource-constrained
+edge and IoT devices running a microkernel, where the filesystems are user-space servers. The number of directory
+streams that a process can open is therefore not limited by {`OPEN_MAX`}, but only by the memory available to the
+process, and `opendir()` does not fail with `EMFILE` or `ENFILE` because of it. A directory stream opened by
+`fdopendir()` uses the given file descriptor.
+
 ## Return value
 
 Upon successful completion, `fdopendir()` and `opendir()` return a pointer to an object of type `DIR`. Otherwise, these
