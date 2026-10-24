@@ -107,4 +107,10 @@ The `fseek()` and `fseeko()` functions may fail if:
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+The file size limit of the process is not supported and `SIGXFSZ` is never generated, see
+[File size limit of the process](../../posix.md#file-size-limit-of-the-process). `EFBIG` is not guaranteed when the
+maximum file size or the offset maximum would be exceeded.
+
+`fseek()` does not fail with `EOVERFLOW` when the resulting file offset cannot be represented in an object of type
+`long`, and `ftell()` returns the offset truncated to `long` instead of failing with `EOVERFLOW`. This affects targets
+where `long` is 32 bits wide.
