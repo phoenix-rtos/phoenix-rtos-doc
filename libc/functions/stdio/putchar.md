@@ -32,4 +32,4 @@ Refer to fputc.
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+The deviations described for [fputc](fputc.md#posix-deviations) apply here too.
