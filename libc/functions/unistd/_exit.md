@@ -66,9 +66,6 @@ of these threads obtains the process' status information as specified in Status 
 Termination of a process does not directly terminate its children. The sending of a `SIGHUP` signal as described below
 indirectly terminates children in some circumstances.
 
-If the process is a controlling process, the `SIGHUP` signal is sent to each process in the foreground process group of
-the controlling terminal belonging to the calling process.
-
 If the process is a controlling process, the controlling terminal associated with the session is disassociated from the
 session, allowing it to be acquired by a new controlling process.
 
@@ -94,4 +91,11 @@ No errors are defined.
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+When a controlling process terminates, the `SIGHUP` signal is not sent to the foreground process group of its
+controlling terminal. In Phoenix-RTOS, terminals are handled by drivers running as user-space servers, and the kernel
+doesn't keep a reference to the controlling terminal of a session. Sending the signal would require the kernel to track
+the terminal of every session and to notify its server on the termination of every session leader, which adds
+inter-process communication to the process termination path of a microkernel designed for resource-constrained edge and
+IoT devices. The terminal server checks whether the session leader still exists when it handles the next request for the
+terminal, and releases the terminal of a terminated session, so the terminal can be acquired by a new controlling
+process. The processes of the former foreground process group are not signaled and keep running.

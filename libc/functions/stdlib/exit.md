@@ -46,4 +46,6 @@ No errors are defined.
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+The process is terminated as by `_Exit()`, so the `SIGHUP` signal is not sent to the foreground process group of the
+controlling terminal when a controlling process terminates. See the POSIX deviations of
+[`_exit()`](../unistd/_exit.md).
