@@ -57,7 +57,3 @@ No errors are defined.
 ## POSIX deviations
 
 No POSIX deviations discovered.
-
-## Implementation tasks
-
-* Add environment parsing for setting timezone and daylight.
