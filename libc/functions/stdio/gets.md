@@ -10,7 +10,7 @@ char *gets(char *s);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

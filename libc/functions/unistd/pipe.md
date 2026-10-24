@@ -10,7 +10,7 @@ int pipe(int fildes[2]);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

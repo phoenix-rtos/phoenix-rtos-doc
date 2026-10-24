@@ -16,7 +16,7 @@ int sigprocmask(int how,
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

@@ -10,7 +10,7 @@ int sigsuspend(const sigset_t *sigmask);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

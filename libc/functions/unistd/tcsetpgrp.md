@@ -10,7 +10,7 @@ int tcsetpgrp(int fildes, pid_t pgid_id);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

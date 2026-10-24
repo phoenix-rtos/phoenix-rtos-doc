@@ -10,7 +10,7 @@ int fileno(FILE *stream);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

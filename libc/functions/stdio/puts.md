@@ -10,7 +10,7 @@ int puts(const char *s);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

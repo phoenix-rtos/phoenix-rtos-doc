@@ -8,6 +8,10 @@
 int getchar(void);
 ```
 
+## Status
+
+Implemented
+
 ## Description
 
 Gets a character (an unsigned char) from `stdin`.

@@ -10,7 +10,7 @@ int sigemptyset(sigset_t *set);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

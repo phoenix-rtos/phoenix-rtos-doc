@@ -10,7 +10,7 @@ int fgetc(FILE *stream);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

@@ -10,7 +10,7 @@ int putenv(char *string);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

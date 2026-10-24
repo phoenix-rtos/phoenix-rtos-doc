@@ -10,7 +10,7 @@ clock_t times(struct tms *buffer);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

@@ -12,7 +12,7 @@ int fseeko(FILE *stream, off_t offset, int whence);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

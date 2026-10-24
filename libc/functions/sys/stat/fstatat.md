@@ -16,7 +16,7 @@ int stat(const char *restrict path, struct stat *restrict buf);
 
 ## Status
 
-Partially implemented
+`lstat()` and `stat()` are implemented, `fstatat()` is not implemented
 
 ## Conformance
 

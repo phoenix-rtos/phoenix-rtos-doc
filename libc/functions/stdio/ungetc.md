@@ -10,7 +10,7 @@ int ungetc(int c, FILE *stream);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

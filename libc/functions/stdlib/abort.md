@@ -10,7 +10,7 @@ void abort(void);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

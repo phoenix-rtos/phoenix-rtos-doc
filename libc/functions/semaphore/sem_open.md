@@ -10,7 +10,7 @@ sem_t *sem_open(const char *name, int oflag, ... /* mode_t mode, unsigned int va
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

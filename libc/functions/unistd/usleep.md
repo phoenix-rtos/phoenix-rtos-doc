@@ -10,7 +10,7 @@ int usleep(useconds_t useconds);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

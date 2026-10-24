@@ -10,7 +10,7 @@ int getenv(const char *name);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

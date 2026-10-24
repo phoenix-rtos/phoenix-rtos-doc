@@ -11,7 +11,7 @@ int accept(int socket, struct sockaddr *restrict address,
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

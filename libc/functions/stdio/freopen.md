@@ -12,7 +12,7 @@ FILE *freopen(const char *restrict pathname,
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

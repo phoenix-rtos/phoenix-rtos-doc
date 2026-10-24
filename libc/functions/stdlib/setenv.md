@@ -10,7 +10,7 @@ int setenv(const char *envname, const char *envval, int overwrite);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

@@ -10,7 +10,7 @@ int atexit(void (*func)(void));
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

@@ -12,7 +12,7 @@ pid_t wait(int *status);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

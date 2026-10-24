@@ -10,7 +10,7 @@ int truncate(const char *path, off_t length);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

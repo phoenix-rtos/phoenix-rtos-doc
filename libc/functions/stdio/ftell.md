@@ -12,7 +12,7 @@ off_t ftello(FILE *stream);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

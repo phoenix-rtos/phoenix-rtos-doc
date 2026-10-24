@@ -19,7 +19,7 @@ int utimes(const char *path, const struct timeval times[2]);
 
 ## Status
 
-Partially implemented
+`utimes()` is implemented, `futimens()` and `utimensat()` are not implemented
 
 ## Conformance
 

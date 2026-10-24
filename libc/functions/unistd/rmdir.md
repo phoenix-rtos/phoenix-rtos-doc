@@ -10,7 +10,7 @@ int rmdir(const char *path);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

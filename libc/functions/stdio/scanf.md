@@ -8,6 +8,10 @@
 int scanf(const char *format, ...);
 ```
 
+## Status
+
+Implemented
+
 ## Description
 
 Reads formatted input from stdin.

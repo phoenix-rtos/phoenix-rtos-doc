@@ -10,7 +10,7 @@ pid_t getpgrp(void);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

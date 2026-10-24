@@ -19,7 +19,7 @@ int vsscanf(const char *restrict s,
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

@@ -14,7 +14,7 @@ int sscanf(const char *restrict s, const char *restrict format, ...);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

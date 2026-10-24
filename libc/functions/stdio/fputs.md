@@ -10,7 +10,7 @@ int fputs(const char *restrict s, FILE *restrict stream);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

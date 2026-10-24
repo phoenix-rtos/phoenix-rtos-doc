@@ -10,7 +10,7 @@ FILE *fdopen(int fildes, const char *mode);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

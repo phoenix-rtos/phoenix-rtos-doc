@@ -11,7 +11,7 @@ size_t fread(void *restrict ptr, size_t size,
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

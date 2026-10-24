@@ -10,7 +10,7 @@ char *getcwd(char *buf, size_t size);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

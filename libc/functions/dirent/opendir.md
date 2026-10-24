@@ -10,6 +10,10 @@ DIR *fdopendir(int fd);
 DIR *opendir(const char *dirname);
 ```
 
+## Status
+
+Implemented
+
 ## Description
 
 The functions open the directory associated with a file descriptor or a name.

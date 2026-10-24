@@ -10,7 +10,7 @@ void rewind(FILE *stream);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

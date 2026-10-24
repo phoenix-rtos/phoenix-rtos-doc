@@ -10,7 +10,7 @@ int sem_init(sem_t *sem, int pshared, unsigned int value);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

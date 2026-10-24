@@ -10,7 +10,7 @@ int sigaddset(sigset_t *set, int signo);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

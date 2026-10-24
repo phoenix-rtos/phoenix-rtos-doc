@@ -10,7 +10,7 @@ int sem_timedwait(sem_t *restrict sem, const struct timespec *restrict abstime);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 
