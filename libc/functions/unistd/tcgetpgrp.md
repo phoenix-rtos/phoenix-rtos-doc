@@ -10,7 +10,7 @@ pid_t tcgetpgrp(int fildes);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

@@ -10,7 +10,7 @@ int fclose(FILE *stream);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

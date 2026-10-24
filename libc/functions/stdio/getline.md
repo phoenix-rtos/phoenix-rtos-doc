@@ -14,7 +14,7 @@ ssize_t getline(char **restrict lineptr, size_t *restrict n,
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

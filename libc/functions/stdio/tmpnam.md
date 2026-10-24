@@ -10,7 +10,7 @@ char *tmpnam(char *s);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

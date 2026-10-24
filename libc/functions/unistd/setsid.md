@@ -10,7 +10,7 @@ pid_t setsid(void);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

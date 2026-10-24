@@ -10,7 +10,7 @@ void clearerr(FILE *stream);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

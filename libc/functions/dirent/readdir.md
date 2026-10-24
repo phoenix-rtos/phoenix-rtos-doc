@@ -14,7 +14,7 @@ int readdir_r(DIR *restrict dirp,
 
 ## Status
 
-Partially implemented
+`readdir()` is implemented, `readdir_r()` is not implemented
 
 ## Conformance
 

@@ -10,7 +10,7 @@ unsigned alarm(unsigned seconds);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

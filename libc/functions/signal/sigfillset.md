@@ -10,7 +10,7 @@ int sigfillset(sigset_t *set);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

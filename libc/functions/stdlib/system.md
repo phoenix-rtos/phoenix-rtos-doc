@@ -10,7 +10,7 @@ int system(const char *command);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

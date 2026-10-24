@@ -10,7 +10,7 @@ int putchar(int c);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

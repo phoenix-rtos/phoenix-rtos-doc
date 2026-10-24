@@ -11,7 +11,7 @@ int bind(int socket, const struct sockaddr *address,
 
 ## Status
 
-Partially implemented.
+Implemented
 
 ## Conformance
 

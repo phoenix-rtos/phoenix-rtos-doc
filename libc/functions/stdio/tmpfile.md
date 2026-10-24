@@ -10,7 +10,7 @@ FILE *tmpfile(void);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

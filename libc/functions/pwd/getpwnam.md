@@ -13,7 +13,7 @@ int getpwnam_r(const char *name, struct passwd *pwd, char *buffer,
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

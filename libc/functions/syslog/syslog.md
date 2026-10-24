@@ -14,6 +14,10 @@ int setlogmask(int maskpri);
 void syslog(int priority, const char *message, ... /* arguments */);
 ```
 
+## Status
+
+Implemented
+
 ## Description
 
 All these functions operate on the log file.

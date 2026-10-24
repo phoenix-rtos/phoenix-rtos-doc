@@ -10,7 +10,7 @@ unsigned sleep(unsigned seconds);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

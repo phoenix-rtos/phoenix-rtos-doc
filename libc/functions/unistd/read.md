@@ -12,7 +12,7 @@ ssize_t read(int fildes, void *buf, size_t nbyte);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

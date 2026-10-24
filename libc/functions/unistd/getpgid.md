@@ -10,7 +10,7 @@ pid_t getpgid(pid_t pid);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

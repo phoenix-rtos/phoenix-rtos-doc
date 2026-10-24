@@ -10,7 +10,7 @@ FILE *fopen(const char *restrict path name, const char *restrict mode);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

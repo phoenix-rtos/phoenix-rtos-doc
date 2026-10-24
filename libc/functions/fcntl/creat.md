@@ -12,7 +12,7 @@ int creat(const char *path, mode_t mode);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

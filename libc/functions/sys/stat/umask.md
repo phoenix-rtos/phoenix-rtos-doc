@@ -10,7 +10,7 @@ mode_t umask(mode_t cmask);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

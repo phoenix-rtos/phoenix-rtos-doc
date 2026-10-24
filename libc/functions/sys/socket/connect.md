@@ -11,7 +11,7 @@ int connect(int socket, const struct sockaddr *address,
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

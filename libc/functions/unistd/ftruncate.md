@@ -10,7 +10,7 @@ int ftruncate(int fildes, off_t length);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

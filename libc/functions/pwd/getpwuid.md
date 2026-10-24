@@ -13,7 +13,7 @@ int getpwuid_r(uid_t uid, struct passwd *pwd, char *buffer,
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

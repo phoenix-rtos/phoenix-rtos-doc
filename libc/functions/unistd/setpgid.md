@@ -10,7 +10,7 @@ int setpgid(pid_t pid, pid_t pgid);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

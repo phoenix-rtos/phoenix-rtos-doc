@@ -14,7 +14,7 @@ int mkdirat(int fd, const char *path, mode_t mode);
 
 ## Status
 
-Partially implemented
+`mkdir()` is implemented, `mkdirat()` is not implemented
 
 ## Conformance
 

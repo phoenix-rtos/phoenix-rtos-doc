@@ -10,7 +10,7 @@ off_t lseek(int fildes, off_t offset, int whence);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

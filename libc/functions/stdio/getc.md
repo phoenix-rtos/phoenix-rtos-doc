@@ -10,7 +10,7 @@ int getc(FILE *stream);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

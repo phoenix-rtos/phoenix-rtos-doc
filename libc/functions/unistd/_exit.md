@@ -14,7 +14,7 @@ void _exit(int status);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

@@ -16,7 +16,7 @@ void syslog(int priority, const char *message, ... /* arguments */);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

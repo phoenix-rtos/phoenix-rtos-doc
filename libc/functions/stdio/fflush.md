@@ -10,7 +10,7 @@ int fflush(FILE *stream);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

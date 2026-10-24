@@ -10,7 +10,7 @@ char *fgets(char *restrict s, int n, FILE *restrict stream);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

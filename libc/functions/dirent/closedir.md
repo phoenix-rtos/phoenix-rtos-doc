@@ -10,7 +10,7 @@ int closedir(DIR *dirp);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

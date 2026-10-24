@@ -12,7 +12,7 @@ int dup2(int fildes, int fildes2);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

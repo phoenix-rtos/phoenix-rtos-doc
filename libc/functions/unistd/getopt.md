@@ -14,7 +14,7 @@ extern int opterr, optind, optopt;
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

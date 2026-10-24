@@ -16,7 +16,7 @@ int putchar_unlocked(int c);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

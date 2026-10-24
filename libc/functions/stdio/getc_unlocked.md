@@ -14,6 +14,10 @@ int putc_unlocked(int c, FILE *stream);
 int putchar_unlocked(int c);
 ```
 
+## Status
+
+Implemented
+
 ## Description
 
 `stdio` functions with explicit client locking.

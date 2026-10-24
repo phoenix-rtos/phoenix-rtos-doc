@@ -10,7 +10,7 @@ int ioctl(int fildes, int request, ... /* arg */);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

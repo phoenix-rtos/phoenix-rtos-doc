@@ -10,7 +10,7 @@ int sigpending(sigset_t *set);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

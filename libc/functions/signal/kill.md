@@ -10,7 +10,7 @@ int kill(pid_t pid, int sig);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

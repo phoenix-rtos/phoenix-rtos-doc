@@ -12,7 +12,7 @@ int isatty(int fildes);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 

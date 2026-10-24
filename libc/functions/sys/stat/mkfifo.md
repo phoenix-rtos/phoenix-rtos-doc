@@ -14,7 +14,7 @@ int mkfifoat(int fd, const char *path, mode_t mode);
 
 ## Status
 
-Partially implemented
+`mkfifo()` is implemented, `mkfifoat()` is not implemented
 
 ## Conformance
 

@@ -10,7 +10,7 @@ void setbuf(FILE *restrict stream, char *restrict buf);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 
