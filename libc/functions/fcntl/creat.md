@@ -40,4 +40,8 @@ Refer to [open](open.md).
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+`creat()` has the POSIX deviations of [open](open.md). In particular, the length of a path name component is checked by
+the filesystem server against the name length limit of the filesystem instead of `NAME_MAX`. On ia32, where `NAME_MAX`
+is 256 and `ext2` accepts names of up to 255 bytes, a name longer than `NAME_MAX` is rejected with `ENAMETOOLONG` when
+the new directory entry is created, and so is a name of exactly 256 bytes. On targets where `NAME_MAX` is 64 (armv7m,
+armv7r, armv8m, and armv8r), a file with a name of up to 255 bytes can be created.
