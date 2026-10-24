@@ -89,3 +89,7 @@ These functions may fall if:
 
 The format of these functions is processed as by `printf()`, so the deviations described for
 [printf](printf.md#posix-deviations) apply here too.
+
+The file size limit of the process is not supported and `SIGXFSZ` is never generated, see
+[File size limit of the process](../../posix.md#file-size-limit-of-the-process). `EFBIG` is not guaranteed when the
+maximum file size or the offset maximum would be exceeded.

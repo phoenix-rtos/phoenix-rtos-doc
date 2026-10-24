@@ -40,6 +40,17 @@ This is a known deviation from IEEE Std 1003.1-2017. For the affected calls:
 The deviation is a property of the messaging layer, not of any individual server, so it
 applies uniformly to every blocking POSIX operation that `posixsrv` implements.
 
+## File size limit of the process
+
+Phoenix-RTOS does not support the file size limit of a process: `RLIMIT_FSIZE` is not defined in `<sys/resource.h>`
+and `SIGXFSZ` is never generated. Files are handled by filesystem servers running as separate processes, and a write or
+truncation reaches the server as a message. Neither the kernel nor the servers keep resource limits of processes, so
+enforcing the limit would require storing it for every process and passing it with every write and truncation
+request, to be checked by every filesystem server. The cost would be paid by the most frequent file operations, while
+on edge and IoT devices the storage is partitioned when the system is designed and the size of a file is already
+bounded by its partition and by the maximum file size of the filesystem. The limit is left out to keep the system
+lightweight.
+
 ## Scheduling priorities
 
 The kernel uses native priorities in the range `[-NPRIOS/2, NPRIOS/2 - 1]` (`[-32, 31]` by default), where a smaller

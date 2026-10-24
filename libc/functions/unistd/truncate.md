@@ -75,4 +75,6 @@ The truncate() function may fail if:
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+The file size limit of the process is not supported and `SIGXFSZ` is never generated, see
+[File size limit of the process](../../posix.md#file-size-limit-of-the-process). Neither `EFBIG` nor `EINVAL` is
+guaranteed when the length is greater than the maximum file size.

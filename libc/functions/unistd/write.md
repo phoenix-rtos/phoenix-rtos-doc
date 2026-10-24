@@ -223,3 +223,7 @@ the server has received the request, the calling thread waits for the response u
 interrupt the call and `write()` does not fail with `EINTR`, even if no data has been transferred. `EINTR` can be
 reported only while the request is still waiting in the queue of the server. This is a limitation of the Phoenix-RTOS
 messaging layer and applies to blocking in any server. See [POSIX layer](../../posix.md) for details.
+
+The file size limit of the process is not supported and `SIGXFSZ` is never generated, see
+[File size limit of the process](../../posix.md#file-size-limit-of-the-process). `EFBIG` is not guaranteed when the
+maximum file size or the offset maximum would be exceeded.
