@@ -123,4 +123,9 @@ an intermediate result with a length that exceeds `PATH_MAX`.
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+The length of a path name is checked after the current working directory has been prepended to it and before the path is
+canonicalized. A path name that is not in canonical form (for example one containing dot or dot-dot components or
+repeated `<slash>` characters) can therefore fail with `ENAMETOOLONG` although its canonical form, combined with the
+current working directory, fits within `PATH_MAX`. Path resolution works on a bounded buffer, which must not be allowed
+to grow arbitrarily on a resource-constrained system. IEEE Std 1003.1-2017 does not prohibit reporting `ENAMETOOLONG`
+under implementation-defined conditions.
