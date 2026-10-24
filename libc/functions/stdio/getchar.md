@@ -38,7 +38,3 @@ with the corresponding stream.
 ## POSIX deviations
 
 No POSIX deviations discovered.
-
-## Implementation tasks
-
-* Implement error handling for the `getchar()` function.

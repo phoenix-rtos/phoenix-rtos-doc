@@ -72,4 +72,6 @@ The `ftruncate()` function shall fail if:
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+The file size limit of the process is not supported, so `EFBIG` is reported only when the maximum file size or the
+offset maximum would be exceeded, and `SIGXFSZ` is never generated. See
+[File size limit of the process](../../posix.md#file-size-limit-of-the-process).

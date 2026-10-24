@@ -75,3 +75,8 @@ stop the process and `SIGCONT` does not continue it. With the default dispositio
 process cannot be stopped (see the deviations of `waitpid()`). The other default actions, including the termination of
 the process by `SIGHUP`, are implemented as specified. Stopping and continuing processes is outside the scope of the
 lightweight system, which is aimed at embedded devices.
+
+Permission to send a signal is not verified. Phoenix-RTOS does not keep user and group IDs of processes: the real and
+effective user IDs of every process are always `0` and `setuid()`, `seteuid()` have no effect. Therefore, every process
+is privileged to send a signal to any other user process and `kill()` does not fail with `EPERM` due to the user IDs of
+the sending and receiving processes.
