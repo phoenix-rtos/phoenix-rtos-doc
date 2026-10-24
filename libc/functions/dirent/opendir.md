@@ -59,8 +59,3 @@ intermediate result with a length that exceeds {`PATH_MAX`}.
 ## POSIX deviations
 
 No POSIX deviations discovered.
-
-### Implementation tasks
-
-* Implement `fdopendir()` function
-* Implement error detection as described above.

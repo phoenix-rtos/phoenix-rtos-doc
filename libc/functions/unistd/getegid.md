@@ -26,7 +26,3 @@ No errors are defined.
 ## POSIX deviations
 
 No POSIX deviations discovered.
-
-## Implementation tasks
-
-* Implement the `getegid()` function.
