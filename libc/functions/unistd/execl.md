@@ -339,3 +339,6 @@ No POSIX deviations discovered.
 
 * [`exec*()`: time left until an alarm is not inherited by the new process
   image](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/1811)
+
+* [`exec*()`: current working directory is not inherited when `PWD` is not in the new
+  environment](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/1812)
