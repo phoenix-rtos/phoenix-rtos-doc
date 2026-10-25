@@ -47,4 +47,14 @@ These functions shall not return an error code of `EINTR`.
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+`PTHREAD_CANCEL_DEFERRED` and `PTHREAD_CANCEL_ASYNCHRONOUS` are not defined.
+
+If cancelability of the target is enabled when another thread calls `pthread_cancel()`, the cancellation processing
+does not run in the target thread. `pthread_cancel()` calls the cleanup handlers and the thread-specific data
+destructors of the target in the calling thread before it returns, and then terminates the target wherever it is
+executing, not at a cancellation point. A target blocked in a call handled by `posixsrv`, such as `sem_wait()` on a
+named semaphore or a read from an empty pipe, is terminated only when the call returns. See
+[Blocking operations are not interruptible](../../posix.md#blocking-operations-are-not-interruptible).
+
+A cancellation request made while cancelability is disabled is acted upon only by `pthread_testcancel()`, not by the
+other cancellation points.
