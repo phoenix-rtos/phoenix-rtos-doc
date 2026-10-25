@@ -48,3 +48,8 @@ If the file associated with _s_ is not a socket, the error reported by `sockatma
 the file. The function is implemented on top of `ioctl()`, and the kernel forwards every request to the server without
 checking the type of the file. Servers that do not handle socket requests report them either with `ENOTTY` or with
 `EINVAL` (for example `/dev/null`).
+
+## Known bugs
+
+* [sockatmark() fails with EINVAL on a TCP socket instead of reporting the out-of-band mark
+  state](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/1815)
