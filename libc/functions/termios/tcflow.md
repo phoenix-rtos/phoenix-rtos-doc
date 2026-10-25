@@ -71,3 +71,8 @@ example files in `jffs2`) or with `EINVAL` (for example pipes and files in `dumm
 
 Job control is not supported (`_POSIX_JOB_CONTROL` is not defined), so `SIGTTOU` is not sent when `tcflow()` is called
 from a background process group, and `EIO` is not reported for an orphaned process group.
+
+## Known bugs
+
+* [tcflow() fails with EINVAL on a terminal because the TCXONC request is not handled by the terminal
+  drivers](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/647)
