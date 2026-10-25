@@ -24,8 +24,8 @@ may support others.
 
 The _name_ argument represents the system variable to be queried. The variables are the limits from `<limits.h>` (for
 example `ARG_MAX`, `HOST_NAME_MAX`, `IOV_MAX`, `OPEN_MAX`, `PAGESIZE`) and the options from `<unistd.h>` (for example
-`_POSIX_FSYNC`, `_POSIX_THREADS`), queried with the corresponding symbolic constants defined in `<unistd.h>`
-(`_SC_ARG_MAX`, `_SC_HOST_NAME_MAX`, `_SC_IOV_MAX`, `_SC_OPEN_MAX`, `_SC_PAGESIZE`, `_SC_FSYNC`, `_SC_THREADS` and so
+`_POSIX_FSYNC`, `_POSIX_SPIN_LOCKS`), queried with the corresponding symbolic constants defined in `<unistd.h>`
+(`_SC_ARG_MAX`, `_SC_HOST_NAME_MAX`, `_SC_IOV_MAX`, `_SC_OPEN_MAX`, `_SC_PAGESIZE`, `_SC_FSYNC`, `_SC_SPIN_LOCKS` and so
 on).
 
 In Phoenix-RTOS:
@@ -65,4 +65,9 @@ The `sysconf()` function shall fail if:
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+Phoenix-RTOS is a lightweight system and supports only selected options of IEEE Std 1003.1-2017. The options which are
+mandatory in the standard but not supported, for example `_POSIX_THREADS`, `_POSIX_SEMAPHORES`, `_POSIX_TIMERS`,
+`_POSIX_JOB_CONTROL` and `_POSIX_SAVED_IDS`, as well as `_POSIX_VERSION`, are not defined and `sysconf()` returns `-1`
+without changing `errno` for them. The `_SC_*` constants of the obsolescent options (`_SC_TRACE` and the other
+`_SC_TRACE_*` constants, `_SC_XOPEN_STREAMS`, `_SC_2_FORT_DEV`, `_SC_2_PBS` and the other `_SC_2_PBS_*` constants, and
+the `_SC_V6_*` constants) are not defined either.
