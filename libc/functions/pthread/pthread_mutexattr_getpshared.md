@@ -45,6 +45,10 @@ shall be returned to indicate the error.
 
 ## Errors
 
+The `pthread_mutexattr_setpshared()` function shall fail if:
+
+* `ENOTSUP` - The value of _pshared_ is `PTHREAD_PROCESS_SHARED` (see POSIX deviations).
+
 The `pthread_mutexattr_setpshared()` function may fail if:
 
 * `EINVAL` - The new value specified for the attribute is outside the range of legal values for that attribute.
@@ -53,4 +57,9 @@ These functions shall not return an error code of `EINTR`.
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+Phoenix-RTOS doesn't support process-shared mutexes (the Thread Process-Shared Synchronization option,
+`_POSIX_THREAD_PROCESS_SHARED` is not defined). `pthread_mutexattr_setpshared()` fails with `ENOTSUP` when _pshared_ is
+`PTHREAD_PROCESS_SHARED`, an error that the standard does not define for it, and `pthread_mutexattr_getpshared()` always
+reports `PTHREAD_PROCESS_PRIVATE`. A Phoenix-RTOS mutex is a kernel object identified by a handle which is valid only in
+the process that created it, so a mutex placed in memory shared by several processes can't be used by threads of the
+other processes.

@@ -29,6 +29,8 @@ The `pthread_spin_init()` function shall allocate any resources required to use 
 initialize the lock to an unlocked state. In Phoenix-RTOS a spin lock is a single integer updated with atomic
 operations and needs no other resources.
 
+The supported value of _pshared_ is `PTHREAD_PROCESS_PRIVATE` (see POSIX deviations).
+
 The results are undefined if `pthread_spin_init()` is called specifying an already initialized spin lock. The results
 are undefined if a spin lock is used without first being initialized.
 
@@ -53,8 +55,15 @@ The `pthread_spin_init()` function shall fail if:
 
 * `EINVAL` - The value of _pshared_ is neither `PTHREAD_PROCESS_PRIVATE` nor `PTHREAD_PROCESS_SHARED`.
 
+* `ENOTSUP` - The value of _pshared_ is `PTHREAD_PROCESS_SHARED` (see POSIX deviations).
+
 These functions shall not return an error code of `EINTR`.
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+With the Thread Process-Shared Synchronization option, IEEE Std 1003.1-2017 requires a spin lock initialized with
+`PTHREAD_PROCESS_SHARED` to be usable by any thread that has access to the memory where it is allocated, even if that
+memory is shared by multiple processes. Phoenix-RTOS does not support this option (`_POSIX_THREAD_PROCESS_SHARED` is not
+defined), and `pthread_spin_init()` returns `ENOTSUP` for `PTHREAD_PROCESS_SHARED`, an error that the standard does not
+define for it. Spin locks reject it consistently with the other synchronization objects, which are built on per-process
+kernel resources.
