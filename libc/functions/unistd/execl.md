@@ -342,3 +342,6 @@ No POSIX deviations discovered.
 
 * [`exec*()`: current working directory is not inherited when `PWD` is not in the new
   environment](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/1812)
+
+* [`exec*()`: file mode creation mask (`umask`) is not inherited by the new process
+  image](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/1813)
