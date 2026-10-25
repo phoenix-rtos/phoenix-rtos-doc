@@ -141,4 +141,7 @@ The `sigaction()` function may fail if:
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+Job control is not supported: `SIGSTOP`, `SIGTSTP`, `SIGTTIN` and `SIGTTOU` do not stop the process and `SIGCONT` does
+not continue it (see the deviations of `kill()`). Child processes are never stopped or continued, so `SIGCHLD` is
+generated only when a child process terminates, regardless of the `SA_NOCLDSTOP` flag. Stopping and continuing
+processes is outside the scope of the lightweight system, which is aimed at embedded devices.

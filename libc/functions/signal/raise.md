@@ -40,4 +40,6 @@ The `raise()` function shall fail if:
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+The default actions of the job control signals are not implemented: `SIGSTOP`, `SIGTSTP`, `SIGTTIN` and `SIGTTOU` do not
+stop the process and `SIGCONT` does not continue it. With the default disposition these signals are ignored (see the
+deviations of `kill()`).
