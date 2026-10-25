@@ -25,9 +25,10 @@ The `pthread_mutexattr_getprioceiling()` and `pthread_mutexattr_setprioceiling()
 and set the priority ceiling attribute of a mutex attributes object pointed to by _attr_ which was previously created by
 the function `pthread_mutexattr_init()`.
 
-The _prioceiling_ attribute contains the priority ceiling of initialized mutexes. The values of _prioceiling_ are POSIX
-priorities, as described in [Scheduling priorities](../../posix.md#scheduling-priorities). The default value of the
-attribute is the lowest priority, returned by `sched_get_priority_min(SCHED_RR)`.
+The _prioceiling_ attribute contains the priority ceiling of initialized mutexes. The values of _prioceiling_ are
+within the range of priorities of the `SCHED_RR` scheduling policy (see POSIX deviations). They are POSIX priorities, as
+described in [Scheduling priorities](../../posix.md#scheduling-priorities). The default value of the attribute is the
+lowest priority, returned by `sched_get_priority_min(SCHED_RR)`.
 
 The _prioceiling_ attribute defines the priority ceiling of initialized mutexes, which is the minimum priority level at
 which the critical section guarded by the mutex is executed. In order to avoid priority inversion, the priority ceiling
@@ -54,4 +55,9 @@ These functions shall not return an error code of `EINTR`.
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+IEEE Std 1003.1-2017 defines the values of _prioceiling_ within the range of priorities of the `SCHED_FIFO` scheduling
+policy. Phoenix-RTOS supports only the `SCHED_RR` policy, so `pthread_mutexattr_setprioceiling()` checks _prioceiling_
+against the range of `SCHED_RR` priorities, returned by `sched_get_priority_min(SCHED_RR)` and
+`sched_get_priority_max(SCHED_RR)`, and fails with `EINVAL` for a value outside of it. The Phoenix-RTOS kernel schedules
+all threads with a single priority-based round-robin policy, which keeps the scheduler small and its behaviour
+predictable on resource-constrained real-time targets.
