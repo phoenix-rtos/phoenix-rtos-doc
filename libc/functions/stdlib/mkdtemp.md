@@ -70,7 +70,7 @@ directory of the directory to be created.
 
 * `EMLINK` - The link count of the parent directory would exceed {`LINK_MAX`}.
 
-* `ENAMETOOLONG` - The length of a component of a path name is longer than {`NAME_MAX`}.
+* `ENAMETOOLONG` - The length of a component of a path name is longer than {`NAME_MAX`} (see POSIX deviations).
 
 * `ENOENT` - A component of the path prefix specified by the _template_ argument does not name an existing directory.
 
@@ -94,4 +94,9 @@ The error conditions for the `mkstemp()` function are defined in `open()`.
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+The length of a path name component is not checked against `NAME_MAX` by libphoenix (except for the name of the
+directory created by `mkdtemp()`), but by the filesystem server, against the name length limit of the filesystem, which
+may differ from `NAME_MAX`. The error reported for a too long component of the path prefix, or of the name of the file
+created by `mkstemp()`, therefore depends on the filesystem (see the deviations of `open()`). Checking every component
+in libphoenix would require knowing the name length limit of every mounted filesystem in each process, so the check is
+left to the filesystem server, which knows its own limit.
