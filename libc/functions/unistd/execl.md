@@ -331,3 +331,8 @@ some process.
 ## POSIX deviations
 
 No POSIX deviations discovered.
+
+## Known bugs
+
+* [`exec*()`: argument list larger than the user stack of the new process crashes the kernel, `E2BIG` is never
+  returned](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/1810)
