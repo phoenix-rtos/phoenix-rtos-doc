@@ -75,4 +75,8 @@ These functions shall not return an error code of `EINTR`.
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+IEEE Std 1003.1-2017 requires the default value of the _protocol_ attribute of a mutex to be `PTHREAD_PRIO_NONE`. In
+Phoenix-RTOS the default protocol is `PTHREAD_PRIO_INHERIT`, so a mutex initialized by `pthread_mutex_init()` with
+_attr_ set to `NULL`, or by `PTHREAD_MUTEX_INITIALIZER`, uses priority inheritance. Kernel mutexes inherit priority by
+default to prevent unbounded priority inversion, which is the safer behavior in real-time systems. To get a mutex with
+the `PTHREAD_PRIO_NONE` protocol, set it explicitly with `pthread_mutexattr_setprotocol()`.
