@@ -48,10 +48,16 @@ to indicate the error.
 
 The `pthread_condattr_setpshared()` function may fail if:
 
-* `EINVAL` - The new value specified for the attribute is outside the range of legal values for that attribute.
+* `EINVAL` - The new value specified for the attribute is outside the range of legal values for that attribute, or is
+`PTHREAD_PROCESS_SHARED` (see POSIX deviations).
 
 These functions shall not return an error code of `EINTR`.
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+Phoenix-RTOS doesn't support process-shared condition variables (the Thread Process-Shared Synchronization option,
+`_POSIX_THREAD_PROCESS_SHARED` is not defined). `pthread_condattr_setpshared()` fails with `EINVAL` when _pshared_ is
+`PTHREAD_PROCESS_SHARED`, although it is a legal value of the attribute, so the attribute is always
+`PTHREAD_PROCESS_PRIVATE`. A Phoenix-RTOS condition variable is a kernel object identified by a handle which is valid
+only in the process that created it, so a condition variable placed in memory shared by several processes can't be used
+by threads of the other processes.
