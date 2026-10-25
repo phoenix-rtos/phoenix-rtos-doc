@@ -58,7 +58,8 @@ for _dir_.
 
 * `ELOOP` - A loop exists in symbolic links encountered during resolution of the _dir_ argument.
 
-* `ENAMETOOLONG` - The length of a component of a path name is longer than {`NAME_MAX`}.
+* `ENAMETOOLONG` - The length of a component of a path name is longer than the name length limit of the filesystem,
+which may differ from `NAME_MAX` (see POSIX deviations).
 
 * `ENOENT` - A component of _dir_ does not name an existing directory or _dir_ is an empty string.
 
@@ -82,4 +83,6 @@ produced an intermediate result with a length that exceeds {`PATH_MAX`}.
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+The length of a path name component is not checked against `NAME_MAX` by libphoenix, but by the filesystem server,
+against the name length limit of the filesystem, which may differ from `NAME_MAX`. The error reported for a too long
+component of the path name therefore depends on the filesystem (see the deviations of `open()`).

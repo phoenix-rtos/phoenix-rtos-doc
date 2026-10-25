@@ -51,7 +51,8 @@ The `realpath()` function shall fail if:
 
 * `ELOOP` - A loop exists in symbolic links encountered during resolution of the _file_name_ argument.
 
-* `ENAMETOOLONG` - The length of a component of a path name is longer than {`NAME_MAX`}.
+* `ENAMETOOLONG` - The length of a component of a path name is longer than the name length limit of the filesystem,
+which may differ from `NAME_MAX` (see POSIX deviations).
 
 * `ENOENT` - A component of _file_name_ does not name an existing file or _file_name_ points to an empty string.
 
@@ -76,4 +77,6 @@ an intermediate result with a length that exceeds {`PATH_MAX`}.
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+The length of a path name component is not checked against `NAME_MAX` by libphoenix, but by the filesystem server,
+against the name length limit of the filesystem, which may differ from `NAME_MAX`. The error reported for a too long
+component of the path name therefore depends on the filesystem (see the deviations of `open()`).
