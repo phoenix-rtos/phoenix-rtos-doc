@@ -53,7 +53,8 @@ flushed, and the file is not open.
 
 * `EFBIG` - An attempt was made to write a file that exceeds the maximum file size.
 
-* `EFBIG` - An attempt was made to write a file that exceeds the file size limit of the process.
+* `EFBIG` - An attempt was made to write a file that exceeds the file size limit of the process (see POSIX
+deviations).
 
 * `EFBIG` - The file is a regular file and an attempt was made to write at or beyond the offset maximum associated with
 the corresponding stream.
@@ -78,4 +79,6 @@ The `fsetpos()` function may fail if:
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+The file size limit of the process is not supported and `SIGXFSZ` is never generated, see
+[File size limit of the process](../../posix.md#file-size-limit-of-the-process). `EFBIG` is not guaranteed when the
+maximum file size or the offset maximum would be exceeded.
