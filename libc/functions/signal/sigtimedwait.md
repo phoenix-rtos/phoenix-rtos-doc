@@ -34,13 +34,13 @@ multiple pending signals is unspecified. If no signal in _set_ is pending at the
 shall be suspended until one or more signals in _set_ become pending or until it is interrupted by an unblocked, caught
 signal.
 
-The `sigwaitinfo()` function shall be equivalent to the `sigwait()` function, except that the return value and the error
-reporting method are different (see Return value), and that if the _info_ argument is non-`NULL`, the selected signal
-number shall be stored in the `si_signo` member, and the cause of the signal shall be stored in the `si_code` member. If
-any value is queued to the selected signal, the first such queued value shall be dequeued and, if the _info_ argument is
-non-`NULL`, the value shall be stored in the `si_value` member of _info_. If no value is queued, the content of the
-`si_value` member is undefined. If no further signals are queued for the selected signal, the pending indication for
-that signal shall be reset.
+The `sigwaitinfo()` function shall be equivalent to the `sigwait()` function, except that the return value and the
+error reporting method are different (see Return value), and that if the _info_ argument is non-`NULL`, the selected
+signal number shall be stored in the `si_signo` member, and the cause of the signal shall be stored in the `si_code`
+member (see POSIX deviations). If any value is queued to the selected signal, the first such queued value shall be
+dequeued and, if the _info_ argument is non-`NULL`, the value shall be stored in the `si_value` member of _info_. If no
+value is queued, the content of the `si_value` member is undefined. If no further signals are queued for the selected
+signal, the pending indication for that signal shall be reset.
 
 ## Return value
 
@@ -65,4 +65,7 @@ million. The error is reported also when a signal in _set_ is pending.
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+The cause of the signal is not stored in the `si_code` member of _info_: only the `si_signo` member is set, and the
+other members of the structure are set to zero. The kernel does not keep the information about the sender of a pending
+signal, which keeps the pending signals of a thread or process a simple bit mask. Signals cannot be queued
+(`sigqueue()` is not implemented), so no value is stored in `si_value`.
