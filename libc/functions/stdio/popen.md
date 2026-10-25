@@ -10,7 +10,7 @@ FILE *popen(const char *command, const char *mode);
 
 ## Status
 
-Implemented
+Partially implemented
 
 ## Conformance
 
@@ -73,3 +73,8 @@ The `popen()` function may also set `errno` values as described by `fork` or `pi
 The command is executed by the `sh` utility, which `popen()` expects to find in the system. Phoenix-RTOS does not
 provide `sh` by default (the `psh` shell is not installed as `sh`), so commands run through `popen()` fail unless a
 POSIX shell such as BusyBox `ash` is installed as `sh`.
+
+## Known bugs
+
+* [popen() child keeps the pipes of streams opened by earlier popen()
+  calls](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/1814)
