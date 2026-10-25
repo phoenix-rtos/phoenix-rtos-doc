@@ -59,7 +59,15 @@ process is not ignoring `SIGTTOU`.
 
 * `ENOTTY` - The file associated with _fildes_ is not a terminal.
 
+* `EINVAL` - The file associated with _fildes_ is not a terminal, and the server handling it reports unsupported
+requests with `EINVAL` (see POSIX deviations).
+
 ## POSIX deviations
+
+If the file associated with _fildes_ is not a terminal, the error reported by `tcflow()` depends on the server handling
+the file. The function is implemented on top of `ioctl()`, and the kernel forwards every request to the server without
+checking the type of the file. Servers that do not handle terminal requests report them either with `ENOTTY` (for
+example files in `jffs2`) or with `EINVAL` (for example pipes and files in `dummyfs`).
 
 Job control is not supported (`_POSIX_JOB_CONTROL` is not defined), so `SIGTTOU` is not sent when `tcflow()` is called
 from a background process group, and `EIO` is not reported for an orphaned process group.

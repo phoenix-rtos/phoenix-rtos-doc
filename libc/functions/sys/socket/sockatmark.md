@@ -39,6 +39,12 @@ The `sockatmark()` function shall fail if:
 
 * `ENOTTY` - The file associated with the _s_ argument is not a socket.
 
+* `EINVAL` - The file associated with the _s_ argument is not a socket, and the server handling it reports unsupported
+requests with `EINVAL` (see POSIX deviations).
+
 ## POSIX deviations
 
-No POSIX deviations discovered.
+If the file associated with _s_ is not a socket, the error reported by `sockatmark()` depends on the server handling
+the file. The function is implemented on top of `ioctl()`, and the kernel forwards every request to the server without
+checking the type of the file. Servers that do not handle socket requests report them either with `ENOTTY` or with
+`EINVAL` (for example `/dev/null`).
