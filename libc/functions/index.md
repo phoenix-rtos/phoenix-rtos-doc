@@ -8,6 +8,7 @@ ctype/index.md
 dirent/index.md
 fcntl/index.md
 fnmatch/index.md
+grp/index.md
 ioctl/index.md
 libgen/index.md
 math/index.md
@@ -26,9 +27,13 @@ sys/interrupt/index.md
 sys/mman/index.md
 sys/mount/index.md
 sys/msg/index.md
+sys/resource/index.md
+sys/select/index.md
 sys/socket/index.md
 sys/stat/index.md
+sys/statvfs/index.md
 sys/times/index.md
+sys/utsname/index.md
 sys/wait/index.md
 termios/index.md
 sys/threads/index.md
