@@ -81,4 +81,9 @@ These functions shall not return an error code of `EINTR`.
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+IEEE Std 1003.1-2017 defines the values of the priority ceiling within the range of priorities of the `SCHED_FIFO`
+scheduling policy. Phoenix-RTOS supports only the `SCHED_RR` policy, so _prioceiling_ is checked against the range of
+`SCHED_RR` priorities, returned by `sched_get_priority_min(SCHED_RR)` and `sched_get_priority_max(SCHED_RR)`, and
+`pthread_mutex_setprioceiling()` fails with `EINVAL` for a value outside of it. The Phoenix-RTOS kernel schedules all
+threads with a single priority-based round-robin policy, which keeps the scheduler small and its behaviour predictable
+on resource-constrained real-time targets.
