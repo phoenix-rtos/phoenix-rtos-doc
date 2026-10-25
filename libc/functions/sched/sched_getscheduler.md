@@ -22,8 +22,8 @@ The `sched_getscheduler()` function shall return the scheduling policy of the pr
 of _pid_ is negative, the behavior of the `sched_getscheduler()` function is unspecified; Phoenix-RTOS returns `-1` and
 sets `errno` to `EINVAL`.
 
-The values that can be returned by `sched_getscheduler()` are defined in the `<sched.h>` header. In Phoenix-RTOS
-`SCHED_RR` is returned for every process.
+The values that can be returned by `sched_getscheduler()` are defined in the `<sched.h>` header. Phoenix-RTOS supports
+only the `SCHED_RR` policy, so `SCHED_RR` is returned for every process.
 
 If a process specified by _pid_ exists, and if the calling process has permission, the scheduling policy shall be
 returned for the process whose process ID is equal to _pid_. Phoenix-RTOS does not restrict access to the scheduling

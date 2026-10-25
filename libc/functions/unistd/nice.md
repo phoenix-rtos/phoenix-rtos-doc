@@ -26,9 +26,10 @@ above or below these limits shall result in the nice value being set to the corr
 appropriate privileges can lower the nice value.
 
 Calling the `nice()` function has no effect on the priority of processes or threads with policy `SCHED_FIFO` or
-`SCHED_RR`. In Phoenix-RTOS `nice()` changes nothing: the nice value of every process stays at the default value
-{`NZERO`}, and `nice()` always returns `0` and never fails. To change the priority of a thread, use `sched_setparam()`
-or `pthread_setschedprio()`, see [Scheduling priorities](../../posix.md#scheduling-priorities).
+`SCHED_RR`. Phoenix-RTOS supports only the `SCHED_RR` policy, so `nice()` changes nothing: the nice value of every
+process stays at the default value {`NZERO`}, and `nice()` always returns `0` and never fails. To change the priority of
+a thread, use `sched_setparam()` or `pthread_setschedprio()`, see
+[Scheduling priorities](../../posix.md#scheduling-priorities).
 
 The nice value set with `nice()` shall be applied to the process. If the process is multithreaded, the nice value
 shall affect all system scope threads in the process.

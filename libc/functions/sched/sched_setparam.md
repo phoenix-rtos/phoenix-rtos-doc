@@ -22,9 +22,10 @@ The `sched_setparam()` function shall set the scheduling parameters of the proce
 specified by the `sched_param` structure pointed to by _param_. The value of the `sched_priority` member in the
 `sched_param` structure shall be any integer within the inclusive priority range for the current scheduling policy of
 the process specified by _pid_. Higher numerical values for the priority represent higher priorities. The priority range
-of `SCHED_RR` is returned by `sched_get_priority_min()` and `sched_get_priority_max()`, see [Scheduling
-priorities](../../posix.md#scheduling-priorities). If the value of _pid_ is negative, the behavior of the
-`sched_setparam()` function is unspecified; Phoenix-RTOS returns `-1` and sets `errno` to `EINVAL`.
+of `SCHED_RR`, the only policy supported by Phoenix-RTOS, is returned by `sched_get_priority_min()` and
+`sched_get_priority_max()`, see [Scheduling priorities](../../posix.md#scheduling-priorities). If the value of _pid_ is
+negative, the behavior of the `sched_setparam()` function is unspecified; Phoenix-RTOS returns `-1` and sets `errno` to
+`EINVAL`.
 
 If a process specified by _pid_ exists, and if the calling process has permission, the scheduling parameters shall be
 set for the process whose process ID is equal to _pid_.

@@ -41,7 +41,8 @@ Phoenix-RTOS the default value of the attribute is `PTHREAD_EXPLICIT_SCHED`.
 
 The following thread scheduling attributes defined by POSIX.1-2017 are affected by the _inheritsched_ attribute:
 scheduling policy (_schedpolicy_), scheduling parameters (_schedparam_), and scheduling contention scope
-(_contentionscope_). In Phoenix-RTOS only the priority of the created thread depends on the _inheritsched_ attribute.
+(_contentionscope_). Phoenix-RTOS supports only the `SCHED_RR` policy and the `PTHREAD_SCOPE_SYSTEM` contention scope,
+so only the priority of the created thread depends on the _inheritsched_ attribute.
 
 The behavior is undefined if the value specified by the _attr_ argument to `pthread_attr_getinheritsched()` or
 `pthread_attr_setinheritsched()` does not refer to an initialized thread attributes object.
