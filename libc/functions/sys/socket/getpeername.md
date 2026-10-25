@@ -58,4 +58,9 @@ The `getpeername()` function may fail if:
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+If the address of the peer of an `AF_UNIX` socket is longer than the supplied `sockaddr` structure, the stored address
+is truncated, and the object pointed to by _address_len_ is set to the length of the full address, as in IEEE Std
+1003.1g, not to the length of the stored address as IEEE Std 1003.1-2017 specifies. The behavior is intentional: the
+application detects the truncation by comparing the returned length with the size of its buffer and can repeat the call
+with a larger one, which is more useful on a memory-constrained embedded system than silently working with a cut path
+name.
