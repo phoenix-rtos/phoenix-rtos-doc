@@ -37,4 +37,9 @@ The `pthread_cancel()` function shall not return an error code of `EINTR`.
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+If cancelability of the target is enabled when another thread calls `pthread_cancel()`, the cancellation processing
+does not run in the target thread. `pthread_cancel()` calls the cleanup handlers and the thread-specific data
+destructors of the target in the calling thread before it returns, and then terminates the target wherever it is
+executing, not at a cancellation point. A target blocked in a call handled by `posixsrv`, such as `sem_wait()` on a
+named semaphore or a read from an empty pipe, is terminated only when the call returns. See
+[Blocking operations are not interruptible](../../posix.md#blocking-operations-are-not-interruptible).
