@@ -21,8 +21,9 @@ IEEE Std 1003.1-2017
 The `pthread_setschedprio()` function shall set the scheduling priority for the thread whose thread ID is given by
 _thread_ to the value given by _prio_.
 
-The _prio_ argument is a POSIX priority, as described in [Scheduling priorities](../../posix.md#scheduling-priorities).
-Its valid range is reported by `sched_get_priority_min()` and `sched_get_priority_max()` for the `SCHED_RR` policy.
+The _prio_ argument is a POSIX priority, as described in
+[Scheduling priorities](../../posix.md#scheduling-priorities). Its valid range is reported by `sched_get_priority_min()`
+and `sched_get_priority_max()` for the `SCHED_RR` policy, the only scheduling policy supported by Phoenix-RTOS.
 
 If the `pthread_setschedprio()` function fails, the scheduling priority of the target thread shall not be changed.
 

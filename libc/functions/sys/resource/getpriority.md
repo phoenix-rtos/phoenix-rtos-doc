@@ -40,10 +40,10 @@ The default nice value is {`NZERO`}; lower nice values shall cause more favorabl
 appropriate privileges can lower its nice value.
 
 Any processes or threads using `SCHED_FIFO` or `SCHED_RR` shall be unaffected by a call to `setpriority()`. This is not
-considered an error. In Phoenix-RTOS `setpriority()` changes nothing and `getpriority()` always returns `0`, the default
-nice value less {`NZERO`}. Both functions only validate _which_ and check that the process or process group specified by
-_who_ exists. To change the priority of a thread, use `sched_setparam()` or `pthread_setschedprio()`, see [Scheduling
-priorities](../../../posix.md#scheduling-priorities).
+considered an error. Phoenix-RTOS supports only the `SCHED_RR` policy, so `setpriority()` changes nothing and
+`getpriority()` always returns `0`, the default nice value less {`NZERO`}. Both functions only validate _which_ and
+check that the process or process group specified by _who_ exists. To change the priority of a thread, use
+`sched_setparam()` or `pthread_setschedprio()`, see [Scheduling priorities](../../../posix.md#scheduling-priorities).
 
 Since `getpriority()` can return the value `-1` upon successful completion, it is necessary to set `errno` to `0` prior
 to a call to `getpriority()`. If `getpriority()` returns the value `-1`, then `errno` can be checked to see if an error

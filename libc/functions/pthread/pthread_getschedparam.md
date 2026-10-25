@@ -37,9 +37,9 @@ whose thread ID is given by _thread_ to the policy and associated parameters pro
 respectively.
 
 The _policy_ parameter may have the value `SCHED_OTHER`, `SCHED_FIFO`, or `SCHED_RR`. The scheduling parameters for the
-`SCHED_OTHER` policy are implementation-defined. The `SCHED_FIFO` and `SCHED_RR` policies shall have a single scheduling
-parameter, _priority_. The _sched_priority_ member holds a POSIX priority, as described in [Scheduling
-priorities](../../posix.md#scheduling-priorities).
+`SCHED_OTHER` policy are implementation-defined. The `SCHED_FIFO` and `SCHED_RR` policies shall have a single
+scheduling parameter, _priority_. The supported value of _policy_ is `SCHED_RR`. The _sched_priority_ member holds a
+POSIX priority, as described in [Scheduling priorities](../../posix.md#scheduling-priorities).
 
 If the `pthread_setschedparam()` function fails, the scheduling parameters shall not be changed for the target thread.
 
@@ -52,7 +52,8 @@ error number shall be returned to indicate the error.
 
 The `pthread_setschedparam()` function shall fail if:
 
-* `ENOTSUP` - An attempt was made to set the policy or scheduling parameters to an unsupported value.
+* `ENOTSUP` - An attempt was made to set the policy or scheduling parameters to an unsupported value (`SCHED_FIFO` or
+  `SCHED_OTHER`).
 
 The `pthread_setschedparam()` function may fail if:
 
@@ -68,4 +69,9 @@ These functions shall not return an error code of `EINTR`.
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+IEEE Std 1003.1-2017 requires the supported values of _policy_ to include `SCHED_FIFO`, `SCHED_RR` and `SCHED_OTHER`.
+Phoenix-RTOS supports only `SCHED_RR`: `pthread_setschedparam()` returns `ENOTSUP` for `SCHED_FIFO` and `SCHED_OTHER`,
+and `pthread_getschedparam()` always reports `SCHED_RR`. The Phoenix-RTOS kernel schedules all threads with a single
+priority-based round-robin policy, which keeps the scheduler small and its behaviour predictable on resource-constrained
+real-time targets. See [Scheduling priorities](../../posix.md#scheduling-priorities) for the mapping of POSIX
+priorities.
