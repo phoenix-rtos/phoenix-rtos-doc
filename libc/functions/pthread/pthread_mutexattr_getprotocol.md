@@ -34,7 +34,8 @@ of:
 
 * `PTHREAD_PRIO_PROTECT`
 
-which are defined in the `<pthread.h>` header.
+which are defined in the `<pthread.h>` header. The default value of the attribute is `PTHREAD_PRIO_INHERIT` (see POSIX
+deviations).
 
 When a thread owns a mutex with the `PTHREAD_PRIO_NONE` protocol attribute, its priority and scheduling shall not be
 affected by its mutex ownership.
@@ -89,4 +90,9 @@ These functions shall not return an error code of `EINTR`.
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+IEEE Std 1003.1-2017 requires the default value of the _protocol_ attribute to be `PTHREAD_PRIO_NONE`. In Phoenix-RTOS
+the default value is `PTHREAD_PRIO_INHERIT`, both in an attributes object initialized by `pthread_mutexattr_init()` and
+for a mutex initialized with default attributes (`pthread_mutex_init()` with _attr_ set to `NULL`, or
+`PTHREAD_MUTEX_INITIALIZER`). It is the same protocol which is used by default for kernel mutexes. Priority inheritance
+prevents unbounded priority inversion, which is the safer default in real-time systems. To get a mutex with the
+`PTHREAD_PRIO_NONE` protocol, set it explicitly with `pthread_mutexattr_setprotocol()`.

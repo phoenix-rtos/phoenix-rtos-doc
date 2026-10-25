@@ -34,6 +34,8 @@ the attributes defined by the implementation. The default values are:
 
 * robust - `PTHREAD_MUTEX_STALLED`,
 
+* protocol - `PTHREAD_PRIO_INHERIT` (see POSIX deviations),
+
 * prioceiling - the lowest priority, returned by `sched_get_priority_min(SCHED_RR)`,
 
 * process-shared - `PTHREAD_PROCESS_PRIVATE`.
@@ -62,4 +64,7 @@ These functions shall not return an error code of `EINTR`.
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+IEEE Std 1003.1-2017 requires the default value of the _protocol_ attribute to be `PTHREAD_PRIO_NONE`. In Phoenix-RTOS
+`pthread_mutexattr_init()` sets it to `PTHREAD_PRIO_INHERIT`, the same protocol which is used by default for kernel
+mutexes. Priority inheritance prevents unbounded priority inversion, which is the safer default in real-time systems. To
+get a mutex with the `PTHREAD_PRIO_NONE` protocol, set it explicitly with `pthread_mutexattr_setprotocol()`.
