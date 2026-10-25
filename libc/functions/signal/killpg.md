@@ -44,4 +44,5 @@ The `killpg()` function shall fail if:
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+The default actions of the job control signals are not implemented: `SIGSTOP`, `SIGTSTP`, `SIGTTIN` and `SIGTTOU` do not
+stop the processes of the group and `SIGCONT` does not continue them (see the deviations of `kill()`).

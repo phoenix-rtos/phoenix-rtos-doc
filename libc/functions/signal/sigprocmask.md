@@ -74,4 +74,7 @@ The `pthread_sigmask()` function shall not return an error code of `EINT`.
 
 ## POSIX deviations
 
-No POSIX deviations discovered.
+Job control is not supported: `SIGSTOP`, `SIGTSTP`, `SIGTTIN` and `SIGTTOU` do not stop the process and `SIGCONT` does
+not continue it (see the deviations of `kill()`), so blocking or waiting for these signals has no effect on stopping
+processes. Stopping and continuing processes is outside the scope of the lightweight system, which is aimed at embedded
+devices.
