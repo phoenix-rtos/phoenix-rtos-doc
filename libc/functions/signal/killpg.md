@@ -46,3 +46,7 @@ The `killpg()` function shall fail if:
 
 The default actions of the job control signals are not implemented: `SIGSTOP`, `SIGTSTP`, `SIGTTIN` and `SIGTTOU` do not
 stop the processes of the group and `SIGCONT` does not continue them (see the deviations of `kill()`).
+
+Permission to send a signal is not verified. Phoenix-RTOS does not keep user and group IDs of processes, so every
+process is privileged to send a signal to any other user process and `killpg()` does not fail with `EPERM` due to the
+user IDs of the sending and receiving processes (see the deviations of `kill()`).
