@@ -62,7 +62,8 @@ does not affect whether the file is open for reading, writing, or for both. Impl
 initialize the file's group ID to the group ID of the parent directory. Implementations may, but need not, provide
 an implementation-defined way to initialize the file's group ID to the effective group ID of the calling process.
 
-* `O_DIRECTORY` - If _path_ resolves to a non-directory file, fail and set `errno` to `ENOTDIR`.
+* `O_DIRECTORY` - If _path_ resolves to a non-directory file, fail and set `errno` to `ENOTDIR`. Not supported (see
+POSIX deviations).
 
 * `O_DSYNC` - Write I/O operations on the file descriptor shall complete as defined by synchronized I/O data integrity
 completion.
@@ -76,8 +77,6 @@ a symbolic link, `open()` shall fail and set `errno` to `EEXIST`, regardless of 
 
 * `O_NOCTTY` - If set and path identifies a terminal device, `open()` shall not cause the terminal device to become the
 controlling terminal for the process. If _path_ does not identify a terminal device, `O_NOCTTY` shall be ignored.
-
-* `O_NOFOLLOW` - If _path_ names a symbolic link, fail and set `errno` to `ELOOP`.
 
 * `O_NONBLOCK`
   * When opening a `FIFO` with `O_RDONLY` or `O_WRONLY` set:
@@ -273,3 +272,8 @@ for a too long component therefore depends on the filesystem: for example `jffs2
 the name is looked up, while `dummyfs` reports `ENAMETOOLONG` only when a new directory entry is created, and otherwise
 the lookup of the name fails with `ENOENT`. On targets where `NAME_MAX` is 64 (armv7m, armv7r, armv8m and armv8r),
 `dummyfs` accepts names of up to 255 bytes, so files with names longer than `NAME_MAX` can exist.
+
+The `O_DIRECTORY` and `O_NOFOLLOW` flags are not supported and are not defined in `<fcntl.h>`, so `open()` and
+`openat()` cannot be requested to fail with `ENOTDIR` when _path_ does not resolve to a directory, or with `ELOOP` when
+_path_ names a symbolic link. Applications of embedded and IoT devices open files at paths known in advance and do not
+need these checks, so the flags are omitted to keep the system lightweight.
