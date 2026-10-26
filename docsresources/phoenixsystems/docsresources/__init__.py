@@ -54,7 +54,7 @@ def _configure_latex(app, config):
 
 
 def _lay_out_table(translator, node):
-    """Lay out a table that gives no widths of its own.
+    """Lay out a table, sizing the columns of one that gives no widths of its own.
 
     A table of a cell of another table is left to sphinx, as the breaking across
     pages a table may end up needing cannot happen inside a cell.
@@ -64,6 +64,9 @@ def _lay_out_table(translator, node):
 
     table = translator.tables[-1]
     if table.colspec or "colwidths-given" in table.classes:
+        # the widths stay as given, only a table taller than a page breaks
+        widths = tables.given_widths(node, table.colspec)
+        table.breakable = not (tables.is_boxed(node) or tables.fits_page(node, widths))
         return
 
     spec, widths = tables.colspec(node, table.colsep)

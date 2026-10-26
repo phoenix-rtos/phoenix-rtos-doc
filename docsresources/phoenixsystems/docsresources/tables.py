@@ -20,8 +20,11 @@ all, so their text runs off the page.
 
 The widths are therefore taken from the content of the table here, and a table
 estimated not to fit a page is made breakable. Tables which state their widths,
-by the :widths: option or by the tabularcolumns directive, are left alone.
+by the :widths: option or by the tabularcolumns directive, keep them, but are
+made breakable all the same when they do not fit a page.
 """
+
+import re
 
 from docutils import nodes
 
@@ -253,6 +256,23 @@ def colspec(node, colsep):
     total = sum(widths)
     columns = colsep.join(rf"\X{{{width}}}{{{total}}}" for width in widths)
     return f"{{{colsep}{columns}{colsep}}}\n", widths
+
+
+def given_widths(node, colspec):
+    """Column widths stated by the table, in the characters of a line.
+
+    The tabularcolumns directive gives them as the fractions of the \\X and \\psC
+    column types, the :widths: option as the proportions of the columns. A
+    specification of other column types tells no widths, so they are measured.
+    """
+    fractions = [int(a) / int(b) for a, b in re.findall(r"\\(?:X|psC)\{(\d+)\}\{(\d+)\}", colspec or "")]
+    if not fractions and not colspec:
+        given = [int(spec.get("colwidth", 0)) for spec in node.findall(nodes.colspec)]
+        if given and all(given):
+            fractions = [width / sum(given) for width in given]
+    if len(fractions) == _column_count(node):
+        return [max(1, round(LINE_CHARACTERS * fraction)) for fraction in fractions]
+    return _widths(*_demands(node, _column_count(node)))
 
 
 def fits_page(node, widths):
