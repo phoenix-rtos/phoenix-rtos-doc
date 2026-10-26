@@ -60,3 +60,7 @@ The `munmap()` function may fail if:
 ## POSIX deviations
 
 No POSIX deviations discovered.
+
+## Known bugs
+
+* [munmap() does not fail with EINVAL when len is 0](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/1658)
