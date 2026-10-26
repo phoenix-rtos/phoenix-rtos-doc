@@ -275,5 +275,10 @@ the lookup of the name fails with `ENOENT`. On targets where `NAME_MAX` is 64 (a
 
 The `O_DIRECTORY` and `O_NOFOLLOW` flags are not supported and are not defined in `<fcntl.h>`, so `open()` and
 `openat()` cannot be requested to fail with `ENOTDIR` when _path_ does not resolve to a directory, or with `ELOOP` when
-_path_ names a symbolic link. Applications of embedded and IoT devices open files at paths known in advance and do not
+_path_ names a symbolic link. Applications on embedded and IoT devices open files at paths known in advance and do not
 need these checks, so the flags are omitted to keep the system lightweight.
+
+## Known bugs
+
+* [open() with O_CREAT and O_EXCL follows a dangling symbolic link instead of failing with
+  EEXIST](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/1817)
