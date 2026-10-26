@@ -43,3 +43,8 @@ destructors of the target in the calling thread before it returns, and then term
 executing, not at a cancellation point. A target blocked in a call handled by `posixsrv`, such as `sem_wait()` on a
 named semaphore or a read from an empty pipe, is terminated only when the call returns. See
 [Blocking operations are not interruptible](../../posix.md#blocking-operations-are-not-interruptible).
+
+## Known bugs
+
+* [pthread_cancel() does not take effect after pthread_setcancelstate() re-enables
+  cancellation](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/1645)
