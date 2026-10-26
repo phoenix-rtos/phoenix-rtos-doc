@@ -145,3 +145,7 @@ Job control is not supported: `SIGSTOP`, `SIGTSTP`, `SIGTTIN` and `SIGTTOU` do n
 not continue it (see the deviations of `kill()`). Child processes are never stopped or continued, so `SIGCHLD` is
 generated only when a child process terminates, regardless of the `SA_NOCLDSTOP` flag. Stopping and continuing
 processes is outside the scope of the lightweight system, which is aimed at embedded devices.
+
+## Known bugs
+
+* [sigaction() flags not fully supported](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/844)
