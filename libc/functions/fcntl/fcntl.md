@@ -232,3 +232,8 @@ to any process specified by _arg_.
 Advisory record locking is not supported. The `F_GETLK`, `F_SETLK` and `F_SETLKW` commands are accepted, and `fcntl()`
 returns success, but no lock is recorded, no request is ever blocked and the structure pointed to by _arg_ is not
 modified. Record locking is not implemented in the POSIX layer of the Phoenix-RTOS kernel.
+
+## Known bugs
+
+* [fcntl() with F_DUPFD and a negative arg fails with EBADF instead of
+  EINVAL](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/1687)
