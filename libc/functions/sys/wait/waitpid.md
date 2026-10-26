@@ -12,7 +12,7 @@ pid_t wait(int *status);
 
 ## Status
 
-Implemented
+Partially implemented
 
 ## Conformance
 
@@ -171,3 +171,8 @@ Processes cannot be stopped or continued in Phoenix-RTOS, as the default actions
 are accepted but never cause a stopped or continued child process to be reported, and the `WIFSTOPPED(stat_val)`,
 `WSTOPSIG(stat_val)` and `WIFCONTINUED(stat_val)` macros always evaluate to `0`. Stopping and continuing processes is
 outside the scope of the lightweight system, which is aimed at embedded devices.
+
+## Known bugs
+
+* [Process keep waiting infinitely when there is no existing unwaited-for child
+  processes.](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/869)
