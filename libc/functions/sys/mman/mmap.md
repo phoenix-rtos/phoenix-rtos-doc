@@ -236,3 +236,12 @@ The `mmap()` function may fail if:
 ## POSIX deviations
 
 No POSIX deviations discovered.
+
+## Known bugs
+
+* [MAP_SHARED writes via mmap() not visible through
+  read()](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/1655)
+* [mmap() missing input validation for len and flags
+  arguments](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/1656)
+* [mmap() does not fail with EACCES for PROT_WRITE and MAP_SHARED on read-only file
+  descriptor](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/1657)
