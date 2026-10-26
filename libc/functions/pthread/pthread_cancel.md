@@ -1,0 +1,40 @@
+# pthread_cancel
+
+## Synopsis
+
+```c
+#include <pthread.h>
+
+int pthread_cancel(pthread_t thread);
+```
+
+## Status
+
+Partially implemented
+
+## Conformance
+
+IEEE Std 1003.1-2017
+
+## Description
+
+The `pthread_cancel()` function shall request that _thread_ be canceled. The target thread's cancelability state and
+type determines when the cancellation takes effect. When the cancellation is acted on, the cancellation cleanup handlers
+for _thread_ shall be called. When the last cancellation cleanup handler returns, the thread-specific data destructor
+functions shall be called for _thread_. When the last destructor function returns, _thread_ shall be terminated.
+
+The cancellation processing in the target thread shall run asynchronously with respect to the calling thread returning
+from `pthread_cancel()`.
+
+## Return value
+
+If successful, the `pthread_cancel()` function shall return zero; otherwise, an error number shall be returned to
+indicate the error.
+
+## Errors
+
+The `pthread_cancel()` function shall not return an error code of `EINTR`.
+
+## POSIX deviations
+
+No POSIX deviations discovered.
