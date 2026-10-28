@@ -151,6 +151,15 @@ SSL/TLS and cryptography library suitable for embedded systems
 * **Requires:** `phoenix>=3.3`
 * **Conflicts:** *(none)*
 
+## micro_ecc-1.1.0+git.541b3a7
+
+A small and fast ECDH and ECDSA implementation for 8-bit, 32-bit, and 64-bit processors.
+
+* **Defined in:** [`micro-ecc/port.def.sh`](https://github.com/phoenix-rtos/phoenix-rtos-ports/blob/master/micro-ecc/port.def.sh)
+* **Available flags:** *(none)*
+* **Requires:** `phoenix>=3.3`
+* **Conflicts:** *(none)*
+
 ## micropython-1.26.0
 
 Implementation of the Python language for microcontrollers
