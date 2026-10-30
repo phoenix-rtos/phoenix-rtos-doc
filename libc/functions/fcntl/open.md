@@ -14,7 +14,7 @@ int openat(int fd, const char *path, int oflag, ...);
 
 ## Status
 
-Partially implemented
+Implemented
 
 ## Conformance
 
@@ -277,8 +277,3 @@ The `O_DIRECTORY` and `O_NOFOLLOW` flags are not supported and are not defined i
 `openat()` cannot be requested to fail with `ENOTDIR` when _path_ does not resolve to a directory, or with `ELOOP` when
 _path_ names a symbolic link. Applications on embedded and IoT devices open files at paths known in advance and do not
 need these checks, so the flags are omitted to keep the system lightweight.
-
-## Known bugs
-
-* [open() with O_CREAT and O_EXCL follows a dangling symbolic link instead of failing with
-  EEXIST](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/1817)
