@@ -23,7 +23,7 @@ COMPANY = {
     "registry_no": "145963772",
     "krs": "0001256594",
     "krs_division": "XIII",
-    "share_capital": "241 650,00",
+    "share_capital": "284 650,00",
 }
 
 # Address lines are formatted with the translated city names from translations.py
