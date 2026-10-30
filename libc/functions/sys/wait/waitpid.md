@@ -174,5 +174,5 @@ outside the scope of the lightweight system, which is aimed at embedded devices.
 
 ## Known bugs
 
-* [Process keep waiting infinitely when there is no existing unwaited-for child
-  processes.](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/869)
+* [wait()/waitpid(): a thread waiting for the only child isn't woken with ECHILD when another thread collects its
+  status](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/869)
