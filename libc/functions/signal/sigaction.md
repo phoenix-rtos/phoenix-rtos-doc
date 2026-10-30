@@ -148,4 +148,5 @@ processes is outside the scope of the lightweight system, which is aimed at embe
 
 ## Known bugs
 
-* [sigaction() flags not fully supported](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/844)
+* [sigaction(): SA_SIGINFO, SA_RESETHAND, SA_RESTART and SA_NOCLDWAIT flags are
+  ignored](https://github.com/phoenix-rtos/phoenix-rtos-project/issues/844)
