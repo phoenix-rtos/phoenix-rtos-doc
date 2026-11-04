@@ -158,7 +158,8 @@ sudo apt-get install -y --no-install-recommends \
   python3-resolvelib \
   python3-pyparsing \
   python3-rich \
-  jq
+  jq \
+  device-tree-compiler
 ```
 
 In the `phoenix-rtos-build/toolchain` directory, run one of the following
