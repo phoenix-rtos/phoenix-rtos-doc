@@ -164,6 +164,40 @@ built with tests enabled. Any `make`, {func}`b_install` commands for building
 port tests must go here.
 ````
 
+```{note}
+All functions are invoked with the current working directory set to
+`PREFIX_PORT_WORKDIR` (the extracted source tree), so relative paths and plain
+`make`, `./configure` invocations refer to the port sources. Note that
+{func}`p_common()` is run in the same shell before {func}`p_prepare()`, and
+again before {func}`p_build()` and {func}`p_build_test()`, which also share a
+shell. A directory change made in {func}`p_common()` therefore persists into
+all the following phases, and one made in {func}`p_build()` persists into
+{func}`p_build_test()`.
+```
+
+### Function invocation
+
+Simplified view of how the build system invokes these functions:
+
+```bash
+# Preparation
+(
+  setup_port_env
+  cd "${PREFIX_PORT_WORKDIR}"
+  p_common      # if defined
+  p_prepare
+)
+
+# Build
+(
+  setup_port_env
+  cd "${PREFIX_PORT_WORKDIR}"
+  p_common      # if defined
+  p_build
+  p_build_test  # if tests are enabled
+)
+```
+
 ## Provided environment in the executable section
 
 The build system provides the following environment for the use in the
@@ -182,7 +216,8 @@ executable section implementation.
 
 `PREFIX_PORT_WORKDIR`
 : Absolute path (based on declared `src_path`) to the directory where port source
-tree is extracted.
+tree is extracted. It is also the working directory in which the executable
+section functions are invoked.
 
 `PREFIX_PORT_INSTALL`
 : Points to the target installation directory (potentially different for various
@@ -223,8 +258,8 @@ Looks for files ending in ``*.patch`` within
 To prevent double-patching, the function creates a marker file for every
 successfully applied patch. 
 
-:param srcdir: The absolute path to the extracted source code (usually
-``$PREFIX_PORT_WORKDIR``).
+:param srcdir: The path to the extracted source code. As the functions are
+invoked in ``$PREFIX_PORT_WORKDIR``, this is usually ``.``.
 :param patch_subdir: (Optional) A subdirectory within the port's ``patches/``
 folder. Defaults to ``.`` (the root of the patches folder).
 
@@ -232,10 +267,10 @@ Example:
   ```bash
   p_prepare() {
      # Apply patches from the root ./patches directory
-     b_port_apply_patches "${PREFIX_PORT_WORKDIR}"
+     b_port_apply_patches .
 
      # Apply architecture-specific patches from ./patches/arm
-     b_port_apply_patches "${PREFIX_PORT_WORKDIR}" "arm"
+     b_port_apply_patches . "arm"
   }
   ```
 ````
@@ -363,20 +398,19 @@ Below is an example port of `openvpn` that applies patches using
 }
 
 p_prepare() {
-  b_port_apply_patches "${PREFIX_PORT_WORKDIR}"
+  b_port_apply_patches .
 
-  if [ ! -f "$PREFIX_PORT_WORKDIR/config.h" ]; then
+  if [ ! -f "config.h" ]; then
     OPENVPN_CFLAGS="-std=gnu99 -I${PREFIX_H}"
-    (cd "$PREFIX_PORT_WORKDIR" && autoreconf -i -v -f)
-    (cd "$PREFIX_PORT_WORKDIR" && \
-      "./configure" CFLAGS="$CFLAGS $OPENVPN_CFLAGS" LDFLAGS="$LDFLAGS" \
-      --host="${HOST}" --sbindir="$PREFIX_PROG")
+    autoreconf -i -v -f
+    "./configure" CFLAGS="$CFLAGS $OPENVPN_CFLAGS" LDFLAGS="$LDFLAGS" \
+      --host="${HOST}" --sbindir="$PREFIX_PROG"
   fi
 }
 
 p_build() {
-  make -C "$PREFIX_PORT_WORKDIR"
-  make -C "$PREFIX_PORT_WORKDIR" install-exec
+  make
+  make install-exec
 
   $STRIP -o "$PREFIX_PROG_STRIPPED/openvpn" "$PREFIX_PROG/openvpn"
   b_install "$PREFIX_PROG_TO_INSTALL/openvpn" /sbin/
