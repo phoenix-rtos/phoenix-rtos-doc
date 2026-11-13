@@ -164,6 +164,35 @@ built with tests enabled. Any `make`, {func}`b_install` commands for building
 port tests must go here.
 ````
 
+```{note}
+{func}`p_common()` is run in the same shell before {func}`p_prepare()`, and
+again before {func}`p_build()` and {func}`p_build_test()`, which also share a
+shell. A directory change made in {func}`p_common()` therefore persists into
+all the following phases, and one made in {func}`p_build()` persists into
+{func}`p_build_test()`.
+```
+
+### Function invocation
+
+Simplified view of how the build system invokes these functions:
+
+```bash
+# Preparation
+(
+  setup_port_env
+  p_common      # if defined
+  p_prepare
+)
+
+# Build
+(
+  setup_port_env
+  p_common      # if defined
+  p_build
+  p_build_test  # if tests are enabled
+)
+```
+
 ## Provided environment in the executable section
 
 The build system provides the following environment for the use in the
