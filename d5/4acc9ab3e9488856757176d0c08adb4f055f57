@@ -1,0 +1,14 @@
+docsresources/phoenixsystems/docsresources/company.py
+  h_3689a52f3dab5f 26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "development:1.4.2",
+  "base_commit_sha": "d54acc9ab3e9488856757176d0c08adb4f055f57",
+  "prompts": {},
+  "humans": {
+    "h_3689a52f3dab5f": {
+      "author": "Damian Loewnau <damian.loewnau@phoenix-rtos.com>"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+tests/index.md
+  s_64038140da5d7d::t_5ed3be51cfcb05 776-796,820-829
+  s_64038140da5d7d::t_22563abc36216b 741-775,830
+corelibs/index.md
+  s_64038140da5d7d::t_556450f3520757 21-22,34
+corelibs/libsha256.md
+  s_64038140da5d7d::t_29eb745ce38e43 1-120
+index.md
+  s_64038140da5d7d::t_830ac706282ea7 123
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "18e76d03e2f084b22e21730cd71397e3afa7df48",
+  "prompts": {},
+  "sessions": {
+    "s_64038140da5d7d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "4a492f2e-27d1-493b-8cda-8ac513fde7f4",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Marek Białowąs <marek.bialowas@phoenix-rtos.com>"
+    }
+  }
+}

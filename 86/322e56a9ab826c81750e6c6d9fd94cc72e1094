@@ -1,0 +1,52 @@
+libc/functions/sys/threads/condCreateWithAttr.phrtos.md
+  h_fc26ad17182140 48
+  s_b0df60ac7dda82::t_e44c97c1589d13 46-47,49-50
+  s_868f0f19ba0f4f::t_1b4e0cbb9ef9ef 32,42-45
+libc/functions/sys/interrupt/interrupt_queueWaitLocked.phrtos.md
+  s_b0df60ac7dda82::t_81736cccc7b746 1-56
+libc/functions/sys/interrupt/index.md
+  s_b0df60ac7dda82::t_979e0bd1c79f4f 1-8
+libc/functions/sys/interrupt/interrupt_queueCreateLocked.phrtos.md
+  h_fc26ad17182140 40
+  s_b0df60ac7dda82::t_3e36738ec49a35 1-39,41-61
+libc/functions/sys/interrupt/interrupt_queueWait.phrtos.md
+  s_b0df60ac7dda82::t_993a019bfd7225 1-56
+devices/interrupts.md
+  h_fc26ad17182140 36,63,68,81,83
+  s_b0df60ac7dda82::t_13e32961f27df7 30-35,37-62,64-67,69-80,82,84-87
+  s_b0df60ac7dda82::t_ad6eeb40f9de1b 16
+libc/functions/sys/interrupt/interrupt_queueCreate.phrtos.md
+  s_b0df60ac7dda82::t_ee5ba41f135863 1-24,28-63
+  s_b0df60ac7dda82::t_d970ba4d5ea4ff 25-27
+libc/functions/index.md
+  s_b0df60ac7dda82::t_e44c97c1589d13 22
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.21",
+  "base_commit_sha": "86322e56a9ab826c81750e6c6d9fd94cc72e1094",
+  "prompts": {},
+  "humans": {
+    "h_fc26ad17182140": {
+      "author": "Lukasz Leczkowski <lukasz.leczkowski@phoenix-rtos.com>"
+    }
+  },
+  "sessions": {
+    "s_868f0f19ba0f4f": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "1021763e-669e-4b5e-85a9-f3e7882ff690",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Lukasz Leczkowski <lukasz.leczkowski@phoenix-rtos.com>"
+    },
+    "s_b0df60ac7dda82": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "7c6517bd-c6dd-4ba0-891c-6ba6f1b47fc7",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Lukasz Leczkowski <lukasz.leczkowski@phoenix-rtos.com>"
+    }
+  }
+}

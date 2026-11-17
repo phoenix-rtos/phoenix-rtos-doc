@@ -1,0 +1,26 @@
+libc/functions/sys/threads/condCreateUnlocked.phrtos.md
+  s_868f0f19ba0f4f::t_9088ea63b9aedf 1-52
+libc/functions/sys/threads/condCreateWithAttr.phrtos.md
+  s_868f0f19ba0f4f::t_1b4e0cbb9ef9ef 32,42-50
+  s_868f0f19ba0f4f::t_38b35204e52016 51
+libc/functions/sys/threads/condWaitUnlocked.phrtos.md
+  s_868f0f19ba0f4f::t_12e176e25165c4 1-64
+devices/interrupts.md
+  s_868f0f19ba0f4f::t_6a22037c10d380 29-49
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "c1bdba382345356af5fbe120b7f2fb434e1a15f0",
+  "prompts": {},
+  "sessions": {
+    "s_868f0f19ba0f4f": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "1021763e-669e-4b5e-85a9-f3e7882ff690",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Lukasz Leczkowski <lukasz.leczkowski@phoenix-rtos.com>"
+    }
+  }
+}
