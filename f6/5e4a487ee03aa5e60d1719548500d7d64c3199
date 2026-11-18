@@ -1,0 +1,19 @@
+corelibs/libcache.md
+  s_aefb43ae6c4ab5::t_4363df7149bebb 25,40,53,59,68,80,93,106,119,132,142-144,157-159,234-236,238-239,245-247,275-276,326-334,337-338
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "f65e4a487ee03aa5e60d1719548500d7d64c3199",
+  "prompts": {},
+  "sessions": {
+    "s_aefb43ae6c4ab5": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "47024dd1-9607-45d7-a8d8-bac9bdaa5945",
+        "model": "claude-fable-5-2"
+      },
+      "human_author": "Marek Białowąs <marek.bialowas@phoenix-rtos.com>"
+    }
+  }
+}
